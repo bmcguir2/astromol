@@ -30,6 +30,7 @@ class Telescope(object):
         self.decommissioned = decommissioned
         self.notes = notes
 
+    @property
     def ndetects(self, mol_list=None):
 
         """
@@ -49,6 +50,7 @@ class Telescope(object):
                 my_mols.append(mol)
         return len(my_mols)
 
+    @property
     def mols(self, mol_list=None, formulas=False):
 
         """
