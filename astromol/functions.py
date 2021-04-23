@@ -812,7 +812,9 @@ def facility_shares(mol_list=None, telescopes_list=None, filename=None):
     )
 
 
-def cumu_det_facility(mol_list=None, telescopes_list=None, min_detects=10, filename=None):
+def cumu_det_facility(
+    mol_list=None, telescopes_list=None, min_detects=10, filename=None
+):
 
     """
     Makes a plot of the cumulative number of detections of a facility with time.
@@ -822,7 +824,7 @@ def cumu_det_facility(mol_list=None, telescopes_list=None, min_detects=10, filen
     Default filename is 'facility_shares.pdf', but that can also be overriden.
     """
 
-    #If a list wasn't specified, default to all molecules
+    # If a list wasn't specified, default to all molecules
     if mol_list is None:
         mol_list = all_molecules
     # If a list wasn't specified, default to all telescopes
@@ -838,7 +840,7 @@ def cumu_det_facility(mol_list=None, telescopes_list=None, min_detects=10, filen
     fontparams = {"size": 24, "family": "sans-serif", "sans-serif": ["Helvetica"]}
     plt.rc("font", **fontparams)
     plt.rc("mathtext", fontset="stixsans")
-    
+
     # We're only going to do facilities with 10 or more total detections.
     # set this thing up to kick off a few years before 1968 and run until today
 
@@ -1127,175 +1129,226 @@ def cumu_det_facility(mol_list=None, telescopes_list=None, min_detects=10, filen
         bbox_inches="tight",
     )
 
-# def periodic_heatmap(mol_list=None, filename=None):
 
+def periodic_heatmap(mol_list=None, filename=None):
 
-#     '''
-#     Makes a periodic table heat map.
-#     Defaults to using all molecules in the database, but can be passed a subset of molecules as a list of Molecule objects in mol_list.
-#     Default filename is 'periodic_heatmap.pdf', but that can also be overriden.
-#     '''
+    """
+    Makes a periodic table heat map.
+    Defaults to using all molecules in the database, but can be passed a subset of molecules as a list of Molecule objects in mol_list.
+    Default filename is 'periodic_heatmap.pdf', but that can also be overriden.
+    """
 
-#     # If a list wasn't specified, default to all molecules
-#     if mol_list is None:
-#         mol_list = all_molecules
+    # If a list wasn't specified, default to all molecules
+    if mol_list is None:
+        mol_list = all_molecules
 
-#     #Close an old figure if it exists and initialize a new figure   
-#     plt.close('Periodic Heatmap')    
-#     plt.figure(num='Periodic Heatmap',figsize=(20,9.5))    
-#     plt.ion()
-    
-#     #set some font defaults   
-#     fontparams = {'size':24, 'family':'sans-serif','sans-serif':['Helvetica']}   
-#     plt.rc('font',**fontparams)
-#     plt.rc('mathtext', fontset='stixsans')	
-#     #test
-#     #get a list of elements involved - we'll use the masses list from molecules.py, as that will be update to date
-#     els = list(masses.keys())
-#     #open a new dictionary to store detections from these
-#     census = {}
-    
-#     #loop through, creating the dictionary entry if needed
-#     for mol in mol_list:
-#         for el in els:    
-#             if el in mol.atoms:
-#                 if mol.atoms[el] > 0:
-#                     if el in census:    
-#                         census[el] += 1
-#                     else:
-#                         census[el] = 1
-                
-#     maxdets = max([census[x] for x in census])   
-#     map_colors = list(Color("#f1fb53").range_to(Color("#f00707"),maxdets))
-#     map_colors = [str(x) for x in map_colors]		
-    
-#     #Dictionary for the periodic table   
-#     elements = {
-#         'H'		:	[periodictable.H,1,6.9],
-#         'He'	:	[periodictable.He,18,6.9],
-#         'Li'	:	[periodictable.Li,1,5.75],
-#         'Be'	:	[periodictable.Be,2,5.75],
-#         'B'		:	[periodictable.B,13,5.75],
-#         'C'		:	[periodictable.C,14,5.75],
-#         'N'		:	[periodictable.N,15,5.75],
-#         'O'		:	[periodictable.O,16,5.75],
-#         'F'		:	[periodictable.F,17,5.75],
-#         'Ne'	:	[periodictable.Ne,18,5.75],
-#         'Na'	:	[periodictable.Na,1,4.6],
-#         'Mg'	:	[periodictable.Mg,2,4.6],
-#         'Al'	:	[periodictable.Al,13,4.6],
-#         'Si'	:	[periodictable.Si,14,4.6],
-#         'P'		:	[periodictable.P,15,4.6],
-#         'S'		:	[periodictable.S,16,4.6],
-#         'Cl'	:	[periodictable.Cl,17,4.6],
-#         'Ar'	:	[periodictable.Ar,18,4.6],
-#         'K'		:	[periodictable.K,1,3.45],
-#         'Ca'	:	[periodictable.Ca,2,3.45],
-#         'Sc'	:	[periodictable.Sc,3,3.45],
-#         'Ti'	:	[periodictable.Ti,4,3.45],
-#         'V'		:	[periodictable.V,5,3.45],
-#         'Cr'	:	[periodictable.Cr,6,3.45],
-#         'Mn'	:	[periodictable.Mn,7,3.45],
-#         'Fe'	:	[periodictable.Fe,8,3.45],
-#         'Co'	:	[periodictable.Co,9,3.45],
-#         'Ni'	:	[periodictable.Ni,10,3.45],
-#         'Cu'	:	[periodictable.Cu,11,3.45],
-#         'Zn'	:	[periodictable.Zn,12,3.45],
-#         'Ga'	:	[periodictable.Ga,13,3.45],
-#         'Ge'	:	[periodictable.Ge,14,3.45],
-#         'As'	:	[periodictable.As,15,3.45],
-#         'Se'	:	[periodictable.Se,16,3.45],
-#         'Br'	:	[periodictable.Br,17,3.45],
-#         'Kr'	:	[periodictable.Kr,18,3.45],
-#         'Rb'	:	[periodictable.Rb,1,2.3],
-#         'Sr'	:	[periodictable.Sr,2,2.3],
-#         'Y'		:	[periodictable.Y,3,2.3],
-#         'Zr'	:	[periodictable.Zr,4,2.3],
-#         'Nb'	:	[periodictable.Nb,5,2.3],
-#         'Mo'	:	[periodictable.Mo,6,2.3],
-#         'Tc'	:	[periodictable.Tc,7,2.3],
-#         'Ru'	:	[periodictable.Ru,8,2.3],
-#         'Rh'	:	[periodictable.Rh,9,2.3],
-#         'Pd'	:	[periodictable.Pd,10,2.3],
-#         'Ag'	:	[periodictable.Ag,11,2.3],
-#         'Cd'	:	[periodictable.Cd,12,2.3],
-#         'In'	:	[periodictable.In,13,2.3],
-#         'Sn'	:	[periodictable.Sn,14,2.3],
-#         'Sb'	:	[periodictable.Sb,15,2.3],
-#         'Te'	:	[periodictable.Te,16,2.3],
-#         'I'		:	[periodictable.I,17,2.3],
-#         'Xe'	:	[periodictable.Xe,18,2.3],
-#         'Cs'	:	[periodictable.Cs,1,1.15],
-#         'Ba'	:	[periodictable.Ba,2,1.15],
-#         'Hf'	:	[periodictable.Hf,4,1.15],
-#         'Ta'	:	[periodictable.Ta,5,1.15],
-#         'W'		:	[periodictable.W,6,1.15],
-#         'Re'	:	[periodictable.Re,7,1.15],
-#         'Os'	:	[periodictable.Os,8,1.15],
-#         'Ir'	:	[periodictable.Ir,9,1.15],
-#         'Pt'	:	[periodictable.Pt,10,1.15],
-#         'Au'	:	[periodictable.Au,11,1.15],
-#         'Hg'	:	[periodictable.Hg,12,1.15],
-#         'Tl'	:	[periodictable.Tl,13,1.15],
-#         'Pb'	:	[periodictable.Pb,14,1.15],
-#         'Bi'	:	[periodictable.Bi,15,1.15],
-#         'Po'	:	[periodictable.Po,16,1.15],
-#         'At'	:	[periodictable.At,17,1.15],
-#         'Rn'	:	[periodictable.Rn,18,1.15],
-#         'Fr'	:	[periodictable.Fr,1,0.],
-#         'Ra'	:	[periodictable.Ra,2,0.],
-#         'Rf'	:	[periodictable.Rf,4,0.],
-#         'Db'	:	[periodictable.Db,5,0.],
-#         'Sg'	:	[periodictable.Sg,6,0.],
-#         'Bh'	:	[periodictable.Bh,7,0.],
-#         'Hs'	:	[periodictable.Hs,8,0.],
-#         'Mt'	:	[periodictable.Mt,9,0.],
-#         'Ds'	:	[periodictable.Ds,10,0.],
-#         'Rg'	:	[periodictable.Rg,11,0.],
-#         'Cn'	:	[periodictable.Cn,12,0.],
-#         'Nh'	:	[periodictable.Nh,13,0.],
-#         'Fl'	:	[periodictable.Fl,14,0.],
-#         'Mc'	:	[periodictable.Mc,15,0.],
-#         'Lv'	:	[periodictable.Lv,16,0.],
-#         'Ts'	:	[periodictable.Ts,17,0.],
-#         'Og'	:	[periodictable.Og,18,0.],
-#         }
+    # Close an old figure if it exists and initialize a new figure
+    plt.close("Periodic Heatmap")
+    plt.figure(num="Periodic Heatmap", figsize=(20, 9.5))
+    plt.ion()
 
-#     #load up an axis 
-#     ax = plt.axes([0,0,1,1])  
-#     ax.set_xlim([0,18])
-#     ax.set_ylim([0,8])
-    
-#     for el in elements:      
-#         x = elements[el][1]-1
-#         y = elements[el][2]      
-#         sym = r'\textbf{' + elements[el][0].symbol + '}'
-#         num = elements[el][0].number
-#         mass = elements[el][0].mass
-#         name = elements[el][0].name.capitalize()
-        
-#         this_color = 'white'        
-#         if el in census:      
-#             this_color = map_colors[census[el]-1] 
-#             ndets = r'\textbf{' + str(census[el]) + '}'
-#             ax.annotate(ndets,xy=(x+0.8,y+.95),xycoords='data',size=14,color='black',ha='right',va='top')
+    # set some font defaults
+    fontparams = {"size": 24, "family": "sans-serif", "sans-serif": ["Helvetica"]}
+    plt.rc("font", **fontparams)
+    plt.rc("mathtext", fontset="stixsans")
+    # test
+    # get a list of elements involved - we'll use the masses list from molecules.py, as that will be update to date
+    els = list(masses.keys())
+    # open a new dictionary to store detections from these
+    census = {}
 
-#         rect = patches.Rectangle((x,y),0.9,1.05,linewidth=1,edgecolor='black',facecolor=this_color,alpha=0.5)
-#         ax.add_patch(rect)
-#         ax.annotate(num,xy=(x+0.1,y+.95),xycoords='data',size=14,color='black',ha='left',va='top')
-#         ax.annotate(sym,xy=(x+0.1,y+.70),xycoords='data',size=20,color='black',ha='left',va='top')
-#         ax.annotate(mass,xy=(x+0.1,y+.42),xycoords='data',size=8,color='black',ha='left',va='top')
-#         ax.annotate(name,xy=(x+0.1,y+.29),xycoords='data',size=8,color='black',ha='left',va='top')
-            
-    
-#     plt.axis('equal')
-#     plt.axis('off')	
-#     plt.show()
-    
-#     #write out the figure 
-#     plt.savefig(filename if filename is not None else 'periodic_heatmap.pdf',format='pdf',transparent=True,bbox_inches='tight',pad_inches=0)
-    
-#     #the bit below crops off extra white space.  This only works on Macs with the TexLive pdfcrop utility installed.  Comment out if not desired.
-#     os.system('pdfcrop --margins -0 periodic_heatmap.pdf periodic_heatmap.pdf')
-    
-#     return	
+    # loop through, creating the dictionary entry if needed
+    for mol in mol_list:
+        for el in els:
+            if el in mol.atoms:
+                if mol.atoms[el] > 0:
+                    if el in census:
+                        census[el] += 1
+                    else:
+                        census[el] = 1
+
+    maxdets = max([census[x] for x in census])
+    map_colors = list(Color("#f1fb53").range_to(Color("#f00707"), maxdets))
+    map_colors = [str(x) for x in map_colors]
+
+    # Dictionary for the periodic table
+    elements = {
+        "H": [periodictable.H, 1, 6.9],
+        "He": [periodictable.He, 18, 6.9],
+        "Li": [periodictable.Li, 1, 5.75],
+        "Be": [periodictable.Be, 2, 5.75],
+        "B": [periodictable.B, 13, 5.75],
+        "C": [periodictable.C, 14, 5.75],
+        "N": [periodictable.N, 15, 5.75],
+        "O": [periodictable.O, 16, 5.75],
+        "F": [periodictable.F, 17, 5.75],
+        "Ne": [periodictable.Ne, 18, 5.75],
+        "Na": [periodictable.Na, 1, 4.6],
+        "Mg": [periodictable.Mg, 2, 4.6],
+        "Al": [periodictable.Al, 13, 4.6],
+        "Si": [periodictable.Si, 14, 4.6],
+        "P": [periodictable.P, 15, 4.6],
+        "S": [periodictable.S, 16, 4.6],
+        "Cl": [periodictable.Cl, 17, 4.6],
+        "Ar": [periodictable.Ar, 18, 4.6],
+        "K": [periodictable.K, 1, 3.45],
+        "Ca": [periodictable.Ca, 2, 3.45],
+        "Sc": [periodictable.Sc, 3, 3.45],
+        "Ti": [periodictable.Ti, 4, 3.45],
+        "V": [periodictable.V, 5, 3.45],
+        "Cr": [periodictable.Cr, 6, 3.45],
+        "Mn": [periodictable.Mn, 7, 3.45],
+        "Fe": [periodictable.Fe, 8, 3.45],
+        "Co": [periodictable.Co, 9, 3.45],
+        "Ni": [periodictable.Ni, 10, 3.45],
+        "Cu": [periodictable.Cu, 11, 3.45],
+        "Zn": [periodictable.Zn, 12, 3.45],
+        "Ga": [periodictable.Ga, 13, 3.45],
+        "Ge": [periodictable.Ge, 14, 3.45],
+        "As": [periodictable.As, 15, 3.45],
+        "Se": [periodictable.Se, 16, 3.45],
+        "Br": [periodictable.Br, 17, 3.45],
+        "Kr": [periodictable.Kr, 18, 3.45],
+        "Rb": [periodictable.Rb, 1, 2.3],
+        "Sr": [periodictable.Sr, 2, 2.3],
+        "Y": [periodictable.Y, 3, 2.3],
+        "Zr": [periodictable.Zr, 4, 2.3],
+        "Nb": [periodictable.Nb, 5, 2.3],
+        "Mo": [periodictable.Mo, 6, 2.3],
+        "Tc": [periodictable.Tc, 7, 2.3],
+        "Ru": [periodictable.Ru, 8, 2.3],
+        "Rh": [periodictable.Rh, 9, 2.3],
+        "Pd": [periodictable.Pd, 10, 2.3],
+        "Ag": [periodictable.Ag, 11, 2.3],
+        "Cd": [periodictable.Cd, 12, 2.3],
+        "In": [periodictable.In, 13, 2.3],
+        "Sn": [periodictable.Sn, 14, 2.3],
+        "Sb": [periodictable.Sb, 15, 2.3],
+        "Te": [periodictable.Te, 16, 2.3],
+        "I": [periodictable.I, 17, 2.3],
+        "Xe": [periodictable.Xe, 18, 2.3],
+        "Cs": [periodictable.Cs, 1, 1.15],
+        "Ba": [periodictable.Ba, 2, 1.15],
+        "Hf": [periodictable.Hf, 4, 1.15],
+        "Ta": [periodictable.Ta, 5, 1.15],
+        "W": [periodictable.W, 6, 1.15],
+        "Re": [periodictable.Re, 7, 1.15],
+        "Os": [periodictable.Os, 8, 1.15],
+        "Ir": [periodictable.Ir, 9, 1.15],
+        "Pt": [periodictable.Pt, 10, 1.15],
+        "Au": [periodictable.Au, 11, 1.15],
+        "Hg": [periodictable.Hg, 12, 1.15],
+        "Tl": [periodictable.Tl, 13, 1.15],
+        "Pb": [periodictable.Pb, 14, 1.15],
+        "Bi": [periodictable.Bi, 15, 1.15],
+        "Po": [periodictable.Po, 16, 1.15],
+        "At": [periodictable.At, 17, 1.15],
+        "Rn": [periodictable.Rn, 18, 1.15],
+        "Fr": [periodictable.Fr, 1, 0.0],
+        "Ra": [periodictable.Ra, 2, 0.0],
+        "Rf": [periodictable.Rf, 4, 0.0],
+        "Db": [periodictable.Db, 5, 0.0],
+        "Sg": [periodictable.Sg, 6, 0.0],
+        "Bh": [periodictable.Bh, 7, 0.0],
+        "Hs": [periodictable.Hs, 8, 0.0],
+        "Mt": [periodictable.Mt, 9, 0.0],
+        "Ds": [periodictable.Ds, 10, 0.0],
+        "Rg": [periodictable.Rg, 11, 0.0],
+        "Cn": [periodictable.Cn, 12, 0.0],
+        "Nh": [periodictable.Nh, 13, 0.0],
+        "Fl": [periodictable.Fl, 14, 0.0],
+        "Mc": [periodictable.Mc, 15, 0.0],
+        "Lv": [periodictable.Lv, 16, 0.0],
+        "Ts": [periodictable.Ts, 17, 0.0],
+        "Og": [periodictable.Og, 18, 0.0],
+    }
+
+    # load up an axis
+    ax = plt.axes([0, 0, 1, 1])
+    ax.set_xlim([0, 18])
+    ax.set_ylim([0, 8])
+
+    for el in elements:
+        x = elements[el][1] - 1
+        y = elements[el][2]
+        sym = r"\textbf{" + elements[el][0].symbol + "}"
+        num = elements[el][0].number
+        mass = elements[el][0].mass
+        name = elements[el][0].name.capitalize()
+
+        this_color = "white"
+        if el in census:
+            this_color = map_colors[census[el] - 1]
+            ndets = r"\textbf{" + str(census[el]) + "}"
+            ax.annotate(
+                ndets,
+                xy=(x + 0.8, y + 0.95),
+                xycoords="data",
+                size=14,
+                color="black",
+                ha="right",
+                va="top",
+            )
+
+        rect = patches.Rectangle(
+            (x, y),
+            0.9,
+            1.05,
+            linewidth=1,
+            edgecolor="black",
+            facecolor=this_color,
+            alpha=0.5,
+        )
+        ax.add_patch(rect)
+        ax.annotate(
+            num,
+            xy=(x + 0.1, y + 0.95),
+            xycoords="data",
+            size=14,
+            color="black",
+            ha="left",
+            va="top",
+        )
+        ax.annotate(
+            sym,
+            xy=(x + 0.1, y + 0.70),
+            xycoords="data",
+            size=20,
+            color="black",
+            ha="left",
+            va="top",
+        )
+        ax.annotate(
+            mass,
+            xy=(x + 0.1, y + 0.42),
+            xycoords="data",
+            size=8,
+            color="black",
+            ha="left",
+            va="top",
+        )
+        ax.annotate(
+            name,
+            xy=(x + 0.1, y + 0.29),
+            xycoords="data",
+            size=8,
+            color="black",
+            ha="left",
+            va="top",
+        )
+
+    plt.axis("equal")
+    plt.axis("off")
+    plt.show()
+
+    # write out the figure
+    plt.savefig(
+        filename if filename is not None else "periodic_heatmap.pdf",
+        format="pdf",
+        transparent=True,
+        bbox_inches="tight",
+        pad_inches=0,
+    )
+
+    # the bit below crops off extra white space.  This only works on Macs with the TexLive pdfcrop utility installed.  Comment out if not desired.
+    os.system("pdfcrop --margins -0 periodic_heatmap.pdf periodic_heatmap.pdf")
