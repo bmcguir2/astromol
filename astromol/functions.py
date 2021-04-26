@@ -37,22 +37,22 @@ def make_all_plots():
     Will always use the full database and default filenames.
     """
 
-    cumu_det_plot(mol_list=all_molecules)
-    cumu_det_natoms_plot(mol_list=all_molecules)
-    det_per_year_per_atom(mol_list=all_molecules)
-    facility_shares(telescopes_list=all_telescopes, mol_list=all_molecules)
-    # cumu_det_facility(mol_list=all_molecules)
-    # periodic_heatmap(mol_list=all_molecules)
-    # mass_by_wavelengths(mol_list=all_molecules)
-    # mols_waves_by_atoms(mol_list=all_molecules)
-    # du_histogram(mol_list=all_molecules)
-    # type_pie_chart(mol_list=all_molecules)
-    # source_pie_chart(mol_list=all_molecules)
-    # mol_type_by_source_type(mol_list=all_molecules)
-    # du_by_source_type(mol_list=all_molecules)
-    # rel_du_by_source_type(mol_list=all_molecules)
-    # mass_by_source_type(mol_list=all_molecules)
-    # waves_by_source_type(mol_list=all_molecules)
+    cumu_det_plot()
+    cumu_det_natoms_plot()
+    det_per_year_per_atom()
+    facility_shares()
+    cumu_det_facility()
+    periodic_heatmap()
+    mass_by_wavelengths()
+    mols_waves_by_atoms()
+    du_histogram()
+    type_pie_chart()
+    source_pie_chart()
+    mol_type_by_source_type()
+    du_by_source_type()
+    rel_du_by_source_type()
+    mass_by_source_type()
+    waves_by_source_type()
 
     return
 
