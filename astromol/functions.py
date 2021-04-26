@@ -21,9 +21,7 @@ from astromol.sources import *
 from astromol.telescopes import *
 
 matplotlib.rc("text", usetex=True)
-matplotlib.rc(
-    "text.latex", preamble=r"\usepackage{cmbright}\usepackage[version=4]{mhchem}"
-)
+matplotlib.rc("text.latex", preamble=r"\usepackage{cmbright}\usepackage[version=4]{mhchem}")
 
 #############################################################
 # 						Functions	 						#
@@ -138,20 +136,8 @@ def cumu_det_plot(mol_list=None, syear=None, eyear=None, filename=None):
     # do linear fits to the data for the two ranges we care about (1968-Present, 2005-Present)
     # get the slope of the fit to detections since 1968 and since 2005
 
-    trend1968 = (
-        np.polynomial.polynomial.Polynomial.fit(
-            years[iyear(1968) :], dets[iyear(1968) :], 1
-        )
-        .convert()
-        .coef[1]
-    )
-    trend2005 = (
-        np.polynomial.polynomial.Polynomial.fit(
-            years[iyear(2005) :], dets[iyear(2005) :], 1
-        )
-        .convert()
-        .coef[1]
-    )
+    trend1968 = np.polynomial.polynomial.Polynomial.fit(years[iyear(1968) :], dets[iyear(1968) :], 1).convert().coef[1]
+    trend2005 = np.polynomial.polynomial.Polynomial.fit(years[iyear(2005) :], dets[iyear(2005) :], 1).convert().coef[1]
 
     # load up an axis
     ax = fig.add_subplot(111)
@@ -214,9 +200,7 @@ def cumu_det_plot(mol_list=None, syear=None, eyear=None, filename=None):
         ha="left",
         **args
     )
-    ax.annotate(
-        "Nobeyama (1982)", xy=(1982, dets[iyear(1982)] - 31), xycoords="data", **args
-    )
+    ax.annotate("Nobeyama (1982)", xy=(1982, dets[iyear(1982)] - 31), xycoords="data", **args)
     ax.annotate(
         "IRAM (1984)",
         xy=(1984, dets[iyear(1984)] + 4),
@@ -677,11 +661,7 @@ def facility_shares(mol_list=None, telescopes_list=None, filename=None):
         # year it was built
         syear = scope.built
         # year it was decommissioned or this year if it's still in operation
-        eyear = (
-            scope.decommissioned
-            if scope.decommissioned is not None
-            else date.today().year
-        )
+        eyear = scope.decommissioned if scope.decommissioned is not None else date.today().year
 
         # now we go get the total number of detections in that time
         ntotal = 0
@@ -700,12 +680,7 @@ def facility_shares(mol_list=None, telescopes_list=None, filename=None):
                 my_list[idx][2] / my_list[idx][3],
                 1.0 - my_list[idx][2] / my_list[idx][3],
             ]
-            label = (
-                r"\textbf"
-                + "{"
-                + "{}".format(int(my_list[idx][2] / my_list[idx][3] * 100))
-                + r"\%"
-            )
+            label = r"\textbf" + "{" + "{}".format(int(my_list[idx][2] / my_list[idx][3] * 100)) + r"\%"
 
             if my_list[idx][1] == date.today().year:
                 color = "dodgerblue"
@@ -752,10 +727,7 @@ def facility_shares(mol_list=None, telescopes_list=None, filename=None):
 
             else:
                 my_labels = [
-                    r"\textbf"
-                    + "{"
-                    + "{}".format(int(my_list[idx][2] / my_list[idx][3] * 100))
-                    + r"\%",
+                    r"\textbf" + "{" + "{}".format(int(my_list[idx][2] / my_list[idx][3] * 100)) + r"\%",
                     "",
                 ]
 
@@ -792,9 +764,7 @@ def facility_shares(mol_list=None, telescopes_list=None, filename=None):
             center = slices[0].center
             r = slices[0].r
             # create a new circle with the desired properties
-            circle = matplotlib.patches.Circle(
-                center, r, fill=False, edgecolor="black", linewidth=1
-            )
+            circle = matplotlib.patches.Circle(center, r, fill=False, edgecolor="black", linewidth=1)
             # add the circle to the axes
             axs[i, j].add_patch(circle)
 
@@ -812,9 +782,7 @@ def facility_shares(mol_list=None, telescopes_list=None, filename=None):
     )
 
 
-def cumu_det_facility(
-    mol_list=None, telescopes_list=None, min_detects=10, filename=None
-):
+def cumu_det_facility(mol_list=None, telescopes_list=None, min_detects=10, filename=None):
 
     """
     Makes a plot of the cumulative number of detections of a facility with time.
@@ -943,9 +911,7 @@ def cumu_det_facility(
         return np.argwhere(years == x)[0][0]
 
     trendGBT = (
-        np.polynomial.polynomial.Polynomial.fit(
-            years[iyear(GBT.built) :], my_dict["GBT"][iyear(GBT.built) :], 1
-        )
+        np.polynomial.polynomial.Polynomial.fit(years[iyear(GBT.built) :], my_dict["GBT"][iyear(GBT.built) :], 1)
         .convert()
         .coef[1]
     )
@@ -993,9 +959,7 @@ def cumu_det_facility(
     )
 
     trendIRAMnew = (
-        np.polynomial.polynomial.Polynomial.fit(
-            years[iyear(2006) :], my_dict["IRAM"][iyear(2006) :], 1
-        )
+        np.polynomial.polynomial.Polynomial.fit(years[iyear(2006) :], my_dict["IRAM"][iyear(2006) :], 1)
         .convert()
         .coef[1]
     )
@@ -1350,5 +1314,1783 @@ def periodic_heatmap(mol_list=None, filename=None):
         pad_inches=0,
     )
 
-    # the bit below crops off extra white space.  This only works on Macs with the TexLive pdfcrop utility installed.  Comment out if not desired.
+    # the bit below crops off extra white space.  This only works on Macs with the TexLive pdfcrop utility installed.
+    # Comment out if not desired.
     os.system("pdfcrop --margins -0 periodic_heatmap.pdf periodic_heatmap.pdf")
+
+
+def mass_by_wavelength(mol_list=None, bw=0.5, filename=None):
+    """
+    Makes a KDE plot of detections at each wavelength vs mass.
+    Defaults to using all molecules in the database, but can be passed a subset of molecules as a list of Molecule objects in mol_list.
+    Defaults to a bandwidth of 0.5, which can be overriden by any float.
+    Default filename is 'mass_by_wavelengths_kde.pdf', but that can also be overriden.
+    """
+
+    # If a list wasn't specified, default to all molecules
+    if mol_list is None:
+        mol_list = all_molecules
+
+    # gather the data
+    my_dict = {
+        "UV": [],
+        "Vis": [],
+        "IR": [],
+        "sub-mm": [],
+        "mm": [],
+        "cm": [],
+        "UV-Vis": [],
+    }
+
+    for x in mol_list:
+        for y in my_dict:
+            if y in x.wavelengths:
+                my_dict[y].append(x.mass)
+    for x in my_dict["UV"]:
+        my_dict["UV-Vis"].append(x)
+    for x in my_dict["Vis"]:
+        my_dict["UV-Vis"].append(x)
+
+    # get the plot set up
+    plt.close("Detections at Wavelengths by Mass")
+    fig = plt.figure(num="Detections at Wavelengths by Mass", figsize=(10, 8))
+    plt.ion()
+
+    # set some font defaults
+    fontparams = {"size": 24, "family": "sans-serif", "sans-serif": ["Helvetica"]}
+    plt.rc("font", **fontparams)
+    plt.rc("mathtext", fontset="stixsans")
+
+    # load up an axis
+    ax = fig.add_subplot(111)
+    ax.tick_params(axis="x", which="both", direction="in", length=5, width=1)
+    ax.tick_params(axis="y", which="both", direction="in", length=5, width=1)
+
+    # label the axes
+    plt.xlabel("Atomic Mass (amu)")
+    plt.ylabel("Probability Density Estimate")
+
+    # Do the estimates and plot them
+    xvals = np.arange(0, 160)
+
+    density_cm = gkde(my_dict["cm"])
+    density_cm.covariance_factor = lambda: bw
+    density_cm._compute_covariance()
+
+    density_mm = gkde(my_dict["mm"])
+    density_mm.covariance_factor = lambda: bw
+    density_mm._compute_covariance()
+
+    density_submm = gkde(my_dict["sub-mm"])
+    density_submm.covariance_factor = lambda: bw
+    density_submm._compute_covariance()
+
+    density_IR = gkde(my_dict["IR"])
+    density_IR.covariance_factor = lambda: bw
+    density_IR._compute_covariance()
+
+    density_UV = gkde(my_dict["UV-Vis"])
+    density_UV.covariance_factor = lambda: bw
+    density_UV._compute_covariance()
+
+    ax.plot(xvals, density_cm(xvals), color="dodgerblue")
+    ax.fill_between(xvals, density_cm(xvals), 0, facecolor="dodgerblue", alpha=0.25, zorder=4)
+    ax.annotate(
+        "{}".format(len(my_dict["cm"])),
+        xy=(75, 0.01),
+        xycoords="data",
+        ha="left",
+        va="bottom",
+        color="dodgerblue",
+    )
+
+    max_mm = max([x for x in my_dict["mm"] if x < 160])
+    ax.plot(xvals[: max_mm + 1], density_mm(xvals[: max_mm + 1]), color="darkorange")
+    ax.fill_between(
+        xvals[: max_mm + 1],
+        density_mm(xvals[: max_mm + 1]),
+        0,
+        facecolor="darkorange",
+        alpha=0.25,
+    )
+    ax.annotate(
+        "{}".format(len(my_dict["mm"])),
+        xy=(53.5, 0.022),
+        xycoords="data",
+        ha="left",
+        va="bottom",
+        color="darkorange",
+    )
+
+    ax.plot(xvals, density_submm(xvals), color="forestgreen")
+    ax.fill_between(xvals, density_submm(xvals), 0, facecolor="forestgreen", alpha=0.25)
+    ax.annotate(
+        "{}".format(len(my_dict["sub-mm"])),
+        xy=(40, 0.038),
+        xycoords="data",
+        ha="left",
+        va="bottom",
+        color="forestgreen",
+    )
+
+    max_IR = max([x for x in my_dict["IR"] if x < 160])
+    ax.plot(xvals[: max_IR + 1], density_IR(xvals[: max_IR + 1]), color="black")
+    ax.fill_between(
+        xvals[: max_IR + 1],
+        density_IR(xvals[: max_IR + 1]),
+        0,
+        facecolor="black",
+        alpha=0.25,
+        zorder=5,
+    )
+    ax.annotate(
+        "{}".format(len(my_dict["IR"])),
+        xy=(68, 0.0025),
+        xycoords="data",
+        ha="left",
+        va="bottom",
+        color="black",
+    )
+
+    max_UV = max(my_dict["UV-Vis"])
+    ax.plot(xvals[: max_UV + 1], density_UV(xvals[: max_UV + 1]), color="violet")
+    ax.fill_between(
+        xvals[: max_UV + 1],
+        density_UV(xvals[: max_UV + 1]),
+        0,
+        facecolor="violet",
+        alpha=0.25,
+    )
+    ax.annotate(
+        "{}".format(len(my_dict["UV-Vis"])),
+        xy=(16.5, 0.057),
+        xycoords="data",
+        ha="left",
+        va="bottom",
+        color="violet",
+    )
+
+    ax.annotate(
+        r"\underline{Detection Wavelengths}",
+        xy=(158, 0.06),
+        xycoords="data",
+        color="black",
+        ha="right",
+        va="top",
+    )
+    ax.annotate(
+        "centimeter",
+        xy=(158, 0.056),
+        xycoords="data",
+        color="dodgerblue",
+        ha="right",
+        va="top",
+    )
+    ax.annotate(
+        "millimeter",
+        xy=(158, 0.052),
+        xycoords="data",
+        color="darkorange",
+        ha="right",
+        va="top",
+    )
+    ax.annotate(
+        "sub-millimeter",
+        xy=(158, 0.048),
+        xycoords="data",
+        color="forestgreen",
+        ha="right",
+        va="top",
+    )
+    ax.annotate(
+        "infrared",
+        xy=(158, 0.044),
+        xycoords="data",
+        color="black",
+        ha="right",
+        va="top",
+    )
+    ax.annotate(
+        "visible/ultraviolet",
+        xy=(158, 0.04),
+        xycoords="data",
+        color="violet",
+        ha="right",
+        va="top",
+    )
+
+    plt.show()
+
+    plt.savefig(
+        filename if filename is not None else "mass_by_wavelengths_kde.pdf",
+        format="pdf",
+        transparent=True,
+        bbox_inches="tight",
+        pad_inches=0,
+    )
+
+    return
+
+
+def mols_waves_by_atoms(mol_list=None, bw=0.5, filename=None):
+    """
+    Makes six histogram plots of molecules detected in each wavelength range by number of atoms, excepting fullerenes.
+    For plots with sufficient datapoints, we'll do a KDE plot with bandwidth defaulting to 0.5 that can be overridden.
+    Defaults to using all molecules in the database, but can be passed a subset of molecules as a list of Molecule objects in mol_list.
+    Default filename is 'mols_waves_by_atoms.pdf', but that can also be overriden.
+    """
+
+    # If a list wasn't specified, default to all molecules
+    if mol_list is None:
+        mol_list = all_molecules
+
+    # Close an old figure if it exists and initialize a new figure
+    plt.close("Molecules Detected in Each Wavelength by Number of Atoms")
+    plt.figure(num="Molecules Detected in Each Wavelength by Number of Atoms", figsize=(10, 8))
+    plt.ion()
+
+    # set some font defaults
+    fontparams = {"size": 18, "family": "sans-serif", "sans-serif": ["Helvetica"]}
+    plt.rc("font", **fontparams)
+    plt.rc("mathtext", fontset="stixsans")
+
+    # gather the data
+    my_dict = {
+        "UV": [],
+        "Vis": [],
+        "IR": [],
+        "sub-mm": [],
+        "mm": [],
+        "cm": [],
+    }
+
+    max_n = []
+    for x in mol_list:
+        for y in my_dict:
+            if y in x.wavelengths:
+                if x.fullerene is True:
+                    continue
+                else:
+                    my_dict[y].append(x.natoms)
+                    max_n.append(x.natoms)
+
+    max_n = max(max_n)
+
+    # pull up some axes to plot on
+    ax1 = plt.subplot(231)
+    ax2 = plt.subplot(232)
+    ax3 = plt.subplot(233)
+    ax4 = plt.subplot(234)
+    ax5 = plt.subplot(235)
+    ax6 = plt.subplot(236)
+
+    xvals = np.arange(0, max_n + 1, 0.5)
+
+    ax1.tick_params(axis="x", which="both", direction="in", length=5, width=1)
+    ax1.tick_params(axis="y", which="both", direction="in", length=5, width=1)
+    ax2.tick_params(axis="x", which="both", direction="in", length=5, width=1)
+    ax2.tick_params(axis="y", which="both", direction="in", length=5, width=1)
+    ax3.tick_params(axis="x", which="both", direction="in", length=5, width=1)
+    ax3.tick_params(axis="y", which="both", direction="in", length=5, width=1)
+    ax4.tick_params(axis="x", which="both", direction="in", length=5, width=1)
+    ax4.tick_params(axis="y", which="both", direction="in", length=5, width=1)
+    ax5.tick_params(axis="x", which="both", direction="in", length=5, width=1)
+    ax5.tick_params(axis="y", which="both", direction="in", length=5, width=1)
+    ax6.tick_params(axis="x", which="both", direction="in", length=5, width=1)
+    ax6.tick_params(axis="y", which="both", direction="in", length=5, width=1)
+
+    density_cm = gkde(my_dict["cm"])
+    density_cm.covariance_factor = lambda: bw
+    density_cm._compute_covariance()
+    ax1.plot(xvals, density_cm(xvals))
+    ax1.fill_between(xvals, density_cm(xvals), 0, facecolor="dodgerblue", alpha=0.25)
+    ax1.annotate("cm", xy=(0.95, 0.96), xycoords="axes fraction", ha="right", va="top", size=24)
+    ax1.set_ylim([0, 0.65])
+    ax1.set_xticks([0, 5, 10, 15, 20])
+    ax1.set_xticklabels([])
+    ax1.set_ylabel("Probability Density Estimate")
+
+    density_mm = gkde(my_dict["mm"])
+    density_mm.covariance_factor = lambda: bw
+    density_mm._compute_covariance()
+    ax2.plot(xvals, density_mm(xvals))
+    ax2.fill_between(xvals, density_mm(xvals), 0, facecolor="dodgerblue", alpha=0.25)
+    ax2.annotate("mm", xy=(0.95, 0.96), xycoords="axes fraction", ha="right", va="top", size=24)
+    ax2.set_ylim([0, 0.65])
+    ax2.set_xticks([0, 5, 10, 15, 20])
+    ax2.set_xticklabels([])
+
+    density_submm = gkde(my_dict["sub-mm"])
+    density_submm.covariance_factor = lambda: bw
+    density_submm._compute_covariance()
+    ax3.plot(xvals, density_submm(xvals))
+    ax3.fill_between(xvals, density_submm(xvals), 0, facecolor="dodgerblue", alpha=0.25)
+    ax3.annotate("sub-mm", xy=(0.95, 0.96), xycoords="axes fraction", ha="right", va="top", size=24)
+    ax3.set_ylim([0, 0.65])
+    ax3.set_xticks([0, 5, 10, 15, 20])
+    ax3.set_xticklabels([])
+
+    density_IR = gkde(my_dict["IR"])
+    density_IR.covariance_factor = lambda: bw
+    density_IR._compute_covariance()
+    ax4.plot(xvals, density_IR(xvals))
+    ax4.fill_between(xvals, density_IR(xvals), 0, facecolor="dodgerblue", alpha=0.25)
+    ax4.annotate("IR", xy=(0.95, 0.96), xycoords="axes fraction", ha="right", va="top", size=24)
+    ax4.set_ylim([0, 0.65])
+    ax4.set_xticks([0, 5, 10, 15, 20])
+    ax4.set_xlabel(r"\# of Atoms")
+    ax4.set_ylabel("Probability Density Estimate")
+
+    ax5.hist(my_dict["Vis"], bins=[0.5, 1.5, 2.5, 3.5, 4.5])
+    ax5.annotate("Vis", xy=(0.95, 0.96), xycoords="axes fraction", ha="right", va="top", size=24)
+    ax5.set_xlim([0, 20])
+    ax5.set_ylim([0, 8])
+    ax5.set_xticks([0, 5, 10, 15, 20])
+    ax5.set_xticklabels([])
+    ax5.set_ylabel(r"\# of Detected Molecules")
+
+    ax6.hist(my_dict["UV"], bins=[0.5, 1.5, 2.5, 3.5, 4.5])
+    ax6.annotate("UV", xy=(0.95, 0.96), xycoords="axes fraction", ha="right", va="top", size=24)
+    ax6.set_xlim([0, 20])
+    ax6.set_ylim([0, 8])
+    ax6.set_xticks([0, 5, 10, 15, 20])
+    ax6.set_xticklabels([])
+
+    plt.tight_layout()
+    plt.show()
+    plt.savefig(
+        filename if filename is not None else "mols_waves_by_atoms.pdf",
+        format="pdf",
+        transparent=True,
+        bbox_inches="tight",
+        pad_inches=0,
+    )
+
+    return
+
+
+def du_histogram(mol_list=None, filename=None):
+    """
+    Makes a histogram of the degree of unsaturation of molecules containing only H, O, N, C, Cl, or F.
+    Defaults to using all molecules in the database, but can be passed a subset of molecules as a list of Molecule objects in mol_list.
+    Default filename is 'du_histogram.pdf', but that can also be overriden.
+    """
+
+    # If a list wasn't specified, default to all molecules
+    if mol_list is None:
+        mol_list = all_molecules
+
+    # Close an old figure if it exists and initialize a new figure
+    plt.close("Degree of Unsaturation Histogram")
+    plt.figure(num="Degree of Unsaturation Histogram", figsize=(10, 8))
+    plt.ion()
+
+    # set some font defaults
+    fontparams = {"size": 24, "family": "sans-serif", "sans-serif": ["Helvetica"]}
+    plt.rc("font", **fontparams)
+    plt.rc("mathtext", fontset="stixsans")
+
+    # gather the data
+    dus = []
+    for x in mol_list:
+        # make sure we're working with molecules containing only H, D, N, C, Cl, F, O, or S.
+        atoms = []
+        for atom in ["H", "D", "N", "C", "Cl", "F", "S", "O"]:
+            if atom in x.atoms:
+                atoms.append(x.atoms[atom])
+        if np.sum(atoms) == x.natoms and x.du is not None and x.fullerene is not True:
+            dus.append(x.du)
+
+    # set up a plot
+    ax = plt.subplot(111)
+
+    ax.tick_params(axis="x", which="both", direction="in", length=5, width=1)
+    ax.tick_params(axis="y", which="both", direction="in", length=5, width=1)
+
+    ax.yaxis.set_ticks_position("both")
+    ax.xaxis.set_ticks_position("both")
+
+    plt.xlabel("Degree of Unsaturation")
+    plt.ylabel(r"\# of Detected Molecules")
+
+    bins = np.arange(-0.25, 12.5, 0.5)
+    (n, bins, _) = ax.hist(dus, bins=bins, facecolor="dodgerblue", alpha=0.25)
+    ax.hist(dus, bins=bins, edgecolor="royalblue", linewidth=1.5, fill=False)
+    ax.set_ylim(0, 35)
+
+    ax.annotate(
+        r"\ce{CH4}, \ce{CH3OH}, \ce{CH3Cl}, ...",
+        xy=(0, n[0] + 1),
+        xycoords="data",
+        rotation=90,
+        size=16,
+        ha="center",
+        va="bottom",
+    )
+    ax.annotate(r"\ce{HC11N}", xy=(12, n[12 * 2] + 1), xycoords="data", rotation=90, size=16, ha="center", va="bottom")
+
+    plt.tight_layout()
+    plt.show()
+
+    plt.savefig(
+        filename if filename is not None else "du_histogram.pdf", format="pdf", transparent=True, bbox_inches="tight"
+    )
+
+    return
+
+
+def type_pie_chart(mol_list=None, filename=None):
+    """
+    Makes a pie chart of the fraction of interstellar molecules that are neutral, radical, cation, cyclic, pahs, fullerenes, or anions
+    Defaults to using all molecules in the database, but can be passed a subset of molecules as a list of Molecule objects in mol_list.
+    Default filename is 'type_pie_chart.pdf', but that can also be overriden.
+    """
+
+    # If a list wasn't specified, default to all molecules
+    if mol_list is None:
+        mol_list = all_molecules
+
+    # Close an old figure if it exists and initialize a new figure
+    plt.close("Type Pie Chart")
+    plt.figure(num="Type Pie Chart", figsize=(10, 8))
+    plt.ion()
+
+    # set some font defaults
+    fontparams = {"size": 24, "family": "sans-serif", "sans-serif": ["Helvetica"]}
+    plt.rc("font", **fontparams)
+    plt.rc("mathtext", fontset="stixsans")
+
+    # gather the data
+    my_dict = {
+        "Neutral": [0],
+        "Radical": [0],
+        "Cation": [0],
+        "Cyclic": [0],
+        "Anion": [0],
+        "Fullerene": [0],
+        "PAH": [0],
+    }
+
+    for mol in mol_list:
+        if mol.neutral is True:
+            my_dict["Neutral"][0] += 1
+        if mol.radical is True:
+            my_dict["Radical"][0] += 1
+        if mol.cation is True:
+            my_dict["Cation"][0] += 1
+        if mol.cyclic is True:
+            my_dict["Cyclic"][0] += 1
+        if mol.anion is True:
+            my_dict["Anion"][0] += 1
+        if mol.fullerene is True:
+            my_dict["Fullerene"][0] += 1
+        if mol.pah is True:
+            my_dict["PAH"][0] += 1
+
+    nmols = len(mol_list)
+    for type in my_dict:
+        my_dict[type].append(my_dict[type][0] / nmols)
+
+    labels = ["Neutral", "Radical", "Cation", "Cyclic", "Anion", "Fullerene", "PAH"]
+    fracs = [my_dict[x][1] for x in labels]
+
+    # set up a plot
+    ax = plt.subplot(111)
+    size = 0.1
+
+    def getshift(x):
+        return -(90 - (360 - 360 * x) / 2)
+
+    ax.pie(
+        [fracs[0], 1.0 - fracs[0]],
+        colors=["dodgerblue", "#EEEEEE"],
+        radius=1,
+        startangle=getshift(fracs[0]),
+        wedgeprops=dict(width=size, edgecolor="w", linewidth=1),
+    )
+    ax.pie(
+        [fracs[1], 1.0 - fracs[1]],
+        colors=["darkorange", "#EEEEEE"],
+        radius=1 - size - 0.02,
+        startangle=getshift(fracs[1]),
+        wedgeprops=dict(width=size, edgecolor="w", linewidth=1),
+    )
+    ax.pie(
+        [fracs[2], 1.0 - fracs[2]],
+        colors=["forestgreen", "#EEEEEE"],
+        radius=1 - 2 * size - 0.04,
+        startangle=getshift(fracs[2]),
+        wedgeprops=dict(width=size, edgecolor="w", linewidth=1),
+    )
+    ax.pie(
+        [fracs[3], 1.0 - fracs[3]],
+        colors=["violet", "#EEEEEE"],
+        radius=1 - 3 * size - 0.06,
+        startangle=getshift(fracs[3]),
+        wedgeprops=dict(width=size, edgecolor="w", linewidth=1),
+    )
+    ax.pie(
+        [fracs[4], 1.0 - fracs[4]],
+        colors=["red", "#EEEEEE"],
+        radius=1 - 4 * size - 0.08,
+        startangle=getshift(fracs[4]),
+        wedgeprops=dict(width=size, edgecolor="w", linewidth=1),
+    )
+    ax.pie(
+        [fracs[5], 1.0 - fracs[5]],
+        colors=["goldenrod", "#EEEEEE"],
+        radius=1 - 5 * size - 0.1,
+        startangle=getshift(fracs[5]),
+        wedgeprops=dict(width=size, edgecolor="w", linewidth=1),
+    )
+    ax.pie(
+        [fracs[6], 1.0 - fracs[6]],
+        colors=["royalblue", "#EEEEEE"],
+        radius=1 - 6 * size - 0.12,
+        startangle=getshift(fracs[6]),
+        wedgeprops=dict(width=size, edgecolor="w", linewidth=1),
+    )
+
+    ax.annotate(
+        r"\textbf{Neutrals}", xy=(0.5, 0.11), xycoords="axes fraction", color="dodgerblue", ha="center", size=14
+    )
+    ax.annotate(
+        r"\textbf{Radicals}", xy=(0.5, 0.16), xycoords="axes fraction", color="darkorange", ha="center", size=14
+    )
+    ax.annotate(
+        r"\textbf{Cations}", xy=(0.5, 0.205), xycoords="axes fraction", color="forestgreen", ha="center", size=14
+    )
+    ax.annotate(r"\textbf{Cyclics}", xy=(0.5, 0.255), xycoords="axes fraction", color="violet", ha="center", size=14)
+    ax.annotate(r"\textbf{Anions}", xy=(0.5, 0.305), xycoords="axes fraction", color="red", ha="center", size=14)
+    ax.annotate(
+        r"\textbf{Fullerenes}", xy=(0.5, 0.3575), xycoords="axes fraction", color="goldenrod", ha="center", size=14
+    )
+    ax.annotate(r"\textbf{PAHs}", xy=(0.5, 0.40), xycoords="axes fraction", color="royalblue", ha="center", size=14)
+
+    percents = [r"\textbf{" + "{:.1f}".format((x * 100)) + r"}\%" for x in fracs]
+
+    start = 0.585
+    shift = 0.0485
+    ax.annotate(
+        percents[0],
+        xy=(start + 6 * shift, 0.5),
+        xycoords="axes fraction",
+        color="white",
+        ha="center",
+        va="center",
+        size=12,
+        rotation=-90,
+    )
+    ax.annotate(
+        percents[1],
+        xy=(start + 5 * shift, 0.5),
+        xycoords="axes fraction",
+        color="darkorange",
+        ha="center",
+        va="center",
+        size=12,
+        rotation=-90,
+    )
+    ax.annotate(
+        percents[2],
+        xy=(start + 4 * shift, 0.5),
+        xycoords="axes fraction",
+        color="forestgreen",
+        ha="center",
+        va="center",
+        size=12,
+        rotation=-90,
+    )
+    ax.annotate(
+        percents[3],
+        xy=(start + 3 * shift, 0.5),
+        xycoords="axes fraction",
+        color="violet",
+        ha="center",
+        va="center",
+        size=12,
+        rotation=-90,
+    )
+    ax.annotate(
+        percents[4],
+        xy=(start + 2 * shift, 0.5),
+        xycoords="axes fraction",
+        color="red",
+        ha="center",
+        va="center",
+        size=12,
+        rotation=-90,
+    )
+    ax.annotate(
+        percents[5],
+        xy=(start + 1 * shift, 0.5),
+        xycoords="axes fraction",
+        color="goldenrod",
+        ha="center",
+        va="center",
+        size=12,
+        rotation=-90,
+    )
+    ax.annotate(
+        percents[6],
+        xy=(start + 0 * shift, 0.5),
+        xycoords="axes fraction",
+        color="royalblue",
+        ha="center",
+        va="center",
+        size=12,
+        rotation=-90,
+    )
+
+    plt.tight_layout()
+    plt.show()
+
+    plt.savefig(
+        filename if filename is not None else "type_pie_chart.pdf", format="pdf", transparent=True, bbox_inches="tight"
+    )  # ,pad_inches=-.65)
+
+    return
+
+
+def source_pie_chart(mol_list=None, filename=None):
+    """
+    Makes a pie chart of the fraction of interstellar molecules detected in carbon stars, dark clouds, los clouds, star forming regions, and other types of sources
+    Defaults to using all molecules in the database, but can be passed a subset of molecules as a list of Molecule objects in mol_list.
+    Default filename is 'source_pie_chart.pdf', but that can also be overriden.
+    """
+
+    # If a list wasn't specified, default to all molecules
+    if mol_list is None:
+        mol_list = all_molecules
+
+    # Close an old figure if it exists and initialize a new figure
+    plt.close("Source Pie Chart")
+    plt.figure(num="Source Pie Chart", figsize=(10, 8))
+    plt.ion()
+
+    # set some font defaults
+    fontparams = {"size": 24, "family": "sans-serif", "sans-serif": ["Helvetica"]}
+    plt.rc("font", **fontparams)
+    plt.rc("mathtext", fontset="stixsans")
+
+    # gather the data
+    my_dict = {
+        "Carbon Star": [0],
+        "Dark Cloud": [0],
+        "LOS Cloud": [0],
+        "SFR": [0],
+        "Other": [0],
+    }
+
+    # we have to be a little careful here, because for a given source, there can be two SFRs listed, and we only want to credit it once
+    for mol in mol_list:
+
+        # we'll make a dictionary here to flag if we've credited things already
+        credit_dict = {
+            "Carbon Star": False,
+            "Dark Cloud": False,
+            "LOS Cloud": False,
+            "SFR": False,
+            "Other": False,
+        }
+
+        for source in mol.sources:
+            if source.type in my_dict:
+                if credit_dict[source.type] is False:
+                    my_dict[source.type][0] += 1
+                    credit_dict[source.type] = True
+            else:
+                if credit_dict["Other"] is False:
+                    my_dict["Other"][0] += 1
+                    credit_dict["Other"] = True
+
+    nmols = len(mol_list)
+    for type in my_dict:
+        my_dict[type].append(my_dict[type][0] / nmols)
+
+    labels = ["SFR", "Carbon Star", "Dark Cloud", "Other", "LOS Cloud"]
+    fracs = [my_dict[x][1] for x in labels]
+
+    # set up a plot
+    ax = plt.subplot(111)
+    size = 0.1
+
+    def getshift(x):
+        return -(90 - (360 - 360 * x) / 2)
+
+    ax.pie(
+        [fracs[0], 1.0 - fracs[0]],
+        colors=["dodgerblue", "#EEEEEE"],
+        radius=1,
+        startangle=getshift(fracs[0]),
+        wedgeprops=dict(width=size, edgecolor="w", linewidth=1),
+    )
+    ax.pie(
+        [fracs[1], 1.0 - fracs[1]],
+        colors=["darkorange", "#EEEEEE"],
+        radius=1 - size - 0.02,
+        startangle=getshift(fracs[1]),
+        wedgeprops=dict(width=size, edgecolor="w", linewidth=1),
+    )
+    ax.pie(
+        [fracs[2], 1.0 - fracs[2]],
+        colors=["forestgreen", "#EEEEEE"],
+        radius=1 - 2 * size - 0.04,
+        startangle=getshift(fracs[2]),
+        wedgeprops=dict(width=size, edgecolor="w", linewidth=1),
+    )
+    ax.pie(
+        [fracs[3], 1.0 - fracs[3]],
+        colors=["violet", "#EEEEEE"],
+        radius=1 - 3 * size - 0.06,
+        startangle=getshift(fracs[3]),
+        wedgeprops=dict(width=size, edgecolor="w", linewidth=1),
+    )
+    ax.pie(
+        [fracs[4], 1.0 - fracs[4]],
+        colors=["red", "#EEEEEE"],
+        radius=1 - 4 * size - 0.08,
+        startangle=getshift(fracs[4]),
+        wedgeprops=dict(width=size, edgecolor="w", linewidth=1),
+    )
+
+    ax.annotate(r"\textbf{SFR}", xy=(0.5, 0.11), xycoords="axes fraction", color="dodgerblue", ha="center", size=14)
+    ax.annotate(
+        r"\textbf{Carbon Star}", xy=(0.5, 0.16), xycoords="axes fraction", color="darkorange", ha="center", size=14
+    )
+    ax.annotate(
+        r"\textbf{Dark Cloud}", xy=(0.5, 0.205), xycoords="axes fraction", color="forestgreen", ha="center", size=14
+    )
+    ax.annotate(r"\textbf{Other}", xy=(0.5, 0.255), xycoords="axes fraction", color="violet", ha="center", size=14)
+    ax.annotate(r"\textbf{LOS Cloud}", xy=(0.5, 0.305), xycoords="axes fraction", color="red", ha="center", size=14)
+
+    percents = [r"\textbf{" + "{:.1f}".format((x * 100)) + r"}\%" for x in fracs]
+
+    ax.annotate(
+        percents[4],
+        xy=(0.51, 0.68),
+        xycoords="axes fraction",
+        color="white",
+        ha="center",
+        size=12,
+    )
+    ax.annotate(
+        percents[3],
+        xy=(0.51, 0.725),
+        xycoords="axes fraction",
+        color="white",
+        ha="center",
+        size=12,
+    )
+    ax.annotate(
+        percents[2],
+        xy=(0.51, 0.775),
+        xycoords="axes fraction",
+        color="white",
+        ha="center",
+        size=12,
+    )
+    ax.annotate(
+        percents[1],
+        xy=(0.51, 0.825),
+        xycoords="axes fraction",
+        color="white",
+        ha="center",
+        size=12,
+    )
+    ax.annotate(
+        percents[0],
+        xy=(0.51, 0.87),
+        xycoords="axes fraction",
+        color="white",
+        ha="center",
+        size=12,
+    )
+
+    plt.tight_layout()
+    plt.show()
+
+    plt.savefig(
+        filename if filename is not None else "source_pie_chart.pdf",
+        format="pdf",
+        transparent=True,
+        bbox_inches="tight",
+        pad_inches=-0.65,
+    )
+
+    return
+
+
+def indiv_source_pie_chart(mol_list=None, filename=None):
+
+    """
+    Makes a pie chart of the fraction of interstellar molecules detected in IRC+10216, TMC-1, Orion, and Sgr
+    Defaults to using all molecules in the database, but can be passed a subset of molecules as a list of Molecule objects in mol_list.
+    Default filename is 'indiv_source_pie_chart.pdf', but that can also be overriden.
+    """
+
+    # If a list wasn't specified, default to all molecules
+    if mol_list is None:
+        mol_list = all_molecules
+
+    # Close an old figure if it exists and initialize a new figure
+    plt.close("Individual Source Pie Chart")
+    plt.figure(num="Individual Source Pie Chart", figsize=(10, 8))
+    plt.ion()
+
+    # set some font defaults
+    fontparams = {"size": 24, "family": "sans-serif", "sans-serif": ["Helvetica"]}
+    plt.rc("font", **fontparams)
+    plt.rc("mathtext", fontset="stixsans")
+
+    # gather the data
+    my_dict = {
+        "IRC+10216": [0],
+        "TMC-1": [0],
+        "Orion": [0],
+        "Sgr B2": [0],
+        "Other": [0],
+    }
+
+    for mol in mol_list:
+        for source in mol.sources:
+            other = False
+            if source == IRC10216:
+                my_dict["IRC+10216"][0] += 1
+                other = True
+            if source == TMC1:
+                my_dict["TMC-1"][0] += 1
+                other = True
+            if source == Orion:
+                my_dict["Orion"][0] += 1
+                other = True
+            if source == SgrB2:
+                my_dict["Sgr B2"][0] += 1
+                other = True
+            if other is False:
+                my_dict["Other"][0] += 1
+
+    nmols = len(mol_list)
+    for type in my_dict:
+        my_dict[type].append(my_dict[type][0] / nmols)
+    labels = ["Other", "Sgr B2", "IRC+10216", "TMC-1", "Orion"]
+    fracs = [my_dict[x][1] for x in labels]
+
+    # set up a plot
+    ax = plt.subplot(111)
+    size = 0.1
+
+    def getshift(x):
+        return -(90 - (360 - 360 * x) / 2)
+
+    ax.pie(
+        [fracs[0], 1.0 - fracs[0]],
+        colors=["dodgerblue", "#EEEEEE"],
+        radius=1,
+        startangle=getshift(fracs[0]),
+        wedgeprops=dict(width=size, edgecolor="w", linewidth=1),
+    )
+    ax.pie(
+        [fracs[1], 1.0 - fracs[1]],
+        colors=["darkorange", "#EEEEEE"],
+        radius=1 - size - 0.02,
+        startangle=getshift(fracs[1]),
+        wedgeprops=dict(width=size, edgecolor="w", linewidth=1),
+    )
+    ax.pie(
+        [fracs[2], 1.0 - fracs[2]],
+        colors=["forestgreen", "#EEEEEE"],
+        radius=1 - 2 * size - 0.04,
+        startangle=getshift(fracs[2]),
+        wedgeprops=dict(width=size, edgecolor="w", linewidth=1),
+    )
+    ax.pie(
+        [fracs[3], 1.0 - fracs[3]],
+        colors=["violet", "#EEEEEE"],
+        radius=1 - 3 * size - 0.06,
+        startangle=getshift(fracs[3]),
+        wedgeprops=dict(width=size, edgecolor="w", linewidth=1),
+    )
+    ax.pie(
+        [fracs[4], 1.0 - fracs[4]],
+        colors=["red", "#EEEEEE"],
+        radius=1 - 4 * size - 0.08,
+        startangle=getshift(fracs[4]),
+        wedgeprops=dict(width=size, edgecolor="w", linewidth=1),
+    )
+
+    ax.annotate(r"\textbf{Other}", xy=(0.5, 0.11), xycoords="axes fraction", color="dodgerblue", ha="center", size=14)
+    ax.annotate(r"\textbf{Sgr B2}", xy=(0.5, 0.16), xycoords="axes fraction", color="darkorange", ha="center", size=14)
+    ax.annotate(
+        r"\textbf{IRC+10216}", xy=(0.5, 0.205), xycoords="axes fraction", color="forestgreen", ha="center", size=14
+    )
+    ax.annotate(r"\textbf{TMC-1}", xy=(0.5, 0.255), xycoords="axes fraction", color="violet", ha="center", size=14)
+    ax.annotate(r"\textbf{Orion}", xy=(0.5, 0.305), xycoords="axes fraction", color="red", ha="center", size=14)
+
+    percents = [r"\textbf{" + "{:.1f}".format((x * 100)) + r"}\%" for x in fracs]
+
+    ax.annotate(
+        percents[4],
+        xy=(0.51, 0.68),
+        xycoords="axes fraction",
+        color="white",
+        ha="center",
+        size=12,
+    )
+    ax.annotate(
+        percents[3],
+        xy=(0.51, 0.725),
+        xycoords="axes fraction",
+        color="white",
+        ha="center",
+        size=12,
+    )
+    ax.annotate(
+        percents[2],
+        xy=(0.51, 0.775),
+        xycoords="axes fraction",
+        color="white",
+        ha="center",
+        size=12,
+    )
+    ax.annotate(
+        percents[1],
+        xy=(0.51, 0.825),
+        xycoords="axes fraction",
+        color="white",
+        ha="center",
+        size=12,
+    )
+    ax.annotate(
+        percents[0],
+        xy=(0.51, 0.87),
+        xycoords="axes fraction",
+        color="white",
+        ha="center",
+        size=12,
+    )
+
+    plt.tight_layout()
+    plt.show()
+
+    plt.savefig(
+        filename if filename is not None else "indiv_source_pie_chart.pdf",
+        format="pdf",
+        transparent=True,
+        bbox_inches="tight",
+        pad_inches=-0.65,
+    )
+
+    return
+
+
+def mol_type_by_source_type(mol_list=None, filename=None):
+
+    """
+    Generates four pie charts, one for each generalized source type, with the wedges for the types of molecules detected first in each type
+    Defaults to using all molecules in the database, but can be passed a subset of molecules as a list of Molecule objects in mol_list.
+    Default filename is 'mol_type_by_source_type.pdf', but that can also be overriden.
+    """
+
+    # If a list wasn't specified, default to all molecules
+    if mol_list is None:
+        mol_list = all_molecules
+
+    # Close an old figure if it exists and initialize a new figure
+    plt.close("Molecule Type by Source Type")
+    fig, axs = plt.subplots(2, 2, num="Molecule Type by Source Type", figsize=(15, 12))
+    plt.ion()
+
+    # set some font defaults
+    fontparams = {"size": 26, "family": "sans-serif", "sans-serif": ["Helvetica"]}
+    plt.rc("font", **fontparams)
+    plt.rc("mathtext", fontset="stixsans")
+
+    # collect the data
+    type_dict = {
+        "Carbon Star": {"Anion": 0, "Cation": 0, "Cyclic": 0, "Neutral": 0, "Radical": 0},
+        "Dark Cloud": {"Anion": 0, "Cation": 0, "Cyclic": 0, "Neutral": 0, "Radical": 0},
+        "LOS Cloud": {"Anion": 0, "Cation": 0, "Cyclic": 0, "Neutral": 0, "Radical": 0},
+        "SFR": {"Anion": 0, "Cation": 0, "Cyclic": 0, "Neutral": 0, "Radical": 0},
+    }
+
+    for mol in mol_list:
+        # we'll make a dictionary here to flag if we've credited things already
+        credit_dict = {
+            "Carbon Star": False,
+            "Dark Cloud": False,
+            "LOS Cloud": False,
+            "SFR": False,
+        }
+
+        for source in mol.sources:
+            if source.type in type_dict:
+                if credit_dict[source.type] is False:
+                    if mol.anion is True:
+                        type_dict[source.type]["Anion"] += 1
+                    if mol.cation is True:
+                        type_dict[source.type]["Cation"] += 1
+                    if mol.cyclic is True:
+                        type_dict[source.type]["Cyclic"] += 1
+                    if mol.neutral is True:
+                        type_dict[source.type]["Neutral"] += 1
+                    if mol.radical is True:
+                        type_dict[source.type]["Radical"] += 1
+                    credit_dict[source.type] = True
+
+    # make the pie charts
+    # Carbon Stars
+    carbon_data = [
+        type_dict["Carbon Star"]["Anion"],
+        # type_dict['Carbon Star']['Cation'],
+        type_dict["Carbon Star"]["Cyclic"],
+        type_dict["Carbon Star"]["Neutral"],
+        type_dict["Carbon Star"]["Radical"],
+    ]
+
+    carbon_colors = [
+        "darkorange",
+        #'forestgreen',
+        "violet",
+        "dodgerblue",
+        "red",
+    ]
+
+    # Dark Clouds
+    dark_data = [
+        type_dict["Dark Cloud"]["Anion"],
+        type_dict["Dark Cloud"]["Cation"],
+        type_dict["Dark Cloud"]["Cyclic"],
+        type_dict["Dark Cloud"]["Neutral"],
+        type_dict["Dark Cloud"]["Radical"],
+    ]
+
+    dark_colors = [
+        "darkorange",
+        "forestgreen",
+        "violet",
+        "dodgerblue",
+        "red",
+    ]
+
+    # LOS Clouds
+    los_data = [
+        # type_dict['LOS Cloud']['Anion'],
+        type_dict["LOS Cloud"]["Cation"],
+        # type_dict['LOS Cloud']['Cyclic'],
+        type_dict["LOS Cloud"]["Neutral"],
+        type_dict["LOS Cloud"]["Radical"],
+    ]
+
+    los_colors = [
+        #'darkorange',
+        "forestgreen",
+        #'violet',
+        "dodgerblue",
+        "red",
+    ]
+
+    # SFRs
+    sfr_data = [
+        # type_dict['SFR']['Anion'],
+        type_dict["SFR"]["Cation"],
+        type_dict["SFR"]["Cyclic"],
+        type_dict["SFR"]["Neutral"],
+        type_dict["SFR"]["Radical"],
+    ]
+
+    sfr_colors = [
+        #'darkorange',
+        "forestgreen",
+        "violet",
+        "dodgerblue",
+        "red",
+    ]
+
+    types = [
+        "Anion",
+        "Cation",
+        "Cyclic",
+        "Neutral",
+        "Radical",
+    ]
+
+    axs[0, 0].pie(
+        carbon_data,
+        labels=carbon_data,
+        colors=carbon_colors,
+        labeldistance=0.8,
+        wedgeprops={"linewidth": 1.0, "edgecolor": "black", "alpha": 0.5},
+    )
+    axs[0, 0].annotate(
+        r"\textbf{Carbon Stars}", xy=(0.5, 1.0), xycoords="axes fraction", color="black", ha="center", va="top", size=30
+    )
+
+    wedges, _ = axs[0, 1].pie(
+        dark_data,
+        labels=dark_data,
+        colors=dark_colors,
+        labeldistance=0.8,
+        wedgeprops={"linewidth": 1.0, "edgecolor": "black", "alpha": 0.5},
+    )
+    axs[0, 1].annotate(
+        r"\textbf{Dark Clouds}", xy=(0.5, 1.0), xycoords="axes fraction", color="black", ha="center", va="top", size=30
+    )
+
+    axs[1, 0].pie(
+        los_data,
+        labels=los_data,
+        colors=los_colors,
+        labeldistance=0.8,
+        wedgeprops={"linewidth": 1.0, "edgecolor": "black", "alpha": 0.5},
+    )
+    axs[1, 0].annotate(
+        r"\textbf{LOS Clouds}", xy=(0.5, 1.0), xycoords="axes fraction", color="black", ha="center", va="top", size=30
+    )
+
+    axs[1, 1].pie(
+        sfr_data,
+        labels=sfr_data,
+        colors=sfr_colors,
+        labeldistance=0.8,
+        wedgeprops={"linewidth": 1.0, "edgecolor": "black", "alpha": 0.5},
+    )
+    axs[1, 1].annotate(
+        r"\textbf{SFRs}", xy=(0.5, 1.0), xycoords="axes fraction", color="black", ha="center", va="top", size=30
+    )
+
+    axs[0, 1].legend(wedges, types, title="Molecule Types", loc="center left", bbox_to_anchor=(1, 0, 0.5, 1))
+
+    fig.tight_layout()
+    fig.subplots_adjust(wspace=-0.3, hspace=0)
+    plt.show()
+
+    plt.savefig(
+        filename if filename is not None else "mol_type_by_source_type.pdf",
+        format="pdf",
+        transparent=True,
+        bbox_inches="tight",
+    )
+
+    return
+
+
+def du_by_source_type(mol_list=None, bw=0.5, filename=None):
+
+    """
+    Makes a KDE plot of the dus in each source type
+    Defaults to using all molecules in the database, but can be passed a subset of molecules as a list of Molecule objects in mol_list.
+    Defaults to a bandwidth of 0.5, which can be overriden by any float.
+    Default filename is 'du_by_source_type_kde.pdf', but that can also be overriden.
+    """
+
+    # If a list wasn't specified, default to all molecules
+    if mol_list is None:
+        mol_list = all_molecules
+
+    # gather the data
+    my_dict = {
+        "Carbon Star": [],
+        "Dark Cloud": [],
+        "LOS Cloud": [],
+        "SFR": [],
+    }
+
+    # we have to be a little careful here, because for a given source, there can be two SFRs listed, and we only want to credit it once
+    for mol in mol_list:
+        # we'll make a dictionary here to flag if we've credited things already
+        credit_dict = {
+            "Carbon Star": False,
+            "Dark Cloud": False,
+            "LOS Cloud": False,
+            "SFR": False,
+        }
+
+        if mol.du is None or mol.fullerene is True:
+            continue
+        for source in mol.sources:
+            if source.type in my_dict:
+                if credit_dict[source.type] is False:
+                    my_dict[source.type].append(mol.du)
+                    credit_dict[source.type] = True
+
+    plt.close("DU by Source Type")
+    fig = plt.figure(num="DU by Source Type", figsize=(10, 8))
+    plt.ion()
+
+    # set some font defaults
+    fontparams = {"size": 24, "family": "sans-serif", "sans-serif": ["Helvetica"]}
+    plt.rc("font", **fontparams)
+    plt.rc("mathtext", fontset="stixsans")
+
+    # load up an axis
+    ax = fig.add_subplot(111)
+    ax.tick_params(axis="x", which="both", direction="in", length=5, width=1)
+    ax.tick_params(axis="y", which="both", direction="in", length=5, width=1)
+
+    # label the axes
+    plt.xlabel("Degree of Unsaturation")
+    plt.ylabel("Probably Density Estimate")
+
+    # Do the estimates and plot them
+    xvals = np.arange(0, 15, 0.1)
+
+    density_carbon = gkde(my_dict["Carbon Star"])
+    density_carbon.covariance_factor = lambda: bw
+    density_carbon._compute_covariance()
+
+    density_dark = gkde(my_dict["Dark Cloud"])
+    density_dark.covariance_factor = lambda: bw
+    density_dark._compute_covariance()
+
+    density_los = gkde(my_dict["LOS Cloud"])
+    density_los.covariance_factor = lambda: bw
+    density_los._compute_covariance()
+
+    density_sfr = gkde(my_dict["SFR"])
+    density_sfr.covariance_factor = lambda: bw
+    density_sfr._compute_covariance()
+
+    x_ann = 0.97
+    y_ann = 0.96
+    y_sep = 0.06
+
+    ax.plot(xvals, density_carbon(xvals), color="darkorange")
+    ax.fill_between(xvals, density_carbon(xvals), 0, facecolor="darkorange", alpha=0.25, zorder=4)
+
+    ax.plot(xvals, density_dark(xvals), color="forestgreen")
+    ax.fill_between(xvals, density_dark(xvals), 0, facecolor="forestgreen", alpha=0.25, zorder=4)
+
+    ax.plot(xvals, density_los(xvals), color="red")
+    ax.fill_between(xvals, density_los(xvals), 0, facecolor="red", alpha=0.25, zorder=4)
+
+    ax.plot(xvals, density_sfr(xvals), color="dodgerblue")
+    ax.fill_between(xvals, density_sfr(xvals), 0, facecolor="dodgerblue", alpha=0.25, zorder=4)
+
+    ax.annotate(
+        r"\underline{Source Types}",
+        xy=(x_ann, y_ann - 0 * y_sep),
+        xycoords="axes fraction",
+        color="black",
+        ha="right",
+        va="top",
+    )
+
+    ax.annotate("SFR", xy=(x_ann, y_ann - y_sep), xycoords="axes fraction", color="dodgerblue", ha="right", va="top")
+    ax.annotate(
+        "{}".format(len(my_dict["SFR"])), xy=(2.3, 0.3), xycoords="data", ha="left", va="bottom", color="dodgerblue"
+    )
+
+    ax.annotate(
+        "Carbon Star", xy=(x_ann, y_ann - 2 * y_sep), xycoords="axes fraction", color="darkorange", ha="right", va="top"
+    )
+    ax.annotate(
+        "{}".format(len(my_dict["Carbon Star"])),
+        xy=(6, 0.14),
+        xycoords="data",
+        ha="left",
+        va="bottom",
+        color="darkorange",
+    )
+
+    ax.annotate(
+        "Dark Cloud", xy=(x_ann, y_ann - 3 * y_sep), xycoords="axes fraction", color="forestgreen", ha="right", va="top"
+    )
+    ax.annotate(
+        "{}".format(len(my_dict["Dark Cloud"])),
+        xy=(10.9, 0.02),
+        xycoords="data",
+        ha="left",
+        va="bottom",
+        color="forestgreen",
+    )
+
+    ax.annotate("LOS Cloud", xy=(x_ann, y_ann - 4 * y_sep), xycoords="axes fraction", color="red", ha="right", va="top")
+    ax.annotate(
+        "{}".format(len(my_dict["LOS Cloud"])), xy=(0.65, 0.36), xycoords="data", ha="left", va="bottom", color="red"
+    )
+
+    plt.show()
+
+    plt.savefig(
+        filename if filename is not None else "du_by_source_type_kde.pdf",
+        format="pdf",
+        transparent=True,
+        bbox_inches="tight",
+        pad_inches=0,
+    )
+
+    return
+
+
+def rel_du_by_source_type(mol_list=None, bw=0.5, filename=None):
+
+    """
+    Makes a KDE plot of the relative dus in each source type
+    Defaults to using all molecules in the database, but can be passed a subset of molecules as a list of Molecule objects in mol_list.
+    Defaults to a bandwidth of 0.5, which can be overriden by any float.
+    Default filename is 'relative_du_by_source_type_kde.pdf', but that can also be overriden.
+    """
+
+    # If a list wasn't specified, default to all molecules
+    if mol_list is None:
+        mol_list = all_molecules
+
+    # gather the data
+    my_dict = {
+        "Carbon Star": [],
+        "Dark Cloud": [],
+        "LOS Cloud": [],
+        "SFR": [],
+    }
+
+    # we have to be a little careful here, because for a given source, there can be two SFRs listed, and we only want to credit it once
+    for mol in mol_list:
+        # we'll make a dictionary here to flag if we've credited things already
+        credit_dict = {
+            "Carbon Star": False,
+            "Dark Cloud": False,
+            "LOS Cloud": False,
+            "SFR": False,
+        }
+
+        if mol.du is None or mol.fullerene is True:
+            continue
+        for source in mol.sources:
+            if source.type in my_dict:
+                if credit_dict[source.type] is False:
+                    my_dict[source.type].append(mol.du / mol.maxdu)
+                    credit_dict[source.type] = True
+
+    plt.close("Relative DU by Source Type")
+    _, axs = plt.subplots(2, 2, num="Relative DU by Source Type", figsize=(10, 8))
+    plt.ion()
+
+    # set some font defaults
+    fontparams = {"size": 18, "family": "sans-serif", "sans-serif": ["Helvetica"]}
+    plt.rc("font", **fontparams)
+    plt.rc("mathtext", fontset="stixsans")
+
+    # axes ticks and limits
+    axs[0, 0].xaxis.set_visible(False)
+    axs[0, 0].yaxis.set_visible(False)
+    axs[0, 1].xaxis.set_visible(False)
+    axs[0, 1].yaxis.set_visible(False)
+    axs[1, 1].xaxis.set_visible(False)
+    axs[1, 1].yaxis.set_visible(False)
+
+    # label the axes
+    axs[1, 0].tick_params(axis="y", which="both", direction="in", length=5, width=1, labelsize=18)
+    axs[1, 0].tick_params(axis="x", which="both", direction="in", length=5, width=1, labelsize=18)
+    axs[1, 0].set_xlabel("Relative Degree of Unsaturation", fontsize=18)
+    axs[1, 0].set_ylabel("Probability Density Estimate", fontsize=18)
+
+    # Do the estimates and plot them
+    xvals = np.arange(0, 1, 0.01)
+
+    density_carbon = gkde(my_dict["Carbon Star"])
+    density_carbon.covariance_factor = lambda: bw
+    density_carbon._compute_covariance()
+
+    density_dark = gkde(my_dict["Dark Cloud"])
+    density_dark.covariance_factor = lambda: bw
+    density_dark._compute_covariance()
+
+    density_los = gkde(my_dict["LOS Cloud"])
+    density_los.covariance_factor = lambda: bw
+    density_los._compute_covariance()
+
+    density_sfr = gkde(my_dict["SFR"])
+    density_sfr.covariance_factor = lambda: bw
+    density_sfr._compute_covariance()
+
+    axs[0, 0].plot(xvals, density_carbon(xvals), color="darkorange")
+    axs[0, 0].fill_between(xvals, density_carbon(xvals), 0, facecolor="darkorange", alpha=0.25, zorder=4)
+    axs[0, 0].annotate(
+        "Carbon Star", xy=[0.04, 0.96], xycoords="axes fraction", ha="left", va="top", size=24, color="darkorange"
+    )
+
+    axs[1, 0].plot(xvals, density_dark(xvals), color="forestgreen")
+    axs[1, 0].fill_between(xvals, density_dark(xvals), 0, facecolor="forestgreen", alpha=0.25, zorder=4)
+    axs[1, 0].annotate(
+        "Dark Cloud", xy=[0.04, 0.96], xycoords="axes fraction", ha="left", va="top", size=24, color="forestgreen"
+    )
+
+    axs[0, 1].plot(xvals, density_los(xvals), color="red")
+    axs[0, 1].fill_between(xvals, density_los(xvals), 0, facecolor="red", alpha=0.25, zorder=4)
+    axs[0, 1].annotate(
+        "LOS Cloud", xy=[0.04, 0.96], xycoords="axes fraction", ha="left", va="top", size=24, color="red"
+    )
+
+    axs[1, 1].plot(xvals, density_sfr(xvals), color="dodgerblue")
+    axs[1, 1].fill_between(xvals, density_sfr(xvals), 0, facecolor="dodgerblue", alpha=0.25, zorder=4)
+    axs[1, 1].annotate(
+        "SFR", xy=[0.04, 0.96], xycoords="axes fraction", ha="left", va="top", size=24, color="dodgerblue"
+    )
+
+    plt.subplots_adjust(wspace=0, hspace=0)
+    plt.show()
+
+    plt.savefig(
+        filename if filename is not None else "relative_du_by_source_type_kde.pdf",
+        format="pdf",
+        transparent=True,
+        bbox_inches="tight",
+        pad_inches=0,
+    )
+
+    return
+
+
+def mass_by_source_type(mol_list=None, bw=0.5, filename=None):
+
+    """
+    Makes a KDE plot of the masses in each source type
+    Defaults to using all molecules in the database, but can be passed a subset of molecules as a list of Molecule objects in mol_list.
+    Defaults to a bandwidth of 0.5, which can be overriden by any float.
+    Default filename is 'mass_by_source_type_kde.pdf', but that can also be overriden.
+    """
+
+    # If a list wasn't specified, default to all molecules
+    if mol_list is None:
+        mol_list = all_molecules
+
+    # gather the data
+    my_dict = {
+        "Carbon Star": [],
+        "Dark Cloud": [],
+        "LOS Cloud": [],
+        "SFR": [],
+    }
+
+    # we have to be a little careful here, because for a given source, there can be two SFRs listed, and we only want to credit it once
+    masses = []
+    for mol in mol_list:
+        # we'll make a dictionary here to flag if we've credited things already
+        credit_dict = {
+            "Carbon Star": False,
+            "Dark Cloud": False,
+            "LOS Cloud": False,
+            "SFR": False,
+        }
+
+        # drop the fullerenes
+        if mol.fullerene is True:
+            continue
+        # add the mass to the list for axis limit purposes
+        masses.append(mol.mass)
+        for source in mol.sources:
+            if source.type in my_dict:
+                if credit_dict[source.type] is False:
+                    my_dict[source.type].append(mol.mass)
+                    credit_dict[source.type] = True
+
+    plt.close("Mass by Source Type")
+    plt.figure(num="Mass by Source Type", figsize=(10, 8))
+    plt.ion()
+
+    # set some font defaults
+    fontparams = {"size": 24, "family": "sans-serif", "sans-serif": ["Helvetica"]}
+    plt.rc("font", **fontparams)
+    plt.rc("mathtext", fontset="stixsans")
+
+    # axes ticks and limits
+    ax = plt.subplot(111)
+    ax.set_xlim([min(masses), max(masses)])
+    ax.tick_params(axis="y", which="both", direction="in", length=5, width=1, labelleft="off")
+    ax.tick_params(axis="x", which="both", direction="in", length=5, width=1, labelbottom="off")
+
+    # label the axes
+    ax.set(xlabel="Molecular Mass (amu)")
+    ax.set(ylabel="Probability Density Estimate")
+
+    # Do the estimates and plot them
+    xvals = np.arange(0, max(masses), 1)
+
+    density_carbon = gkde(my_dict["Carbon Star"])
+    density_carbon.covariance_factor = lambda: 0.5
+    density_carbon._compute_covariance()
+
+    density_dark = gkde(my_dict["Dark Cloud"])
+    density_dark.covariance_factor = lambda: 0.5
+    density_dark._compute_covariance()
+
+    density_los = gkde(my_dict["LOS Cloud"])
+    density_los.covariance_factor = lambda: 0.5
+    density_los._compute_covariance()
+
+    density_sfr = gkde(my_dict["SFR"])
+    density_sfr.covariance_factor = lambda: 0.5
+    density_sfr._compute_covariance()
+
+    ax.plot(xvals[min(masses) : max(masses)], density_carbon(xvals[min(masses) : max(masses)]), color="darkorange")
+    ax.fill_between(
+        xvals[min(masses) : max(masses)],
+        density_carbon(xvals[min(masses) : max(masses)]),
+        0,
+        facecolor="darkorange",
+        alpha=0.25,
+        zorder=4,
+    )
+
+    ax.plot(xvals[min(masses) : max(masses)], density_dark(xvals[min(masses) : max(masses)]), color="forestgreen")
+    ax.fill_between(
+        xvals[min(masses) : max(masses)],
+        density_dark(xvals[min(masses) : max(masses)]),
+        0,
+        facecolor="forestgreen",
+        alpha=0.25,
+        zorder=4,
+    )
+
+    ax.plot(xvals[min(masses) : max(masses)], density_los(xvals[min(masses) : max(masses)]), color="red")
+    ax.fill_between(
+        xvals[min(masses) : max(masses)],
+        density_los(xvals[min(masses) : max(masses)]),
+        0,
+        facecolor="red",
+        alpha=0.25,
+        zorder=4,
+    )
+
+    ax.plot(xvals[min(masses) : max(masses)], density_sfr(xvals[min(masses) : max(masses)]), color="dodgerblue")
+    ax.fill_between(
+        xvals[min(masses) : max(masses)],
+        density_sfr(xvals[min(masses) : max(masses)]),
+        0,
+        facecolor="dodgerblue",
+        alpha=0.25,
+        zorder=4,
+    )
+
+    x_ann = 0.97
+    y_ann = 0.96
+    y_sep = 0.06
+
+    ax.annotate(
+        r"\underline{Source Types}",
+        xy=(x_ann, y_ann - 0 * y_sep),
+        xycoords="axes fraction",
+        color="black",
+        ha="right",
+        va="top",
+    )
+    ax.annotate("SFR", xy=(x_ann, y_ann - y_sep), xycoords="axes fraction", color="dodgerblue", ha="right", va="top")
+    ax.annotate(
+        "Carbon Star", xy=(x_ann, y_ann - 2 * y_sep), xycoords="axes fraction", color="darkorange", ha="right", va="top"
+    )
+    ax.annotate(
+        "Dark Cloud", xy=(x_ann, y_ann - 3 * y_sep), xycoords="axes fraction", color="forestgreen", ha="right", va="top"
+    )
+    ax.annotate("LOS Cloud", xy=(x_ann, y_ann - 4 * y_sep), xycoords="axes fraction", color="red", ha="right", va="top")
+
+    plt.show()
+
+    plt.savefig(
+        filename if filename is not None else "mass_by_source_type_kde.pdf",
+        format="pdf",
+        transparent=True,
+        bbox_inches="tight",
+        pad_inches=0,
+    )
+
+    return
+
+
+def waves_by_source_type(mol_list=None, filename=None):
+
+    """
+    Generates four pie charts, one for each generalized source type, with the wedges for the wavelengths used for first detections in those sources
+    Defaults to using all molecules in the database, but can be passed a subset of molecules as a list of Molecule objects in mol_list.
+    Default filename is 'waves_by_source_type.pdf', but that can also be overriden.
+    """
+
+    # If a list wasn't specified, default to all molecules
+    if mol_list is None:
+        mol_list = all_molecules
+
+    # Close an old figure if it exists and initialize a new figure
+    plt.close("Wavelength by Source Type")
+    fig, axs = plt.subplots(2, 2, num="Wavelength by Source Type", figsize=(15, 12))
+    plt.ion()
+
+    # set some font defaults
+    fontparams = {"size": 26, "family": "sans-serif", "sans-serif": ["Helvetica"]}
+    plt.rc("font", **fontparams)
+    plt.rc("mathtext", fontset="stixsans")
+
+    # collect the data
+    type_dict = {
+        "Carbon Star": {"cm": 0, "mm": 0, "sub-mm": 0, "IR": 0, "UV": 0, "Vis": 0},
+        "Dark Cloud": {"cm": 0, "mm": 0, "sub-mm": 0, "IR": 0, "UV": 0, "Vis": 0},
+        "LOS Cloud": {"cm": 0, "mm": 0, "sub-mm": 0, "IR": 0, "UV": 0, "Vis": 0},
+        "SFR": {"cm": 0, "mm": 0, "sub-mm": 0, "IR": 0, "UV": 0, "Vis": 0},
+    }
+
+    for mol in mol_list:
+        # we'll make a dictionary here to flag if we've credited things already
+        credit_dict = {
+            "Carbon Star": False,
+            "Dark Cloud": False,
+            "LOS Cloud": False,
+            "SFR": False,
+        }
+
+        for source in mol.sources:
+            if source.type in type_dict:
+                if credit_dict[source.type] is False:
+                    for wave in mol.wavelengths:
+                        type_dict[source.type][wave] += 1
+                    credit_dict[source.type] = True
+
+    # make the pie charts
+    # Carbon Stars
+    carbon_data = [
+        type_dict["Carbon Star"]["cm"],
+        type_dict["Carbon Star"]["mm"],
+        type_dict["Carbon Star"]["sub-mm"],
+        type_dict["Carbon Star"]["IR"],
+        # type_dict['Carbon Star']['UV'] + type_dict['Carbon Star']['Vis'],
+    ]
+
+    carbon_colors = [
+        "dodgerblue",
+        "darkorange",
+        "forestgreen",
+        "black",
+        #'violet',
+    ]
+
+    # Dark Clouds
+    dark_data = [
+        type_dict["Dark Cloud"]["cm"],
+        type_dict["Dark Cloud"]["mm"],
+        # type_dict['Dark Cloud']['sub-mm'],
+        # type_dict['Dark Cloud']['IR'],
+        # type_dict['Dark Cloud']['UV'] + type_dict['Dark Cloud']['Vis'],
+    ]
+
+    dark_colors = [
+        "dodgerblue",
+        "darkorange",
+        #'forestgreen',
+        #'black',
+        #'violet',
+    ]
+
+    # LOS Clouds
+
+    los_data = [
+        type_dict["LOS Cloud"]["cm"],
+        type_dict["LOS Cloud"]["mm"],
+        type_dict["LOS Cloud"]["sub-mm"],
+        type_dict["LOS Cloud"]["IR"],
+        type_dict["LOS Cloud"]["UV"] + type_dict["LOS Cloud"]["Vis"],
+    ]
+
+    los_colors = [
+        "dodgerblue",
+        "darkorange",
+        "forestgreen",
+        "black",
+        "violet",
+    ]
+
+    # SFRs
+
+    sfr_data = [
+        type_dict["SFR"]["cm"],
+        type_dict["SFR"]["mm"],
+        type_dict["SFR"]["sub-mm"],
+        # type_dict['SFR']['IR'],
+        # type_dict['SFR']['UV'] + type_dict['SFR']['Vis'],
+    ]
+
+    sfr_colors = [
+        "dodgerblue",
+        "darkorange",
+        "forestgreen",
+        #'black',
+        #'violet',
+    ]
+
+    types = [
+        "cm",
+        "mm",
+        "sub-mm",
+        "IR",
+        "UV/Vis",
+    ]
+
+    def make_labels(list):
+        new_labels = []
+        total = sum(list)
+        for i in list:
+            percent = 100 * i / total
+            new_labels.append(r"{:.1f}\%".format(percent))
+        return new_labels
+
+    axs[0, 0].pie(
+        carbon_data,
+        labels=make_labels(carbon_data),
+        colors=carbon_colors,
+        labeldistance=1.1,
+        wedgeprops={"linewidth": 1.0, "edgecolor": "black", "alpha": 0.5},
+    )
+    axs[0, 0].annotate(
+        r"\textbf{Carbon Stars}",
+        xy=(0.5, 1.05),
+        xycoords="axes fraction",
+        color="black",
+        ha="center",
+        va="top",
+        size=30,
+    )
+
+    axs[0, 1].pie(
+        dark_data,
+        labels=make_labels(dark_data),
+        colors=dark_colors,
+        labeldistance=1.1,
+        wedgeprops={"linewidth": 1.0, "edgecolor": "black", "alpha": 0.5},
+    )
+    axs[0, 1].annotate(
+        r"\textbf{Dark Clouds}", xy=(0.5, 1.05), xycoords="axes fraction", color="black", ha="center", va="top", size=30
+    )
+
+    wedges, _ = axs[1, 0].pie(
+        los_data,
+        labels=make_labels(los_data),
+        colors=los_colors,
+        labeldistance=1.1,
+        wedgeprops={"linewidth": 1.0, "edgecolor": "black", "alpha": 0.5},
+    )
+    axs[1, 0].annotate(
+        r"\textbf{LOS Clouds}", xy=(0.5, 1.05), xycoords="axes fraction", color="black", ha="center", va="top", size=30
+    )
+
+    axs[1, 1].pie(
+        sfr_data,
+        labels=make_labels(sfr_data),
+        colors=sfr_colors,
+        labeldistance=1.1,
+        wedgeprops={"linewidth": 1.0, "edgecolor": "black", "alpha": 0.5},
+    )
+    axs[1, 1].annotate(
+        r"\textbf{SFRs}", xy=(0.5, 1.05), xycoords="axes fraction", color="black", ha="center", va="top", size=30
+    )
+
+    axs[0, 1].legend(wedges, types, title="Wavelengths", loc="center left", bbox_to_anchor=(1, 0, 0.5, 1))
+
+    fig.tight_layout()
+    fig.subplots_adjust(wspace=0.1, hspace=0.1)
+    plt.show()
+
+    plt.savefig(
+        filename if filename is not None else "waves_by_source_type.pdf",
+        format="pdf",
+        transparent=True,
+        bbox_inches="tight",
+    )
+
+    return

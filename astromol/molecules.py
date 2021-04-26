@@ -89,7 +89,7 @@ class Molecule(object):
     @property
     def atoms(self):
         # remove any charge from the molecule if present
-        if self.formula[-1] == '+' or self.formula[-1] == '-':
+        if self.formula[-1] == "+" or self.formula[-1] == "-":
             formula = self.formula[:-1]
         else:
             formula = self.formula
@@ -150,25 +150,27 @@ class Molecule(object):
 
     @property
     def nelectrons(self):
-        return np.sum([electrons[x] * self.atoms[x] for x in self.atoms]) - self.charge    
+        return np.sum([electrons[x] * self.atoms[x] for x in self.atoms]) - self.charge
 
     @property
     def radical(self):
-        if (self.nelectrons % 2 ) == 0:
+        if (self.nelectrons % 2) == 0:
             return False
         else:
             return True
 
     @property
     def du(self):
-        # We only calculate a du if the molecule contains exclusively H, C, N, O, Cl, or F
+        # We only calculate a du if the molecule contains exclusively H, C, N, O, Cl, S, D, S, or F
         inclusion = [
+            "D",
             "C",
             "H",
             "N",
             "O",
             "Cl",
             "F",
+            "S",
         ]
         atoms = list(self.atoms.keys())
         remaining = list(filter(lambda x: x not in inclusion, atoms))
@@ -186,14 +188,16 @@ class Molecule(object):
 
     @property
     def maxdu(self):
-        # We only calculate a maxdu if the molecule contains exclusively H, C, N, O, Cl, or F
+        # We only calculate a maxdu if the molecule contains exclusively H, C, N, O, Cl, D, S, or F
         inclusion = [
+            "D",
             "C",
             "H",
             "N",
             "O",
             "Cl",
             "F",
+            "S",
         ]
         atoms = list(self.atoms.keys())
         remaining = list(filter(lambda x: x not in inclusion, atoms))
@@ -202,8 +206,7 @@ class Molecule(object):
 
         # assuming we're still here, we then calculate and return maxdu
         return 1 + 0.5 * (
-            (self.atoms["C"] if "C" in self.atoms else 0) * 2
-            + (self.atoms["N"] if "N" in self.atoms else 0) * 1
+            (self.atoms["C"] if "C" in self.atoms else 0) * 2 + (self.atoms["N"] if "N" in self.atoms else 0) * 1
         )
 
     @property
@@ -339,23 +342,17 @@ class Molecule(object):
             print("Also Detected In:\t{}".format(other_str))
 
         if self.exgal == True or self.exgal == "Tentative":
-            print(
-                "Sources of External Galaxy Detections:\t{}\n".format(
-                    self.exgal_sources
-                )
-            )
+            print("Sources of External Galaxy Detections:\t{}\n".format(self.exgal_sources))
 
         if self.ppd_isos != None:
-            print(
-                "Isotopologues Also Detected in Protoplanetary Disks:\t{}\n".format(
-                    self.ppd_isos
-                )
-            )
+            print("Isotopologues Also Detected in Protoplanetary Disks:\t{}\n".format(self.ppd_isos))
 
         self.refs()
 
+
 electrons = {
     "H": 1,
+    "D": 1,
     "He": 2,
     "C": 6,
     "N": 7,
@@ -378,6 +375,7 @@ electrons = {
 
 masses = {
     "H": 1,
+    "D": 2,
     "He": 4,
     "C": 12,
     "N": 14,
