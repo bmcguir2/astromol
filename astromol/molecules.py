@@ -45,6 +45,7 @@ class Molecule(object):
         exgal_sources=None,
         isos_d_ref=None,
         isos_l_ref=None,
+        bib_codes=None,
     ):
 
         self.name = name
@@ -84,6 +85,7 @@ class Molecule(object):
         self.exo_l_ref = exo_l_ref
         self.isos_d_ref = isos_d_ref
         self.isos_l_ref = isos_l_ref
+        self.bib_codes = bib_codes
         self.notes = notes
 
     @property
@@ -1825,6 +1827,20 @@ CaNC = Molecule(
     Bcon=4048,
     mua=6.985,
 )
+NCS = Molecule(
+    name="thiocyanogen",
+    formula="NCS",
+    year=2021,
+    label="NCS",
+    sources=[TMC1],
+    telescopes=[Yebes40],
+    wavelengths=["cm"],
+    d_ref="Cernicharo et al. 2021 A&A 648, L3",
+    lab_ref="Amano & Amano 1991 J Chem Phys 95, 2275; McCarthy et al. 2003 ApJS 144, 287; Maeda et al. 2007 Mol Phys 105, 477",
+    notes="Dipole moment taken from CDMS as calculated by Holger Müller.  Amano & Amano point out that this calculation shoudl be quite challenging, and neither of the more recent laboratory papers appears to perform it, so this value should be viewed with caution.",
+    Bcon=6106,
+    mua=2.45,
+)
 
 ######################################################################
 #                           Four Atoms                               #
@@ -2338,6 +2354,20 @@ MgCCH = Molecule(
     Bcon=4965,
     mua=1.68,
 )
+HCCS = Molecule(
+    name="thiocyanogen",
+    formula="HCCS",
+    year=2021,
+    label="HCCS",
+    sources=[TMC1],
+    telescopes=[Yebes40],
+    wavelengths=["cm"],
+    d_ref="Cernicharo et al. 2021 A&A 648, L3",
+    lab_ref="Kim et al. 2002 J Mol Spec 212, 83; Vrtilek et al. 1992 ApJ 398, L73",
+    notes="Dipole moment is from Vrtilek et al. who in turn got it from J. D. Goddard 1992, private communication.",
+    Bcon=5876,
+    mua=1.2,
+)
 
 ######################################################################
 #                           Five Atoms                               #
@@ -2779,6 +2809,67 @@ HC3Op = Molecule(
     Bcon=4461,
     mua=3.4,
 )
+HC3Sp = Molecule(
+    name="protonated tricarbon monosulfide",
+    formula="HC3S+",
+    year=2021,
+    label="HC3S+",
+    sources=[TMC1],
+    telescopes=[Yebes40],
+    wavelengths=["cm"],
+    d_ref="Cernicharo et al. 2021 A&A 646, L3",
+    lab_ref="Cernicharo et al. 2021 A&A 646, L3",
+    notes=None,
+    Bcon=2735,
+    mua=1.7,
+)
+H2CCS = Molecule(
+    name="thioketene",
+    formula="H2CCS",
+    year=2021,
+    label="H2CCS",
+    sources=[TMC1],
+    telescopes=[Yebes40],
+    wavelengths=["cm"],
+    d_ref="Cernicharo et al. 2021 A&A 648, L3",
+    lab_ref="Georgiou et al. 1979 J Mol Spectrosc 77, 365; Winnewisser & Schäfer 1980 Z Natur Forsch A 35, 483; McNaughton et al. 1996 J Mol Spectrosc 175, 377",
+    notes="Dipole is from Georgiou et al. 1979.",
+    Acon=286616,
+    Bcon=5663,
+    Ccon=5548,
+    mua=1.02,
+)
+C4S = Molecule(
+    name="tetracarbon monosulfide",
+    formula="C4S",
+    year=2021,
+    label="C4S",
+    sources=[TMC1],
+    telescopes=[Yebes40],
+    wavelengths=["cm"],
+    d_ref="Cernicharo et al. 2021 A&A 648, L3",
+    lab_ref="Hirahara et al. 19993 ApJL 408, L113;  Gordon et al. 2001 ApJS 134, 311",
+    notes="Dipole moment from Lee 1997 Chem Phys Lett 268, 69 and Pascoli & Lavendy 1998 Int J Mass Spectr 181, 11",
+    Acon=1519,
+    mua=4.03,
+)
+CHOSH = Molecule(
+    name="monothioformic acid",
+    formula="CHOSH",
+    year=2021,
+    label="CHOSH",
+    sources=[G0693],
+    telescopes=[Yebes40, IRAM30],
+    wavelengths=["cm", "mm"],
+    d_ref="Rodríguez-Almeida et al. 2021 ApJL 912, L11",
+    lab_ref="Hocking & Winnewisser 1976 Z Naturforsch A 31, 995",
+    notes="Dataset was refit by H.S.P. Müller for CDMS, and those are the predictions used for the detection.",
+    Acon=62036,
+    Bcon=6125,
+    Ccon=5570,
+    mua=1.366,
+    mub=0.702,
+)
 
 ######################################################################
 #                           Six Atoms                               #
@@ -3109,6 +3200,37 @@ MgC4H = Molecule(
     Bcon=1381,
     mua=2.1,
 )
+CH3COp = Molecule(
+    name="acetyl cation",
+    formula="CH3CO+",
+    year=2021,
+    label="CH3CO+",
+    sources=[TMC1, L483, L1527, L1544],
+    telescopes=[IRAM30, Yebes40],
+    wavelengths=["cm", "mm"],
+    d_ref="Cernicharo et al. 2021 A&A 646, L7",
+    lab_ref="Cernicharo et al. 2021 A&A 646, L7",
+    notes="",
+    Bcon=9134,
+    mua=3.5,
+)
+
+H2CCCS = Molecule(
+    name="propadienthione",
+    formula="H2CCCS",
+    year=2021,
+    label="H2CCCS",
+    sources=[TMC1],
+    telescopes=[Yebes40],
+    wavelengths=["cm"],
+    d_ref="Cernicharo et al. 2021 A&A 648, L3",
+    lab_ref="Brown et al. 1988 J Am Chem Soc 110, 789",
+    notes="",
+    Acon=328500,
+    Bcon=2539,
+    Ccon=2516,
+    mua=2.064,
+)
 
 ######################################################################
 #                           Seven Atoms                              #
@@ -3350,6 +3472,23 @@ HC3HNH = Molecule(
     mua=2.14,
     mub=0.17,
 )
+C3HCCH = Molecule(
+    name="ethynyl cyclopropenylidne",
+    formula='C3HCCH',
+    year=2021,
+    label="C3HCCH",
+    sources=[TMC1],
+    telescopes=[Yebes40],
+    wavelengths=["cm"],
+    d_ref="Cernicharo et al. 2021 A&A in press. https://arxiv.org/abs/2104.13991",
+    lab_ref="Travers et al. 1997 ApJL 483, L135; McCarthy et al. 1997 Science 275, 518; Gottlieb et al. 1998 ApJL 509, L141",
+    cyclic=True,
+    Acon=34639,
+    Bcon=3425,
+    Ccon=3114,
+    mua=2.04,
+    mub=2.89,
+)
 
 ######################################################################
 #                           Eight Atoms                              #
@@ -3588,6 +3727,23 @@ HCCCH2CN = Molecule(
     mua=3.23,
     mub=2.34,
 )
+CH2CHCCH = Molecule(
+    name="vinyl acetylene",
+    formula="CH2CHCCH",
+    year=2021,
+    label="CH2CHCCH",
+    sources=[TMC1],
+    telescopes=[Yebes40],
+    wavelengths=["cm"],
+    d_ref="Cernicharo et al. 2021 A&A 647, L2",
+    lab_ref="Thorwirth et al. 2004 J Mol Struct 695, 263; Thorwirth et al. 2003 A&A 398, L11; Sobolev 1961 Optics and Spectroscopy 12, 78",
+    notes="Dipole moment is of some debate, especially mub.  See Thorwirth et al. 2003 attempts to improve upon Sobolev 1961.",
+    Acon=50300,
+    Bcon=4745,
+    Ccon=4330,
+    mua=0.43,
+    mub=0.02,
+)
 
 ######################################################################
 #                           Nine Atoms                               #
@@ -3769,6 +3925,74 @@ HC7O = Molecule(
     notes="*Confirmed in Cordiner et al. 2017 ApJ 850, 194",
     Bcon=549,
     mua=2.2,
+)
+H2CCCHCCH = Molecule(
+    name="allenyl acetylene",
+    formula="H2CCCHCCH",
+    year=2021,
+    label="H2CCCHCCH",
+    sources=[TMC1],
+    telescopes=[Yebes40],
+    wavelengths=["cm"],
+    d_ref="Cernicharo et al. 2021 A&A 647, L3",
+    lab_ref="McCarthy et al. 2020 J Phys Chem A 124, 5170; Lee & McCarthy 2019 J Phys Chem Lett 10, 2408",
+    notes="",
+    Acon=25961,
+    Bcon=2616,
+    Ccon=2413,
+    mua=0.630,
+    mub=0.011,
+)
+C2H5SH = Molecule(
+    name="ethyl mercaptan",
+    formula="C2H5SH",
+    year=2021,
+    label="C2H5SH",
+    sources=[G0693],
+    telescopes=[Yebes40, IRAM30],
+    wavelengths=["cm", "mm"],
+    d_ref="Rodríguez-Almeida et al. 2021 ApJL 912, L11",
+    lab_ref="Kolesniková et al. 2014 ApJ 784, L7; Müller et al. 2016 A&A 587, A92; Schmidt & Quade 1975 J Chem Phys 62, 3864",
+    notes="",
+    Acon=28747,
+    Bcon=5295,
+    Ccon=4846,
+    mua=1.48,
+    mub=0.19,
+)
+HCCCHCHCN = Molecule(
+    name="cyanovinylacetylene",
+    formula="HCCCHCHCN",
+    year=2021,
+    label="HCCCHCHCN",
+    sources=[TMC1],
+    telescopes=[GBT],
+    wavelengths=["cm"],
+    d_ref="Lee et al. 2021 ApJL 908, L11",
+    lab_ref="Halter et al. 2001 J Am Chem Soc 123, 12353; Thorwirth et al. 2004 J Mol Spectrosc 225, 93; McCarthy et al. 2020 J Phys Chem A 124, 5170",
+    notes="",
+    Acon=7098,
+    Bcon=2683,
+    Ccon=1943,
+    mua=4.2,
+    mub=0.6,
+)
+H2CCHC3N = Molecule(
+    name="vinylcyanoacetylene",
+    formula="H2CCHC3N",
+    year=2021,
+    label="H2CCHC3N",
+    sources=[TMC1],
+    telescopes=[GBT],
+    wavelengths=["cm"],
+    d_ref="Lee et al. 2021 ApJL 908, L11",
+    lab_ref="Halter et al. 2001 J Am Chem Soc 123, 12353; Thorwirth et al. 2004 J Mol Spectrosc 225, 93; McCarthy et al. 2020 J Phys Chem A 124, 5170",
+    notes="",
+    Acon=39920,
+    Bcon=1377,
+    Ccon=1330,
+    mua=5.3,
+    mub=0.3,
 )
 
 ######################################################################
@@ -3965,6 +4189,22 @@ CH3COCH2OH = Molecule(
     mua=2.22,
     mub=2.17,
 )
+C5H6 = Molecule(
+    name="cyclopentadiene",
+    formula='C5H6',
+    year=2021,
+    label="C5H6",
+    sources=[TMC1],
+    telescopes=[Yebes40],
+    wavelengths=["cm"],
+    d_ref="Cernicharo et al. 2021 A&A in press. https://arxiv.org/abs/2104.13991",
+    lab_ref="Laurie 1956 J Chem Phys 24, 635; Scharpen & Laurie 1965 J Chem Phys 43, 2765; Benson & Flygare 1970 J Am Chem Soc 92, 7523; Bogey et al. 1988 J Mol Spectrosc 132, 277",
+    cyclic=True,
+    Acon=8426,
+    Bcon=8226,
+    Ccon=4271,
+    mub=0.416,
+)
 
 ######################################################################
 #                           Twelve Atoms                             #
@@ -4031,13 +4271,32 @@ C5H5CN1 = Molecule(
     telescopes=[GBT],
     wavelengths=["cm"],
     cyclic=True,
-    d_ref="McCarthy et al. 2020 Nature Astronomy, doi:10.1038/s41550-020-01213-y.",
-    lab_ref="McCarthy et al. 2020 Nature Astronomy, doi:10.1038/s41550-020-01213-y.",
+    d_ref="McCarthy et al. 2021 Nature Astronomy 5, 176",
+    lab_ref="McCarthy et al. 2021 Nature Astronomy 5, 176; Ford & Seitzman 1978 JMS 69, 326; Sakaizumi et al. 1987 Bull. Chem. Soc. Jap. 60, 3903",
     notes="First molecule with a 5-membered ring detected in the ISM.",
     Acon=8353,
     Bcon=1904,
     Ccon=1565,
     mua=4.15,
+    mub=0.27,
+)
+C5H5CN2 = Molecule(
+    name="2-cyano-1,3-cyclopentadiene",
+    formula="C5H5CN",
+    year=2021,
+    label="2-C5H5CN",
+    sources=[TMC1],
+    telescopes=[GBT],
+    wavelengths=["cm"],
+    cyclic=True,
+    d_ref="Lee et al. 2021 ApJL 910, L2",
+    lab_ref="Lee et al. 2021 ApJL 910, L2; McCarthy et al. 2021 Nature Astronomy 5, 176; Ford & Seitzman 1978 JMS 69, 326; Sakaizumi et al. 1987 Bull. Chem. Soc. Jap. 60, 3903",
+    notes="",
+    Acon=8236,
+    Bcon=1902,
+    Ccon=1560,
+    mua=4.36,
+    mub=0.77,
 )
 
 ######################################################################
@@ -4069,7 +4328,7 @@ HC11N = Molecule(
     sources=[TMC1],
     telescopes=[GBT],
     wavelengths=["cm"],
-    d_ref="",
+    d_ref="Loomis et al. 2021 Nature Astronomy 5, 188",
     lab_ref="Travers et al. 1996 ApJL 469, L65",
     notes=None,
     Bcon=169,
@@ -4090,7 +4349,7 @@ CNN1 = Molecule(
     wavelengths=["cm"],
     cyclic=True,
     pah=True,
-    d_ref="",
+    d_ref="McGuire et al. 2021 Science 371, 1265",
     lab_ref="McNaughton et al. 2018 MNRAS 476, 5268",
     notes="First individually detected PAH molecule in the ISM, alongside 2-cyanonaphthalene.",
     Acon=1479,
@@ -4109,7 +4368,7 @@ CNN2 = Molecule(
     wavelengths=["cm"],
     cyclic=True,
     pah=True,
-    d_ref="",
+    d_ref="McGuire et al. 2021 Science 371, 1265",
     lab_ref="McNaughton et al. 2018 MNRAS 476, 5268",
     notes="First individually detected PAH molecule in the ISM, alongside 1-cyanonaphthalene.",
     Acon=2707,
@@ -4117,6 +4376,25 @@ CNN2 = Molecule(
     Ccon=495,
     mua=5.09,
     mub=0.98,
+)
+C9H8 = Molecule(
+    name="indene",
+    formula="C9H8",
+    year=2021,
+    label="C9H8",
+    sources=[TMC1],
+    telescopes=[GBT],
+    wavelengths=["cm"],
+    cyclic=True,
+    pah=True,
+    d_ref="Burkhardt et al. 2021 ApJL in press.  https://arxiv.org/abs/2104.15117; Cernicharo et al. 2021 A&A in press. https://arxiv.org/abs/2104.13991",
+    lab_ref="Burkhardt et al. 2021 ApJL in press.; Li et al. 1979 J Mol Struct 51, 171", 
+    notes="",
+    Acon=3775,
+    Bcon=1581,
+    Ccon=1122,
+    mua=0.59,
+    mub=0.43,
 )
 
 ######################################################################
@@ -4174,6 +4452,7 @@ C70 = Molecule(
 #############################################################
 
 all_molecules = [
+    #two atoms
     CH,
     CN,
     CHp,
@@ -4215,6 +4494,7 @@ all_molecules = [
     NSp,
     HeHp,
     VO,
+    #three atoms
     H2O,
     HCOp,
     HCN,
@@ -4259,6 +4539,8 @@ all_molecules = [
     HSC,
     NCO,
     CaNC,
+    NCS,
+    #four atoms
     NH3,
     H2CO,
     HNCO,
@@ -4288,6 +4570,9 @@ all_molecules = [
     HCCO,
     CNCN,
     HONO,
+    MgCCH,
+    HCCS,
+    #five atoms
     HC3N,
     HCOOH,
     CH2NH,
@@ -4312,6 +4597,13 @@ all_molecules = [
     H2NCOp,
     NCCNHp,
     CH3Cl,
+    MgC3N,
+    HC3Op,
+    HC3Sp,
+    H2CCS,
+    C4S,
+    CHOSH,
+    #six atoms
     CH3OH,
     CH3CN,
     NH2CHO,
@@ -4331,6 +4623,10 @@ all_molecules = [
     C5Nm,
     HNCHCN,
     SiH3CN,
+    MgC4H,
+    CH3COp,
+    H2CCCS,
+    #seven atoms
     CH3CHO,
     CH3CCH,
     CH3NH2,
@@ -4343,6 +4639,10 @@ all_molecules = [
     CH3NCO,
     HC5O,
     HOCH2CN,
+    HC4NC,
+    HC3HNH,
+    C3HCCH,
+    #eight atoms
     HCOOCH3,
     CH3C3N,
     C7H,
@@ -4356,6 +4656,9 @@ all_molecules = [
     CH3CHNH,
     CH3SiH3,
     NH2CONH2,
+    HCCCH2CN,
+    CH2CHCCH,
+    #nine atoms
     CH3OCH3,
     CH3CH2OH,
     CH3CH2CN,
@@ -4367,31 +4670,39 @@ all_molecules = [
     CH2CHCH3,
     CH3CH2SH,
     HC7O,
+    H2CCCHCCH,
+    C2H5SH,
+    HCCCHCHCN,
+    H2CCHC3N,
+    #ten atoms
     acetone,
     HOCH2CH2OH,
     CH3CH2CHO,
     CH3C5N,
     CH3CHCH2O,
     CH3OCH2OH,
+    #eleven atoms
     HC9N,
     CH3C6H,
     C2H5OCHO,
     CH3COOCH3,
+    CH3COCH2OH,
+    C5H6,
+    #twelve atoms
     C6H6,
     nC3H7CN,
     iC3H7CN,
+    C5H5CN1,
+    C5H5CN2,  
+    #thirteen atoms  
     cC6H5CN,
+    HC11N,
+    #PAHS
+    CNN1,
+    CNN2,
+    C9H8, 
+    #fullerenes   
     C60,
     C60p,
     C70,
-    CNN1,
-    CNN2,
-    HCCCH2CN,
-    HC4NC,
-    HC11N,
-    C5H5CN1,
-    MgC3N,
-    MgC4H,
-    HC3HNH,
-    HC3Op,
 ]

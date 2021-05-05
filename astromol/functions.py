@@ -1319,12 +1319,13 @@ def periodic_heatmap(mol_list=None, filename=None):
     os.system("pdfcrop --margins -0 periodic_heatmap.pdf periodic_heatmap.pdf")
 
 
-def mass_by_wavelength(mol_list=None, bw=0.5, filename=None):
+def mass_by_wavelengths(mol_list=None, bw=0.5, filename=None):
     """
     Makes a KDE plot of detections at each wavelength vs mass.
     Defaults to using all molecules in the database, but can be passed a subset of molecules as a list of Molecule objects in mol_list.
     Defaults to a bandwidth of 0.5, which can be overriden by any float.
-    Default filename is 'mass_by_wavelengths_kde.pdf', but that can also be overriden.
+    Default filename
+     is 'mass_by_wavelengths_kde.pdf', but that can also be overriden.
     """
 
     # If a list wasn't specified, default to all molecules
