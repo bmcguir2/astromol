@@ -41,7 +41,7 @@ def make_all_plots():
     cumu_det_natoms_plot()
     det_per_year_per_atom()
     facility_shares()
-    cumu_det_facility()
+    scopes_by_year()
     periodic_heatmap()
     mass_by_wavelengths()
     mols_waves_by_atoms()
@@ -55,6 +55,24 @@ def make_all_plots():
     waves_by_source_type()
 
     return
+
+def make_all_latex():
+
+    """
+    A meta function that, when run, will call every latex-generating command based on
+    the input list of Molecule objects using default parameters.  Useful for rapidly re-generating all latex inputs.
+
+    Will always use the full database and default filenames.
+    """
+
+    make_det_count()
+    make_elem_count()
+    make_ism_tables()
+    make_exgal_table()
+    make_ppd_table()
+    make_exo_table()
+
+    return    
 
 
 def change_color(color, amount=1.0):
@@ -781,8 +799,7 @@ def facility_shares(mol_list=None, telescopes_list=None, filename=None):
         bbox_inches="tight",
     )
 
-
-def cumu_det_facility(mol_list=None, telescopes_list=None, min_detects=10, filename=None):
+def scopes_by_year(mol_list=None, telescopes_list=None, min_detects=10, filename=None):
 
     """
     Makes a plot of the cumulative number of detections of a facility with time.
@@ -809,14 +826,17 @@ def cumu_det_facility(mol_list=None, telescopes_list=None, min_detects=10, filen
     plt.rc("font", **fontparams)
     plt.rc("mathtext", fontset="stixsans")
 
-    # We're only going to do facilities with 10 or more total detections.
+    # We're only going to do facilities with min_detects or more total detections.
     # set this thing up to kick off a few years before 1968 and run until today
 
     years = np.arange(1965, date.today().year + 1)
     scopes = [x for x in telescopes_list if x.ndetects >= min_detects]
-
+    #need a color pallette to work with.  This one is supposedly color-blind friendly.  There are more here than currently needed.
+    #if we happen to exceed this at some point, it will crash.
+    colors = ['#377eb8', '#ff7f00', '#4daf4a', '#f781bf', '#a65628', '#984ea3', '#999999', '#e41a1c', '#dede00'][:len(scopes)]
+    
     my_dict = {}
-    for scope in scopes:
+    for scope,color in zip(scopes,colors):
         tmp_years = np.copy(years) * 0
         i = 0
         for x in range(len(years)):
@@ -824,7 +844,24 @@ def cumu_det_facility(mol_list=None, telescopes_list=None, min_detects=10, filen
                 if mol.year == years[x] and scope in mol.telescopes:
                     i += 1
             tmp_years[x] = i
-        my_dict[scope.shortname] = tmp_years
+        my_dict[scope.shortname] = [tmp_years,color,scope]
+        
+    # do linear fits to the data for the ranges we care about for each facility:
+    # get some year indicies for years we care about
+    def iyear(x):
+        return np.argwhere(years == x)[0][0]
+
+    #manually add cutoff dates for telescopes to be used in the fitting.  If a date isn't added, it defaults to the present
+    cutoffs = {
+                'NRAO 36-ft' : 1985,
+                'NRAO 140-ft' : 1993,
+                'Nobeyama 45-m' : 1997,
+    }
+
+    #add trends to the dictionary
+    for x in my_dict:
+        end_year = iyear(cutoffs[my_dict[x][2].shortname]) if my_dict[x][2].shortname in cutoffs else None
+        my_dict[x].append(np.polynomial.polynomial.Polynomial.fit(years[iyear(my_dict[x][2].built) : end_year], my_dict[x][0][iyear(my_dict[x][2].built) : end_year], 1).convert().coef[1] )
 
     # pull up an axis
     ax = fig.add_subplot(111)
@@ -840,249 +877,58 @@ def cumu_det_facility(mol_list=None, telescopes_list=None, min_detects=10, filen
     ax.xaxis.set_ticks_position("both")
     ax.set_xticks([1970, 1980, 1990, 2000, 2010, 2020])
 
-    ax.plot(years, my_dict["GBT"], color="#000000")
-    ax.plot(years, my_dict["IRAM"], color="#800000")
-    ax.plot(years, my_dict["NRAO 140-ft"], color="#f032e6")
-    ax.plot(years, my_dict["NRAO/ARO 12-m"], color="dodgerblue")
-    ax.plot(years, my_dict["NRAO 36-ft"], color="#e6194B")
-    ax.plot(years, my_dict["Nobeyama"], color="#469990")
+    #plot
+    for x in my_dict:
+        ax.plot(years, my_dict[x][0], color=my_dict[x][1])    
 
-    ax.annotate(
-        r"\textbf{GBT}",
-        xy=(date.today().year + 1, my_dict["GBT"][-1]),
-        xycoords="data",
-        size=16,
-        color="#000000",
-        va="center",
-        zorder=100,
-    )
-    ax.annotate(
-        r"\textbf{IRAM}",
-        xy=(date.today().year + 1, my_dict["IRAM"][-1]),
-        xycoords="data",
-        size=16,
-        color="#800000",
-        va="center",
-        zorder=100,
-    )
-    ax.annotate(
-        r"\textbf{NRAO 140-ft}",
-        xy=(date.today().year + 1, my_dict["NRAO 140-ft"][-1]),
-        xycoords="data",
-        size=16,
-        color="#f032e6",
-        va="top",
-        zorder=100,
-    )
-    ax.annotate(
-        r"\textbf{NRAO/ARO 12-m}",
-        xy=(date.today().year + 1, my_dict["NRAO/ARO 12-m"][-1]),
-        xycoords="data",
-        size=16,
-        color="dodgerblue",
-        va="center",
-        zorder=100,
-    )
-    ax.annotate(
-        r"\textbf{NRAO 36-ft}",
-        xy=(date.today().year + 1, my_dict["NRAO 36-ft"][-1]),
-        xycoords="data",
-        size=16,
-        color="#e6194B",
-        va="center",
-        zorder=100,
-    )
-    ax.annotate(
-        r"\textbf{Nobeyama}",
-        xy=(date.today().year + 1, my_dict["Nobeyama"][-1]),
-        xycoords="data",
-        size=16,
-        color="#469990",
-        va="bottom",
-        zorder=100,
-    )
+    #we want to sort the labels with the most productive telescopes on top; that's hard to do with a dictionary
+    #so, we get the rates into a list, and the keys into a list, then sort both of those by the rates, then iterate over the sorted keys
+    rates = []
+    keys = []
+    for x in my_dict:
+        keys.append(x)
+        rates.append(my_dict[x][3])
+    srt_idx = np.argsort(np.array(rates))[::-1]
+    keys = np.array(keys)[srt_idx]
 
-    ax.set_xlim([1965, date.today().year + 19])
-    ax.set_ylim(0, max([my_dict[x][-1] for x in my_dict]) + 5)
-
-    # do linear fits to the data for the ranges we care about for each facility:
-    # get some year indicies for years we care about
-    def iyear(x):
-        return np.argwhere(years == x)[0][0]
-
-    trendGBT = (
-        np.polynomial.polynomial.Polynomial.fit(years[iyear(GBT.built) :], my_dict["GBT"][iyear(GBT.built) :], 1)
-        .convert()
-        .coef[1]
-    )
-    ax.annotate(
-        "{:.1f}/yr".format(trendGBT),
-        xy=(2014, 7.5),
-        xycoords="data",
-        size=16,
-        color="#000000",
-        ha="center",
-    )
-    ax.annotate(
-        "{}{: <7}".format(GBT.built, " - "),
-        xy=(2014, 4.5),
-        xycoords="data",
-        size=16,
-        color="#000000",
-        ha="right",
-    )
-
-    trendIRAMold = (
-        np.polynomial.polynomial.Polynomial.fit(
-            years[iyear(IRAM30.built) : iyear(2006)],
-            my_dict["IRAM"][iyear(IRAM30.built) : iyear(2006)],
-            1,
+    row = 0
+    for x in keys:
+        ax.annotate(
+            my_dict[x][2].shortname,
+            xy = (0.1, 0.90-0.05*row),
+            xycoords = 'axes fraction',
+            color = my_dict[x][1],
+            fontweight = 'bold', #for some reason, matplotlib is entirely ignoring this
+            ha = 'left',
+            va = 'top',
+            size = 18,
         )
-        .convert()
-        .coef[1]
-    )
-    ax.annotate(
-        "{:.1f}/yr".format(trendIRAMold),
-        xy=(1990, 21),
-        xycoords="data",
-        size=16,
-        color="#800000",
-        ha="center",
-    )
-    ax.annotate(
-        "{} - 2006".format(IRAM30.built),
-        xy=(1990, 18),
-        xycoords="data",
-        size=16,
-        color="#800000",
-        ha="center",
-    )
-
-    trendIRAMnew = (
-        np.polynomial.polynomial.Polynomial.fit(years[iyear(2006) :], my_dict["IRAM"][iyear(2006) :], 1)
-        .convert()
-        .coef[1]
-    )
-    ax.annotate(
-        "{:.1f}/yr".format(trendIRAMnew),
-        xy=(2020, 45),
-        xycoords="data",
-        size=16,
-        color="#800000",
-        ha="center",
-    )
-    ax.annotate(
-        "2006{: <7}".format(" - "),
-        xy=(2020, 42),
-        xycoords="data",
-        size=16,
-        color="#800000",
-        ha="right",
-    )
-
-    trend140 = (
-        np.polynomial.polynomial.Polynomial.fit(
-            years[iyear(NRAO140.built) : 1993],
-            my_dict["NRAO 140-ft"][iyear(NRAO140.built) : 1993],
-            1,
+        ax.annotate(
+            f'{my_dict[x][3]:.1f}/yr',
+            xy = (0.37, 0.90-0.05*row),
+            xycoords = 'axes fraction',
+            color = my_dict[x][1],
+            fontweight = 'bold', #for some reason, matplotlib is entirely ignoring this
+            ha = 'left',
+            va = 'top',
+            size = 18,
         )
-        .convert()
-        .coef[1]
-    )
-    ax.annotate(
-        "{:.1f}/yr".format(trend140),
-        xy=(1980, 12.5),
-        xycoords="data",
-        size=16,
-        color="#f032e6",
-        ha="center",
-    )
-    ax.annotate(
-        "{} - 1993".format(NRAO140.built),
-        xy=(1980, 9.5),
-        xycoords="data",
-        size=16,
-        color="#f032e6",
-        ha="center",
-    )
+        date_str_a = f'({my_dict[x][2].built} -'
+        date_str_b = f'{cutoffs[my_dict[x][2].shortname]})' if my_dict[x][2].shortname in cutoffs else f'{date.today().year})'
+        ax.annotate(
+            date_str_a + date_str_b,
+            xy = (0.47, 0.90-0.05*row),
+            xycoords = 'axes fraction',
+            color = my_dict[x][1],
+            fontweight = 'bold', #for some reason, matplotlib is entirely ignoring this
+            ha = 'left',
+            va = 'top',
+            size = 18,
+        )        
+        row += 1
 
-    trend12 = (
-        np.polynomial.polynomial.Polynomial.fit(
-            years[iyear(NRAOARO12.built) :],
-            my_dict["NRAO/ARO 12-m"][iyear(NRAOARO12.built) :],
-            1,
-        )
-        .convert()
-        .coef[1]
-    )
-    ax.annotate(
-        "{:.1f}/yr".format(trend12),
-        xy=(2014.8, 30.2),
-        xycoords="data",
-        size=16,
-        color="dodgerblue",
-        ha="center",
-    )
-    ax.annotate(
-        "{}{: <7}".format(NRAOARO12.built, " - "),
-        xy=(2014.8, 27.2),
-        xycoords="data",
-        size=16,
-        color="dodgerblue",
-        ha="right",
-    )
-
-    trend36 = (
-        np.polynomial.polynomial.Polynomial.fit(
-            years[iyear(NRAO36.built) : 1985],
-            my_dict["NRAO 36-ft"][iyear(NRAO36.built) : 1985],
-            1,
-        )
-        .convert()
-        .coef[1]
-    )
-    ax.annotate(
-        "{:.1f}/yr".format(trend36),
-        xy=(1975, 34),
-        xycoords="data",
-        size=16,
-        color="#e6194B",
-        ha="center",
-    )
-    ax.annotate(
-        "{} - 1985".format(NRAO36.built),
-        xy=(1975, 31),
-        xycoords="data",
-        size=16,
-        color="#e6194B",
-        ha="center",
-    )
-
-    trendNobeyama = (
-        np.polynomial.polynomial.Polynomial.fit(
-            years[iyear(Nobeyama45.built) :],
-            my_dict["Nobeyama"][iyear(Nobeyama45.built) :],
-            1,
-        )
-        .convert()
-        .coef[1]
-    )
-    ax.annotate(
-        "{:.1f}/yr".format(trendNobeyama),
-        xy=(2012, 19),
-        xycoords="data",
-        size=16,
-        color="#469990",
-        ha="center",
-    )
-    ax.annotate(
-        "{}{: <7}".format(Nobeyama45.built, " - "),
-        xy=(2012, 16),
-        xycoords="data",
-        size=16,
-        color="#469990",
-        ha="right",
-    )
+    ax.set_xlim([1965, date.today().year + 2])
+    ax.set_ylim(0, max([my_dict[x][0][-1] for x in my_dict]) + 5)
 
     plt.show()
 
@@ -1091,7 +937,7 @@ def cumu_det_facility(mol_list=None, telescopes_list=None, min_detects=10, filen
         format="pdf",
         transparent=True,
         bbox_inches="tight",
-    )
+    )    
 
 
 def periodic_heatmap(mol_list=None, filename=None):
@@ -3095,3 +2941,611 @@ def waves_by_source_type(mol_list=None, filename=None):
     )
 
     return
+
+#############################################################
+# 						    LaTeX	 						#
+#############################################################
+
+def make_ism_tables(mol_list=None, filename=None):
+    """
+    Generates the two latex tables for the census that contain all the detected ISM/CSM molecules,
+    using the hyperlink tags for the census paper.  The default is to use all the molecules for mol_list, but
+    it's possible to override if that's desired.  Will output two files, by default 'ism_table_2-7.tex' and 'ism_table_8+.tex'.
+    This can be overriden, but only the basename: filename + '_2-7.tex' and filename + '_8+.tex'
+    """
+
+    # If a list wasn't specified, default to all molecules
+    if mol_list is None:
+        mol_list = all_molecules
+
+    # If output filename is not specified, use defaults
+    if filename is None:
+        filename_two_seven = "ism_table_2-7.tex"
+        filename_eight_more = "ism_table_8+.tex"
+    else:
+        filename_two_seven = filename + "_2-7.tex"
+        filename_eight_more = filename + "_8+.tex"
+
+    # put molecules into individual lists for ease of use below
+    two_atoms = [x for x in mol_list if x.natoms == 2]
+    three_atoms = [x for x in mol_list if x.natoms == 3]
+    four_atoms = [x for x in mol_list if x.natoms == 4]
+    five_atoms = [x for x in mol_list if x.natoms == 5]
+    six_atoms = [x for x in mol_list if x.natoms == 6]
+    seven_atoms = [x for x in mol_list if x.natoms == 7]
+    eight_atoms = [x for x in mol_list if x.natoms == 8]
+    nine_atoms = [x for x in mol_list if x.natoms == 9]
+    ten_atoms = [x for x in mol_list if x.natoms == 10]
+    eleven_atoms = [x for x in mol_list if x.natoms == 11]
+    twelve_atoms = [x for x in mol_list if x.natoms == 12]
+    thirteen_atoms = [x for x in mol_list if x.natoms == 13]
+    pahs = [x for x in mol_list if x.pah is True]
+    fullerenes = [x for x in mol_list if x.fullerene is True]
+
+    # we'll do the first table with molecules from 2-7 atoms in it.
+
+    # initialize a list to hold each line of the table
+    table_list = []
+
+    # Some of our columns will be double: two, three, four, and five atoms. So we need to split those into sub-lists
+    i = int(len(two_atoms) / 2) + 1
+    j = int(len(three_atoms) / 2) + 1
+    k = int(len(four_atoms) / 2) + 1
+    n = int(len(five_atoms) / 2) + 1
+
+    two_seven = [
+        two_atoms[:i],
+        two_atoms[i:],
+        three_atoms[:j],
+        three_atoms[j:],
+        four_atoms[:k],
+        four_atoms[k:],
+        five_atoms[:n],
+        five_atoms[n:],
+        six_atoms,
+        seven_atoms,
+    ]
+
+    # figure out the max number of rows for our table
+    nlines = np.max([len(x) for x in two_seven])
+
+    # put into latex and add to the table_list
+
+    for x in range(nlines):
+        table_line = ""
+        for r in two_seven:
+            if x < len(r):
+                label = r[x].label
+                formula = r[x].formula if r[x].table_formula is None else r[x].table_formula
+                table_line += "\\hyperref[{}]{{\ce{{{}}}}}\t&\t".format(label, formula)
+            else:
+                table_line += "\t&\t"
+        table_line = table_line[:-2]
+        table_line += "\\\\\n"
+        table_list.append(table_line)
+
+    with open(filename_two_seven, "w") as output:
+
+        output.write("\\begin{table*}\n")
+        output.write("\\centering\n")
+        output.write(
+            "\\caption{List of detected interstellar molecules with two to seven atoms, categorized by number of atoms, and vertically ordered by detection year.  Column headers and molecule formulas are in-document hyperlinks in most PDF viewers.}\n"
+        )
+        output.write(
+            "\\begin{tabular*}{\\textwidth}{l l @{\\extracolsep{\\fill}} l l  @{\\extracolsep{\\fill}} l l  @{\\extracolsep{\\fill}} l l @{\\extracolsep{\\fill}} l @{\\extracolsep{\\fill}} l}\n"
+        )
+        output.write("\\hline\\hline\n")
+        output.write(
+            "\\multicolumn{2}{c}{\\hyperref[2atoms]{2 Atoms}} &\multicolumn{2}{c}{\\hyperref[3atoms]{3 Atoms}}& \multicolumn{2}{c}{\\hyperref[4atoms]{4 Atoms}} & \multicolumn{2}{c}{\\hyperref[5atoms]{5 Atoms}} & \\hyperref[6atoms]{6 Atoms} & \\hyperref[7atoms]{7 Atoms} \\\\\n"
+        )
+        output.write("\\hline\n")
+
+        for x in table_list:
+            output.write(x)
+
+        output.write("\\hline\n\\end{tabular*}\n\\label{two_seven}\n\\end{table*}")
+
+    # now we do the 8 or more table.
+    table_list = []
+
+    eight_more = [
+        eight_atoms,
+        nine_atoms,
+        ten_atoms,
+        eleven_atoms,
+        twelve_atoms,
+        thirteen_atoms,
+        pahs,
+        fullerenes,
+    ]
+
+    nlines = np.max([len(x) for x in eight_more])
+
+    for x in range(nlines):
+        table_line = ""
+        for r in eight_more:
+            if x < len(r):
+                label = r[x].label
+                formula = r[x].formula if r[x].table_formula is None else r[x].table_formula
+                table_line += "\\hyperref[{}]{{\ce{{{}}}}}\t&\t".format(label, formula)
+            else:
+                table_line += "\t&\t"
+        table_line = table_line[:-2]
+        table_line += "\\\\\n"
+        table_list.append(table_line)
+
+    with open(filename_eight_more, "w") as output:
+
+        output.write("\\begin{table*}\n")
+        output.write("\\centering\n")
+        output.write(
+            "\\caption{List of detected interstellar molecules with eight or more atoms, categorized by number of atoms, and vertically ordered by detection year.  Column headers and molecule formulas are in-document hyperlinks in most PDF viewers.}\n"
+        )
+        output.write(
+            "\\begin{tabular*}{\\textwidth}{l @{\\extracolsep{\\fill}} l @{\\extracolsep{\\fill}} l @{\\extracolsep{\\fill}} l @{\\extracolsep{\\fill}} l @{\\extracolsep{\\fill}} l @{\\extracolsep{\\fill}} l @{\\extracolsep{\\fill}} l }\n"
+        )
+        output.write("\\hline\\hline\n")
+        output.write(
+            "\\hyperref[8atoms]{8 Atoms} & \\hyperref[9atoms]{9 Atoms} & \\hyperref[10atoms]{10 Atoms} & \\hyperref[11atoms]{11 Atoms} & \\hyperref[12atoms]{12 Atoms} & \\hyperref[13atoms]{13 Atoms} & \\hyperref[pahs]{PAHs} & \\hyperref[fullerenes]{Fullerenes}  \\\\\n"
+        )
+        output.write("\\hline\n")
+
+        for x in table_list:
+            output.write(x)
+
+        output.write("\\hline\n\\end{tabular*}\n\\label{eight_more}\n\\end{table*}")
+
+def make_det_count(mol_list=None, filename=None):
+    """
+    Makes a .tex file containing simply the number of molecules in mol_list, which defaults to all molecules.
+    Filename defaults to ndetects.tex, but can be overriden.
+    """
+
+    # If a list wasn't specified, default to all molecules
+    if mol_list is None:
+        mol_list = all_molecules
+
+    with open(filename if filename is not None else 'ndetects.tex', 'w') as output:
+        output.write(f'{len(mol_list)}')
+
+def make_elem_count(mol_list=None, filename=None):
+    """
+    Makes a .tex file containing simply the number of unique elements in mol_list, which defaults to all molecules.
+    Filename defaults to "nelems.tex", but can be overriden.
+    """
+
+    # If a list wasn't specified, default to all molecules
+    if mol_list is None:
+        mol_list = all_molecules
+
+    elems = []
+
+    for mol in mol_list:
+        for atom in mol.atoms:
+            if mol.atoms[atom] > 0:
+                if atom not in elems: 
+                    elems.append(atom)     
+
+    with open(filename if filename is not None else 'nelems.tex', 'w') as output:
+        output.write(f'{len(elems)}')        
+
+
+def make_exgal_table(mol_list=None, filename=None):
+    """
+    Generates the latex table for the census that contains all the detected extragalactic molecules,
+    using the provided bibtex references.  The default is to use all the molecules for mol_list, but
+    it's possible to override if that's desired.  Filename defaults to "exgal_table.tex", but can be overriden.
+    """
+
+    # If a list wasn't specified, default to all molecules
+    if mol_list is None:
+        mol_list = all_molecules    
+
+    # put molecules into individual lists for ease of use below
+    two_atoms = [x for x in mol_list if x.natoms == 2 and x.exgal is not None]
+    three_atoms = [x for x in mol_list if x.natoms == 3 and x.exgal is not None]
+    four_atoms = [x for x in mol_list if x.natoms == 4 and x.exgal is not None]
+    five_atoms = [x for x in mol_list if x.natoms == 5 and x.exgal is not None]
+    six_atoms = [x for x in mol_list if x.natoms == 6 and x.exgal is not None]
+    seven_atoms = [x for x in mol_list if x.natoms == 7 and x.exgal is not None]
+    eight_atoms = [x for x in mol_list if x.natoms == 8 and x.exgal is not None]
+    nine_atoms = [x for x in mol_list if x.natoms == 9 and x.exgal is not None]
+    # ten_atoms = [x for x in mol_list if x.natoms == 10 and x.exgal is not None] # no hits here yet
+    # eleven_atoms = [x for x in mol_list if x.natoms == 11 and x.exgal is not None] # no hits here yet
+    twelve_atoms = [x for x in mol_list if x.natoms == 12 and x.exgal is not None]    
+
+    # initialize a list to hold each line of the first table
+    table = []
+
+    # add the pre-amble latex stuff
+    table.append(r"\begin{table*}" + "\n")
+    table.append(r"\centering" + "\n")
+    table.append(r"\caption{List of molecules detected in external galaxies with references to the first detections.  Tentative detections are indicated, and some extra references are occasionally provided for context.}" + "\n")
+    table.append(r"\begin{tabular*}{\textwidth}{l @{\extracolsep{\fill}} l @{\extracolsep{\fill}} l @{\extracolsep{\fill}} l @{\extracolsep{\fill}} l @{\extracolsep{\fill}} l @{\extracolsep{\fill}} l @{\extracolsep{\fill}} l @{\extracolsep{\fill}} l @{\extracolsep{\fill}} l @{\extracolsep{\fill}}}" + "\n")
+    table.append(r"\hline\hline" + "\n")
+    table.append(r"\multicolumn{2}{c}{2 Atoms}&\multicolumn{2}{c}{3 Atoms}&\multicolumn{2}{c}{4 Atoms}&\multicolumn{2}{c}{5 Atoms}\\" + "\n")
+    table.append(r"Species	&	Ref.	&	Species	&	Ref.	&	Species	&	Ref.	&	Species	&	Ref.	\\" + "\n")
+    table.append(r"\hline" + "\n")
+
+    # initialize a dictionary to hold references and the Ref ID that is used, and initialize a counter
+    refs_dict = {}
+    ref_idx = 1
+
+    two_five = [
+        two_atoms,
+        three_atoms,
+        four_atoms,
+        five_atoms,
+    ]
+
+    six_more = [
+        six_atoms,
+        seven_atoms,
+        eight_atoms,
+        nine_atoms,
+        twelve_atoms,
+    ]    
+
+    # Do the two to five atom table first
+
+    # figure out the max number of rows for the first half of our table
+    nlines_first = np.max([len(x) for x in two_five])
+
+    #now just loop through and add
+    for i in range(nlines_first):
+        table_line = ""
+        for x in two_five:
+            if i < len(x):
+                # get the formula in there
+                formula = x[i].formula if x[i].table_formula is None else x[i].table_formula
+                # if it's not tentative, just add it
+                if x[i].exgal is True:
+                    table_line += f"\ce{{{formula}}}\t&\t"
+                # if it is tentative, note that
+                if x[i].exgal == "Tentative":
+                    table_line += f"\ce{{{formula}}}" + r"$^{\dagger}$" + "\t&\t"
+                # now we deal with the references
+                ref_strs = []
+                # some detections have more than one reference, so we loop over them
+                for ref_ID in x[i].exgal_bib_ids:
+                    # if the reference has already been used before, we just use the number from that instance
+                    if ref_ID in refs_dict:
+                        ref_strs.append(refs_dict[ref_ID])
+                    # if it hasn't been used before    
+                    else:
+                        # assign it the next number in line to be used
+                        ref_strs.append(str(ref_idx))
+                        # add it as an entry in refs_dict so we can use it again if needs be
+                        refs_dict[ref_ID] = str(ref_idx)
+                        # and increment the number
+                        ref_idx += 1
+                # join the reference string together and add it to the line
+                table_line += f"{', '.join(ref_strs)}\t&\t"
+            else:
+                table_line += "\t&\t&\t"
+        table_line = table_line[:-2]
+        table_line += "\\\\\n"
+        table.append(table_line)
+
+    # add stuff between the two halves of the table
+    table.append(r"\hline\hline" + "\n")
+    table.append(r"\end{tabular*}" + "\n")
+    table.append(r"\begin{tabular*}{\textwidth}{l @{\extracolsep{\fill}} l @{\extracolsep{\fill}} l @{\extracolsep{\fill}} l @{\extracolsep{\fill}} l @{\extracolsep{\fill}} l @{\extracolsep{\fill}} l @{\extracolsep{\fill}} l @{\extracolsep{\fill}} l @{\extracolsep{\fill}} l @{\extracolsep{\fill}} l @{\extracolsep{\fill}} l @{\extracolsep{\fill}}}" + "\n")
+    table.append(r"\multicolumn{2}{c}{6 Atoms}&\multicolumn{2}{c}{7 Atoms}&\multicolumn{2}{c}{8 Atoms}&\multicolumn{2}{c}{9 Atoms}&\multicolumn{2}{c}{12 Atoms}\\" + "\n")
+    table.append(r"Species	&	Ref.	&	Species	&	Ref.	&	Species	&	Ref.	&	Species	&	Ref.	&	Species	&	Ref.	\\" + "\n")
+    table.append(r"\hline" + "\n")
+
+    # figure out the max number of rows for the second half of our table
+    nlines_second = np.max([len(x) for x in six_more])
+
+    # now just loop through and add
+    for i in range(nlines_second):
+        table_line = ""
+        for x in six_more:
+            if i < len(x):
+                # get the formula in there
+                formula = x[i].formula if x[i].table_formula is None else x[i].table_formula
+                # if it's not tentative, just add it
+                if x[i].exgal is True:
+                    table_line += f"\ce{{{formula}}}\t&\t"
+                # if it is tentative, note that
+                if x[i].exgal == "Tentative":
+                    table_line += f"\ce{{{formula}}}" + r"$^{\dagger}$" + "\t&\t"
+                # now we deal with the references
+                ref_strs = []
+                # some detections have more than one reference, so we loop over them
+                for ref_ID in x[i].exgal_bib_ids:
+                    # if the reference has already been used before, we just use the number from that instance
+                    if ref_ID in refs_dict:
+                        ref_strs.append(refs_dict[ref_ID])
+                    # if it hasn't been used before    
+                    else:
+                        # assign it the next number in line to be used
+                        ref_strs.append(str(ref_idx))
+                        # add it as an entry in refs_dict so we can use it again if needs be
+                        refs_dict[ref_ID] = str(ref_idx)
+                        # and increment the number
+                        ref_idx += 1
+                # join the reference string together and add it to the line
+                table_line += f"{', '.join(ref_strs)}\t&\t"
+            else:
+                table_line += "\t&\t&\t"
+        table_line = table_line[:-2]
+        table_line += "\\\\\n"
+        table.append(table_line)    
+
+    # close out the data portion of the table
+    table.append(r"\hline" + "\n")
+    table.append(r"\end{tabular*}" + "\n")
+    table.append(r"\justify" + "\n")
+    table.append(r"$^{\dagger}$Tentative detection\\" + "\n")
+
+    # now we do the references; we'll have to play a few tricks to get an ordered list out of the dictionary
+    reference_ids = [] # the actual latex citekeys
+    reference_idx = [] # the index number from the table
+    for ref in refs_dict:
+        reference_ids.append(ref)
+        reference_idx.append(int(refs_dict[ref]))
+    # get the ordered array that will sort the reference indices
+    sort_idx = np.argsort(np.array(reference_idx))
+    # then use it to sort both the reference indices and the references themselves
+    reference_ids = np.array(reference_ids)[sort_idx]
+    reference_idx = np.array(reference_idx)[sort_idx]
+
+    # get the preamble text out of the way; be sure not to include a carriage return
+    table.append(r"\textbf{References:}")
+    
+    # figure out how many references we have, and iterate over them
+    for i in range(np.max(reference_idx)):
+        table.append(f" [{reference_idx[i]}] " + r"\citet{" + f"{reference_ids[i]}" + r"} ")
+
+    # add the closing bit and a carriage return and the last lines
+    table.append(r"\\" + "\n")
+    table.append(r"\label{exgal_mols}" + "\n")
+    table.append(r"\end{table*}")
+
+    with open(filename if filename is not None else "exgal_table.tex", 'w') as output:
+        for line in table:
+            output.write(line)
+
+    return
+
+def make_ppd_table(mol_list=None, filename=None):
+    """
+    Generates the latex table for the census that contains all the detected protoplanetary disk molecules,
+    using the provided bibtex references.  The default is to use all the molecules for mol_list, but
+    it's possible to override if that's desired.  Filename defaults to "ppd_table.tex", but can be overriden.
+    """
+
+    # If a list wasn't specified, default to all molecules
+    if mol_list is None:
+        mol_list = all_molecules    
+
+    # put molecules into individual lists for ease of use below; pull out isotopologues if they exist
+    two_atoms = []
+    three_atoms =[]
+    four_atoms = []
+    five_atoms = []
+    six_atoms = []
+    
+    for mol in mol_list:
+        if mol.natoms == 2:
+            if mol.ppd is True:
+                two_atoms.append(mol)
+            if mol.ppd_isos is not None:
+                for iso in mol.ppd_isos:
+                    two_atoms.append(iso)
+        if mol.natoms == 3:
+            if mol.ppd is True:
+                three_atoms.append(mol)
+            if mol.ppd_isos is not None:
+                for iso in mol.ppd_isos:
+                    three_atoms.append(iso)
+        if mol.natoms == 4:
+            if mol.ppd is True:
+                four_atoms.append(mol)
+            if mol.ppd_isos is not None:
+                for iso in mol.ppd_isos:
+                    four_atoms.append(iso)
+        if mol.natoms == 5:
+            if mol.ppd is True:
+                five_atoms.append(mol)
+            if mol.ppd_isos is not None:
+                for iso in mol.ppd_isos:
+                    five_atoms.append(iso)                                
+        if mol.natoms == 6:
+            if mol.ppd is True:
+                six_atoms.append(mol)
+            if mol.ppd_isos is not None:
+                for iso in mol.ppd_isos:
+                    six_atoms.append(iso)
+
+    # initialize a list to hold each line of the first table
+    table = []
+
+    # add the pre-amble latex stuff
+    table.append(r"\begin{table*}" + "\n")
+    table.append(r"\centering" + "\n")
+    table.append(r"\caption{List of molecules, including rare isotopic species, detected in protoplanetary disks, with references to representative detections.  The earliest reported detection of a species in the literature is provided on a best-effort basis.  Tentative and disputed detections are not included (see text).}" + "\n")
+    table.append(r"\begin{tabular*}{\textwidth}{l @{\extracolsep{\fill}} l @{\extracolsep{\fill}} l @{\extracolsep{\fill}} l @{\extracolsep{\fill}} l @{\extracolsep{\fill}} l @{\extracolsep{\fill}} l @{\extracolsep{\fill}} l @{\extracolsep{\fill}} l @{\extracolsep{\fill}} l @{\extracolsep{\fill}}}" + "\n")
+    table.append(r"\hline\hline" + "\n")
+    table.append(r"\multicolumn{2}{c}{2 Atoms}&\multicolumn{2}{c}{3 Atoms}&\multicolumn{2}{c}{4 Atoms}&\multicolumn{2}{c}{5 Atoms}&\multicolumn{2}{c}{6 Atoms}\\" + "\n")
+    table.append(r"Species	&	Ref.	&	Species	&	Ref.	&	Species	&	Ref.	&	Species	&	Ref.	&	Species	&	Ref.	\\" + "\n")
+    table.append(r"\hline" + "\n")
+
+    # initialize a dictionary to hold references and the Ref ID that is used, and initialize a counter
+    refs_dict = {}
+    ref_idx = 1
+
+    two_six = [
+        two_atoms,
+        three_atoms,
+        four_atoms,
+        five_atoms,
+        six_atoms,
+    ]
+
+    # figure out the max number of rows for the table
+    nlines = np.max([len(x) for x in two_six])
+
+    #now just loop through and add
+    for i in range(nlines):
+        table_line = ""
+        for x in two_six:
+            if i < len(x):
+                # get the formula in there
+                formula = x[i].formula if x[i].table_formula is None else x[i].table_formula
+                # if it's not tentative, just add it
+                table_line += f"\ce{{{formula}}}\t&\t"
+                # now we deal with the references
+                ref_strs = []
+                # some detections have more than one reference, so we loop over them
+                for ref_ID in x[i].ppd_bib_ids:
+                    # if the reference has already been used before, we just use the number from that instance
+                    if ref_ID in refs_dict:
+                        ref_strs.append(refs_dict[ref_ID])
+                    # if it hasn't been used before    
+                    else:
+                        # assign it the next number in line to be used
+                        ref_strs.append(str(ref_idx))
+                        # add it as an entry in refs_dict so we can use it again if needs be
+                        refs_dict[ref_ID] = str(ref_idx)
+                        # and increment the number
+                        ref_idx += 1
+                # join the reference string together and add it to the line
+                table_line += f"{', '.join(ref_strs)}\t&\t"
+            else:
+                table_line += "\t&\t&\t"
+        table_line = table_line[:-2]
+        table_line += "\\\\\n"
+        table.append(table_line)
+
+    # close out the data portion of the table
+    table.append(r"\hline" + "\n")
+    table.append(r"\end{tabular*}" + "\n")
+    table.append(r"\justify" + "\n")
+
+    # now we do the references; we'll have to play a few tricks to get an ordered list out of the dictionary
+    reference_ids = [] # the actual latex citekeys
+    reference_idx = [] # the index number from the table
+    for ref in refs_dict:
+        reference_ids.append(ref)
+        reference_idx.append(int(refs_dict[ref]))
+    # get the ordered array that will sort the reference indices
+    sort_idx = np.argsort(np.array(reference_idx))
+    # then use it to sort both the reference indices and the references themselves
+    reference_ids = np.array(reference_ids)[sort_idx]
+    reference_idx = np.array(reference_idx)[sort_idx]
+
+    # get the preamble text out of the way; be sure not to include a carriage return
+    table.append(r"\textbf{References:}")
+    
+    # figure out how many references we have, and iterate over them
+    for i in range(np.max(reference_idx)):
+        table.append(f" [{reference_idx[i]}] " + r"\citet{" + f"{reference_ids[i]}" + r"} ")
+
+    # add the closing bit and a carriage return and the last lines
+    table.append(r"\\" + "\n")
+    table.append(r"\label{ppd_mols}" + "\n")
+    table.append(r"\end{table*}")
+
+    with open(filename if filename is not None else "ppd_table.tex", 'w') as output:
+        for line in table:
+            output.write(line)
+
+    return    
+
+def make_exo_table(mol_list=None, filename=None):
+    """
+    Generates the latex table for the census that contains all the detected exoplanetary atmosphere molecules,
+    using the provided bibtex references.  The default is to use all the molecules for mol_list, but
+    it's possible to override if that's desired.  Filename defaults to "exo_table.tex", but can be overriden.
+    """
+
+    # If a list wasn't specified, default to all molecules
+    if mol_list is None:
+        mol_list = all_molecules    
+
+    # a list to hold detections
+    detects = []
+
+    for mol in mol_list:
+        if mol.exo is True:
+            detects.append(mol)
+
+    # initialize a list to hold each line of the first table
+    table = []
+
+    # add the pre-amble latex stuff
+    table.append(r"\begin{table}" + "\n")
+    table.append(r"\centering" + "\n")
+    table.append(r"\caption{List of molecules detected in exoplanetary atmospheres, with references to representative detections.  Tentative and disputed detections are not included.}" + "\n")
+    table.append(r"\begin{tabular*}{\column}{l @{\extracolsep{\fill}} l @{\extracolsep{\fill}}" + "\n")
+    table.append(r"\hline\hline" + "\n")
+    table.append(r"Species & References\\" + "\n")
+    table.append(r"\hline" + "\n")
+
+    # initialize a dictionary to hold references and the Ref ID that is used, and initialize a counter
+    refs_dict = {}
+    ref_idx = 1
+
+    #now just loop through and add
+    for x in detects:
+        table_line = ""
+        # get the formula in there
+        formula = x.formula if x.table_formula is None else x.table_formula        
+        table_line += f"\ce{{{formula}}}\t&\t"
+        # now we deal with the references
+        ref_strs = []
+        # some detections have more than one reference, so we loop over them
+        for ref_ID in x.exo_bib_ids:
+            # if the reference has already been used before, we just use the number from that instance
+            if ref_ID in refs_dict:
+                ref_strs.append(refs_dict[ref_ID])
+            # if it hasn't been used before    
+            else:
+                # assign it the next number in line to be used
+                ref_strs.append(str(ref_idx))
+                # add it as an entry in refs_dict so we can use it again if needs be
+                refs_dict[ref_ID] = str(ref_idx)
+                # and increment the number
+                ref_idx += 1        
+        # join the reference string together and add it to the line
+        table_line += f"{', '.join(ref_strs)}" + r"\\" + "\n"
+        # add it to the table.
+        table.append(table_line)
+
+    # close out the data portion of the table
+    table.append(r"\hline" + "\n")
+    table.append(r"\end{tabular*}" + "\n")
+    table.append(r"\justify" + "\n")
+
+    # now we do the references; we'll have to play a few tricks to get an ordered list out of the dictionary
+    reference_ids = [] # the actual latex citekeys
+    reference_idx = [] # the index number from the table
+    for ref in refs_dict:
+        reference_ids.append(ref)
+        reference_idx.append(int(refs_dict[ref]))
+    # get the ordered array that will sort the reference indices
+    sort_idx = np.argsort(np.array(reference_idx))
+    # then use it to sort both the reference indices and the references themselves
+    reference_ids = np.array(reference_ids)[sort_idx]
+    reference_idx = np.array(reference_idx)[sort_idx]
+
+    # get the preamble text out of the way; be sure not to include a carriage return
+    table.append(r"\textbf{References:}")
+    
+    # figure out how many references we have, and iterate over them
+    for i in range(np.max(reference_idx)):
+        table.append(f" [{reference_idx[i]}] " + r"\citet{" + f"{reference_ids[i]}" + r"} ")
+
+    # add the closing bit and a carriage return and the last lines
+    table.append(r"\\" + "\n")
+    table.append(r"\label{exoplanet_mols}" + "\n")
+    table.append(r"\end{table}")
+
+    with open(filename if filename is not None else "exo_table.tex", 'w') as output:
+        for line in table:
+            output.write(line)
+
+    return        

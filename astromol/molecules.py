@@ -1,5 +1,7 @@
 from astromol.sources import *
 from astromol.telescopes import *
+from astromol.references import *
+import bibtexparser as btp
 import re
 import numpy as np
 
@@ -9,6 +11,7 @@ class Molecule(object):
         self,
         name=None,
         formula=None,
+        table_formula=None,
         year=None,
         label=None,  # Need a unique string...
         sources=None,
@@ -29,6 +32,7 @@ class Molecule(object):
         ice=False,
         ice_d_ref=None,
         ice_l_ref=None,
+        ice_bib_ids=None,
         ppd=None,
         exgal=None,
         exo=None,
@@ -37,11 +41,14 @@ class Molecule(object):
         ppd_isos=None,
         ppd_d_ref=None,
         ppd_l_ref=None,
+        ppd_bib_ids=None,
         ppd_isos_ref=None,
         exgal_d_ref=None,
+        exgal_bib_ids=None,
         exgal_l_ref=None,
         exo_d_ref=None,
         exo_l_ref=None,
+        exo_bib_ids=None,
         exgal_sources=None,
         isos_d_ref=None,
         isos_l_ref=None,
@@ -50,6 +57,7 @@ class Molecule(object):
 
         self.name = name
         self.formula = formula
+        self.table_formula = table_formula
         self.year = year
         self.label = label
         self.sources = sources
@@ -75,14 +83,18 @@ class Molecule(object):
         self.lab_ref = lab_ref
         self.ice_d_ref = ice_d_ref
         self.ice_l_ref = ice_l_ref
+        self.ice_bib_ids = ice_bib_ids
         self.ppd_d_ref = ppd_d_ref
         self.ppd_l_ref = ppd_l_ref
+        self.ppd_bib_ids = ppd_bib_ids
         self.ppd_isos_ref = ppd_isos_ref
         self.exgal_d_ref = exgal_d_ref
         self.exgal_l_ref = exgal_l_ref
+        self.exgal_bib_ids = exgal_bib_ids       
         self.exgal_sources = exgal_sources
         self.exo_d_ref = exo_d_ref
         self.exo_l_ref = exo_l_ref
+        self.exo_bib_ids = exo_bib_ids
         self.isos_d_ref = isos_d_ref
         self.isos_l_ref = isos_l_ref
         self.bib_codes = bib_codes
@@ -351,6 +363,28 @@ class Molecule(object):
 
         self.refs()
 
+    # @property
+    # def exgal_d_refs_auto(self):
+    #     #if there aren't any references, just return nothing
+    #     if self.exgal_bib_ids is None:
+    #         return None
+
+    #     #otherwise we'll loop through the IDs and gather them into strings to be joined at the end
+    #     ref_strs = []
+    #     for x in self.exgal_bib_ids:
+    #         #make an author string
+    #         if len(exgal_bibs[x]['author']) == 1:
+    #             auth_str = f'{exgal_bibs[x]['author'].split(',')[0]}'
+    #         elif len(exgal_bibs[x]['author']) == 12:
+    #             auth_str = f'{exgal_bibs[x]['author'][0].split(',')[0]} and {exgal_bibs[x]['author'][1].split(',')[0]}'
+    #         else:
+    #             auth_str = f'{exgal_bibs[x]['author'][0].split(',')[0]} et al.'
+    #         #make year str
+    #         year_str = exgal_bibs[x]['year']
+    #         #make journal str
+
+    #     return None
+            
 
 electrons = {
     "H": 1,
@@ -414,7 +448,8 @@ CH = Molecule(
     lab_ref="Jevons 1932 Phys Soc. pp 177-179; Brazier & Brown 1983 JCP 78, 1608",
     notes="*First radio in Rydbeck et al. 1973 Nature 246, 466",
     exgal=True,
-    exgal_d_ref="Whiteoak et al. 1980 MNRAS 190, 17",
+    exgal_d_ref="Whiteoak et al. 1980 MNRAS 190, 17p",
+    exgal_bib_ids=["1980MNRAS.190P..17W"],
     exgal_sources="LMC, NGC 4945, NGC 5128",
     Bcon=425476,
     mua=1.5,
@@ -432,10 +467,19 @@ CN = Molecule(
     notes="*First radio in Jefferts et al. 1970 ApJ 161, L87",
     ppd=True,
     ppd_d_ref="Kastner et al. 1997 Science 277, 67; Dutrey et al. 1997 A&A 317, L55",
-    ppd_isos="C15N",
-    ppd_isos_ref='"[C15N]" Hily-Blant et al. 2017 A&A 603, L6',
+    ppd_bib_ids = ["1997Sci...277...67K", "1997A&A...317L..55D"],    
+    ppd_isos= [
+                Molecule(
+                        formula="C15N",
+                        table_formula=r"C^{15}N",
+                        ppd_d_ref = "Hily-Blant et al. 2017 A&A 603, L6",
+                        ppd_bib_ids = ["2017A&A...603L...6H"],
+                )
+            ],
+    ppd_isos_ref='"[C15N]" Hily-Blant et al. 2017 A&A 603, L6', # soon to be deprecated; here for legacy refs functionality
     exgal=True,
     exgal_d_ref="Henkel et al. 1988 A&A 201, L23",
+    exgal_bib_ids=["1988A&A...201L..23H"],
     exgal_sources="M82, NGC 253, IC 342",
     Bcon=56693,
     mua=1.5,
@@ -453,8 +497,10 @@ CHp = Molecule(
     notes=None,
     ppd=True,
     ppd_d_ref="Thi et al. 2011 A&A 530, L2",
+    ppd_bib_ids=["2011A&A...530L...2T"],
     exgal=True,
     exgal_d_ref="Magain & Gillet 1987 A&A 184, L5",
+    exgal_bib_ids=["1987A&A...184L...5M"],
     exgal_sources="LMC",
     Bcon=417617,
     mua=1.7,
@@ -472,8 +518,10 @@ OH = Molecule(
     notes=None,
     ppd=True,
     ppd_d_ref="Mandell et al. 2008 ApJ 681, L25; Salyk et al. 2008 ApJ 676, L49",
+    ppd_bib_ids=["2008ApJ...681L..25M", "2008ApJ...676L..49S"],
     exgal=True,
     exgal_d_ref="Weliachew 1971 ApJ 167, L47",
+    exgal_bib_ids=["1971ApJ...167L..47W"],
     exgal_sources="M82, NGC 253",
     Bcon=556174,
     mua=1.7,
@@ -494,12 +542,34 @@ CO = Molecule(
     ice_l_ref="Mantz et al. 1975 JMS 57, 155",
     ppd=True,
     ppd_d_ref="Beckwith et al. 1986 ApJ 309, 755",
-    ppd_isos="13CO, C18O, C17O",
+    ppd_bib_ids=["1986ApJ...309..755B"],
+    ppd_isos=[
+                Molecule(
+                            formula="13CO",
+                            table_formula=r'^{13}CO',
+                            ppd_d_ref="Sargent & Beckwith 1987 ApJ 323, 294",
+                            ppd_bib_ids=["1987ApJ...323..294S"],
+                ),
+                Molecule(
+                            formula="C18O",
+                            table_formula=r'C^{18}O',
+                            ppd_d_ref="Dutrey et al. 1994 A&A 286, 149",
+                            ppd_bib_ids=["1994A&A...286..149D"],
+                ),
+                Molecule(
+                            formula="C17O",
+                            table_formula=r'C^{17}O',
+                            ppd_d_ref="Smith et al. 2009 ApJ 701, 163; Guilloteau et al. 2013 A&A 549, A92",
+                            ppd_bib_ids=["2009ApJ...701..163S", "2013A&A...549A..92G"],
+                ),
+    ],
     ppd_isos_ref='"[13CO]" Sargent & Beckwith 1987 ApJ 323, 294 "[C18O]" Dutrey et al. 1994 A&A 286, 149 "[C17O]" Smith et al. 2009 ApJ 701, 163; Guilloteau et al. 2013 A&A 549, A92',
     exo=True,
     exo_d_ref="Madhusudhan et al. 2011 Nature 469, 64; Barman et al. 2011 ApJ 733, 65; Lanotte et al. 2014 A&A 572, A73; Barman et al. 2015 ApJ 804, 61",
+    exo_bib_ids=["2011Natur.469...64M","2011ApJ...733...65B","2014A&A...572A..73L","2015ApJ...804...61B"],
     exgal=True,
     exgal_d_ref="Rickard et al. 1975 ApJ 199, L75",
+    exgal_bib_ids=["1975ApJ...199L..75R"],
     exgal_sources="M82, NGC 253",
     Bcon=57636,
     mua=0.1,
@@ -517,10 +587,17 @@ H2 = Molecule(
     notes=None,
     ppd=True,
     ppd_d_ref="Thi et al. 1999 ApJ 521, L63",
-    ppd_isos="HD",
+    ppd_bib_ids=["1999ApJ...521L..63T"],
+    ppd_isos=[Molecule(
+                        formula="HD",
+                        ppd_d_ref="Bergin et al. 2013 Nature 493, 644",
+                        ppd_bib_ids=["2013Natur.493..644B"],
+                    ),
+    ],
     ppd_isos_ref='"[HD]" Bergin et al. 2013 Nature 493, 644',
     exgal=True,
     exgal_d_ref="Thompson et al. 1978 ApJ 222, L49",
+    exgal_bib_ids=["1978ApJ...222L..49T"],
     exgal_sources="NGC 1068",
     mua=0.0,
 )
@@ -537,6 +614,7 @@ SiO = Molecule(
     notes=None,
     exgal=True,
     exgal_d_ref="Mauersberger & Henkel 1991 A&A 245, 457",
+    exgal_bib_ids=["1991A&A...245..457M"],
     exgal_sources="NGC 253",
     Bcon=21712,
     mua=3.1,
@@ -554,10 +632,19 @@ CS = Molecule(
     notes=None,
     ppd=True,
     ppd_d_ref="Ohashi et al. 1991 AJ 102, 2054; Blake et al. 1992 ApJ 391, L99; Guilloteau et al. 2012 A&A 548, A70",
-    ppd_isos="C34S",
+    ppd_bib_ids=["1991AJ....102.2054O", "1992ApJ...391L..99B", "2012A&A...548A..70G"],
+    ppd_isos=[
+                Molecule(
+                    formula = 'C34S',
+                    table_formula = r"C^{34}S",
+                    ppd_d_ref="Artur de la Villarmois et al. 2018 A&A 614, A26",
+                    ppd_bib_ids=["2018A&A...614A..26A"],
+                ),
+    ],
     ppd_isos_ref='"[C34S]" Artur de la Villarmois et al. 2018 A&A 614, A26',
     exgal=True,
     exgal_d_ref="Henkel & Bally 1985 A&A 150, L25",
+    exgal_bib_ids=["1985A&A...150L..25H"],
     exgal_sources="M82, IC 342",
     Bcon=24496,
     mua=2.0,
@@ -575,8 +662,10 @@ SO = Molecule(
     notes=None,
     ppd=True,
     ppd_d_ref="Fuente et al. 2010 A&A 524, A19",
+    ppd_bib_ids=["2010A&A...524A..19F"],
     exgal=True,
     exgal_d_ref="Johansson 1991 Proc. IAU Symposium 146, 1; Petuchowski & Bennett 1992 ApJ 391, 137",
+    exgal_bib_ids=["1991IAUS..146....1J","1992ApJ...391..137P"],
     exgal_sources="M82, NGC 253",
     Bcon=21524,
     mua=1.5,
@@ -590,7 +679,7 @@ SiS = Molecule(
     telescopes=[NRAO36],
     wavelengths=["mm"],
     d_ref="Morris et al. 1975 ApJ 199, L47",
-    lab_ref="Hoeft 1965 Z. fur Naturforschung A, A20, 1327",
+    lab_ref="Hoeft 1965 Z. fur Naturforschung A, 20, 1327",
     notes=None,
     Bcon=9077,
     mua=1.7,
@@ -608,6 +697,7 @@ NS = Molecule(
     notes=None,
     exgal=True,
     exgal_d_ref="Martin et al. 2003 A&A 411, L465",
+    exgal_bib_ids=["2003A&A...411L.465M"],
     exgal_sources="NGC 253",
     Bcon=23155,
     mua=1.8,
@@ -623,7 +713,8 @@ C2 = Molecule(
     d_ref="Souza and Lutz 1977 ApJ 216, L49",
     lab_ref="Phillips 1948 ApJ 107, 389",
     exgal=True,
-    exgal_d_ref="Welty et al. 2012 MNRAS 428, 1107",
+    exgal_d_ref="Welty et al. 2013 MNRAS 428, 1107",
+    exgal_bib_ids=["2013MNRAS.428.1107W"],
     exgal_sources="SMC",
     notes=None,
     mua=0.0,
@@ -641,6 +732,7 @@ NO = Molecule(
     notes=None,
     exgal=True,
     exgal_d_ref="Martin et al. 2003 A&A 411, L465",
+    exgal_bib_ids=["2003A&A...411L.465M"],
     exgal_sources="NGC 253",
     Bcon=50849,
     mua=0.2,
@@ -657,6 +749,7 @@ HCl = Molecule(
     lab_ref="de Lucia et al. 1971 Phys Rev A 3, 1849",
     exgal=True,
     exgal_d_ref="Wallstrom et al. 2019 A&A 629, A128",
+    exgal_bib_ids=["2019A&A...629A.128W"],
     exgal_sources="PKS 1830-211",
     notes=None,
     Bcon=312989,
@@ -775,6 +868,7 @@ NH = Molecule(
     notes="*First radio in Cernicharo et al. 2000 ApJ 534, L199",
     exgal=True,
     exgal_d_ref="Gonzalez-Alfonso et al. 2004 ApJ 613, 247",
+    exgal_bib_ids=["2004ApJ...613..247G"],
     exgal_sources="Arp 220",
     Bcon=489959,
     mua=1.4,
@@ -806,6 +900,7 @@ SOp = Molecule(
     notes=None,
     exgal=True,
     exgal_d_ref="Muller et al. 2011 A&A 535, A103",
+    exgal_bib_ids=["2011A&A...535A.103M"],
     exgal_sources="PKS 1830-211 LOS",
     Bcon=23249,
     mua="*",
@@ -823,6 +918,7 @@ COp = Molecule(
     notes=None,
     exgal=True,
     exgal_d_ref="Fuente et al. 2006 ApJ 641, L105",
+    exgal_bib_ids=["2006ApJ...641L.105F"],
     exgal_sources="M82",
     Bcon=58983,
     mua=2.6,
@@ -840,6 +936,7 @@ HF = Molecule(
     notes=None,
     exgal=True,
     exgal_d_ref="van der Werf et al. 2010 A&A 518, L42; Rangwala et al. 2011 ApJ 743, 94; Monje et al. 2011 ApJL 742, L21",
+    exgal_bib_ids=["2010A&A...518L..42V", "2011ApJ...743...94R", "2011ApJ...742L..21M"],
     exgal_sources="Mrk 231, Arp 220, Cloverleaf LOS",
     Bcon=616365,
     mua=1.8,
@@ -870,6 +967,7 @@ CFp = Molecule(
     notes=None,
     exgal=True,
     exgal_d_ref="Muller et al. 2016 A&A 589, L5",
+    exgal_bib_ids=["2016A&A...589L...5M"],
     exgal_sources="PKS 1830-211 LOS",
     Bcon=51294,
     mua=1.1,
@@ -942,6 +1040,7 @@ OHp = Molecule(
     notes=None,
     exgal=True,
     exgal_d_ref="van der Werf et al. 2010 A&A 518, L42; Rangwala et al. 2011 ApJ 743, 94; Gonzalez-Alfonso et al. 2013 A&A 550, A25",
+    exgal_bib_ids=["2010A&A...518L..42V", "2011ApJ...743...94R", "2013A&A...550A..25G"],
     exgal_sources="Mrk 231, Arp 220, NGC 4418",
     Bcon=492346,
     mua=2.3,
@@ -959,6 +1058,7 @@ SHp = Molecule(
     notes="*Also in Menten et al. 2011 A&A 525, A77",
     exgal=True,
     exgal_d_ref="Muller et al. 2017 A&A 606, A109",
+    exgal_bib_ids=["2017A&A...606A.109M"],
     exgal_sources="PKS 1830-211",
     Bcon=273810,
     mua=1.3,
@@ -1004,6 +1104,7 @@ TiO = Molecule(
     notes=None,
     exo=True,
     exo_d_ref="Haynes et al. 2015 ApJ 806, 146; Sedaghati et al. 2017 Nature 549, 238; Nugroho et al. 2017 ApJ 154, 221",
+    exo_bib_ids=["2015ApJ...806..146H","2017Natur.549..238S","2017AJ....154..221N"],
     Bcon=16004,
     mua=3.3,
 )
@@ -1019,7 +1120,8 @@ ArHp = Molecule(
     lab_ref="Barlow et al. 2013 Science 342, 1343",
     notes=None,
     exgal=True,
-    exgal_d_ref="Muller et al. 2015 A&A 582, L4",
+    exgal_d_ref="Müller et al. 2015 A&A 582, L4",
+    exgal_bib_ids=["2015A&A...582L...4M"],
     exgal_sources="PKS 1830-211 LOS",
     Bcon=307966,
     mua=2.2,
@@ -1090,11 +1192,14 @@ H2O = Molecule(
     isos_d_ref='"[HDO]" Turner et al. 1975 ApJ 198, L125',
     isos_l_ref='"[HDO]" de Lucia et al. 1974 J Phys Chem Ref Data 3, 211; Erlandsson & Cox 1956 J Chem Phys 25, 778',
     ppd=True,
-    ppd_d_ref="Carr et al. 2004 ApJ 603, 213; Hogerheijde et al. 2011 Science 344, 338",
+    ppd_d_ref="Carr et al. 2004 ApJ 603, 213; Hogerheijde et al. 2011 Science 334, 338; Salyk et al. 2008 ApJL 676, L49",
+    ppd_bib_ids=["2004ApJ...603..213C","2011Sci...334..338H","2008ApJ...676L..49S"],
     exo=True,
-    exo_d_ref="Tinetti et al. 2007 Nature 448, 169; Deming et al. 2014 ApJ 774, 95; Kreidberg et al. 2014 ApJL 793, L27; Kreidberg et al. 2015 ApJ 814, 66; Lockwood et al. 2014 ApJ 783, L29",
+    exo_d_ref="Tinetti et al. 2007 Nature 448, 169; Deming et al. 2013 ApJ 774, 95; Kreidberg et al. 2014 ApJL 793, L27; Kreidberg et al. 2015 ApJ 814, 66; Lockwood et al. 2014 ApJ 783, L29",
+    exo_bib_ids=["2007Natur.448..169T","2013ApJ...774...95D","2014ApJ...793L..27K","2015ApJ...814...66K","2014ApJ...783L..29L"],
     exgal=True,
     exgal_d_ref="Churchwell et al. 1977 A&A 54, 969",
+    exgal_bib_ids=["1977A&A....54..969C"],
     exgal_sources="M33",
     Acon=835840,
     Bcon=435352,
@@ -1114,10 +1219,27 @@ HCOp = Molecule(
     notes=None,
     ppd=True,
     ppd_d_ref="Kastner et al. 1997 Science 277, 67; Dutrey et al. 1997 A&A 317, L55",
-    ppd_isos="DCO+, H13CO+",
+    ppd_bib_ids = ["1997Sci...277...67K", "1997A&A...317L..55D"],
+    ppd_isos= [
+                Molecule (
+                            formula = "DCO+",
+                            ppd_d_ref = "van Dishoeck et al. 2003 A&A 400, L1",
+                            ppd_bib_ids = ["2003A&A...400L...1V"],
+                ),
+
+                Molecule(
+                            formula='H13CO+',
+                            table_formula = r"H^{13}CO+",
+                            ppd_d_ref = "van Zadelhoff et al. 2001 A&A 377, 566; van Dishoeck et al. 2003 A&A 400, L1",
+                            ppd_bib_ids = ["2001A&A...377..566V", "2003A&A...400L...1V"]
+                ),
+        
+        
+        ],
     ppd_isos_ref='"[DCO+]" van Dishoeck et al. 2003 A&A 400, L1 "[H13CO+]" van Zadelhoff et al. 2001 A&A 377, 566; van Dishoeck et al. 2003 A&A 400, L1',
     exgal=True,
     exgal_d_ref="Stark et al. 1979 ApJ 229, 118",
+    exgal_bib_ids=["1979ApJ...229..118S"],
     exgal_sources="M82",
     Bcon=44594,
     mua=3.9,
@@ -1135,13 +1257,34 @@ HCN = Molecule(
     notes=None,
     ppd=True,
     ppd_d_ref="Kastner et al. 1997 Science 277, 67; Dutrey et al. 1997 A&A 317, L55",
-    ppd_isos="DCN, H13CN, HC15N",
+    ppd_bib_ids=["1997Sci...277...67K", "1997A&A...317L..55D"],
+    ppd_isos=[
+                Molecule(
+                            formula='DCN',
+                            ppd_d_ref="Qi et al. 2008 ApJ 681, 1396",
+                            ppd_bib_ids=["2008ApJ...681.1396Q"],
+                ),
+                Molecule(
+                            formula='H13CN',
+                            table_formula=r'H^{13}CN',
+                            ppd_d_ref="Guzman et al. 2015 ApJ 814, 53",
+                            ppd_bib_ids=["2015ApJ...814...53G"],
+                ),
+                Molecule(
+                            formula='HC15N',
+                            table_formula=r'H^{15}CN',
+                            ppd_d_ref="Guzman et al. 2015 ApJ 814, 53",
+                            ppd_bib_ids=["2015ApJ...814...53G"],
+                ),
+    ],
     ppd_isos_ref='"[DCN]" Qi et al. 2008 ApJ 681, 1396 "[H13CN]" Guzman et al. 2015 ApJ 814, 53 "[HC15N]" Guzman et al. 2015 ApJ 814, 53',
     exgal=True,
     exgal_d_ref="Rickard et al. 1977 ApJ 214, 390",
+    exgal_bib_ids=["1977ApJ...214..390R"],
     exgal_sources="NGC 253, M82",
     exo=True,
     exo_d_ref="Hawker et al. 2018 ApJL 863, L11",
+    exo_bib_ids=["2018ApJ...863L..11H"],
     Bcon=44316,
     mua=3.0,
 )
@@ -1161,6 +1304,7 @@ OCS = Molecule(
     ice_l_ref="Palumbo et al. 1995 ApJ 449, 674",
     exgal=True,
     exgal_d_ref="Mauersberger et al. 1995 A&A 294, 23",
+    exgal_bib_ids=["1995A&A...294...23M"],
     exgal_sources="NGC 253",
     Bcon=6081,
     mua=0.7,
@@ -1178,8 +1322,10 @@ HNC = Molecule(
     notes=None,
     ppd=True,
     ppd_d_ref="Dutrey et al. 1997 A&A 317, L55",
+    ppd_bib_ids=["1997A&A...317L..55D"],
     exgal=True,
     exgal_d_ref="Henkel et al. 1988 A&A 201, L23",
+    exgal_bib_ids=["1988A&A...201L..23H"],
     exgal_sources="IC 342",
     Bcon=45332,
     mua=3.1,
@@ -1197,9 +1343,11 @@ H2S = Molecule(
     notes=None,
     exgal=True,
     exgal_d_ref="Hekkila et al. 1999 A&A 344, 817",
+    exgal_bib_ids=["1999A&A...344..817H"],
     exgal_sources="LMC",
     ppd=True,
     ppd_d_ref="Phuong et al. 2018 A&A 616, L5",
+    ppd_bib_ids=["2018A&A...616L...5P"],
     Acon=310584,
     Bcon=270368,
     Ccon=141820,
@@ -1218,10 +1366,18 @@ N2Hp = Molecule(
     notes=None,
     ppd=True,
     ppd_d_ref="Qi et al. 2003 ApJ 597, 986; Dutrey et al. 2007 A&A 464, 615",
-    ppd_isos="N2D+",
+    ppd_bib_ids=["2003ApJ...597..986Q", "2007A&A...464..615D"],
+    ppd_isos=[
+                Molecule(
+                            formula="N2D+",
+                            ppd_d_ref="Huang et al. 2015 ApJL 809, L26",
+                            ppd_bib_ids=["2015ApJ...809L..26H"],
+                ),
+    ],
     ppd_isos_ref='"[N2D+]" Huang et al. 2015 ApJL 809, L26',
     exgal=True,
     exgal_d_ref="Mauersberger & Henkel 1991 A&A 245, 457",
+    exgal_bib_ids=["1991A&A...245..457M"],
     exgal_sources="NGC 253, Maffei 2, IC 342, M82, NGC 6946",
     Bcon=46587,
     mua=3.4,
@@ -1239,8 +1395,10 @@ C2H = Molecule(
     notes=None,
     ppd=True,
     ppd_d_ref="Dutrey et al. 1997 A&A 317, L55",
+    ppd_bib_ids=["1997A&A...317L..55D"],
     exgal=True,
     exgal_d_ref="Henkel et al. 1988 A&A 201, L23",
+    exgal_bib_ids=["1988A&A...201L..23H"],
     exgal_sources="M82",
     Bcon=43675,
     mua=0.8,
@@ -1258,6 +1416,7 @@ SO2 = Molecule(
     notes=None,
     exgal=True,
     exgal_d_ref="Martin et al. 2003 A&A 411, L465",
+    exgal_bib_ids=["2003A&A...411L.465M"],
     exgal_sources="NGC 253",
     Acon=60779,
     Bcon=10318,
@@ -1277,6 +1436,7 @@ HCO = Molecule(
     notes=None,
     exgal=True,
     exgal_d_ref="Sage & Ziurys 1995 ApJ 447, 625; Garcia-Burillo et al. 2002 ApJ 575, L55",
+    exgal_bib_ids=["1995ApJ...447..625S", "2002ApJ...575L..55G"],
     exgal_sources="M82",
     Acon=7829365,
     Bcon=44788,
@@ -1314,6 +1474,7 @@ HCSp = Molecule(
     notes=None,
     exgal=True,
     exgal_d_ref="Muller et al. 2013 A&A 551, A109",
+    exgal_bib_ids=["2013A&A...551A.109M"],
     exgal_sources="PKS 1830-211 LOS",
     Bcon=10691,
     mua=1.9,
@@ -1331,6 +1492,7 @@ HOCp = Molecule(
     notes="*Confirmed in 1995 ApJ 455, L73",
     exgal=True,
     exgal_d_ref="Usero et al. 2004 A&A 419, 897",
+    exgal_bib_ids=["2004A&A...419..897U"],
     exgal_sources="NGC 1068",
     Bcon=44744,
     mua=4.0,
@@ -1365,6 +1527,7 @@ C2S = Molecule(
     notes="*Also Cernicharo et al. 1987 A&A 181, L9",
     exgal=True,
     exgal_d_ref="Martin et al. 2006 ApJS 164, 450",
+    exgal_bib_ids=["2006ApJS..164..450M"],
     exgal_sources="NGC 253",
     Bcon=6478,
     mua=2.9,
@@ -1380,7 +1543,8 @@ C3 = Molecule(
     d_ref="Hinkle et al. 1988 Science 241, 1319",
     lab_ref="Gausset et al. 1965 ApJ 142, 45",
     exgal=True,
-    exgal_d_ref="Welty et al. 2012 MNRAS 428, 1107",
+    exgal_d_ref="Welty et al. 2013 MNRAS 428, 1107",
+    exgal_bib_ids=["2013MNRAS.428.1107W"],
     exgal_sources="SMC",
     isos="13CCC, C13CC",
     isos_d_ref="https://arxiv.org/abs/1911.09751",
@@ -1403,8 +1567,10 @@ CO2 = Molecule(
     ice_l_ref="d'Hendecourt & Allamandola 1986 A&A Sup. Ser. 64, 453",
     ppd=True,
     ppd_d_ref="Carr & Najita 2008 Science 319, 1504",
+    ppd_bib_ids=["2008Sci...319.1504C"],
     exo=True,
     exo_d_ref="Stevenson et al. 2010 Nature 464, 1161; Madhusudhan et al. 2011 Nature 469, 64; Lanotte et al. 2014 A&A 572, A73",
+    exo_bib_ids=["2010Natur.464.1161S","2011Natur.469...64M","2014A&A...572A..73L"],
     mua=0.0,
 )
 CH2 = Molecule(
@@ -1464,6 +1630,7 @@ NH2 = Molecule(
     notes=None,
     exgal=True,
     exgal_d_ref="Muller et al. 2014 A&A 566, A112",
+    exgal_bib_ids=["2014A&A...566A.112M"],
     exgal_sources="PKS 1830-211 LOS",
     Acon=710302,
     Bcon=388289,
@@ -1530,6 +1697,7 @@ H3p = Molecule(
     notes=None,
     exgal=True,
     exgal_d_ref="Geballe et al. 2006 ApJ 644, 907",
+    exgal_bib_ids=["2006ApJ...644..907G"],
     exgal_sources="IRAS 08572+3915",
     mua=0.0,
 )
@@ -1630,6 +1798,7 @@ H2Op = Molecule(
     notes=None,
     exgal=True,
     exgal_d_ref="Weiss et al. 2010 A&A 521, L1",
+    exgal_bib_ids=["2010A&A...521L...1W"],
     exgal_sources="M82",
     Acon=870579,
     Bcon=372365,
@@ -1649,6 +1818,7 @@ H2Clp = Molecule(
     notes=None,
     exgal=True,
     exgal_d_ref="Muller et al. 2014 A&A 566, L6",
+    exgal_bib_ids=["2014A&A...566L...6M"],
     exgal_sources="PKS 1830-211 LOS",
     Acon=337352,
     Bcon=273588,
@@ -1863,8 +2033,10 @@ NH3 = Molecule(
     ice_l_ref="d'Hendecourt & Allamandola 1986 A&A Sup. Ser. 64, 453",
     ppd=True,
     ppd_d_ref="Salinas et al. 2016 A&A 591, A122",
+    ppd_bib_ids=["2016A&A...591A.122S"],
     exgal=True,
     exgal_d_ref="Martin & Ho 1979 A&A 74, L7",
+    exgal_bib_ids=["1979A&A....74L...7M"],
     exgal_sources="IC 342, NGC 253",
     Acon=298193,
     Bcon=298193,
@@ -1901,8 +2073,10 @@ H2CO = Molecule(
     ice_l_ref="Schutte et al. 1993 Icarus 104, 118",
     ppd=True,
     ppd_d_ref="Dutrey et al. 1997 A&A 317, L55",
+    ppd_bib_ids=["1997A&A...317L..55D"],
     exgal=True,
     exgal_d_ref="Gardner & Whiteoak 1974 Nature 247, 526",
+    exgal_bib_ids=["1974Natur.247..526G"],
     exgal_sources="NGC 253, NGC 4945",
     Acon=281971,
     Bcon=38834,
@@ -1922,6 +2096,7 @@ HNCO = Molecule(
     notes=None,
     exgal=True,
     exgal_d_ref="Nguyen-Q-Rieu et al. 1991 A&A 241, L33",
+    exgal_bib_ids=["1991A&A...241L..33N"],
     exgal_sources="NGC 253, Maffei 2, IC 342",
     Acon=912711,
     Bcon=11071,
@@ -1942,6 +2117,7 @@ H2CS = Molecule(
     notes=None,
     exgal=True,
     exgal_d_ref="Martin et al. 2006 ApJS 164, 450",
+    exgal_bib_ids=["2006ApJS..164..450M"],
     exgal_sources="NGC 253",
     Acon=291292,
     Bcon=17700,
@@ -1960,9 +2136,11 @@ C2H2 = Molecule(
     lab_ref="Baldacci et al. 1973 JMS 48, 600",
     notes=None,
     ppd=True,
-    ppd_d_ref="Lahuis et al. 2006 ApJ 66, L145",
+    ppd_d_ref="Lahuis et al. 2006 ApJ 636, L145",
+    ppd_bib_ids=["2006ApJ...636L.145L"],
     exgal=True,
     exgal_d_ref="Matsuura et al. 2002 ApJ 580, L133",
+    exgal_bib_ids=["2002ApJ...580L.133M"],
     exgal_sources="LMC",
     mua=0.0,
 )
@@ -2010,6 +2188,7 @@ HOCOp = Molecule(
     notes=None,
     exgal=True,
     exgal_d_ref="Aladro et al. 2015 A&A 579, A101; Martin et al. 2006 ApJS 164, 450",
+    exgal_bib_ids=["2015A&A...579A.101A", "2006ApJS..164..450M"],
     exgal_sources="NGC 253",
     Acon=789951,
     Bcon=10774,
@@ -2034,6 +2213,7 @@ C3O = Molecule(
 lC3H = Molecule(
     name="propynylidyne radical",
     formula="C3H",
+    table_formula="l-C3H",
     year=1985,
     label="l-C3H",
     sources=[TMC1, IRC10216],
@@ -2044,6 +2224,7 @@ lC3H = Molecule(
     notes=None,
     exgal=True,
     exgal_d_ref="Muller et al. 2011 A&A 535, A103",
+    exgal_bib_ids=["2011A&A...535A.103M"],
     exgal_sources="PKS 1830-211 LOS",
     Bcon=11189,
     mua=3.6,
@@ -2075,7 +2256,8 @@ H3Op = Molecule(
     lab_ref="Plummer et al. 1985 JCP 83, 1428; Bogey et al. 1985 A&A 148, L11; Liu & Oka 1985 PRL 54, 1787",
     notes="*Confirmed in Wootten et al. 1991 ApJ 390, L79",
     exgal=True,
-    exgal_d_ref="van der Tak et al. 2007 A&A 477, L5",
+    exgal_d_ref="van der Tak et al. 2008 A&A 477, L5",
+    exgal_bib_ids=["2008A&A...477L...5V"],
     exgal_sources="M82, Arp 220",
     Acon=334405,
     Bcon=334405,
@@ -2099,6 +2281,7 @@ C3S = Molecule(
 cC3H = Molecule(
     name="cyclopropenylidene radical",
     formula="C3H",
+    table_formula="c-C3H",
     year=1987,
     label="c-C3H",
     sources=[TMC1],
@@ -2110,6 +2293,7 @@ cC3H = Molecule(
     notes=None,
     exgal="Tentative",
     exgal_d_ref="Martin et al. 2006 ApJS 164, 450",
+    exgal_bib_ids=["2006ApJS..164..450M"],
     exgal_sources="NGC 253",
     Acon=44517,
     Bcon=34016,
@@ -2270,6 +2454,7 @@ HOOH = Molecule(
 lC3Hp = Molecule(
     name="cyclopropynylidynium cation",
     formula="C3H+",
+    table_formula="l-C3H+",
     year=2012,
     label="l-C3H+",
     sources=[HorseheadPDR],
@@ -2387,8 +2572,10 @@ HC3N = Molecule(
     notes="*Confirmed in Dickinson 1972 AL 12, 235",
     ppd=True,
     ppd_d_ref="Chapillon et al. 2012 ApJ 756, 58",
+    ppd_bib_ids=["2012ApJ...756...58C"],
     exgal=True,
     exgal_d_ref="Mauersberger et al. 1990 A&A 236, 63; Henkel et al. 1988 A&A 201, L23",
+    exgal_bib_ids=["1990A&A...236...63M", "1988A&A...201L..23H"],
     exgal_sources="NGC 253",
     Bcon=4549,
     mua=3.7,
@@ -2409,6 +2596,7 @@ HCOOH = Molecule(
     ice_l_ref="Schutte et al. 1999 A&A 343, 966",
     ppd=True,
     ppd_d_ref="Favre et al. 2018 ApJL 862, L2",
+    ppd_bib_ids=["2018ApJ...862L...2F"],
     Acon=77512,
     Bcon=12055,
     Ccon=10416,
@@ -2428,6 +2616,7 @@ CH2NH = Molecule(
     notes=None,
     exgal=True,
     exgal_d_ref="Muller et al. 2011 A&A 535, A103",
+    exgal_bib_ids=["2011A&A...535A.103M"],
     exgal_sources="PKS 1830-211 LOS",
     Acon=196211,
     Bcon=34532,
@@ -2448,6 +2637,7 @@ NH2CN = Molecule(
     notes=None,
     exgal=True,
     exgal_d_ref="Martin et al. 2006 ApJS 164, 450",
+    exgal_bib_ids=["2006ApJS..164..450M"],
     exgal_sources="NGC 253",
     Acon=312142,
     Bcon=10130,
@@ -2468,6 +2658,7 @@ H2CCO = Molecule(
     notes=None,
     exgal=True,
     exgal_d_ref="Muller et al. 2011 A&A 535, A103",
+    exgal_bib_ids=["2011A&A...535A.103M"],
     exgal_sources="PKS 1830-211 LOS",
     Acon=282473,
     Bcon=10294,
@@ -2487,6 +2678,7 @@ C4H = Molecule(
     notes=None,
     exgal=True,
     exgal_d_ref="Muller et al. 2011 A&A 535, A103",
+    exgal_bib_ids=["2011A&A...535A.103M"],
     exgal_sources="PKS 1830-211 LOS",
     Bcon=4759,
     mua=0.9,
@@ -2507,6 +2699,7 @@ SiH4 = Molecule(
 cC3H2 = Molecule(
     name="cyclopropenylidene",
     formula="C3H2",
+    table_formula="c-C3H2",
     year=1985,
     label="c-C3H2",
     sources=[SgrB2, Orion, TMC1],
@@ -2518,8 +2711,10 @@ cC3H2 = Molecule(
     notes="*See also Vrtilek et al. 1987 ApJ 314, 716",
     ppd=True,
     ppd_d_ref="Qi et al. 2013 ApJL 765, L14",
+    ppd_bib_ids=["2013ApJ...765L..14Q"],
     exgal=True,
     exgal_d_ref="Seaquist & Bell 1986 ApJ 303, L67",
+    exgal_bib_ids=["1986ApJ...303L..67S"],
     exgal_sources="NGC 5128",
     Acon=35093,
     Bcon=32213,
@@ -2539,6 +2734,7 @@ CH2CN = Molecule(
     notes=None,
     exgal=True,
     exgal_d_ref="Muller et al. 2011 A&A 535, A103",
+    exgal_bib_ids=["2011A&A...535A.103M"],
     exgal_sources="PKS 1830-211 LOS",
     Acon=285130,
     Bcon=10246,
@@ -2585,6 +2781,7 @@ H2CCC = Molecule(
     notes=None,
     exgal=True,
     exgal_d_ref="Muller et al. 2011 A&A 535, A103",
+    exgal_bib_ids=["2011A&A...535A.103M"],
     exgal_sources="PKS 1830-211 LOS",
     Acon=288775,
     Bcon=10589,
@@ -2607,8 +2804,10 @@ CH4 = Molecule(
     ice_l_ref="d'Hendecourt & Allamandola 1986 A&A Sup. Ser. 64, 453",
     ppd=True,
     ppd_d_ref="Gibb et al. 2013 ApJL 776, L28",
+    ppd_bib_ids=["2013ApJ...776L..28G"],
     exo=True,
     exo_d_ref="Swain et al. 2008 Nature 452, 329; Barman et al. 2011 ApJ 733, 65; Stevenson et al. 2014 ApJ 791, 36; Barman et al. 2015 ApJ 804, 61",
+    exo_bib_ids=["2008Natur.452..329S","2011ApJ...733...65B","2014ApJ...791...36S","2015ApJ...804...61B"],
     mua=0.0,
 )
 HCCNC = Molecule(
@@ -2892,8 +3091,10 @@ CH3OH = Molecule(
     ice_l_ref="d'Hendecourt & Allamandola 1986 A&A Sup. Ser. 64, 453",
     ppd=True,
     ppd_d_ref="Walsh et al. 2016 ApJL 823, L10",
+    ppd_bib_ids=["2016ApJ...823L..10W"],
     exgal=True,
     exgal_d_ref="Henkel et al. 1987 A&A 188, L1",
+    exgal_bib_ids=["1987A&A...188L...1H"],
     exgal_sources="NGC 253, IC 342",
     Acon=127523,
     Bcon=24690,
@@ -2914,8 +3115,10 @@ CH3CN = Molecule(
     notes=None,
     ppd=True,
     ppd_d_ref="Oberg et al. 2015 Nature 520, 198",
+    ppd_bib_ids=["2015Natur.520..198O"],
     exgal=True,
     exgal_d_ref="Mauersberger et al. 1991 A&A 247, 307",
+    exgal_bib_ids=["1991A&A...247..307M"],
     exgal_sources="NGC 253",
     Acon=158099,
     Bcon=9199,
@@ -2935,6 +3138,7 @@ NH2CHO = Molecule(
     notes=None,
     exgal=True,
     exgal_d_ref="Muller et al. 2013 A&A 551, A109",
+    exgal_bib_ids=["2013A&A...551A.109M"],
     exgal_sources="PKS 1830-211 LOS",
     Acon=72717,
     Bcon=11373,
@@ -3090,6 +3294,7 @@ HC4H = Molecule(
     notes="*Confirmed in 2018 ApJ 852, 80",
     exgal=True,
     exgal_d_ref="Bernard-Salas et al. 2006 ApJ 652, L29",
+    exgal_bib_ids=["2006ApJ...652L..29B"],
     exgal_sources="SMP LMC 11",
     mua=0.0,
 )
@@ -3110,6 +3315,7 @@ HC4N = Molecule(
 cH2C3O = Molecule(
     name="cyclopropenone",
     formula="H2C3O",
+    table_formula="c-H2C3O",
     year=2006,
     label="c-H2C3O",
     sources=[SgrB2],
@@ -3252,6 +3458,7 @@ CH3CHO = Molecule(
     ice_l_ref="Schutte et al. 1999 A&A 343, 966",
     exgal=True,
     exgal_d_ref="Muller et al. 2011 A&A 535, A103",
+    exgal_bib_ids=["2011A&A...535A.103M"],
     exgal_sources="PKS 1830-211 LOS",
     Acon=56449,
     Bcon=10160,
@@ -3272,6 +3479,7 @@ CH3CCH = Molecule(
     notes=None,
     exgal=True,
     exgal_d_ref="Mauersberger et al. 1991 A&A 247, 307",
+    exgal_bib_ids=["1991A&A...247..307M"],
     exgal_sources="NGC 253, M82",
     Acon=158590,
     Bcon=8546,
@@ -3291,6 +3499,7 @@ CH3NH2 = Molecule(
     notes=None,
     exgal=True,
     exgal_d_ref="Muller et al. 2011 A&A 535, A103",
+    exgal_bib_ids=["2011A&A...535A.103M"],
     exgal_sources="PKS 1830-211 LOS",
     Acon=103156,
     Bcon=22608,
@@ -3328,6 +3537,7 @@ HC5N = Molecule(
     notes=None,
     exgal="Tentative",
     exgal_d_ref="Aladro et al. 2015 A&A 579, A101",
+    exgal_bib_ids=["2015A&A...579A.101A"],
     exgal_sources="NGC 253",
     Bcon=1331,
     mua=4.3,
@@ -3349,6 +3559,7 @@ C6H = Molecule(
 cC2H4O = Molecule(
     name="ethylene oxide",
     formula="C2H4O",
+    table_formula="c-C2H4O",
     year=1997,
     label="c-C2H4O",
     sources=[SgrB2],
@@ -3474,7 +3685,8 @@ HC3HNH = Molecule(
 )
 C3HCCH = Molecule(
     name="ethynyl cyclopropenylidne",
-    formula='C3HCCH',
+    formula="C3HCCH",
+    table_formula="c-C3HCCH",
     year=2021,
     label="C3HCCH",
     sources=[TMC1],
@@ -3507,6 +3719,7 @@ HCOOCH3 = Molecule(
     notes="*t-mf detected 2012 ApJ 755, 143",
     exgal=True,
     exgal_d_ref="Sewiło et al. 2018 ApJL 853, L19",
+    exgal_bib_ids=["2018ApJ...853L..19S"],
     exgal_sources="LMC",
     Acon=17630,
     Bcon=9243,
@@ -3607,6 +3820,7 @@ HC6H = Molecule(
     notes=None,
     exgal=True,
     exgal_d_ref="Bernard-Salas et al. 2006 ApJ 652, L29",
+    exgal_bib_ids=["2006ApJ...652L..29B"],
     exgal_sources="SMP LMC 11",
     mua=0.0,
 )
@@ -3762,6 +3976,7 @@ CH3OCH3 = Molecule(
     notes=None,
     exgal=True,
     exgal_d_ref="Qiu et al. 2018 A&A 613, A3; Sewiło et al. 2018 ApJL 853, L19",
+    exgal_bib_ids=["2018A&A...613A...3Q","2018ApJ...853L..19S"],
     exgal_sources="NGC 1068, LMC",
     Acon=38788,
     Bcon=10057,
@@ -4191,7 +4406,7 @@ CH3COCH2OH = Molecule(
 )
 C5H6 = Molecule(
     name="cyclopentadiene",
-    formula='C5H6',
+    formula="C5H6",
     year=2021,
     label="C5H6",
     sources=[TMC1],
@@ -4224,12 +4439,14 @@ C6H6 = Molecule(
     notes=None,
     exgal=True,
     exgal_d_ref="Bernard-Salas et al. 2006 ApJ 652, L29",
+    exgal_bib_ids=["2006ApJ...652L..29B"],
     exgal_sources="SMP LMC 11",
     mua=0.0,
 )
 nC3H7CN = Molecule(
     name="n-propyl cyanide",
     formula="C3H7CN",
+    table_formula="n-C3H7CN",
     year=2009,
     label="n-C3H7CN",
     sources=[SgrB2],
@@ -4248,6 +4465,7 @@ nC3H7CN = Molecule(
 iC3H7CN = Molecule(
     name="isopropyl cyanide",
     formula="C3H7CN",
+    table_formula="i-C3H7CN",
     year=2014,
     label="i-C3H7CN",
     sources=[SgrB2],
@@ -4265,6 +4483,7 @@ iC3H7CN = Molecule(
 C5H5CN1 = Molecule(
     name="1-cyano-1,3-cyclopentadiene",
     formula="C5H5CN",
+    table_formula="1-C5H5CN",
     year=2021,
     label="1-C5H5CN",
     sources=[TMC1],
@@ -4283,6 +4502,7 @@ C5H5CN1 = Molecule(
 C5H5CN2 = Molecule(
     name="2-cyano-1,3-cyclopentadiene",
     formula="C5H5CN",
+    table_formula="2-C5H5CN",
     year=2021,
     label="2-C5H5CN",
     sources=[TMC1],
@@ -4342,6 +4562,7 @@ HC11N = Molecule(
 CNN1 = Molecule(
     name="1-cyanonaphthalene",
     formula="C10H7CN",
+    table_formula="1-C10H7CN",
     year=2021,
     label="CNN1",
     sources=[TMC1],
@@ -4361,6 +4582,7 @@ CNN1 = Molecule(
 CNN2 = Molecule(
     name="2-cyanonaphthalene",
     formula="C10H7CN",
+    table_formula="2-C10H7CN",
     year=2021,
     label="CNN2",
     sources=[TMC1],
@@ -4388,7 +4610,7 @@ C9H8 = Molecule(
     cyclic=True,
     pah=True,
     d_ref="Burkhardt et al. 2021 ApJL in press.  https://arxiv.org/abs/2104.15117; Cernicharo et al. 2021 A&A in press. https://arxiv.org/abs/2104.13991",
-    lab_ref="Burkhardt et al. 2021 ApJL in press.; Li et al. 1979 J Mol Struct 51, 171", 
+    lab_ref="Burkhardt et al. 2021 ApJL in press.; Li et al. 1979 J Mol Struct 51, 171",
     notes="",
     Acon=3775,
     Bcon=1581,
@@ -4452,7 +4674,7 @@ C70 = Molecule(
 #############################################################
 
 all_molecules = [
-    #two atoms
+    # two atoms
     CH,
     CN,
     CHp,
@@ -4494,7 +4716,7 @@ all_molecules = [
     NSp,
     HeHp,
     VO,
-    #three atoms
+    # three atoms
     H2O,
     HCOp,
     HCN,
@@ -4540,7 +4762,7 @@ all_molecules = [
     NCO,
     CaNC,
     NCS,
-    #four atoms
+    # four atoms
     NH3,
     H2CO,
     HNCO,
@@ -4572,7 +4794,7 @@ all_molecules = [
     HONO,
     MgCCH,
     HCCS,
-    #five atoms
+    # five atoms
     HC3N,
     HCOOH,
     CH2NH,
@@ -4603,7 +4825,7 @@ all_molecules = [
     H2CCS,
     C4S,
     CHOSH,
-    #six atoms
+    # six atoms
     CH3OH,
     CH3CN,
     NH2CHO,
@@ -4626,7 +4848,7 @@ all_molecules = [
     MgC4H,
     CH3COp,
     H2CCCS,
-    #seven atoms
+    # seven atoms
     CH3CHO,
     CH3CCH,
     CH3NH2,
@@ -4642,7 +4864,7 @@ all_molecules = [
     HC4NC,
     HC3HNH,
     C3HCCH,
-    #eight atoms
+    # eight atoms
     HCOOCH3,
     CH3C3N,
     C7H,
@@ -4658,7 +4880,7 @@ all_molecules = [
     NH2CONH2,
     HCCCH2CN,
     CH2CHCCH,
-    #nine atoms
+    # nine atoms
     CH3OCH3,
     CH3CH2OH,
     CH3CH2CN,
@@ -4674,34 +4896,34 @@ all_molecules = [
     C2H5SH,
     HCCCHCHCN,
     H2CCHC3N,
-    #ten atoms
+    # ten atoms
     acetone,
     HOCH2CH2OH,
     CH3CH2CHO,
     CH3C5N,
     CH3CHCH2O,
     CH3OCH2OH,
-    #eleven atoms
+    # eleven atoms
     HC9N,
     CH3C6H,
     C2H5OCHO,
     CH3COOCH3,
     CH3COCH2OH,
     C5H6,
-    #twelve atoms
+    # twelve atoms
     C6H6,
     nC3H7CN,
     iC3H7CN,
     C5H5CN1,
-    C5H5CN2,  
-    #thirteen atoms  
+    C5H5CN2,
+    # thirteen atoms
     cC6H5CN,
     HC11N,
-    #PAHS
+    # PAHS
     CNN1,
     CNN2,
-    C9H8, 
-    #fullerenes   
+    C9H8,
+    # fullerenes
     C60,
     C60p,
     C70,

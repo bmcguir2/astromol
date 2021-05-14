@@ -76,7 +76,7 @@ class Telescope(object):
 
 GBT = Telescope(
     name="Green Bank Telescope",
-    shortname="GBT",
+    shortname="GBT 100-m",
     type="Single Dish",
     wavelength=["cm", "mm"],
     latitude=38.433056,
@@ -87,7 +87,7 @@ GBT = Telescope(
 
 IRAM30 = Telescope(
     name="IRAM 30-m",
-    shortname="IRAM",
+    shortname="IRAM 30-m",
     type="Single Dish",
     wavelength=["mm", "sub-mm"],
     latitude=37.066161,
@@ -188,7 +188,7 @@ NRAO36 = Telescope(
 
 Nobeyama45 = Telescope(
     name="Nobeyama 45-m Telescope",
-    shortname="Nobeyama",
+    shortname="Nobeyama 45-m",
     type="Single Dish",
     wavelength=["cm", "mm"],
     latitude=35.9417,
@@ -199,7 +199,7 @@ Nobeyama45 = Telescope(
 
 Effelsberg100 = Telescope(
     name="Effelsberg 100-m Telescope",
-    shortname="Effelsberg",
+    shortname="Effelsberg 100-m",
     type="Single Dish",
     wavelength=["cm"],
     latitude=50.5247,
@@ -264,7 +264,7 @@ OVRO = Telescope(
 
 Yebes40 = Telescope(
     name="Yebes RT40-m Telescope",
-    shortname="Yebes",
+    shortname="Yebes 40-m",
     type="Single Dish",
     wavelength=["cm", "mm"],
     latitude=40525208,
