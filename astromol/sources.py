@@ -1,14 +1,93 @@
 class Source(object):
+    """
+    A class used to represent an astronomical source
+
+    ...
+
+    Attributes
+    ----------
+    name : str
+        The common name of the sources
+    type : str
+        The generalized source type, chosen from the following 
+        (descriptions in [], do not include in string):
+            LOS Cloud
+            Dark Cloud
+            Carbon Star
+            SNR [Supernova Remnant]
+            SFR [Star-forming Region]
+            Shock
+            PDR [Photodissociation Region]
+            Protostar
+            HII
+            YSO [Young Stellar Object]
+            PN [Planetary Nebula]
+            Sgr A
+            Oxygen Star
+    ra : str
+        The right ascension coordinates of the source in the format "hh:mm:ss.sss".
+        hh and mm should be two digitse each, ss should be at least two, and may 
+        include as many decimals as desired
+    dec : str
+        The declination coordinates of the source in the format "deg:min:sec" deg 
+        and min should be two digits each deg can be signed, sec should be at least 
+        two digits and may include as many decimals as desired
+    simbad_url : str
+        Url of the simbad entry for this source.  Should be truncated after 
+        the Ident= string.
+
+    Properties
+    ----------
+    ndetects(mol_list=None)
+        Returns the number of molecules from 'mol_list' detected in the source
+        (default is 'all_molecules')
+
+    mols(mol_list=None)
+        Returns a list of molecules from 'mol_list' detected in the source
+        (default is 'all_molecules')
+    """
+
     def __init__(
         self,
         name=None,
         type=None,
         ra=None,
         dec=None,
-        detects=0,
-        mols=None,
         simbad_url=None,
     ):
+        """
+        Parameters
+        ----------
+        name : str, optional
+            The common name of the sources
+        type : str, optional
+            The generalized source type, chosen from the following 
+            (descriptions in [], do not include in string):
+                "LOS Cloud"
+                "Dark Cloud"
+                "Carbon Star"
+                "SNR" [Supernova Remnant]
+                "SFR" [Star-forming Region]
+                "Shock"
+                "PDR" [Photodissociation Region]
+                "Protostar"
+                "HII"
+                "YSO" [Young Stellar Object]
+                "PN" [Planetary Nebula]
+                "Sgr A"
+                "Oxygen Star"
+        ra : str
+            The right ascension coordinates of the source in the format "hh:mm:ss.sss".
+            hh and mm should be two digitse each, ss should be at least two, and may 
+            include as many decimals as desired
+        dec : str
+            The declination coordinates of the source in the format "deg:min:sec" deg 
+            and min should be two digits each deg can be signed, sec should be at least 
+            two digits and may include as many decimals as desired
+        simbad_url : str
+            Url of the simbad entry for this source.  Should be truncated after 
+            the Ident= string.
+        """
 
         self.name = name
         self.type = type
@@ -16,43 +95,60 @@ class Source(object):
         self.dec = dec
         self.simbad_url = simbad_url
 
-    def ndetects(self, mol_list):
+    @property
+    def ndetects(self, mol_list=None):
 
-        '''
-        Counts the number of molecules this Source is listed in.
+        """
+        Returns the number of molecules from 'mol_list' detected in the source
 
-        Takes a list of Molecule objects as an argument.
-        '''
+        Parameters
+        ----------
+        mol_list : list, optional
+            A list of molecule objects to sort through (default is 'all_molecules')
+
+        Returns
+        -------
+        len(my_mols) : int
+            The number of molecules which have this source in their list of 
+            detected locations
+        """
+
+        if mol_list is None:
+            from astromol.molecules import all_molecules
+            mol_list = all_molecules
 
         my_mols = []
         for mol in mol_list:
             if self in mol.sources:
                 my_mols.append(mol)
-        return len(my_mols)       
+        return len(my_mols)
 
-    def mols(self,mol_list):
+    @property
+    def mols(self, mol_list=None):
+        """
+        Returns a list of molecules from 'mol_list' detected in the source
 
-        '''
-        Returns the molecules this Source is listed in.
+        Parameters
+        ----------
+        mol_list : list
+            A list of molecule objects to sort through (default is 'all_molecules')
 
-        Takes a list of Molecule objects as an argument.
-        '''
+        Returns
+        -------
+        my_mols : list
+            A list of molecule objects which have this source in their list of 
+            detected locations
+        """
+ 
+        if mol_list is None:
+            from astromol.molecules import all_molecules
+            mol_list = all_molecules
 
         my_mols = []
         for mol in mol_list:
             if self in mol.sources:
                 my_mols.append(mol)
         return my_mols
-
-    # def update_stats(self, list):
-    #     for x in list:
-    #         if self in x.sources:
-    #             if self.mols is None:
-    #                 self.mols = [x]
-    #             else:
-    #                 self.mols.append(x)
-    #             self.detects += 1
-    #     return
 
 
 """
@@ -167,7 +263,13 @@ DR21OH = Source(
     simbad_url="http://simbad.u-strasbg.fr/simbad/sim-basic?Ident=DR+21%28OH%29",
 )
 
-G0693 = Source(name="G+0.693-0.027", type="Shock", ra="17:47:21.86", dec="-28:22:43.00")
+G0693 = Source(
+    name="G+0.693-0.027",
+    type="Shock",
+    ra="17:47:21.9",
+    dec="-28:21:27.00",
+    simbad_url="http://simbad.u-strasbg.fr/simbad/sim-id?Ident=%404986185&Name=GCM%20%2b0.693%20-0.027",
+)
 
 G327306LOS = Source(
     name="G327.3-0.6 LOS",

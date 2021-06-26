@@ -8,17 +8,31 @@ import matplotlib.pyplot as plt
 import matplotlib
 import matplotlib.ticker as ticker
 from matplotlib.ticker import FormatStrFormatter
+from matplotlib.ticker import ScalarFormatter
 import matplotlib.gridspec as gridspec
 import matplotlib.patches as patches
 import periodictable
 from colour import Color
 import seaborn as sns
 from scipy.stats import gaussian_kde as gkde
+from scipy.stats import linregress
 from scipy.interpolate import make_interp_spline, BSpline
+import re
+
+# For making PowerPoint Slides
+from pptx import Presentation
+from pptx.util import Inches, Pt
+from pptx.enum.shapes import MSO_SHAPE
+from pptx.enum.text import MSO_ANCHOR, MSO_AUTO_SIZE, PP_ALIGN
+from pptx.dml.color import ColorFormat, RGBColor
 
 from astromol.molecules import *
 from astromol.sources import *
 from astromol.telescopes import *
+import astromol
+
+def version():
+    return astromol.__version__
 
 matplotlib.rc("text", usetex=True)
 matplotlib.rc("text.latex", preamble=r"\usepackage{cmbright}\usepackage[version=4]{mhchem}")
@@ -29,7 +43,6 @@ matplotlib.rc("text.latex", preamble=r"\usepackage{cmbright}\usepackage[version=
 
 
 def make_all_plots():
-
     """
     A meta function that, when run, will call every plot command and generate new plots based on
     the input list of Molecule objects using default parameters.  Useful for rapidly re-generating all figures.
@@ -48,6 +61,7 @@ def make_all_plots():
     du_histogram()
     type_pie_chart()
     source_pie_chart()
+    indiv_source_pie_chart()
     mol_type_by_source_type()
     du_by_source_type()
     rel_du_by_source_type()
@@ -56,8 +70,8 @@ def make_all_plots():
 
     return
 
-def make_all_latex():
 
+def make_all_latex():
     """
     A meta function that, when run, will call every latex-generating command based on
     the input list of Molecule objects using default parameters.  Useful for rapidly re-generating all latex inputs.
@@ -67,20 +81,36 @@ def make_all_latex():
 
     make_det_count()
     make_elem_count()
+    make_ppd_count()
+    make_ppd_isos_count()
     make_ism_tables()
     make_exgal_table()
     make_ppd_table()
     make_exo_table()
+    make_facility_table()
+    make_source_table()
 
-    return    
+    return
 
 
 def change_color(color, amount=1.0):
     """
     Lightens the given color by multiplying (1-luminosity) by the given amount.
-    Input can be matplotlib color string, hex string, or RGB tuple.
 
-    Examples:
+    Parameters
+    ----------
+    color : str, tuple
+        A matplotlib color string, hex string, or RGB tuple.
+    amount : float
+        The amount to lighten a color (default is 1.0)
+
+    Returns
+    -------
+    color : tuple
+        The altered color as an RGB tuple
+
+    Examples
+    --------
     >> lighten_color('g', 0.3)
     >> lighten_color('#F034A3', 0.6)
     >> lighten_color((.3,.55,.1), 0.5)
@@ -105,9 +135,19 @@ def cumu_det_plot(mol_list=None, syear=None, eyear=None, filename=None):
 
     """
     Makes a plot of the cumulative detections by year.
-    Defaults to using all molecules in the database, but can be passed a subset of molecules as a list of Molecule objects in mol_list.
-    The start year and end year are defined by default to be the earliest year in the list and the current year, by default, but take integers as overrides.
-    The filename defaults to 'cumulative_detections.pdf' but can be overriden.
+
+    Parameters
+    ----------
+    mol_list : list
+        A list of molecule objects to use (default is all_molecules)
+    syear : int
+        The starting year to plot (default is the earliest year of a molecule 
+        detection from molecules in mol_list)
+    eyear: int
+        The ending year to plot (default is the current year).  Actual plot maximum
+        will be one higher than this number for readability.
+    filename : str
+        The filename for the output images (default is 'cumulative_detections.pdf')
     """
 
     # If a list wasn't specified, default to all molecules
@@ -204,7 +244,7 @@ def cumu_det_plot(mol_list=None, syear=None, eyear=None, filename=None):
         arrowprops=arrowprops,
         va="bottom",
         ha="center",
-        **args
+        **args,
     )
     ax.annotate(
         "",
@@ -216,7 +256,7 @@ def cumu_det_plot(mol_list=None, syear=None, eyear=None, filename=None):
         arrowprops=arrowprops,
         va="bottom",
         ha="left",
-        **args
+        **args,
     )
     ax.annotate("Nobeyama (1982)", xy=(1982, dets[iyear(1982)] - 31), xycoords="data", **args)
     ax.annotate(
@@ -229,7 +269,7 @@ def cumu_det_plot(mol_list=None, syear=None, eyear=None, filename=None):
         arrowprops=arrowprops,
         va="bottom",
         ha="center",
-        **args
+        **args,
     )
     ax.annotate(
         "GBT (2001)",
@@ -241,7 +281,7 @@ def cumu_det_plot(mol_list=None, syear=None, eyear=None, filename=None):
         arrowprops=arrowprops,
         va="bottom",
         ha="center",
-        **args
+        **args,
     )
     ax.annotate(
         "ALMA (2011)",
@@ -253,7 +293,7 @@ def cumu_det_plot(mol_list=None, syear=None, eyear=None, filename=None):
         arrowprops=arrowprops,
         va="top",
         ha="center",
-        **args
+        **args,
     )
 
     # show the plot
@@ -269,15 +309,21 @@ def cumu_det_plot(mol_list=None, syear=None, eyear=None, filename=None):
 
 
 def cumu_det_natoms_plot(mol_list=None, syear=None, eyear=None, filename=None):
-
     """
-    Makes a plot of the cumulative detections (sorted by atoms) by year using the molecules in mol_list.
-    Defaults to using all molecules in the database, but can be passed a subset of molecules as a list of Molecule objects in mol_list.
-    The start year and end year are defined by default to be the earliest year in the list and the current year + 20 (to give room for labels),
-    but these can be overriden by setting syear and eyear to the desired years (integers).
+    Makes a plot of the cumulative detections (sorted by atoms) by year
 
-    Default filename is 'cumulative_by_atoms.pdf', but that can also be overriden.
-
+    Parameters
+    ----------
+    mol_list : list
+        A list of molecule objects to use (default is all_molecules)
+    syear : int
+        The starting year to plot (default is the earliest year of a molecule 
+        detection from molecules in mol_list)
+    eyear: int
+        The ending year to plot (default is the current year).  Actual plot maximum
+        will be one year higher than this number for readability.
+    filename : str
+        The filename for the output images (default is 'cumulative_by_atoms.pdf')
     """
 
     # If a list wasn't specified, default to all molecules
@@ -516,12 +562,18 @@ def cumu_det_natoms_plot(mol_list=None, syear=None, eyear=None, filename=None):
 
 
 def det_per_year_per_atom(mol_list=None, filename=None):
-
     """
-    Makes a plot of the average number of detections per year (y) for a molecule with (x) atoms, starting in the year they were first detected.
+    Makes a plot of the average number of detections per year (y) for a molecule with (x) atoms, 
+    starting in the year they were first detected.
+
     Has the ability to plot PAHs and fullerenes, but doesn't.
-    Defaults to using all molecules in the database, but can be passed a subset of molecules as a list of Molecule objects in mol_list.
-    Default filename is 'rate_by_atoms.pdf', but that can also be overriden.
+
+    Parameters
+    ----------
+    mol_list : list
+        A list of molecule objects to use (default is all_molecules)
+    filename : str
+        The filename for the output images (default is 'rate_by_atoms.pdf')
     """
 
     # If a list wasn't specified, default to all molecules
@@ -630,12 +682,18 @@ def det_per_year_per_atom(mol_list=None, filename=None):
 
 
 def facility_shares(mol_list=None, telescopes_list=None, filename=None):
-
     """
-    Makes a plot of the percentage share of yearly detections that a facility contributed over its operational lifetime for the top 9 facilities.
-    Defaults to using all molecules in the database, but can be passed a subset of molecules as a list of Molecule objects in mol_list.
-    Defaults to using all telescopes in the database, but can be passed a subset of telescopes as a list of Telescope objects in mol_list.
-    Default filename is 'facility_shares.pdf', but that can also be overriden.
+    Makes a plot of the percentage share of yearly detections that a facility 
+    contributed over its operational lifetime for the top 9 facilities.
+
+    Parameters
+    ----------
+    mol_list : list
+        A list of molecule objects to use (default is all_molecules)
+    telescopes_list : list
+        A list of telescope objects to use (default is all_telescopes)
+    filename : str
+        The filename for the output images (default is 'facility_shares.pdf')
     """
 
     # If a list wasn't specified, default to all molecules
@@ -740,7 +798,7 @@ def facility_shares(mol_list=None, telescopes_list=None, filename=None):
                     xytext=(1.1 * np.sign(x), y),
                     horizontalalignment=horizontalalignment,
                     size=10,
-                    **kw
+                    **kw,
                 )
 
             else:
@@ -799,14 +857,22 @@ def facility_shares(mol_list=None, telescopes_list=None, filename=None):
         bbox_inches="tight",
     )
 
-def scopes_by_year(mol_list=None, telescopes_list=None, min_detects=10, filename=None):
 
+def scopes_by_year(mol_list=None, telescopes_list=None, min_detects=10, filename=None):
     """
     Makes a plot of the cumulative number of detections of a facility with time.
-    Defaults to using all molecules in the database, but can be passed a subset of molecules as a list of Molecule objects in mol_list.
-    Defaults to using all telescopes in the database, but can be passed a subset of telescopes as a list of Telescope objects in mol_list.
-    Will only plot facilities with min_detects or greater, where min_detects defaults to 10 but can be overriden with an integer.
-    Default filename is 'facility_shares.pdf', but that can also be overriden.
+
+    Parameters
+    ----------
+    mol_list : list
+        A list of molecule objects to use (default is all_molecules)
+    telescopes_list : list
+        A list of telescope objects to use (default is all_telescopes)
+    min_detects : int
+        The minimum number of detections required to include a facility in the plot
+        (default is 10)
+    filename : str
+        The filename for the output images (default is 'scopes_by_year.pdf')
     """
 
     # If a list wasn't specified, default to all molecules
@@ -831,12 +897,14 @@ def scopes_by_year(mol_list=None, telescopes_list=None, min_detects=10, filename
 
     years = np.arange(1965, date.today().year + 1)
     scopes = [x for x in telescopes_list if x.ndetects >= min_detects]
-    #need a color pallette to work with.  This one is supposedly color-blind friendly.  There are more here than currently needed.
-    #if we happen to exceed this at some point, it will crash.
-    colors = ['#377eb8', '#ff7f00', '#4daf4a', '#f781bf', '#a65628', '#984ea3', '#999999', '#e41a1c', '#dede00'][:len(scopes)]
-    
+    # need a color pallette to work with.  This one is supposedly color-blind friendly.  There are more here than currently needed.
+    # if we happen to exceed this at some point, it will crash.
+    colors = ["#377eb8", "#ff7f00", "#4daf4a", "#f781bf", "#a65628", "#984ea3", "#999999", "#e41a1c", "#dede00"][
+        : len(scopes)
+    ]
+
     my_dict = {}
-    for scope,color in zip(scopes,colors):
+    for scope, color in zip(scopes, colors):
         tmp_years = np.copy(years) * 0
         i = 0
         for x in range(len(years)):
@@ -844,24 +912,30 @@ def scopes_by_year(mol_list=None, telescopes_list=None, min_detects=10, filename
                 if mol.year == years[x] and scope in mol.telescopes:
                     i += 1
             tmp_years[x] = i
-        my_dict[scope.shortname] = [tmp_years,color,scope]
-        
+        my_dict[scope.shortname] = [tmp_years, color, scope]
+
     # do linear fits to the data for the ranges we care about for each facility:
     # get some year indicies for years we care about
     def iyear(x):
         return np.argwhere(years == x)[0][0]
 
-    #manually add cutoff dates for telescopes to be used in the fitting.  If a date isn't added, it defaults to the present
+    # manually add cutoff dates for telescopes to be used in the fitting.  If a date isn't added, it defaults to the present
     cutoffs = {
-                'NRAO 36-ft' : 1985,
-                'NRAO 140-ft' : 1993,
-                'Nobeyama 45-m' : 1997,
+        "NRAO 36-ft": 1985,
+        "NRAO 140-ft": 1993,
+        "Nobeyama 45-m": 1997,
     }
 
-    #add trends to the dictionary
+    # add trends to the dictionary
     for x in my_dict:
         end_year = iyear(cutoffs[my_dict[x][2].shortname]) if my_dict[x][2].shortname in cutoffs else None
-        my_dict[x].append(np.polynomial.polynomial.Polynomial.fit(years[iyear(my_dict[x][2].built) : end_year], my_dict[x][0][iyear(my_dict[x][2].built) : end_year], 1).convert().coef[1] )
+        my_dict[x].append(
+            np.polynomial.polynomial.Polynomial.fit(
+                years[iyear(my_dict[x][2].built) : end_year], my_dict[x][0][iyear(my_dict[x][2].built) : end_year], 1
+            )
+            .convert()
+            .coef[1]
+        )
 
     # pull up an axis
     ax = fig.add_subplot(111)
@@ -877,12 +951,12 @@ def scopes_by_year(mol_list=None, telescopes_list=None, min_detects=10, filename
     ax.xaxis.set_ticks_position("both")
     ax.set_xticks([1970, 1980, 1990, 2000, 2010, 2020])
 
-    #plot
+    # plot
     for x in my_dict:
-        ax.plot(years, my_dict[x][0], color=my_dict[x][1])    
+        ax.plot(years, my_dict[x][0], color=my_dict[x][1])
 
-    #we want to sort the labels with the most productive telescopes on top; that's hard to do with a dictionary
-    #so, we get the rates into a list, and the keys into a list, then sort both of those by the rates, then iterate over the sorted keys
+    # we want to sort the labels with the most productive telescopes on top; that's hard to do with a dictionary
+    # so, we get the rates into a list, and the keys into a list, then sort both of those by the rates, then iterate over the sorted keys
     rates = []
     keys = []
     for x in my_dict:
@@ -895,36 +969,38 @@ def scopes_by_year(mol_list=None, telescopes_list=None, min_detects=10, filename
     for x in keys:
         ax.annotate(
             my_dict[x][2].shortname,
-            xy = (0.1, 0.90-0.05*row),
-            xycoords = 'axes fraction',
-            color = my_dict[x][1],
-            fontweight = 'bold', #for some reason, matplotlib is entirely ignoring this
-            ha = 'left',
-            va = 'top',
-            size = 18,
+            xy=(0.1, 0.90 - 0.05 * row),
+            xycoords="axes fraction",
+            color=my_dict[x][1],
+            fontweight="bold",  # for some reason, matplotlib is entirely ignoring this
+            ha="left",
+            va="top",
+            size=18,
         )
         ax.annotate(
-            f'{my_dict[x][3]:.1f}/yr',
-            xy = (0.37, 0.90-0.05*row),
-            xycoords = 'axes fraction',
-            color = my_dict[x][1],
-            fontweight = 'bold', #for some reason, matplotlib is entirely ignoring this
-            ha = 'left',
-            va = 'top',
-            size = 18,
+            f"{my_dict[x][3]:.1f}/yr",
+            xy=(0.37, 0.90 - 0.05 * row),
+            xycoords="axes fraction",
+            color=my_dict[x][1],
+            fontweight="bold",  # for some reason, matplotlib is entirely ignoring this
+            ha="left",
+            va="top",
+            size=18,
         )
-        date_str_a = f'({my_dict[x][2].built} -'
-        date_str_b = f'{cutoffs[my_dict[x][2].shortname]})' if my_dict[x][2].shortname in cutoffs else f'{date.today().year})'
+        date_str_a = f"({my_dict[x][2].built} -"
+        date_str_b = (
+            f"{cutoffs[my_dict[x][2].shortname]})" if my_dict[x][2].shortname in cutoffs else f"{date.today().year})"
+        )
         ax.annotate(
             date_str_a + date_str_b,
-            xy = (0.47, 0.90-0.05*row),
-            xycoords = 'axes fraction',
-            color = my_dict[x][1],
-            fontweight = 'bold', #for some reason, matplotlib is entirely ignoring this
-            ha = 'left',
-            va = 'top',
-            size = 18,
-        )        
+            xy=(0.47, 0.90 - 0.05 * row),
+            xycoords="axes fraction",
+            color=my_dict[x][1],
+            fontweight="bold",  # for some reason, matplotlib is entirely ignoring this
+            ha="left",
+            va="top",
+            size=18,
+        )
         row += 1
 
     ax.set_xlim([1965, date.today().year + 2])
@@ -937,15 +1013,22 @@ def scopes_by_year(mol_list=None, telescopes_list=None, min_detects=10, filename
         format="pdf",
         transparent=True,
         bbox_inches="tight",
-    )    
+    )
 
 
-def periodic_heatmap(mol_list=None, filename=None):
-
+def periodic_heatmap(mol_list=None, filename=None, pdf_crop=True):
     """
-    Makes a periodic table heat map.
-    Defaults to using all molecules in the database, but can be passed a subset of molecules as a list of Molecule objects in mol_list.
-    Default filename is 'periodic_heatmap.pdf', but that can also be overriden.
+    Makes a periodic table heat map of molecules detected containing each element.
+
+    Parameters
+    ----------
+    mol_list : list
+        A list of molecule objects to use (default is all_molecules)
+    filename : str
+        The filename for the output images (default is 'periodic_heatmap.pdf')
+    pdf_crop : bool
+        If True, will use the system's TexLive pdfcrop utility to crop off extra
+        whitespace from the final PDF.  Likely only works on Macs (default is True)
     """
 
     # If a list wasn't specified, default to all molecules
@@ -1161,17 +1244,22 @@ def periodic_heatmap(mol_list=None, filename=None):
     )
 
     # the bit below crops off extra white space.  This only works on Macs with the TexLive pdfcrop utility installed.
-    # Comment out if not desired.
-    os.system("pdfcrop --margins -0 periodic_heatmap.pdf periodic_heatmap.pdf")
+    if pdf_crop is True:
+        os.system("pdfcrop --margins -0 periodic_heatmap.pdf periodic_heatmap.pdf")
 
 
 def mass_by_wavelengths(mol_list=None, bw=0.5, filename=None):
     """
-    Makes a KDE plot of detections at each wavelength vs mass.
-    Defaults to using all molecules in the database, but can be passed a subset of molecules as a list of Molecule objects in mol_list.
-    Defaults to a bandwidth of 0.5, which can be overriden by any float.
-    Default filename
-     is 'mass_by_wavelengths_kde.pdf', but that can also be overriden.
+    Makes a Kernel Density Estimate plot of detections at each wavelength vs mass.
+
+    Parameters
+    ----------
+    mol_list : list
+        A list of molecule objects to use (default is all_molecules)
+    bw : float
+        The bandwidth to be used for the Kernel Density Estimate (default is 0.5)
+    filename : str
+        The filename for the output images (default is 'mass_by_wavelengths_kde.pdf')
     """
 
     # If a list wasn't specified, default to all molecules
@@ -1194,9 +1282,11 @@ def mass_by_wavelengths(mol_list=None, bw=0.5, filename=None):
             if y in x.wavelengths:
                 my_dict[y].append(x.mass)
     for x in my_dict["UV"]:
-        my_dict["UV-Vis"].append(x)
+        if x not in my_dict["UV-Vis"]:
+            my_dict["UV-Vis"].append(x)
     for x in my_dict["Vis"]:
-        my_dict["UV-Vis"].append(x)
+        if x not in my_dict["UV-Vis"]:
+            my_dict["UV-Vis"].append(x)
 
     # get the plot set up
     plt.close("Detections at Wavelengths by Mass")
@@ -1244,7 +1334,7 @@ def mass_by_wavelengths(mol_list=None, bw=0.5, filename=None):
     ax.fill_between(xvals, density_cm(xvals), 0, facecolor="dodgerblue", alpha=0.25, zorder=4)
     ax.annotate(
         "{}".format(len(my_dict["cm"])),
-        xy=(75, 0.01),
+        xy=(78, 0.01),
         xycoords="data",
         ha="left",
         va="bottom",
@@ -1262,7 +1352,7 @@ def mass_by_wavelengths(mol_list=None, bw=0.5, filename=None):
     )
     ax.annotate(
         "{}".format(len(my_dict["mm"])),
-        xy=(53.5, 0.022),
+        xy=(54, 0.022),
         xycoords="data",
         ha="left",
         va="bottom",
@@ -1310,7 +1400,7 @@ def mass_by_wavelengths(mol_list=None, bw=0.5, filename=None):
     )
     ax.annotate(
         "{}".format(len(my_dict["UV-Vis"])),
-        xy=(16.5, 0.057),
+        xy=(14, 0.033),
         xycoords="data",
         ha="left",
         va="bottom",
@@ -1319,48 +1409,48 @@ def mass_by_wavelengths(mol_list=None, bw=0.5, filename=None):
 
     ax.annotate(
         r"\underline{Detection Wavelengths}",
-        xy=(158, 0.06),
-        xycoords="data",
+        xy=(0.95, 0.97),
+        xycoords="axes fraction",
         color="black",
         ha="right",
         va="top",
     )
     ax.annotate(
         "centimeter",
-        xy=(158, 0.056),
-        xycoords="data",
+        xy=(0.95, 0.9),
+        xycoords="axes fraction",
         color="dodgerblue",
         ha="right",
         va="top",
     )
     ax.annotate(
         "millimeter",
-        xy=(158, 0.052),
-        xycoords="data",
+        xy=(0.95, 0.85),
+        xycoords="axes fraction",
         color="darkorange",
         ha="right",
         va="top",
     )
     ax.annotate(
         "sub-millimeter",
-        xy=(158, 0.048),
-        xycoords="data",
+        xy=(0.95, 0.8),
+        xycoords="axes fraction",
         color="forestgreen",
         ha="right",
         va="top",
     )
     ax.annotate(
         "infrared",
-        xy=(158, 0.044),
-        xycoords="data",
+        xy=(0.95, 0.75),
+        xycoords="axes fraction",
         color="black",
         ha="right",
         va="top",
     )
     ax.annotate(
         "visible/ultraviolet",
-        xy=(158, 0.04),
-        xycoords="data",
+        xy=(0.95, 0.7),
+        xycoords="axes fraction",
         color="violet",
         ha="right",
         va="top",
@@ -1381,10 +1471,18 @@ def mass_by_wavelengths(mol_list=None, bw=0.5, filename=None):
 
 def mols_waves_by_atoms(mol_list=None, bw=0.5, filename=None):
     """
-    Makes six histogram plots of molecules detected in each wavelength range by number of atoms, excepting fullerenes.
-    For plots with sufficient datapoints, we'll do a KDE plot with bandwidth defaulting to 0.5 that can be overridden.
-    Defaults to using all molecules in the database, but can be passed a subset of molecules as a list of Molecule objects in mol_list.
-    Default filename is 'mols_waves_by_atoms.pdf', but that can also be overriden.
+    Makes plots of molecules detected in each wavelength range by number of atoms, excluding
+    fullerenes.  For plots with sufficient datapoints, a Kernel Density Estimate is used, otherwise
+    a histogram is provided.
+
+    Parameters
+    ----------
+    mol_list : list
+        A list of molecule objects to use (default is all_molecules)
+    bw : float
+        The bandwidth to be used for the Kernel Density Estimate (default is 0.5)
+    filename : str
+        The filename for the output images (default is 'mols_waves_by_atoms.pdf')
     """
 
     # If a list wasn't specified, default to all molecules
@@ -1518,9 +1616,15 @@ def mols_waves_by_atoms(mol_list=None, bw=0.5, filename=None):
 
 def du_histogram(mol_list=None, filename=None):
     """
-    Makes a histogram of the degree of unsaturation of molecules containing only H, O, N, C, Cl, or F.
-    Defaults to using all molecules in the database, but can be passed a subset of molecules as a list of Molecule objects in mol_list.
-    Default filename is 'du_histogram.pdf', but that can also be overriden.
+    Makes a histogram of the degree of unsaturation of molecules for which that value has been
+    calculated.
+
+    Parameters
+    ----------
+    mol_list : list
+        A list of molecule objects to use (default is all_molecules)
+    filename : str
+        The filename for the output images (default is 'du_histogram.pdf')
     """
 
     # If a list wasn't specified, default to all molecules
@@ -1588,9 +1692,15 @@ def du_histogram(mol_list=None, filename=None):
 
 def type_pie_chart(mol_list=None, filename=None):
     """
-    Makes a pie chart of the fraction of interstellar molecules that are neutral, radical, cation, cyclic, pahs, fullerenes, or anions
-    Defaults to using all molecules in the database, but can be passed a subset of molecules as a list of Molecule objects in mol_list.
-    Default filename is 'type_pie_chart.pdf', but that can also be overriden.
+    Makes a pie chart of the fraction of interstellar molecules that are 
+    neutral, radical, cation, cyclic, pahs, fullerenes, or anions
+
+    Parameters
+    ----------
+    mol_list : list
+        A list of molecule objects to use (default is all_molecules)
+    filename : str
+        The filename for the output images (default is 'type_pie_chart.pdf')
     """
 
     # If a list wasn't specified, default to all molecules
@@ -1801,10 +1911,17 @@ def type_pie_chart(mol_list=None, filename=None):
 
 def source_pie_chart(mol_list=None, filename=None):
     """
-    Makes a pie chart of the fraction of interstellar molecules detected in carbon stars, dark clouds, los clouds, star forming regions, and other types of sources
-    Defaults to using all molecules in the database, but can be passed a subset of molecules as a list of Molecule objects in mol_list.
-    Default filename is 'source_pie_chart.pdf', but that can also be overriden.
-    """
+    Makes a pie chart of the fraction of interstellar molecules detected 
+    in carbon stars, dark clouds, los clouds, star forming regions, 
+    and other types of sources
+
+    Parameters
+    ----------
+    mol_list : list
+        A list of molecule objects to use (default is all_molecules)
+    filename : str
+        The filename for the output images (default is 'source_pie_chart.pdf')
+    """ 
 
     # If a list wasn't specified, default to all molecules
     if mol_list is None:
@@ -1868,54 +1985,61 @@ def source_pie_chart(mol_list=None, filename=None):
     ax.pie(
         [fracs[0], 1.0 - fracs[0]],
         colors=["dodgerblue", "#EEEEEE"],
-        radius=1,
+        radius=1 - 0 * size - 0 * 0.02,
         startangle=getshift(fracs[0]),
-        wedgeprops=dict(width=size, edgecolor="w", linewidth=1),
-    )
-    ax.pie(
-        [fracs[1], 1.0 - fracs[1]],
-        colors=["darkorange", "#EEEEEE"],
-        radius=1 - size - 0.02,
-        startangle=getshift(fracs[1]),
         wedgeprops=dict(width=size, edgecolor="w", linewidth=1),
     )
     ax.pie(
         [fracs[2], 1.0 - fracs[2]],
         colors=["forestgreen", "#EEEEEE"],
-        radius=1 - 2 * size - 0.04,
+        radius=1 - 1 * size - 1 * 0.02,
         startangle=getshift(fracs[2]),
+        wedgeprops=dict(width=size, edgecolor="w", linewidth=1),
+    )
+    ax.pie(
+        [fracs[1], 1.0 - fracs[1]],
+        colors=["darkorange", "#EEEEEE"],
+        radius=1 - 2 * size - 2 * 0.02,
+        startangle=getshift(fracs[1]),
         wedgeprops=dict(width=size, edgecolor="w", linewidth=1),
     )
     ax.pie(
         [fracs[3], 1.0 - fracs[3]],
         colors=["violet", "#EEEEEE"],
-        radius=1 - 3 * size - 0.06,
+        radius=1 - 3 * size - 3 * 0.02,
         startangle=getshift(fracs[3]),
         wedgeprops=dict(width=size, edgecolor="w", linewidth=1),
     )
     ax.pie(
         [fracs[4], 1.0 - fracs[4]],
         colors=["red", "#EEEEEE"],
-        radius=1 - 4 * size - 0.08,
+        radius=1 - 4 * size - 4 * 0.02,
         startangle=getshift(fracs[4]),
         wedgeprops=dict(width=size, edgecolor="w", linewidth=1),
     )
 
     ax.annotate(r"\textbf{SFR}", xy=(0.5, 0.11), xycoords="axes fraction", color="dodgerblue", ha="center", size=14)
     ax.annotate(
-        r"\textbf{Carbon Star}", xy=(0.5, 0.16), xycoords="axes fraction", color="darkorange", ha="center", size=14
+        r"\textbf{Carbon Star}", xy=(0.5, 0.205), xycoords="axes fraction", color="darkorange", ha="center", size=14
     )
     ax.annotate(
-        r"\textbf{Dark Cloud}", xy=(0.5, 0.205), xycoords="axes fraction", color="forestgreen", ha="center", size=14
+        r"\textbf{Dark Cloud}", xy=(0.5, 0.16), xycoords="axes fraction", color="forestgreen", ha="center", size=14
     )
     ax.annotate(r"\textbf{Other}", xy=(0.5, 0.255), xycoords="axes fraction", color="violet", ha="center", size=14)
     ax.annotate(r"\textbf{LOS Cloud}", xy=(0.5, 0.305), xycoords="axes fraction", color="red", ha="center", size=14)
 
     percents = [r"\textbf{" + "{:.1f}".format((x * 100)) + r"}\%" for x in fracs]
 
+    # Percents indexing:
+    # 0 : SFR
+    # 1 : Carbon Star
+    # 2 : Dark Cloud
+    # 3 : Other
+    # 4 : LOS Cloud
+
     ax.annotate(
         percents[4],
-        xy=(0.51, 0.68),
+        xy=(0.5, 0.68),
         xycoords="axes fraction",
         color="white",
         ha="center",
@@ -1923,15 +2047,7 @@ def source_pie_chart(mol_list=None, filename=None):
     )
     ax.annotate(
         percents[3],
-        xy=(0.51, 0.725),
-        xycoords="axes fraction",
-        color="white",
-        ha="center",
-        size=12,
-    )
-    ax.annotate(
-        percents[2],
-        xy=(0.51, 0.775),
+        xy=(0.5, 0.725),
         xycoords="axes fraction",
         color="white",
         ha="center",
@@ -1939,7 +2055,15 @@ def source_pie_chart(mol_list=None, filename=None):
     )
     ax.annotate(
         percents[1],
-        xy=(0.51, 0.825),
+        xy=(0.5, 0.775),
+        xycoords="axes fraction",
+        color="white",
+        ha="center",
+        size=12,
+    )
+    ax.annotate(
+        percents[2],
+        xy=(0.5, 0.825),
         xycoords="axes fraction",
         color="white",
         ha="center",
@@ -1947,7 +2071,7 @@ def source_pie_chart(mol_list=None, filename=None):
     )
     ax.annotate(
         percents[0],
-        xy=(0.51, 0.87),
+        xy=(0.5, 0.87),
         xycoords="axes fraction",
         color="white",
         ha="center",
@@ -1969,12 +2093,17 @@ def source_pie_chart(mol_list=None, filename=None):
 
 
 def indiv_source_pie_chart(mol_list=None, filename=None):
+    """
+    Makes a pie chart of the fraction of interstellar molecules 
+    detected in IRC+10216, TMC-1, Orion, and Sgr
 
-    """
-    Makes a pie chart of the fraction of interstellar molecules detected in IRC+10216, TMC-1, Orion, and Sgr
-    Defaults to using all molecules in the database, but can be passed a subset of molecules as a list of Molecule objects in mol_list.
-    Default filename is 'indiv_source_pie_chart.pdf', but that can also be overriden.
-    """
+    Parameters
+    ----------
+    mol_list : list
+        A list of molecule objects to use (default is all_molecules)
+    filename : str
+        The filename for the output images (default is 'indiv_source_pie_chart.pdf')
+    """ 
 
     # If a list wasn't specified, default to all molecules
     if mol_list is None:
@@ -2033,35 +2162,35 @@ def indiv_source_pie_chart(mol_list=None, filename=None):
     ax.pie(
         [fracs[0], 1.0 - fracs[0]],
         colors=["dodgerblue", "#EEEEEE"],
-        radius=1,
+        radius=1 - 0 * size - 0 * 0.02,
         startangle=getshift(fracs[0]),
         wedgeprops=dict(width=size, edgecolor="w", linewidth=1),
     )
     ax.pie(
         [fracs[1], 1.0 - fracs[1]],
         colors=["darkorange", "#EEEEEE"],
-        radius=1 - size - 0.02,
+        radius=1 - 1 * size - 1 * 0.02,
         startangle=getshift(fracs[1]),
         wedgeprops=dict(width=size, edgecolor="w", linewidth=1),
     )
     ax.pie(
         [fracs[2], 1.0 - fracs[2]],
         colors=["forestgreen", "#EEEEEE"],
-        radius=1 - 2 * size - 0.04,
+        radius=1 - 3 * size - 3 * 0.02,
         startangle=getshift(fracs[2]),
         wedgeprops=dict(width=size, edgecolor="w", linewidth=1),
     )
     ax.pie(
         [fracs[3], 1.0 - fracs[3]],
         colors=["violet", "#EEEEEE"],
-        radius=1 - 3 * size - 0.06,
+        radius=1 - 2 * size - 2 * 0.02,
         startangle=getshift(fracs[3]),
         wedgeprops=dict(width=size, edgecolor="w", linewidth=1),
     )
     ax.pie(
         [fracs[4], 1.0 - fracs[4]],
         colors=["red", "#EEEEEE"],
-        radius=1 - 4 * size - 0.08,
+        radius=1 - 4 * size - 4 * 0.02,
         startangle=getshift(fracs[4]),
         wedgeprops=dict(width=size, edgecolor="w", linewidth=1),
     )
@@ -2069,12 +2198,19 @@ def indiv_source_pie_chart(mol_list=None, filename=None):
     ax.annotate(r"\textbf{Other}", xy=(0.5, 0.11), xycoords="axes fraction", color="dodgerblue", ha="center", size=14)
     ax.annotate(r"\textbf{Sgr B2}", xy=(0.5, 0.16), xycoords="axes fraction", color="darkorange", ha="center", size=14)
     ax.annotate(
-        r"\textbf{IRC+10216}", xy=(0.5, 0.205), xycoords="axes fraction", color="forestgreen", ha="center", size=14
+        r"\textbf{IRC+10216}", xy=(0.5, 0.255), xycoords="axes fraction", color="forestgreen", ha="center", size=14
     )
-    ax.annotate(r"\textbf{TMC-1}", xy=(0.5, 0.255), xycoords="axes fraction", color="violet", ha="center", size=14)
+    ax.annotate(r"\textbf{TMC-1}", xy=(0.5, 0.205), xycoords="axes fraction", color="violet", ha="center", size=14)
     ax.annotate(r"\textbf{Orion}", xy=(0.5, 0.305), xycoords="axes fraction", color="red", ha="center", size=14)
 
     percents = [r"\textbf{" + "{:.1f}".format((x * 100)) + r"}\%" for x in fracs]
+
+    # percents indexing
+    # 0 : Other
+    # 1 : Sgr B2
+    # 2 : IRC+10216
+    # 3 : TMC-1
+    # 4 : Orion
 
     ax.annotate(
         percents[4],
@@ -2085,7 +2221,7 @@ def indiv_source_pie_chart(mol_list=None, filename=None):
         size=12,
     )
     ax.annotate(
-        percents[3],
+        percents[2],
         xy=(0.51, 0.725),
         xycoords="axes fraction",
         color="white",
@@ -2093,7 +2229,7 @@ def indiv_source_pie_chart(mol_list=None, filename=None):
         size=12,
     )
     ax.annotate(
-        percents[2],
+        percents[3],
         xy=(0.51, 0.775),
         xycoords="axes fraction",
         color="white",
@@ -2132,12 +2268,18 @@ def indiv_source_pie_chart(mol_list=None, filename=None):
 
 
 def mol_type_by_source_type(mol_list=None, filename=None):
+    """
+    Generates four pie charts, one for each generalized source type, 
+    with the wedges for the types of molecules detected first in each type
 
+    Parameters
+    ----------
+    mol_list : list
+        A list of molecule objects to use (default is all_molecules)
+    filename : str
+        The filename for the output images (default is 'mol_type_by_source_type.pdf')
     """
-    Generates four pie charts, one for each generalized source type, with the wedges for the types of molecules detected first in each type
-    Defaults to using all molecules in the database, but can be passed a subset of molecules as a list of Molecule objects in mol_list.
-    Default filename is 'mol_type_by_source_type.pdf', but that can also be overriden.
-    """
+
 
     # If a list wasn't specified, default to all molecules
     if mol_list is None:
@@ -2323,12 +2465,17 @@ def mol_type_by_source_type(mol_list=None, filename=None):
 
 
 def du_by_source_type(mol_list=None, bw=0.5, filename=None):
-
     """
-    Makes a KDE plot of the dus in each source type
-    Defaults to using all molecules in the database, but can be passed a subset of molecules as a list of Molecule objects in mol_list.
-    Defaults to a bandwidth of 0.5, which can be overriden by any float.
-    Default filename is 'du_by_source_type_kde.pdf', but that can also be overriden.
+    Makes a Kernel Density Estimate plot of the degrees of unsaturation in each source type
+
+    Parameters
+    ----------
+    mol_list : list
+        A list of molecule objects to use (default is all_molecules)
+    bw : float
+        The bandwidth to be used for the Kernel Density Estimate (default is 0.5)        
+    filename : str
+        The filename for the output images (default is 'du_by_source_type_kde.pdf')
     """
 
     # If a list wasn't specified, default to all molecules
@@ -2471,12 +2618,18 @@ def du_by_source_type(mol_list=None, bw=0.5, filename=None):
 
 
 def rel_du_by_source_type(mol_list=None, bw=0.5, filename=None):
-
     """
-    Makes a KDE plot of the relative dus in each source type
-    Defaults to using all molecules in the database, but can be passed a subset of molecules as a list of Molecule objects in mol_list.
-    Defaults to a bandwidth of 0.5, which can be overriden by any float.
-    Default filename is 'relative_du_by_source_type_kde.pdf', but that can also be overriden.
+    Makes a Kernel Density Estimate plot of the relative degrees of 
+    unsaturation in each source type
+
+    Parameters
+    ----------
+    mol_list : list
+        A list of molecule objects to use (default is all_molecules)
+    bw : float
+        The bandwidth to be used for the Kernel Density Estimate (default is 0.5)        
+    filename : str
+        The filename for the output images (default is 'relative_du_by_source_type_kde.pdf')
     """
 
     # If a list wasn't specified, default to all molecules
@@ -2590,12 +2743,17 @@ def rel_du_by_source_type(mol_list=None, bw=0.5, filename=None):
 
 
 def mass_by_source_type(mol_list=None, bw=0.5, filename=None):
-
     """
-    Makes a KDE plot of the masses in each source type
-    Defaults to using all molecules in the database, but can be passed a subset of molecules as a list of Molecule objects in mol_list.
-    Defaults to a bandwidth of 0.5, which can be overriden by any float.
-    Default filename is 'mass_by_source_type_kde.pdf', but that can also be overriden.
+    Makes a Kernel Density Estimate plot of the masses in each source type
+
+    Parameters
+    ----------
+    mol_list : list
+        A list of molecule objects to use (default is all_molecules)
+    bw : float
+        The bandwidth to be used for the Kernel Density Estimate (default is 0.5)        
+    filename : str
+        The filename for the output images (default is 'mass_by_source_type_kde.pdf')
     """
 
     # If a list wasn't specified, default to all molecules
@@ -2745,11 +2903,16 @@ def mass_by_source_type(mol_list=None, bw=0.5, filename=None):
 
 
 def waves_by_source_type(mol_list=None, filename=None):
-
     """
-    Generates four pie charts, one for each generalized source type, with the wedges for the wavelengths used for first detections in those sources
-    Defaults to using all molecules in the database, but can be passed a subset of molecules as a list of Molecule objects in mol_list.
-    Default filename is 'waves_by_source_type.pdf', but that can also be overriden.
+    Generates four pie charts, one for each generalized source type, 
+    with the wedges for the wavelengths used for first detections in those sources
+
+    Parameters
+    ----------
+    mol_list : list
+        A list of molecule objects to use (default is all_molecules)     
+    filename : str
+        The filename for the output images (default is 'waves_by_source_type.pdf')
     """
 
     # If a list wasn't specified, default to all molecules
@@ -2942,16 +3105,89 @@ def waves_by_source_type(mol_list=None, filename=None):
 
     return
 
+
+def kappas(mol_list=None, nbins=100, filename=None):
+    """
+    Makes a histogram plot of kappa (Ray's Asymmetry Parameter) values.
+
+    Parameters
+    ----------
+    mol_list : list
+        A list of molecule objects to use (default is all_molecules)   
+    nbins : int
+        The number of bins to use in the histogram (default is 100)  
+    filename : str
+        The filename for the output images (default is 'kappas.pdf')
+    """
+
+    # If a list wasn't specified, default to all molecules
+    if mol_list is None:
+        mol_list = all_molecules
+
+    # gather the data
+    kappas = [x.kappa for x in mol_list if x.kappa]
+
+    # get the plot set up
+    plt.close("Kappas")
+    fig = plt.figure(num="Kappas", figsize=(20, 8))
+    plt.ion()
+
+    # set some font defaults
+    fontparams = {"size": 24, "family": "sans-serif", "sans-serif": ["Helvetica"]}
+    plt.rc("font", **fontparams)
+    plt.rc("mathtext", fontset="stixsans")
+
+    # load up an axis
+    ax = fig.add_subplot(111)
+    ax.tick_params(axis="x", which="both", direction="in", length=5, width=1)
+    ax.tick_params(axis="y", which="both", direction="in", length=5, width=1)
+
+    # label the axes
+    plt.xlabel(r"$\kappa$")
+    plt.ylabel(r"\# Molecules")
+
+    ax.hist(kappas, nbins, facecolor="dodgerblue", alpha=0.25)
+    ax.hist(kappas, nbins, edgecolor="dodgerblue", linewidth=1.5, fill=False)
+
+    # fix the ticks
+    ax.set_xticks([-1.0, -0.5, 0.0, 0.5, 1.0])
+    ax.set_yscale("log")
+    ax.yaxis.set_major_formatter(ScalarFormatter())
+
+    plt.show()
+
+    plt.savefig(
+        filename if filename is not None else "kappas.pdf",
+        format="pdf",
+        transparent=True,
+        bbox_inches="tight",
+        pad_inches=0,
+    )
+
+    return
+
+
 #############################################################
 # 						    LaTeX	 						#
 #############################################################
 
+
 def make_ism_tables(mol_list=None, filename=None):
     """
-    Generates the two latex tables for the census that contain all the detected ISM/CSM molecules,
-    using the hyperlink tags for the census paper.  The default is to use all the molecules for mol_list, but
-    it's possible to override if that's desired.  Will output two files, by default 'ism_table_2-7.tex' and 'ism_table_8+.tex'.
-    This can be overriden, but only the basename: filename + '_2-7.tex' and filename + '_8+.tex'
+    Generates the two latex tables for the census that contain all the 
+    detected ISM/CSM molecules, using the hyperlink tags for the census paper.
+    
+    The tables are broken out by number of atoms, with the first table containing
+    two-atom molecules through seven-atom molecules and the second table containing
+    molecules with eight or more atoms.  It outputs two files, following the convetion 
+    of filename + '_2-7.tex' and filename + '_8+.tex'
+
+    Parameters
+    ----------
+    mol_list : list
+        A list of molecule objects to use (default is all_molecules)   
+    filename : str
+        The filename for the output images (default is 'ism_table')
     """
 
     # If a list wasn't specified, default to all molecules
@@ -3095,23 +3331,37 @@ def make_ism_tables(mol_list=None, filename=None):
 
         output.write("\\hline\n\\end{tabular*}\n\\label{eight_more}\n\\end{table*}")
 
+
 def make_det_count(mol_list=None, filename=None):
     """
-    Makes a .tex file containing simply the number of molecules in mol_list, which defaults to all molecules.
-    Filename defaults to ndetects.tex, but can be overriden.
+    Makes a .tex file containing the number of molecules in mol_list
+
+    Parameters
+    ----------
+    mol_list : list
+        A list of molecule objects to use (default is all_molecules)   
+    filename : str
+        The filename for the output images (default is 'ndetects.tex')
     """
 
     # If a list wasn't specified, default to all molecules
     if mol_list is None:
         mol_list = all_molecules
 
-    with open(filename if filename is not None else 'ndetects.tex', 'w') as output:
-        output.write(f'{len(mol_list)}')
+    with open(filename if filename is not None else "ndetects.tex", "w") as output:
+        output.write(f"{len(mol_list)}")
+
 
 def make_elem_count(mol_list=None, filename=None):
     """
-    Makes a .tex file containing simply the number of unique elements in mol_list, which defaults to all molecules.
-    Filename defaults to "nelems.tex", but can be overriden.
+    Makes a .tex file containing the number of unique elements in molecules in mol_list
+
+    Parameters
+    ----------
+    mol_list : list
+        A list of molecule objects to use (default is all_molecules)   
+    filename : str
+        The filename for the output images (default is 'nelems.tex')
     """
 
     # If a list wasn't specified, default to all molecules
@@ -3123,23 +3373,83 @@ def make_elem_count(mol_list=None, filename=None):
     for mol in mol_list:
         for atom in mol.atoms:
             if mol.atoms[atom] > 0:
-                if atom not in elems: 
-                    elems.append(atom)     
+                if atom not in elems:
+                    elems.append(atom)
 
-    with open(filename if filename is not None else 'nelems.tex', 'w') as output:
-        output.write(f'{len(elems)}')        
+    with open(filename if filename is not None else "nelems.tex", "w") as output:
+        output.write(f"{len(elems)}")
+
+def make_ppd_count(mol_list=None, filename=None):
+    """
+    Makes a .tex file containing the number of molecules from mol_list 
+    found in protoplanetary disks. Does not count isotopologues, which are 
+    tabulated separately.
+
+    Parameters
+    ----------
+    mol_list : list
+        A list of molecule objects to use (default is all_molecules)   
+    filename : str
+        The filename for the output images (default is 'nppds.tex')
+    """ 
+
+    # If a list wasn't specified, default to all molecules
+    if mol_list is None:
+        mol_list = all_molecules
+
+    ppd_mols = 0
+
+    for mol in mol_list:
+        if mol.ppd is True:
+            ppd_mols += 1
+
+    with open(filename if filename is not None else "nppds.tex", "w") as output:
+        output.write(f"{ppd_mols}")        
+
+def make_ppd_isos_count(mol_list=None, filename=None):
+    """
+    Makes a .tex file containing the number of isotopologues of molecules from 
+    mol_list found in protoplanetary disks.
+
+    Parameters
+    ----------
+    mol_list : list
+        A list of molecule objects to use (default is all_molecules)   
+    filename : str
+        The filename for the output images (default is 'nppdisos.tex')
+    """ 
+
+    # If a list wasn't specified, default to all molecules
+    if mol_list is None:
+        mol_list = all_molecules
+
+    ppd_iso_mols = 0
+
+    for mol in mol_list:
+        if mol.ppd is True:
+            if mol.ppd_isos is not None:
+                ppd_iso_mols += len(mol.ppd_isos)
+
+    with open(filename if filename is not None else "nppdisos.tex", "w") as output:
+        output.write(f"{ppd_iso_mols}")               
 
 
 def make_exgal_table(mol_list=None, filename=None):
     """
-    Generates the latex table for the census that contains all the detected extragalactic molecules,
-    using the provided bibtex references.  The default is to use all the molecules for mol_list, but
-    it's possible to override if that's desired.  Filename defaults to "exgal_table.tex", but can be overriden.
-    """
+    Generates the latex table for the census that contains all the detected 
+    extragalactic molecules, using the provided bibtex references.
+
+    Parameters
+    ----------
+    mol_list : list
+        A list of molecule objects to use (default is all_molecules)   
+    filename : str
+        The filename for the output images (default is 'exgal_table.tex')
+    """ 
 
     # If a list wasn't specified, default to all molecules
     if mol_list is None:
-        mol_list = all_molecules    
+        mol_list = all_molecules
 
     # put molecules into individual lists for ease of use below
     two_atoms = [x for x in mol_list if x.natoms == 2 and x.exgal is not None]
@@ -3152,7 +3462,7 @@ def make_exgal_table(mol_list=None, filename=None):
     nine_atoms = [x for x in mol_list if x.natoms == 9 and x.exgal is not None]
     # ten_atoms = [x for x in mol_list if x.natoms == 10 and x.exgal is not None] # no hits here yet
     # eleven_atoms = [x for x in mol_list if x.natoms == 11 and x.exgal is not None] # no hits here yet
-    twelve_atoms = [x for x in mol_list if x.natoms == 12 and x.exgal is not None]    
+    twelve_atoms = [x for x in mol_list if x.natoms == 12 and x.exgal is not None]
 
     # initialize a list to hold each line of the first table
     table = []
@@ -3160,10 +3470,19 @@ def make_exgal_table(mol_list=None, filename=None):
     # add the pre-amble latex stuff
     table.append(r"\begin{table*}" + "\n")
     table.append(r"\centering" + "\n")
-    table.append(r"\caption{List of molecules detected in external galaxies with references to the first detections.  Tentative detections are indicated, and some extra references are occasionally provided for context.}" + "\n")
-    table.append(r"\begin{tabular*}{\textwidth}{l @{\extracolsep{\fill}} l @{\extracolsep{\fill}} l @{\extracolsep{\fill}} l @{\extracolsep{\fill}} l @{\extracolsep{\fill}} l @{\extracolsep{\fill}} l @{\extracolsep{\fill}} l @{\extracolsep{\fill}} l @{\extracolsep{\fill}} l @{\extracolsep{\fill}}}" + "\n")
+    table.append(
+        r"\caption{List of molecules detected in external galaxies with references to the first detections.  Tentative detections are indicated, and some extra references are occasionally provided for context.}"
+        + "\n"
+    )
+    table.append(
+        r"\begin{tabular*}{\textwidth}{l @{\extracolsep{\fill}} l @{\extracolsep{\fill}} l @{\extracolsep{\fill}} l @{\extracolsep{\fill}} l @{\extracolsep{\fill}} l @{\extracolsep{\fill}} l @{\extracolsep{\fill}} l @{\extracolsep{\fill}} l @{\extracolsep{\fill}} l @{\extracolsep{\fill}}}"
+        + "\n"
+    )
     table.append(r"\hline\hline" + "\n")
-    table.append(r"\multicolumn{2}{c}{2 Atoms}&\multicolumn{2}{c}{3 Atoms}&\multicolumn{2}{c}{4 Atoms}&\multicolumn{2}{c}{5 Atoms}\\" + "\n")
+    table.append(
+        r"\multicolumn{2}{c}{2 Atoms}&\multicolumn{2}{c}{3 Atoms}&\multicolumn{2}{c}{4 Atoms}&\multicolumn{2}{c}{5 Atoms}\\"
+        + "\n"
+    )
     table.append(r"Species	&	Ref.	&	Species	&	Ref.	&	Species	&	Ref.	&	Species	&	Ref.	\\" + "\n")
     table.append(r"\hline" + "\n")
 
@@ -3184,14 +3503,14 @@ def make_exgal_table(mol_list=None, filename=None):
         eight_atoms,
         nine_atoms,
         twelve_atoms,
-    ]    
+    ]
 
     # Do the two to five atom table first
 
     # figure out the max number of rows for the first half of our table
     nlines_first = np.max([len(x) for x in two_five])
 
-    #now just loop through and add
+    # now just loop through and add
     for i in range(nlines_first):
         table_line = ""
         for x in two_five:
@@ -3207,11 +3526,11 @@ def make_exgal_table(mol_list=None, filename=None):
                 # now we deal with the references
                 ref_strs = []
                 # some detections have more than one reference, so we loop over them
-                for ref_ID in x[i].exgal_bib_ids:
+                for ref_ID in x[i].exgal_d_bib_ids:
                     # if the reference has already been used before, we just use the number from that instance
                     if ref_ID in refs_dict:
                         ref_strs.append(refs_dict[ref_ID])
-                    # if it hasn't been used before    
+                    # if it hasn't been used before
                     else:
                         # assign it the next number in line to be used
                         ref_strs.append(str(ref_idx))
@@ -3230,8 +3549,14 @@ def make_exgal_table(mol_list=None, filename=None):
     # add stuff between the two halves of the table
     table.append(r"\hline\hline" + "\n")
     table.append(r"\end{tabular*}" + "\n")
-    table.append(r"\begin{tabular*}{\textwidth}{l @{\extracolsep{\fill}} l @{\extracolsep{\fill}} l @{\extracolsep{\fill}} l @{\extracolsep{\fill}} l @{\extracolsep{\fill}} l @{\extracolsep{\fill}} l @{\extracolsep{\fill}} l @{\extracolsep{\fill}} l @{\extracolsep{\fill}} l @{\extracolsep{\fill}} l @{\extracolsep{\fill}} l @{\extracolsep{\fill}}}" + "\n")
-    table.append(r"\multicolumn{2}{c}{6 Atoms}&\multicolumn{2}{c}{7 Atoms}&\multicolumn{2}{c}{8 Atoms}&\multicolumn{2}{c}{9 Atoms}&\multicolumn{2}{c}{12 Atoms}\\" + "\n")
+    table.append(
+        r"\begin{tabular*}{\textwidth}{l @{\extracolsep{\fill}} l @{\extracolsep{\fill}} l @{\extracolsep{\fill}} l @{\extracolsep{\fill}} l @{\extracolsep{\fill}} l @{\extracolsep{\fill}} l @{\extracolsep{\fill}} l @{\extracolsep{\fill}} l @{\extracolsep{\fill}} l @{\extracolsep{\fill}} l @{\extracolsep{\fill}} l @{\extracolsep{\fill}}}"
+        + "\n"
+    )
+    table.append(
+        r"\multicolumn{2}{c}{6 Atoms}&\multicolumn{2}{c}{7 Atoms}&\multicolumn{2}{c}{8 Atoms}&\multicolumn{2}{c}{9 Atoms}&\multicolumn{2}{c}{12 Atoms}\\"
+        + "\n"
+    )
     table.append(r"Species	&	Ref.	&	Species	&	Ref.	&	Species	&	Ref.	&	Species	&	Ref.	&	Species	&	Ref.	\\" + "\n")
     table.append(r"\hline" + "\n")
 
@@ -3254,11 +3579,11 @@ def make_exgal_table(mol_list=None, filename=None):
                 # now we deal with the references
                 ref_strs = []
                 # some detections have more than one reference, so we loop over them
-                for ref_ID in x[i].exgal_bib_ids:
+                for ref_ID in x[i].exgal_d_bib_ids:
                     # if the reference has already been used before, we just use the number from that instance
                     if ref_ID in refs_dict:
                         ref_strs.append(refs_dict[ref_ID])
-                    # if it hasn't been used before    
+                    # if it hasn't been used before
                     else:
                         # assign it the next number in line to be used
                         ref_strs.append(str(ref_idx))
@@ -3272,7 +3597,7 @@ def make_exgal_table(mol_list=None, filename=None):
                 table_line += "\t&\t&\t"
         table_line = table_line[:-2]
         table_line += "\\\\\n"
-        table.append(table_line)    
+        table.append(table_line)
 
     # close out the data portion of the table
     table.append(r"\hline" + "\n")
@@ -3281,8 +3606,8 @@ def make_exgal_table(mol_list=None, filename=None):
     table.append(r"$^{\dagger}$Tentative detection\\" + "\n")
 
     # now we do the references; we'll have to play a few tricks to get an ordered list out of the dictionary
-    reference_ids = [] # the actual latex citekeys
-    reference_idx = [] # the index number from the table
+    reference_ids = []  # the actual latex citekeys
+    reference_idx = []  # the index number from the table
     for ref in refs_dict:
         reference_ids.append(ref)
         reference_idx.append(int(refs_dict[ref]))
@@ -3294,7 +3619,7 @@ def make_exgal_table(mol_list=None, filename=None):
 
     # get the preamble text out of the way; be sure not to include a carriage return
     table.append(r"\textbf{References:}")
-    
+
     # figure out how many references we have, and iterate over them
     for i in range(np.max(reference_idx)):
         table.append(f" [{reference_idx[i]}] " + r"\citet{" + f"{reference_ids[i]}" + r"} ")
@@ -3304,30 +3629,37 @@ def make_exgal_table(mol_list=None, filename=None):
     table.append(r"\label{exgal_mols}" + "\n")
     table.append(r"\end{table*}")
 
-    with open(filename if filename is not None else "exgal_table.tex", 'w') as output:
+    with open(filename if filename is not None else "exgal_table.tex", "w") as output:
         for line in table:
             output.write(line)
 
     return
 
+
 def make_ppd_table(mol_list=None, filename=None):
     """
-    Generates the latex table for the census that contains all the detected protoplanetary disk molecules,
-    using the provided bibtex references.  The default is to use all the molecules for mol_list, but
-    it's possible to override if that's desired.  Filename defaults to "ppd_table.tex", but can be overriden.
-    """
+    Generates the latex table for the census that contains all the detected 
+    protoplanetary disk molecules, using the provided bibtex references.
+
+    Parameters
+    ----------
+    mol_list : list
+        A list of molecule objects to use (default is all_molecules)   
+    filename : str
+        The filename for the output images (default is 'ppd_table.tex')
+    """ 
 
     # If a list wasn't specified, default to all molecules
     if mol_list is None:
-        mol_list = all_molecules    
+        mol_list = all_molecules
 
     # put molecules into individual lists for ease of use below; pull out isotopologues if they exist
     two_atoms = []
-    three_atoms =[]
+    three_atoms = []
     four_atoms = []
     five_atoms = []
     six_atoms = []
-    
+
     for mol in mol_list:
         if mol.natoms == 2:
             if mol.ppd is True:
@@ -3352,7 +3684,7 @@ def make_ppd_table(mol_list=None, filename=None):
                 five_atoms.append(mol)
             if mol.ppd_isos is not None:
                 for iso in mol.ppd_isos:
-                    five_atoms.append(iso)                                
+                    five_atoms.append(iso)
         if mol.natoms == 6:
             if mol.ppd is True:
                 six_atoms.append(mol)
@@ -3366,10 +3698,19 @@ def make_ppd_table(mol_list=None, filename=None):
     # add the pre-amble latex stuff
     table.append(r"\begin{table*}" + "\n")
     table.append(r"\centering" + "\n")
-    table.append(r"\caption{List of molecules, including rare isotopic species, detected in protoplanetary disks, with references to representative detections.  The earliest reported detection of a species in the literature is provided on a best-effort basis.  Tentative and disputed detections are not included (see text).}" + "\n")
-    table.append(r"\begin{tabular*}{\textwidth}{l @{\extracolsep{\fill}} l @{\extracolsep{\fill}} l @{\extracolsep{\fill}} l @{\extracolsep{\fill}} l @{\extracolsep{\fill}} l @{\extracolsep{\fill}} l @{\extracolsep{\fill}} l @{\extracolsep{\fill}} l @{\extracolsep{\fill}} l @{\extracolsep{\fill}}}" + "\n")
+    table.append(
+        r"\caption{List of molecules, including rare isotopic species, detected in protoplanetary disks, with references to representative detections.  The earliest reported detection of a species in the literature is provided on a best-effort basis.  Tentative and disputed detections are not included (see text).}"
+        + "\n"
+    )
+    table.append(
+        r"\begin{tabular*}{\textwidth}{l @{\extracolsep{\fill}} l @{\extracolsep{\fill}} l @{\extracolsep{\fill}} l @{\extracolsep{\fill}} l @{\extracolsep{\fill}} l @{\extracolsep{\fill}} l @{\extracolsep{\fill}} l @{\extracolsep{\fill}} l @{\extracolsep{\fill}} l @{\extracolsep{\fill}}}"
+        + "\n"
+    )
     table.append(r"\hline\hline" + "\n")
-    table.append(r"\multicolumn{2}{c}{2 Atoms}&\multicolumn{2}{c}{3 Atoms}&\multicolumn{2}{c}{4 Atoms}&\multicolumn{2}{c}{5 Atoms}&\multicolumn{2}{c}{6 Atoms}\\" + "\n")
+    table.append(
+        r"\multicolumn{2}{c}{2 Atoms}&\multicolumn{2}{c}{3 Atoms}&\multicolumn{2}{c}{4 Atoms}&\multicolumn{2}{c}{5 Atoms}&\multicolumn{2}{c}{6 Atoms}\\"
+        + "\n"
+    )
     table.append(r"Species	&	Ref.	&	Species	&	Ref.	&	Species	&	Ref.	&	Species	&	Ref.	&	Species	&	Ref.	\\" + "\n")
     table.append(r"\hline" + "\n")
 
@@ -3388,7 +3729,7 @@ def make_ppd_table(mol_list=None, filename=None):
     # figure out the max number of rows for the table
     nlines = np.max([len(x) for x in two_six])
 
-    #now just loop through and add
+    # now just loop through and add
     for i in range(nlines):
         table_line = ""
         for x in two_six:
@@ -3400,11 +3741,11 @@ def make_ppd_table(mol_list=None, filename=None):
                 # now we deal with the references
                 ref_strs = []
                 # some detections have more than one reference, so we loop over them
-                for ref_ID in x[i].ppd_bib_ids:
+                for ref_ID in x[i].ppd_d_bib_ids:
                     # if the reference has already been used before, we just use the number from that instance
                     if ref_ID in refs_dict:
                         ref_strs.append(refs_dict[ref_ID])
-                    # if it hasn't been used before    
+                    # if it hasn't been used before
                     else:
                         # assign it the next number in line to be used
                         ref_strs.append(str(ref_idx))
@@ -3426,8 +3767,8 @@ def make_ppd_table(mol_list=None, filename=None):
     table.append(r"\justify" + "\n")
 
     # now we do the references; we'll have to play a few tricks to get an ordered list out of the dictionary
-    reference_ids = [] # the actual latex citekeys
-    reference_idx = [] # the index number from the table
+    reference_ids = []  # the actual latex citekeys
+    reference_idx = []  # the index number from the table
     for ref in refs_dict:
         reference_ids.append(ref)
         reference_idx.append(int(refs_dict[ref]))
@@ -3439,7 +3780,7 @@ def make_ppd_table(mol_list=None, filename=None):
 
     # get the preamble text out of the way; be sure not to include a carriage return
     table.append(r"\textbf{References:}")
-    
+
     # figure out how many references we have, and iterate over them
     for i in range(np.max(reference_idx)):
         table.append(f" [{reference_idx[i]}] " + r"\citet{" + f"{reference_ids[i]}" + r"} ")
@@ -3449,22 +3790,29 @@ def make_ppd_table(mol_list=None, filename=None):
     table.append(r"\label{ppd_mols}" + "\n")
     table.append(r"\end{table*}")
 
-    with open(filename if filename is not None else "ppd_table.tex", 'w') as output:
+    with open(filename if filename is not None else "ppd_table.tex", "w") as output:
         for line in table:
             output.write(line)
 
-    return    
+    return
+
 
 def make_exo_table(mol_list=None, filename=None):
     """
-    Generates the latex table for the census that contains all the detected exoplanetary atmosphere molecules,
-    using the provided bibtex references.  The default is to use all the molecules for mol_list, but
-    it's possible to override if that's desired.  Filename defaults to "exo_table.tex", but can be overriden.
+    Generates the latex table for the census that contains all the detected 
+    exoplanetary atmosphere molecules, using the provided bibtex references.
+
+    Parameters
+    ----------
+    mol_list : list
+        A list of molecule objects to use (default is all_molecules)   
+    filename : str
+        The filename for the output images (default is 'exo_table.tex')
     """
 
     # If a list wasn't specified, default to all molecules
     if mol_list is None:
-        mol_list = all_molecules    
+        mol_list = all_molecules
 
     # a list to hold detections
     detects = []
@@ -3479,8 +3827,11 @@ def make_exo_table(mol_list=None, filename=None):
     # add the pre-amble latex stuff
     table.append(r"\begin{table}" + "\n")
     table.append(r"\centering" + "\n")
-    table.append(r"\caption{List of molecules detected in exoplanetary atmospheres, with references to representative detections.  Tentative and disputed detections are not included.}" + "\n")
-    table.append(r"\begin{tabular*}{\column}{l @{\extracolsep{\fill}} l @{\extracolsep{\fill}}" + "\n")
+    table.append(
+        r"\caption{List of molecules detected in exoplanetary atmospheres, with references to representative detections.  Tentative and disputed detections are not included.}"
+        + "\n"
+    )
+    table.append(r"\begin{tabular*}{\columnwidth}{l @{\extracolsep{\fill}} l @{\extracolsep{\fill}}}" + "\n")
     table.append(r"\hline\hline" + "\n")
     table.append(r"Species & References\\" + "\n")
     table.append(r"\hline" + "\n")
@@ -3489,27 +3840,27 @@ def make_exo_table(mol_list=None, filename=None):
     refs_dict = {}
     ref_idx = 1
 
-    #now just loop through and add
+    # now just loop through and add
     for x in detects:
         table_line = ""
         # get the formula in there
-        formula = x.formula if x.table_formula is None else x.table_formula        
+        formula = x.formula if x.table_formula is None else x.table_formula
         table_line += f"\ce{{{formula}}}\t&\t"
         # now we deal with the references
         ref_strs = []
         # some detections have more than one reference, so we loop over them
-        for ref_ID in x.exo_bib_ids:
+        for ref_ID in x.exo_d_bib_ids:
             # if the reference has already been used before, we just use the number from that instance
             if ref_ID in refs_dict:
                 ref_strs.append(refs_dict[ref_ID])
-            # if it hasn't been used before    
+            # if it hasn't been used before
             else:
                 # assign it the next number in line to be used
                 ref_strs.append(str(ref_idx))
                 # add it as an entry in refs_dict so we can use it again if needs be
                 refs_dict[ref_ID] = str(ref_idx)
                 # and increment the number
-                ref_idx += 1        
+                ref_idx += 1
         # join the reference string together and add it to the line
         table_line += f"{', '.join(ref_strs)}" + r"\\" + "\n"
         # add it to the table.
@@ -3521,8 +3872,8 @@ def make_exo_table(mol_list=None, filename=None):
     table.append(r"\justify" + "\n")
 
     # now we do the references; we'll have to play a few tricks to get an ordered list out of the dictionary
-    reference_ids = [] # the actual latex citekeys
-    reference_idx = [] # the index number from the table
+    reference_ids = []  # the actual latex citekeys
+    reference_idx = []  # the index number from the table
     for ref in refs_dict:
         reference_ids.append(ref)
         reference_idx.append(int(refs_dict[ref]))
@@ -3534,7 +3885,7 @@ def make_exo_table(mol_list=None, filename=None):
 
     # get the preamble text out of the way; be sure not to include a carriage return
     table.append(r"\textbf{References:}")
-    
+
     # figure out how many references we have, and iterate over them
     for i in range(np.max(reference_idx)):
         table.append(f" [{reference_idx[i]}] " + r"\citet{" + f"{reference_ids[i]}" + r"} ")
@@ -3544,8 +3895,767 @@ def make_exo_table(mol_list=None, filename=None):
     table.append(r"\label{exoplanet_mols}" + "\n")
     table.append(r"\end{table}")
 
-    with open(filename if filename is not None else "exo_table.tex", 'w') as output:
+    with open(filename if filename is not None else "exo_table.tex", "w") as output:
         for line in table:
             output.write(line)
 
-    return        
+    return
+
+
+def make_det_per_year_by_atoms_table(mol_list=None, filename=None):
+    """
+    Generates the latex table for the census that contains the rates of 
+    detectiosn of new molecules per year divided out by number of atoms.
+
+    Parameters
+    ----------
+    mol_list : list
+        A list of molecule objects to use (default is all_molecules)   
+    filename : str
+        The filename for the output images (default is 'rates_by_atoms_table.tex')
+    """
+
+    # If a list wasn't specified, default to all molecules
+    if mol_list is None:
+        mol_list = all_molecules
+
+    # a dictionary to hold the data.  Entries in the list ordered as follows:
+    # 0 : start year for fitting (int)
+    # 1 : array of years for plotting (np array)
+    # 2 : number of cumulative detections for each year in that array (np array)
+    # 3 : number of detections per year, if more than one year
+    # 4 : R^2 value for the fit
+    atoms_dict = {
+        2: [1968],
+        3: [1968],
+        4: [1968],
+        5: [1971],
+        6: [1970],
+        7: [1973],
+        8: [1975],
+        9: [1974],
+        10: [2001],
+        11: [2004],
+        12: [2001],
+        13: [2018],
+        "PAHs": [2021],
+        "Fullerenes": [2010],
+    }
+
+    # a function to count the cumulative detections to that point
+    def _count_dets(mol_list, natoms, syear, eyear):
+        dets = 0
+        for mol in mol_list:
+            if mol.natoms == natoms and syear <= mol.year <= eyear:
+                dets += 1
+        return dets
+
+    # loop through the different categories and generate the years array and the associated detections.
+    # the methods are inefficient, but so fast that it doesn't matter
+    for x in atoms_dict:
+        atoms_dict[x].append(np.arange(atoms_dict[x][0], date.today().year + 1))
+        if isinstance(x, int):
+            atoms_dict[x].append(np.array([_count_dets(mol_list, x, atoms_dict[x][0], z) for z in atoms_dict[x][1]]))
+        elif x == "PAHs":
+            atoms_dict[x].append([])
+            for year in atoms_dict[x][1]:
+                dets = 0
+                for mol in mol_list:
+                    if mol.pah is True and atoms_dict[x][0] <= mol.year <= year:
+                        dets += 1
+                atoms_dict[x][2].append(dets)
+            atoms_dict[x][2] = np.array(atoms_dict[x][2])
+        elif x == "Fullerenes":
+            atoms_dict[x].append([])
+            for year in atoms_dict[x][1]:
+                dets = 0
+                for mol in mol_list:
+                    if mol.fullerene is True and atoms_dict[x][0] <= mol.year <= year:
+                        dets += 1
+                atoms_dict[x][2].append(dets)
+            atoms_dict[x][2] = np.array(atoms_dict[x][2])
+
+    # loop through and do a linear fit to get detections per year, if there's at least two years
+    for x in atoms_dict:
+        if len(atoms_dict[x][1]) > 1:
+            slope, intercept, r_value, _, _ = linregress(atoms_dict[x][1], atoms_dict[x][2])
+            atoms_dict[x].append(slope)
+            atoms_dict[x].append(r_value)
+        else:
+            atoms_dict[x].append(None)
+            atoms_dict[x].append(None)
+
+    # initialize a list to hold each line of the first table
+    table = []
+
+    # add the pre-amble latex stuff
+    table.append(r"\begin{table}[htb!]" + "\n")
+    table.append(r"\centering" + "\n")
+    table.append(
+        r"\caption{Rates (\emph{m}) of detection of new molecules per year, sorted by number of atoms per molecule derived from linear fits to the data shown in Figure~\ref{cumulative_by_atoms} as well as the $R^2$ values of the fits, for molecules with 2--12 atoms.  The start year was chosen by the visual onset of a steady detection rate, and is given for each fit.  Rates and R$^2$ values obtained using the \texttt{scipy.stats.linregress} module.}"
+        + "\n"
+    )
+    table.append(
+        r"\begin{tabular*}{\columnwidth}{c @{\extracolsep{\fill}}  c @{\extracolsep{\fill}}  c @{\extracolsep{\fill}}  c }"
+        + "\n"
+    )
+    table.append(r"\hline\hline" + "\n")
+    table.append(r"\# Atoms    &   \emph{m} (yr$^{-1}$)    &   $R^2$       &   Onset Year      \\" + "\n")
+    table.append(r"\hline" + "\n")
+
+    # loop through and add lines to the table.
+    for i in range(2, 14):
+        if atoms_dict[i][3] is not None:
+            table.append(
+                f"{i}\t&\t{atoms_dict[i][3]:.2f}\t&\t{atoms_dict[i][4]:.2f}\t&\t{atoms_dict[i][0]}" + r"\\" + "\n"
+            )
+    if atoms_dict["PAHs"][3] is not None:
+        table.append(
+            f"PAHs\t&\t{atoms_dict['PAHs'][3]:.2f}\t&\t{atoms_dict['PAHs'][4]:.2f}\t&\t{atoms_dict['PAHs'][0]}"
+            + r"\\"
+            + "\n"
+        )
+    if atoms_dict["Fullerenes"] is not None:
+        table.append(
+            f"Fullerenes\t&\t{atoms_dict['Fullerenes'][3]:.2f}\t&\t{atoms_dict['Fullerenes'][4]:.2f}\t&\t{atoms_dict['Fullerenes'][0]}"
+            + r"\\"
+            + "\n"
+        )
+
+    # add the closing bit and a carriage return and the last lines
+    table.append(r"\hline" + "\n")
+    table.append(r"\end{tabular*}" + "\n")
+    table.append(r"\label{rates_by_atoms_table}" + "\n")
+    table.append(r"\end{table}")
+
+    with open(filename if filename is not None else "rates_by_atoms_table.tex", "w") as output:
+        for line in table:
+            output.write(line)
+
+    return
+
+def make_facility_table(mol_list=None, filename=None):
+    """
+    Generates the latex table for the census that contains the number of 
+    detections per facility.
+
+    Parameters
+    ----------
+    mol_list : list
+        A list of molecule objects to use (default is all_molecules)   
+    filename : str
+        The filename for the output images (default is 'facilities_table.tex')
+    """
+
+    # If a list wasn't specified, default to all molecules
+    if mol_list is None:
+        mol_list = all_molecules
+
+    # a dictionary to hold the data.
+    facilities_dict = {}
+    for x in all_telescopes:
+        facilities_dict[x.shortname] = 0
+
+    # a function to add up detections
+    for mol in all_molecules:
+        for scope in mol.telescopes:
+            facilities_dict[scope.shortname] += 1
+
+    # lists to then sort by
+    scopes = []
+    count = []
+
+    for scope in facilities_dict:
+        scopes.append(scope)
+        count.append(facilities_dict[scope])
+
+    scopes = np.array(scopes)
+    count = np.array(count)
+    sort_idx = np.argsort(count)[::-1]
+    scopes = scopes[sort_idx]
+    count = count[sort_idx]
+
+    # calculate number of rows
+    nrows = math.ceil(len(count) / 2)
+
+    # initialize a list to hold each line of the first table
+    table = []
+
+    # add the pre-amble latex stuff
+    table.append(r"\begin{table}[htb!]" + "\n")
+    table.append(r"\centering" + "\n")
+    table.append(r"\caption{Total number of detections for each facility listed in \S\ref{known}.}" + "\n")
+    table.append(
+        r"\begin{tabular*}{\columnwidth}{l @{\extracolsep{\fill}}  c @{\extracolsep{\fill}}  l @{\extracolsep{\fill}}  c }"
+        + "\n"
+    )
+    table.append(r"\hline\hline" + "\n")
+    table.append(r"Facility	&	\# 	&	Facility	&	\# \\" + "\n")
+    table.append(r"\hline" + "\n")
+
+    # loop through and add lines to the table.
+    for i in range(nrows):
+        if i + nrows < len(count):
+            table.append(
+                f"{scopes[i]}\t"
+                + r"&"
+                + f"\t{count[i]}\t"
+                + r"&"
+                + f"\t{scopes[i+nrows]}\t"
+                + r"&"
+                + f"\t{count[i+nrows]}\t"
+                + r"\\"
+                + "\n"
+            )
+        else:
+            table.append(
+                f"{scopes[i]}\t"
+                + r"&"
+                + f"\t{count[i]}\t"
+                + r"&"
+                + f"\t\t"
+                + r"&"
+                + f"\t\t"
+                + r"\\"
+                + "\n"
+            )            
+
+    # add the closing bit and a carriage return and the last lines
+    table.append(r"\hline" + "\n")
+    table.append(r"\end{tabular*}" + "\n")
+    table.append(r"\label{detects_by_scope}" + "\n")
+    table.append(r"\end{table}")
+
+    with open(filename if filename is not None else "facilities_table.tex", "w") as output:
+        for line in table:
+            output.write(line)
+
+    return
+
+
+def make_source_table(mol_list=None, filename=None):
+    """
+    Generates the latex table for the census that contains the number of detections per source.
+
+    Parameters
+    ----------
+    mol_list : list
+        A list of molecule objects to use (default is all_molecules)   
+    filename : str
+        The filename for the output images (default is 'source_table.tex')
+    """
+
+    # If a list wasn't specified, default to all molecules
+    if mol_list is None:
+        mol_list = all_molecules
+
+    # a dictionary to hold the data.
+    sources_dict = {}
+    for x in all_sources:
+        if x.type == "LOS Cloud":
+            sources_dict["LOS Cloud"] = 0
+        else:
+            sources_dict[x.name] = 0
+
+    # a function to add up detections
+    for mol in all_molecules:
+        for source in mol.sources:
+            if source.type == "LOS Cloud":
+                sources_dict["LOS Cloud"] += 1
+            else:
+                sources_dict[source.name] += 1
+
+    # lists to then sort by
+    sources = []
+    count = []
+
+    for src in sources_dict:
+        sources.append(src)
+        count.append(sources_dict[src])
+
+    sources = np.array(sources)
+    count = np.array(count)
+    sort_idx = np.lexsort((sources,-count))
+    sources = sources[sort_idx]
+    count = count[sort_idx]
+
+    # initialize a list to hold each line of the first table
+    table = []
+
+    # calculate number of rows
+    nrows = math.ceil(len(count) / 2)    
+
+    # add the pre-amble latex stuff
+    table.append(r"\begin{table}[htb!]" + "\n")
+    table.append(r"\centering" + "\n")
+    table.append(
+        r"\caption{Total number of detections that each source contributed to for the molecules listed in \S\ref{known}.  Detections made in clouds along the line of sight to a background source have been consolidated into `LOS Clouds,' and detections in closely-location regions have been group together as well (e.g. Sgr B2(OH), Sgr B2(N), Sgr B2(S), and Sgr B2(M) are all considered Sgr B2).}"
+        + "\n"
+    )
+    table.append(
+        r"\begin{tabular*}{\columnwidth}{l @{\extracolsep{\fill}}  c @{\extracolsep{\fill}}  l @{\extracolsep{\fill}}  c }"
+        + "\n"
+    )
+    table.append(r"\hline\hline" + "\n")
+    table.append(r"Source	&	\# 	&	Source	&	\# \\" + "\n")
+    table.append(r"\hline" + "\n")
+
+    # loop through and add lines to the table.
+    for i in range(nrows):
+        if i + nrows < len(count):
+            table.append(
+                f"{sources[i]}\t"
+                + r"&"
+                + f"\t{count[i]}\t"
+                + r"&"
+                + f"\t{sources[i+nrows]}\t"
+                + r"&"
+                + f"\t{count[i+nrows]}\t"
+                + r"\\"
+                + "\n"
+            )
+        else:
+            table.append(
+                f"{sources[i]}\t"
+                + r"&"
+                + f"\t{count[i]}\t"
+                + r"&"
+                + f"\t\t"
+                + r"&"
+                + f"\t\t"
+                + r"\\"
+                + "\n"
+            )            
+
+    # add the closing bit and a carriage return and the last lines
+    table.append(r"\hline" + "\n")
+    table.append(r"\end{tabular*}" + "\n")
+    table.append(r"\label{detects_by_source}" + "\n")
+    table.append(r"\end{table}")
+
+    with open(filename if filename is not None else "source_table.tex", "w") as output:
+        for line in table:
+            output.write(line)
+
+    return
+
+
+#############################################################
+# 				       PowerPoint Slides 					#
+#############################################################
+
+def make_mols_slide(mol_list=None, filename=None):
+    """
+    Generates a PowerPoint formatted slide containing all detected molecules.
+
+    Parameters
+    ----------
+    mol_list : list
+        A list of molecule objects to use (default is all_molecules)   
+    filename : str
+        The filename for the output images (default is 'astro_molecules.pptx')
+    """
+
+    # If a list wasn't specified, default to all molecules
+    if mol_list is None:
+        mol_list = all_molecules
+
+    # start working on a presentation
+    prs = Presentation()
+
+    # set width and height of slides to the standard 16x9 widescreen PowerPoint format.
+    prs.slide_width = Pt(1920)
+    prs.slide_height = Pt(1080)
+
+    # make a slide set up for a blank slide; we'll do all the formatting ourselves
+    slide_layout = prs.slide_layouts[6]
+    slide = prs.slides.add_slide(slide_layout)
+
+    # add the title
+    title = slide.shapes.add_textbox(
+        left = Inches(0.35),
+        top = Inches(0.22),
+        width = Inches(18.33),
+        height = Inches(1.18),
+        )
+    
+    title.text = f"Known Interstellar Molecules"
+    title.text_frame.paragraphs[0].font.size = Pt(64)
+    title.text_frame.paragraphs[0].font.name = "Arial"
+
+    # to the top right, add the credit
+    credit = slide.shapes.add_textbox(
+        left = Inches(22.15),
+        top = Inches(0.22),
+        width = Pt(300),
+        height = Pt(90),
+    )
+
+    text_frame = credit.text_frame
+    text_frame.clear()
+    
+    p1 = text_frame.paragraphs[0]
+    p1.font.name = 'Arial'
+    p1.alignment = PP_ALIGN.RIGHT
+    run1 = p1.add_run()
+    run1.text = 'Created with '
+    run1.font.size = Pt(18)
+    run2 = p1.add_run()
+    run2.text = 'ASTROMOL '
+    run2.font.size = Pt(16)
+    run2.font.bold = True
+    run3 = p1.add_run()
+    run3.text = f'v{version()}'
+    run3.font.size = Pt(18)
+
+    p2 = text_frame.add_paragraph()
+    p2.font.name = 'Arial'
+    p2.alignment = PP_ALIGN.RIGHT
+    run4 = p2.add_run()
+    run4.text = "bmcguir2.github.io/astromol"
+    run4.font.size = Pt(18)
+
+    p3 = text_frame.add_paragraph()
+    p3.font.name = 'Arial'
+    p3.alignment = PP_ALIGN.RIGHT
+    run5 = p3.add_run()
+    run5.text = "McGuire 2021 " 
+    run5.font.size = Pt(18)
+    run6 = p3.add_run()
+    run6.text = "ApJS " 
+    run6.font.size = Pt(18)
+    run6.font.italic = True
+    run7 = p3.add_run()
+    run7.text = "submitted" 
+    run7.font.size = Pt(18)
+
+    # Make a minifunction to turn a formula into a list of parts
+    def _split_formula(formula):
+        # split the formula on letters, numbers, and +/- signs
+        regex = re.compile(r'(\d+|\s+|\-|\+)')
+        return [x for x in regex.split(formula) if x != '']
+
+    # Make a minifunction to turn lists of molecules into text boxes
+    def _add_paragraphs(text_box,molecules):
+        for mol in molecules:
+            p = text_box.text_frame.add_paragraph() # make a new paragraph to hold the molecule
+            # run the formula through the ringer, using the table formula if provided
+            if mol.table_formula is not None:
+                runs = _split_formula(mol.table_formula) 
+            else:
+                runs = _split_formula(mol.formula)
+            p.font.size = Pt(28)
+            p.font.name = 'Arial'
+            if len(runs) == 1:
+                p.text = runs[0]
+            else:          
+                for i in range(len(runs)):
+                    x = runs[i]
+                    run = p.add_run()
+                    run.text = x
+                    # if the first letter is lower case, it's probably 'l' or 'c' and should be italicized
+                    if i == 0:
+                        if x.islower():
+                            run.font.italic = True
+                    # we need to hanlde '-' and '+'.
+                    if x == '-' or x == '+':
+                        # if these are the last character, they're a charge, and should be superscript
+                        # if they aren't the last character, it's just a dash and shouldn't be touched
+                        if i == len(runs)-1:
+                            run.font._element.set('baseline', '30000')
+                    # now we deal with numbers
+                    elif x.isalpha() is False:
+                        # some molecules have isomers designated by starting numbers, these shouldn't be touched
+                        if i == 0:
+                            pass
+                        # for the rest, we need to make sure to subscript them
+                        else:
+                            run.font._element.set('baseline', '-25000')
+                    else:
+                        pass 
+        _delete_paragraph(text_box.text_frame.paragraphs[0])   
+
+    # to get rid of the empty first paragraph
+    def _delete_paragraph(paragraph):
+        p = paragraph._p
+        parent_element = p.getparent()
+        parent_element.remove(p)                
+
+    # a mini class to make it easier to hold meta data for tweaking
+
+    class Group(object):
+        def __init__(
+            self,
+            label=None, # The label that goes at the top of the list
+            ncols=None, # The number of columns for an entry
+            natoms=None, # The number of atoms to include
+            natoms_greater=False, # Set to true to include all molecules with natoms _or greater_.
+            label_coords=None, # [left, top, width, height] in inches
+            col_coords=None, # [[left, top, width, height],[left, top, width, height]] in inches; only need one entry (but should be double list) for single column
+        ):
+
+            self.label = label
+            self.ncols = ncols
+            self.natoms = natoms
+            self.natoms_greater = natoms_greater
+            self.label_coords = label_coords
+            self.col_coords = col_coords
+
+    # Fill in the info for the arrangement.  Would be nice if it were more automated ...
+    
+    two_atoms = Group(
+        label = "2 Atoms",
+        ncols = 2,
+        natoms = 2,
+        label_coords = [0.35, 1.5, 2.5, 0.8],
+        col_coords = [
+                        [0.35, 2.1, 1.1, 11.5],
+                        [1.55, 2.1, 1.1, 11.5],
+                    ],
+    )
+
+    three_atoms = Group(
+        label = "3 Atoms",
+        ncols = 2,
+        natoms = 3,
+        label_coords = [two_atoms.label_coords[0] + 2.5, 
+                        two_atoms.label_coords[1], 
+                        two_atoms.label_coords[2], 
+                        two_atoms.label_coords[3]],
+        col_coords = [
+                        [two_atoms.col_coords[0][0] + 2.5, two_atoms.col_coords[0][1], 1.4, 11.],
+                        [two_atoms.col_coords[1][0] + 2.7, two_atoms.col_coords[0][1], 1.4, 11.],
+                    ],
+    )
+
+    four_atoms = Group(
+        label = "4 Atoms",
+        ncols = 2,
+        natoms = 4,
+        label_coords = [three_atoms.label_coords[0] + 3.0, 
+                        two_atoms.label_coords[1], 
+                        two_atoms.label_coords[2], 
+                        two_atoms.label_coords[3]],
+        col_coords = [
+                        [three_atoms.col_coords[0][0] + 3.0, two_atoms.col_coords[0][1], 1.6, 8.],
+                        [three_atoms.col_coords[1][0] + 3.2, two_atoms.col_coords[0][1], 1.6, 8.],
+                    ],
+    )    
+
+    five_atoms = Group(
+        label = "5 Atoms",
+        ncols = 2,
+        natoms = 5,
+        label_coords = [four_atoms.label_coords[0] + 3.4, 
+                        two_atoms.label_coords[1], 
+                        two_atoms.label_coords[2], 
+                        two_atoms.label_coords[3]],
+        col_coords = [
+                        [four_atoms.col_coords[0][0] + 3.4, two_atoms.col_coords[0][1], 1.9, 8.],
+                        [four_atoms.col_coords[1][0] + 3.7, two_atoms.col_coords[0][1], 1.9, 8.],
+                    ],
+    )   
+
+    six_atoms = Group(
+        label = "6 Atoms",
+        ncols = 1,
+        natoms = 6,
+        label_coords = [five_atoms.label_coords[0] + 4.0, 
+                        two_atoms.label_coords[1], 
+                        two_atoms.label_coords[2], 
+                        two_atoms.label_coords[3]],
+        col_coords = [
+                        [five_atoms.col_coords[0][0] + 4.0, two_atoms.col_coords[0][1], 2.5, 10.5],
+                    ],
+    )   
+
+    seven_atoms = Group(
+        label = "7 Atoms",
+        ncols = 1,
+        natoms = 7,
+        label_coords = [six_atoms.label_coords[0] + 2.3, 
+                        two_atoms.label_coords[1], 
+                        two_atoms.label_coords[2], 
+                        two_atoms.label_coords[3]],
+        col_coords = [
+                        [six_atoms.col_coords[0][0] + 2.3, two_atoms.col_coords[0][1], 2.5, 10.5],
+                    ],
+    ) 
+
+    eight_atoms = Group(
+        label = "8 Atoms",
+        ncols = 1,
+        natoms = 8,
+        label_coords = [seven_atoms.label_coords[0] + 2.5, 
+                        two_atoms.label_coords[1], 
+                        two_atoms.label_coords[2], 
+                        two_atoms.label_coords[3]],
+        col_coords = [
+                        [seven_atoms.col_coords[0][0] + 2.5, two_atoms.col_coords[0][1], 2.5, 10.5],
+                    ],
+    )    
+
+    nine_atoms = Group(
+        label = "9 Atoms",
+        ncols = 2,
+        natoms = 9,
+        label_coords = [eight_atoms.label_coords[0] + 2.7, 
+                        two_atoms.label_coords[1], 
+                        two_atoms.label_coords[2], 
+                        two_atoms.label_coords[3]],
+        col_coords = [
+                        [eight_atoms.col_coords[0][0] + 2.7, two_atoms.col_coords[0][1], 3., 4.],
+                        [eight_atoms.col_coords[0][0] + 5.7, two_atoms.col_coords[0][1], 3., 4.],
+                    ],
+    )     
+
+    ten_atoms = Group(
+        label = "10 Atoms",
+        ncols = 1,
+        natoms = 10,
+        label_coords = [nine_atoms.label_coords[0], 
+                        6.25, 
+                        two_atoms.label_coords[2], 
+                        two_atoms.label_coords[3]],
+        col_coords = [
+                        [nine_atoms.col_coords[0][0], 6.85, 3., 3.],
+                    ],
+    ) 
+
+    eleven_atoms = Group(
+        label = "11 Atoms",
+        ncols = 1,
+        natoms = 11,
+        label_coords = [nine_atoms.col_coords[1][0], 
+                        6.25, 
+                        two_atoms.label_coords[2], 
+                        two_atoms.label_coords[3]],
+        col_coords = [
+                        [nine_atoms.col_coords[1][0], 6.85, 3., 3.],
+                    ],
+    )  
+
+    twelve_atoms = Group(
+        label = "12 Atoms",
+        ncols = 2,
+        natoms = 12,
+        label_coords = [seven_atoms.label_coords[0], 
+                        10.1, 
+                        two_atoms.label_coords[2], 
+                        two_atoms.label_coords[3]],
+        col_coords = [
+                        [seven_atoms.col_coords[0][0], 10.7, 3., 2.],
+                        [eight_atoms.col_coords[0][0], 10.7, 3., 2.],
+                    ],
+    )   
+
+    more_atoms = Group(
+        label = "13+ Atoms",
+        ncols = 2,
+        natoms = 13,
+        natoms_greater = True,
+        label_coords = [nine_atoms.label_coords[0], 
+                        10.1, 
+                        two_atoms.label_coords[2], 
+                        two_atoms.label_coords[3]],
+        col_coords = [
+                        [nine_atoms.col_coords[0][0], 10.7, 3., 2.],
+                        [nine_atoms.col_coords[1][0], 10.7, 3., 2.],
+                    ],
+    )        
+
+    # Loop through and make the items
+
+    groups = [
+                two_atoms,
+                three_atoms,
+                four_atoms,
+                five_atoms,
+                six_atoms,
+                seven_atoms,
+                eight_atoms,
+                nine_atoms,
+                ten_atoms,
+                eleven_atoms,
+                twelve_atoms,
+                more_atoms,
+                ]
+    my_shapes = {}
+
+    i = 0
+    for group in groups:
+        my_shapes[i] = slide.shapes.add_textbox(
+                            left = Inches(group.label_coords[0]),
+                            top = Inches(group.label_coords[1]),
+                            width = Inches(group.label_coords[2]),
+                            height = Inches(group.label_coords[3]),
+                        )
+
+        my_shapes[i].text = group.label
+        my_shapes[i].text_frame.paragraphs[0].font.size = Pt(30)
+        my_shapes[i].text_frame.paragraphs[0].font.name = 'Arial'
+        my_shapes[i].text_frame.paragraphs[0].font.bold = True
+        i += 1
+
+        if group.natoms_greater is False:
+            molecules = [x for x in mol_list if x.natoms == group.natoms]
+        elif group.natoms_greater is True:
+            molecules = [x for x in mol_list if x.natoms >= group.natoms]
+        for col in range(group.ncols):
+            my_shapes[i] = slide.shapes.add_textbox(
+                                left = Inches(group.col_coords[col][0]),
+                                top = Inches(group.col_coords[col][1]),
+                                width = Inches(group.col_coords[col][2]),
+                                height = Inches(group.col_coords[col][3]),
+                            )
+
+            if col == 0:
+                _add_paragraphs(my_shapes[i],molecules[:(math.ceil(len(molecules)/group.ncols))])
+            elif col == 1:
+                _add_paragraphs(my_shapes[i],molecules[(math.ceil(len(molecules)/group.ncols)):])
+            
+            i += 1
+
+    # make the number of molecules box
+
+    nbox = slide.shapes.add_shape(
+                                    MSO_SHAPE.ROUNDED_RECTANGLE,
+                                    left = Inches(6.35),
+                                    top = Inches(10.1),
+                                    width = Inches(6.0),
+                                    height = Inches(1.4),
+                                )      
+
+    nbox.fill.solid()
+    nbox.fill.fore_color.rgb = RGBColor(194,192,191)
+    nbox.line.color.rgb = RGBColor(0,0,0)
+    nbox.line.width = Pt(6.)
+
+    nbox.text_frame.paragraphs[0].text = f'{len(mol_list)} Molecules'
+    nbox.text_frame.paragraphs[0].alignment = PP_ALIGN.CENTER
+    nbox.text_frame.paragraphs[0].font.size = Pt(45)
+    nbox.text_frame.paragraphs[0].font.name = "Arial"
+    nbox.text_frame.paragraphs[0].font.bold = True
+    nbox.text_frame.paragraphs[0].font.color.rgb = RGBColor(163,31,52)
+
+    as_of = slide.shapes.add_textbox(
+        left = Inches(6.35),
+        top = Inches(11.7),
+        width = Inches(6.),
+        height = Inches(1.),
+    )    
+
+    as_of.text_frame.paragraphs[0].text = f"Last Updated: {astromol.__updated__.day} {astromol.__updated__.strftime('%b')} {astromol.__updated__.year}"
+    as_of.text_frame.paragraphs[0].alignment = PP_ALIGN.CENTER
+    as_of.text_frame.paragraphs[0].font.size = Pt(32)
+    as_of.text_frame.paragraphs[0].font.name = "Arial"
+    as_of.text_frame.paragraphs[0].font.bold = True
+            
+    # write it out
+    if filename is not None:
+        prs.save(filename)
+    else:
+        prs.save('astro_molecules.pptx')
+
+
+    return

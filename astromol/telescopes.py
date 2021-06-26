@@ -5,6 +5,62 @@ by David Leverington.
 
 
 class Telescope(object):
+    """
+    A class used to represent a telescope facility
+
+    ...
+
+    Attributes
+    ----------
+    name : str
+        The full name of the facility.  All dimensions (i.e. 100-m) should be
+        separated from units by a dash, not a space.
+    shortname : str
+        A shorter name for the facility, e.g.: GBT 100-m
+    type : str
+        The type of facility, chosen from:
+            "Single Dish"
+            "Space"
+            "Interferometer"
+            "Optical"
+            "Airborne"
+        Note that any space-based telescope overrides other descriptors, any 
+        airborne facility overrides other descriptors, and optical includes
+        anything not radio (and neither airborne nor space-based)
+    wavelength : list
+        The primary wavelengths of operation of the facility, given as a
+        a list of the following strings:
+            "cm"
+            "mm"
+            "sub-mm"
+            "IR"
+            "Vis"
+            "UV"
+    latitude : float
+        The latitude of the facility in degrees
+    longitude : float
+        The signed longitude of the facility in degrees
+    diameter : float, int
+        The diamater of the facility in meters
+    built : int
+        The year in which the facility came online
+    decommissioned : int or None
+        The year in which the facility ceased operation.
+        (Default value of None is for facilities still in operation)
+    notes : str
+        General notes
+
+    Properties
+    ----------
+    ndetects(mol_list=None)
+        Returns the number of molecules from 'mol_list' this telescope was 
+        used to detect (default is 'all_molecules')
+
+    mols(mol_list=None)
+        Returns a list of molecules from 'mol_list' this telescope was 
+        used to detect (default is 'all_molecules')
+    """
+
     def __init__(
         self,
         name=None,
@@ -32,16 +88,23 @@ class Telescope(object):
 
     @property
     def ndetects(self, mol_list=None):
-
         """
-        Counts the number of molecules this telescope is listed in.
+        Returns the number of molecules from 'mol_list' that this telescope 
+        was used to detect
 
-        Takes a list of Molecule objects as an argument, but defaults to all molecules.
+        Parameters
+        ----------
+        mol_list : list, optional
+            A list of molecule objects to sort through (default is 'all_molecules')
+
+        Returns
+        -------
+        len(my_mols) : int
+            The number of molecules this telescope was used to detect
         """
 
         if mol_list is None:
             from astromol.molecules import all_molecules
-
             mol_list = all_molecules
 
         my_mols = []
@@ -52,16 +115,23 @@ class Telescope(object):
 
     @property
     def mols(self, mol_list=None, formulas=False):
-
         """
-        Returns the molecules this telescope is listed in as Molecule objects, or as formulas if forumlas is True.
+        Returns a list of molecules from 'mol_list' that this telescope was
+        used to detect
 
-        Takes a list of Molecule objects as an argument, but defaults to all molecules.
+        Parameters
+        ----------
+        mol_list : list
+            A list of molecule objects to sort through (default is 'all_molecules')
+
+        Returns
+        -------
+        my_mols : list
+            A list of molecule objects that this telescope was used to detect
         """
 
         if mol_list is None:
             from astromol.molecules import all_molecules
-
             mol_list = all_molecules
 
         my_mols = []
@@ -569,7 +639,7 @@ MtWilson = Telescope(
     name="Mount Wilson 100-in",
     shortname="Mt. Wilson",
     type="Optical",
-    wavelength=["UV", "VIS"],
+    wavelength=["UV", "Vis"],
     diameter=2.54,
     built=1917,
     decommissioned=1989,
