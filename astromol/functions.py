@@ -153,7 +153,7 @@ def print_variables(natoms=None):
         print("------------- \t ------------ \t -----------------------------------")
 
         for mol in mol_list:
-            print(f'{mol.astromol_name:13} : \t {mol.table_formula if mol.table_formula is not None else mol.formula:12} \t {mol.name:35}')
+            print(f'{mol.astromol_name:13} \t {mol.table_formula if mol.table_formula is not None else mol.formula:12} \t {mol.name:35}')
 
     else:
         for i in range(2,13):
