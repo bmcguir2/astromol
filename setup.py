@@ -4,7 +4,7 @@ setup(
     name='astromol',
     packages=find_packages(),
     package_data={'astromol' : ['bibtex/*.bib']},
-    version='1.0.0',
+    version='2021.0.0',
     description='',
     author='Brett A. McGuire (Department of Chemistry, Massachusetts Institute of Technology)',
     license='MIT',

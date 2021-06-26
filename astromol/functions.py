@@ -125,6 +125,67 @@ def change_color(color, amount=1.0):
     c = colorsys.rgb_to_hls(*mc.to_rgb(c))
     return colorsys.hls_to_rgb(c[0], 1 - amount * (1 - c[1]), c[2])
 
+def print_variables(natoms=None):
+    """
+    Prints out a list to the terminal of the variable names for molecules in the astromol database
+    and the corresponding molecular formula and written name.
+
+    The list is sorted by the number of atoms.
+
+    Parameters
+    ----------
+    natoms : int
+        If specified, only molecules with the given number of atoms will be displayed 
+        (default is None, which prints all molecules).
+    """    
+
+    if natoms is None:
+        mol_list = all_molecules
+    else:
+        mol_list = [x for x in all_molecules if x.natoms == natoms]
+
+    if natoms is not None:
+        print("\n=======================================")
+        print(f"            {natoms} Atom Molecules       ")
+        print("=======================================\n")
+
+        print(f"{'Variable Name':13} \t {'Formula':12} \t {'Name':35}")
+        print("------------- \t ------------ \t -----------------------------------")
+
+        for mol in mol_list:
+            print(f'{mol.astromol_name:13} : \t {mol.table_formula if mol.table_formula is not None else mol.formula:12} \t {mol.name:35}')
+
+    else:
+        for i in range(2,13):
+            print("\n=======================================")
+            print(f"            {i} Atom Molecules       ")
+            print("=======================================\n")
+
+            print(f"{'Variable Name':13} \t {'Formula':12} \t {'Name':35}")
+            print("------------- \t ------------ \t -----------------------------------")
+
+            for mol in [x for x in mol_list if x.natoms == i]:
+                print(f'{mol.astromol_name:13} \t {mol.table_formula if mol.table_formula is not None else mol.formula:12} \t {mol.name:35}')
+
+        print("\n=======================================")
+        print(f"            PAH Molecules       ")
+        print("=======================================\n")
+
+        print(f"{'Variable Name':13} \t {'Formula':12} \t {'Name':35}")
+        print("------------- \t ------------ \t -----------------------------------")
+
+        for mol in [x for x in mol_list if x.pah is True]:
+            print(f'{mol.astromol_name:13} \t {mol.table_formula if mol.table_formula is not None else mol.formula:12} \t {mol.name:35}')
+
+        print("\n=======================================")
+        print(f"           Fullerene Molecules       ")
+        print("=======================================\n")
+
+        print(f"{'Variable Name':13} \t {'Formula':12} \t {'Name':35}")
+        print("------------- \t ------------ \t -----------------------------------")
+
+        for mol in [x for x in mol_list if x.fullerene is True]:
+            print(f'{mol.astromol_name:13} \t {mol.table_formula if mol.table_formula is not None else mol.formula:12} \t {mol.name:35}')
 
 #############################################################
 # 						    Plots	 						#
