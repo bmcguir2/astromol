@@ -57,9 +57,17 @@ updated()
 
 It is also stored in the `__updated__` variable as a Python `datetime` object.
 
-## Overall Structure
+## Overall Structure and Usage
 
 This package was written primarily to faciliate the McGuire 2018 living census paper.  As such, the figure- and table-making functions contained in it are tailor-made to that purpose, with limited flexibility or functionality for alteration.  However, to make the data as widely useful and accessible as possible, the package has been written to be object-oriented such that it is relatively straigthforward for anyone else to manipulate the dataset to suit individual needs.
+
+The most useful way to use the package is to do the (dreaded) import \*:
+
+```Python
+from astromol import *
+```
+
+This will pre-load all of the information on detected species, facilities, and astronomical sources as variables into a Python session to work with.
 
 ### Object Classes
 
@@ -70,6 +78,16 @@ print_variables()
 ```
 
 This function takes two optional arguments: `type = ` and `natoms = `.  The former can be set to `molecules`, `telescopes`, or `sources`, and the later can be used by specifying an integer and only molecules with that number of atoms will be printed.  If nothing is set, all variables will be printed.
+
+Some helper lists have been pre-loaded, these are:
+
+```Python
+all_molecules
+all_telescopes
+all_sources
+```
+
+These are just lists containing all variables in the database of the corresponding type.  This isn't useful for direct inspection (as it will just return Object IDs), but is very useful for looping over.
 
 #### The Molecule Class
 
@@ -103,6 +121,44 @@ or, again, the function ```summary``` is available to call the underlying class 
 summary(CH3OH)
 ```
 
+#### The Telescope Class
+
+This data container holds information on the telescopes used to detect molecules.  These include currently:
+
+* Name
+* Shorter name / abbreviation
+* Type of facility
+* Generalized operational wavelength ranges
+* Latitude and longitude in degrees
+* Diameter of the dish (when appropriate)
+* Dates of commissioning and decommissioning
+
+This class has the same inspection command to view the entire contents:
+
+```Python
+ALMA.inspect()
+```
+
+As well, the overall ```inspect``` function can accept Telescope objects as an argument.
+
+#### The Source Class
+
+This data container holds information on the sources in which molecules are detected.  Right now these are only for ISM/CSM species.  The data gathered includes:
+
+* Name
+* Generalized type
+* RA and Dec (hh:mm:ss and deg:min:sec)
+* Direct link to the simbad entry for this source [may actually show up as a clickable hyperlink if view in Jupyter Notebooks]
+
+This class has the same inspection command to view the entire contents:
+
+```Python
+SgrB2.inspect()
+```
+
+As well, the overall ```inspect``` function can accept Source objects as an argument.
+
+### Functions
 
 
 
@@ -118,3 +174,5 @@ A number of upgrades are planned to the code, to the structure of the database, 
 * Incorporation of isotopologue data for molecules other than those found in protoplanetary disks.  Likely to be a gradual effort.
 * Addition of tracking for cometary species as well.
 * Addition of data on telescopes and detection sources for non-ISM/CSM species.
+* Coordinates for sources will eventually be updated to be `astropy` objects
+* Links to telescope facility websites
