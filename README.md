@@ -63,7 +63,13 @@ This package was written primarily to faciliate the McGuire 2018 living census p
 
 ### Object Classes
 
-Data in `astromol` is stored in one of three classes: `Molecule`, `Telescope`, or `Source`.
+Data in `astromol` is stored in one of three classes: `Molecule`, `Telescope`, or `Source`.  Each molecule, telescope, or astronomical source entry in the database is a variable that comes preloaded with the `astromol` package.  Accessing these information therefore requires knowing these variable names.  These can be found either by inspecting the corresponding files (_molecules.py_, _telescopes.py_, and _sources.py_) or by using the helper function:
+
+```Python
+print_variables()
+```
+
+This function takes two optional arguments: `type = ` and `natoms = `.  The former can be set to `molecules`, `telescopes`, or `sources`, and the later can be used by specifying an integer and only molecules with that number of atoms will be printed.  If nothing is set, all variables will be printed.
 
 #### The Molecule Class
 
@@ -87,13 +93,13 @@ inspect(CH3OH)
 
 A more nicely formatted summary of much of the pertinent data can be achieved using the Molecule Class method `summary`:
 
-```
+```Python
 CH3OH.summary()
 ```
 
 or, again, the function ```summary``` is available to call the underlying class method:
 
-```
+```Python
 summary(CH3OH)
 ```
 
