@@ -12,11 +12,15 @@ Clone the `astromol` repository to your computer.  It is **not** recommended to 
 
 In your terminal, navigate to the `astromol` directory, then install using
 
-`pip install -e .`
+```
+pip install -e .
+```
 
 The use of the `-e` flag creates a symlink to the package which will enable you to easily check for and download updates to the code by simply using
 
-`git pull`
+```
+git pull
+```
 
 in the `astromol` directory without needing to re-install.
  
@@ -27,3 +31,28 @@ Should you encounter a bug, discover a factual error, or have a request for a ne
 ## Pull Requests
 
 Direct contributions to the code are not being accepted at this time.
+
+## Version Control
+
+The version number of `astromol` is given in the format XXXX.Y.Z, with each number corresponding to a different level of update:
+* XXXX is a year (i.e. 2018 or 2021) corresponding to the most recent major update of the McGuire 2018 living census paper.
+* Y is reset to 0 with each update of XXXX, and is incremented by 1 anytime a new molecule (or molecules) is added to the database between census releases.
+* Z is reset to 0 with each update of XXXX or Y, and is incremented by 1 anytime an update is made to the code base that is not related to the addition of new molecules or the release of a new census.
+
+The version number for `astromol` is accessible by:
+
+```python
+from astromol import version
+version()
+```
+
+It is also stored in the `__version__` variable.
+
+The date of the last update to `astromol` is available as well by:
+
+```python
+from astromol import updated
+updated()
+```
+
+It is also stored in the `__updated__` variable as a Python `datetime` object.
