@@ -8,6 +8,9 @@ class Source(object):
     ----------
     name : str
         The common name of the sources
+    astromol_name : str
+        A string representation of the variable representing this source
+        in astromol        
     type : str
         The generalized source type, chosen from the following 
         (descriptions in [], do not include in string):
@@ -45,11 +48,17 @@ class Source(object):
     mols(mol_list=None)
         Returns a list of molecules from 'mol_list' detected in the source
         (default is 'all_molecules')
+
+    Methods
+    -------
+    inspect()
+        Prints out a list to the terminal all of the attributes for this source and their values.    
     """
 
     def __init__(
         self,
         name=None,
+        astromol_name=None,
         type=None,
         ra=None,
         dec=None,
@@ -58,9 +67,12 @@ class Source(object):
         """
         Parameters
         ----------
-        name : str, optional
+        name : str
             The common name of the sources
-        type : str, optional
+        astromol_name : str
+            A string representation of the variable representing this source
+            in astromol             
+        type : str
             The generalized source type, chosen from the following 
             (descriptions in [], do not include in string):
                 "LOS Cloud"
@@ -90,6 +102,7 @@ class Source(object):
         """
 
         self.name = name
+        self.astromol_name = astromol_name
         self.type = type
         self.ra = ra
         self.dec = dec
@@ -150,6 +163,20 @@ class Source(object):
                 my_mols.append(mol)
         return my_mols
 
+    def inspect(self):
+        """
+        Prints out a list to the terminal all of the attributes for this source and their values.
+
+        Note that this will be a largely unformatted output, and is really only intended to be used
+        when a detailed look at what information is in the database for a given species is desired.
+        """        
+
+        # Get the attributes and values as a dictionary
+        attr_dict = self.__dict__
+        # Print them out
+        for attr in attr_dict:
+            print(f"{attr:20}: {attr_dict[attr] if attr_dict[attr] is not None else ''}")
+
 
 """
 Source coordinates are generalized for simplicity, and individual detections may have 
@@ -169,6 +196,7 @@ Please check the individual papers for details.
 
 AFGL890LOS = Source(
     name="AFGL 890 LOS",
+    astromol_name="AFGL890LOS",
     type="LOS Cloud",
     ra="06:10:48.0",
     dec="-06:12:00",
@@ -177,6 +205,7 @@ AFGL890LOS = Source(
 
 AFGL961LOS = Source(
     name="AFGL 961 LOS",
+    astromol_name="AFGL961LOS",
     type="LOS Cloud",
     ra="06:34:37.741",
     dec="+04:12:44.20",
@@ -185,6 +214,7 @@ AFGL961LOS = Source(
 
 AFGL989LOS = Source(
     name="AFGL 989 LOS",
+    astromol_name="AFGL989LOS",
     type="LOS Cloud",
     ra="06:41:10.06",
     dec="+09:29:35.8",
@@ -193,6 +223,7 @@ AFGL989LOS = Source(
 
 B1b = Source(
     name="B1-b",
+    astromol_name="B1b",
     type="Dark Cloud",
     ra="03:33:20.8",
     dec="+31:07:34",
@@ -201,6 +232,7 @@ B1b = Source(
 
 CRL2688 = Source(
     name="CRL 2688",
+    astromol_name="CRL2688",
     type="Carbon Star",
     ra="21:02:18.27",
     dec="+36:41:37.0",
@@ -209,6 +241,7 @@ CRL2688 = Source(
 
 CRL618 = Source(
     name="CRL 618",
+    astromol_name="CRL618",
     type="Carbon Star",
     ra="04:42:53.62",
     dec="+36:06:53.40",
@@ -217,6 +250,7 @@ CRL618 = Source(
 
 CasALOS = Source(
     name="Cas A LOS",
+    astromol_name="CasALOS",
     type="LOS Cloud",
     ra="23:23:24.00",
     dec="+58:48:54.0",
@@ -225,6 +259,7 @@ CasALOS = Source(
 
 CrabNebula = Source(
     name="Crab Nebula",
+    astromol_name="CrabNebula",
     type="SNR",
     ra="05:34:31.94",
     dec="+22:00:52.2",
@@ -233,6 +268,7 @@ CrabNebula = Source(
 
 CygnusOB212LOS = Source(
     name="Cygnus OB2 - 12",
+    astromol_name="CygnusOB212LOS",
     type="LOS Cloud",
     ra="20:32:40.96",
     dec="+41:04:13.2",
@@ -241,6 +277,7 @@ CygnusOB212LOS = Source(
 
 DR21 = Source(
     name="DR 21",
+    astromol_name="DR21",
     type="SFR",
     ra="20:39:01.6",
     dec="+42:19:38",
@@ -249,6 +286,7 @@ DR21 = Source(
 
 DR21LOS = Source(
     name="DR 21 LOS",
+    astromol_name="DR21LOS",
     type="LOS Cloud",
     ra="20:39:01.6",
     dec="+42:19:38",
@@ -257,6 +295,7 @@ DR21LOS = Source(
 
 DR21OH = Source(
     name="DR 21(OH)",
+    astromol_name="DR21OH",
     type="SFR",
     ra="20:39:01.01",
     dec="+42:22:50.22",
@@ -265,6 +304,7 @@ DR21OH = Source(
 
 G0693 = Source(
     name="G+0.693-0.027",
+    astromol_name="G0693",
     type="Shock",
     ra="17:47:21.9",
     dec="-28:21:27.00",
@@ -273,6 +313,7 @@ G0693 = Source(
 
 G327306LOS = Source(
     name="G327.3-0.6 LOS",
+    astromol_name="G327306LOS",
     type="LOS Cloud",
     ra="15:53:05.0",
     dec="-54:35:24",
@@ -281,16 +322,22 @@ G327306LOS = Source(
 
 GL2136LOS = Source(
     name="GL2136 LOS",
+    astromol_name="GL2136LOS",
     type="LOS Cloud",
     ra="18:27:18.43",
     dec="-25:04:02.84",
     simbad_url="http://simbad.u-strasbg.fr/simbad/sim-id?Ident=%402520798&Name=GJ%20%202136%20B",
 )
 
-GalacticCenter = Source(name="Galactic Center", type="SFR")
+GalacticCenter = Source(
+    name="Galactic Center", 
+    astromol_name="GalacticCenter",
+    type="SFR",
+)
 
 HD124314LOS = Source(
     name="HD 124314 LOS",
+    astromol_name="HD124314LOS",
     type="LOS Cloud",
     ra="14:15:01.61",
     dec="-61:42:24.38",
@@ -299,6 +346,7 @@ HD124314LOS = Source(
 
 HD27778LOS = Source(
     name="HD 27778 LOS",
+    astromol_name="HD27778LOS",
     type="LOS Cloud",
     ra="04:23:59.78",
     dec="24:18:03.53",
@@ -307,6 +355,7 @@ HD27778LOS = Source(
 
 HorseheadPDR = Source(
     name="Horsehead PDR",
+    astromol_name="HorseheadPDR",
     type="PDR",
     ra="05:40:53.936",
     dec="-02:28:00",
@@ -315,6 +364,7 @@ HorseheadPDR = Source(
 
 IC443G = Source(
     name="IC 443G",
+    astromol_name="IC443G",
     type="SNR",
     ra="06:16:43.4",
     dec="+22:32:24",
@@ -323,6 +373,7 @@ IC443G = Source(
 
 IRAS16293 = Source(
     name="IRAS 16293",
+    astromol_name="IRAS16293",
     type="Protostar",
     ra="16:32:22.56",
     dec="-24:28:31.8",
@@ -331,6 +382,7 @@ IRAS16293 = Source(
 
 IRC10216 = Source(
     name="IRC+10216",
+    astromol_name="IRC10216",
     type="Carbon Star",
     ra="09:47:57.406",
     dec="+13:16:43.56",
@@ -339,6 +391,7 @@ IRC10216 = Source(
 
 K350 = Source(
     name="K3-50",
+    astromol_name="K350",
     type="HII",
     ra="20:04:45.59",
     dec="33:32:42.0",
@@ -347,6 +400,7 @@ K350 = Source(
 
 L134 = Source(
     name="L134",
+    astromol_name="L134",
     type="Dark Cloud",
     ra="15:53:36.3",
     dec="-04:35:26.0",
@@ -355,6 +409,7 @@ L134 = Source(
 
 L1527 = Source(
     name="L1527",
+    astromol_name="L1527",
     type="Dark Cloud",
     ra="04:39:53.0",
     dec="+25:45:00",
@@ -363,6 +418,7 @@ L1527 = Source(
 
 L1544 = Source(
     name="L1544",
+    astromol_name="L1544",
     type="Dark Cloud",
     ra="05:04:16.6",
     dec="+25:10:48",
@@ -371,6 +427,7 @@ L1544 = Source(
 
 L183 = Source(
     name="L183",
+    astromol_name="L183",
     type="Dark Cloud",
     ra="15:54:12.2",
     dec="-02:49:42",
@@ -379,16 +436,22 @@ L183 = Source(
 
 L483 = Source(
     name="L483",
+    astromol_name="L483",
     type="Dark Cloud",
     ra="18:17:35.0",
     dec="-04:39:48",
     simbad_url="http://simbad.u-strasbg.fr/simbad/sim-id?Ident=L483",
 )
 
-LOSCloud = Source(name="LOS Cloud", type="LOS Cloud")
+LOSCloud = Source(
+    name="LOS Cloud",
+    astromol_name="LOSCloud",
+    type="LOS Cloud",
+)
 
 Lupus1A = Source(
     name="Lupus-1A",
+    astromol_name="Lupus1A",
     type="Dark Cloud",
     ra="15:42:52.4",
     dec="-34:07:53.5",
@@ -397,6 +460,7 @@ Lupus1A = Source(
 
 M17LOS = Source(
     name="M17 LOS",
+    astromol_name="M17LOS",
     type="LOS Cloud",
     ra="18:20:47",
     dec="-16:10:18",
@@ -405,6 +469,7 @@ M17LOS = Source(
 
 M17SW = Source(
     name="M17SW",
+    astromol_name="M17SW",
     type="PDR",
     ra="18:20:23.1",
     dec="-16:11:43",
@@ -413,6 +478,7 @@ M17SW = Source(
 
 M3LOS = Source(
     name="M3 LOS",
+    astromol_name="M3LOS",
     type="LOS Cloud",
     ra="13:42:11.62",
     dec="+28:22:38.2",
@@ -421,6 +487,7 @@ M3LOS = Source(
 
 NGC2024 = Source(
     name="NGC 2024",
+    astromol_name="NGC2024",
     type="PDR",
     ra="05:41:43",
     dec="-01:50:30",
@@ -429,6 +496,7 @@ NGC2024 = Source(
 
 NGC2024LOS = Source(
     name="NGC 2024 LOS",
+    astromol_name="NGC2024LOS",
     type="LOS Cloud",
     ra="05:41:43",
     dec="-01:50:30",
@@ -437,6 +505,7 @@ NGC2024LOS = Source(
 
 NGC2264 = Source(
     name="NGC 2264",
+    astromol_name="NGC2264",
     type="YSO",
     ra="06:40:58",
     dec="+09:53:42",
@@ -445,6 +514,7 @@ NGC2264 = Source(
 
 NGC6334 = Source(
     name="NGC 6334",
+    astromol_name="NGC6334",
     type="SFR",
     ra="17:20:53.3",
     dec="-35:46:59",
@@ -453,6 +523,7 @@ NGC6334 = Source(
 
 NGC6334LOS = Source(
     name="NGC 6334 LOS",
+    astromol_name="NGC6334LOS",
     type="LOS Cloud",
     ra="17:20:53.3",
     dec="-35:46:59",
@@ -461,6 +532,7 @@ NGC6334LOS = Source(
 
 NGC7023 = Source(
     name="NGC 7023",
+    astromol_name="NGC7023",
     type="PDR",
     ra="21:01:36.9",
     dec="+68:09:48",
@@ -469,6 +541,7 @@ NGC7023 = Source(
 
 NGC7027 = Source(
     name="NGC 7027",
+    astromol_name="NGC7027",
     type="PN",
     ra="21:07:01.8",
     dec="+42:14:10",
@@ -477,6 +550,7 @@ NGC7027 = Source(
 
 NGC7538 = Source(
     name="NGC 7538",
+    astromol_name="NGC7538",
     type="YSO",
     ra="23:13:37.2",
     dec="61:30:00",
@@ -485,6 +559,7 @@ NGC7538 = Source(
 
 NGC7538LOS = Source(
     name="NGC 7538 LOS",
+    astromol_name="NGC7538LOS",
     type="LOS Cloud",
     ra="23:13:37.2",
     dec="61:30:00",
@@ -493,6 +568,7 @@ NGC7538LOS = Source(
 
 Orion = Source(
     name="Orion",
+    astromol_name="Orion",
     type="SFR",
     ra="05:35:14.16",
     dec="-05:22:21.5",
@@ -501,6 +577,7 @@ Orion = Source(
 
 OrionBar = Source(
     name="Orion Bar",
+    astromol_name="OrionBar",
     type="PDR",
     ra="05:35:22.30",
     dec="-05:24:33.0",
@@ -509,6 +586,7 @@ OrionBar = Source(
 
 rhoOphA = Source(
     name="rho Ophiuchi A",
+    astromol_name="rhoOphA",
     type="SFR",
     ra="16:26:27.20",
     dec="-24:24:04",
@@ -517,6 +595,7 @@ rhoOphA = Source(
 
 SgrA = Source(
     name="Sgr A",
+    astromol_name="SgrA",
     type="Sgr A",
     ra="17:45:40.0",
     dec="-29:00:28.2",
@@ -525,6 +604,7 @@ SgrA = Source(
 
 SgrALOS = Source(
     name="Sgr A LOS",
+    astromol_name="SgrALOS",
     type="LOS Cloud",
     ra="17:45:40.0",
     dec="-29:00:28.2",
@@ -533,6 +613,7 @@ SgrALOS = Source(
 
 SgrB2 = Source(
     name="Sgr B2",
+    astromol_name="SgrB2",
     type="SFR",
     ra="17:47:20.4",
     dec="-28:23:07",
@@ -541,6 +622,7 @@ SgrB2 = Source(
 
 SgrB2LOS = Source(
     name="Sgr B2 LOS",
+    astromol_name="SgrB2LOS",
     type="LOS Cloud",
     ra="17:47:20.4",
     dec="-28:23:07",
@@ -549,6 +631,7 @@ SgrB2LOS = Source(
 
 TC1 = Source(
     name="TC 1",
+    astromol_name="TC1",
     type="PN",
     ra="17:45:35.29",
     dec="-46:05:23.7",
@@ -557,6 +640,7 @@ TC1 = Source(
 
 TMC1 = Source(
     name="TMC-1",
+    astromol_name="TMC1",
     type="Dark Cloud",
     ra="04:41:45.9",
     dec="+25:41:27",
@@ -565,6 +649,7 @@ TMC1 = Source(
 
 VYCaMaj = Source(
     name="VY Ca Maj",
+    astromol_name="VYCaMaj",
     type="Oxygen Star",
     ra="07:22:58.3",
     dec="-25:46:03.2",
@@ -573,6 +658,7 @@ VYCaMaj = Source(
 
 W3 = Source(
     name="W3",
+    astromol_name="W3",
     type="LOS Cloud",
     ra="02:27:04.10",
     dec="+61:52:27.1",
@@ -581,6 +667,7 @@ W3 = Source(
 
 W3OH = Source(
     name="W3(OH)",
+    astromol_name="W3OH",
     type="SFR",
     ra="02:27:04.1",
     dec="+61:52:52",
@@ -589,6 +676,7 @@ W3OH = Source(
 
 W31LOS = Source(
     name="W31 LOS",
+    astromol_name="W31LOS",
     type="LOS Cloud",
     ra="18:10:28.6",
     dec="-19:55:51",
@@ -597,6 +685,7 @@ W31LOS = Source(
 
 W33LOS = Source(
     name="W33 LOS",
+    astromol_name="W33LOS",
     type="LOS Cloud",
     ra="18:14:14.0",
     dec="-17:55:50",
@@ -605,6 +694,7 @@ W33LOS = Source(
 
 W43LOS = Source(
     name="W43 LOS",
+    astromol_name="W43LOS",
     type="LOS Cloud",
     ra="18:47:32.4",
     dec="-01:56:31",
@@ -613,6 +703,7 @@ W43LOS = Source(
 
 W44LOS = Source(
     name="W44 LOS",
+    astromol_name="W44LOS",
     type="LOS Cloud",
     ra="18:56:10.65",
     dec="+01:13:21.30",
@@ -621,6 +712,7 @@ W44LOS = Source(
 
 W49 = Source(
     name="W49",
+    astromol_name="W49",
     type="SFR",
     ra="19:10:19.6",
     dec="+09:07:42",
@@ -629,6 +721,7 @@ W49 = Source(
 
 W49LOS = Source(
     name="W49 LOS",
+    astromol_name="W49LOS",
     type="LOS Cloud",
     ra="19:10:19.6",
     dec="+09:07:42",
@@ -637,6 +730,7 @@ W49LOS = Source(
 
 W51 = Source(
     name="W51",
+    astromol_name="W51",
     type="SFR",
     ra="19:23:50",
     dec="+14:06:0",
@@ -645,6 +739,7 @@ W51 = Source(
 
 W51LOS = Source(
     name="W51 LOS",
+    astromol_name="W51LOS",
     type="LOS Cloud",
     ra="19:23:50",
     dec="+14:06:0",
@@ -653,6 +748,7 @@ W51LOS = Source(
 
 XiPerLOS = Source(
     name="Xi Per LOS",
+    astromol_name="XiPerLOS",
     type="LOS Cloud",
     ra="03:58:57.9",
     dec="+35:47:27.74",
@@ -661,6 +757,7 @@ XiPerLOS = Source(
 
 rhoOphA = Source(
     name="rho Oph A",
+    astromol_name="rhoOphA",
     type="SFR",
     ra="16:25:35.14",
     dec="-23:26:49.9",

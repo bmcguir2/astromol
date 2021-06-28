@@ -17,6 +17,9 @@ class Telescope(object):
         separated from units by a dash, not a space.
     shortname : str
         A shorter name for the facility, e.g.: GBT 100-m
+    astromol_name : str
+        A string representation of the variable representing this telescope
+        in astromol
     type : str
         The type of facility, chosen from:
             "Single Dish"
@@ -59,12 +62,18 @@ class Telescope(object):
     mols(mol_list=None)
         Returns a list of molecules from 'mol_list' this telescope was 
         used to detect (default is 'all_molecules')
+
+    Methods
+    -------
+    inspect()
+        Prints out a list to the terminal all of the attributes for this telescope and their values.    
     """
 
     def __init__(
         self,
         name=None,
         shortname=None,
+        astromol_name = None,
         type=None,
         wavelength=None,
         latitude=None,
@@ -75,8 +84,54 @@ class Telescope(object):
         notes=None,
     ):
 
+        """
+        Parameters
+        ----------
+        name : str
+            The full name of the facility.  All dimensions (i.e. 100-m) should be
+            separated from units by a dash, not a space.
+        shortname : str
+            A shorter name for the facility, e.g.: GBT 100-m
+        astromol_name : str
+            A string representation of the variable representing this telescope
+            in astromol
+        type : str
+            The type of facility, chosen from:
+                "Single Dish"
+                "Space"
+                "Interferometer"
+                "Optical"
+                "Airborne"
+            Note that any space-based telescope overrides other descriptors, any 
+            airborne facility overrides other descriptors, and optical includes
+            anything not radio (and neither airborne nor space-based)
+        wavelength : list
+            The primary wavelengths of operation of the facility, given as a
+            a list of the following strings:
+                "cm"
+                "mm"
+                "sub-mm"
+                "IR"
+                "Vis"
+                "UV"
+        latitude : float
+            The latitude of the facility in degrees
+        longitude : float
+            The signed longitude of the facility in degrees
+        diameter : float, int
+            The diamater of the facility in meters
+        built : int
+            The year in which the facility came online
+        decommissioned : int or None
+            The year in which the facility ceased operation.
+            (Default value of None is for facilities still in operation)
+        notes : str
+            General notes   
+        """ 
+
         self.name = name
         self.shortname = shortname
+        self.astromol_name = astromol_name
         self.type = type
         self.wavelength = wavelength
         self.latitude = latitude
@@ -143,10 +198,24 @@ class Telescope(object):
         else:
             return my_mols
 
+    def inspect(self):
+        """
+        Prints out a list to the terminal all of the attributes for this telescope and their values.
+
+        Note that this will be a largely unformatted output, and is really only intended to be used
+        when a detailed look at what information is in the database for a given species is desired.
+        """        
+
+        # Get the attributes and values as a dictionary
+        attr_dict = self.__dict__
+        # Print them out
+        for attr in attr_dict:
+            print(f"{attr:20}: {attr_dict[attr] if attr_dict[attr] is not None else ''}")
 
 GBT = Telescope(
     name="Green Bank Telescope",
     shortname="GBT 100-m",
+    astromol_name="GBT",
     type="Single Dish",
     wavelength=["cm", "mm"],
     latitude=38.433056,
@@ -158,6 +227,7 @@ GBT = Telescope(
 IRAM30 = Telescope(
     name="IRAM 30-m",
     shortname="IRAM 30-m",
+    astromol_name="IRAM30",
     type="Single Dish",
     wavelength=["mm", "sub-mm"],
     latitude=37.066161,
@@ -169,6 +239,7 @@ IRAM30 = Telescope(
 Spitzer = Telescope(
     name="Spizter",
     shortname="Spitzer",
+    astromol_name="Spitzer",
     type="Space",
     wavelength=["IR"],
     diameter=0.85,
@@ -179,6 +250,7 @@ Spitzer = Telescope(
 Hubble = Telescope(
     name="Hubble Space Telescope",
     shortname="Hubble",
+    astromol_name="Hubble",
     type="Space",
     wavelength=["IR", "Vis", "UV"],
     diameter=2.4,
@@ -188,6 +260,7 @@ Hubble = Telescope(
 ALMA = Telescope(
     name="Atacama Large Millimeter/sub-millimeter Array",
     shortname="ALMA",
+    astromol_name="ALMA",
     type="Interferometer",
     wavelength=["mm", "sub-mm"],
     latitude=-23.0193,
@@ -198,6 +271,7 @@ ALMA = Telescope(
 ISO = Telescope(
     name="Infrared Space Observatory",
     shortname="ISO",
+    astromol_name="ISO",
     type="Space",
     wavelength=["IR"],
     diameter=0.6,
@@ -208,6 +282,7 @@ ISO = Telescope(
 NRAO140 = Telescope(
     name="NRAO 140-ft",
     shortname="NRAO 140-ft",
+    astromol_name="NRAO140",
     type="Single Dish",
     wavelength=["cm"],
     latitude=38.433056,
@@ -221,6 +296,7 @@ NRAO140 = Telescope(
 Algonquin46 = Telescope(
     name="Algonquin 46-m Telescope",
     shortname="Algonquin 46-m",
+    astromol_name="Algonquin46",
     type="Single Dish",
     wavelength=["cm", "mm"],
     latitude=45.955503,
@@ -234,6 +310,7 @@ Algonquin46 = Telescope(
 NRAOARO12 = Telescope(
     name="NRAO/ARO 12-m Telescope",
     shortname="NRAO/ARO 12-m",
+    astromol_name="NRAOARO12",
     type="Single Dish",
     wavelength=["mm"],
     latitude=31.9533,
@@ -246,6 +323,7 @@ NRAOARO12 = Telescope(
 NRAO36 = Telescope(
     name="NRAO 36-ft Telescope",
     shortname="NRAO 36-ft",
+    astromol_name="NRAO36",
     type="Single Dish",
     wavelength=["mm"],
     latitude=31.9533,
@@ -259,6 +337,7 @@ NRAO36 = Telescope(
 Nobeyama45 = Telescope(
     name="Nobeyama 45-m Telescope",
     shortname="Nobeyama 45-m",
+    astromol_name="Nobeyama45",
     type="Single Dish",
     wavelength=["cm", "mm"],
     latitude=35.9417,
@@ -270,6 +349,7 @@ Nobeyama45 = Telescope(
 Effelsberg100 = Telescope(
     name="Effelsberg 100-m Telescope",
     shortname="Effelsberg 100-m",
+    astromol_name="Effelsberg100",
     type="Single Dish",
     wavelength=["cm"],
     latitude=50.5247,
@@ -281,6 +361,7 @@ Effelsberg100 = Telescope(
 Haystack37 = Telescope(
     name="Haystack 37-m Telescope",
     shortname="Haystack",
+    astromol_name="Haystack37",
     type="Single Dish",
     wavelength=["cm", "mm"],
     latitude=42.6233,
@@ -292,6 +373,7 @@ Haystack37 = Telescope(
 PdBI = Telescope(
     name="Plateu de Bure Interferometer",
     shortname="PdBI",
+    astromol_name="PdBI",
     type="Interferometer",
     wavelength=["mm"],
     latitude=44.63389,
@@ -311,6 +393,7 @@ PdBI = Telescope(
 BIMA = Telescope(
     name="Berkeley-Illinois-Maryland Array",
     shortname="BIMA",
+    astromol_name="BIMA",
     type="Interferometer",
     wavelength=["mm"],
     latitude=40.8178,
@@ -323,6 +406,7 @@ BIMA = Telescope(
 OVRO = Telescope(
     name="Caltech Owens Valley Radio Observatory Millimeter Array",
     shortname="OVRO",
+    astromol_name="OVRO",
     type="Interferometer",
     wavelength=["mm"],
     latitude=37.2339,
@@ -335,6 +419,7 @@ OVRO = Telescope(
 Yebes40 = Telescope(
     name="Yebes RT40-m Telescope",
     shortname="Yebes 40-m",
+    astromol_name="Yebes40",
     type="Single Dish",
     wavelength=["cm", "mm"],
     latitude=40525208,
@@ -345,6 +430,7 @@ Yebes40 = Telescope(
 NRL85 = Telescope(
     name="Maryland Point Observatory Naval Research Lab 85-foot Telescope",
     shortname="NRL 85-ft",
+    astromol_name="NRL85",
     type="Single Dish",
     wavelength=["cm"],
     diameter=26,
@@ -358,6 +444,7 @@ NRL85 = Telescope(
 ATCA = Telescope(
     name="Australia Telescope Compact Array",
     shortname="ATCA",
+    astromol_name="ATCA",
     type="Interferometer",
     wavelength=["cm"],
     latitude=-30.312778,
@@ -368,6 +455,7 @@ ATCA = Telescope(
 Parkes64 = Telescope(
     name="Parkes 64-m Telescope",
     shortname="Parkes",
+    astromol_name="Parkes64",
     type="Single Dish",
     wavelength=["cm"],
     diameter=64,
@@ -379,6 +467,7 @@ Parkes64 = Telescope(
 SMT10 = Telescope(
     name="ARO 10-m Submillimeter Telescope",
     shortname="SMT",
+    astromol_name="SMT10",
     type="Single Dish",
     wavelength=["mm", "sub-mm"],
     diameter=10,
@@ -390,6 +479,7 @@ SMT10 = Telescope(
 SEST15 = Telescope(
     name="Swedish-ESO 15-m Submillimetre Telescope",
     shortname="SEST",
+    astromol_name="SEST15",
     type="Single Dish",
     wavelength=["mm", "sub-mm"],
     diameter=15,
@@ -402,6 +492,7 @@ SEST15 = Telescope(
 Goldstone70 = Telescope(
     name='Goldstone 72-m (DSS-14; "Mars")',
     shortname="Goldstone",
+    astromol_name="Goldstone70",
     type="Single Dish",
     wavelength=["cm"],
     diameter=70,
@@ -414,6 +505,7 @@ Goldstone70 = Telescope(
 Mitaka6 = Telescope(
     name="Tokyo Astronomical Observatory Mitaka 6-m",
     shortname="Mitaka 6-m",
+    astromol_name="Mitaka6",
     type="Single Dish",
     wavelength=["mm"],
     diameter=6,
@@ -427,6 +519,7 @@ Mitaka6 = Telescope(
 McMath = Telescope(
     name="McMath-Pierce Solar Telescope",
     shortname="McMath Solar Telescope",
+    astromol_name="McMath",
     type="Optical",
     wavelength=["IR", "Vis", "UV"],
     diameter=1.6,
@@ -438,6 +531,7 @@ McMath = Telescope(
 Bell7m = Telescope(
     name="AT&T Bell Laboratories 7-m Telescope",
     shortname="Bell 7-m",
+    astromol_name="Bell7m",
     type="Single Dish",
     wavelength=["cm"],
     diameter=7,
@@ -448,6 +542,7 @@ Bell7m = Telescope(
 IRTF = Telescope(
     name="NASA Infrared Telescope Facility",
     shortname="IRTF",
+    astromol_name="IRTF",
     type="Optical",
     wavelength=["IR"],
     diameter=3,
@@ -459,6 +554,7 @@ IRTF = Telescope(
 KPNO4m = Telescope(
     name="Mayall 4-m Telescope",
     shortname="KPNO 4-m",
+    astromol_name="KPNO4m",
     type="Optical",
     wavelength=["IR"],
     diameter=4,
@@ -470,6 +566,7 @@ KPNO4m = Telescope(
 Onsala20m = Telescope(
     name="Onsala 20-m Telescope",
     shortname="Onsala 20-m",
+    astromol_name="Onsala20m",
     type="Single Dish",
     wavelength=["cm", "mm"],
     diameter=20,
@@ -481,6 +578,7 @@ Onsala20m = Telescope(
 FCRAO14m = Telescope(
     name="Five College Radio Observatory 14-m Telescope",
     shortname="FCRAO 14-m",
+    astromol_name="FCRAO14m",
     type="Single Dish",
     wavelength=["cm", "mm"],
     latitude=42.391925,
@@ -492,6 +590,7 @@ FCRAO14m = Telescope(
 APEX = Telescope(
     name="Atacama Pathfinder Experiment",
     shortname="APEX",
+    astromol_name="APEX",
     type="Single Dish",
     wavelength=["mm", "sub-mm"],
     diameter=12,
@@ -503,6 +602,7 @@ APEX = Telescope(
 CSO = Telescope(
     name="Caltech Submillimeter Observatory",
     shortname="CSO",
+    astromol_name="CSO",
     type="Single Dish",
     wavelength=["mm", "sub-mm"],
     diameter=10.4,
@@ -515,6 +615,7 @@ CSO = Telescope(
 MWO4m = Telescope(
     name="University of Texas Millimeter Wave Observatory 4.9-m Telescope",
     shortname="MWO 4.9-m",
+    astromol_name="MWO4m",
     type="Single Dish",
     wavelength=["mm"],
     latitude=30.3866,
@@ -526,6 +627,7 @@ MWO4m = Telescope(
 HatCreek = Telescope(
     name="Hat Creek Station 20-ft Telescope",
     shortname="Hat Creek 20-ft",
+    astromol_name="HatCreek",
     type="Single Dish",
     wavelength=["cm", "mm"],
     latitude=40.8178,
@@ -538,6 +640,7 @@ HatCreek = Telescope(
 SMA = Telescope(
     name="Submillimeter Array",
     shortname="SMA",
+    astromol_name="SMA",
     type="Interferometer",
     wavelength=["mm"],
     latitude=19.8225,
@@ -548,6 +651,7 @@ SMA = Telescope(
 Herschel = Telescope(
     name="Herschel Space Telescope",
     shortname="Herschel",
+    astromol_name="Herschel",
     type="Space",
     wavelength=["sub-mm", "IR"],
     built=2009,
@@ -557,6 +661,7 @@ Herschel = Telescope(
 UKIRT = Telescope(
     name="United Kingdom Infrared Telescope",
     shortname="UKIRT",
+    astromol_name="UKIRT",
     type="Optical",
     wavelength=["IR"],
     diameter=3.8,
@@ -568,6 +673,7 @@ UKIRT = Telescope(
 SOFIA = Telescope(
     name="Stratospheric Observatory for Infrared Astronomy",
     shortname="SOFIA",
+    astromol_name="SOFIA",
     type="Airborne",
     wavelength=["sub-mm", "IR"],
     diameter=2.5,
@@ -577,6 +683,7 @@ SOFIA = Telescope(
 Odin = Telescope(
     name="Odin",
     shortname="Odin",
+    astromol_name="Odin",
     type="Space",
     wavelength=["sub-mm"],
     diameter=1.1,
@@ -586,6 +693,7 @@ Odin = Telescope(
 FUSE = Telescope(
     name="Far Ultraviolet Spectroscopic Explorer",
     shortname="FUSE",
+    astromol_name="FUSE",
     type="Space",
     wavelength=["UV"],
     built=1999,
@@ -595,6 +703,7 @@ FUSE = Telescope(
 Kuiper = Telescope(
     name="Kuiper Airborne Observatory",
     shortname="KAO",
+    astromol_name="Kuiper",
     type="Airborne",
     wavelength=["sub-mm", "IR"],
     built=1974,
@@ -604,6 +713,7 @@ Kuiper = Telescope(
 MtHopkins = Telescope(
     name="Tillinghast 60 inch",
     shortname="Mt. Hopkins 60-in",
+    astromol_name="MtHopkins",
     type="Optical",
     diameter=1.5,
     wavelength=["IR"],
@@ -615,6 +725,7 @@ MtHopkins = Telescope(
 Aerobee = Telescope(
     name="Aerobee-150 Rocket",
     shortname="Aerobee-150 Rocket",
+    astromol_name="Aerobee",
     type="Airborne",
     wavelength=["UV"],
     built=1970,
@@ -625,6 +736,7 @@ Aerobee = Telescope(
 Millstone = Telescope(
     name="Lincoln Laboratory Millstone Hill Observatory 84-ft",
     shortname="Millstone Hill 84-ft",
+    astromol_name="Millstone",
     type="Single Dish",
     wavelength=["cm"],
     built=1956,
@@ -638,6 +750,7 @@ Millstone = Telescope(
 MtWilson = Telescope(
     name="Mount Wilson 100-in",
     shortname="Mt. Wilson",
+    astromol_name="MtWilson",
     type="Optical",
     wavelength=["UV", "Vis"],
     diameter=2.54,
@@ -649,6 +762,7 @@ MtWilson = Telescope(
 IRAS = Telescope(
     name="Infrared Astronomical Satellite",
     shortname="IRAS",
+    astromol_name="IRAS",
     type="Space",
     wavelength=["IR"],
     diameter=0.60,

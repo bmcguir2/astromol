@@ -303,6 +303,8 @@ class Molecule(object):
     
     Methods
     -------
+    inspect()
+        Prints out a list to the terminal all of the attributes for this molecule and their values.
     refs()
         Prints a nicely formatted list of references and notes to the terminal.
     summary()
@@ -392,6 +394,268 @@ class Molecule(object):
         notes=None,
         census_version=None,
     ):
+        """
+        Parameters
+        ----------
+        name : str
+            The full name of the molecule
+        formula : str
+            The chemical formula for the molecule.  Should be interpretable
+            by the latex mhchem package.  Does not include isomer or structural
+            identifiers such as 'l' or 'c' for linear or cyclic.
+        smiles : str
+            The smiles string for the molecule. Not currently used.
+        table_formula : str
+            The same as formula, but can include isomer or structural identifiers
+            for listing in the Tables of Molecules.
+        label : str
+            The label that will be used for hypertext linking in LaTeX.  Labels
+            must be unique among the database.    
+        astromol_name : str
+            A string representation of the variable representing this molecule
+            in astromol
+
+        year : int
+            The year the molecule was first detected in space
+
+        sources : list
+            A list of source objects in which the molecule is detected
+        telescopes : list
+            A list of telescope objects that were used to perform the detections
+        wavelengths : list
+            A list of wavelength strings describing the wavelengths at which
+            the detection was made.  Choose only from among this list:
+                "cm"
+                "mm"
+                "sub-mm"
+                "IR"
+                "Vis"
+                "UV"
+
+        cyclic : bool
+            A flag used to indicate if the molecule contains a cyclic moiety
+            within its structure (default is False)
+        fullerene : bool
+            A flag used to indicate if the molecule is a fullerene (default is False). 
+            Fullerene and pah should not both be True. 
+        pah : bool
+            A flag used to indicate if the molecule is a polycyclic aromatic
+            hydrocarbon (default is False).  Fullerene and pah should not both be True. 
+
+        Acon : int
+            The A rotational constant of the molecule in units of MHz
+        Bcon : int
+            The B rotational constant of the molecule in units of MHz
+        Ccon : int
+            The C rotational constant of the molecule in units of MHz
+
+        mua : float
+            The A-component of the dipole moment of the molecule in units of Debye
+        mub : float
+            The B-component of the dipole moment of the molecule in units of Debye
+        muc : float
+            The C-component of the dipole moment of the molecule in units of Debye
+
+        d_refs : str
+            The literature references which describe the ISM/CSM detection of the molecule.
+            Multiple references should be separated by a semi-colon (';'), which should
+            not otherwise be used in the string.
+        l_refs : str
+            The literature references which describe the laboratory work that enabled
+            the ISM/CSM detection of the molecule.  Multiple references should be separated
+            by a semi-colon (';'), which should not otherwise be used in the string.        
+        d_ref_bib_ids : list
+            A list of strings, with each string a citekey for a bibtex entry corresponding
+            to literature references which describe the ISM/CSM detection of the molecule.
+            Not currently used.
+        l_ref_bib_ids : list
+            A list of strings, with each string a citekey for a bibtex entry corresponding
+            to literature references which describe the laboratory work that enabled
+            the ISM/CSM detection of the molecule.  Not currently used.
+
+        isotopologues : str
+            A comma-separated list of isotopically substituted species that have been detected.
+            This will be updated to be a list of molecule objects instead in a future version.
+        isos_d_refs : str
+            Should start with the isotopologue formula in [], followed by the literature references
+            describing the ISM/CSM detection of the molecule.
+        isos_l_refs : str
+            Should start with the isotopologue formula in [], followed by the literature references
+            describing the laboratory work that enabled the ISM/CSM detection of the molecule.
+
+        ice : bool
+            Flag to indicate if the molecule has been detected in an ice (default is False)
+        ice_sources : list
+            A list of source objects in which the molecule has been detected in an ice.
+        ice_telescopes : list
+            A list of telescope objects that were used to perform the detections of the
+            molecule in an ice.
+        ice_wavelengths : list
+            A list of wavelength strings describing the wavelengths at which
+            the detection in an ice was made.  Choose only from among this list:
+                "cm"
+                "mm"
+                "sub-mm"
+                "IR"
+                "Vis"
+                "UV"
+        ice_d_refs : str
+            The literature references which describe the detection of the molecule in an ice.
+            Multiple references should be separated by a semi-colon (';'), which should
+            not otherwise be used in the string.
+        ice_l_refs : str
+            The literature references which describe the laboratory work that enabled the 
+            detection of the molecule in an ice.  Multiple references should be separated by 
+            a semi-colon (';'), which should not otherwise be used in the string.
+        ice_d_bib_ids : list
+            A list of strings, with each string a citekey for a bibtex entry corresponding
+            to literature references which describe the detection of the molecule in an ice.
+            Not currently used.
+        ice_l_bib_ids : list
+            A list of strings, with each string a citekey for a bibtex entry corresponding
+            to literature references which describe the laboratory work that enabled
+            the detection of the molecule in an ice.  Not currently used.
+        ice_isos : list
+            A list of molecule objects, each one describing an isotopically substituted species
+            detected in an ice.     
+
+        ppd : bool
+            Flag to indicate if the molecule has been detected in a Class II 
+            protoplanetary disk (default is False)
+        ppd_sources : list
+            A list of source objects in which the molecule has been detected in a Class II 
+            protoplanetary disk.
+        ppd_telescopes : list
+            A list of telescope objects that were used to perform the detections of the
+            molecule in a Class II protoplanetary disk.
+        ppd_wavelengths : list
+            A list of wavelength strings describing the wavelengths at which
+            the detection in a Class II protoplanetary disk was made.  
+            Choose only from among this list:
+                "cm"
+                "mm"
+                "sub-mm"
+                "IR"
+                "Vis"
+                "UV"
+        ppd_d_refs : str
+            The literature references which describe the detection of the molecule in a 
+            Class II protoplanetary disk.  Multiple references should be separated by a 
+            semi-colon (';'), which should not otherwise be used in the string.
+        ppd_l_refs : str
+            The literature references which describe the laboratory work that enabled the 
+            detection of the molecule in a Class II protoplanetary disk.  Multiple references 
+            should be separated by a semi-colon (';'), which should not otherwise be used 
+            in the string.
+        ppd_d_bib_ids : list
+            A list of strings, with each string a citekey for a bibtex entry corresponding
+            to literature references which describe the detection of the molecule in a Class II 
+            protoplanetary disk.
+        ppd_l_bib_ids : list
+            A list of strings, with each string a citekey for a bibtex entry corresponding
+            to literature references which describe the laboratory work that enabled
+            the detection of the molecule in a Class II protoplanetary disk.  Not currently used.
+        ppd_isos : list
+            A list of molecule objects, each one describing an isotopically substituted species
+            detected in a Class II protoplanetary disk.
+        ppd_isos_refs : str
+            Should start with the isotopologue formula in [], followed by the literature references
+            describing the detection of the isotopically substituted species in a Class II 
+            protoplanetary disk.
+
+        exgal : bool
+            Flag to indicate if the molecule has been detected in an external galaxy 
+            (default is False)
+        exgal_sources : list
+            A list of source objects in which the molecule has been detected in an 
+            external galaxy.
+        exgal_telescopes : list
+            A list of telescope objects that were used to perform the detections of the
+            molecule in an external galaxy.
+        exgal_wavelengths : list
+            A list of wavelength strings describing the wavelengths at which
+            the detection in an external galaxy was made.  
+            Choose only from among this list:
+                "cm"
+                "mm"
+                "sub-mm"
+                "IR"
+                "Vis"
+                "UV"
+        exgal_d_refs : str
+            The literature references which describe the detection of the molecule in an 
+            external galaxy.  Multiple references should be separated by a 
+            semi-colon (';'), which should not otherwise be used in the string.
+        exgal_l_refs : str
+            The literature references which describe the laboratory work that enabled the 
+            detection of the molecule in an external galaxy.  Multiple references 
+            should be separated by a semi-colon (';'), which should not otherwise be used 
+            in the string.
+        exgal_d_bib_ids : list
+            A list of strings, with each string a citekey for a bibtex entry corresponding
+            to literature references which describe the detection of the molecule in an 
+            external galaxy.
+        exgal_l_bib_ids : list
+            A list of strings, with each string a citekey for a bibtex entry corresponding
+            to literature references which describe the laboratory work that enabled
+            the detection of the molecule in an external galaxy.  Not currently used.
+        exgal_isos : list
+            A list of molecule objects, each one describing an isotopically substituted species
+            detected in an external galaxy. 
+
+        exo : bool
+            Flag to indicate if the molecule has been detected in an exoplanetary atmosphere 
+            (default is False)
+        exo_sources : list
+            A list of source objects in which the molecule has been detected in an 
+            exoplanetary atmosphere.
+        exo_telescopes : list
+            A list of telescope objects that were used to perform the detections of the
+            molecule in an exoplanetary atmosphere.
+        exo_wavelengths : list
+            A list of wavelength strings describing the wavelengths at which
+            the detection in an exoplanetary atmosphere was made.  
+            Choose only from among this list:
+                "cm"
+                "mm"
+                "sub-mm"
+                "IR"
+                "Vis"
+                "UV"
+        exo_d_refs : str
+            The literature references which describe the detection of the molecule in an 
+            exoplanetary atmosphere.  Multiple references should be separated by a 
+            semi-colon (';'), which should not otherwise be used in the string.
+        exo_l_refs : str
+            The literature references which describe the laboratory work that enabled the 
+            detection of the molecule in an exoplanetary atmosphere.  Multiple references 
+            should be separated by a semi-colon (';'), which should not otherwise be used 
+            in the string.
+        exo_d_bib_ids : list
+            A list of strings, with each string a citekey for a bibtex entry corresponding
+            to literature references which describe the detection of the molecule in an 
+            exoplanetary atmosphere.
+        exo_l_bib_ids : list
+            A list of strings, with each string a citekey for a bibtex entry corresponding
+            to literature references which describe the laboratory work that enabled
+            the detection of the molecule in an exoplanetary atmosphere.  Not currently used.
+        exo_isos : list
+            A list of molecule objects, each one describing an isotopically substituted species
+            detected in an exoplanetary atmosphere. 
+
+        notes : str
+            Any miscellaneous notes about the molecule
+        census_version : str
+            The version of the census when this entry was last updated.  
+            The format is very specific: XXXX.Y.Z
+                XXXX    :   the year of the most recent published census
+                Y       :   reset to 0 with each published census and incremented by 1 whenever 
+                            a molecule or molecules are added to an incremental update 
+                            to astromol between published census releases
+                Z       :   reset to 0 with each molecule addition and incremented by 1 whenever 
+                            an update is made to astromol that does not involve a new 
+                            molecule addition.
+        """
 
         self.name = name
         self.formula = formula
@@ -700,6 +964,30 @@ class Molecule(object):
         else:
             return None
 
+    def inspect(self):
+        """
+        Prints out a list to the terminal all of the attributes for this molecule and their values.
+
+        Note that this will be a largely unformatted output, and is really only intended to be used
+        when a detailed look at what information is in the database for a given species is desired.
+        """        
+
+        # Get the attributes and values as a dictionary
+        attr_dict = self.__dict__
+        # We'll do something special for these so they aren't printed as objects
+        special_cases = ['sources','telescopes','ppd_isos']
+
+        for attr in attr_dict:
+            if attr not in special_cases:
+                # only print out values that aren't None, to keep table easy to read
+                print(f"{attr:20}: {attr_dict[attr] if attr_dict[attr] is not None else ''}")
+            elif attr == 'sources':
+                print(f"{'sources':20}: {[x.name for x in attr_dict[attr]] if attr_dict[attr] is not None else ''}")
+            elif attr == 'telescopes':
+                print(f"{'telescopes':20}: {[x.shortname for x in attr_dict[attr]] if attr_dict[attr] is not None else ''}")
+            elif attr == 'ppd_isos':
+                print(f"{'ppd_isos':20}: {[x.formula for x in attr_dict[attr]] if attr_dict[attr] is not None else ''}")        
+    
     def refs(self):
         """
         Prints a nicely formatted list of references and notes to the terminal.

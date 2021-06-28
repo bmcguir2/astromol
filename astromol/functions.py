@@ -34,6 +34,9 @@ import astromol
 def version():
     return astromol.__version__
 
+def updated():
+    return f"{astromol.__updated__.day} {astromol.__updated__.strftime('%b')} {astromol.__updated__.year}"
+
 matplotlib.rc("text", usetex=True)
 matplotlib.rc("text.latex", preamble=r"\usepackage{cmbright}\usepackage[version=4]{mhchem}")
 
@@ -125,15 +128,23 @@ def change_color(color, amount=1.0):
     c = colorsys.rgb_to_hls(*mc.to_rgb(c))
     return colorsys.hls_to_rgb(c[0], 1 - amount * (1 - c[1]), c[2])
 
-def print_variables(natoms=None):
+def print_variables(type=None,natoms=None):
     """
-    Prints out a list to the terminal of the variable names for molecules in the astromol database
-    and the corresponding molecular formula and written name.
+    Prints out a list to the terminal of the variable names for molecules, telescopes, 
+    and/or sources in the astromol database and the corresponding molecular formulas, names, 
+    and so forth.
 
-    The list is sorted by the number of atoms.
+    The list is sorted by the number of atoms, and can be narrowed to choose only a certain
+    number of atoms to print.
 
     Parameters
     ----------
+    type: str
+        Which type of item to print.  Choose from:
+            "molecules"
+            "telescopes"
+            "sources"
+        The default, None, will print all three
     natoms : int
         If specified, only molecules with the given number of atoms will be displayed 
         (default is None, which prints all molecules).
@@ -144,7 +155,7 @@ def print_variables(natoms=None):
     else:
         mol_list = [x for x in all_molecules if x.natoms == natoms]
 
-    if natoms is not None:
+    if natoms is not None and (type is None or type.lower() == 'molecules'):
         print("\n=======================================")
         print(f"            {natoms} Atom Molecules       ")
         print("=======================================\n")
@@ -155,7 +166,7 @@ def print_variables(natoms=None):
         for mol in mol_list:
             print(f'{mol.astromol_name:13} \t {mol.table_formula if mol.table_formula is not None else mol.formula:12} \t {mol.name:35}')
 
-    else:
+    elif type is None or type.lower() == 'molecules':
         for i in range(2,13):
             print("\n=======================================")
             print(f"            {i} Atom Molecules       ")
@@ -186,6 +197,60 @@ def print_variables(natoms=None):
 
         for mol in [x for x in mol_list if x.fullerene is True]:
             print(f'{mol.astromol_name:13} \t {mol.table_formula if mol.table_formula is not None else mol.formula:12} \t {mol.name:35}')
+
+    if (type is None or type.lower() == 'telescopes') and natoms is None:
+        print("\n=======================================")
+        print(f"              Telescopes       ")
+        print("=======================================\n")
+
+        print(f"{'Variable Name':13} \t {'Telescope Name':35}")
+        print("------------- \t -----------------------------------")  
+
+        for scope in all_telescopes:
+            print(f'{scope.astromol_name:13} \t {scope.name:35}')     
+
+    if (type is None or type.lower() == 'sources') and natoms is None:
+        print("\n=======================================")
+        print(f"              Sources       ")
+        print("=======================================\n")
+
+        print(f"{'Variable Name':13} \t {'Source Name':35}")
+        print("------------- \t -----------------------------------")  
+
+        for source in all_sources:
+            print(f'{source.astromol_name:13} \t {source.name:35}')
+
+
+def inspect(x):
+    """
+    Prints out a list to the terminal all of the attributes for the input item and their values.
+
+    Note that this will be a largely unformatted output, and is really only intended to be used
+    when a detailed look at what information is in the database for a given species is desired.
+
+    Further note that this is just calling the built-in class method 'inspect'.
+
+    Parameters
+    ----------
+    x : Molecule, Telescope, Source
+        The molecule, telescope, or source object to inspect and print out
+    """    
+
+    x.inspect()
+
+def summary(molecule):
+    """
+    Prints a nicely formatted list of references and notes to the terminal.
+
+    Note that this is just calling the built-in Molecule class method 'summary'.
+
+    Parameters
+    ----------
+    molecule : Molecule
+        The molecule object to inspect and print out
+    """    
+
+    molecule.summary()
 
 #############################################################
 # 						    Plots	 						#
