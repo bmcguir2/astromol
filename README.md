@@ -23,14 +23,6 @@ git pull
 ```
 
 in the `astromol` directory without needing to re-install.
- 
-## Bugs, Errors, and Feature Requests
- 
-Should you encounter a bug, discover a factual error, or have a request for a new feature, please submit an issue using the GitHub issues tracker and providing as much description as possible.  
-
-## Pull Requests
-
-Direct contributions to the code are not being accepted at this time.
 
 ## Version Control
 
@@ -56,6 +48,8 @@ updated()
 ```
 
 It is also stored in the `__updated__` variable as a Python `datetime` object.
+
+Updates to documentation, such as this readme file, that do not accompany an actual change in the codebase are _not_ incremented in the version numbers, but are of course recorded as commits in the GitHub repository.
 
 ## Overall Structure and Usage
 
@@ -160,11 +154,59 @@ As well, the overall ```inspect``` function can accept Source objects as an argu
 
 ### Functions
 
+As discussed above, nearly all functions provided in the `functions.py` file are used for generating the figures, tables, and other minutae for the census document.  Also as mentioned earlier, some limited customizability has been built into these functions.  For all plotting functions, it is possible, for example, to specify a custom list of molecules on which to operate.
 
+For example:
+
+```Python
+cumu_det_plot()
+```
+
+will generate the plot of the cumulative number of detections over time, using all molecules in the database.  However, one could choose to instead plot the cumulative number of ionic species detected in the ISM by:
+
+```Python
+ions = [x for x in all_molecules if (x.cation or x.anion)]
+cumu_det_plot(mol_list = ions)
+```
+
+It's also possible to modify the filename that is used for output:
+
+```Python
+ions = [x for x in all_molecules if (x.cation or x.anion)]
+cumu_det_plot(mol_list = ions, filename = 'cumulative_ions.pdf')
+```
+
+Custom plotting functions can of course be written to generate whatever plots are desired using the information in the database.  As well, one can always modify the built-in functions to change labels, colors, etc. to suit a need or preference.
+
+### PowerPoint Slide of Detected ISM Molecules
+
+The ```make_mols_slide()``` function will generate a slide containing a formatted dispaly of all detected ISM/CSM molecules to date, in widescreen PowerPoint format, sorted by the number of atoms.  It will display as well the total number of species, the date of the most recent update, the version of `astromol` used to generate the slide, and the appropriate literature reference.  This, too, can take a modified list of species with the ```mol_list = ``` optional argument.
+
+Note that in the current implementation, the placement of the columns is done manually.  While it can adapt a bit to changes in the list, the adaptation is not perfect so some adjustment afterward might be needed.  Additionally, if the custom list doesn't contain molecules of a given number of atoms, PowerPoint will likely say the file is "broken" and ask to "repair" it.  Choosing the repair option is fine, and will produce the slide as normal.
+
+Updates are planned for this feature down the road to make it more versatile.
+
+## BibTeX Databases
+
+Alongside the codebase itself, the installation comes with (currently) three \*.bib files in the `bibtex` folder:
+
+```
+exgal_refs.bib
+exo_refs.bib
+ppd_refs.bib
+```
+
+Again, the primary purpose of these is to interface with the functions to generate LaTeX tables for the census, but they may be useful.
+
+These are also maintained as libraries in the NASA ADS system, accessible here:
+
+* [Extragalactic Molecule Detections](https://ui.adsabs.harvard.edu/public-libraries/uEvz0RU1TvyPrxPqSgVzyw)
+* [Exoplanet Atmosphere Molecule Detections](https://ui.adsabs.harvard.edu/public-libraries/m_TQ7PZPQMGNOKhAR1Zb9w)
+* [Protoplanetary Disk Molecule Detections](https://ui.adsabs.harvard.edu/public-libraries/D8GfNtC7RLO3LoSICiQLbw)
 
 ## Planned Development
 
-A number of upgrades are planned to the code, to the structure of the database, and to the content of the database.  These include the following:
+A number of upgrades are planned to the code, to the structure of the database, and to the content of the database.  If an item is on this list, please do not open a new issue on GitHub to request it; emails to [brettmc@mit.edu](mailto:brettmc@mit.edu) are welcome to express a prioritization desire. Current planned upgrades include the following:
 
 * Inclusion of [SMILES](https://en.wikipedia.org/wiki/Simplified_molecular-input_line-entry_system) strings for each molecule.  There is a `smiles` attribute for the `Molecule` class for this purpose, but the data haven't been aggregated and input yet.
 * Inclusion of links to relevant spectroscopic data -- largely CDMS and JPL rotational catalogs -- for each molecule.  
@@ -176,3 +218,13 @@ A number of upgrades are planned to the code, to the structure of the database, 
 * Addition of data on telescopes and detection sources for non-ISM/CSM species.
 * Coordinates for sources will eventually be updated to be `astropy` objects
 * Links to telescope facility websites
+* Increase versatility of the generation of the PowerPoint slide by allowing selective coloring or bolding of molecules given certain properties.
+* A database of publication objects and/or authors is being considered, but is a long way off.
+
+## Bugs, Errors, and Feature Requests
+ 
+Should you encounter a bug, discover a factual error, or have a request for a new feature, please submit an issue using the GitHub issues tracker and providing as much description as possible.  
+
+## Pull Requests
+
+Direct contributions to the codebase are not being accepted at this time.
