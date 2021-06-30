@@ -49,10 +49,16 @@ class Source(object):
         Returns a list of molecules from 'mol_list' detected in the source
         (default is 'all_molecules')
 
+    ism_csm
+        Is there a detection of an ISM/CSM molecule in this source? 
+
     Methods
     -------
     inspect()
-        Prints out a list to the terminal all of the attributes for this source and their values.    
+        Prints out a list to the terminal all of the attributes for this source and their values.
+
+    summary()
+        Prints out a nicely formatted list of properties and detected molecules to the terminal.    
     """
 
     def __init__(
@@ -163,6 +169,19 @@ class Source(object):
                 my_mols.append(mol)
         return my_mols
 
+    @property
+    def ism_csm(self):
+        """
+        Is there a detection of an ISM/CSM molecule in this source?
+
+        Returns
+        -------
+        bool
+        """ 
+
+        from astromol.molecules import all_molecules
+        return any([self in x.sources for x in all_molecules])          
+
     def inspect(self):
         """
         Prints out a list to the terminal all of the attributes for this source and their values.
@@ -176,6 +195,30 @@ class Source(object):
         # Print them out
         for attr in attr_dict:
             print(f"{attr:20}: {attr_dict[attr] if attr_dict[attr] is not None else ''}")
+
+    def summary(self):
+        """
+        Prints out a nicely formatted list of properties and detected molecules to the terminal.
+        """ 
+
+        from astromol.molecules import all_molecules
+
+        print('-'*len(self.name))
+        print(f"{self.name}")
+        print('-'*len(self.name) + "\n")
+
+        print(f"{'Type':11}\t{self.type}")
+        print(f"{'RA (J2000)':11}\t{self.ra}")
+        print(f"{'DEC (J2000)':11}\t{self.dec}")
+        print(f"{'Simbad URL':11}\t{self.simbad_url}")
+
+        mol_str = f"Molecules Detected in {self.name}"
+        print("\n" + "-"*len(mol_str))
+        print(mol_str)
+        print("-"*len(mol_str))
+
+        detects = ', '.join([x.formula for x in all_molecules if self in x.sources])
+        print(detects)
 
 
 """

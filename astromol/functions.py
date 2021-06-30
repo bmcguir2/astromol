@@ -90,8 +90,23 @@ def make_all_latex():
     make_exgal_table()
     make_ppd_table()
     make_exo_table()
+    make_ice_table()
     make_facility_table()
     make_source_table()
+    make_rate_counts()
+    make_exgal_count()
+    make_exgal_percent()
+    _make_exgal_sentence()
+    make_exo_count()
+    make_ices_count()
+    make_percent_radio()
+    make_scopes_count()
+    make_percent_unsat()
+    make_sat_list()
+    make_sat_count()
+    make_sat_percent()
+    make_sfr_rad_percent()
+    make_dark_rad_percent()
 
     return
 
@@ -3405,7 +3420,7 @@ def make_ism_tables(mol_list=None, filename=None):
         for x in table_list:
             output.write(x)
 
-        output.write("\\hline\n\\end{tabular*}\n\\label{two_seven}\n\\end{table*}")
+        output.write("\\hline\n\\end{tabular*}\n\\label{two_seven}\n\\end{table*}\endinput")
 
     # now we do the 8 or more table.
     table_list = []
@@ -3455,8 +3470,70 @@ def make_ism_tables(mol_list=None, filename=None):
         for x in table_list:
             output.write(x)
 
-        output.write("\\hline\n\\end{tabular*}\n\\label{eight_more}\n\\end{table*}")
+        output.write("\\hline\n\\end{tabular*}\n\\label{eight_more}\n\\end{table*}\endinput")
 
+def make_exgal_count(mol_list=None, filename=None):
+    """
+    Makes a .tex file containing the number of molecules in mol_list found in external galaxies
+
+    Parameters
+    ----------
+    mol_list : list
+        A list of molecule objects to use (default is all_molecules)   
+    filename : str
+        The filename for the output snippet (default is 'nexgal.tex')
+    """
+
+    # If a list wasn't specified, default to all molecules
+    if mol_list is None:
+        mol_list = all_molecules
+
+    with open(filename if filename is not None else "nexgal.tex", "w") as output:
+        output.write(f"{len([x for x in mol_list if x.exgal is True])}\endinput")
+
+def make_exgal_percent(mol_list=None, filename=None):
+    """
+    Makes a .tex file containing the percentage of molecules in mol_list found in external galaxies
+
+    Parameters
+    ----------
+    mol_list : list
+        A list of molecule objects to use (default is all_molecules)   
+    filename : str
+        The filename for the output snippet (default is 'nexgalpercent.tex')
+    """
+
+    # If a list wasn't specified, default to all molecules
+    if mol_list is None:
+        mol_list = all_molecules
+
+    with open(filename if filename is not None else "nexgalpercent.tex", "w") as output:
+        output.write(f"{100*len([x for x in mol_list if x.exgal is True])/len(mol_list):.0f}\endinput")
+
+def _make_exgal_sentence():
+    """
+    Makes a .tex file containing a sentence for the census with top exgal detection sources.
+
+    Not recommended for any other uses.
+    """
+
+    ngc253 = 0
+    pks = 0
+    m82 = 0
+
+    for x in all_molecules:
+        if x.exgal is True:
+            if 'NGC 253' in x.exgal_sources:
+                ngc253 +=1
+            if 'PKS 1830' in x.exgal_sources:
+                pks +=1
+            if 'M82' in x.exgal_sources:
+                m82 +=1
+
+    my_str = f"the line of sight to PKS 1830-211 ({pks} molecules), NGC 253 ({ngc253} molecules), and M82 ({m82} molecules)\endinput"
+
+    with open("exgal_sentence.tex", "w") as output:
+        output.write(my_str)
 
 def make_det_count(mol_list=None, filename=None):
     """
@@ -3467,7 +3544,7 @@ def make_det_count(mol_list=None, filename=None):
     mol_list : list
         A list of molecule objects to use (default is all_molecules)   
     filename : str
-        The filename for the output images (default is 'ndetects.tex')
+        The filename for the output snippet (default is 'ndetects.tex')
     """
 
     # If a list wasn't specified, default to all molecules
@@ -3475,7 +3552,7 @@ def make_det_count(mol_list=None, filename=None):
         mol_list = all_molecules
 
     with open(filename if filename is not None else "ndetects.tex", "w") as output:
-        output.write(f"{len(mol_list)}")
+        output.write(f"{len(mol_list)}\endinput")
 
 
 def make_elem_count(mol_list=None, filename=None):
@@ -3487,7 +3564,7 @@ def make_elem_count(mol_list=None, filename=None):
     mol_list : list
         A list of molecule objects to use (default is all_molecules)   
     filename : str
-        The filename for the output images (default is 'nelems.tex')
+        The filename for the output snippet (default is 'nelems.tex')
     """
 
     # If a list wasn't specified, default to all molecules
@@ -3500,10 +3577,12 @@ def make_elem_count(mol_list=None, filename=None):
         for atom in mol.atoms:
             if mol.atoms[atom] > 0:
                 if atom not in elems:
-                    elems.append(atom)
+                    # we don't want to count deuterium in the NH3D+ as special
+                    if atom != 'D':
+                        elems.append(atom)
 
     with open(filename if filename is not None else "nelems.tex", "w") as output:
-        output.write(f"{len(elems)}")
+        output.write(f"{len(elems)}\endinput")
 
 def make_ppd_count(mol_list=None, filename=None):
     """
@@ -3516,7 +3595,7 @@ def make_ppd_count(mol_list=None, filename=None):
     mol_list : list
         A list of molecule objects to use (default is all_molecules)   
     filename : str
-        The filename for the output images (default is 'nppds.tex')
+        The filename for the output snippet (default is 'nppds.tex')
     """ 
 
     # If a list wasn't specified, default to all molecules
@@ -3530,7 +3609,59 @@ def make_ppd_count(mol_list=None, filename=None):
             ppd_mols += 1
 
     with open(filename if filename is not None else "nppds.tex", "w") as output:
-        output.write(f"{ppd_mols}")        
+        output.write(f"{ppd_mols}\endinput")        
+
+def make_exo_count(mol_list=None, filename=None):
+    """
+    Makes a .tex file containing the number of molecules from mol_list 
+    found in exoplanetary atmospheres. 
+
+    Parameters
+    ----------
+    mol_list : list
+        A list of molecule objects to use (default is all_molecules)   
+    filename : str
+        The filename for the output snippet (default is 'nexos.tex')
+    """ 
+
+    # If a list wasn't specified, default to all molecules
+    if mol_list is None:
+        mol_list = all_molecules
+
+    exo_mols = 0
+
+    for mol in mol_list:
+        if mol.exo is True:
+            exo_mols += 1
+
+    with open(filename if filename is not None else "nexos.tex", "w") as output:
+        output.write(f"{exo_mols}\endinput")                
+
+def make_ices_count(mol_list=None, filename=None):
+    """
+    Makes a .tex file containing the number of molecules from mol_list 
+    found in ices. 
+
+    Parameters
+    ----------
+    mol_list : list
+        A list of molecule objects to use (default is all_molecules)   
+    filename : str
+        The filename for the output snippet (default is 'nices.tex')
+    """ 
+
+    # If a list wasn't specified, default to all molecules
+    if mol_list is None:
+        mol_list = all_molecules
+
+    ice_mols = 0
+
+    for mol in mol_list:
+        if mol.ice is True:
+            ice_mols += 1
+
+    with open(filename if filename is not None else "nices.tex", "w") as output:
+        output.write(f"{ice_mols}\endinput")                
 
 def make_ppd_isos_count(mol_list=None, filename=None):
     """
@@ -3542,7 +3673,7 @@ def make_ppd_isos_count(mol_list=None, filename=None):
     mol_list : list
         A list of molecule objects to use (default is all_molecules)   
     filename : str
-        The filename for the output images (default is 'nppdisos.tex')
+        The filename for the output snippet (default is 'nppdisos.tex')
     """ 
 
     # If a list wasn't specified, default to all molecules
@@ -3557,7 +3688,7 @@ def make_ppd_isos_count(mol_list=None, filename=None):
                 ppd_iso_mols += len(mol.ppd_isos)
 
     with open(filename if filename is not None else "nppdisos.tex", "w") as output:
-        output.write(f"{ppd_iso_mols}")               
+        output.write(f"{ppd_iso_mols}\endinput")               
 
 
 def make_exgal_table(mol_list=None, filename=None):
@@ -3570,7 +3701,7 @@ def make_exgal_table(mol_list=None, filename=None):
     mol_list : list
         A list of molecule objects to use (default is all_molecules)   
     filename : str
-        The filename for the output images (default is 'exgal_table.tex')
+        The filename for the output file (default is 'exgal_table.tex')
     """ 
 
     # If a list wasn't specified, default to all molecules
@@ -3753,7 +3884,7 @@ def make_exgal_table(mol_list=None, filename=None):
     # add the closing bit and a carriage return and the last lines
     table.append(r"\\" + "\n")
     table.append(r"\label{exgal_mols}" + "\n")
-    table.append(r"\end{table*}")
+    table.append(r"\end{table*}\endinput")
 
     with open(filename if filename is not None else "exgal_table.tex", "w") as output:
         for line in table:
@@ -3772,7 +3903,7 @@ def make_ppd_table(mol_list=None, filename=None):
     mol_list : list
         A list of molecule objects to use (default is all_molecules)   
     filename : str
-        The filename for the output images (default is 'ppd_table.tex')
+        The filename for the output file (default is 'ppd_table.tex')
     """ 
 
     # If a list wasn't specified, default to all molecules
@@ -3914,7 +4045,7 @@ def make_ppd_table(mol_list=None, filename=None):
     # add the closing bit and a carriage return and the last lines
     table.append(r"\\" + "\n")
     table.append(r"\label{ppd_mols}" + "\n")
-    table.append(r"\end{table*}")
+    table.append(r"\end{table*}\endinput")
 
     with open(filename if filename is not None else "ppd_table.tex", "w") as output:
         for line in table:
@@ -3933,7 +4064,7 @@ def make_exo_table(mol_list=None, filename=None):
     mol_list : list
         A list of molecule objects to use (default is all_molecules)   
     filename : str
-        The filename for the output images (default is 'exo_table.tex')
+        The filename for the output file (default is 'exo_table.tex')
     """
 
     # If a list wasn't specified, default to all molecules
@@ -4019,7 +4150,7 @@ def make_exo_table(mol_list=None, filename=None):
     # add the closing bit and a carriage return and the last lines
     table.append(r"\\" + "\n")
     table.append(r"\label{exoplanet_mols}" + "\n")
-    table.append(r"\end{table}")
+    table.append(r"\end{table}\endinput")
 
     with open(filename if filename is not None else "exo_table.tex", "w") as output:
         for line in table:
@@ -4027,6 +4158,122 @@ def make_exo_table(mol_list=None, filename=None):
 
     return
 
+def make_ice_table(mol_list=None, filename=None):
+    """
+    Generates the latex table for the census that contains all the detected 
+    interstellar ice molecules, using the provided bibtex references.
+
+    Parameters
+    ----------
+    mol_list : list
+        A list of molecule objects to use (default is all_molecules)   
+    filename : str
+        The filename for the output file (default is 'ice_table.tex')
+    """
+
+    # If a list wasn't specified, default to all molecules
+    if mol_list is None:
+        mol_list = all_molecules
+
+    # a list to hold detections
+    detects = []
+
+    for mol in mol_list:
+        if mol.ice is True:
+            detects.append(mol)
+
+    # manually add OCN-, since it's not counted as an ISM molecule
+    OCNm = Molecule(
+        formula='OCN-',
+        ice=True,
+        ice_d_bib_ids=["2005A&A...441..249V"],
+    )
+
+    # gotta figure out where to insert it into the list
+    last_3 = ''.join([str(x.natoms) for x in detects]).rindex('3')
+
+    # then insert it
+    detects.insert(last_3+1,OCNm)
+
+    # initialize a list to hold each line of the first table
+    table = []
+
+    # add the pre-amble latex stuff
+    table.append(r"\begin{table}" + "\n")
+    table.append(r"\centering" + "\n")
+    table.append(
+        r"\caption{List of molecules detected in interstellar ices, with references to representative detections.}"
+        + "\n"
+    )
+    table.append(r"\begin{tabular*}{\columnwidth}{l @{\extracolsep{\fill}} l @{\extracolsep{\fill}}}" + "\n")
+    table.append(r"\hline\hline" + "\n")
+    table.append(r"Species & References\\" + "\n")
+    table.append(r"\hline" + "\n")
+
+    # initialize a dictionary to hold references and the Ref ID that is used, and initialize a counter
+    refs_dict = {}
+    ref_idx = 1
+
+    # now just loop through and add
+    for x in detects:
+        table_line = ""
+        # get the formula in there
+        formula = x.formula if x.table_formula is None else x.table_formula
+        table_line += f"\ce{{{formula}}}\t&\t"
+        # now we deal with the references
+        ref_strs = []
+        # some detections have more than one reference, so we loop over them
+        for ref_ID in x.ice_d_bib_ids:
+            # if the reference has already been used before, we just use the number from that instance
+            if ref_ID in refs_dict:
+                ref_strs.append(refs_dict[ref_ID])
+            # if it hasn't been used before
+            else:
+                # assign it the next number in line to be used
+                ref_strs.append(str(ref_idx))
+                # add it as an entry in refs_dict so we can use it again if needs be
+                refs_dict[ref_ID] = str(ref_idx)
+                # and increment the number
+                ref_idx += 1
+        # join the reference string together and add it to the line
+        table_line += f"{', '.join(ref_strs)}" + r"\\" + "\n"
+        # add it to the table.
+        table.append(table_line)
+
+    # close out the data portion of the table
+    table.append(r"\hline" + "\n")
+    table.append(r"\end{tabular*}" + "\n")
+    table.append(r"\justify" + "\n")
+
+    # now we do the references; we'll have to play a few tricks to get an ordered list out of the dictionary
+    reference_ids = []  # the actual latex citekeys
+    reference_idx = []  # the index number from the table
+    for ref in refs_dict:
+        reference_ids.append(ref)
+        reference_idx.append(int(refs_dict[ref]))
+    # get the ordered array that will sort the reference indices
+    sort_idx = np.argsort(np.array(reference_idx))
+    # then use it to sort both the reference indices and the references themselves
+    reference_ids = np.array(reference_ids)[sort_idx]
+    reference_idx = np.array(reference_idx)[sort_idx]
+
+    # get the preamble text out of the way; be sure not to include a carriage return
+    table.append(r"\textbf{References:}")
+
+    # figure out how many references we have, and iterate over them
+    for i in range(np.max(reference_idx)):
+        table.append(f" [{reference_idx[i]}] " + r"\citet{" + f"{reference_ids[i]}" + r"} ")
+
+    # add the closing bit and a carriage return and the last lines
+    table.append(r"\\" + "\n")
+    table.append(r"\label{ice_mols}" + "\n")
+    table.append(r"\end{table}\endinput")
+
+    with open(filename if filename is not None else "ice_table.tex", "w") as output:
+        for line in table:
+            output.write(line)
+
+    return
 
 def make_det_per_year_by_atoms_table(mol_list=None, filename=None):
     """
@@ -4038,7 +4285,7 @@ def make_det_per_year_by_atoms_table(mol_list=None, filename=None):
     mol_list : list
         A list of molecule objects to use (default is all_molecules)   
     filename : str
-        The filename for the output images (default is 'rates_by_atoms_table.tex')
+        The filename for the output file (default is 'rates_by_atoms_table.tex')
     """
 
     # If a list wasn't specified, default to all molecules
@@ -4152,7 +4399,7 @@ def make_det_per_year_by_atoms_table(mol_list=None, filename=None):
     table.append(r"\hline" + "\n")
     table.append(r"\end{tabular*}" + "\n")
     table.append(r"\label{rates_by_atoms_table}" + "\n")
-    table.append(r"\end{table}")
+    table.append(r"\end{table}\endinput")
 
     with open(filename if filename is not None else "rates_by_atoms_table.tex", "w") as output:
         for line in table:
@@ -4250,7 +4497,7 @@ def make_facility_table(mol_list=None, filename=None):
     table.append(r"\hline" + "\n")
     table.append(r"\end{tabular*}" + "\n")
     table.append(r"\label{detects_by_scope}" + "\n")
-    table.append(r"\end{table}")
+    table.append(r"\end{table}\endinput")
 
     with open(filename if filename is not None else "facilities_table.tex", "w") as output:
         for line in table:
@@ -4268,7 +4515,7 @@ def make_source_table(mol_list=None, filename=None):
     mol_list : list
         A list of molecule objects to use (default is all_molecules)   
     filename : str
-        The filename for the output images (default is 'source_table.tex')
+        The filename for the output file (default is 'source_table.tex')
     """
 
     # If a list wasn't specified, default to all molecules
@@ -4357,7 +4604,7 @@ def make_source_table(mol_list=None, filename=None):
     table.append(r"\hline" + "\n")
     table.append(r"\end{tabular*}" + "\n")
     table.append(r"\label{detects_by_source}" + "\n")
-    table.append(r"\end{table}")
+    table.append(r"\end{table}\endinput")
 
     with open(filename if filename is not None else "source_table.tex", "w") as output:
         for line in table:
@@ -4365,6 +4612,286 @@ def make_source_table(mol_list=None, filename=None):
 
     return
 
+def make_rate_counts(mol_list=None, syears=None, filename=None):
+    """
+    Makes .tex files containing the rate of new molecule detections of molecules in mol_list
+    since the given years
+
+    Parameters
+    ----------
+    mol_list : list
+        A list of molecule objects to use (default is all_molecules)
+    syears : list
+        A list of integers for the starting year to calculate trends (default is 1968 and 2005)   
+    filename : str
+        The based filename for the output snippets (default is 'rate_since_')
+    """
+
+    # If a list wasn't specified, default to all molecules
+    if mol_list is None:
+        mol_list = all_molecules
+
+    # get the starting years, if they aren't set by the user
+    if syears is None:
+        # grab the earliest year in the list of molecules
+        syears = [1968,2005]
+    eyear = date.today().year
+
+    # make the x-axis array of years
+    years = np.arange(min([x.year for x in mol_list]), eyear + 1)
+
+    # make an array to hold the detections
+    dets = np.copy(years) * 0
+
+    # loop through the years and the list and add everything up.  There's gotta be a better way to do this, but who cares, its fast enough.
+    for x in range(len(dets)):
+        i = 0
+        for mol in mol_list:
+            if mol.year < years[x] + 1:
+                i += 1
+        dets[x] = i
+
+    # get some year indicies for years we care about
+    def iyear(x):
+        return np.argwhere(years == x)[0][0]
+
+    # do linear fits to the data for the ranges we care about
+    fit_results = {}
+    for year in syears:
+        fit_results[year] = np.polynomial.polynomial.Polynomial.fit(years[iyear(year) :], dets[iyear(year) :], 1).convert().coef[1]
+
+    # write everything out
+    for year in fit_results:
+        with open(f'{filename}{year}.tex' if filename is not None else f'rate_since_{year}.tex', 'w') as output:
+            output.write(f"{fit_results[year]:.1f}\endinput")
+
+def make_percent_radio(mol_list=None, filename=None):
+    """
+    Makes a .tex file containing the percentage of molecules from mol_list 
+    detected by radio astronomy. 
+
+    Parameters
+    ----------
+    mol_list : list
+        A list of molecule objects to use (default is all_molecules)   
+    filename : str
+        The filename for the output snippet (default is 'radiopercent.tex')
+    """ 
+
+    # If a list wasn't specified, default to all molecules
+    if mol_list is None:
+        mol_list = all_molecules
+
+    radio_mols = 0
+
+    for mol in mol_list:
+        if "cm" in mol.wavelengths or "mm" in mol.wavelengths or "sub-mm" in mol.wavelengths:
+            radio_mols += 1
+
+    with open(filename if filename is not None else "radiopercent.tex", "w") as output:
+        output.write(f"{100*radio_mols/len(mol_list):.0f}\endinput") 
+
+def make_scopes_count(telescopes_list=None, filename=None):
+    """
+    Makes a .tex file containing the number of telescopes used to detect ISM/CSM molecules
+
+    Parameters
+    ----------
+    telescopes_list : list
+        A list of telescope objects to use (default is all_telescopes)   
+    filename : str
+        The filename for the output snippet (default is 'nscopes.tex')
+    """
+
+    # If a list wasn't specified, default to all telescopes
+    if telescopes_list is None:
+        telescopes_list = all_telescopes
+
+    i = 0
+    # start the count
+    for scope in telescopes_list:
+        if scope.ndetects > 0:
+            i += 1
+
+    with open(filename if filename is not None else "nscopes.tex", "w") as output:
+        output.write(f"{i}\endinput")
+
+def make_percent_unsat(mol_list=None, filename=None):
+    """
+    Makes a .tex file containing the percentage of molecules from mol_list 
+    that are hydrocarbons and at least partially unsaturated 
+
+    Parameters
+    ----------
+    mol_list : list
+        A list of molecule objects to use (default is all_molecules)   
+    filename : str
+        The filename for the output snippet (default is 'unsatpercent.tex')
+    """ 
+
+    # If a list wasn't specified, default to all molecules
+    if mol_list is None:
+        mol_list = all_molecules
+
+    un_sats = []
+    for x in mol_list:
+        if x.du is not None and x.du > 0.0:
+            if 'H' in list(x.atoms.keys()) and 'C' in list(x.atoms.keys()):
+                un_sats.append(x)
+    sats = []
+    for x in mol_list:
+        if x.du is not None and x.du == 0.0:
+            if 'H' in list(x.atoms.keys()) and 'C' in list(x.atoms.keys()):
+                sats.append(x)
+
+    with open(filename if filename is not None else "unsatpercent.tex", "w") as output:
+        output.write(f"{100*len(un_sats)/(len(sats)+len(un_sats)):.0f}\endinput") 
+
+def make_sat_list(mol_list=None, filename=None):
+    """
+    Makes a .tex file containing the list of molecules from mol_list that are completely
+    saturated hydrocarbons
+
+    Parameters
+    ----------
+    mol_list : list
+        A list of molecule objects to use (default is all_molecules)   
+    filename : str
+        The filename for the output snippet (default is 'satlist.tex')
+    """ 
+
+    # If a list wasn't specified, default to all molecules
+    if mol_list is None:
+        mol_list = all_molecules
+
+    sats = []
+    for x in mol_list:
+        # it needs to have a du and for that du to be 0
+        if x.du is not None and x.du == 0.0:
+            # we only want hydrocarbons here
+            if 'H' in list(x.atoms.keys()) and 'C' in list(x.atoms.keys()):
+                sats.append(x)
+
+    my_str = ", ".join([r"\ce{" + x.formula + r"}" for x in sats[:-1]])
+    my_str += r", and \ce{" + f"{sats[-1].formula}" + r"}\endinput"
+
+    with open(filename if filename is not None else "satlist.tex", "w") as output:
+        output.write(my_str)
+
+def make_sat_count(mol_list=None, filename=None):
+    """
+    Makes a .tex file containing the number of molecules from mol_list that are completely
+    saturated hydrocarbons
+
+    Parameters
+    ----------
+    mol_list : list
+        A list of molecule objects to use (default is all_molecules)   
+    filename : str
+        The filename for the output snippet (default is 'nsats.tex')
+    """ 
+
+    # If a list wasn't specified, default to all molecules
+    if mol_list is None:
+        mol_list = all_molecules
+
+    sats = []
+    for x in mol_list:
+        # it needs to have a du and for that du to be 0
+        if x.du is not None and x.du == 0.0:
+            # we only want hydrocarbons here
+            if 'H' in list(x.atoms.keys()) and 'C' in list(x.atoms.keys()):
+                sats.append(x)
+
+    with open(filename if filename is not None else "nsats.tex", "w") as output:
+        output.write(f"{len(sats)}\endinput")      
+
+def make_sat_percent(mol_list=None, filename=None):
+    """
+    Makes a .tex file containing the percentage of molecules from mol_list that are completely
+    saturated hydrocarbons
+
+    Parameters
+    ----------
+    mol_list : list
+        A list of molecule objects to use (default is all_molecules)   
+    filename : str
+        The filename for the output snippet (default is 'satpercent.tex')
+    """ 
+
+    # If a list wasn't specified, default to all molecules
+    if mol_list is None:
+        mol_list = all_molecules
+
+    un_sats = []
+    for x in mol_list:
+        if x.du is not None and x.du > 0.0:
+            if 'H' in list(x.atoms.keys()) and 'C' in list(x.atoms.keys()):
+                un_sats.append(x)
+    sats = []
+    for x in mol_list:
+        if x.du is not None and x.du == 0.0:
+            if 'H' in list(x.atoms.keys()) and 'C' in list(x.atoms.keys()):
+                sats.append(x)
+
+    with open(filename if filename is not None else "satpercent.tex", "w") as output:
+        output.write(f"{100*len(sats)/(len(sats)+len(un_sats)):.0f}\endinput")  
+
+def make_sfr_rad_percent(mol_list=None, filename=None):
+    """
+    Makes a .tex file containing the percentage of molecules from mol_list that are radicals
+    and detected in star-forming regions
+
+    Parameters
+    ----------
+    mol_list : list
+        A list of molecule objects to use (default is all_molecules)   
+    filename : str
+        The filename for the output snippet (default is 'sfr_rad_percent.tex')
+    """ 
+
+    # If a list wasn't specified, default to all molecules
+    if mol_list is None:
+        mol_list = all_molecules
+
+    mols = []
+    for x in mol_list:
+        if x.radical:
+            if "SFR" in [y.type for y in x.sources]:
+                mols.append(x)
+
+    rad_per = 100 * len(mols) / len([x for x in mol_list if "SFR" in [y.type for y in x.sources]])
+
+    with open(filename if filename is not None else "sfr_rad_percent.tex", "w") as output:
+        output.write(f"{rad_per:.0f}\endinput")
+
+def make_dark_rad_percent(mol_list=None, filename=None):
+    """
+    Makes a .tex file containing the percentage of molecules from mol_list that are radicals
+    and detected in dark clouds
+
+    Parameters
+    ----------
+    mol_list : list
+        A list of molecule objects to use (default is all_molecules)   
+    filename : str
+        The filename for the output snippet (default is 'dark_rad_percent.tex')
+    """ 
+
+    # If a list wasn't specified, default to all molecules
+    if mol_list is None:
+        mol_list = all_molecules
+
+    mols = []
+    for x in mol_list:
+        if x.radical:
+            if "Dark Cloud" in [y.type for y in x.sources]:
+                mols.append(x)
+
+    rad_per = 100 * len(mols) / len([x for x in mol_list if "Dark Cloud" in [y.type for y in x.sources]])
+
+    with open(filename if filename is not None else "dark_rad_percent.tex", "w") as output:
+        output.write(f"{rad_per:.0f}\endinput")
 
 #############################################################
 # 				       PowerPoint Slides 					#
@@ -4445,14 +4972,14 @@ def make_mols_slide(mol_list=None, filename=None):
     p3.font.name = 'Arial'
     p3.alignment = PP_ALIGN.RIGHT
     run5 = p3.add_run()
-    run5.text = "McGuire 2021 " 
+    run5.text = "McGuire 2018 " 
     run5.font.size = Pt(18)
     run6 = p3.add_run()
     run6.text = "ApJS " 
     run6.font.size = Pt(18)
     run6.font.italic = True
     run7 = p3.add_run()
-    run7.text = "submitted" 
+    run7.text = "239, 17" 
     run7.font.size = Pt(18)
 
     # Make a minifunction to turn a formula into a list of parts
