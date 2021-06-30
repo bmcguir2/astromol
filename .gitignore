@@ -1,0 +1,5 @@
+.DS_Store
+.ipynb*
+.vscode/
+*.egg-info/
+astromol.bib
