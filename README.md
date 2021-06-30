@@ -180,7 +180,7 @@ Custom plotting functions can of course be written to generate whatever plots ar
 
 ### PowerPoint Slide of Detected ISM Molecules
 
-The ```make_mols_slide()``` function will generate a slide containing a formatted dispaly of all detected ISM/CSM molecules to date, in widescreen PowerPoint format, sorted by the number of atoms.  It will display as well the total number of species, the date of the most recent update, the version of `astromol` used to generate the slide, and the appropriate literature reference.  This, too, can take a modified list of species with the ```mol_list = ``` optional argument.
+The ```make_mols_slide()``` function will generate a slide containing a formatted display of all detected ISM/CSM molecules to date, in widescreen PowerPoint format, sorted by the number of atoms.  It will display as well the total number of species, the date of the most recent update, the version of `astromol` used to generate the slide, and the appropriate literature reference.  This, too, can take a modified list of species with the ```mol_list = ``` optional argument.
 
 Note that in the current implementation, the placement of the columns is done manually.  While it can adapt a bit to changes in the list, the adaptation is not perfect so some adjustment afterward might be needed.  Additionally, if the custom list doesn't contain molecules of a given number of atoms, PowerPoint will likely say the file is "broken" and ask to "repair" it.  Choosing the repair option is fine, and will produce the slide as normal.
 
