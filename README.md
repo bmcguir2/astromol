@@ -4,7 +4,7 @@
 
 `astromol` is a Python 3 package that provides a database of molecules detected in space and an object-oriented interface for interacting with the database and generating the figures and tables from the [_Census of Interstellar, Circumstellar, Extragalactic, Protoplanetary Disk, and Exoplanetary Molecules_ by B. McGuire](https://iopscience.iop.org/article/10.3847/1538-4365/aae5d2).
 
-If you use `astromol` for your own work, please cite the Zenodo entry: [![DOI]()]().
+If you use `astromol` for your own work, please cite the Zenodo entry: [![DOI](https://zenodo.org/badge/360663606.svg)](https://zenodo.org/badge/latestdoi/360663606).
 
 ## Setup Instructions
 
