@@ -8,7 +8,7 @@ If you use `astromol` for your own work, please cite the Zenodo entry: [![DOI]()
 
 ## Setup Instructions
 
-Clone the `astromol` repository to your computer.  It is **not** recommended to clone the `development` branch.
+Clone the `astromol` repository, accessible at [https://github.com/bmcguir2/astromol](https://github.com/bmcguir2/astromol) to your computer.  It is **not** recommended to clone the `development` branch.
 
 In your terminal, navigate to the `astromol` directory, then install using
 
