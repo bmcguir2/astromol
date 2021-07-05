@@ -211,8 +211,8 @@ A number of upgrades are planned to the code, to the structure of the database, 
 * Inclusion of [SMILES](https://en.wikipedia.org/wiki/Simplified_molecular-input_line-entry_system) strings for each molecule.  There is a `smiles` attribute for the `Molecule` class for this purpose, but the data haven't been aggregated and input yet.
 * Inclusion of links to relevant spectroscopic data -- largely CDMS and JPL rotational catalogs -- for each molecule.  
 * Inclusion of outputs of quantum chemical structure calculations for each molecule, using the methods recommended in [Lee & McCarthy 2020](https://pubs.acs.org/doi/abs/10.1021/acs.jpca.9b09982).
-* Migration of references from strings to entirely bibtex citekeys.  Implementation has particually begun for protoplanetary disk, extragalactic, and exoplanetary atmosphere molecules.
-* Move to dealing with isotopologues as `Molecule` objects themselves.  This has already been implemented for protoplanetary disk species partially; references are still contained as a string in the main molecule.  A future update will deprecate strings entirely in favor of bibtex entries.
+* Migration of references from strings to entirely bibtex citekeys.  Implementation has partially begun for protoplanetary disk, extragalactic, and exoplanetary atmosphere molecules.
+* Move to dealing with isotopologues as `Molecule` objects themselves.  This has already been implemented for protoplanetary disk species partially; references are still contained as a string in the main molecule.  A future update will deprecate strings entirely in favor of bibtex entries (from which strings are dynamically generated).
 * Incorporation of isotopologue data for molecules other than those found in protoplanetary disks.  Likely to be a gradual effort.
 * Addition of tracking for cometary species as well.
 * Addition of data on telescopes and detection sources for non-ISM/CSM species.
