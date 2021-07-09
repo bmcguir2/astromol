@@ -1,5 +1,6 @@
 .DS_Store
 .ipynb*
+*/__pycache__/*
 .vscode/
 *.egg-info/
 astromol.bib

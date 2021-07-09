@@ -4,6 +4,10 @@ from astromol.references import *
 import bibtexparser as btp
 import re
 import numpy as np
+#from rdkit import Chem
+#from rdkit.Chem.Draw import IPythonConsole
+
+#IPythonConsole.ipython_useSVG = True
 
 
 class Molecule(object):
@@ -22,6 +26,10 @@ class Molecule(object):
         identifiers such as 'l' or 'c' for linear or cyclic.
     smiles : str
         The smiles string for the molecule. Not currently used.
+    structure_params : dict
+        A dictionary containing default values to pass to the structure function.
+        keys and types are:
+            showcarbon : bool (default is False) 
     table_formula : str
         The same as formula, but can include isomer or structural identifiers
         for listing in the Tables of Molecules.
@@ -319,6 +327,7 @@ class Molecule(object):
         name=None,
         formula=None,
         smiles=None,
+        structure_params=None,
         table_formula=None,
         label=None,
         astromol_name=None,  
@@ -405,6 +414,10 @@ class Molecule(object):
             identifiers such as 'l' or 'c' for linear or cyclic.
         smiles : str
             The smiles string for the molecule. Not currently used.
+        structure_params : dict
+            A dictionary containing default values to pass to the structure function.
+            keys and defaults are:
+                showcarbon : bool (default is False)           
         table_formula : str
             The same as formula, but can include isomer or structural identifiers
             for listing in the Tables of Molecules.
@@ -660,6 +673,7 @@ class Molecule(object):
         self.name = name
         self.formula = formula
         self.smiles = smiles
+        self.structure_params = structure_params
         self.table_formula = table_formula
         self.label = label
         self.astromol_name = astromol_name
@@ -734,6 +748,8 @@ class Molecule(object):
 
         self.notes = notes
         census_version = census_version
+
+        #self._set_structure_defaults()
 
     @property
     def atoms(self):
@@ -1111,6 +1127,46 @@ class Molecule(object):
             print("Isotopologues Also Detected in Protoplanetary Disks:\t{}\n".format(', '.join([x.formula for x in self.ppd_isos])))
 
         self.refs()
+
+#     def _set_structure_defaults(self):
+# 
+#         defaults = {
+#             "showcarbon" : False,
+#         }
+# 
+#         if self.structure_params is None:
+#             self.structure_params = {}
+#         for param in defaults:
+#             if param not in self.structure_params:
+#                 self.structure_params[param] = defaults[param]
+#     
+#     def structure(
+#         self,
+#         showcarbon=None,
+#         ):
+#         if showcarbon is None:
+#             showcarbon = self.structure_params["showcarbon"]
+#         if self.smiles:
+#             mol = Chem.MolFromSmiles(self.smiles)
+#             if showcarbon is True:
+#                 for atom in mol.GetAtoms():
+#                     atom.SetProp('atomLabel', atom.GetSymbol())
+#             return mol
+#         else:
+#             pass
+
+    # for potentially labeling explicit things
+    # for atom in mol.GetAtoms():
+    # symbol = atom.GetSymbol()
+    # if atom.GetNumImplicitHs() > 0:
+    #     nhs = atom.GetNumImplicitHs()
+    # if nhs == 1:
+    #     my_str = symbol + "H"
+    # elif nhs > 1:
+    #     my_str = symbol + "H" + "<sub>" + str(nhs) + "</sub>"
+    # else:
+    #     my_str = symbol
+    # atom.SetProp('atomLabel', my_str)
             
 electrons = {
     "H": 1,
@@ -1165,6 +1221,7 @@ masses = {
 CH = Molecule(
     name="methylidyne",
     formula="CH",
+    smiles="[C]-[H]",
     year=1937,
     label="CH",
     astromol_name="CH",
@@ -1185,6 +1242,7 @@ CH = Molecule(
 CN = Molecule(
     name="cyano radical",
     formula="CN",
+    smiles="[C]#[N]",
     year=1940,
     label="CN",
     astromol_name="CN",
@@ -1217,6 +1275,7 @@ CN = Molecule(
 CHp = Molecule(
     name="methylidyne cation",
     formula="CH+",
+    smiles="[C+][H]",
     year=1941,
     label="CH+",
     astromol_name="CHp",
@@ -1240,6 +1299,7 @@ CHp = Molecule(
 OH = Molecule(
     name="hydroxyl radical",
     formula="OH",
+    smiles="[O][H]",
     year=1963,
     label="OH",
     astromol_name="OH",
@@ -1266,6 +1326,8 @@ OH = Molecule(
 CO = Molecule(
     name="carbon monoxide",
     formula="CO",
+    smiles="[C]=[O]",
+    structure_params={"showcarbon" : True},
     year=1970,
     label="CO",
     astromol_name="CO",
