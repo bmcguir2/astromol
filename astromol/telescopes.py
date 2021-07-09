@@ -66,7 +66,10 @@ class Telescope(object):
     Methods
     -------
     inspect()
-        Prints out a list to the terminal all of the attributes for this telescope and their values.    
+        Prints out a list to the terminal all of the attributes for this telescope and their values.
+
+    summary()
+        Prints out a nicely formatted list of properties and detected molecules to the terminal.          
     """
 
     def __init__(
@@ -211,6 +214,37 @@ class Telescope(object):
         # Print them out
         for attr in attr_dict:
             print(f"{attr:20}: {attr_dict[attr] if attr_dict[attr] is not None else ''}")
+
+    def summary(self):
+        """
+        Prints out a nicely formatted list of properties and detected molecules to the terminal.
+        """
+
+        from astromol.molecules import all_molecules
+
+        print('-'*len(self.name))
+        print(f"{self.name}")
+        print('-'*len(self.name) + "\n")
+
+        print(f"{'Type':11}\t{self.type}")
+        if self.diameter:
+            print(f"{'Diameter':11}\t{self.diameter}")
+        print(f"{'Wavelengths':11}\t{', '.join(self.wavelength)}")
+        if self.latitude:
+            print(f"{'Latitude':11}\t{self.latitude}")
+        if self.longitude:
+            print(f"{'Longitude':11}\t{self.longitude}")
+        print(f"{'Built':11}\t{self.built}")
+        if self.decommissioned:
+            print(f"{'Decommissioned':11}\t{self.decommissioned}")
+
+        mol_str = f"Molecules Detected With {self.name}"
+        print("\n" + "-"*len(mol_str))
+        print(mol_str)
+        print("-"*len(mol_str))
+
+        detects = ', '.join([x.formula for x in all_molecules if self in x.telescopes])
+        print(detects)        
 
 GBT = Telescope(
     name="Green Bank Telescope",

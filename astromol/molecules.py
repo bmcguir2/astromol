@@ -4,6 +4,10 @@ from astromol.references import *
 import bibtexparser as btp
 import re
 import numpy as np
+#from rdkit import Chem
+#from rdkit.Chem.Draw import IPythonConsole
+
+#IPythonConsole.ipython_useSVG = True
 
 
 class Molecule(object):
@@ -22,6 +26,10 @@ class Molecule(object):
         identifiers such as 'l' or 'c' for linear or cyclic.
     smiles : str
         The smiles string for the molecule. Not currently used.
+    structure_params : dict
+        A dictionary containing default values to pass to the structure function.
+        keys and types are:
+            showcarbon : bool (default is False) 
     table_formula : str
         The same as formula, but can include isomer or structural identifiers
         for listing in the Tables of Molecules.
@@ -319,6 +327,7 @@ class Molecule(object):
         name=None,
         formula=None,
         smiles=None,
+        structure_params=None,
         table_formula=None,
         label=None,
         astromol_name=None,  
@@ -405,6 +414,10 @@ class Molecule(object):
             identifiers such as 'l' or 'c' for linear or cyclic.
         smiles : str
             The smiles string for the molecule. Not currently used.
+        structure_params : dict
+            A dictionary containing default values to pass to the structure function.
+            keys and defaults are:
+                showcarbon : bool (default is False)           
         table_formula : str
             The same as formula, but can include isomer or structural identifiers
             for listing in the Tables of Molecules.
@@ -660,6 +673,7 @@ class Molecule(object):
         self.name = name
         self.formula = formula
         self.smiles = smiles
+        self.structure_params = structure_params
         self.table_formula = table_formula
         self.label = label
         self.astromol_name = astromol_name
@@ -734,6 +748,8 @@ class Molecule(object):
 
         self.notes = notes
         census_version = census_version
+
+        #self._set_structure_defaults()
 
     @property
     def atoms(self):
@@ -1111,6 +1127,46 @@ class Molecule(object):
             print("Isotopologues Also Detected in Protoplanetary Disks:\t{}\n".format(', '.join([x.formula for x in self.ppd_isos])))
 
         self.refs()
+
+#     def _set_structure_defaults(self):
+# 
+#         defaults = {
+#             "showcarbon" : False,
+#         }
+# 
+#         if self.structure_params is None:
+#             self.structure_params = {}
+#         for param in defaults:
+#             if param not in self.structure_params:
+#                 self.structure_params[param] = defaults[param]
+#     
+#     def structure(
+#         self,
+#         showcarbon=None,
+#         ):
+#         if showcarbon is None:
+#             showcarbon = self.structure_params["showcarbon"]
+#         if self.smiles:
+#             mol = Chem.MolFromSmiles(self.smiles)
+#             if showcarbon is True:
+#                 for atom in mol.GetAtoms():
+#                     atom.SetProp('atomLabel', atom.GetSymbol())
+#             return mol
+#         else:
+#             pass
+
+    # for potentially labeling explicit things
+    # for atom in mol.GetAtoms():
+    # symbol = atom.GetSymbol()
+    # if atom.GetNumImplicitHs() > 0:
+    #     nhs = atom.GetNumImplicitHs()
+    # if nhs == 1:
+    #     my_str = symbol + "H"
+    # elif nhs > 1:
+    #     my_str = symbol + "H" + "<sub>" + str(nhs) + "</sub>"
+    # else:
+    #     my_str = symbol
+    # atom.SetProp('atomLabel', my_str)
             
 electrons = {
     "H": 1,
@@ -1165,6 +1221,7 @@ masses = {
 CH = Molecule(
     name="methylidyne",
     formula="CH",
+    smiles="[C]-[H]",
     year=1937,
     label="CH",
     astromol_name="CH",
@@ -1185,6 +1242,7 @@ CH = Molecule(
 CN = Molecule(
     name="cyano radical",
     formula="CN",
+    smiles="[C]#[N]",
     year=1940,
     label="CN",
     astromol_name="CN",
@@ -1217,6 +1275,7 @@ CN = Molecule(
 CHp = Molecule(
     name="methylidyne cation",
     formula="CH+",
+    smiles="[C+][H]",
     year=1941,
     label="CH+",
     astromol_name="CHp",
@@ -1240,6 +1299,7 @@ CHp = Molecule(
 OH = Molecule(
     name="hydroxyl radical",
     formula="OH",
+    smiles="[O][H]",
     year=1963,
     label="OH",
     astromol_name="OH",
@@ -1266,6 +1326,8 @@ OH = Molecule(
 CO = Molecule(
     name="carbon monoxide",
     formula="CO",
+    smiles="[C]=[O]",
+    structure_params={"showcarbon" : True},
     year=1970,
     label="CO",
     astromol_name="CO",
@@ -1278,6 +1340,7 @@ CO = Molecule(
     ice=True,
     ice_d_refs="Soifer et al. 1979 ApJ 232, L53",
     ice_l_refs="Mantz et al. 1975 JMS 57, 155",
+    ice_d_bib_ids=["1979ApJ...232L..53S"],
     ppd=True,
     ppd_d_refs="Beckwith et al. 1986 ApJ 309, 755",
     ppd_d_bib_ids=["1986ApJ...309..755B"],
@@ -1512,7 +1575,7 @@ HCl = Molecule(
     exgal=True,
     exgal_d_refs="Wallstrom et al. 2019 A&A 629, A128",
     exgal_d_bib_ids=["2019A&A...629A.128W"],
-    exgal_sources="PKS 1830-211",
+    exgal_sources="PKS 1830-211 LOS",
     notes=None,
     Bcon=312989,
     mua=1.1,
@@ -1723,7 +1786,7 @@ HF = Molecule(
     exgal=True,
     exgal_d_refs="van der Werf et al. 2010 A&A 518, L42; Rangwala et al. 2011 ApJ 743, 94; Monje et al. 2011 ApJL 742, L21",
     exgal_d_bib_ids=["2010A&A...518L..42V", "2011ApJ...743...94R", "2011ApJ...742L..21M"],
-    exgal_sources="Mrk 231, Arp 220, Cloverleaf LOS",
+    exgal_sources="QSO Mrk 231, Arp 220, Cloverleaf LOS",
     Bcon=616365,
     mua=1.8,
     census_version='2018.0.0',
@@ -1845,7 +1908,7 @@ OHp = Molecule(
     exgal=True,
     exgal_d_refs="van der Werf et al. 2010 A&A 518, L42; Rangwala et al. 2011 ApJ 743, 94; Gonzalez-Alfonso et al. 2013 A&A 550, A25",
     exgal_d_bib_ids=["2010A&A...518L..42V", "2011ApJ...743...94R", "2013A&A...550A..25G"],
-    exgal_sources="Mrk 231, Arp 220, NGC 4418",
+    exgal_sources="QSO Mrk 231, Arp 220, NGC 4418",
     Bcon=492346,
     mua=2.3,
     census_version='2018.0.0',
@@ -1865,7 +1928,7 @@ SHp = Molecule(
     exgal=True,
     exgal_d_refs="Muller et al. 2017 A&A 606, A109",
     exgal_d_bib_ids=["2017A&A...606A.109M"],
-    exgal_sources="PKS 1830-211",
+    exgal_sources="PKS 1830-211 LOS",
     Bcon=273810,
     mua=1.3,
     census_version='2018.0.0',
@@ -2010,6 +2073,7 @@ H2O = Molecule(
     ice=True,
     ice_d_refs="Gillett & Forrest 1973 ApJ 179, 483",
     ice_l_refs="Irvine & Pollack 1968 Icarus 8, 324",
+    ice_d_bib_ids=["1973ApJ...179..483G"],
     isotopologues="HDO",
     isos_d_refs='[HDO] Turner et al. 1975 ApJ 198, L125',
     isos_l_refs='[HDO] de Lucia et al. 1974 J Phys Chem Ref Data 3, 211; Erlandsson & Cox 1956 J Chem Phys 25, 778',
@@ -2130,6 +2194,7 @@ OCS = Molecule(
     ice=True,
     ice_d_refs="Palumbo et al. 1995 ApJ 449, 674; Palumbo et al. 1997 ApJ 479, 839",
     ice_l_refs="Palumbo et al. 1995 ApJ 449, 674",
+    ice_d_bib_ids=["1995ApJ...449..674P","1997ApJ...479..839P"],
     exgal=True,
     exgal_d_refs="Mauersberger et al. 1995 A&A 294, 23",
     exgal_d_bib_ids=["1995A&A...294...23M"],
@@ -2433,6 +2498,7 @@ CO2 = Molecule(
     ice=True,
     ice_d_refs="d'Hendecourt & Jourdain de Muizon 1989 A&A 223, L5",
     ice_l_refs="d'Hendecourt & Allamandola 1986 A&A Sup. Ser. 64, 453",
+    ice_d_bib_ids=["1989A&A...223L...5D"],
     ppd=True,
     ppd_d_refs="Carr & Najita 2008 Science 319, 1504",
     ppd_d_bib_ids=["2008Sci...319.1504C"],
@@ -2958,6 +3024,7 @@ NH3 = Molecule(
     ice=True,
     ice_d_refs="Lacy et al. 1998 ApJ 501, L105",
     ice_l_refs="d'Hendecourt & Allamandola 1986 A&A Sup. Ser. 64, 453",
+    ice_d_bib_ids=["1998ApJ...501L.105L"],
     ppd=True,
     ppd_d_refs="Salinas et al. 2016 A&A 591, A122",
     ppd_d_bib_ids=["2016A&A...591A.122S"],
@@ -2965,6 +3032,10 @@ NH3 = Molecule(
     exgal_d_refs="Martin & Ho 1979 A&A 74, L7",
     exgal_d_bib_ids=["1979A&A....74L...7M"],
     exgal_sources="IC 342, NGC 253",
+    exo=True,
+    exo_d_refs="Giacobbe et al. 2021 Nature 592, 205",
+    exo_d_bib_ids=["2021Natur.592..205G"],
+    exo_sources="HD 209458b",
     Acon=298193,
     Bcon=298193,
     Ccon=286696,
@@ -3000,6 +3071,7 @@ H2CO = Molecule(
     ice=True,
     ice_d_refs="Keane et al. 2001 A&A 376, 254",
     ice_l_refs="Schutte et al. 1993 Icarus 104, 118",
+    ice_d_bib_ids=["2001A&A...376..254K"],
     ppd=True,
     ppd_d_refs="Dutrey et al. 1997 A&A 317, L55",
     ppd_d_bib_ids=["1997A&A...317L..55D"],
@@ -3080,6 +3152,10 @@ C2H2 = Molecule(
     exgal_d_refs="Matsuura et al. 2002 ApJ 580, L133",
     exgal_d_bib_ids=["2002ApJ...580L.133M"],
     exgal_sources="LMC",
+    exo=True,
+    exo_d_refs="Giacobbe et al. 2021 Nature 592, 205",
+    exo_d_bib_ids=["2021Natur.592..205G"],
+    exo_sources="HD 209458b",
     mua=0.0,
     census_version='2018.0.0',
 )
@@ -3098,7 +3174,7 @@ C3N = Molecule(
     exgal=True,
     exgal_d_refs="Tercero et al. 2020 A&AL 636, L7",
     exgal_d_bib_ids=["2020A&A...636L...7T"],
-    exgal_sources=["PKS 1830-211"],
+    exgal_sources="PKS 1830-211 LOS",
     Bcon=4968,
     mua=2.9,
     census_version='2018.0.0',
@@ -3292,7 +3368,7 @@ H2CN = Molecule(
     exgal=True,
     exgal_d_refs="Tercero et al. 2020 A&AL 636, L7",
     exgal_d_bib_ids=["2020A&A...636L...7T"],
-    exgal_sources=["PKS 1830-211"],
+    exgal_sources="PKS 1830-211 LOS",
     Acon=284343,
     Bcon=39158,
     Ccon=34246,
@@ -3452,7 +3528,7 @@ lC3Hp = Molecule(
     exgal=True,
     exgal_d_refs="Tercero et al. 2020 A&AL 636, L7",
     exgal_d_bib_ids=["2020A&A...636L...7T"],
-    exgal_sources=["PKS 1830-211"],
+    exgal_sources="PKS 1830-211 LOS",
     Bcon=11245,
     mua=3.0,
     census_version='2018.0.0',
@@ -3541,7 +3617,7 @@ MgCCH = Molecule(
     census_version='2121.0.0',
 )
 HCCS = Molecule(
-    name="thiocyanogen",
+    name="thioketenyl radical",
     formula="HCCS",
     year=2021,
     label="HCCS",
@@ -3600,13 +3676,14 @@ HCOOH = Molecule(
     ice=True,
     ice_d_refs="Schutte et al. 1999 A&A 343, 966",
     ice_l_refs="Schutte et al. 1999 A&A 343, 966",
+    ice_d_bib_ids=["1999A&A...343..966S"],
     ppd=True,
     ppd_d_refs="Favre et al. 2018 ApJL 862, L2",
     ppd_d_bib_ids=["2018ApJ...862L...2F"],
     exgal=True,
     exgal_d_refs="Tercero et al. 2020 A&AL 636, L7",
     exgal_d_bib_ids=["2020A&A...636L...7T"],
-    exgal_sources=["PKS 1830-211"],
+    exgal_sources="PKS 1830-211 LOS",
     Acon=77512,
     Bcon=12055,
     Ccon=10416,
@@ -3837,6 +3914,7 @@ CH4 = Molecule(
     ice=True,
     ice_d_refs="Lacy et al. 1991 ApJ 376, 556",
     ice_l_refs="d'Hendecourt & Allamandola 1986 A&A Sup. Ser. 64, 453",
+    ice_d_bib_ids=["1991ApJ...376..556L"],
     ppd=True,
     ppd_d_refs="Gibb et al. 2013 ApJL 776, L28",
     ppd_d_bib_ids=["2013ApJ...776L..28G"],
@@ -4070,6 +4148,25 @@ HC3Op = Molecule(
     mua=3.4,
     census_version='2021.0.0',
 )
+NH2OH = Molecule(
+    name="hydroxylamine",
+    formula="NH2OH",
+    year=2020,
+    label="NH2OH",
+    astromol_name="NH2OH",
+    sources=[G0693],
+    telescopes=[IRAM30],
+    wavelengths=['mm'],
+    d_refs="Rivilla et al. 2020 ApJL 899, L28",
+    l_refs="Tsunekawa 1972 J Phys Soc Japn 33, 167; Morino et al. 2000 J Mol Struct 517-518, 367",
+    notes=None,
+    Acon=190976,
+    Bcon=25219,
+    Ccon=25157,
+    mua=0.589,
+    muc=0.060,
+    census_version="2021.0.0",
+)
 HC3Sp = Molecule(
     name="protonated tricarbon monosulfide",
     formula="HC3S+",
@@ -4160,6 +4257,7 @@ CH3OH = Molecule(
     ice=True,
     ice_d_refs="Grim et al. 1991 A&A 243, 473",
     ice_l_refs="d'Hendecourt & Allamandola 1986 A&A Sup. Ser. 64, 453",
+    ice_d_bib_ids=["1991A&A...243..473G"],
     ppd=True,
     ppd_d_refs="Walsh et al. 2016 ApJL 823, L10",
     ppd_d_bib_ids=["2016ApJ...823L..10W"],
@@ -4237,7 +4335,7 @@ CH3SH = Molecule(
     exgal=True,
     exgal_d_refs="Tercero et al. 2020 A&AL 636, L7",
     exgal_d_bib_ids=["2020A&A...636L...7T"],
-    exgal_sources=["PKS 1830-211"],
+    exgal_sources="PKS 1830-211 LOS",
     Acon=102771,
     Bcon=12952,
     Ccon=12400,
@@ -4536,7 +4634,6 @@ CH3COp = Molecule(
     mua=3.5,
     census_version='2021.0.0',
 )
-
 H2CCCS = Molecule(
     name="propadienthione",
     formula="H2CCCS",
@@ -4554,6 +4651,24 @@ H2CCCS = Molecule(
     Ccon=2516,
     mua=2.064,
     census_version='2021.0.0',
+)
+CH2CCH = Molecule(
+    name="propargyl radical",
+    formula="CH2CCH",
+    year=2021,
+    label="CH2CCH",
+    astromol_name="CH2CCH",
+    sources=[TMC1],
+    telescopes=[Yebes40],
+    wavelengths=["cm"],
+    d_refs="Agundez et al. 2021 A&A 647, L10",
+    l_refs="Tanaka 1997 J Chem Phys 107, 2728",
+    Acon=288055,
+    Bcon=9523,
+    Ccon=9207,
+    mua=0.14,
+    notes="Dipole moment taken from Kupper et al. 2002 JCP 117, 647",
+    census_version="2021.0.0",
 )
 
 ######################################################################
@@ -4646,7 +4761,7 @@ CH2CHCN = Molecule(
     exgal=True,
     exgal_d_refs="Tercero et al. 2020 A&AL 636, L7",
     exgal_d_bib_ids=["2020A&A...636L...7T"],
-    exgal_sources=["PKS 1830-211"],
+    exgal_sources="PKS 1830-211 LOS",
     Acon=49851,
     Bcon=4971,
     Ccon=4514,
@@ -4806,9 +4921,9 @@ HC4NC = Molecule(
     label="HC4NC",
     astromol_name="HC4NC",
     sources=[TMC1],
-    telescopes=[GBT],
+    telescopes=[GBT, Yebes40],
     wavelengths=["mm"],
-    d_refs="Xue et al. 2020 ApJL 900, L9",
+    d_refs="Xue et al. 2020 ApJL 900, L9; Cernicharo et al. 2020 A&A 642, L8",
     l_refs="Botschwina et al. 1998 JCP 109, 3108",
     notes="Also known as isocyanobutadiyne",
     Bcon=1402,
@@ -5320,14 +5435,14 @@ CH3CH2SH = Molecule(
     wavelengths=["mm"],
     d_refs="Kolesniková et al. 2014 ApJ 784, L7",
     l_refs="Kolesniková et al. 2014 ApJ 784, L7",
-    notes=None,
+    notes="Confirmed in Rodríguez-Almeida et al. 2021 ApJL 912, L11",
     Acon=28747,
     Bcon=5295,
     Ccon=4846,
     mua=1.5,
     mub=0.2,
     muc=0.6,
-    census_version='2018.0.0',
+    census_version='2021.0.0',
 )
 HC7O = Molecule(
     name="hexadiynylformyl radical",
@@ -5362,25 +5477,6 @@ H2CCCHCCH = Molecule(
     Ccon=2413,
     mua=0.630,
     mub=0.011,
-    census_version='2021.0.0',
-)
-C2H5SH = Molecule(
-    name="ethyl mercaptan",
-    formula="C2H5SH",
-    year=2021,
-    label="C2H5SH",
-    astromol_name="C2H5SH",
-    sources=[G0693],
-    telescopes=[Yebes40, IRAM30],
-    wavelengths=["cm", "mm"],
-    d_refs="Rodríguez-Almeida et al. 2021 ApJL 912, L11",
-    l_refs="Kolesniková et al. 2014 ApJ 784, L7; Müller et al. 2016 A&A 587, A92; Schmidt & Quade 1975 J Chem Phys 62, 3864",
-    notes="",
-    Acon=28747,
-    Bcon=5295,
-    Ccon=4846,
-    mua=1.48,
-    mub=0.19,
     census_version='2021.0.0',
 )
 HCCCHCHCN = Molecule(
@@ -5861,7 +5957,7 @@ C9H8 = Molecule(
     label="C9H8",
     astromol_name="C9H8",
     sources=[TMC1],
-    telescopes=[GBT],
+    telescopes=[GBT, Yebes40],
     wavelengths=["cm"],
     cyclic=True,
     pah=True,
@@ -6084,6 +6180,7 @@ all_molecules = [
     CH3Cl,
     MgC3N,
     HC3Op,
+    NH2OH,
     HC3Sp,
     H2CCS,
     C4S,
@@ -6111,6 +6208,7 @@ all_molecules = [
     MgC4H,
     CH3COp,
     H2CCCS,
+    CH2CCH,
     # seven atoms
     CH3CHO,
     CH3CCH,
@@ -6156,7 +6254,6 @@ all_molecules = [
     CH3CH2SH,
     HC7O,
     H2CCCHCCH,
-    C2H5SH,
     HCCCHCHCN,
     H2CCHC3N,
     # ten atoms
