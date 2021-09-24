@@ -27,7 +27,7 @@ in the `astromol` directory without needing to re-install.
 ## Version Control
 
 The version number of `astromol` is given in the format XXXX.Y.Z, with each number corresponding to a different level of update:
-* XXXX is a year (i.e. 2018 or 2021) corresponding to the most recent major update of the McGuire 2018 living census paper.
+* XXXX is a year (i.e. 2018 or 2021) corresponding to the most recent major update of the Census paper.
 * Y is reset to 0 with each update of XXXX, and is incremented by 1 anytime a new molecule (or molecules) is added to the database between census releases.
 * Z is reset to 0 with each update of XXXX or Y, and is incremented by 1 anytime an update is made to the code base that is not related to the addition of new molecules or the release of a new census.
 
