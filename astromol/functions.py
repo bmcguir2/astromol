@@ -436,6 +436,19 @@ def cumu_det_plot(mol_list=None, syear=None, eyear=None, filename=None):
         ha="center",
         **args,
     )
+    ax.annotate(
+        "Yebes (2007)",
+        xy=(2007, dets[iyear(2007)] - 4),
+        xycoords="data",
+        xytext=(0, -35),
+        textcoords="offset points",
+        rotation=90,
+        arrowprops=arrowprops,
+        va="top",
+        ha="center",
+        **args,
+    )    
+    
 
     # show the plot
     plt.show()
