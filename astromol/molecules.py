@@ -280,6 +280,9 @@ class Molecule(object):
             Z       :   reset to 0 with each molecule addition and incremented by 1 whenever 
                         an update is made to astromol that does not involve a new 
                         molecule addition.
+	change_log : dict
+		A dictionary with keys corresponding to census_versions and entries therein
+		describing updates to the entry.                        
 
     Properties
     ----------
@@ -402,6 +405,7 @@ class Molecule(object):
 
         notes=None,
         census_version=None,
+        change_log=None,
     ):
         """
         Parameters
@@ -668,6 +672,9 @@ class Molecule(object):
                 Z       :   reset to 0 with each molecule addition and incremented by 1 whenever 
                             an update is made to astromol that does not involve a new 
                             molecule addition.
+    	change_log : dict
+    		A dictionary with keys corresponding to census_versions and entries therein
+    		describing updates to the entry.
         """
 
         self.name = name
@@ -747,7 +754,8 @@ class Molecule(object):
         self.exo_isos = exo_isos       
 
         self.notes = notes
-        census_version = census_version
+        self.census_version = census_version
+        self.change_log = change_log
 
         #self._set_structure_defaults()
 
@@ -1054,6 +1062,9 @@ class Molecule(object):
         if self.exo == True or self.exo == "Tentative":
             print("\nExoplanetary Atmospheres Reference(s)")
             print("[{}] {}".format(self.formula, self.exo_d_refs))
+            if self.exo_isos != None:
+            	for x in self.exo_isos:
+            		print(f"[{x.formula}] {x.exo_d_refs}")
 
     def summary(self):
         """
@@ -1125,6 +1136,9 @@ class Molecule(object):
 
         if self.ppd_isos != None:
             print("Isotopologues Also Detected in Protoplanetary Disks:\t{}\n".format(', '.join([x.formula for x in self.ppd_isos])))
+
+        if self.exo_isos != None:
+            print("Isotopologues Also Detected in Exoplanetary Atmospheres:\t{}\n".format(', '.join([x.formula for x in self.exo_isos])))		
 
         self.refs()
 
@@ -1368,13 +1382,26 @@ CO = Molecule(
     exo=True,
     exo_d_refs="Madhusudhan et al. 2011 Nature 469, 64; Barman et al. 2011 ApJ 733, 65; Lanotte et al. 2014 A&A 572, A73; Barman et al. 2015 ApJ 804, 61",
     exo_d_bib_ids=["2011Natur.469...64M","2011ApJ...733...65B","2014A&A...572A..73L","2015ApJ...804...61B"],
+    exo_isos = [
+    			Molecule(
+                            formula="13CO",
+                            table_formula=r'^{13}CO',
+                            exo_d_refs="Zhang et al. 2021 Nature 595, 370",
+                            exo_d_bib_ids=["2021Natur.595..370Z"],
+                            exo_sources= ["TYC 8998-760-1 b"] #to be updated later to full objects
+                ),    
+    ],
     exgal=True,
     exgal_d_refs="Rickard et al. 1975 ApJ 199, L75",
     exgal_d_bib_ids=["1975ApJ...199L..75R"],
     exgal_sources="M82, NGC 253",
     Bcon=57636,
     mua=0.1,
-    census_version='2018.0.0',
+    census_version='2021.1.0',
+    change_log = {
+    				'2018.0.0' : 'First entry',
+    				'2021.1.0' : 'Added 13CO detected in exoplanet atmosphere.'
+    			}
 )
 H2 = Molecule(
     name="hydrogen",
@@ -2454,13 +2481,21 @@ C2S = Molecule(
     d_refs="Saito et al. 1987 ApJ 317, L115",
     l_refs="Saito et al. 1987 ApJ 317, L115",
     notes="*Also Cernicharo et al. 1987 A&A 181, L9",
+    ppd = True,
+    ppd_d_refs="Phuong et al. 2021 A&A 653, L5",
+    ppd_d_bib_ids = ["2021A&A...653L...5P"],
+    ppd_sources = ["GG Tau"], #not yet implemented widely
     exgal=True,
     exgal_d_refs="Martin et al. 2006 ApJS 164, 450",
     exgal_d_bib_ids=["2006ApJS..164..450M"],
-    exgal_sources="NGC 253",
+    exgal_sources="NGC 253",    
     Bcon=6478,
     mua=2.9,
-    census_version='2018.0.0',
+    census_version='2021.1.0',
+    change_log = {
+    				'2018.0.0' : 'Initial Entry',
+    				'2021.1.0' : 'Detection in protoplanetary disk'
+    }
 )
 C3 = Molecule(
     name="tricarbon",
@@ -3632,6 +3667,29 @@ HCCS = Molecule(
     mua=1.2,
     census_version='2121.0.0',
 )
+HNCN = Molecule(
+    name="cyanomidyl radical",
+    formula="HNCN",
+    year=2021,
+    label="HNCN",
+    astromol_name="HNCN",
+    sources=[G0693],
+    telescopes=[Yebes40, IRAM30],
+    wavelengths=["cm","mm"],
+    d_refs="Rivilla et al. 2021 MNRAS 506, L79",
+    d_ref_bib_ids = ["2021MNRAS.506L..79R"],
+    l_refs="Yamamoto & Saito 1994 J Chem Phys 101, 10350",
+    l_ref_bib_ids = ["1994JChPh.10110350Y"],
+    notes="Dipole moment from CDMS.",
+    Acon=634900,
+    Bcon=11087,
+    Ccon=10882,
+    mua=2.28,
+    mub=1.,
+    census_version='2121.1.0',
+)
+
+
 
 ######################################################################
 #                           Five Atoms                               #
@@ -4236,6 +4294,26 @@ CHOSH = Molecule(
     mub=0.702,
     census_version='2021.0.0',
 )
+HCSCN = Molecule(
+    name="monothioformic acid",
+    formula="HCSCN",
+    year=2021,
+    label="HCSCN",
+    astromol_name="HCSCN",
+    sources=[TMC1],
+    telescopes=[Yebes40],
+    wavelengths=["cm"],
+    d_refs="Cernicharo et al. 2021 A&A 650, L14",
+    d_ref_bib_ids=["2021A&A...650L..14C"],
+    l_refs="Cernicharo et al. 2021 A&A 650, L14",
+    l_ref_bib_ids=["2021A&A...650L..14C"],
+    Acon=42910,
+    Bcon=3117,
+    Ccon=2901,
+    mua=2.16,
+    mub=3.09,
+    census_version='2021.1.0',
+)
 
 ######################################################################
 #                           Six Atoms                               #
@@ -4670,6 +4748,26 @@ CH2CCH = Molecule(
     notes="Dipole moment taken from Kupper et al. 2002 JCP 117, 647",
     census_version="2021.0.0",
 )
+HCSCCH = Molecule(
+    name="propynethial",
+    formula="HCSCCH",
+    year=2021,
+    label="HCSCCH",
+    astromol_name="HCSCCH",
+    sources=[TMC1],
+    telescopes=[Yebes40],
+    wavelengths=["cm"],
+    d_refs="Cernicharo et al. 2021 A&A 650, L14",
+    d_ref_bib_ids=["2021A&A...650L..14C"],
+    l_refs="Brown et al. 1982 Aus. J. Chem. 35, 1747; Crabtree et al. 2016 JCP 144, 124201; Margules et al. 2020 A&A 642, A206",
+    l_ref_bib_ids=["Brown:1982ur", "Crabtree:2016fj", "2020A&A...642A.206M"],
+    Acon=42652,
+    Bcon=3109,
+    Ccon=2894,
+    mua=1.763,
+    mub=0.661,
+    census_version='2021.1.0',
+)
 
 ######################################################################
 #                           Seven Atoms                              #
@@ -4968,6 +5066,28 @@ C3HCCH = Molecule(
     mub=2.89,
     census_version='2021.0.0',
 )
+MgC5N = Molecule(
+    name="magnesium cyanobutadiynyl radical",
+    formula="MgC5N",
+    table_formula="MgC5N",
+    year=2021,
+    label="MgC5N",
+    astromol_name="MgC5N",
+    sources=[IRC10216],
+    telescopes=[Yebes40],
+    wavelengths=["cm"],
+    d_refs="Pardo et al. 2021 A&A 652, L13",
+    d_ref_bib_ids = ["2021A&A...652L..13P"],
+    l_refs="Pardo et al. 2021 A&A 652, L13",
+    l_ref_bib_ids = ["2021A&A...652L..13P"],
+    notes = "Identification performed based on quantum chemical calculations only.",
+    Bcon=576,
+    mua=7.3,
+    census_version='2021.1.0',
+    change_log = {
+    				'2021.1.0' : 'Initial entry',
+    			}
+)
 
 ######################################################################
 #                           Eight Atoms                              #
@@ -5254,6 +5374,28 @@ CH2CHCCH = Molecule(
     mua=0.43,
     mub=0.02,
     census_version='2021.0.0',
+)
+MgC6H = Molecule(
+    name="magnesium hexatriynyl radical",
+    formula="MgC6H",
+    table_formula="MgC6H",
+    year=2021,
+    label="MgC6H",
+    astromol_name="MgC6H",
+    sources=[IRC10216],
+    telescopes=[Yebes40],
+    wavelengths=["cm"],
+    d_refs="Pardo et al. 2021 A&A 652, L13",
+    d_ref_bib_ids = ["2021A&A...652L..13P"],
+    l_refs="Pardo et al. 2021 A&A 652, L13",
+    l_ref_bib_ids = ["2021A&A...652L..13P"],
+    notes = "Identification performed based on quantum chemical calculations only.",
+    Bcon=580,
+    mua=2.5,
+    census_version='2021.1.0',
+    change_log = {
+    				'2021.1.0' : 'Initial entry',
+    			}
 )
 
 ######################################################################
@@ -5637,6 +5779,29 @@ CH3OCH2OH = Molecule(
     muc=0.1,
     census_version='2018.0.0',
 )
+C6H4 = Molecule(
+    name="ortho-benzyne",
+    formula="C6H4",
+    year=2021,
+    label="C6H4",
+    astromol_name="C6H4",
+    sources=[TMC1],
+    telescopes=[Yebes40, IRAM30],
+    wavelengths=["cm"],
+    d_refs="Cernicharo et al. 2021 A&A 652, L9",
+    d_ref_bib_ids=["2021A&A...652L...9C"],
+    l_refs="Brown et al. 1986 JACS 108, 1296; Kukolich et al. 2003 JCP 119, 4353; Robertson et al. 2003 JMS 217, 123",
+    l_ref_bib_ids=["Brown:1986lp", "2003JChPh.119.4353K", "2003JMoSp.217..123R"],
+    cyclic=True,
+    Acon=6990,
+    Bcon=5707,
+    Ccon=3140,
+    mub=1.38,
+    census_version='2021.1.0',
+    change_log = {
+    				'2021.1.0' : 'Initial Entry',
+    }
+)
 
 ######################################################################
 #                           Eleven Atoms                             #
@@ -5751,6 +5916,27 @@ C5H6 = Molecule(
     Ccon=4271,
     mub=0.416,
     census_version='2021.0.0',
+)
+NH2CH2CH2OH = Molecule(
+    name="ethanolamine",
+    formula="NH2CH2CH2OH",
+    year=2021,
+    label="NH2CH2CH2OH",
+    astromol_name="NH2CH2CH2OH",
+    sources=[G0693],
+    telescopes=[Yebes40, IRAM30],
+    wavelengths=["cm","mm"],
+    d_refs="Rivilla et al. 2021 PNAS 118, e2101314118",
+    d_ref_bib_ids=["2021PNAS..11801314R"],
+    l_refs="Penn & Curl 1971 JCP 53, 651; Kaushik & Woods 1982 Z Physik Chemie Neue Folge 132, 117; Widicus Weaver et al. 2003 JMS 217, 278",
+    l_ref_bib_ids=["1971JChPh..55..651P", "Kaushik:1982ld", "2003JMoSp.217..278W"],
+    Acon=14509,
+    Bcon=5546,
+    Ccon=4570,
+    mua=2.65,
+    mub=0.89,
+    muc=0.42,
+    census_version='2021.1.0',
 )
 
 ######################################################################
@@ -5883,7 +6069,7 @@ cC6H5CN = Molecule(
     Bcon=1547,
     Ccon=1214,
     mua=4.5,
-
+    census_version='2018.0.0',
 )
 HC11N = Molecule(
     name="cyanopentaacetylene",
@@ -6153,6 +6339,7 @@ all_molecules = [
     HONO,
     MgCCH,
     HCCS,
+    HNCN,
     # five atoms
     HC3N,
     HCOOH,
@@ -6185,6 +6372,7 @@ all_molecules = [
     H2CCS,
     C4S,
     CHOSH,
+    HCSCN,
     # six atoms
     CH3OH,
     CH3CN,
@@ -6209,6 +6397,7 @@ all_molecules = [
     CH3COp,
     H2CCCS,
     CH2CCH,
+    HCSCCH,
     # seven atoms
     CH3CHO,
     CH3CCH,
@@ -6225,6 +6414,7 @@ all_molecules = [
     HC4NC,
     HC3HNH,
     C3HCCH,
+    MgC5N,
     # eight atoms
     HCOOCH3,
     CH3C3N,
@@ -6241,6 +6431,7 @@ all_molecules = [
     NH2CONH2,
     HCCCH2CN,
     CH2CHCCH,
+    MgC6H,
     # nine atoms
     CH3OCH3,
     CH3CH2OH,
@@ -6263,6 +6454,7 @@ all_molecules = [
     CH3C5N,
     CH3CHCH2O,
     CH3OCH2OH,
+    C6H4,
     # eleven atoms
     HC9N,
     CH3C6H,
@@ -6270,6 +6462,7 @@ all_molecules = [
     CH3COOCH3,
     CH3COCH2OH,
     C5H6,
+    NH2CH2CH2OH,
     # twelve atoms
     C6H6,
     nC3H7CN,
