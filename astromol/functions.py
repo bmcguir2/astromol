@@ -107,6 +107,7 @@ def make_all_latex():
     make_sat_percent()
     make_sfr_rad_percent()
     make_dark_rad_percent()
+    make_det_per_year_by_atoms_table()
 
     return
 

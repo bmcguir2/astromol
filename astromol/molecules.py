@@ -1331,7 +1331,7 @@ OH = Molecule(
     exgal_d_bib_ids=["1971ApJ...167L..47W"],
     exgal_sources="M82, NGC 253",
     exo=True,
-    exo_d_bib_ids=["2021ApJ...910L...9N "],
+    exo_d_bib_ids=["2021ApJ...910L...9N"],
     exo_d_refs="Nugroho et al. 2021 ApJ 910, L9",
     Bcon=556174,
     mua=1.7,
@@ -3686,7 +3686,7 @@ HNCN = Molecule(
     Ccon=10882,
     mua=2.28,
     mub=1.,
-    census_version='2121.1.0',
+    census_version='2021.1.0',
 )
 
 
@@ -5602,6 +5602,28 @@ HC7O = Molecule(
     mua=2.2,
     census_version='2018.0.0',
 )
+CH3NHCHO = Molecule(
+    name="n-methyl formamide",
+    formula="CH3NHCHO",
+    year=2021,
+    label="CH3NHCHO",
+    astromol_name="CH3NHCHO",
+    sources=[SgrB2],
+    telescopes=[ALMA],
+    wavelengths=["mm"],
+    d_refs="Belloche et al. 2019 A&A 628, A10",
+    l_refs="Belloche et al. 2017 A&A 601, A49",
+    notes="Tentatively detected in Belloche et al. 2017 A&A 601, A49.  Rotational constants are for the A-state using an asymmetric top Hamiltonian.  See Kawashima et al. 2010 JMS 263, 11 for a more complete discussion.  Dipole moment is from Fontoni & Caminati 1996 J Chem Soc Faraday Trans 92, 343 who use an opposite naming convention than the others for cis/trans.",
+    Acon=19987,
+    Bcon=6405,
+    Ccon=4902,
+    mua=2.914,
+    mub=2.41,
+    census_version='2021.2.0',
+    change_log = {
+    				'2021.2.0' : 'Initial entry.'
+    				}
+)
 H2CCCHCCH = Molecule(
     name="allenyl acetylene",
     formula="H2CCCHCCH",
@@ -6444,6 +6466,7 @@ all_molecules = [
     CH2CHCH3,
     CH3CH2SH,
     HC7O,
+    CH3NHCHO,
     H2CCCHCCH,
     HCCCHCHCN,
     H2CCHC3N,
