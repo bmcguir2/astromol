@@ -16,7 +16,7 @@ setup(
         'python-pptx',
         'periodictable',
     ],
-    version='2021.0.0',
+    version='2021.4.0',
     description='',
     author='Brett A. McGuire (Department of Chemistry, Massachusetts Institute of Technology)',
     license='MIT',

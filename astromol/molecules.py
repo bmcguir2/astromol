@@ -2079,7 +2079,28 @@ VO = Molecule(
     mua=3.355,
     census_version='2021.0.0',
 )
-
+POp = Molecule(
+    name="phosphorus monoxide cation",
+    formula="PO+",
+    table_formula="PO+",
+    year=2022,
+    label="PO+",
+    astromol_name="POp",
+    sources=[G0693],
+    telescopes=[IRAM30,Yebes40],
+    wavelengths=["cm","mm"],
+    d_refs="Rivilla et al. 2022 Frontiers Astron. Space Sci. 9, 829288",
+    d_ref_bib_ids = ["2022FrASS...9.9288R"],
+    l_refs="Petrmichl et al. 1991 J Chem Phys 94, 3504",
+    l_ref_bib_ids = ["1991JChPh..94.3504P"],
+    notes = None,
+    Bcon=23571,
+    mua=3.13,
+    census_version='2021.4.0',
+    change_log = {
+    				'2021.4.0' : 'Initial entry',
+    			}
+)
 ######################################################################
 #                          Three Atoms                               #
 ######################################################################
@@ -3548,7 +3569,7 @@ HOOH = Molecule(
     census_version='2018.0.0',
 )
 lC3Hp = Molecule(
-    name="cyclopropynylidynium cation",
+    name="propynylidyne cation",
     formula="C3H+",
     table_formula="l-C3H+",
     year=2012,
@@ -3566,7 +3587,11 @@ lC3Hp = Molecule(
     exgal_sources="PKS 1830-211 LOS",
     Bcon=11245,
     mua=3.0,
-    census_version='2018.0.0',
+    census_version='2021.4.0',
+    change_log = {
+    				'2018.0.0' : 'Initial entry',
+    				'2021.4.0' : 'Corrected error in name (was duplicating cC3Hp)',
+    			}    
 )
 HMgNC = Molecule(
     name="hydromagnesium isocyanide",
@@ -3689,7 +3714,55 @@ HNCN = Molecule(
     census_version='2021.1.0',
 )
 
-
+H2NC = Molecule(
+    name="aminocarbyne",
+    formula="H2NC",
+    year=2021,
+    label="H2NC",
+    astromol_name="H2NC",
+    sources=[L483],
+    telescopes=[IRAM30],
+    wavelengths=["mm"],
+    d_refs="Cabezas et al. 2021 A&A 654, A45",
+    d_ref_bib_ids = ["2021A&A...654A..45C"],
+    l_refs="Cabezas et al. 2021 A&A 654, A45",
+    l_ref_bib_ids = ["2021A&A...654A..45C"],
+    notes="No laboratory work; purely theoretical constants.",
+    exgal=True,
+    exgal_d_refs="Cabezas et al. 2021 A&A 654, A45",
+    exgal_d_bib_ids=["2021A&A...654A..45C"],
+    exgal_sources="PKS 1830-211 LOS",
+    Acon=339670,
+    Bcon=38086,
+    Ccon=34124,
+    mua=3.83,
+    census_version='2021.3.0',
+    change_log = {
+    				'2021.3.0' : 'Initial Entry',
+    }
+)
+HCCSp = Molecule(
+    name="thioketenylium",
+    formula="HCCS+",
+    table_formula="HCCS+",
+    year=2022,
+    label="HCCS+",
+    astromol_name="HCCSp",
+    sources=[TMC1],
+    telescopes=[IRAM30,Yebes40],
+    wavelengths=["cm","mm"],
+    d_refs="Cabezas et al. 2022 A&A 657, L4",
+    d_ref_bib_ids = ["2022A&A...657L...4C"],
+    l_refs="Cabezas et al. 2022 A&A 657, L4",
+    l_ref_bib_ids = ["2022A&A...657L...4C"],
+    notes = "Identification performed based on quantum chemical calculations only.  Cabezas et al. do not state what dipole moment they assumed, but it was presumably taken from Puzzarini 2008 Chem Phys 346, 45",
+    Bcon=6021,
+    mua=2.3,
+    census_version='2021.4.0',
+    change_log = {
+    				'2021.4.0' : 'Initial entry',
+    			}
+)
 
 ######################################################################
 #                           Five Atoms                               #
@@ -4314,6 +4387,30 @@ HCSCN = Molecule(
     mub=3.09,
     census_version='2021.1.0',
 )
+HC3O = Molecule(
+    name="tricarbon monoxide",
+    formula="HC3O",
+    year=2021,
+    label="HC3O",
+    astromol_name="HC3O",
+    sources=[TMC1],
+    telescopes=[Yebes40],
+    wavelengths=["cm"],
+    d_refs="Cernicharo et al. 2021 A&A 656, L21",
+    d_ref_bib_ids=["2021A&A...656L..21C"],
+    l_refs="Cooksy et al. 1992 ApJ 386, L27; Cooksy et al. 1992 JMS 153, 610; Chen et al. 1996 ApJ 462, 561",
+    l_ref_bib_ids=["1992ApJ...386L..27C", "1992JMoSp.153..610C", "1996ApJ...462..561C"],
+    notes= "Dipole from Cooksy et al. 1995 J Phys Chem 99, 11095",
+    Acon=261120,
+    Bcon=4577,
+    Ccon=4489,
+    mua=2.39,
+    census_version='2021.4.0',
+    change_log = {
+    				'2021.4.0' : 'Initial entry',
+    			}
+)
+
 
 ######################################################################
 #                           Six Atoms                               #
@@ -4768,6 +4865,50 @@ HCSCCH = Molecule(
     mub=0.661,
     census_version='2021.1.0',
 )
+C5O = Molecule(
+    name="pentacarbon monoxide",
+    formula="C5O",
+    table_formula="C5O",
+    year=2021,
+    label="C5O",
+    astromol_name="C5O",
+    sources=[TMC1],
+    telescopes=[Yebes40],
+    wavelengths=["cm"],
+    d_refs="Cernicharo et al. 2021 A&A 656, L21",
+    d_ref_bib_ids = ["2021A&A...656L..21C"],
+    l_refs="Ogata et al. 1995 JACS 117, 3593",
+    l_ref_bib_ids = ["Ogata:1995:3593"],
+    notes = "Dipole moment from Botschwina et al. 1995 J Phys Chem 99, 9755",
+    Bcon=1367,
+    mua=4.06,
+    census_version='2021.4.0',
+    change_log = {
+    				'2021.4.0' : 'Initial entry',
+    			}
+)
+C5Hp = Molecule(
+    name="pentynylidyne cation",
+    formula="C5H+",
+    table_formula="C5H+",
+    year=2022,
+    label="C5H+",
+    astromol_name="C5Hp",
+    sources=[TMC1],
+    telescopes=[Yebes40],
+    wavelengths=["cm"],
+    d_refs="Cernicharo et al. 2022 A&A 657, L16",
+    d_ref_bib_ids = ["2022A&A...657L..16C"],
+    l_refs="Cernicharo et al. 2022 A&A 657, L16",
+    l_ref_bib_ids = ["2022A&A...657L..16C"],
+    notes = "Identification performed solely on the basis of quantum chemical calculations. Dipole moment from Botschwina 1991 J Chem Phys 95, 4360.",
+    Bcon=2412,
+    mua=2.88,
+    census_version='2021.4.0',
+    change_log = {
+    				'2021.4.0' : 'Initial entry',
+    			}
+)
 
 ######################################################################
 #                           Seven Atoms                              #
@@ -4845,7 +4986,7 @@ CH3NH2 = Molecule(
     census_version='2018.0.0',
 )
 CH2CHCN = Molecule(
-    name="vinylcyanide",
+    name="vinyl cyanide",
     formula="CH2CHCN",
     year=1975,
     label="CH2CHCN",
@@ -5086,6 +5227,28 @@ MgC5N = Molecule(
     census_version='2021.1.0',
     change_log = {
     				'2021.1.0' : 'Initial entry',
+    			}
+)
+CH2C3N = Molecule(
+    name="3-cyano propargyl radical",
+    formula="CH2C3N",
+    table_formula="CH2C3N",
+    year=2021,
+    label="CH2C3N",
+    astromol_name="CH2C3N",
+    sources=[TMC1],
+    telescopes=[Yebes40],
+    wavelengths=["cm"],
+    d_refs="Cabezas et al. 2021 A&A 654, L9",
+    d_ref_bib_ids = ["2021A&A...654L...9C"],
+    l_refs="Chen et al. 1998 ApJ 492, 849; Tang et al. 2001 ApJ 552, 409",
+    l_ref_bib_ids = ["1998ApJ...492..849C", "2001ApJ...552..409T"],
+    notes = None,
+    Bcon=2186,
+    mua=4.43,
+    census_version='2021.4.0',
+    change_log = {
+    				'2021.4.0' : 'Initial entry',
     			}
 )
 
@@ -5395,6 +5558,56 @@ MgC6H = Molecule(
     census_version='2021.1.0',
     change_log = {
     				'2021.1.0' : 'Initial entry',
+    			}
+)
+C2H3NH2 = Molecule(
+    name="vinylamine",
+    formula="C2H3NH2",
+    table_formula="C2H3NH2",
+    year=2021,
+    label="C2H3NH2",
+    astromol_name="C2H3NH2",
+    sources=[G0693],
+    telescopes=[IRAM30,Yebes40],
+    wavelengths=["cm","mm"],
+    d_refs="Zeng et al. 2021 ApJL 920, L17",
+    d_ref_bib_ids = ["2021ApJ...920L..27Z"],
+    l_refs="Brown et al. 1990 JMS 142, 195; McNaughton et al. 1994 JMS 163, 80",
+    l_ref_bib_ids = ["1990JMoSp.142..195B", "1994JMoSp.163...80M"],
+    notes = "Also known as ethenamine",
+    Acon=56320,
+    Bcon=10035,
+    Ccon=8565,
+    mua=1.078,
+    mub=0.19,
+    census_version='2021.4.0',
+    change_log = {
+    				'2021.4.0' : 'Initial entry',
+    			}
+)
+HOCHCHOH = Molecule(
+    name="1,2-ethenediol",
+    formula="HOCHCHOH",
+    table_formula="HOCHCHOH",
+    year=2022,
+    label="HOCHCHOH",
+    astromol_name="HOCHCHOH",
+    sources=[G0693],
+    telescopes=[Yebes40,IRAM30],
+    wavelengths=["cm","mm"],
+    d_refs="Rivilla et al. 2022 ApJL 929, L11",
+    d_ref_bib_ids = ["2022ApJ...929L..11R"],
+    l_refs="Melosso et al. 2022 Chem Comm 58, 2750",
+    l_ref_bib_ids = ["Melosso:2022:2750"],
+    notes = None,
+    Acon=19507,
+    Bcon=6312,
+    Ccon=4772,
+    mua=1.96,
+    mub=0.62,
+    census_version='2021.4.0',
+    change_log = {
+    				'2021.4.0' : 'Initial entry',
     			}
 )
 
@@ -5823,6 +6036,52 @@ C6H4 = Molecule(
     change_log = {
     				'2021.1.0' : 'Initial Entry',
     }
+)
+
+C2H5NCO = Molecule(
+    name="ethyl isocyanate",
+    formula="C2H5NCO",
+    year=2021,
+    label="C2H5NCO",
+    astromol_name="C2H5NCO",
+    sources=[G0693],
+    telescopes=[IRAM30, Yebes40],
+    wavelengths=["cm"],
+    d_refs="Rodriguez-Almeida et al. 2021 A&A 654, L1",
+    d_ref_bib_ids = ["2021A&A...654L...1R"],
+    l_refs="Sakaizumi et al. 1976 Bull. Chem. Soc. Japan 49, 2908; Heineking et al. 1994 Mol. Phys. 81, 1177; Kolesnikova et al. 2018 A&A 616, A173",
+    l_ref_bib_ids = ["Sakaizumi:1976uu", "Heineking:1994op", "2018A&A...616A.173K"],
+    notes="",
+    Acon=339670,
+    Bcon=38086,
+    Ccon=34124,
+    mua=3.83,
+    census_version='2021.3.0',
+    change_log = {
+    				'2021.3.0' : 'Initial Entry',
+    }
+)
+HC7NHp = Molecule(
+    name="",
+    formula="HC7NH+",
+    table_formula="HC7NH+",
+    year=2022,
+    label="HC7NH+",
+    astromol_name="HC7NHp",
+    sources=[TMC1],
+    telescopes=[Yebes40],
+    wavelengths=["cm"],
+    d_refs="Cabezas et al. 2022 A&A 659, L8",
+    d_ref_bib_ids = ["2022A&A...659L...8C"],
+    l_refs="Cabezas et al. 2022 A&A 659, L8",
+    l_ref_bib_ids = ["2022A&A...659L...8C"],
+    notes = "Identification based solely on quantum chemical calculations.",
+    Bcon=554,
+    mua=6.4,
+    census_version='2021.4.0',
+    change_log = {
+    				'2021.4.0' : 'Initial entry',
+    			}
 )
 
 ######################################################################
@@ -6283,6 +6542,7 @@ all_molecules = [
     NSp,
     HeHp,
     VO,
+    POp,
     # three atoms
     H2O,
     HCOp,
@@ -6362,6 +6622,8 @@ all_molecules = [
     MgCCH,
     HCCS,
     HNCN,
+    H2NC,
+    HCCSp,
     # five atoms
     HC3N,
     HCOOH,
@@ -6395,6 +6657,7 @@ all_molecules = [
     C4S,
     CHOSH,
     HCSCN,
+    HC3O,
     # six atoms
     CH3OH,
     CH3CN,
@@ -6420,6 +6683,8 @@ all_molecules = [
     H2CCCS,
     CH2CCH,
     HCSCCH,
+    C5O,
+    C5Hp,
     # seven atoms
     CH3CHO,
     CH3CCH,
@@ -6437,6 +6702,7 @@ all_molecules = [
     HC3HNH,
     C3HCCH,
     MgC5N,
+    CH2C3N,
     # eight atoms
     HCOOCH3,
     CH3C3N,
@@ -6454,6 +6720,8 @@ all_molecules = [
     HCCCH2CN,
     CH2CHCCH,
     MgC6H,
+    C2H3NH2,
+    HOCHCHOH,
     # nine atoms
     CH3OCH3,
     CH3CH2OH,
@@ -6478,6 +6746,8 @@ all_molecules = [
     CH3CHCH2O,
     CH3OCH2OH,
     C6H4,
+    C2H5NCO,
+    HC7NHp,
     # eleven atoms
     HC9N,
     CH3C6H,
