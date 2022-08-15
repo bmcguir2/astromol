@@ -5713,12 +5713,16 @@ HC7N = Molecule(
     sources=[TMC1],
     telescopes=[Algonquin46, Haystack37],
     wavelengths=["cm"],
-    d_refs="Kroto et al. 1977 Bull. Am. As. Soc. 9, 303",
+    d_refs="Kroto et al. 1977 Bull. Am. As. Soc. 9, 303; Kroto et al. 1978 ApJ 219, L133",
     l_refs="Kirby et al. 1980 JMS 83, 261",
     notes=None,
     Bcon=564,
     mua=4.8,
-    census_version='2018.0.0',
+    census_version='2021.5.1',
+	change_log = {
+				'2018.0.0' : 'Initial Entry',
+				'2021.5.1' : 'Updated detection references with additional paper.',
+    }
 )
 CH3C4H = Molecule(
     name="methyldiacetylene",

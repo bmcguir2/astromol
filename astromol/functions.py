@@ -366,11 +366,11 @@ def cumu_det_plot(mol_list=None, syear=None, eyear=None, filename=None):
     # Now the total number of detections
     ax.annotate(
         "Total: {}".format(dets[iyear(eyear)]),
-        xy=(eyear - 2, dets[iyear(eyear)]),
-        xycoords="data",
-        va="center",
-        ha="right",
-        size=16,
+        xy = (0.93,0.93),
+        xycoords = 'axes fraction',
+        va = 'top',
+        ha = 'right',
+        size=24,
     )
 
     # Now the facilities
@@ -449,10 +449,6 @@ def cumu_det_plot(mol_list=None, syear=None, eyear=None, filename=None):
         ha="center",
         **args,
     )    
-    
-
-    # show the plot
-    plt.show()
 
     # write out the figure
     plt.savefig(
@@ -461,6 +457,9 @@ def cumu_det_plot(mol_list=None, syear=None, eyear=None, filename=None):
         transparent=True,
         bbox_inches="tight",
     )
+    
+    # show the plot
+    plt.show()
 
 
 def cumu_det_natoms_plot(mol_list=None, syear=None, eyear=None, filename=None):
