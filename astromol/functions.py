@@ -2064,7 +2064,7 @@ def type_pie_chart(mol_list=None, filename=None):
     return
 
 
-def source_pie_chart(mol_list=None, filename=None):
+def source_pie_chart(mol_list=None, filename=None, format='pdf'):
     """
     Makes a pie chart of the fraction of interstellar molecules detected 
     in carbon stars, dark clouds, los clouds, star forming regions, 
@@ -2234,20 +2234,34 @@ def source_pie_chart(mol_list=None, filename=None):
     )
 
     plt.tight_layout()
-    plt.show()
 
-    plt.savefig(
-        filename if filename is not None else "source_pie_chart.pdf",
-        format="pdf",
-        transparent=True,
-        bbox_inches="tight",
-        pad_inches=-0.65,
-    )
+    if format=='pdf':
+
+        plt.savefig(
+            filename if filename is not None else "source_pie_chart.pdf",
+            format="pdf",
+            transparent=True,
+            bbox_inches="tight",
+            pad_inches=-0.65,
+        )
+
+    elif format=='png':
+    
+        plt.savefig(
+            filename if filename is not None else "source_pie_chart.png",
+            format="png",
+            dpi=600,
+            transparent=True,
+            bbox_inches="tight",
+            pad_inches=-0.65,
+        )   
+
+    plt.show()
 
     return
 
 
-def indiv_source_pie_chart(mol_list=None, filename=None):
+def indiv_source_pie_chart(mol_list=None, filename=None, format='pdf'):
     """
     Makes a pie chart of the fraction of interstellar molecules 
     detected in IRC+10216, TMC-1, Orion, and Sgr
@@ -2411,13 +2425,27 @@ def indiv_source_pie_chart(mol_list=None, filename=None):
     plt.tight_layout()
     plt.show()
 
-    plt.savefig(
-        filename if filename is not None else "indiv_source_pie_chart.pdf",
-        format="pdf",
-        transparent=True,
-        bbox_inches="tight",
-        pad_inches=-0.65,
-    )
+    if format=='pdf':
+
+        plt.savefig(
+            filename if filename is not None else "indiv_source_pie_chart.pdf",
+            format="pdf",
+            transparent=True,
+            bbox_inches="tight",
+            pad_inches=-0.65,
+        )
+    
+    elif format=='png':
+    
+        plt.savefig(
+            filename if filename is not None else "indiv_source_pie_chart.png",
+            format="png",
+            dpi=600,
+            transparent=True,
+            bbox_inches="tight",
+            pad_inches=-0.65,
+        )   
+    
 
     return
 
@@ -3321,6 +3349,144 @@ def kappas(mol_list=None, nbins=100, filename=None):
 
     return
 
+
+def waves_pie_chart(mol_list=None, filename=None):
+    """
+    Makes a pie chart of the fraction of interstellar molecules that are 
+    detected a cm, mm, sub-mm, IR, UV, and Vis wavelengths.
+{"cm": 0, "mm": 0, "sub-mm": 0, "IR": 0, "UV": 0, "Vis": 0},
+    Parameters
+    ----------
+    mol_list : list
+        A list of molecule objects to use (default is all_molecules)
+    filename : str
+        The filename for the output images (default is 'type_pie_chart.pdf')
+    """
+
+    # If a list wasn't specified, default to all molecules
+    if mol_list is None:
+        mol_list = all_molecules
+
+    # Close an old figure if it exists and initialize a new figure
+    plt.close("Waves Pie Chart")
+    plt.figure(num="Waves Pie Chart", figsize=(10, 8))
+    plt.ion()
+
+    # set some font defaults
+    fontparams = {"size": 24, "family": "sans-serif", "sans-serif": ["Helvetica"]}
+    plt.rc("font", **fontparams)
+    plt.rc("mathtext", fontset="stixsans")
+
+    # gather the data
+    my_dict = {
+		"radio" : 0,
+        "IR": 0,
+        "UV/Vis": 0,
+    }
+
+    for mol in mol_list:
+        if "cm" in mol.wavelengths or "mm" in mol.wavelengths or "sub-mm" in mol.wavelengths:
+            my_dict["radio"] += 1
+        if "IR" in mol.wavelengths:
+            my_dict["IR"] += 1                   
+        if "UV" in mol.wavelengths or "Vis" in mol.wavelengths:
+            my_dict["UV/Vis"] += 1
+            
+    nmols = len(mol_list)
+    for type in my_dict:
+        my_dict[type] = my_dict[type] / nmols
+
+    labels = ["radio", "IR", "UV/Vis"]
+    vals = [my_dict[x] for x in labels]
+    fracs = [my_dict[x] for x in labels]
+    colors = ["dodgerblue", "violet", "red"]
+
+    # set up a plot
+    ax = plt.subplot(111)
+
+    
+    plt.pie(vals, labels = labels, colors=colors, autopct='%1.1f\%%', 
+        pctdistance=0.8,
+        wedgeprops = {"edgecolor" : "black",
+                      'linewidth': 1, 'alpha':0.7})
+    
+    
+#     size = 0.1
+# 
+#     def getshift(x):
+#         return -(90 - (360 - 360 * x) / 2)
+# 
+#     ax.pie(
+#         [fracs[0], 1.0 - fracs[0]],
+#         colors=["dodgerblue", "#EEEEEE"],
+#         radius=1,
+#         startangle=getshift(fracs[0]),
+#         wedgeprops=dict(width=size, edgecolor="w", linewidth=1),
+#     )
+#     ax.pie(
+#         [fracs[1], 1.0 - fracs[1]],
+#         colors=["darkorange", "#EEEEEE"],
+#         radius=1 - size - 0.02,
+#         startangle=getshift(fracs[1]),
+#         wedgeprops=dict(width=size, edgecolor="w", linewidth=1),
+#     )
+#     ax.pie(
+#         [fracs[2], 1.0 - fracs[2]],
+#         colors=["violet", "#EEEEEE"],
+#         radius=1 - 2 * size - 0.06,
+#         startangle=getshift(fracs[2]),
+#         wedgeprops=dict(width=size, edgecolor="w", linewidth=1),
+#     )
+# 
+#     ax.annotate(r"\textbf{radio}", xy=(0.5, 0.11), xycoords="axes fraction", color="dodgerblue", ha="center", size=14)
+#     ax.annotate(r"\textbf{IR}", xy=(0.5, 0.16), xycoords="axes fraction", color="darkorange", ha="center", size=14)
+#     ax.annotate(r"\textbf{UV/Vis}", xy=(0.5, 0.255), xycoords="axes fraction", color="violet", ha="center", size=14)
+# 
+#     percents = [r"\textbf{" + "{:.1f}".format((x * 100)) + r"}\%" for x in fracs]
+# 
+#     start = 0.585
+#     shift = 0.0485
+#     ax.annotate(
+#         percents[0],
+#         xy=(start + 6 * shift, 0.5),
+#         xycoords="axes fraction",
+#         color="white",
+#         ha="center",
+#         va="center",
+#         size=12,
+#         rotation=-90,
+#     )
+#     ax.annotate(
+#         percents[1],
+#         xy=(start + 5 * shift, 0.5),
+#         xycoords="axes fraction",
+#         color="darkorange",
+#         ha="center",
+#         va="center",
+#         size=12,
+#         rotation=-90,
+#     )
+#     ax.annotate(
+#         percents[2],
+#         xy=(start + 4 * shift, 0.5),
+#         xycoords="axes fraction",
+#         color="forestgreen",
+#         ha="center",
+#         va="center",
+#         size=12,
+#         rotation=-90,
+#     )
+
+    plt.tight_layout()
+
+
+    plt.savefig(
+        filename if filename is not None else "waves_pie_chart.png", format="png", transparent=True, bbox_inches="tight", dpi=600
+    )  # ,pad_inches=-.65)
+    
+    plt.show()
+
+    return 
 
 #############################################################
 # 						    LaTeX	 						#
@@ -4986,14 +5152,14 @@ def make_mols_slide(mol_list=None, filename=None):
     p3.font.name = 'Arial'
     p3.alignment = PP_ALIGN.RIGHT
     run5 = p3.add_run()
-    run5.text = "McGuire 2018 " 
+    run5.text = "McGuire 2022 " 
     run5.font.size = Pt(18)
     run6 = p3.add_run()
     run6.text = "ApJS " 
     run6.font.size = Pt(18)
     run6.font.italic = True
     run7 = p3.add_run()
-    run7.text = "239, 17" 
+    run7.text = "259, 30" 
     run7.font.size = Pt(18)
 
     # Make a minifunction to turn a formula into a list of parts
@@ -5181,11 +5347,11 @@ def make_mols_slide(mol_list=None, filename=None):
         ncols = 1,
         natoms = 10,
         label_coords = [nine_atoms.label_coords[0], 
-                        6.25, 
+                        6.0, 
                         two_atoms.label_coords[2], 
                         two_atoms.label_coords[3]],
         col_coords = [
-                        [nine_atoms.col_coords[0][0], 6.85, 3., 3.],
+                        [nine_atoms.col_coords[0][0], 6.45, 3., 3.],
                     ],
     ) 
 
@@ -5194,25 +5360,25 @@ def make_mols_slide(mol_list=None, filename=None):
         ncols = 1,
         natoms = 11,
         label_coords = [nine_atoms.col_coords[1][0], 
-                        6.25, 
+                        6.0, 
                         two_atoms.label_coords[2], 
                         two_atoms.label_coords[3]],
         col_coords = [
-                        [nine_atoms.col_coords[1][0], 6.85, 3., 3.],
+                        [nine_atoms.col_coords[1][0], 6.45, 3., 3.],
                     ],
     )  
 
     twelve_atoms = Group(
         label = "12 Atoms",
-        ncols = 2,
+        ncols = 1,
         natoms = 12,
         label_coords = [seven_atoms.label_coords[0], 
-                        10.1, 
+                        10.6, 
                         two_atoms.label_coords[2], 
                         two_atoms.label_coords[3]],
         col_coords = [
-                        [seven_atoms.col_coords[0][0], 10.7, 3., 2.],
-                        [eight_atoms.col_coords[0][0], 10.7, 3., 2.],
+                        [seven_atoms.col_coords[0][0], 11.1, 3., 2.],
+                        [eight_atoms.col_coords[0][0], 11.1, 3., 2.],
                     ],
     )   
 
@@ -5222,12 +5388,12 @@ def make_mols_slide(mol_list=None, filename=None):
         natoms = 13,
         natoms_greater = True,
         label_coords = [nine_atoms.label_coords[0], 
-                        10.1, 
+                        12.15, 
                         two_atoms.label_coords[2], 
                         two_atoms.label_coords[3]],
         col_coords = [
-                        [nine_atoms.col_coords[0][0], 10.7, 3., 2.],
-                        [nine_atoms.col_coords[1][0], 10.7, 3., 2.],
+                        [nine_atoms.col_coords[0][0], 12.6, 3., 2.],
+                        [nine_atoms.col_coords[1][0], 12.6, 3., 2.],
                     ],
     )        
 
@@ -5288,7 +5454,7 @@ def make_mols_slide(mol_list=None, filename=None):
     nbox = slide.shapes.add_shape(
                                     MSO_SHAPE.ROUNDED_RECTANGLE,
                                     left = Inches(6.35),
-                                    top = Inches(10.1),
+                                    top = Inches(10.6),
                                     width = Inches(6.0),
                                     height = Inches(1.4),
                                 )      
@@ -5307,7 +5473,7 @@ def make_mols_slide(mol_list=None, filename=None):
 
     as_of = slide.shapes.add_textbox(
         left = Inches(6.35),
-        top = Inches(11.7),
+        top = Inches(12.2),
         width = Inches(6.),
         height = Inches(1.),
     )    
