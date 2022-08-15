@@ -4909,6 +4909,31 @@ C5Hp = Molecule(
     				'2021.4.0' : 'Initial entry',
     			}
 )
+cC5H = Molecule(
+    name="ethynylcyclopropenylidene",
+    formula="C5H",
+    table_formula="c-C5H",
+    year=2022,
+    label="cC5H",
+    astromol_name="cC5H",
+    cyclic=True,
+    sources=[TMC1],
+    telescopes=[Yebes40],
+    wavelengths=["cm"],
+    d_refs="Cabezas et al. 2022 A&A 663, L2",
+    d_ref_bib_ids = ["Cabezas:2022:L2"],
+    l_refs="Apponi et al. 2001 ApJL 547, L65; Cabezas et al. 2022 A&A 663, L2",
+    l_ref_bib_ids = ["Apponi:2001:L65","Cabezas:2022:L2"],
+    notes = "Not 100% certain on the name; Dipole moment from Woon 1995 Chem Phys Lett 244, 45",
+    Acon=45018,
+    Bcon=3504,
+    Ccon=3247,
+    mua=4.88,
+    census_version='2021.5.0',
+    change_log = {
+    				'2021.5.0' : 'Initial entry',
+    			}
+)
 
 ######################################################################
 #                           Seven Atoms                              #
@@ -5267,7 +5292,7 @@ HCOOCH3 = Molecule(
     wavelengths=["cm"],
     d_refs="Churchwell & Winnewisser 1975 A&A 45, 229; Brown et al. 1975 ApJ 197, L29",
     l_refs="Brown et al. 1975 ApJ 197, L29",
-    notes="*t-mf detected 2012 ApJ 755, 143",
+    notes="The trans conformer was detected in Neill et al. 2012 ApJ 755, 143",
     exgal=True,
     exgal_d_refs="Sewiło et al. 2018 ApJL 853, L19",
     exgal_d_bib_ids=["2018ApJ...853L..19S"],
@@ -5277,7 +5302,11 @@ HCOOCH3 = Molecule(
     Ccon=5318,
     mua=1.6,
     mub=0.7,
-    census_version='2018.0.0',
+    census_version='2021.5.0',
+    change_log = {
+    				'2018.0.0' : 'Initial entry',
+    				'2021.5.0' : 'Minor formatting update to notes text'
+    			}
 )
 CH3C3N = Molecule(
     name="methylcyanoacetylene",
@@ -6083,6 +6112,80 @@ HC7NHp = Molecule(
     				'2021.4.0' : 'Initial entry',
     			}
 )
+CH3CHCHCN = Molecule(
+    name="crotonitrile",
+    formula="CH3CHCHCN",
+    table_formula="CH3CHCHCN",
+    year=2022,
+    label="CH3CHCHCN",
+    astromol_name="CH3CHCHCN",
+    sources=[TMC1],
+    telescopes=[Yebes40],
+    wavelengths=["cm"],
+    d_refs="Cernicharo et al. 2022 A&A 663, L5",
+    d_ref_bib_ids = ["Cernicharo:2022:L5"],
+    l_refs="Lesarri et al. 1995 JMS 172, 520; McCarthy et al. 2020 J Phys Chem A 124, 5170",
+    l_ref_bib_ids = ["Lesarri:1995:520","McCarthy:2020:5170"],
+    notes = "Both the trans- and cis-conformers are reported. Parameters here are for the A-state of the trans version, which is lower in energy.  Dipole moments obtained from Beaudet 1963 J Chem Phys 38, 2548 and Suzuki & Kozima 1970 JMS 33, 407",
+    Acon=38054,
+    Bcon=2297,
+    Ccon=2195,
+    mua=4.35,
+    census_version='2021.5.0',
+    change_log = {
+    				'2021.5.0' : 'Initial entry',
+    			}
+)
+CH2CCH3CN = Molecule(
+    name="methacrylonitrile",
+    formula="CH2CCH3CN",
+    table_formula="CH2CCH3CN",
+    year=2022,
+    label="CH2CCH3CN",
+    astromol_name="CH2CCH3CN",
+    sources=[TMC1],
+    telescopes=[Yebes40],
+    wavelengths=["cm"],
+    d_refs="Cernicharo et al. 2022 A&A 663, L5",
+    d_ref_bib_ids = ["Cernicharo:2022:L5"],
+    l_refs="Lopez et al. 1990 JMS 141, 317; Lesarri et al. 1995 JMS 172, 520",
+    l_ref_bib_ids = ["Lopez:1990:317","Lesarri:1995:520"],
+    notes = "",
+    Acon=9291,
+    Bcon=4166,
+    Ccon=2925,
+    mua=3.940,
+    mub=0.26,
+    census_version='2021.5.0',
+    change_log = {
+    				'2021.5.0' : 'Initial entry',
+    			}
+)
+CH2CHCH2CN = Molecule(
+    name="allyl cyanide",
+    formula="CH2CHCH2CN",
+    table_formula="CH2CHCH2CN",
+    year=2022,
+    label="CH2CHCH2CN",
+    astromol_name="CH2CHCH2CN",
+    sources=[TMC1],
+    telescopes=[Yebes40],
+    wavelengths=["cm"],
+    d_refs="Cernicharo et al. 2022 A&A 663, L5",
+    d_ref_bib_ids = ["Cernicharo:2022:L5"],
+    l_refs="Demaison et al. 1991 JMS 146, 455; McCarthy et al. 2020 J Phys Chem A 124, 5170",
+    l_ref_bib_ids = ["Demaison:1991:455","McCarthy:2020:5170"],
+    notes = "Both the gauche and cis forms were found; parameters here are for the cis, which is the lower energy conformer.  Dipole moments from Sastry et al. 1968 Can. J. Phys. 46, 959",
+    Acon=11323,
+    Bcon=3739,
+    Ccon=2858,
+    mua=3.26,
+    mub=2.16,
+    census_version='2021.5.0',
+    change_log = {
+    				'2021.5.0' : 'Initial entry',
+    			}
+)
 
 ######################################################################
 #                           Eleven Atoms                             #
@@ -6219,6 +6322,31 @@ NH2CH2CH2OH = Molecule(
     muc=0.42,
     census_version='2021.1.0',
 )
+CH2CCHC4H = Molecule(
+    name="allenyl diacetylene",
+    formula="CH2CCHC4H",
+    table_formula="CH2CCHC4H",
+    year=2022,
+    label="CH2CCHC4H",
+    astromol_name="CH2CCHC4H",
+    sources=[TMC1],
+    telescopes=[Yebes40],
+    wavelengths=["cm"],
+    d_refs="Fuentetaja et al. 2022 A&A 663, L3",
+    d_ref_bib_ids = ["Fuentetaja:2022:L3"],
+    l_refs="McCarthy et al. 2020 J Phys Chem A 124, 5170",
+    l_ref_bib_ids = ["McCarthy:2020:5170"],
+    notes = "Dipole moment from Lee & McCarthy 2019 J Phys Chem Lett 10, 2408",
+    Acon=15656,
+    Bcon=948,
+    Ccon=898,
+    mua=1.20,
+    mub=0.20,
+    census_version='2021.5.0',
+    change_log = {
+    				'2021.5.0' : 'Initial entry',
+    			}
+)
 
 ######################################################################
 #                           Twelve Atoms                             #
@@ -6328,7 +6456,58 @@ C5H5CN2 = Molecule(
     mub=0.77,
     census_version='2021.0.0',
 )
-
+nCH3CH2CH2OH = Molecule(
+    name="n-propanol",
+    formula="CH3CH2CH2OH",
+    table_formula="n-CH3CH2CH2OH",
+    year=2022,
+    label="nCH3CH2CH2OH",
+    astromol_name="nCH3CH2CH2OH",
+    sources=[G0693],
+    telescopes=[IRAM30,Yebes40],
+    wavelengths=["cm","mm"],
+    d_refs="Jimenez-Serra et al. 2022 A&A 663, A181",
+    d_ref_bib_ids = ["Jimenez-Serra:2022:A181"],
+    l_refs="Kisiel et al. 2010 PCCP 12, 8329; Dreizier & Scappini 1981 Z Naturforsch A 36, 1187",
+    l_ref_bib_ids = ["Kisiel:2020:8329","Dreizier:1981:1187"],
+    notes = "",
+    Acon=14330,
+    Bcon=5119,
+    Ccon=4324,
+    mua=0.4914,
+    mub=0.9705,
+    muc=0.9042,
+    census_version='2021.5.0',
+    change_log = {
+    				'2021.5.0' : 'Initial entry',
+    			}
+)
+iCH3CH2CH2OH = Molecule(
+    name="i-propanol",
+    formula="CH3CH2CH2OH",
+    table_formula="i-CH3CH2CH2OH",
+    year=2022,
+    label="iCH3CH2CH2OH",
+    astromol_name="iCH3CH2CH2OH",
+    sources=[SgrB2],
+    telescopes=[ALMA],
+    wavelengths=["mm"],
+    d_refs="Belloche et al. 2022 A&A 662, A110",
+    d_ref_bib_ids = ["Belloche:2022:A110"],
+    l_refs="Maeda et al. 2006 ApJS 166, 650",
+    l_ref_bib_ids = ["Maeda:2006:650"],
+    notes = "Both gauche and anti-conformers are detected, but not cataloged separately here.  Parameters given are for the gauche, which is lower in energy.",
+    Acon=8640,
+    Bcon=8063,
+    Ccon=4768,
+    mua=1.114,
+    mub=0.737,
+    muc=0.813,
+    census_version='2021.5.0',
+    change_log = {
+    				'2021.5.0' : 'Initial entry',
+    			}
+)
 ######################################################################
 #                         Thirteen Atoms                             #
 ######################################################################
@@ -6368,7 +6547,31 @@ HC11N = Molecule(
     mua=5.47,
     census_version='2021.0.0',
 )
-
+cC5H4CCH2 = Molecule(
+    name="fulveneallene",
+    formula="C5H4CCH2",
+    table_formula="c-C5H4CCH2",
+    year=2022,
+    label="cC5H4CCH2",
+    astromol_name="cC5H4CCH2",
+    cyclic=True,
+    sources=[TMC1],
+    telescopes=[Yebes40],
+    wavelengths=["cm"],
+    d_refs="Cernicharo et al. 2022 A&A 663, L9",
+    d_ref_bib_ids = ["Cernicharo:2022:L9"],
+    l_refs="Sakaizumi et al. 1993 JMS 159, 112; McCarthy et al. 2020 J Phys Chem A 124, 5170",
+    l_ref_bib_ids = ["Sakaizumi:1993:112", "McCarthy:2020:5170"],
+    notes = "",
+    Acon=8181,
+    Bcon=1887,
+    Ccon=1549,
+    mua=0.69,
+    census_version='2021.5.0',
+    change_log = {
+    				'2021.5.0' : 'Initial entry',
+    			}
+)
 ######################################################################
 #                                PAHs                                #
 ######################################################################
@@ -6685,6 +6888,7 @@ all_molecules = [
     HCSCCH,
     C5O,
     C5Hp,
+    cC5H,
     # seven atoms
     CH3CHO,
     CH3CCH,
@@ -6748,6 +6952,9 @@ all_molecules = [
     C6H4,
     C2H5NCO,
     HC7NHp,
+    CH3CHCHCN,
+    CH2CCH3CN,
+    CH2CHCH2CN,
     # eleven atoms
     HC9N,
     CH3C6H,
@@ -6756,15 +6963,19 @@ all_molecules = [
     CH3COCH2OH,
     C5H6,
     NH2CH2CH2OH,
+    CH2CCHC4H,
     # twelve atoms
     C6H6,
     nC3H7CN,
     iC3H7CN,
     C5H5CN1,
     C5H5CN2,
+    nCH3CH2CH2OH,
+    iCH3CH2CH2OH,
     # thirteen atoms
     cC6H5CN,
     HC11N,
+    cC5H4CCH2,
     # PAHS
     CNN1,
     CNN2,
