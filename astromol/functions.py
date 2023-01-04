@@ -1610,8 +1610,6 @@ def mass_by_wavelengths(mol_list=None, bw=0.5, filename=None):
         va="top",
     )
 
-    plt.show()
-
     plt.savefig(
         filename if filename is not None else "mass_by_wavelengths_kde.pdf",
         format="pdf",
@@ -1619,6 +1617,8 @@ def mass_by_wavelengths(mol_list=None, bw=0.5, filename=None):
         bbox_inches="tight",
         pad_inches=0,
     )
+
+    plt.show()
 
     return
 
@@ -3071,8 +3071,6 @@ def mass_by_source_type(mol_list=None, bw=0.5, filename=None):
     )
     ax.annotate("LOS Cloud", xy=(x_ann, y_ann - 4 * y_sep), xycoords="axes fraction", color="red", ha="right", va="top")
 
-    plt.show()
-
     plt.savefig(
         filename if filename is not None else "mass_by_source_type_kde.pdf",
         format="pdf",
@@ -3080,6 +3078,8 @@ def mass_by_source_type(mol_list=None, bw=0.5, filename=None):
         bbox_inches="tight",
         pad_inches=0,
     )
+
+    plt.show()
 
     return
 

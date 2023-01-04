@@ -2101,6 +2101,27 @@ POp = Molecule(
     				'2021.4.0' : 'Initial entry',
     			}
 )
+SiP = Molecule(
+    name="silicon phosphide",
+    formula="SiP",
+    year=2022,
+    label="SiP",
+    astromol_name="SiP",
+    sources=[IRC10216],
+    telescopes=[SMT10,NRAOARO12],
+    wavelengths=["mm","sub-mm"],
+    d_refs="Koelemay et al. 2022 ApJL 940, L11",
+    d_ref_bib_ids = ["Koelemay:2022:L11"],
+    l_refs="Koelemay et al. 2022 ApJL 940, L11",
+    l_ref_bib_ids = ["Koelemay:2022:L11"],
+    notes = "Dipole moment from Ornellas et al. 2000 ApJ 538, 675",
+    Bcon=7967
+    mua=0.9,
+    census_version='2021.6.0',
+    change_log = {
+    				'2021.6.0' : 'Initial entry',
+    			}
+)
 ######################################################################
 #                          Three Atoms                               #
 ######################################################################
@@ -3058,6 +3079,29 @@ NCS = Molecule(
     Bcon=6106,
     mua=2.45,
     census_version='2021.0.0',
+)
+MgC2 = Molecule(
+    name="magnesium dicarbide",
+    formula="MgC2",
+    year=2022,
+    label="MgC2",
+    astromol_name="MgC2",
+    sources=[IRC10216],
+    telescopes=[Yebes40,IRAM30],
+    wavelengths=["cm","mm"],
+    d_refs="Changala et al. 2022 ApJL 940, L42",
+    d_ref_bib_ids = ["Changala:2022:L42"],
+    l_refs="Changala et al. 2022 ApJL 940, L42",
+    l_ref_bib_ids = ["Changala:2022:L42"],
+    notes = "Dipole moment from Itono et al. 2000 ApJ 538, L163.  Detection is of 24MgC2 (main isotopologue) as well as 25MgC2 and 26MgC2.",
+    Acon=51900
+    Bcon=11504,
+    Ccon=9392,
+    mua=7.9,
+    census_version='2021.6.0',
+    change_log = {
+    				'2021.6.0' : 'Initial entry',
+    			}
 )
 
 ######################################################################
@@ -4934,6 +4978,28 @@ cC5H = Molecule(
     				'2021.5.0' : 'Initial entry',
     			}
 )
+HC4S = Molecule(
+    name="butadiynethionyl",
+    formula="HC4S",
+    table_formula="HC4S",
+    year=2022,
+    label="HC4S",
+    astromol_name="HC4S",
+    sources=[TMC1],
+    telescopes=[Yebes40],
+    wavelengths=["cm"],
+    d_refs="Fuentetaja et al. 2022 A&AL 667, L4",
+    d_ref_bib_ids = ["Fuentetaja:2022:L4"],
+    l_refs="Hirahara et al. 1994 JCP 101, 7342",
+    l_ref_bib_ids = ["Hirahara:1994:7342"],
+    notes = None,
+    Bcon=1434,
+    mua=1.45,
+    census_version='2021.6.0',
+    change_log = {
+    				'2021.6.0' : 'Initial entry',
+    			}
+)
 
 ######################################################################
 #                           Seven Atoms                              #
@@ -5274,6 +5340,27 @@ CH2C3N = Molecule(
     census_version='2021.4.0',
     change_log = {
     				'2021.4.0' : 'Initial entry',
+    			}
+)
+NC4NHp = Molecule(
+    name="protonated butynedinitrile",
+    formula="NC4NH+",
+    year=2023,
+    label="NC4NH+",
+    astromol_name="NC4NHp",
+    sources=[TMC1],
+    telescopes=[Yebes40],
+    wavelengths=["cm"],
+    d_refs="Agundez et al. 2023 A&AL 669, L1",
+    d_ref_bib_ids = ["Agundez:2023:L1"],
+    l_refs="Agundez et al. 2023 A&AL 669, L1",
+    l_ref_bib_ids = ["Agundez:2023:L1"],
+    notes = "No laboratory experiment - identification based on theory.  Dipole moment from Marcelino et al. 2020 A&AL 643, L6.",
+    Bcon=1294,
+    mua=9.1,
+    census_version='2021.6.0',
+    change_log = {
+    				'2021.6.0' : 'Initial entry',
     			}
 )
 
@@ -5637,6 +5724,31 @@ HOCHCHOH = Molecule(
     census_version='2021.4.0',
     change_log = {
     				'2021.4.0' : 'Initial entry',
+    			}
+)
+HCCCHCCC = Molecule(
+    name="ethynylbutatrienyliden",
+    formula="HCCCHCCC",
+    table_formula="HCCCHCCC",
+    year=2022,
+    label="HCCCHCCC",
+    astromol_name="HCCCHCCC",
+    sources=[TMC1],
+    telescopes=[Yebes40],
+    wavelengths=["cm"],
+    d_refs="Fuentetaja et al. 2022 A&AL 667, L4",
+    d_ref_bib_ids = ["Fuentetaja:2022:L4"],
+    l_refs="McCarthy & Thaddeus 2002 ApJL 569, L55",
+    l_ref_bib_ids = ["McCarthy:2002:L55"],
+    notes = "Dipole moments from Sattlemeyer & Stanton 2000 JACS 122, 8220",
+    Acon=21094,
+    Bcon=1676,
+    Ccon=1550,
+    mua=3.718,
+    mub=1.325,
+    census_version='2021.6.0',
+    change_log = {
+    				'2021.6.0' : 'Initial entry',
     			}
 )
 
@@ -6750,6 +6862,7 @@ all_molecules = [
     HeHp,
     VO,
     POp,
+    SiP,
     # three atoms
     H2O,
     HCOp,
@@ -6796,6 +6909,7 @@ all_molecules = [
     NCO,
     CaNC,
     NCS,
+    MgC2,
     # four atoms
     NH3,
     H2CO,
@@ -6893,6 +7007,7 @@ all_molecules = [
     C5O,
     C5Hp,
     cC5H,
+    HC4S,
     # seven atoms
     CH3CHO,
     CH3CCH,
@@ -6911,6 +7026,7 @@ all_molecules = [
     C3HCCH,
     MgC5N,
     CH2C3N,
+    NC4NHp,
     # eight atoms
     HCOOCH3,
     CH3C3N,
@@ -6930,6 +7046,7 @@ all_molecules = [
     MgC6H,
     C2H3NH2,
     HOCHCHOH,
+    HCCCHCCC,
     # nine atoms
     CH3OCH3,
     CH3CH2OH,
