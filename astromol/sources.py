@@ -450,6 +450,15 @@ L134 = Source(
     simbad_url="http://simbad.u-strasbg.fr/simbad/sim-id?Ident=%402622026&Name=LDN%20%20134",
 )
 
+L1495B = Source(
+    name="L1495B",
+    astromol_name="L1495B",
+    type="Dark Cloud",
+    ra="04:15:41.8",
+    dec="+28:47:46.0",
+    simbad_url="https://simbad.u-strasbg.fr/simbad/sim-basic?Ident=L1495B",
+)
+
 L1527 = Source(
     name="L1527",
     astromol_name="L1527",
@@ -832,6 +841,7 @@ all_sources = [
     IRC10216,
     K350,
     L134,
+    L1495B,
     L1527,
     L1544,
     L183,

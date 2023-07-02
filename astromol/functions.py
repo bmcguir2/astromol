@@ -2054,11 +2054,12 @@ def type_pie_chart(mol_list=None, filename=None):
     )
 
     plt.tight_layout()
-    plt.show()
 
     plt.savefig(
         filename if filename is not None else "type_pie_chart.pdf", format="pdf", transparent=True, bbox_inches="tight"
     )  # ,pad_inches=-.65)
+
+    plt.show()
 
     return
 
@@ -2335,10 +2336,10 @@ def indiv_source_pie_chart(mol_list=None, filename=None, format='pdf'):
         wedgeprops=dict(width=size, edgecolor="w", linewidth=1),
     )
     ax.pie(
-        [fracs[1], 1.0 - fracs[1]],
+        [fracs[3], 1.0 - fracs[3]],
         colors=["darkorange", "#EEEEEE"],
         radius=1 - 1 * size - 1 * 0.02,
-        startangle=getshift(fracs[1]),
+        startangle=getshift(fracs[3]),
         wedgeprops=dict(width=size, edgecolor="w", linewidth=1),
     )
     ax.pie(
@@ -2349,10 +2350,10 @@ def indiv_source_pie_chart(mol_list=None, filename=None, format='pdf'):
         wedgeprops=dict(width=size, edgecolor="w", linewidth=1),
     )
     ax.pie(
-        [fracs[3], 1.0 - fracs[3]],
+        [fracs[1], 1.0 - fracs[1]],
         colors=["violet", "#EEEEEE"],
         radius=1 - 2 * size - 2 * 0.02,
-        startangle=getshift(fracs[3]),
+        startangle=getshift(fracs[1]),
         wedgeprops=dict(width=size, edgecolor="w", linewidth=1),
     )
     ax.pie(
@@ -2364,11 +2365,11 @@ def indiv_source_pie_chart(mol_list=None, filename=None, format='pdf'):
     )
 
     ax.annotate(r"\textbf{Other}", xy=(0.5, 0.11), xycoords="axes fraction", color="dodgerblue", ha="center", size=14)
-    ax.annotate(r"\textbf{Sgr B2}", xy=(0.5, 0.16), xycoords="axes fraction", color="darkorange", ha="center", size=14)
+    ax.annotate(r"\textbf{TMC-1}", xy=(0.5, 0.16), xycoords="axes fraction", color="darkorange", ha="center", size=14)
     ax.annotate(
         r"\textbf{IRC+10216}", xy=(0.5, 0.255), xycoords="axes fraction", color="forestgreen", ha="center", size=14
     )
-    ax.annotate(r"\textbf{TMC-1}", xy=(0.5, 0.205), xycoords="axes fraction", color="violet", ha="center", size=14)
+    ax.annotate(r"\textbf{Sgr B2}", xy=(0.5, 0.205), xycoords="axes fraction", color="violet", ha="center", size=14)
     ax.annotate(r"\textbf{Orion}", xy=(0.5, 0.305), xycoords="axes fraction", color="red", ha="center", size=14)
 
     percents = [r"\textbf{" + "{:.1f}".format((x * 100)) + r"}\%" for x in fracs]
@@ -2397,7 +2398,7 @@ def indiv_source_pie_chart(mol_list=None, filename=None, format='pdf'):
         size=12,
     )
     ax.annotate(
-        percents[3],
+        percents[1],
         xy=(0.51, 0.775),
         xycoords="axes fraction",
         color="white",
@@ -2405,7 +2406,7 @@ def indiv_source_pie_chart(mol_list=None, filename=None, format='pdf'):
         size=12,
     )
     ax.annotate(
-        percents[1],
+        percents[3],
         xy=(0.51, 0.825),
         xycoords="axes fraction",
         color="white",
@@ -2422,7 +2423,6 @@ def indiv_source_pie_chart(mol_list=None, filename=None, format='pdf'):
     )
 
     plt.tight_layout()
-    plt.show()
 
     if format=='pdf':
 
@@ -2445,6 +2445,7 @@ def indiv_source_pie_chart(mol_list=None, filename=None, format='pdf'):
             pad_inches=-0.65,
         )   
     
+    plt.show()
 
     return
 
@@ -2911,7 +2912,7 @@ def rel_du_by_source_type(mol_list=None, bw=0.5, filename=None):
     )
 
     plt.subplots_adjust(wspace=0, hspace=0)
-    plt.show()
+
 
     plt.savefig(
         filename if filename is not None else "relative_du_by_source_type_kde.pdf",
@@ -2920,6 +2921,8 @@ def rel_du_by_source_type(mol_list=None, bw=0.5, filename=None):
         bbox_inches="tight",
         pad_inches=0,
     )
+
+    plt.show()
 
     return
 
