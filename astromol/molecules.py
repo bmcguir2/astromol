@@ -2150,6 +2150,27 @@ SiP = Molecule(
     				'2021.6.0' : 'Initial entry',
     			}
 )
+FeC = Molecule(
+    name="iron carbide",
+    formula="FeC",
+    year=2023,
+    label="FeC",
+    astromol_name="FeC",
+    sources=[IRC10216],
+    telescopes=[NRAOARO12,SMT10],
+    wavelengths=["mm","sub-mm"],
+    d_refs="Koelemay & Ziurys 2023 ApJL 958, L6",
+    d_ref_bib_ids = ["Koelemay:2023:L6"],
+    l_refs="Allen et al. 1996 ApJ 472, L57",
+    l_ref_bib_ids = ["Allen:1996:L57"],
+    notes = "Dipole moment from Steimle et al. 2002 JCP 117, 1511",
+    Bcon=20173,
+    mua=2.36,
+    census_version='2021.8.0',
+    change_log = {
+    				'2021.8.0' : 'Initial entry',
+    			}
+)
 ######################################################################
 #                          Three Atoms                               #
 ######################################################################
@@ -3885,7 +3906,28 @@ HCCSp = Molecule(
     				'2021.4.0' : 'Initial entry',
     			}
 )
-
+CH3p = Molecule(
+    name="methylium",
+    formula="CH3+",
+    table_formula="CH3+",
+    year=2023,
+    label="CH3+",
+    astromol_name="CH3p",
+    sources=[d203506],
+    telescopes=[JWST],
+    wavelengths=["IR"],
+    d_refs="Berne et al. 2023 Nature 621, 56",
+    d_ref_bib_ids = ["Berne:2023:56"],
+    l_refs="Berne et al. 2023 Nature 621, 56",
+    l_ref_bib_ids = ["Berne:2023:56"],
+    notes = "B and C constants are quite uncertain",
+    Bcon=280000,
+    Ccon=140000,
+    census_version='2021.8.0',
+    change_log = {
+    				'2021.8.0' : 'Initial entry',
+    			}
+)
 ######################################################################
 #                           Five Atoms                               #
 ######################################################################
@@ -5200,6 +5242,79 @@ MgC4Hp = Molecule(
     census_version='2021.7.0',
     change_log = {
     				'2021.7.0' : 'Initial entry',
+    			}
+)
+H2C3Hp = Molecule(
+    name="propadienylium",
+    formula="H2C3H+",
+    table_formula="H2C3H+",
+    year=2023,
+    label="H2C3H+",
+    astromol_name="H2C3Hp",
+    sources=[TMC1],
+    telescopes=[Yebes40,IRAM30],
+    wavelengths=["cm","mm"],
+    d_refs="Silva et al. 2023 A&A 676, L1",
+    d_ref_bib_ids = ["2023A&A...676L...1S"],
+    l_refs="Silva et al. 2023 A&A 676, L1",
+    l_ref_bib_ids = ["2023A&A...676L...1S"],
+    notes = "Dipole moment from Huang et al. 2011 JPCA 115, 5005",
+    Acon=281856,
+    Bcon=9676,
+    Ccon=9343,
+    mua=0.524,
+    census_version='2021.8.0',
+    change_log = {
+    				'2021.8.0' : 'Initial entry',
+    			}
+)
+HOCOOH = Molecule(
+    name="carbonic acid",
+    formula="HOCOOH",
+    table_formula="HOCOOH",
+    year=2023,
+    label="HOCOOH",
+    astromol_name="HOCOOH",
+    sources=[G0693],
+    telescopes=[Yebes40,IRAM30],
+    wavelengths=["cm","mm"],
+    d_refs="Sanz-Novo et al. 2023 ApJ 954, 3",
+    d_ref_bib_ids = ["Sanz-Novo:2023:3"],
+    l_refs="Mori et al. 2009 JCP 130, 204308; Mori et al. 2011 JCP 134, 044319",
+    l_ref_bib_ids = ["Mori:2009:204308; Mori:2011:044319"],
+    notes = "",
+    Acon=11779,
+    Bcon=11423,
+    Ccon=5792,
+    mua=1.0,
+    mub=2.9,
+    census_version='2021.8.0',
+    change_log = {
+    				'2021.8.0' : 'Initial entry',
+    			}
+)
+H2C3N = Molecule(
+    name="cyanovinyl radical",
+    formula="H2C3N",
+    table_formula="H2C3N",
+    year=2023,
+    label="H2C3N",
+    astromol_name="H2C3N",
+    sources=[TMC1],
+    telescopes=[Yebes40],
+    wavelengths=["cm"],
+    d_refs="Cabezas et al. 2023 A&AL 676, L5",
+    d_ref_bib_ids = ["Cabezas:2023:L5"],
+    l_refs="Cabezas et al. 2023 A&AL 676, L5",
+    l_ref_bib_ids = ["Cabezas:2023:L5"],
+    notes = "",
+    Acon=158105,
+    Bcon=4426,
+    Ccon=4306,
+    mua=3.6,
+    census_version='2021.8.0',
+    change_log = {
+    				'2021.8.0' : 'Initial entry',
     			}
 )
 
@@ -6662,6 +6777,31 @@ CH2CHCH2CN = Molecule(
     				'2021.5.0' : 'Initial entry',
     			}
 )
+NH2COCH2OH = Molecule(
+    name="glycolamide",
+    formula="NH2COCH2OH",
+    table_formula="NH2COCH2OH",
+    year=2023,
+    label="NH2COCH2OH",
+    astromol_name="NH2COCH2OH",
+    sources=[G0693],
+    telescopes=[Yebes40,IRAM30],
+    wavelengths=["cm","mm"],
+    d_refs="Rivilla et al. 2023 ApJL 953, L20",
+    d_ref_bib_ids = ["Rivilla:2023:L20"],
+    l_refs="Sanz-Novo et al. 2020 A&A 639, A135",
+    l_ref_bib_ids = ["Sanz-Novo:2020:A135"],
+    notes = "Dipole moment from Sanz-Novo et al. 2019 ACS E&SC 3, 1170; Rivilla et al. claim a value of 4.4, but that is the total dipole.",
+    Acon=10454,
+    Bcon=4041,
+    Ccon=2972,
+    mua=3.2,
+    mub=3.0,
+    census_version='2021.8.0',
+    change_log = {
+    				'2021.8.0' : 'Initial entry',
+    			}
+)
 
 ######################################################################
 #                           Eleven Atoms                             #
@@ -7056,6 +7196,30 @@ iCH3CH2CH2OH = Molecule(
     				'2021.5.0' : 'Initial entry',
     			}
 )
+iC4H8 = Molecule(
+    name="i-butene",
+    formula="iC4H8",
+    table_formula="i-C4H8",
+    year=2023,
+    label="iC4H8",
+    astromol_name="iC4H8",
+    sources=[G0693],
+    telescopes=[Yebes40,IRAM30],
+    wavelengths=["cm","mm"],
+    d_refs="Fatima et al 2023 A&A 680, A25",
+    d_ref_bib_ids = ["Fatima:2023:A25"],
+    l_refs="Laurie 1961 JCP 34, 1516; Scharpen & Laurie 1963 JCP 39, 1732; Demaison & Rudolph 1975 J Mol Struct 24, 325; Guthowsky & Germann 1991 JMS 147, 91; Fatima et al 2023 A&A 680, A25",
+    l_ref_bib_ids = ["Laurie:1961:1516; Scharpen:1963:1732; Demaison:1975:325; Gutowsky:1991:91; Fatima:2023:A25"],
+    notes = "",
+    Acon=9133,
+    Bcon=8382,
+    Ccon=4616,
+    mub=0.5,
+    census_version='2021.8.0',
+    change_log = {
+    				'2021.8.0' : 'Initial entry',
+    			}
+)
 ######################################################################
 #                         Thirteen Atoms                             #
 ######################################################################
@@ -7170,6 +7334,36 @@ cC5H4CCH2 = Molecule(
     census_version='2021.5.0',
     change_log = {
     				'2021.5.0' : 'Initial entry',
+    			}
+)
+
+######################################################################
+#                                Fourteen                            #
+######################################################################
+
+cC6H5CCH = Molecule(
+    name="ethynylbenzene",
+    formula="C6H5CCH",
+    table_formula="c-C6H5CCH",
+    year=2023,
+    label="c-C6H5CCH",
+    astromol_name="C6H5CCH",
+    cyclic=True,
+    sources=[TMC1],
+    telescopes=[Yebes40],
+    wavelengths=["cm"],
+    d_refs="Loru et al. 2023 A&A 677, A166",
+    d_ref_bib_ids = ["Loru:2023:A166"],
+    l_refs="Loru et al. 2023 A&A 677, A166",
+    l_ref_bib_ids = ["Loru:2023:A166"],
+    notes = "",
+    Acon=2009,
+    Bcon=1324,
+    Ccon=798,
+    mua=0.8,
+    census_version='2021.8.0',
+    change_log = {
+    				'2021.8.0' : 'Initial entry',
     			}
 )
 
@@ -7374,7 +7568,8 @@ all_molecules = [
     HeHp, 
     VO, 
     POp, 
-    SiP, 
+    SiP,
+    FeC, 
     # three atoms
     H2O, 
     HCOp, 
@@ -7458,6 +7653,7 @@ all_molecules = [
     HNCN, 
     H2NC, 
     HCCSp, 
+    CH3p,
     # five atoms
     HC3N, 
     HCOOH, 
@@ -7526,6 +7722,9 @@ all_molecules = [
     HC4S, 
     HMgCCCN, 
     MgC4Hp, 
+    H2C3Hp,
+    HOCOOH,
+    H2C3N,
     # seven atoms
     CH3CHO, 
     CH3CCH, 
@@ -7600,6 +7799,7 @@ all_molecules = [
     CH3CHCHCN, 
     CH2CCH3CN, 
     CH2CHCH2CN, 
+    NH2COCH2OH,
     # eleven atoms
     HC9N, 
     CH3C6H, 
@@ -7619,13 +7819,16 @@ all_molecules = [
     C5H5CN1, 
     C5H5CN2, 
     nCH3CH2CH2OH, 
-    iCH3CH2CH2OH, 
+    iCH3CH2CH2OH,
+    iC4H8, 
     # thirteen atoms
     cC6H5CN, 
     HC11N, 
     C5H5CCH1, 
     C5H5CCH2, 
     cC5H4CCH2, 
+    # fourteen atoms
+    cC6H5CCH,
     # PAHS
     CNN1, 
     CNN2, 

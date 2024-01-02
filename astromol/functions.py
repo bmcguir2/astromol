@@ -273,7 +273,7 @@ def summary(molecule):
 #############################################################
 
 
-def cumu_det_plot(mol_list=None, syear=None, eyear=None, filename=None):
+def cumu_det_plot(mol_list=None, syear=None, eyear=None, filename=None, format='pdf'):
 
     """
     Makes a plot of the cumulative detections by year.
@@ -336,8 +336,9 @@ def cumu_det_plot(mol_list=None, syear=None, eyear=None, filename=None):
     # do linear fits to the data for the two ranges we care about (1968-Present, 2005-Present)
     # get the slope of the fit to detections since 1968 and since 2005
 
-    trend1968 = np.polynomial.polynomial.Polynomial.fit(years[iyear(1968) :], dets[iyear(1968) :], 1).convert().coef[1]
-    trend2005 = np.polynomial.polynomial.Polynomial.fit(years[iyear(2005) :], dets[iyear(2005) :], 1).convert().coef[1]
+    trend1968 = np.polynomial.polynomial.Polynomial.fit(years[iyear(1968) : iyear(2005)], dets[iyear(1968) : iyear(2005)], 1).convert().coef[1]
+    trend2005 = np.polynomial.polynomial.Polynomial.fit(years[iyear(2005) : iyear(2020)], dets[iyear(2005) : iyear(2020)], 1).convert().coef[1]
+    trend2020 = np.polynomial.polynomial.Polynomial.fit(years[iyear(2020) : ], dets[iyear(2020) : ], 1).convert().coef[1]
 
     # load up an axis
     ax = fig.add_subplot(111)
@@ -358,10 +359,10 @@ def cumu_det_plot(mol_list=None, syear=None, eyear=None, filename=None):
 
     # add annotations; #first, the detections per year
     args = {"ha": "left", "size": "24"}
-    det_str = r"\noindent Since 1968: {:.1f} detections/year \\ Since 2005: {:.1f} detections/year".format(
-        trend1968, trend2005
+    det_str = r"\noindent 1968-2005: {:.1f} detections/year \\ 2005-2020: {:.1f} detections/year \\ 2020-{}: {:.1f} detections/year".format(
+        trend1968, trend2005, eyear, trend2020
     )
-    ax.annotate(det_str, xy=(0.05, 0.85), xycoords="axes fraction", **args)
+    ax.annotate(det_str, xy=(0.05, 0.90), xycoords="axes fraction", **args)
 
     # Now the total number of detections
     ax.annotate(
@@ -450,19 +451,34 @@ def cumu_det_plot(mol_list=None, syear=None, eyear=None, filename=None):
         **args,
     )    
 
+    plt.tight_layout()
+
     # write out the figure
-    plt.savefig(
-        filename if filename is not None else "cumulative_detections.pdf",
-        format="pdf",
-        transparent=True,
-        bbox_inches="tight",
-    )
+    
+    if format=='pdf':
+
+        plt.savefig(
+            filename if filename is not None else "cumulative_detections.pdf",
+            format="pdf",
+            transparent=True,
+            bbox_inches="tight",
+        )
+
+    elif format=='png':
+    
+        plt.savefig(
+            filename if filename is not None else "cumulative_detections.png",
+            format="png",
+            dpi=600,
+            transparent=True,
+            bbox_inches="tight",
+        )   
     
     # show the plot
     plt.show()
 
 
-def cumu_det_natoms_plot(mol_list=None, syear=None, eyear=None, filename=None):
+def cumu_det_natoms_plot(mol_list=None, syear=None, eyear=None, filename=None, format='pdf'):
     """
     Makes a plot of the cumulative detections (sorted by atoms) by year
 
@@ -550,7 +566,7 @@ def cumu_det_natoms_plot(mol_list=None, syear=None, eyear=None, filename=None):
     ax.yaxis.set_ticks_position("both")
     ax.xaxis.set_ticks_position("both")
     ax.set_xticks([1940, 1960, 1980, 2000, 2020])
-    ax.set_xlim([syear, eyear])
+    ax.set_xlim([syear, eyear+3])
 
     # plot the traces
     ax.plot(years, dets_dict[2], color="#000000")
@@ -583,6 +599,7 @@ def cumu_det_natoms_plot(mol_list=None, syear=None, eyear=None, filename=None):
         color="#000000",
         va="top",
         ha="left",
+        
     )
     ax.annotate(
         r"\textbf{3 atoms}",
@@ -702,17 +719,32 @@ def cumu_det_natoms_plot(mol_list=None, syear=None, eyear=None, filename=None):
         va="top",
         ha="left",
     )
+    
+    plt.tight_layout()
+
+    # write out the figure
+    
+    if format=='pdf':
+
+        plt.savefig(
+            filename if filename is not None else "cumulative_by_atoms.pdf",
+            format="pdf",
+            transparent=True,
+            bbox_inches="tight",
+        )
+
+    elif format=='png':
+    
+        plt.savefig(
+            filename if filename is not None else "cumulative_by_atoms.png",
+            format="png",
+            dpi=600,
+            transparent=True,
+            bbox_inches="tight",
+        )   
 
     # show the plot
     plt.show()
-
-    # write out the figure
-    plt.savefig(
-        filename if filename is not None else "cumulative_by_atoms.pdf",
-        format="pdf",
-        transparent=True,
-        bbox_inches="tight",
-    )
 
 
 def det_per_year_per_atom(mol_list=None, filename=None):
@@ -1402,7 +1434,7 @@ def periodic_heatmap(mol_list=None, filename=None, pdf_crop=True):
         os.system("pdfcrop --margins -0 periodic_heatmap.pdf periodic_heatmap.pdf")
 
 
-def mass_by_wavelengths(mol_list=None, bw=0.5, filename=None):
+def mass_by_wavelengths(mol_list=None, bw=0.5, filename=None, format='pdf'):
     """
     Makes a Kernel Density Estimate plot of detections at each wavelength vs mass.
 
@@ -1488,7 +1520,7 @@ def mass_by_wavelengths(mol_list=None, bw=0.5, filename=None):
     ax.fill_between(xvals, density_cm(xvals), 0, facecolor="dodgerblue", alpha=0.25, zorder=4)
     ax.annotate(
         "{}".format(len(my_dict["cm"])),
-        xy=(78, 0.01),
+        xy=(90, 0.01),
         xycoords="data",
         ha="left",
         va="bottom",
@@ -1506,7 +1538,7 @@ def mass_by_wavelengths(mol_list=None, bw=0.5, filename=None):
     )
     ax.annotate(
         "{}".format(len(my_dict["mm"])),
-        xy=(54, 0.022),
+        xy=(60, 0.022),
         xycoords="data",
         ha="left",
         va="bottom",
@@ -1517,7 +1549,7 @@ def mass_by_wavelengths(mol_list=None, bw=0.5, filename=None):
     ax.fill_between(xvals, density_submm(xvals), 0, facecolor="forestgreen", alpha=0.25)
     ax.annotate(
         "{}".format(len(my_dict["sub-mm"])),
-        xy=(40, 0.038),
+        xy=(40, 0.03),
         xycoords="data",
         ha="left",
         va="bottom",
@@ -1609,15 +1641,31 @@ def mass_by_wavelengths(mol_list=None, bw=0.5, filename=None):
         ha="right",
         va="top",
     )
+    
+    plt.tight_layout()
 
-    plt.savefig(
-        filename if filename is not None else "mass_by_wavelengths_kde.pdf",
-        format="pdf",
-        transparent=True,
-        bbox_inches="tight",
-        pad_inches=0,
-    )
+    # write out the figure
+    
+    if format=='pdf':
 
+        plt.savefig(
+            filename if filename is not None else "mass_by_wavelengths_kde.pdf",
+            format="pdf",
+            transparent=True,
+            bbox_inches="tight",
+        )
+
+    elif format=='png':
+    
+        plt.savefig(
+            filename if filename is not None else "mass_by_wavelengths_kde.png",
+            format="png",
+            dpi=600,
+            transparent=True,
+            bbox_inches="tight",
+        )   
+
+    # show the plot
     plt.show()
 
     return
@@ -2800,7 +2848,7 @@ def du_by_source_type(mol_list=None, bw=0.5, filename=None):
     return
 
 
-def rel_du_by_source_type(mol_list=None, bw=0.5, filename=None):
+def rel_du_by_source_type(mol_list=None, bw=0.5, filename=None, format='pdf'):
     """
     Makes a Kernel Density Estimate plot of the relative degrees of 
     unsaturation in each source type
@@ -2912,17 +2960,32 @@ def rel_du_by_source_type(mol_list=None, bw=0.5, filename=None):
     )
 
     plt.subplots_adjust(wspace=0, hspace=0)
+    
+    plt.tight_layout()
 
+    # write out the figure
+    
+    if format=='pdf':
 
-    plt.savefig(
-        filename if filename is not None else "relative_du_by_source_type_kde.pdf",
-        format="pdf",
-        transparent=True,
-        bbox_inches="tight",
-        pad_inches=0,
-    )
+        plt.savefig(
+            filename if filename is not None else "relative_du_by_source_type_kde.pdf",
+            format="pdf",
+            transparent=True,
+            bbox_inches="tight",
+        )
 
-    plt.show()
+    elif format=='png':
+    
+        plt.savefig(
+            filename if filename is not None else "relative_du_by_source_type_kde.png",
+            format="png",
+            dpi=600,
+            transparent=True,
+            bbox_inches="tight",
+        )   
+
+    # show the plot
+    plt.show()    
 
     return
 
@@ -5179,7 +5242,7 @@ def make_mols_slide(mol_list=None, filename=None):
                 runs = _split_formula(mol.table_formula) 
             else:
                 runs = _split_formula(mol.formula)
-            p.font.size = Pt(28)
+            p.font.size = Pt(22)
             p.font.name = 'Arial'
             if len(runs) == 1:
                 p.text = runs[0]
@@ -5349,11 +5412,11 @@ def make_mols_slide(mol_list=None, filename=None):
         ncols = 1,
         natoms = 10,
         label_coords = [nine_atoms.label_coords[0], 
-                        6.0, 
+                        5.2, 
                         two_atoms.label_coords[2], 
                         two_atoms.label_coords[3]],
         col_coords = [
-                        [nine_atoms.col_coords[0][0], 6.45, 3., 3.],
+                        [nine_atoms.col_coords[0][0], 5.65, 3., 3.],
                     ],
     ) 
 
@@ -5362,11 +5425,11 @@ def make_mols_slide(mol_list=None, filename=None):
         ncols = 1,
         natoms = 11,
         label_coords = [nine_atoms.col_coords[1][0], 
-                        6.0, 
+                        5.2, 
                         two_atoms.label_coords[2], 
                         two_atoms.label_coords[3]],
         col_coords = [
-                        [nine_atoms.col_coords[1][0], 6.45, 3., 3.],
+                        [nine_atoms.col_coords[1][0], 5.65, 3., 3.],
                     ],
     )  
 
@@ -5375,12 +5438,12 @@ def make_mols_slide(mol_list=None, filename=None):
         ncols = 1,
         natoms = 12,
         label_coords = [seven_atoms.label_coords[0], 
-                        10.6, 
+                        9.6, 
                         two_atoms.label_coords[2], 
                         two_atoms.label_coords[3]],
         col_coords = [
-                        [seven_atoms.col_coords[0][0], 11.1, 3., 2.],
-                        [eight_atoms.col_coords[0][0], 11.1, 3., 2.],
+                        [seven_atoms.col_coords[0][0], 10.1, 3., 2.],
+                        [eight_atoms.col_coords[0][0], 10.1, 3., 2.],
                     ],
     )   
 
@@ -5390,12 +5453,12 @@ def make_mols_slide(mol_list=None, filename=None):
         natoms = 13,
         natoms_greater = True,
         label_coords = [nine_atoms.label_coords[0], 
-                        12.15, 
+                        10.45, 
                         two_atoms.label_coords[2], 
                         two_atoms.label_coords[3]],
         col_coords = [
-                        [nine_atoms.col_coords[0][0], 12.6, 3., 2.],
-                        [nine_atoms.col_coords[1][0], 12.6, 3., 2.],
+                        [nine_atoms.col_coords[0][0], 11.0, 3., 2.],
+                        [nine_atoms.col_coords[1][0], 11.0, 3., 2.],
                     ],
     )        
 
@@ -5427,7 +5490,7 @@ def make_mols_slide(mol_list=None, filename=None):
                         )
 
         my_shapes[i].text = group.label
-        my_shapes[i].text_frame.paragraphs[0].font.size = Pt(30)
+        my_shapes[i].text_frame.paragraphs[0].font.size = Pt(26)
         my_shapes[i].text_frame.paragraphs[0].font.name = 'Arial'
         my_shapes[i].text_frame.paragraphs[0].font.bold = True
         i += 1
