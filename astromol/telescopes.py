@@ -313,6 +313,17 @@ ISO = Telescope(
     decommissioned=1998,
 )
 
+JWST = Telescope(
+    name="JWST",
+    shortname="JWST",
+    astromol_name="JWST",
+    type="Space",
+    wavelength=["IR"],
+    diameter=6.5,
+    built=2021,
+)
+
+
 NRAO140 = Telescope(
     name="NRAO 140-ft",
     shortname="NRAO 140-ft",
@@ -812,6 +823,7 @@ all_telescopes = [
     Hubble,
     ALMA,
     ISO,
+    JWST,
     NRAO140,
     Algonquin46,
     NRAOARO12,

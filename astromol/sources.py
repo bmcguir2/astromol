@@ -318,6 +318,15 @@ CygnusOB212LOS = Source(
     simbad_url="http://simbad.u-strasbg.fr/simbad/sim-id?Ident=%4011680932&Name=Schulte%2012",
 )
 
+d203506 = Source(
+    name="d203-506",
+    astromol_name="d203506",
+    type="Protostar",
+    ra="05:35:20.318",
+    dec="-05:25:05.662",
+    simbad_url=None,
+)
+
 DR21 = Source(
     name="DR 21",
     astromol_name="DR21",
@@ -826,6 +835,7 @@ all_sources = [
     CasALOS,
     CrabNebula,
     CygnusOB212LOS,
+    d203506,
     DR21,
     DR21LOS,
     DR21OH,
