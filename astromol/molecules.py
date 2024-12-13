@@ -3194,7 +3194,30 @@ HSO = Molecule(
     				'2021.7.0' : 'Initial entry',
     			}
 )
-
+CaC2 = Molecule(
+    name="Calcium dicarbide",
+    formula="CaC2",
+    table_formula="CaC2",
+    year=2024,
+    label="CaC2",
+    astromol_name="CaC2",
+    sources=[IRC10216],
+    telescopes=[GBT,Yebes40,IRAM30],
+    wavelengths=["cm","mm"],
+    d_refs="Gupta et al. 2024 ApJL 966, L28",
+    d_ref_bib_ids = ["Gupta:2024:L28"],
+    l_refs="Gupta et al. 2024 ApJL 966, L28",
+    l_ref_bib_ids = ["Gupta:2024:L28"],
+    notes = "",
+    Acon=52371,
+    Bcon=7551,
+    Ccon=6583,
+    mua=11.1,
+    census_version='2021.9.0',
+    change_log = {
+    				'2021.9.0' : 'Initial entry',
+    			}
+)
 ######################################################################
 #                           Four Atoms                               #
 ######################################################################
@@ -3928,6 +3951,77 @@ CH3p = Molecule(
     				'2021.8.0' : 'Initial entry',
     			}
 )
+HCNS = Molecule(
+    name="thiofulminic acid",
+    formula="HCNS",
+    table_formula="HCNS",
+    year=2024,
+    label="HCNS",
+    astromol_name="HCNS",
+    sources=[TMC1],
+    telescopes=[Yebes40],
+    wavelengths=["cm"],
+    d_refs="Cernicharo et al. 2024 A&A 682, L4",
+    d_ref_bib_ids = ["Cernicharo:2024:L4"],
+    l_refs="Brunken et al. 2009 ApJ 706, 1588; McGuire et al. 2016 PCCP 18, 22693",
+    l_ref_bib_ids = ["Brunken:2009:1588; McGuire:2016:22693"],
+    notes = "",
+    Bcon=6151,
+    mua = 3.85,
+    census_version='2021.9.0',
+    change_log = {
+    				'2021.9.0' : 'Initial entry',
+    			}
+)
+HOCSp = Molecule(
+    name="protonated carbonyl sulfide",
+    formula="HOCS+",
+    table_formula="HOCS+",
+    year=2024,
+    label="HOCS+",
+    astromol_name="HOCSp",
+    sources=[G0693],
+    telescopes=[Yebes40,IRAM30],
+    wavelengths=["cm","mm"],
+    d_refs="Sanz-Novo et al. 2024 ApJ 965, 149",
+    d_ref_bib_ids = ["Sanz-Novo:2024:149"],
+    l_refs="Ohshima & Endo 1996 Chem Phys Lett 256, 635",
+    l_ref_bib_ids = ["Ohshima:1996:635"],
+    notes = "Dipole from Wheeler et al. 2006 JCP 124, 044322",
+    Acon=782696,
+    Bcon=5750,
+    Ccon=5703,
+    mua =1.517,
+    census_version='2021.9.0',
+    change_log = {
+    				'2021.9.0' : 'Initial entry',
+    			}
+)
+HNSO = Molecule(
+    name="thionylimide",
+    formula="HNSO",
+    table_formula="HNSO",
+    year=2024,
+    label="HNSO",
+    astromol_name="HNSO",
+    sources=[G0693],
+    telescopes=[Yebes40,IRAM30],
+    wavelengths=["cm","mm"],
+    d_refs="Sanz-Novo et al. 2024 ApJL 965, L26",
+    d_ref_bib_ids = ["Sanz-Novo:2024:L26"],
+    l_refs="Borgo et al. 1979 Chem Phys Lett 63, 115; Kirchhoff 1969 JACS 91, 2437; Heineking & Gerry 1993 JMS 158, 62",
+    l_ref_bib_ids = ["Borgo:1979:115; Kirchhoff:1969:2437; Heineking:1993:62 "],
+    notes = "",
+    Acon=49316,
+    Bcon=9870,
+    Ccon=8205,
+    mua=0.893,
+    mub=0.181,
+    census_version='2021.9.0',
+    change_log = {
+    				'2021.9.0' : 'Initial entry',
+    			}
+)
 ######################################################################
 #                           Five Atoms                               #
 ######################################################################
@@ -4624,7 +4718,55 @@ MgC3Np = Molecule(
     				'2021.7.0' : 'Initial entry',
     			}
 )
-
+C2H3p = Molecule(
+    name="protonated acetylene",
+    formula="C2H3+",
+    table_formula="C2H3+",
+    year=2024,
+    label="C2H3+",
+    astromol_name="C2H3p",
+    sources=[PKS1830],
+    telescopes=[ALMA],
+    wavelengths=["mm"],
+    d_refs="Muller et al. 2024 A&A 683, A62",
+    d_ref_bib_ids = ["2024A&A...683A..62M"],
+    l_refs="Cordonnier & Coudert 1996 JMS 178, 59; Bogey et al. 1992 ApJ 399, L103; Gabrys et al. 1995 JPC 99, 15611",
+    l_ref_bib_ids = ["Cordonnier:1996:59; Bogey:1992:L103; Gabrys:1995:15611"],
+    notes = "Dipole from Lee & Shcaefer 1986 JCP 85, 3437",
+    Acon=400016,
+    Bcon=34238,
+    Ccon=31372,
+    mua=1.14,
+    census_version='2021.9.0',
+    change_log = {
+    				'2021.9.0' : 'Initial entry',
+    			}
+)
+NCCHS = Molecule(
+    name="cyanothioketene",
+    formula="NCCHS",
+    table_formula="NCCHS",
+    year=2024,
+    label="NCCHS",
+    astromol_name="NCCHS",
+    sources=[TMC1],
+    telescopes=[Yebes40],
+    wavelengths=["cm"],
+    d_refs="Cabezas et al. 2024 A&A 686, L3",
+    d_ref_bib_ids = ["Cabezas:2024:L3"],
+    l_refs="Cabezas et al. 2024 A&A 686, L3",
+    l_ref_bib_ids = ["Cabezas:2024:L3"],
+    notes = "",
+    Acon=23744,
+    Bcon=1786,
+    Ccon=1659,
+    mua=3.38,
+    mub=1.95,
+    census_version='2021.9.0',
+    change_log = {
+    				'2021.9.0' : 'Initial entry',
+    			}
+)
 
 ######################################################################
 #                           Six Atoms                               #
@@ -5315,6 +5457,31 @@ H2C3N = Molecule(
     census_version='2021.8.0',
     change_log = {
     				'2021.8.0' : 'Initial entry',
+    			}
+)
+H2CNCN = Molecule(
+    name="N-cyanomethanimine",
+    formula="H2CNCN",
+    table_formula="H2CNCN",
+    year=2024,
+    label="H2CNCN",
+    astromol_name="H2CNCN",
+    sources=[G0693],
+    telescopes=[Yebes40,IRAM30],
+    wavelengths=["cm","mm"],
+    d_refs="San Andres et al. 2024 ApJ 967, 39",
+    d_ref_bib_ids = ["SanAndres:2024:39"],
+    l_refs="Bak & Svanholt 1980 Chem Phys Lett 75, 528; Winnewisser et al. 1984 JMS 105, 193; Stolze et al. 1989",
+    l_ref_bib_ids = ["Bak:1980:528; Winnewisser:1984:193; Stolze:1989:291"],
+    notes = "Dipole from Bak et al. 1978 Chem Phys Lett 59, 330 and Back & Svanholt 1980 Chem Phys Lett 75, 528",
+    Acon=63373,
+    Bcon=5449,
+    Ccon=5010,
+    mua=4.6,
+    mub=1.5,
+    census_version='2021.9.0',
+    change_log = {
+    				'2021.9.0' : 'Initial entry',
     			}
 )
 
@@ -6802,6 +6969,31 @@ NH2COCH2OH = Molecule(
     				'2021.8.0' : 'Initial entry',
     			}
 )
+CH3CH2CCH = Molecule(
+    name="1-butyne",
+    formula="CH3CH2CCH",
+    table_formula="CH3CH2CCH",
+    year=2024,
+    label="CH3CH2CCH",
+    astromol_name="CH3CH2CCH",
+    sources=[TMC1],
+    telescopes=[Yebes40],
+    wavelengths=["cm"],
+    d_refs="Cernicharo et al. 2024 A&A 686, A139",
+    d_ref_bib_ids = ["Cernicharo:2024:A139"],
+    l_refs="Landsberg & Suenram 1983 JMS 98, 210; Demaison et al. 1983 Z. Naturforsch A 38, 447; Steber et al. 2012 JMS 280, 3",
+    l_ref_bib_ids = ["Landsberg:1983:210; Demaison:1983:447; Steber:2012:3"],
+    notes = "Dipole moment from Landsberg & Suenram 1983 JMS 98, 210.  Confirmation of original tentative detection in Cernicharo et al. 2021 A&A 647, L2",
+    Acon=27148,
+    Bcon=4547,
+    Ccon=4087,
+    mua=0.763,
+    mub=0.17,
+    census_version='2021.9.0',
+    change_log = {
+    				'2021.9.0' : 'Initial entry',
+    			}
+)
 
 ######################################################################
 #                           Eleven Atoms                             #
@@ -7336,6 +7528,32 @@ cC5H4CCH2 = Molecule(
     				'2021.5.0' : 'Initial entry',
     			}
 )
+CH3OCH2CH2OH = Molecule(
+    name="2-methoxyethanol",
+    formula="CH3OCH2CH2OH",
+    table_formula="CH3OCH2CH2OH",
+    year=2024,
+    label="CH3OCH2CH2OH",
+    astromol_name="CH3OCH2CH2OH",
+    sources=[NGC6334],
+    telescopes=[ALMA],
+    wavelengths=["mm"],
+    d_refs="Fried et al. 2024 ApJL 965, L23",
+    d_ref_bib_ids = ["Fried:2024:L23"],
+    l_refs="Fried et al. 2024 ApJL 965, L23; Buckley & Brochu 1972 CaJChm 50, 1149; Caminati et al. 1986 Chem Phys 110, 67",
+    l_ref_bib_ids = ["Fried:2024:L23; Buckley:1972:1149; Caminati:1986:67"],
+    notes = "",
+    Acon=12982,
+    Bcon=2743,
+    Ccon=2468,
+    mua=2.03,
+    mub=1.15,
+    muc=0.25,
+    census_version='2021.9.0',
+    change_log = {
+    				'2021.9.0' : 'Initial entry',
+    			}
+)
 
 ######################################################################
 #                                Fourteen                            #
@@ -7618,6 +7836,7 @@ all_molecules = [
     NCS, 
     MgC2, 
     HSO, 
+    CaC2,
     # four atoms
     NH3, 
     H2CO, 
@@ -7654,6 +7873,9 @@ all_molecules = [
     H2NC, 
     HCCSp, 
     CH3p,
+    HCNS,
+    HOCSp,
+    HNSO,
     # five atoms
     HC3N, 
     HCOOH, 
@@ -7690,6 +7912,8 @@ all_molecules = [
     HC3O, 
     NaCCCN, 
     MgC3Np, 
+    C2H3p,
+    NCCHS,
     # six atoms
     CH3OH, 
     CH3CN, 
@@ -7725,6 +7949,7 @@ all_molecules = [
     H2C3Hp,
     HOCOOH,
     H2C3N,
+    H2CNCN,
     # seven atoms
     CH3CHO, 
     CH3CCH, 
@@ -7800,6 +8025,7 @@ all_molecules = [
     CH2CCH3CN, 
     CH2CHCH2CN, 
     NH2COCH2OH,
+    CH3CH2CCH,
     # eleven atoms
     HC9N, 
     CH3C6H, 
@@ -7827,6 +8053,7 @@ all_molecules = [
     C5H5CCH1, 
     C5H5CCH2, 
     cC5H4CCH2, 
+    CH3OCH2CH2OH,
     # fourteen atoms
     cC6H5CCH,
     # PAHS

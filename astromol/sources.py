@@ -27,6 +27,7 @@ class Source(object):
             PN [Planetary Nebula]
             Sgr A
             Oxygen Star
+            External Galaxy
     ra : str
         The right ascension coordinates of the source in the format "hh:mm:ss.sss".
         hh and mm should be two digitse each, ss should be at least two, and may 
@@ -94,6 +95,7 @@ class Source(object):
                 "PN" [Planetary Nebula]
                 "Sgr A"
                 "Oxygen Star"
+                "External Galaxy"
         ra : str
             The right ascension coordinates of the source in the format "hh:mm:ss.sss".
             hh and mm should be two digitse each, ss should be at least two, and may 
@@ -645,6 +647,14 @@ OrionBar = Source(
     simbad_url="http://simbad.u-strasbg.fr/simbad/sim-id?Ident=Orion+Bar",
 )
 
+PKS1830 = Source(
+	name="PKS 1830-211",
+	astromol_name='PKS1830',
+	type="External Galaxy",
+	ra="18:33:39.94",
+	dec="-21:03:39.4",
+	simbad_url="https://simbad.cds.unistra.fr/simbad/sim-id?Ident=%402538390&Name=QSO%20B1830-211&submit=submit")
+
 rhoOphA = Source(
     name="rho Ophiuchi A",
     astromol_name="rhoOphA",
@@ -872,6 +882,7 @@ all_sources = [
     NGC7538LOS,
     Orion,
     OrionBar,
+    PKS1830,
     rhoOphA,
     SgrA,
     SgrALOS,

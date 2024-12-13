@@ -1418,7 +1418,7 @@ def periodic_heatmap(mol_list=None, filename=None, pdf_crop=True):
 
     plt.axis("equal")
     plt.axis("off")
-    plt.show()
+
 
     # write out the figure
     plt.savefig(
@@ -1432,6 +1432,8 @@ def periodic_heatmap(mol_list=None, filename=None, pdf_crop=True):
     # the bit below crops off extra white space.  This only works on Macs with the TexLive pdfcrop utility installed.
     if pdf_crop is True:
         os.system("pdfcrop --margins -0 periodic_heatmap.pdf periodic_heatmap.pdf")
+        
+    plt.show()
 
 
 def mass_by_wavelengths(mol_list=None, bw=0.5, filename=None, format='pdf'):
