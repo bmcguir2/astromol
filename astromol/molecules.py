@@ -7453,11 +7453,11 @@ HC11N = Molecule(
 )
 C5H5CCH1 = Molecule(
     name="1-ethynyl-1,3-cyclopentadiene",
-    formula="C5H4CCH",
-    table_formula="1-C5H4CCH",
+    formula="C5H5CCH",
+    table_formula="1-C5H5CCH",
     year=2021,
-    label="1-C5H4CCH",
-    astromol_name="C5H4CCH1",
+    label="1-C5H5CCH",
+    astromol_name="C5H5CCH1",
     cyclic=True,
     sources=[TMC1],
     telescopes=[Yebes40],
@@ -7472,18 +7472,19 @@ C5H5CCH1 = Molecule(
     Ccon=1549,
     mua=0.81,
     mub=0.32,
-    census_version='2021.7.0',
+    census_version='2021.9.1',
     change_log = {
     				'2021.7.0' : 'Initial entry',
+    				'2021.9.1' : 'Formula typo correction: C5H4CCH -> C5H5CCH'
     			}
 )
 C5H5CCH2 = Molecule(
     name="2-ethynyl-1,3-cyclopentadiene",
-    formula="C5H4CCH",
-    table_formula="2-C5H4CCH",
+    formula="C5H5CCH",
+    table_formula="2-C5H5CCH",
     year=2021,
-    label="2-C5H4CCH",
-    astromol_name="C5H4CCH2",
+    label="2-C5H5CCH",
+    astromol_name="C5H5CCH2",
     cyclic=True,
     sources=[TMC1],
     telescopes=[Yebes40],
@@ -7498,9 +7499,10 @@ C5H5CCH2 = Molecule(
     Ccon=1543,
     mua=1.11,
     mub=0.37,
-    census_version='2021.7.0',
+    census_version='2021.9.1',
     change_log = {
     				'2021.7.0' : 'Initial entry',
+    				'2021.9.1' : 'Formula typo correction: C5H4CCH -> C5H5CCH'
     			}
 )
 cC5H4CCH2 = Molecule(
