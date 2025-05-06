@@ -1245,13 +1245,19 @@ CH = Molecule(
     d_refs="Dunham 1937 PASP 49, 26; Swings & Rosenfeld 1937 ApJ 86, 483; McKellar 1940 PASP 52, 187",
     l_refs="Jevons 1932 Phys Soc. pp 177-179; Brazier & Brown 1983 JCP 78, 1608",
     notes="*First radio in Rydbeck et al. 1973 Nature 246, 466",
+    isotopologues="CD",
+    isos_d_refs='[CD] Jacob et al. 2023 A&A 675, A69',
     exgal=True,
     exgal_d_refs="Whiteoak et al. 1980 MNRAS 190, 17p",
     exgal_d_bib_ids=["1980MNRAS.190P..17W"],
     exgal_sources="LMC, NGC 4945, NGC 5128",
     Bcon=425476,
     mua=1.5,
-    census_version='2018.0.0',
+    census_version='2021.10.0',
+    change_log = {
+    				'2018.0.0' : 'First entry',
+    				'2021.10.0' : 'Added interstellar CD detection',
+    			}
 )
 CN = Molecule(
     name="cyano radical",
@@ -1518,13 +1524,31 @@ SO = Molecule(
     ppd=True,
     ppd_d_refs="Fuente et al. 2010 A&A 524, A19",
     ppd_d_bib_ids=["2010A&A...524A..19F"],
+    ppd_isos= [
+                Molecule(
+                        formula="34SO",
+                        table_formula=r"34SO",
+                        ppd_d_refs = "Booth et al. 2024 AJ 167, 165",
+                        ppd_d_bib_ids = ["Booth:2024:165"],
+                ),
+                Molecule(
+                        formula="33SO",
+                        table_formula=r"33SO",
+                        ppd_d_refs = "Booth et al. 2024 AJ 167, 165",
+                        ppd_d_bib_ids = ["Booth:2024:165"],
+                )
+            ],    
     exgal=True,
     exgal_d_refs="Johansson 1991 Proc. IAU Symposium 146, 1; Petuchowski & Bennett 1992 ApJ 391, 137",
     exgal_d_bib_ids=["1991IAUS..146....1J","1992ApJ...391..137P"],
     exgal_sources="M82, NGC 253",
     Bcon=21524,
     mua=1.5,
-    census_version='2018.0.0',
+    census_version='2021.10.0',
+    change_log = {
+    				'2018.0.0' : 'Initial entry',
+    				'2021.10.0' : "34SO and 33SO in protoplanetary disks",
+    			}
 )
 SiS = Molecule(
     name="silicon monosulfide",
@@ -1537,10 +1561,17 @@ SiS = Molecule(
     wavelengths=["mm"],
     d_refs="Morris et al. 1975 ApJ 199, L47",
     l_refs="Hoeft 1965 Z. fur Naturforschung A, 20, 1327",
+    ppd=True,
+    ppd_d_refs="Law et al. 2023 ApJ 952, L19",
+    ppd_d_bib_ids=["Law:2023:L19"],
     notes=None,
     Bcon=9077,
     mua=1.7,
-    census_version='2018.0.0',
+    census_version='2021.10.0',
+    change_log = {
+    				'2018.0.0' : 'Initial entry',
+    				'2021.10.0' : "Detected in protoplanetary disks"
+    			}
 )
 NS = Molecule(
     name="nitrogen monosulfide",
@@ -2102,10 +2133,17 @@ VO = Molecule(
     wavelengths=["IR"],
     d_refs="Humphreys et al. 2019 ApJL 874, L26",
     l_refs="Adam et al. 1995 JMS 170, 94; Cheung et al. 1994 JMS 163, 443",
+    exo=True,
+    exo_d_refs="Ouyang et al. 2023 Res. Ast. Astrophys. 23, 065010",
+    exo_d_bib_ids=["Ouyang:2023:065010"],
     notes="Some VO transitions originally observed in the source by Wallerstein & Gonzalez 2001 PASP 113, 954, Wallerstein 1971 ApJ 169, 195, and Wallerstein 1986 ApJ 164, 101, but not assigned as circumstellar until now.  B constant from Cheung et al. 1982 JMS 91, 165.  Dipole moment from Suenram et al. 1991 JMS 148, 114.",
     Bcon=16381,
     mua=3.355,
-    census_version='2021.0.0',
+    census_version='2021.10.0',
+    change_log = {
+    				'2021.0.0' : 'Initial entry',
+    				'2021.10.0' : "Detected in exoplanetary atmosphere"
+    			}
 )
 POp = Molecule(
     name="phosphorus monoxide cation",
@@ -2169,6 +2207,48 @@ FeC = Molecule(
     census_version='2021.8.0',
     change_log = {
     				'2021.8.0' : 'Initial entry',
+    			}
+)
+MgS = Molecule(
+    name="magnesium sulfide",
+    formula="MgS",
+    year=2024,
+    label="MgS",
+    astromol_name="MgS",
+    sources=[G0693],
+    telescopes=[Yebes40, IRAM30, APEX],
+    wavelengths=["cm", "mm"],
+    d_refs="Marta Rey-Montejo et al. 2024 ApJ 975, 174",
+    d_ref_bib_ids = ["Rey-Montejo:2024:174"],
+    l_refs="Takano et al. 1989 CPL 159, 563",
+    l_ref_bib_ids = ["Takano:1989:563"],
+    notes = "Dipole moment from Chambaud et al. 2008 Chem. Phys. 352, 147",
+    Bcon=8007,
+    mua=7.07,
+    census_version='2021.10.0',
+    change_log = {
+    				'2021.10.0' : 'Initial entry',
+    			}
+)
+NaS = Molecule(
+    name="sodium sulfide",
+    formula="NaS",
+    year=2024,
+    label="NaS",
+    astromol_name="NaS",
+    sources=[G0693],
+    telescopes=[Yebes40, IRAM30],
+    wavelengths=["cm", "mm"],
+    d_refs="Marta Rey-Montejo et al. 2024 ApJ 975, 174",
+    d_ref_bib_ids = ["Rey-Montejo:2024:174"],
+    l_refs="Li & Ziurys 1997 ApJ 488, L137",
+    l_ref_bib_ids = ["Li:1997:L137"],
+    notes = "Dipole moment from Chambaud et al. 2008 Chem. Phys. 352, 147",
+    Bcon=6101,
+    mua=9.14,
+    census_version='2021.10.0',
+    change_log = {
+    				'2021.10.0' : 'Initial entry',
     			}
 )
 ######################################################################
@@ -2466,14 +2546,18 @@ SO2 = Molecule(
     ppd=True,
     ppd_d_refs="Booth et al. 2021 ApJL 651, L6",
     ppd_d_bib_ids=["2021A&A...651L...6B"],
+    exo=True,
+    exo_d_refs="Alderson et al. 2023 Nature 614, 664; Beatty 2024 ApJL 970, L10",
+    exo_d_bib_ids=["Alderson:2023:664","Beatty:2024:L10"],
     Acon=60779,
     Bcon=10318,
     Ccon=8800,
     mub=1.6,
-    census_version='2021.7.0',
+    census_version='2021.10.0',
     change_log = {
 				'2018.0.0' : 'Initial Entry',
 				'2021.7.0' : 'Detected in protoplanetary disks',
+				'2021.10.0' : 'Detected in exoplanet atmospheres',
     }
 )
 HCO = Molecule(
@@ -2645,11 +2729,23 @@ CO2 = Molecule(
     ppd=True,
     ppd_d_refs="Carr & Najita 2008 Science 319, 1504",
     ppd_d_bib_ids=["2008Sci...319.1504C"],
+    ppd_isos= [
+                Molecule(
+                        formula="13CO2",
+                        table_formula=r"^{13}CO2",
+                        ppd_d_refs = "Sturm et al. 2023 A&A 679, A138",
+                        ppd_d_bib_ids = ["Sturm:2023:A138"],
+                )
+            ],  
     exo=True,
-    exo_d_refs="Stevenson et al. 2010 Nature 464, 1161; Madhusudhan et al. 2011 Nature 469, 64; Lanotte et al. 2014 A&A 572, A73",
-    exo_d_bib_ids=["2010Natur.464.1161S","2011Natur.469...64M","2014A&A...572A..73L"],
+    exo_d_refs="Stevenson et al. 2010 Nature 464, 1161; Madhusudhan et al. 2011 Nature 469, 64; Lanotte et al. 2014 A&A 572, A73; JWST et al. 2023 Nature 614, 649",
+    exo_d_bib_ids=["2010Natur.464.1161S","2011Natur.469...64M","2014A&A...572A..73L", "JWST:2023:649"],
     mua=0.0,
-    census_version='2018.0.0',
+    census_version='2021.10.0',
+    change_log = {
+    				'2018.0.0' : 'Initial entry',
+    				'2021.10.0' : "Detected in exoplanetary atmosphere; 13CO2 in protoplanetary disks"
+    			}
 )
 CH2 = Molecule(
     name="methylene",
@@ -3289,6 +3385,14 @@ H2CO = Molecule(
     ppd=True,
     ppd_d_refs="Dutrey et al. 1997 A&A 317, L55",
     ppd_d_bib_ids=["1997A&A...317L..55D"],
+    ppd_isos= [
+                Molecule(
+                        formula="H2^{13}CO",
+                        table_formula=r"H2^{13}CO",
+                        ppd_d_refs = "Booth et al. 2024 AJ 167, 165",
+                        ppd_d_bib_ids = ["Booth:2024:165"],
+                )
+            ],      		
     exgal=True,
     exgal_d_refs="Gardner & Whiteoak 1974 Nature 247, 526",
     exgal_d_bib_ids=["1974Natur.247..526G"],
@@ -3297,7 +3401,11 @@ H2CO = Molecule(
     Bcon=38834,
     Ccon=34004,
     mua=2.3,
-    census_version='2018.0.0',
+    census_version='2021.10.0',
+    change_log = {
+    				'2018.0.0' : 'Initial entry',
+    				'2021.10.0' : "H213CO detected protoplanetary disks"
+    			}
 )
 HNCO = Molecule(
     name="isocyanic acid",
@@ -3362,6 +3470,14 @@ C2H2 = Molecule(
     ppd=True,
     ppd_d_refs="Lahuis et al. 2006 ApJ 636, L145",
     ppd_d_bib_ids=["2006ApJ...636L.145L"],
+    ppd_isos= [
+                Molecule(
+                        formula="H13CCH",
+                        table_formula=r"H^{13}CCH",
+                        ppd_d_refs = "Tabone et al. 2023 Nat. Ast. 7, 805",
+                        ppd_d_bib_ids = ["Tabone:2023:805"],
+                )
+            ],    
     exgal=True,
     exgal_d_refs="Matsuura et al. 2002 ApJ 580, L133",
     exgal_d_bib_ids=["2002ApJ...580L.133M"],
@@ -3371,7 +3487,11 @@ C2H2 = Molecule(
     exo_d_bib_ids=["2021Natur.592..205G"],
     exo_sources="HD 209458b",
     mua=0.0,
-    census_version='2018.0.0',
+    census_version='2021.10.0',
+    change_log = {
+    				'2018.0.0' : 'Initial entry',
+    				'2021.10.0' : 'H13CCH detected in protoplanetary disks',
+    			}     
 )
 C3N = Molecule(
     name="cyanoethynyl radical",
@@ -3964,7 +4084,7 @@ HCNS = Molecule(
     d_refs="Cernicharo et al. 2024 A&A 682, L4",
     d_ref_bib_ids = ["Cernicharo:2024:L4"],
     l_refs="Brunken et al. 2009 ApJ 706, 1588; McGuire et al. 2016 PCCP 18, 22693",
-    l_ref_bib_ids = ["Brunken:2009:1588; McGuire:2016:22693"],
+    l_ref_bib_ids = ["Brunken:2009:1588","McGuire:2016:22693"],
     notes = "",
     Bcon=6151,
     mua = 3.85,
@@ -4010,7 +4130,7 @@ HNSO = Molecule(
     d_refs="Sanz-Novo et al. 2024 ApJL 965, L26",
     d_ref_bib_ids = ["Sanz-Novo:2024:L26"],
     l_refs="Borgo et al. 1979 Chem Phys Lett 63, 115; Kirchhoff 1969 JACS 91, 2437; Heineking & Gerry 1993 JMS 158, 62",
-    l_ref_bib_ids = ["Borgo:1979:115; Kirchhoff:1969:2437; Heineking:1993:62 "],
+    l_ref_bib_ids = ["Borgo:1979:115","Kirchhoff:1969:2437","Heineking:1993:62"],
     notes = "",
     Acon=49316,
     Bcon=9870,
@@ -4317,8 +4437,20 @@ CH4 = Molecule(
     exo=True,
     exo_d_refs="Swain et al. 2008 Nature 452, 329; Barman et al. 2011 ApJ 733, 65; Stevenson et al. 2014 ApJ 791, 36; Barman et al. 2015 ApJ 804, 61",
     exo_d_bib_ids=["2008Natur.452..329S","2011ApJ...733...65B","2014ApJ...791...36S","2015ApJ...804...61B"],
+	exo_isos= [
+			Molecule(
+					formula="CH3D",
+					table_formula="CH3D",
+					exo_d_refs = "Rowland et al. 2024 ApJ 977, L49",
+					exo_d_bib_ids = ["Rowland:2024:L49"],
+			)
+		],
     mua=0.0,
     census_version='2018.0.0',
+	change_log = {
+				'2018.0.0' : 'Initial entry',
+				'2021.10.0' : 'Added CH3D detection in exoplanetary atmosphere',
+			}
 )
 HCCNC = Molecule(
     name="isocyanoacetylene",
@@ -4731,7 +4863,7 @@ C2H3p = Molecule(
     d_refs="Muller et al. 2024 A&A 683, A62",
     d_ref_bib_ids = ["2024A&A...683A..62M"],
     l_refs="Cordonnier & Coudert 1996 JMS 178, 59; Bogey et al. 1992 ApJ 399, L103; Gabrys et al. 1995 JPC 99, 15611",
-    l_ref_bib_ids = ["Cordonnier:1996:59; Bogey:1992:L103; Gabrys:1995:15611"],
+    l_ref_bib_ids = ["Cordonnier:1996:59","Bogey:1992:L103","Gabrys:1995:15611"],
     notes = "Dipole from Lee & Shcaefer 1986 JCP 85, 3437",
     Acon=400016,
     Bcon=34238,
@@ -4767,7 +4899,97 @@ NCCHS = Molecule(
     				'2021.9.0' : 'Initial entry',
     			}
 )
-
+HC3Np = Molecule(
+    name="cyanoacetylene cation",
+    formula="HC3N+",
+    table_formula="HC3N+",
+    year=2024,
+    label="HC3N+",
+    astromol_name="HC3N+",
+    sources=[TMC1],
+    telescopes=[Yebes40],
+    wavelengths=["cm"],
+    d_refs="Cabezas et al. 2024 A&A 687, L22",
+    d_ref_bib_ids = ["Cabezas:2024:L22"],
+    l_refs="Cabezas et al. 2024 A&A 687, L22",
+    l_ref_bib_ids = ["Cabezas:2024:L22"],
+    notes = "Identified from theory work provided in same paper",
+    Bcon=4533,
+    mua=5.5,
+    census_version='2021.10.0',
+    change_log = {
+    				'2021.10.0' : 'Initial entry',
+    			}
+)
+NC3S = Molecule(
+    name="cyanoethynylsulfanyl",
+    formula="NC3S",
+    table_formula="NC3S",
+    year=2024,
+    label="NC3S",
+    astromol_name="NC3S",
+    sources=[TMC1],
+    telescopes=[Yebes40],
+    wavelengths=["cm"],
+    d_refs="Cernicharo et al. 2024 A&A 688, L13",
+    d_ref_bib_ids = ["Cernicharo:2024:L13"],
+    l_refs="McCarthy et al. 2003 ApJS 144, 287",
+    l_ref_bib_ids = ["McCarthy:2003:287"],
+    notes = "Detection based on a combination of calculations + the provided lab ref",
+    Bcon=1439,
+    mua=3.0,
+    census_version='2021.10.0',
+    change_log = {
+    				'2021.10.0' : 'Initial entry',
+    			}
+)
+HC3S = Molecule(
+    name="propadienethionyl",
+    formula="HC3S",
+    table_formula="HC3S",
+    year=2024,
+    label="HC3S",
+    astromol_name="HC3S",
+    sources=[TMC1],
+    telescopes=[Yebes40],
+    wavelengths=["cm"],
+    d_refs="Cernicharo et al. 2024 A&A 688, L13",
+    d_ref_bib_ids = ["Cernicharo:2024:L13"],
+    l_refs="McCarthy et al. 1994 ApJ 431, L127; Hirahara et al. 1994 JCP 101, 7342",
+    l_ref_bib_ids = ["McCarthy:1994:L127","Hirahara:1994:7342"],
+    notes = "",
+    Bcon=2688,
+    mua=1.76,
+    census_version='2021.10.0',
+    change_log = {
+    				'2021.10.0' : 'Initial entry',
+    			}
+)
+HCSSH = Molecule(
+    name="dithioformic acid",
+    formula="HCSSH",
+    table_formula="HCSSH",
+    year=2024,
+    label="HCSSH",
+    astromol_name="HCSSH",
+    sources=[NGC1333IRAS4A],
+    telescopes=[ALMA],
+    wavelengths=["sub-mm"],
+    d_refs="Manna & Pal 2024 ACS E&SC 8, 2401",
+    d_ref_bib_ids = ["Manna:2024:2401"],
+    l_refs="Prudenzano et al. 2018 A&A 612, A56; Bak et al. 1978 JMS 69, 407",
+    l_ref_bib_ids = ["Prudenzano:2018:A56","Bak:1978:401"],
+    notes = "",
+    Acon=49206,
+    Bcon=3448,
+	Ccon=3219,
+    mua=1.48,
+    mub=0.19,
+    census_version='2021.10.0',
+    change_log = {
+    				'2021.10.0' : 'Initial entry',
+    			}
+)
 ######################################################################
 #                           Six Atoms                               #
 ######################################################################
@@ -5032,8 +5254,15 @@ HC4H = Molecule(
     exgal_d_refs="Bernard-Salas et al. 2006 ApJ 652, L29",
     exgal_d_bib_ids=["2006ApJ...652L..29B"],
     exgal_sources="SMP LMC 11",
+    ppd=True,
+	ppd_d_refs='Tabone et al. 2023 Nat. Ast. 7, 805',
+	ppd_d_bib_ids=['Tabone:2023:805'],
     mua=0.0,
-    census_version='2018.0.0',
+    census_version='2021.10.0',
+    change_log = {
+    				'2018.0.0' : 'Initial entry',
+    				'2021.10.0' : 'Added protoplanetary disk detection'
+    			}
 )
 HC4N = Molecule(
     name="",
@@ -5423,7 +5652,7 @@ HOCOOH = Molecule(
     d_refs="Sanz-Novo et al. 2023 ApJ 954, 3",
     d_ref_bib_ids = ["Sanz-Novo:2023:3"],
     l_refs="Mori et al. 2009 JCP 130, 204308; Mori et al. 2011 JCP 134, 044319",
-    l_ref_bib_ids = ["Mori:2009:204308; Mori:2011:044319"],
+    l_ref_bib_ids = ["Mori:2009:204308","Mori:2011:044319"],
     notes = "",
     Acon=11779,
     Bcon=11423,
@@ -5472,7 +5701,7 @@ H2CNCN = Molecule(
     d_refs="San Andres et al. 2024 ApJ 967, 39",
     d_ref_bib_ids = ["SanAndres:2024:39"],
     l_refs="Bak & Svanholt 1980 Chem Phys Lett 75, 528; Winnewisser et al. 1984 JMS 105, 193; Stolze et al. 1989",
-    l_ref_bib_ids = ["Bak:1980:528; Winnewisser:1984:193; Stolze:1989:291"],
+    l_ref_bib_ids = ["Bak:1980:528","Winnewisser:1984:193","Stolze:1989:291"],
     notes = "Dipole from Bak et al. 1978 Chem Phys Lett 59, 330 and Back & Svanholt 1980 Chem Phys Lett 75, 528",
     Acon=63373,
     Bcon=5449,
@@ -5500,20 +5729,28 @@ CH3CHO = Molecule(
     wavelengths=["cm"],
     d_refs="Gottlieb 1973 Molecules in the Galactic Environment 181; Fourikis et al. 1974 Aust J Phys 27, 425; Gilmore et al. 1976 ApJ 204, 43",
     l_refs="Kilb et al. 1957 JCP 26, 1695; Souter & Wood 1970 JCP 52, 674",
-    notes=None,
-    ice="Tentative",
-    ice_d_refs="Schutte et al. 1999 A&A 343, 966",
-    ice_l_refs="Schutte et al. 1999 A&A 343, 966",
+    notes="Schutte et al. 1999 A&A 343, 966 reported a tentative detection in ices",
+    ice=True,
+    ice_d_refs="Chen et al. 2024 A&A 690, A205",
+	ice_d_bib_ids=["Chen:2024:A205"],
+    ice_l_refs="Bouilloud et al. 2015 MNRAS 451, 2145",
+	ice_l_bib_ids=["Bouilloud:2015:2145"],
     exgal=True,
     exgal_d_refs="Muller et al. 2011 A&A 535, A103",
     exgal_d_bib_ids=["2011A&A...535A.103M"],
     exgal_sources="PKS 1830-211 LOS",
+    isotopologues="CHD2CHO",
+    isos_d_refs="Ferrer Asensio et al. 2023 A&A 670, A177",
     Acon=56449,
     Bcon=10160,
     Ccon=9101,
     mua=2.4,
     mub=1.3,
-    census_version='2018.0.0',
+    census_version='2021.10.0',
+    change_log = {
+    				'2018.0.0' : 'Initial entry',
+    				'2021.10.0' : "Added CHD2CHO detection, added ice detection"
+    			}
 )
 CH3CCH = Molecule(
     name="methylacetylene",
@@ -5632,12 +5869,21 @@ cC2H4O = Molecule(
     cyclic=True,
     d_refs="Dickens et al. 1997 ApJ 489, 753",
     l_refs="Hirose 1974 ApJ 189, L145",
+    isotopologues="C2H3DO",
+    isos_d_refs="Muller et al. 2023 MNRAS 518, 185",
+    ppd = True,
+	ppd_d_refs = "Booth et al. 2024 AJ 167, 165",
+	ppd_d_bib_ids = ["Booth:2024:165"],
     notes=None,
     Acon=25484,
     Bcon=22121,
     Ccon=14098,
     mub=1.9,
-    census_version='2018.0.0',
+    census_version='2021.10.0',
+    change_log = {
+    				'2018.0.0' : 'Initial entry',
+    				'2021.10.0' : "Detected in protoplanetary disks, C2H3DO detected in ISM"
+    			}
 )
 CH2CHOH = Molecule(
     name="vinyl alcohol",
@@ -5896,6 +6142,74 @@ MgC5Np = Molecule(
     				'2021.7.0' : 'Initial entry',
     			}
 )
+HC5Np = Molecule(
+    name="cyanodiacetylene cation",
+    formula="HC5N+",
+    table_formula="HC5N+",
+    year=2024,
+    label="HC5N+",
+    astromol_name="HC5Np",
+    sources=[TMC1],
+    telescopes=[Yebes40],
+    wavelengths=["cm"],
+    d_refs="Cernicharo et al. 2024 A&A 686, L15",
+    d_ref_bib_ids = ["Cernicharo:2024:L15"],
+    l_refs="Cernicharo et al. 2024 A&A 686, L15",
+    l_ref_bib_ids = ["Cernicharo:2024:L15"],
+    notes = "Detection based on calculations.  Dipole moment is average of two reference values: 6.5 D (Zhang et al. 2012 Int J Mass Spec 309, 56) and 6.9 D (Gans et al. 2019 JCP 150, 244303)",
+    Bcon=1338,
+    mua=6.7,
+    census_version='2021.10.0',
+    change_log = {
+    				'2021.10.0' : 'Initial entry',
+    			}
+)
+HNC5 = Molecule(
+    name="iminopentadienylidene",
+    formula="HNC5",
+    table_formula="HNC5",
+    year=2024,
+    label="HNC5",
+    astromol_name="HNC5",
+    sources=[TMC1],
+    telescopes=[Yebes40],
+    wavelengths=["cm"],
+    d_refs="Fuentetaja et al. 2024 A&A 688, L29",
+    d_ref_bib_ids = ["Fuentetaja:2024:L29"],
+    l_refs="Fuentetaja et al. 2024 A&A 688, L29",
+    l_ref_bib_ids = ["Fuentetaja:2024:L29"],
+    notes = "",
+    Bcon=1362,
+    mua=7.7,
+    census_version='2021.10.0',
+    change_log = {
+    				'2021.10.0' : 'Initial entry',
+    			}
+)
+CH2CNCN = Molecule(
+    name="malononitrile",
+    formula="CH2CNCN",
+    table_formula="CH2(CN)2",
+    year=2024,
+    label="CH2CNCN",
+    astromol_name="CH2CNCN",
+    sources=[TMC1],
+    telescopes=[Yebes40],
+    wavelengths=["cm"],
+    d_refs="Agundez et al. 2024 A&A 688, L31",
+    d_ref_bib_ids = ["Agundez:2024:L31"],
+    l_refs="Hirota & Morino 1960 Bull. Chem. Soc. Japan. 33, 158; Cook et al. 1974 JMS 53, 370; Burie et al. 1982 J Phys France 43, 1319; Cox et al. 1985 Z Natur 40a, 361;Motiyenko et al. 2019 A&A 623, A162",
+    l_ref_bib_ids = ["Hirota:1960:158","Cook:1974:370","Burie:1982:1319","Cox:1985:361","Motiyenko:2019:A162"],
+    notes = "",
+    Acon=20883,
+    Bcon=2942,
+    Ccon=2617,
+    mub=3.735,
+    census_version='2021.10.0',
+    change_log = {
+    				'2021.10.0' : 'Initial entry',
+    			}
+)
 
 ######################################################################
 #                           Eight Atoms                              #
@@ -5917,15 +6231,21 @@ HCOOCH3 = Molecule(
     exgal_d_refs="Sewiło et al. 2018 ApJL 853, L19",
     exgal_d_bib_ids=["2018ApJ...853L..19S"],
     exgal_sources="LMC",
+    ice=True,
+	ice_d_refs="Chen et al. 2024 A&A 690, A205",
+	ice_d_bib_ids=["Chen:2024:A205"],
+	ice_l_refs="Terwisscha van Scheltinga et al. 2021 A&A 651, A95",
+	ice_l_bib_ids=["TerwisschavanScheltinga:2021:A95"],
     Acon=17630,
     Bcon=9243,
     Ccon=5318,
     mua=1.6,
     mub=0.7,
-    census_version='2021.5.0',
+    census_version='2021.10.0',
     change_log = {
     				'2018.0.0' : 'Initial entry',
-    				'2021.5.0' : 'Minor formatting update to notes text'
+    				'2021.5.0' : 'Minor formatting update to notes text',
+    				'2021.10.0' : 'Detected in ices',
     			}
 )
 CH3C3N = Molecule(
@@ -6353,7 +6673,30 @@ MgC6Hp = Molecule(
     				'2021.7.0' : 'Initial entry',
     			}
 )
-
+NCCHCHCN = Molecule(
+    name="maleonitrile",
+    formula="NCCHCHCN",
+    table_formula="NCCHCHCN",
+    year=2024,
+    label="NCCHCHCN",
+    astromol_name="NCCHCHCN",
+    sources=[TMC1],
+    telescopes=[Yebes40],
+    wavelengths=["cm"],
+    d_refs="Agundez et al. 2024 A&A 688, L31",
+    d_ref_bib_ids = ["Agundez:2024:L31"],
+    l_refs="Halter et al. 2001 JACS 123, 12353; Cernicharo et al. 2019 A&A 626, A34",
+    l_ref_bib_ids = ["Halter:2001:12353","Cernicharo:2019:A34"],
+    notes = "",
+    Acon=7098,
+    Bcon=2683,
+    Ccon=1944,
+    mub=5.32,
+    census_version='2021.10.0',
+    change_log = {
+    				'2021.10.0' : 'Initial entry',
+    			}
+)
 
 ######################################################################
 #                           Nine Atoms                               #
@@ -6378,14 +6721,20 @@ CH3OCH3 = Molecule(
     ppd=True,
     ppd_d_refs="Brunken et al. 2022 A&A 659, A29",
     ppd_d_bib_ids=["2022A&A...659A..29B"],
+	ice=True,
+	ice_d_refs="Chen et al. 2024 A&A 690, A205",
+	ice_d_bib_ids=["Chen:2024:A205"],
+	ice_l_refs="Terwisscha van Scheltinga et al. 2018 A&A 611, A35",
+	ice_l_bib_ids=["TerwisschavanScheltinga:2018:A35"],
     Acon=38788,
     Bcon=10057,
     Ccon=8887,
     mub=1.3,
-    census_version='2021.7.0',
+    census_version='2021.10.0',
     change_log = {
 				'2018.0.0' : 'Initial Entry',
 				'2021.7.0' : 'Detected in protoplanetary disks',
+				'2021.10.0' : 'Detected in ices',
     }
 )
 CH3CH2OH = Molecule(
@@ -6404,15 +6753,21 @@ CH3CH2OH = Molecule(
     exgal_d_refs = "Martin et al. 2021 A&A 656, A46",
     exgal_d_bib_ids = ["2021A&A...656A..46M"],
     exgal_sources = "NGC 253",
+    ice=True,
+	ice_d_refs="Chen et al. 2024 A&A 690, A205",
+	ice_d_bib_ids=["Chen:2024:A205"],
+	ice_l_refs="Boudin et al. 1998 A&A 331, 749",
+	ice_l_bib_ids=["Boudin:1998:749"],
     Acon=34892,
     Bcon=9351,
     Ccon=8135,
     mua=0.1,
     mub=1.4,
-    census_version='2021.7.0',
+    census_version='2021.10.0',
     change_log = {
 				'2018.0.0' : 'Initial Entry',
 				'2021.7.0' : 'Detected in external galaxies.',
+				'2021.10.0' : 'Detected in ices',
     }
 )
 CH3CH2CN = Molecule(
@@ -6657,6 +7012,77 @@ H2CCHC3N = Molecule(
     mub=0.3,
     census_version='2021.0.0',
 )
+HOCHCHCHO = Molecule(
+    name="3-hydroxypropenal",
+    formula="HOCHCHCHO",
+    table_formula="HOCHCHCHO",
+    year=2024,
+    label="HOCHCHCHO",
+    astromol_name="HOCHCHCHO",
+    sources=[IRAS16293],
+    telescopes=[ALMA],
+    wavelengths=["sub-mm"],
+    d_refs="Muller et al. 2024 A&A 687, A8",
+    d_ref_bib_ids = ["Muller:2024:A8"],
+    l_refs="Muller et al. 2024 A&A 687, A8; Baughcum et al. 1981 JACS 103, 6296; Stolze et al. 1983 J Mol Struct 97, 243; Baba et al. 1999 JCP 110, 4131",
+    l_ref_bib_ids = ["Muller:2024:A8", "Baughcum:1981:6296", "Stolze:1983:243", "Baba:1999:4131"],
+    notes = "Also known as malonaldehyde.  Tentatively detected previously in same source by Coutens et al. 2020 A&A 660, A6.  b dipole from Baughcum et al. 1981 JACS 103, 6296. a dipole from Baba et al. 1999 JCP 110, 4131",
+    Acon=9840,
+    Bcon=5186,
+    Ccon=3394,
+    mua=0.36,
+    mub=2.58,
+    census_version='2021.10.0',
+    change_log = {
+    				'2021.10.0' : 'Initial entry',
+    			}
+)
+HC7Np = Molecule(
+    name="cyanotriacetylene cation",
+    formula="HC7N+",
+    table_formula="HC7N+",
+    year=2024,
+    label="HC7N+",
+    astromol_name="HC7Np",
+    sources=[TMC1],
+    telescopes=[Yebes40],
+    wavelengths=["cm"],
+    d_refs="Cernicharo et al. 2024 A&A 686, L15",
+    d_ref_bib_ids = ["Cernicharo:2024:L15"],
+    l_refs="Cernicharo et al. 2024 A&A 686, L15",
+    l_ref_bib_ids = ["Cernicharo:2024:L15"],
+    notes = "Detection based on calculations.",
+    Bcon=568,
+    mua=7.9,
+    census_version='2021.10.0',
+    change_log = {
+    				'2021.10.0' : 'Initial entry',
+    			}
+)
+HCCCH2CCH = Molecule(
+    name="1,4-pentadiyne",
+    formula="HCCCH2CCH",
+    table_formula="HCCCH2CCH",
+    year=2024,
+    label="HCCCH2CCH",
+    astromol_name="HCCCH2CCH",
+    sources=[TMC1],
+    telescopes=[Yebes40],
+    wavelengths=["cm"],
+    d_refs="Fuentetaja et al. 2024 A&A 688, L15",
+    d_ref_bib_ids = ["Fuentetaja:2024:L15"],
+    l_refs="Kuczkowski et al. 1981 J Mol. Struct. 72, 143",
+    l_ref_bib_ids = ["Kuczkowski:1981:143"],
+    notes = "",
+    Acon=19077,
+    Bcon=2859,
+    Ccon=2521,
+    mub=0.516,
+    census_version='2021.10.0',
+    change_log = {
+    				'2021.10.0' : 'Initial entry',
+    			}
+)
 
 ######################################################################
 #                             Ten Atoms                              #
@@ -6673,12 +7099,21 @@ CH3COCH3 = Molecule(
     wavelengths=["cm", "mm"],
     d_refs="Combes et al. 1987 A&A 180, L13",
     l_refs="Vacherand et al. 1986 JMS 118, 355",
+	ice=True,
+	ice_d_refs="Chen et al. 2024 A&A 690, A205",
+	ice_d_bib_ids=["Chen:2024:A205"],
+	ice_l_refs="Hudson et al. 2018 Spectrochim Acta A 193, 33; Rachid et al. 2020 A&A 639, A4",
+	ice_l_bib_ids=["Hudson:2018:33","Rachid:2020:A4"],
     notes="*Confirmed in 2002 ApJ 578, 245",
     Acon=10165,
     Bcon=8515,
     Ccon=4910,
     mub=2.9,
-    census_version='2018.0.0',
+    census_version='2021.10.0',
+	change_log = {
+				'2018.0.0' : 'Initial entry',
+				'2021.10.0' : "Detected in ices"
+			}
 )
 HOCH2CH2OH = Molecule(
     name="ethylene glycol",
@@ -6982,7 +7417,7 @@ CH3CH2CCH = Molecule(
     d_refs="Cernicharo et al. 2024 A&A 686, A139",
     d_ref_bib_ids = ["Cernicharo:2024:A139"],
     l_refs="Landsberg & Suenram 1983 JMS 98, 210; Demaison et al. 1983 Z. Naturforsch A 38, 447; Steber et al. 2012 JMS 280, 3",
-    l_ref_bib_ids = ["Landsberg:1983:210; Demaison:1983:447; Steber:2012:3"],
+    l_ref_bib_ids = ["Landsberg:1983:210","Demaison:1983:447","Steber:2012:3"],
     notes = "Dipole moment from Landsberg & Suenram 1983 JMS 98, 210.  Confirmation of original tentative detection in Cernicharo et al. 2021 A&A 647, L2",
     Acon=27148,
     Bcon=4547,
@@ -7224,8 +7659,15 @@ C6H6 = Molecule(
     exgal_d_refs="Bernard-Salas et al. 2006 ApJ 652, L29",
     exgal_d_bib_ids=["2006ApJ...652L..29B"],
     exgal_sources="SMP LMC 11",
+    ppd=True,
+    ppd_d_refs="Tabone et al. 2023 Nat. Ast. 7, 805",
+    ppd_d_bib_ids=["Tabone:2023:805"],
     mua=0.0,
     census_version='2018.0.0',
+    change_log = {
+    				'2018.0.0' : 'Initial entry',
+    				'2021.10.0' : "Added protoplanetary disk detection"
+    			}
 )
 nC3H7CN = Molecule(
     name="n-propyl cyanide",
@@ -7401,7 +7843,7 @@ iC4H8 = Molecule(
     d_refs="Fatima et al 2023 A&A 680, A25",
     d_ref_bib_ids = ["Fatima:2023:A25"],
     l_refs="Laurie 1961 JCP 34, 1516; Scharpen & Laurie 1963 JCP 39, 1732; Demaison & Rudolph 1975 J Mol Struct 24, 325; Guthowsky & Germann 1991 JMS 147, 91; Fatima et al 2023 A&A 680, A25",
-    l_ref_bib_ids = ["Laurie:1961:1516; Scharpen:1963:1732; Demaison:1975:325; Gutowsky:1991:91; Fatima:2023:A25"],
+    l_ref_bib_ids = ["Laurie:1961:1516","Scharpen:1963:1732","Demaison:1975:325","Gutowsky:1991:91","Fatima:2023:A25"],
     notes = "",
     Acon=9133,
     Bcon=8382,
@@ -7543,7 +7985,7 @@ CH3OCH2CH2OH = Molecule(
     d_refs="Fried et al. 2024 ApJL 965, L23",
     d_ref_bib_ids = ["Fried:2024:L23"],
     l_refs="Fried et al. 2024 ApJL 965, L23; Buckley & Brochu 1972 CaJChm 50, 1149; Caminati et al. 1986 Chem Phys 110, 67",
-    l_ref_bib_ids = ["Fried:2024:L23; Buckley:1972:1149; Caminati:1986:67"],
+    l_ref_bib_ids = ["Fried:2024:L23","Buckley:1972:1149","Caminati:1986:67"],
     notes = "",
     Acon=12982,
     Bcon=2743,
@@ -7683,7 +8125,140 @@ C9H7CN = Molecule(
     				'2021.7.0' : 'Initial entry',
     			}
 )
-
+CAN1 = Molecule(
+    name="1-cyanoacenaphthylene",
+    formula="C12H7CN",
+    table_formula="1-C12H7CN",
+    year=2024,
+    label="CAN1",
+    astromol_name="CAN1",
+    cyclic=True,
+    pah=True,
+    sources=[TMC1],
+    telescopes=[Yebes40],
+    wavelengths=["cm"],
+    d_refs="Cernicharo et al. 2024 A&A 690, L13",
+    d_ref_bib_ids = ["Cernicharo:2024:L13"],
+    l_refs="Cernicharo et al. 2024 A&A 690, L13",
+    l_ref_bib_ids = ["Cernicharo:2024:L13"],
+    notes = "",
+    Acon=1272,
+    Bcon=647,
+    Ccon=429,
+    mua=5.6,
+    mub=0.1,
+    census_version='2021.10.0',
+    change_log = {
+    				'2021.10.0' : 'Initial entry',
+    			}
+)
+CAN5 = Molecule(
+    name="5-cyanoacenaphthylene",
+    formula="C12H7CN",
+    table_formula="5-C12H7CN",
+    year=2024,
+    label="CAN5",
+    astromol_name="CAN5",
+    cyclic=True,
+    pah=True,
+    sources=[TMC1],
+    telescopes=[Yebes40],
+    wavelengths=["cm"],
+    d_refs="Cernicharo et al. 2024 A&A 690, L13",
+    d_ref_bib_ids = ["Cernicharo:2024:L13"],
+    l_refs="Cernicharo et al. 2024 A&A 690, L13",
+    l_ref_bib_ids = ["Cernicharo:2024:L13"],
+    notes = "",
+    Acon=1249,
+    Bcon=689,
+    Ccon=444,
+    mua=4.6,
+    mub=1.0,
+    census_version='2021.10.0',
+    change_log = {
+    				'2021.10.0' : 'Initial entry',
+    			}
+)
+CNP1 = Molecule(
+    name="1-cyanopyrene",
+    formula="C16H9CN",
+    table_formula="1-C16H9CN",
+    year=2024,
+    label="CNP1",
+    astromol_name="CNP1",
+    cyclic=True,
+    pah=True,
+    sources=[TMC1],
+    telescopes=[GBT],
+    wavelengths=["cm"],
+    d_refs="Wenzel et al. 2024 Science 386, 810",
+    d_ref_bib_ids = ["Wenzel:2024:810"],
+    l_refs="Wenzel et al. 2024 Science 386, 810",
+    l_ref_bib_ids = ["Wenzel:2024:810"],
+    notes = "",
+    Acon=843,
+    Bcon=373,
+    Ccon=258,
+    mua=4.8,
+    mub=2.3,
+    census_version='2021.10.0',
+    change_log = {
+    				'2021.10.0' : 'Initial entry',
+    			}
+)
+CNP2 = Molecule(
+    name="2-cyanopyrene",
+    formula="C16H9CN",
+    table_formula="2-C16H9CN",
+    year=2024,
+    label="CNP2",
+    astromol_name="CNP2",
+    cyclic=True,
+    pah=True,
+    sources=[TMC1],
+    telescopes=[GBT],
+    wavelengths=["cm"],
+    d_refs="Wenzel et al. 2025 Nat. Ast. 9, 262",
+    d_ref_bib_ids = ["Wenzel:2025:262"],
+    l_refs="Wenzel et al. 2025 Nat. Ast. 9, 262",
+    l_ref_bib_ids = ["Wenzel:2025:262"],
+    notes = "",
+    Acon=1009,
+    Bcon=313,
+    Ccon=239,
+    mua=5.617,
+    census_version='2021.10.0',
+    change_log = {
+    				'2021.10.0' : 'Initial entry',
+    			}
+)
+CNP4 = Molecule(
+    name="4-cyanopyrene",
+    formula="C16H9CN",
+    table_formula="4-C16H9CN",
+    year=2024,
+    label="CNP4",
+    astromol_name="CNP4",
+    cyclic=True,
+    pah=True,
+    sources=[TMC1],
+    telescopes=[GBT],
+    wavelengths=["cm"],
+    d_refs="Wenzel et al. 2025 Nat. Ast. 9, 262",
+    d_ref_bib_ids = ["Wenzel:2025:262"],
+    l_refs="Wenzel et al. 2025 Nat. Ast. 9, 262",
+    l_ref_bib_ids = ["Wenzel:2025:262"],
+    notes = "",
+    Acon=651,
+    Bcon=454,
+    Ccon=268,
+    mua=4.555,
+    mub=1.963,
+    census_version='2021.10.0',
+    change_log = {
+    				'2021.10.0' : 'Initial entry',
+    			}
+)
 ######################################################################
 #                            Fullerenes                             #
 ######################################################################
@@ -7789,7 +8364,9 @@ all_molecules = [
     VO, 
     POp, 
     SiP,
-    FeC, 
+    FeC,
+    MgS, 
+    NaS,
     # three atoms
     H2O, 
     HCOp, 
@@ -7916,6 +8493,10 @@ all_molecules = [
     MgC3Np, 
     C2H3p,
     NCCHS,
+    HC3Np,
+    NC3S,
+    HC3S,
+    HCSSH,
     # six atoms
     CH3OH, 
     CH3CN, 
@@ -7973,6 +8554,9 @@ all_molecules = [
     H2C5, 
     NC4NHp, 
     MgC5Np, 
+    HC5Np,
+    HNC5,
+    CH2CNCN,
     # eight atoms
     HCOOCH3,  
     CH3C3N, 
@@ -7996,6 +8580,7 @@ all_molecules = [
     C7Nm, 
     CH3CHCO, 
     MgC6Hp, 
+    NCCHCHCN,
     # nine atoms
     CH3OCH3, 
     CH3CH2OH, 
@@ -8012,6 +8597,9 @@ all_molecules = [
     H2CCCHCCH, 
     HCCCHCHCN, 
     H2CCHC3N, 
+    HOCHCHCHO,
+    HC7Np,
+    HCCCH2CCH,
     # ten atoms
     CH3COCH3, 
     HOCH2CH2OH, 
@@ -8063,6 +8651,11 @@ all_molecules = [
     CNN2, 
     C9H8, 
     C9H7CN, 
+    CAN1,
+    CAN5,
+    CNP1,
+    CNP2,
+    CNP4,
     # fullerenes
     C60, 
     C60p, 

@@ -7,5 +7,5 @@ from astromol.references import *
 
 from datetime import date
 
-__version__ = '2021.9.1'
-__updated__ = date(2024, 12, 31)
+__version__ = '2021.10.0'
+__updated__ = date(2025, 1, 24)

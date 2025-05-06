@@ -548,6 +548,15 @@ M3LOS = Source(
     simbad_url="http://simbad.u-strasbg.fr/simbad/sim-id?Ident=M3",
 )
 
+NGC1333IRAS4A = Source(
+    name="NGC 1333 IRAS 4A",
+    astromol_name="NGC1333IRAS4A",
+    type="SFR",
+    ra="03:29:10.5",
+    dec="+31:13:31.5",
+    simbad_url="https://simbad.u-strasbg.fr/simbad/sim-basic?Ident=NGC+1333",
+)
+
 NGC2024 = Source(
     name="NGC 2024",
     astromol_name="NGC2024",
@@ -871,6 +880,7 @@ all_sources = [
     M17LOS,
     M17SW,
     M3LOS,
+    NGC1333IRAS4A,
     NGC2024,
     NGC2024LOS,
     NGC2264,
