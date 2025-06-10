@@ -1,1058 +1,1058 @@
 [
-    {
-      "id": "GBT",
-      "name": "Green Bank Telescope",
-      "alt_names": [
-        "GBT 100-m"
-      ],
-      "latitude_deg": 38.433056,
-      "longitude_deg": -79.839722,
-      "type": "Single Dish",
-      "wavelength_range": [
-        "cm",
-        "mm"
-      ],
-      "notes": null,
-      "history": [
-        {
-          "date": "2025-05-08T20:38:27Z",
-          "version": "0.1.0",
-          "user": "bmcguire",
-          "note": "Initial ingestion of Green Bank Telescope entry"
-        }
-      ]
-    },
-    {
-      "id": "IRAM30",
-      "name": "IRAM 30-m",
-      "alt_names": [
-        "IRAM 30-m"
-      ],
-      "latitude_deg": 37.066161,
-      "longitude_deg": -3.392719,
-      "type": "Single Dish",
-      "wavelength_range": [
-        "mm",
-        "sub-mm"
-      ],
-      "notes": null,
-      "history": [
-        {
-          "date": "2025-05-08T20:38:27Z",
-          "version": "0.1.0",
-          "user": "bmcguire",
-          "note": "Initial ingestion of IRAM 30-m entry"
-        }
-      ]
-    },
-    {
-      "id": "Spitzer",
-      "name": "Spizter",
-      "alt_names": [
-        "Spitzer"
-      ],
-      "latitude_deg": null,
-      "longitude_deg": null,
-      "type": "Space",
-      "wavelength_range": [
-        "IR"
-      ],
-      "notes": null,
-      "history": [
-        {
-          "date": "2025-05-08T20:38:27Z",
-          "version": "0.1.0",
-          "user": "bmcguire",
-          "note": "Initial ingestion of Spizter entry"
-        }
-      ]
-    },
-    {
-      "id": "Hubble",
-      "name": "Hubble Space Telescope",
-      "alt_names": [
-        "Hubble"
-      ],
-      "latitude_deg": null,
-      "longitude_deg": null,
-      "type": "Space",
-      "wavelength_range": [
-        "IR",
-        "Vis",
-        "UV"
-      ],
-      "notes": null,
-      "history": [
-        {
-          "date": "2025-05-08T20:38:27Z",
-          "version": "0.1.0",
-          "user": "bmcguire",
-          "note": "Initial ingestion of Hubble Space Telescope entry"
-        }
-      ]
-    },
-    {
-      "id": "ALMA",
-      "name": "Atacama Large Millimeter/sub-millimeter Array",
-      "alt_names": [
-        "ALMA"
-      ],
-      "latitude_deg": -23.0193,
-      "longitude_deg": -67.7532,
-      "type": "Interferometer",
-      "wavelength_range": [
-        "mm",
-        "sub-mm"
-      ],
-      "notes": null,
-      "history": [
-        {
-          "date": "2025-05-08T20:38:27Z",
-          "version": "0.1.0",
-          "user": "bmcguire",
-          "note": "Initial ingestion of Atacama Large Millimeter/sub-millimeter Array entry"
-        }
-      ]
-    },
-    {
-      "id": "ISO",
-      "name": "Infrared Space Observatory",
-      "alt_names": [
-        "ISO"
-      ],
-      "latitude_deg": null,
-      "longitude_deg": null,
-      "type": "Space",
-      "wavelength_range": [
-        "IR"
-      ],
-      "notes": null,
-      "history": [
-        {
-          "date": "2025-05-08T20:38:27Z",
-          "version": "0.1.0",
-          "user": "bmcguire",
-          "note": "Initial ingestion of Infrared Space Observatory entry"
-        }
-      ]
-    },
-    {
-      "id": "JWST",
-      "name": "JWST",
-      "alt_names": [
-        "JWST"
-      ],
-      "latitude_deg": null,
-      "longitude_deg": null,
-      "type": "Space",
-      "wavelength_range": [
-        "IR"
-      ],
-      "notes": null,
-      "history": [
-        {
-          "date": "2025-05-08T20:38:27Z",
-          "version": "0.1.0",
-          "user": "bmcguire",
-          "note": "Initial ingestion of JWST entry"
-        }
-      ]
-    },
-    {
-      "id": "NRAO140",
-      "name": "NRAO 140-ft",
-      "alt_names": [
-        "NRAO 140-ft"
-      ],
-      "latitude_deg": 38.433056,
-      "longitude_deg": -79.839722,
-      "type": "Single Dish",
-      "wavelength_range": [
-        "cm"
-      ],
-      "notes": "Technically started operations again in 2014, but not for PI science.",
-      "history": [
-        {
-          "date": "2025-05-08T20:38:27Z",
-          "version": "0.1.0",
-          "user": "bmcguire",
-          "note": "Initial ingestion of NRAO 140-ft entry"
-        }
-      ]
-    },
-    {
-      "id": "Algonquin46",
-      "name": "Algonquin 46-m Telescope",
-      "alt_names": [
-        "Algonquin 46-m"
-      ],
-      "latitude_deg": 45.955503,
-      "longitude_deg": -78.073042,
-      "type": "Single Dish",
-      "wavelength_range": [
-        "cm",
-        "mm"
-      ],
-      "notes": "Technically in operation much longer, but seems to have ceased PI science in 1987.",
-      "history": [
-        {
-          "date": "2025-05-08T20:38:27Z",
-          "version": "0.1.0",
-          "user": "bmcguire",
-          "note": "Initial ingestion of Algonquin 46-m Telescope entry"
-        }
-      ]
-    },
-    {
-      "id": "NRAOARO12",
-      "name": "NRAO/ARO 12-m Telescope",
-      "alt_names": [
-        "NRAO/ARO 12-m"
-      ],
-      "latitude_deg": 31.9533,
-      "longitude_deg": -111.615,
-      "type": "Single Dish",
-      "wavelength_range": [
-        "mm"
-      ],
-      "notes": "Originally the NRAO 36-ft (11 m) telescope until 1984, when the dish was replaced (these are counted as separate facilities).  The observatory was handed over to the ARO in 2000 and renamed.  In 2013, the antenna was replaced with a 12-m ALMA prototype antenna.",
-      "history": [
-        {
-          "date": "2025-05-08T20:38:27Z",
-          "version": "0.1.0",
-          "user": "bmcguire",
-          "note": "Initial ingestion of NRAO/ARO 12-m Telescope entry"
-        }
-      ]
-    },
-    {
-      "id": "NRAO36",
-      "name": "NRAO 36-ft Telescope",
-      "alt_names": [
-        "NRAO 36-ft"
-      ],
-      "latitude_deg": 31.9533,
-      "longitude_deg": -111.615,
-      "type": "Single Dish",
-      "wavelength_range": [
-        "mm"
-      ],
-      "notes": "Became the NRAO/ARO 12-m telescope in 1984.",
-      "history": [
-        {
-          "date": "2025-05-08T20:38:27Z",
-          "version": "0.1.0",
-          "user": "bmcguire",
-          "note": "Initial ingestion of NRAO 36-ft Telescope entry"
-        }
-      ]
-    },
-    {
-      "id": "Nobeyama45",
-      "name": "Nobeyama 45-m Telescope",
-      "alt_names": [
-        "Nobeyama 45-m"
-      ],
-      "latitude_deg": 35.9417,
-      "longitude_deg": 138.4758,
-      "type": "Single Dish",
-      "wavelength_range": [
-        "cm",
-        "mm"
-      ],
-      "notes": null,
-      "history": [
-        {
-          "date": "2025-05-08T20:38:27Z",
-          "version": "0.1.0",
-          "user": "bmcguire",
-          "note": "Initial ingestion of Nobeyama 45-m Telescope entry"
-        }
-      ]
-    },
-    {
-      "id": "Effelsberg100",
-      "name": "Effelsberg 100-m Telescope",
-      "alt_names": [
-        "Effelsberg 100-m"
-      ],
-      "latitude_deg": 50.5247,
-      "longitude_deg": -6.8828,
-      "type": "Single Dish",
-      "wavelength_range": [
-        "cm"
-      ],
-      "notes": null,
-      "history": [
-        {
-          "date": "2025-05-08T20:38:27Z",
-          "version": "0.1.0",
-          "user": "bmcguire",
-          "note": "Initial ingestion of Effelsberg 100-m Telescope entry"
-        }
-      ]
-    },
-    {
-      "id": "Haystack37",
-      "name": "Haystack 37-m Telescope",
-      "alt_names": [
-        "Haystack"
-      ],
-      "latitude_deg": 42.6233,
-      "longitude_deg": -71.4882,
-      "type": "Single Dish",
-      "wavelength_range": [
-        "cm",
-        "mm"
-      ],
-      "notes": null,
-      "history": [
-        {
-          "date": "2025-05-08T20:38:27Z",
-          "version": "0.1.0",
-          "user": "bmcguire",
-          "note": "Initial ingestion of Haystack 37-m Telescope entry"
-        }
-      ]
-    },
-    {
-      "id": "PdBI",
-      "name": "Plateu de Bure Interferometer",
-      "alt_names": [
-        "PdBI"
-      ],
-      "latitude_deg": 44.63389,
-      "longitude_deg": 5.90792,
-      "type": "Interferometer",
-      "wavelength_range": [
-        "mm"
-      ],
-      "notes": null,
-      "history": [
-        {
-          "date": "2025-05-08T20:38:27Z",
-          "version": "0.1.0",
-          "user": "bmcguire",
-          "note": "Initial ingestion of Plateu de Bure Interferometer entry"
-        }
-      ]
-    },
-    {
-      "id": "BIMA",
-      "name": "Berkeley-Illinois-Maryland Array",
-      "alt_names": [
-        "BIMA"
-      ],
-      "latitude_deg": 40.8178,
-      "longitude_deg": -121.473,
-      "type": "Interferometer",
-      "wavelength_range": [
-        "mm"
-      ],
-      "notes": "Became part of CARMA.",
-      "history": [
-        {
-          "date": "2025-05-08T20:38:27Z",
-          "version": "0.1.0",
-          "user": "bmcguire",
-          "note": "Initial ingestion of Berkeley-Illinois-Maryland Array entry"
-        }
-      ]
-    },
-    {
-      "id": "OVRO",
-      "name": "Caltech Owens Valley Radio Observatory Millimeter Array",
-      "alt_names": [
-        "OVRO"
-      ],
-      "latitude_deg": 37.2339,
-      "longitude_deg": -118.282,
-      "type": "Interferometer",
-      "wavelength_range": [
-        "mm"
-      ],
-      "notes": "Became part of CARMA.",
-      "history": [
-        {
-          "date": "2025-05-08T20:38:27Z",
-          "version": "0.1.0",
-          "user": "bmcguire",
-          "note": "Initial ingestion of Caltech Owens Valley Radio Observatory Millimeter Array entry"
-        }
-      ]
-    },
-    {
-      "id": "Yebes40",
-      "name": "Yebes RT40-m Telescope",
-      "alt_names": [
-        "Yebes 40-m"
-      ],
-      "latitude_deg": 40525208,
-      "longitude_deg": -3.088725,
-      "type": "Single Dish",
-      "wavelength_range": [
-        "cm",
-        "mm"
-      ],
-      "notes": null,
-      "history": [
-        {
-          "date": "2025-05-08T20:38:27Z",
-          "version": "0.1.0",
-          "user": "bmcguire",
-          "note": "Initial ingestion of Yebes RT40-m Telescope entry"
-        }
-      ]
-    },
-    {
-      "id": "NRL85",
-      "name": "Maryland Point Observatory Naval Research Lab 85-foot Telescope",
-      "alt_names": [
-        "NRL 85-ft"
-      ],
-      "latitude_deg": 38.3741667,
-      "longitude_deg": -77.230833,
-      "type": "Single Dish",
-      "wavelength_range": [
-        "cm"
-      ],
-      "notes": "Primarily used for VLBI for much of its later years.",
-      "history": [
-        {
-          "date": "2025-05-08T20:38:27Z",
-          "version": "0.1.0",
-          "user": "bmcguire",
-          "note": "Initial ingestion of Maryland Point Observatory Naval Research Lab 85-foot Telescope entry"
-        }
-      ]
-    },
-    {
-      "id": "ATCA",
-      "name": "Australia Telescope Compact Array",
-      "alt_names": [
-        "ATCA"
-      ],
-      "latitude_deg": -30.312778,
-      "longitude_deg": 149.550278,
-      "type": "Interferometer",
-      "wavelength_range": [
-        "cm"
-      ],
-      "notes": null,
-      "history": [
-        {
-          "date": "2025-05-08T20:38:27Z",
-          "version": "0.1.0",
-          "user": "bmcguire",
-          "note": "Initial ingestion of Australia Telescope Compact Array entry"
-        }
-      ]
-    },
-    {
-      "id": "Parkes64",
-      "name": "Parkes 64-m Telescope",
-      "alt_names": [
-        "Parkes"
-      ],
-      "latitude_deg": -32.99778,
-      "longitude_deg": 148.26292,
-      "type": "Single Dish",
-      "wavelength_range": [
-        "cm"
-      ],
-      "notes": null,
-      "history": [
-        {
-          "date": "2025-05-08T20:38:27Z",
-          "version": "0.1.0",
-          "user": "bmcguire",
-          "note": "Initial ingestion of Parkes 64-m Telescope entry"
-        }
-      ]
-    },
-    {
-      "id": "SMT10",
-      "name": "ARO 10-m Submillimeter Telescope",
-      "alt_names": [
-        "SMT"
-      ],
-      "latitude_deg": 32.701658,
-      "longitude_deg": -109.871391,
-      "type": "Single Dish",
-      "wavelength_range": [
-        "mm",
-        "sub-mm"
-      ],
-      "notes": null,
-      "history": [
-        {
-          "date": "2025-05-08T20:38:27Z",
-          "version": "0.1.0",
-          "user": "bmcguire",
-          "note": "Initial ingestion of ARO 10-m Submillimeter Telescope entry"
-        }
-      ]
-    },
-    {
-      "id": "SEST15",
-      "name": "Swedish-ESO 15-m Submillimetre Telescope",
-      "alt_names": [
-        "SEST"
-      ],
-      "latitude_deg": -29.26,
-      "longitude_deg": -70.73,
-      "type": "Single Dish",
-      "wavelength_range": [
-        "mm",
-        "sub-mm"
-      ],
-      "notes": null,
-      "history": [
-        {
-          "date": "2025-05-08T20:38:27Z",
-          "version": "0.1.0",
-          "user": "bmcguire",
-          "note": "Initial ingestion of Swedish-ESO 15-m Submillimetre Telescope entry"
-        }
-      ]
-    },
-    {
-      "id": "Goldstone70",
-      "name": "Goldstone 72-m (DSS-14; \"Mars\")",
-      "alt_names": [
-        "Goldstone"
-      ],
-      "latitude_deg": 35.426667,
-      "longitude_deg": -116.89,
-      "type": "Single Dish",
-      "wavelength_range": [
-        "cm"
-      ],
-      "notes": "Originally a 64-m dish; become 70-m in 1988. Conceivably still PI Science Capable?",
-      "history": [
-        {
-          "date": "2025-05-08T20:38:27Z",
-          "version": "0.1.0",
-          "user": "bmcguire",
-          "note": "Initial ingestion of Goldstone 72-m (DSS-14; \"Mars\") entry"
-        }
-      ]
-    },
-    {
-      "id": "Mitaka6",
-      "name": "Tokyo Astronomical Observatory Mitaka 6-m",
-      "alt_names": [
-        "Mitaka 6-m"
-      ],
-      "latitude_deg": 35.675217,
-      "longitude_deg": 139.538083,
-      "type": "Single Dish",
-      "wavelength_range": [
-        "mm"
-      ],
-      "notes": "Moved around quite a bit within Japan until returning (and retiring) in 2018.",
-      "history": [
-        {
-          "date": "2025-05-08T20:38:27Z",
-          "version": "0.1.0",
-          "user": "bmcguire",
-          "note": "Initial ingestion of Tokyo Astronomical Observatory Mitaka 6-m entry"
-        }
-      ]
-    },
-    {
-      "id": "McMath",
-      "name": "McMath-Pierce Solar Telescope",
-      "alt_names": [
-        "McMath Solar Telescope"
-      ],
-      "latitude_deg": 31.9584,
-      "longitude_deg": -111.595,
-      "type": "Optical",
-      "wavelength_range": [
-        "IR",
-        "Vis",
-        "UV"
-      ],
-      "notes": null,
-      "history": [
-        {
-          "date": "2025-05-08T20:38:27Z",
-          "version": "0.1.0",
-          "user": "bmcguire",
-          "note": "Initial ingestion of McMath-Pierce Solar Telescope entry"
-        }
-      ]
-    },
-    {
-      "id": "Bell7m",
-      "name": "AT&T Bell Laboratories 7-m Telescope",
-      "alt_names": [
-        "Bell 7-m"
-      ],
-      "latitude_deg": null,
-      "longitude_deg": null,
-      "type": "Single Dish",
-      "wavelength_range": [
-        "cm"
-      ],
-      "notes": null,
-      "history": [
-        {
-          "date": "2025-05-08T20:38:27Z",
-          "version": "0.1.0",
-          "user": "bmcguire",
-          "note": "Initial ingestion of AT&T Bell Laboratories 7-m Telescope entry"
-        }
-      ]
-    },
-    {
-      "id": "IRTF",
-      "name": "NASA Infrared Telescope Facility",
-      "alt_names": [
-        "IRTF"
-      ],
-      "latitude_deg": 19.8263,
-      "longitude_deg": -155.473,
-      "type": "Optical",
-      "wavelength_range": [
-        "IR"
-      ],
-      "notes": null,
-      "history": [
-        {
-          "date": "2025-05-08T20:38:27Z",
-          "version": "0.1.0",
-          "user": "bmcguire",
-          "note": "Initial ingestion of NASA Infrared Telescope Facility entry"
-        }
-      ]
-    },
-    {
-      "id": "KPNO4m",
-      "name": "Mayall 4-m Telescope",
-      "alt_names": [
-        "KPNO 4-m"
-      ],
-      "latitude_deg": 31.9583,
-      "longitude_deg": -111.5967,
-      "type": "Optical",
-      "wavelength_range": [
-        "IR"
-      ],
-      "notes": null,
-      "history": [
-        {
-          "date": "2025-05-08T20:38:27Z",
-          "version": "0.1.0",
-          "user": "bmcguire",
-          "note": "Initial ingestion of Mayall 4-m Telescope entry"
-        }
-      ]
-    },
-    {
-      "id": "Onsala20m",
-      "name": "Onsala 20-m Telescope",
-      "alt_names": [
-        "Onsala 20-m"
-      ],
-      "latitude_deg": 57.393056,
-      "longitude_deg": 11.917778,
-      "type": "Single Dish",
-      "wavelength_range": [
-        "cm",
-        "mm"
-      ],
-      "notes": null,
-      "history": [
-        {
-          "date": "2025-05-08T20:38:27Z",
-          "version": "0.1.0",
-          "user": "bmcguire",
-          "note": "Initial ingestion of Onsala 20-m Telescope entry"
-        }
-      ]
-    },
-    {
-      "id": "FCRAO14m",
-      "name": "Five College Radio Observatory 14-m Telescope",
-      "alt_names": [
-        "FCRAO 14-m"
-      ],
-      "latitude_deg": 42.391925,
-      "longitude_deg": -72.344097,
-      "type": "Single Dish",
-      "wavelength_range": [
-        "cm",
-        "mm"
-      ],
-      "notes": null,
-      "history": [
-        {
-          "date": "2025-05-08T20:38:27Z",
-          "version": "0.1.0",
-          "user": "bmcguire",
-          "note": "Initial ingestion of Five College Radio Observatory 14-m Telescope entry"
-        }
-      ]
-    },
-    {
-      "id": "APEX",
-      "name": "Atacama Pathfinder Experiment",
-      "alt_names": [
-        "APEX"
-      ],
-      "latitude_deg": -23.0058,
-      "longitude_deg": -67.7592,
-      "type": "Single Dish",
-      "wavelength_range": [
-        "mm",
-        "sub-mm"
-      ],
-      "notes": null,
-      "history": [
-        {
-          "date": "2025-05-08T20:38:27Z",
-          "version": "0.1.0",
-          "user": "bmcguire",
-          "note": "Initial ingestion of Atacama Pathfinder Experiment entry"
-        }
-      ]
-    },
-    {
-      "id": "CSO",
-      "name": "Caltech Submillimeter Observatory",
-      "alt_names": [
-        "CSO"
-      ],
-      "latitude_deg": 19.8225,
-      "longitude_deg": -155.70694,
-      "type": "Single Dish",
-      "wavelength_range": [
-        "mm",
-        "sub-mm"
-      ],
-      "notes": null,
-      "history": [
-        {
-          "date": "2025-05-08T20:38:27Z",
-          "version": "0.1.0",
-          "user": "bmcguire",
-          "note": "Initial ingestion of Caltech Submillimeter Observatory entry"
-        }
-      ]
-    },
-    {
-      "id": "MWO4m",
-      "name": "University of Texas Millimeter Wave Observatory 4.9-m Telescope",
-      "alt_names": [
-        "MWO 4.9-m"
-      ],
-      "latitude_deg": 30.3866,
-      "longitude_deg": -97.7269,
-      "type": "Single Dish",
-      "wavelength_range": [
-        "mm"
-      ],
-      "notes": null,
-      "history": [
-        {
-          "date": "2025-05-08T20:38:27Z",
-          "version": "0.1.0",
-          "user": "bmcguire",
-          "note": "Initial ingestion of University of Texas Millimeter Wave Observatory 4.9-m Telescope entry"
-        }
-      ]
-    },
-    {
-      "id": "HatCreek",
-      "name": "Hat Creek Station 20-ft Telescope",
-      "alt_names": [
-        "Hat Creek 20-ft"
-      ],
-      "latitude_deg": 40.8178,
-      "longitude_deg": -121.473,
-      "type": "Single Dish",
-      "wavelength_range": [
-        "cm",
-        "mm"
-      ],
-      "notes": "Best build date found was \"mid 1960s\", so 1965 is an estimate.  It appears to have either been subsummed into BIMA or decommissioned when BIMA came online.  The decommissioning date is an estimate.",
-      "history": [
-        {
-          "date": "2025-05-08T20:38:27Z",
-          "version": "0.1.0",
-          "user": "bmcguire",
-          "note": "Initial ingestion of Hat Creek Station 20-ft Telescope entry"
-        }
-      ]
-    },
-    {
-      "id": "SMA",
-      "name": "Submillimeter Array",
-      "alt_names": [
-        "SMA"
-      ],
-      "latitude_deg": 19.8225,
-      "longitude_deg": -155.70694,
-      "type": "Interferometer",
-      "wavelength_range": [
-        "mm"
-      ],
-      "notes": null,
-      "history": [
-        {
-          "date": "2025-05-08T20:38:27Z",
-          "version": "0.1.0",
-          "user": "bmcguire",
-          "note": "Initial ingestion of Submillimeter Array entry"
-        }
-      ]
-    },
-    {
-      "id": "Herschel",
-      "name": "Herschel Space Telescope",
-      "alt_names": [
-        "Herschel"
-      ],
-      "latitude_deg": null,
-      "longitude_deg": null,
-      "type": "Space",
-      "wavelength_range": [
-        "sub-mm",
-        "IR"
-      ],
-      "notes": null,
-      "history": [
-        {
-          "date": "2025-05-08T20:38:27Z",
-          "version": "0.1.0",
-          "user": "bmcguire",
-          "note": "Initial ingestion of Herschel Space Telescope entry"
-        }
-      ]
-    },
-    {
-      "id": "UKIRT",
-      "name": "United Kingdom Infrared Telescope",
-      "alt_names": [
-        "UKIRT"
-      ],
-      "latitude_deg": 19.8225,
-      "longitude_deg": -155.70694,
-      "type": "Optical",
-      "wavelength_range": [
-        "IR"
-      ],
-      "notes": null,
-      "history": [
-        {
-          "date": "2025-05-08T20:38:27Z",
-          "version": "0.1.0",
-          "user": "bmcguire",
-          "note": "Initial ingestion of United Kingdom Infrared Telescope entry"
-        }
-      ]
-    },
-    {
-      "id": "SOFIA",
-      "name": "Stratospheric Observatory for Infrared Astronomy",
-      "alt_names": [
-        "SOFIA"
-      ],
-      "latitude_deg": null,
-      "longitude_deg": null,
-      "type": "Airborne",
-      "wavelength_range": [
-        "sub-mm",
-        "IR"
-      ],
-      "notes": null,
-      "history": [
-        {
-          "date": "2025-05-08T20:38:27Z",
-          "version": "0.1.0",
-          "user": "bmcguire",
-          "note": "Initial ingestion of Stratospheric Observatory for Infrared Astronomy entry"
-        }
-      ]
-    },
-    {
-      "id": "Odin",
-      "name": "Odin",
-      "alt_names": [
-        "Odin"
-      ],
-      "latitude_deg": null,
-      "longitude_deg": null,
-      "type": "Space",
-      "wavelength_range": [
-        "sub-mm"
-      ],
-      "notes": null,
-      "history": [
-        {
-          "date": "2025-05-08T20:38:27Z",
-          "version": "0.1.0",
-          "user": "bmcguire",
-          "note": "Initial ingestion of Odin entry"
-        }
-      ]
-    },
-    {
-      "id": "FUSE",
-      "name": "Far Ultraviolet Spectroscopic Explorer",
-      "alt_names": [
-        "FUSE"
-      ],
-      "latitude_deg": null,
-      "longitude_deg": null,
-      "type": "Space",
-      "wavelength_range": [
-        "UV"
-      ],
-      "notes": null,
-      "history": [
-        {
-          "date": "2025-05-08T20:38:27Z",
-          "version": "0.1.0",
-          "user": "bmcguire",
-          "note": "Initial ingestion of Far Ultraviolet Spectroscopic Explorer entry"
-        }
-      ]
-    },
-    {
-      "id": "Kuiper",
-      "name": "Kuiper Airborne Observatory",
-      "alt_names": [
-        "KAO"
-      ],
-      "latitude_deg": null,
-      "longitude_deg": null,
-      "type": "Airborne",
-      "wavelength_range": [
-        "sub-mm",
-        "IR"
-      ],
-      "notes": null,
-      "history": [
-        {
-          "date": "2025-05-08T20:38:27Z",
-          "version": "0.1.0",
-          "user": "bmcguire",
-          "note": "Initial ingestion of Kuiper Airborne Observatory entry"
-        }
-      ]
-    },
-    {
-      "id": "MtHopkins",
-      "name": "Tillinghast 60 inch",
-      "alt_names": [
-        "Mt. Hopkins 60-in"
-      ],
-      "latitude_deg": 31.6811,
-      "longitude_deg": -110.878,
-      "type": "Optical",
-      "wavelength_range": [
-        "IR"
-      ],
-      "notes": null,
-      "history": [
-        {
-          "date": "2025-05-08T20:38:27Z",
-          "version": "0.1.0",
-          "user": "bmcguire",
-          "note": "Initial ingestion of Tillinghast 60 inch entry"
-        }
-      ]
-    },
-    {
-      "id": "Aerobee",
-      "name": "Aerobee-150 Rocket",
-      "alt_names": [
-        "Aerobee-150 Rocket"
-      ],
-      "latitude_deg": null,
-      "longitude_deg": null,
-      "type": "Airborne",
-      "wavelength_range": [
-        "UV"
-      ],
-      "notes": "They literally put a spectrometer on a rocket and shot it into the sky, then used the same spectrometer to measure H2 in the laboratory.",
-      "history": [
-        {
-          "date": "2025-05-08T20:38:27Z",
-          "version": "0.1.0",
-          "user": "bmcguire",
-          "note": "Initial ingestion of Aerobee-150 Rocket entry"
-        }
-      ]
-    },
-    {
-      "id": "Millstone",
-      "name": "Lincoln Laboratory Millstone Hill Observatory 84-ft",
-      "alt_names": [
-        "Millstone Hill 84-ft"
-      ],
-      "latitude_deg": 42.6233,
-      "longitude_deg": -71.4882,
-      "type": "Single Dish",
-      "wavelength_range": [
-        "cm"
-      ],
-      "notes": "Originally the Ballistic Missile Early Warning System radar antenna.  Decommissioning date is a best guess based on the installation of larger telescopes to the site at that time.",
-      "history": [
-        {
-          "date": "2025-05-08T20:38:27Z",
-          "version": "0.1.0",
-          "user": "bmcguire",
-          "note": "Initial ingestion of Lincoln Laboratory Millstone Hill Observatory 84-ft entry"
-        }
-      ]
-    },
-    {
-      "id": "MtWilson",
-      "name": "Mount Wilson 100-in",
-      "alt_names": [
-        "Mt. Wilson"
-      ],
-      "latitude_deg": null,
-      "longitude_deg": null,
-      "type": "Optical",
-      "wavelength_range": [
-        "UV",
-        "Vis"
-      ],
-      "notes": "Now known as the Hooker Telescope.",
-      "history": [
-        {
-          "date": "2025-05-08T20:38:27Z",
-          "version": "0.1.0",
-          "user": "bmcguire",
-          "note": "Initial ingestion of Mount Wilson 100-in entry"
-        }
-      ]
-    },
-    {
-      "id": "IRAS",
-      "name": "Infrared Astronomical Satellite",
-      "alt_names": [
-        "IRAS"
-      ],
-      "latitude_deg": null,
-      "longitude_deg": null,
-      "type": "Space",
-      "wavelength_range": [
-        "IR"
-      ],
-      "notes": null,
-      "history": [
-        {
-          "date": "2025-05-08T20:38:27Z",
-          "version": "0.1.0",
-          "user": "bmcguire",
-          "note": "Initial ingestion of Infrared Astronomical Satellite entry"
-        }
-      ]
-    }
-  ]
+  {
+    "id": "GBT",
+    "name": "Green Bank Telescope",
+    "alt_names": [
+      "GBT 100-m"
+    ],
+    "latitude_deg": 38.433056,
+    "longitude_deg": -79.839722,
+    "type": "Single Dish",
+    "wavelength_range": [
+      "cm",
+      "mm"
+    ],
+    "notes": null,
+    "history": [
+      {
+        "date": "2025-05-08T20:38:27Z",
+        "version": "0.1.0",
+        "user": "bmcguire",
+        "note": "Initial ingestion of Green Bank Telescope entry"
+      }
+    ]
+  },
+  {
+    "id": "IRAM30",
+    "name": "IRAM 30-m",
+    "alt_names": [
+      "IRAM 30-m"
+    ],
+    "latitude_deg": 37.066161,
+    "longitude_deg": -3.392719,
+    "type": "Single Dish",
+    "wavelength_range": [
+      "mm",
+      "sub-mm"
+    ],
+    "notes": null,
+    "history": [
+      {
+        "date": "2025-05-08T20:38:27Z",
+        "version": "0.1.0",
+        "user": "bmcguire",
+        "note": "Initial ingestion of IRAM 30-m entry"
+      }
+    ]
+  },
+  {
+    "id": "Spitzer",
+    "name": "Spizter",
+    "alt_names": [
+      "Spitzer"
+    ],
+    "latitude_deg": null,
+    "longitude_deg": null,
+    "type": "Space",
+    "wavelength_range": [
+      "IR"
+    ],
+    "notes": null,
+    "history": [
+      {
+        "date": "2025-05-08T20:38:27Z",
+        "version": "0.1.0",
+        "user": "bmcguire",
+        "note": "Initial ingestion of Spizter entry"
+      }
+    ]
+  },
+  {
+    "id": "Hubble",
+    "name": "Hubble Space Telescope",
+    "alt_names": [
+      "Hubble"
+    ],
+    "latitude_deg": null,
+    "longitude_deg": null,
+    "type": "Space",
+    "wavelength_range": [
+      "IR",
+      "Vis",
+      "UV"
+    ],
+    "notes": null,
+    "history": [
+      {
+        "date": "2025-05-08T20:38:27Z",
+        "version": "0.1.0",
+        "user": "bmcguire",
+        "note": "Initial ingestion of Hubble Space Telescope entry"
+      }
+    ]
+  },
+  {
+    "id": "ALMA",
+    "name": "Atacama Large Millimeter/sub-millimeter Array",
+    "alt_names": [
+      "ALMA"
+    ],
+    "latitude_deg": -23.0193,
+    "longitude_deg": -67.7532,
+    "type": "Interferometer",
+    "wavelength_range": [
+      "mm",
+      "sub-mm"
+    ],
+    "notes": null,
+    "history": [
+      {
+        "date": "2025-05-08T20:38:27Z",
+        "version": "0.1.0",
+        "user": "bmcguire",
+        "note": "Initial ingestion of Atacama Large Millimeter/sub-millimeter Array entry"
+      }
+    ]
+  },
+  {
+    "id": "ISO",
+    "name": "Infrared Space Observatory",
+    "alt_names": [
+      "ISO"
+    ],
+    "latitude_deg": null,
+    "longitude_deg": null,
+    "type": "Space",
+    "wavelength_range": [
+      "IR"
+    ],
+    "notes": null,
+    "history": [
+      {
+        "date": "2025-05-08T20:38:27Z",
+        "version": "0.1.0",
+        "user": "bmcguire",
+        "note": "Initial ingestion of Infrared Space Observatory entry"
+      }
+    ]
+  },
+  {
+    "id": "JWST",
+    "name": "JWST",
+    "alt_names": [
+      "JWST"
+    ],
+    "latitude_deg": null,
+    "longitude_deg": null,
+    "type": "Space",
+    "wavelength_range": [
+      "IR"
+    ],
+    "notes": null,
+    "history": [
+      {
+        "date": "2025-05-08T20:38:27Z",
+        "version": "0.1.0",
+        "user": "bmcguire",
+        "note": "Initial ingestion of JWST entry"
+      }
+    ]
+  },
+  {
+    "id": "NRAO140",
+    "name": "NRAO 140-ft",
+    "alt_names": [
+      "NRAO 140-ft"
+    ],
+    "latitude_deg": 38.433056,
+    "longitude_deg": -79.839722,
+    "type": "Single Dish",
+    "wavelength_range": [
+      "cm"
+    ],
+    "notes": "Technically started operations again in 2014, but not for PI science.",
+    "history": [
+      {
+        "date": "2025-05-08T20:38:27Z",
+        "version": "0.1.0",
+        "user": "bmcguire",
+        "note": "Initial ingestion of NRAO 140-ft entry"
+      }
+    ]
+  },
+  {
+    "id": "Algonquin46",
+    "name": "Algonquin 46-m Telescope",
+    "alt_names": [
+      "Algonquin 46-m"
+    ],
+    "latitude_deg": 45.955503,
+    "longitude_deg": -78.073042,
+    "type": "Single Dish",
+    "wavelength_range": [
+      "cm",
+      "mm"
+    ],
+    "notes": "Technically in operation much longer, but seems to have ceased PI science in 1987.",
+    "history": [
+      {
+        "date": "2025-05-08T20:38:27Z",
+        "version": "0.1.0",
+        "user": "bmcguire",
+        "note": "Initial ingestion of Algonquin 46-m Telescope entry"
+      }
+    ]
+  },
+  {
+    "id": "NRAOARO12",
+    "name": "NRAO/ARO 12-m Telescope",
+    "alt_names": [
+      "NRAO/ARO 12-m"
+    ],
+    "latitude_deg": 31.9533,
+    "longitude_deg": -111.615,
+    "type": "Single Dish",
+    "wavelength_range": [
+      "mm"
+    ],
+    "notes": "Originally the NRAO 36-ft (11 m) telescope until 1984, when the dish was replaced (these are counted as separate facilities).  The observatory was handed over to the ARO in 2000 and renamed.  In 2013, the antenna was replaced with a 12-m ALMA prototype antenna.",
+    "history": [
+      {
+        "date": "2025-05-08T20:38:27Z",
+        "version": "0.1.0",
+        "user": "bmcguire",
+        "note": "Initial ingestion of NRAO/ARO 12-m Telescope entry"
+      }
+    ]
+  },
+  {
+    "id": "NRAO36",
+    "name": "NRAO 36-ft Telescope",
+    "alt_names": [
+      "NRAO 36-ft"
+    ],
+    "latitude_deg": 31.9533,
+    "longitude_deg": -111.615,
+    "type": "Single Dish",
+    "wavelength_range": [
+      "mm"
+    ],
+    "notes": "Became the NRAO/ARO 12-m telescope in 1984.",
+    "history": [
+      {
+        "date": "2025-05-08T20:38:27Z",
+        "version": "0.1.0",
+        "user": "bmcguire",
+        "note": "Initial ingestion of NRAO 36-ft Telescope entry"
+      }
+    ]
+  },
+  {
+    "id": "Nobeyama45",
+    "name": "Nobeyama 45-m Telescope",
+    "alt_names": [
+      "Nobeyama 45-m"
+    ],
+    "latitude_deg": 35.9417,
+    "longitude_deg": 138.4758,
+    "type": "Single Dish",
+    "wavelength_range": [
+      "cm",
+      "mm"
+    ],
+    "notes": null,
+    "history": [
+      {
+        "date": "2025-05-08T20:38:27Z",
+        "version": "0.1.0",
+        "user": "bmcguire",
+        "note": "Initial ingestion of Nobeyama 45-m Telescope entry"
+      }
+    ]
+  },
+  {
+    "id": "Effelsberg100",
+    "name": "Effelsberg 100-m Telescope",
+    "alt_names": [
+      "Effelsberg 100-m"
+    ],
+    "latitude_deg": 50.5247,
+    "longitude_deg": -6.8828,
+    "type": "Single Dish",
+    "wavelength_range": [
+      "cm"
+    ],
+    "notes": null,
+    "history": [
+      {
+        "date": "2025-05-08T20:38:27Z",
+        "version": "0.1.0",
+        "user": "bmcguire",
+        "note": "Initial ingestion of Effelsberg 100-m Telescope entry"
+      }
+    ]
+  },
+  {
+    "id": "Haystack37",
+    "name": "Haystack 37-m Telescope",
+    "alt_names": [
+      "Haystack"
+    ],
+    "latitude_deg": 42.6233,
+    "longitude_deg": -71.4882,
+    "type": "Single Dish",
+    "wavelength_range": [
+      "cm",
+      "mm"
+    ],
+    "notes": null,
+    "history": [
+      {
+        "date": "2025-05-08T20:38:27Z",
+        "version": "0.1.0",
+        "user": "bmcguire",
+        "note": "Initial ingestion of Haystack 37-m Telescope entry"
+      }
+    ]
+  },
+  {
+    "id": "PdBI",
+    "name": "Plateu de Bure Interferometer",
+    "alt_names": [
+      "PdBI"
+    ],
+    "latitude_deg": 44.63389,
+    "longitude_deg": 5.90792,
+    "type": "Interferometer",
+    "wavelength_range": [
+      "mm"
+    ],
+    "notes": null,
+    "history": [
+      {
+        "date": "2025-05-08T20:38:27Z",
+        "version": "0.1.0",
+        "user": "bmcguire",
+        "note": "Initial ingestion of Plateu de Bure Interferometer entry"
+      }
+    ]
+  },
+  {
+    "id": "BIMA",
+    "name": "Berkeley-Illinois-Maryland Array",
+    "alt_names": [
+      "BIMA"
+    ],
+    "latitude_deg": 40.8178,
+    "longitude_deg": -121.473,
+    "type": "Interferometer",
+    "wavelength_range": [
+      "mm"
+    ],
+    "notes": "Became part of CARMA.",
+    "history": [
+      {
+        "date": "2025-05-08T20:38:27Z",
+        "version": "0.1.0",
+        "user": "bmcguire",
+        "note": "Initial ingestion of Berkeley-Illinois-Maryland Array entry"
+      }
+    ]
+  },
+  {
+    "id": "OVRO",
+    "name": "Caltech Owens Valley Radio Observatory Millimeter Array",
+    "alt_names": [
+      "OVRO"
+    ],
+    "latitude_deg": 37.2339,
+    "longitude_deg": -118.282,
+    "type": "Interferometer",
+    "wavelength_range": [
+      "mm"
+    ],
+    "notes": "Became part of CARMA.",
+    "history": [
+      {
+        "date": "2025-05-08T20:38:27Z",
+        "version": "0.1.0",
+        "user": "bmcguire",
+        "note": "Initial ingestion of Caltech Owens Valley Radio Observatory Millimeter Array entry"
+      }
+    ]
+  },
+  {
+    "id": "Yebes40",
+    "name": "Yebes RT40-m Telescope",
+    "alt_names": [
+      "Yebes 40-m"
+    ],
+    "latitude_deg": 40525208,
+    "longitude_deg": -3.088725,
+    "type": "Single Dish",
+    "wavelength_range": [
+      "cm",
+      "mm"
+    ],
+    "notes": null,
+    "history": [
+      {
+        "date": "2025-05-08T20:38:27Z",
+        "version": "0.1.0",
+        "user": "bmcguire",
+        "note": "Initial ingestion of Yebes RT40-m Telescope entry"
+      }
+    ]
+  },
+  {
+    "id": "NRL85",
+    "name": "Maryland Point Observatory Naval Research Lab 85-foot Telescope",
+    "alt_names": [
+      "NRL 85-ft"
+    ],
+    "latitude_deg": 38.3741667,
+    "longitude_deg": -77.230833,
+    "type": "Single Dish",
+    "wavelength_range": [
+      "cm"
+    ],
+    "notes": "Primarily used for VLBI for much of its later years.",
+    "history": [
+      {
+        "date": "2025-05-08T20:38:27Z",
+        "version": "0.1.0",
+        "user": "bmcguire",
+        "note": "Initial ingestion of Maryland Point Observatory Naval Research Lab 85-foot Telescope entry"
+      }
+    ]
+  },
+  {
+    "id": "ATCA",
+    "name": "Australia Telescope Compact Array",
+    "alt_names": [
+      "ATCA"
+    ],
+    "latitude_deg": -30.312778,
+    "longitude_deg": 149.550278,
+    "type": "Interferometer",
+    "wavelength_range": [
+      "cm"
+    ],
+    "notes": null,
+    "history": [
+      {
+        "date": "2025-05-08T20:38:27Z",
+        "version": "0.1.0",
+        "user": "bmcguire",
+        "note": "Initial ingestion of Australia Telescope Compact Array entry"
+      }
+    ]
+  },
+  {
+    "id": "Parkes64",
+    "name": "Parkes 64-m Telescope",
+    "alt_names": [
+      "Parkes"
+    ],
+    "latitude_deg": -32.99778,
+    "longitude_deg": 148.26292,
+    "type": "Single Dish",
+    "wavelength_range": [
+      "cm"
+    ],
+    "notes": null,
+    "history": [
+      {
+        "date": "2025-05-08T20:38:27Z",
+        "version": "0.1.0",
+        "user": "bmcguire",
+        "note": "Initial ingestion of Parkes 64-m Telescope entry"
+      }
+    ]
+  },
+  {
+    "id": "SMT10",
+    "name": "ARO 10-m Submillimeter Telescope",
+    "alt_names": [
+      "SMT"
+    ],
+    "latitude_deg": 32.701658,
+    "longitude_deg": -109.871391,
+    "type": "Single Dish",
+    "wavelength_range": [
+      "mm",
+      "sub-mm"
+    ],
+    "notes": null,
+    "history": [
+      {
+        "date": "2025-05-08T20:38:27Z",
+        "version": "0.1.0",
+        "user": "bmcguire",
+        "note": "Initial ingestion of ARO 10-m Submillimeter Telescope entry"
+      }
+    ]
+  },
+  {
+    "id": "SEST15",
+    "name": "Swedish-ESO 15-m Submillimetre Telescope",
+    "alt_names": [
+      "SEST"
+    ],
+    "latitude_deg": -29.26,
+    "longitude_deg": -70.73,
+    "type": "Single Dish",
+    "wavelength_range": [
+      "mm",
+      "sub-mm"
+    ],
+    "notes": null,
+    "history": [
+      {
+        "date": "2025-05-08T20:38:27Z",
+        "version": "0.1.0",
+        "user": "bmcguire",
+        "note": "Initial ingestion of Swedish-ESO 15-m Submillimetre Telescope entry"
+      }
+    ]
+  },
+  {
+    "id": "Goldstone70",
+    "name": "Goldstone 72-m (DSS-14; \"Mars\")",
+    "alt_names": [
+      "Goldstone"
+    ],
+    "latitude_deg": 35.426667,
+    "longitude_deg": -116.89,
+    "type": "Single Dish",
+    "wavelength_range": [
+      "cm"
+    ],
+    "notes": "Originally a 64-m dish; become 70-m in 1988. Conceivably still PI Science Capable?",
+    "history": [
+      {
+        "date": "2025-05-08T20:38:27Z",
+        "version": "0.1.0",
+        "user": "bmcguire",
+        "note": "Initial ingestion of Goldstone 72-m (DSS-14; \"Mars\") entry"
+      }
+    ]
+  },
+  {
+    "id": "Mitaka6",
+    "name": "Tokyo Astronomical Observatory Mitaka 6-m",
+    "alt_names": [
+      "Mitaka 6-m"
+    ],
+    "latitude_deg": 35.675217,
+    "longitude_deg": 139.538083,
+    "type": "Single Dish",
+    "wavelength_range": [
+      "mm"
+    ],
+    "notes": "Moved around quite a bit within Japan until returning (and retiring) in 2018.",
+    "history": [
+      {
+        "date": "2025-05-08T20:38:27Z",
+        "version": "0.1.0",
+        "user": "bmcguire",
+        "note": "Initial ingestion of Tokyo Astronomical Observatory Mitaka 6-m entry"
+      }
+    ]
+  },
+  {
+    "id": "McMath",
+    "name": "McMath-Pierce Solar Telescope",
+    "alt_names": [
+      "McMath Solar Telescope"
+    ],
+    "latitude_deg": 31.9584,
+    "longitude_deg": -111.595,
+    "type": "Optical",
+    "wavelength_range": [
+      "IR",
+      "Vis",
+      "UV"
+    ],
+    "notes": null,
+    "history": [
+      {
+        "date": "2025-05-08T20:38:27Z",
+        "version": "0.1.0",
+        "user": "bmcguire",
+        "note": "Initial ingestion of McMath-Pierce Solar Telescope entry"
+      }
+    ]
+  },
+  {
+    "id": "Bell7m",
+    "name": "AT&T Bell Laboratories 7-m Telescope",
+    "alt_names": [
+      "Bell 7-m"
+    ],
+    "latitude_deg": null,
+    "longitude_deg": null,
+    "type": "Single Dish",
+    "wavelength_range": [
+      "cm"
+    ],
+    "notes": null,
+    "history": [
+      {
+        "date": "2025-05-08T20:38:27Z",
+        "version": "0.1.0",
+        "user": "bmcguire",
+        "note": "Initial ingestion of AT&T Bell Laboratories 7-m Telescope entry"
+      }
+    ]
+  },
+  {
+    "id": "IRTF",
+    "name": "NASA Infrared Telescope Facility",
+    "alt_names": [
+      "IRTF"
+    ],
+    "latitude_deg": 19.8263,
+    "longitude_deg": -155.473,
+    "type": "Optical",
+    "wavelength_range": [
+      "IR"
+    ],
+    "notes": null,
+    "history": [
+      {
+        "date": "2025-05-08T20:38:27Z",
+        "version": "0.1.0",
+        "user": "bmcguire",
+        "note": "Initial ingestion of NASA Infrared Telescope Facility entry"
+      }
+    ]
+  },
+  {
+    "id": "KPNO4m",
+    "name": "Mayall 4-m Telescope",
+    "alt_names": [
+      "KPNO 4-m"
+    ],
+    "latitude_deg": 31.9583,
+    "longitude_deg": -111.5967,
+    "type": "Optical",
+    "wavelength_range": [
+      "IR"
+    ],
+    "notes": null,
+    "history": [
+      {
+        "date": "2025-05-08T20:38:27Z",
+        "version": "0.1.0",
+        "user": "bmcguire",
+        "note": "Initial ingestion of Mayall 4-m Telescope entry"
+      }
+    ]
+  },
+  {
+    "id": "Onsala20m",
+    "name": "Onsala 20-m Telescope",
+    "alt_names": [
+      "Onsala 20-m"
+    ],
+    "latitude_deg": 57.393056,
+    "longitude_deg": 11.917778,
+    "type": "Single Dish",
+    "wavelength_range": [
+      "cm",
+      "mm"
+    ],
+    "notes": null,
+    "history": [
+      {
+        "date": "2025-05-08T20:38:27Z",
+        "version": "0.1.0",
+        "user": "bmcguire",
+        "note": "Initial ingestion of Onsala 20-m Telescope entry"
+      }
+    ]
+  },
+  {
+    "id": "FCRAO14m",
+    "name": "Five College Radio Observatory 14-m Telescope",
+    "alt_names": [
+      "FCRAO 14-m"
+    ],
+    "latitude_deg": 42.391925,
+    "longitude_deg": -72.344097,
+    "type": "Single Dish",
+    "wavelength_range": [
+      "cm",
+      "mm"
+    ],
+    "notes": null,
+    "history": [
+      {
+        "date": "2025-05-08T20:38:27Z",
+        "version": "0.1.0",
+        "user": "bmcguire",
+        "note": "Initial ingestion of Five College Radio Observatory 14-m Telescope entry"
+      }
+    ]
+  },
+  {
+    "id": "APEX",
+    "name": "Atacama Pathfinder Experiment",
+    "alt_names": [
+      "APEX"
+    ],
+    "latitude_deg": -23.0058,
+    "longitude_deg": -67.7592,
+    "type": "Single Dish",
+    "wavelength_range": [
+      "mm",
+      "sub-mm"
+    ],
+    "notes": null,
+    "history": [
+      {
+        "date": "2025-05-08T20:38:27Z",
+        "version": "0.1.0",
+        "user": "bmcguire",
+        "note": "Initial ingestion of Atacama Pathfinder Experiment entry"
+      }
+    ]
+  },
+  {
+    "id": "CSO",
+    "name": "Caltech Submillimeter Observatory",
+    "alt_names": [
+      "CSO"
+    ],
+    "latitude_deg": 19.8225,
+    "longitude_deg": -155.70694,
+    "type": "Single Dish",
+    "wavelength_range": [
+      "mm",
+      "sub-mm"
+    ],
+    "notes": null,
+    "history": [
+      {
+        "date": "2025-05-08T20:38:27Z",
+        "version": "0.1.0",
+        "user": "bmcguire",
+        "note": "Initial ingestion of Caltech Submillimeter Observatory entry"
+      }
+    ]
+  },
+  {
+    "id": "MWO4m",
+    "name": "University of Texas Millimeter Wave Observatory 4.9-m Telescope",
+    "alt_names": [
+      "MWO 4.9-m"
+    ],
+    "latitude_deg": 30.3866,
+    "longitude_deg": -97.7269,
+    "type": "Single Dish",
+    "wavelength_range": [
+      "mm"
+    ],
+    "notes": null,
+    "history": [
+      {
+        "date": "2025-05-08T20:38:27Z",
+        "version": "0.1.0",
+        "user": "bmcguire",
+        "note": "Initial ingestion of University of Texas Millimeter Wave Observatory 4.9-m Telescope entry"
+      }
+    ]
+  },
+  {
+    "id": "HatCreek",
+    "name": "Hat Creek Station 20-ft Telescope",
+    "alt_names": [
+      "Hat Creek 20-ft"
+    ],
+    "latitude_deg": 40.8178,
+    "longitude_deg": -121.473,
+    "type": "Single Dish",
+    "wavelength_range": [
+      "cm",
+      "mm"
+    ],
+    "notes": "Best build date found was \"mid 1960s\", so 1965 is an estimate.  It appears to have either been subsummed into BIMA or decommissioned when BIMA came online.  The decommissioning date is an estimate.",
+    "history": [
+      {
+        "date": "2025-05-08T20:38:27Z",
+        "version": "0.1.0",
+        "user": "bmcguire",
+        "note": "Initial ingestion of Hat Creek Station 20-ft Telescope entry"
+      }
+    ]
+  },
+  {
+    "id": "SMA",
+    "name": "Submillimeter Array",
+    "alt_names": [
+      "SMA"
+    ],
+    "latitude_deg": 19.8225,
+    "longitude_deg": -155.70694,
+    "type": "Interferometer",
+    "wavelength_range": [
+      "mm"
+    ],
+    "notes": null,
+    "history": [
+      {
+        "date": "2025-05-08T20:38:27Z",
+        "version": "0.1.0",
+        "user": "bmcguire",
+        "note": "Initial ingestion of Submillimeter Array entry"
+      }
+    ]
+  },
+  {
+    "id": "Herschel",
+    "name": "Herschel Space Telescope",
+    "alt_names": [
+      "Herschel"
+    ],
+    "latitude_deg": null,
+    "longitude_deg": null,
+    "type": "Space",
+    "wavelength_range": [
+      "sub-mm",
+      "IR"
+    ],
+    "notes": null,
+    "history": [
+      {
+        "date": "2025-05-08T20:38:27Z",
+        "version": "0.1.0",
+        "user": "bmcguire",
+        "note": "Initial ingestion of Herschel Space Telescope entry"
+      }
+    ]
+  },
+  {
+    "id": "UKIRT",
+    "name": "United Kingdom Infrared Telescope",
+    "alt_names": [
+      "UKIRT"
+    ],
+    "latitude_deg": 19.8225,
+    "longitude_deg": -155.70694,
+    "type": "Optical",
+    "wavelength_range": [
+      "IR"
+    ],
+    "notes": null,
+    "history": [
+      {
+        "date": "2025-05-08T20:38:27Z",
+        "version": "0.1.0",
+        "user": "bmcguire",
+        "note": "Initial ingestion of United Kingdom Infrared Telescope entry"
+      }
+    ]
+  },
+  {
+    "id": "SOFIA",
+    "name": "Stratospheric Observatory for Infrared Astronomy",
+    "alt_names": [
+      "SOFIA"
+    ],
+    "latitude_deg": null,
+    "longitude_deg": null,
+    "type": "Airborne",
+    "wavelength_range": [
+      "sub-mm",
+      "IR"
+    ],
+    "notes": null,
+    "history": [
+      {
+        "date": "2025-05-08T20:38:27Z",
+        "version": "0.1.0",
+        "user": "bmcguire",
+        "note": "Initial ingestion of Stratospheric Observatory for Infrared Astronomy entry"
+      }
+    ]
+  },
+  {
+    "id": "Odin",
+    "name": "Odin",
+    "alt_names": [
+      "Odin"
+    ],
+    "latitude_deg": null,
+    "longitude_deg": null,
+    "type": "Space",
+    "wavelength_range": [
+      "sub-mm"
+    ],
+    "notes": null,
+    "history": [
+      {
+        "date": "2025-05-08T20:38:27Z",
+        "version": "0.1.0",
+        "user": "bmcguire",
+        "note": "Initial ingestion of Odin entry"
+      }
+    ]
+  },
+  {
+    "id": "FUSE",
+    "name": "Far Ultraviolet Spectroscopic Explorer",
+    "alt_names": [
+      "FUSE"
+    ],
+    "latitude_deg": null,
+    "longitude_deg": null,
+    "type": "Space",
+    "wavelength_range": [
+      "UV"
+    ],
+    "notes": null,
+    "history": [
+      {
+        "date": "2025-05-08T20:38:27Z",
+        "version": "0.1.0",
+        "user": "bmcguire",
+        "note": "Initial ingestion of Far Ultraviolet Spectroscopic Explorer entry"
+      }
+    ]
+  },
+  {
+    "id": "Kuiper",
+    "name": "Kuiper Airborne Observatory",
+    "alt_names": [
+      "KAO"
+    ],
+    "latitude_deg": null,
+    "longitude_deg": null,
+    "type": "Airborne",
+    "wavelength_range": [
+      "sub-mm",
+      "IR"
+    ],
+    "notes": null,
+    "history": [
+      {
+        "date": "2025-05-08T20:38:27Z",
+        "version": "0.1.0",
+        "user": "bmcguire",
+        "note": "Initial ingestion of Kuiper Airborne Observatory entry"
+      }
+    ]
+  },
+  {
+    "id": "MtHopkins",
+    "name": "Tillinghast 60 inch",
+    "alt_names": [
+      "Mt. Hopkins 60-in"
+    ],
+    "latitude_deg": 31.6811,
+    "longitude_deg": -110.878,
+    "type": "Optical",
+    "wavelength_range": [
+      "IR"
+    ],
+    "notes": null,
+    "history": [
+      {
+        "date": "2025-05-08T20:38:27Z",
+        "version": "0.1.0",
+        "user": "bmcguire",
+        "note": "Initial ingestion of Tillinghast 60 inch entry"
+      }
+    ]
+  },
+  {
+    "id": "Aerobee",
+    "name": "Aerobee-150 Rocket",
+    "alt_names": [
+      "Aerobee-150 Rocket"
+    ],
+    "latitude_deg": null,
+    "longitude_deg": null,
+    "type": "Airborne",
+    "wavelength_range": [
+      "UV"
+    ],
+    "notes": "They literally put a spectrometer on a rocket and shot it into the sky, then used the same spectrometer to measure H2 in the laboratory.",
+    "history": [
+      {
+        "date": "2025-05-08T20:38:27Z",
+        "version": "0.1.0",
+        "user": "bmcguire",
+        "note": "Initial ingestion of Aerobee-150 Rocket entry"
+      }
+    ]
+  },
+  {
+    "id": "Millstone",
+    "name": "Lincoln Laboratory Millstone Hill Observatory 84-ft",
+    "alt_names": [
+      "Millstone Hill 84-ft"
+    ],
+    "latitude_deg": 42.6233,
+    "longitude_deg": -71.4882,
+    "type": "Single Dish",
+    "wavelength_range": [
+      "cm"
+    ],
+    "notes": "Originally the Ballistic Missile Early Warning System radar antenna.  Decommissioning date is a best guess based on the installation of larger telescopes to the site at that time.",
+    "history": [
+      {
+        "date": "2025-05-08T20:38:27Z",
+        "version": "0.1.0",
+        "user": "bmcguire",
+        "note": "Initial ingestion of Lincoln Laboratory Millstone Hill Observatory 84-ft entry"
+      }
+    ]
+  },
+  {
+    "id": "MtWilson",
+    "name": "Mount Wilson 100-in",
+    "alt_names": [
+      "Mt. Wilson"
+    ],
+    "latitude_deg": null,
+    "longitude_deg": null,
+    "type": "Optical",
+    "wavelength_range": [
+      "UV",
+      "Vis"
+    ],
+    "notes": "Now known as the Hooker Telescope.",
+    "history": [
+      {
+        "date": "2025-05-08T20:38:27Z",
+        "version": "0.1.0",
+        "user": "bmcguire",
+        "note": "Initial ingestion of Mount Wilson 100-in entry"
+      }
+    ]
+  },
+  {
+    "id": "IRAS",
+    "name": "Infrared Astronomical Satellite",
+    "alt_names": [
+      "IRAS"
+    ],
+    "latitude_deg": null,
+    "longitude_deg": null,
+    "type": "Space",
+    "wavelength_range": [
+      "IR"
+    ],
+    "notes": null,
+    "history": [
+      {
+        "date": "2025-05-08T20:38:27Z",
+        "version": "0.1.0",
+        "user": "bmcguire",
+        "note": "Initial ingestion of Infrared Astronomical Satellite entry"
+      }
+    ]
+  }
+]

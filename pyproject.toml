@@ -1,0 +1,17 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "astromol"
+version = "0.1.0"
+description = "Interstellar molecule database and GUI to accompany Census of Interstellar Molecules"
+authors = [{name = "Brett A. McGuire", email="brettmc@mit.edu"}]
+readme = "README.md"
+requires-python = ">=3.8"
+dependencies = [
+  "pyqt5",
+]
+
+[project.scripts]
+astromol-explorer = "astromol_explorer:main"
