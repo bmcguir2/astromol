@@ -1,0 +1,16 @@
+[
+  {
+    "note":       "First interstellar molecule ever detected",
+    "molecule":    "mol:CH",
+    "sources":     ["DiffuseCloud"],
+    "telescopes":  ["MtWilson"],
+    "wavelengths": ["UV"],
+    "year":        1937,
+    "type":        "ISM/CSM",
+    "first":       true,
+    "refs": {
+      "observation": ["Swings:1937:483"]
+    },
+    "latex_text":  "was first detected via UV absorption by \\citet{Swings:1937:483}"
+  }
+]

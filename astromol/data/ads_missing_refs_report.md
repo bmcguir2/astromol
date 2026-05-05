@@ -1,0 +1,189 @@
+# ADS Missing References Report
+
+This is a temporary import report. The active `references.bib` file was not modified.
+
+Temporary BibTeX file: `/Users/brett/Dropbox/Programs/census_scripts/astromol/astromol/data/ads_missing_refs.bib`
+
+## Summary
+
+- Items considered: 162
+- Resolved: 118
+- Ambiguous: 0
+- Unresolved: 44
+- Unique ADS bibcodes exported: 118
+- BibTeX entries written: 118
+- Publication fields normalized: 118
+- Citekeys normalized: 118
+- Citekeys rewritten this run: 1
+
+## Resolved
+
+- `2021Natur.595..370Z` -> `Zhang:2021:370` (ADS `2021Natur.595..370Z`, 2021, Nature, 595, ['370'])
+- `2022A&A...659A..29B` -> `Brunken:2022:A29` (ADS `2022A&A...659A..29B`, 2022, Astronomy and Astrophysics, 659, ['A29'])
+- `2022A&A...659A.158H` -> `Haasler:2022:A158` (ADS `2022A&A...659A.158H`, 2022, Astronomy and Astrophysics, 659, ['A158'])
+- `1991JChPh..94.3504P` -> `Petrmichl:1991:3504` (ADS `1991JChPh..94.3504P`, 1991, Journal of Chemical Physics, 94, ['3504'])
+- `2022FrASS...9.9288R` -> `Rivilla:2022:829288` (ADS `2022FrASS...9.9288R`, 2022, Frontiers in Astronomy and Space Sciences, 9, ['829288'])
+- `Koelemay:2022:L11` -> `Koelemay:2022:L11` (ADS `2022ApJ...940L..11K`, 2022, The Astrophysical Journal, 940, ['L11'])
+- `Allen:1996:L57` -> `Allen:1996:L57` (ADS `1996ApJ...472L..57A`, 1996, The Astrophysical Journal, 472, ['L57'])
+- `Koelemay:2023:L6` -> `Koelemay:2023:L6` (ADS `2023ApJ...958L...6K`, 2023, The Astrophysical Journal, 958, ['L6'])
+- `2022ApJ...926..148F` -> `Furuya:2022:148` (ADS `2022ApJ...926..148F`, 2022, The Astrophysical Journal, 926, ['148'])
+- `2021A&A...651L...6B` -> `Booth:2021:L6` (ADS `2021A&A...651L...6B`, 2021, Astronomy and Astrophysics, 651, ['L6'])
+- `2021A&A...653L...5P` -> `Phuong:2021:L5` (ADS `2021A&A...653L...5P`, 2021, Astronomy and Astrophysics, 653, ['L5'])
+- `Cernicharo et al. 2015 ApJ 806, L3` -> `Cernicharo:2015:L3` (ADS `2015ApJ...806L...3C`, 2015, The Astrophysical Journal, 806, ['L3'])
+- `Changala:2022:L42` -> `Changala:2022:L42` (ADS `2022ApJ...940L..42C`, 2022, The Astrophysical Journal, 940, ['L42'])
+- `2016A&A...591A.126C` -> `Cazzoli:2016:A126` (ADS `2016A&A...591A.126C`, 2016, Astronomy and Astrophysics, 591, ['A126'])
+- `2023A&A...674L..13M` -> `Marcelino:2023:L13` (ADS `2023A&A...674L..13M`, 2023, Astronomy and Astrophysics, 674, ['L13'])
+- `Gupta:2024:L28` -> `Gupta:2024:L28` (ADS `2024ApJ...966L..28G`, 2024, The Astrophysical Journal, 966, ['L28'])
+- `Schutte et al. 1993 Icarus 104, 118` -> `Schutte:1993:118` (ADS `1993Icar..104..118S`, 1993, Icarus, 104, ['118'])
+- `2021A&A...656A..46M` -> `Martin:2021:A46` (ADS `2021A&A...656A..46M`, 2021, Astronomy and Astrophysics, 656, ['A46'])
+- `1994JChPh.10110350Y` -> `Yamamoto:1994:10350` (ADS `1994JChPh.10110350Y`, 1994, Journal of Chemical Physics, 101, ['10350'])
+- `2021MNRAS.506L..79R` -> `Rivilla:2021:L79` (ADS `2021MNRAS.506L..79R`, 2021, Monthly Notices of the Royal Astronomical Society, 506, ['L79'])
+- `2021A&A...654A..45C` -> `Cabezas:2021:A45` (ADS `2021A&A...654A..45C`, 2021, Astronomy and Astrophysics, 654, ['A45'])
+- `2022A&A...657L...4C` -> `Cabezas:2022:L4` (ADS `2022A&A...657L...4C`, 2022, Astronomy and Astrophysics, 657, ['L4'])
+- `Berne:2023:56` -> `Berne:2023:56` (ADS `2023Natur.621...56B`, 2023, Nature, 621, ['56'])
+- `McGuire:2016:22693` -> `McGuire:2016:22693` (ADS `2016PCCP...1822693M`, 2016, Physical Chemistry Chemical Physics (Incorporating Faraday Transactions), 18, ['22693'])
+- `Cernicharo:2024:L4` -> `Cernicharo:2024:L4` (ADS `2024A&A...682L...4C`, 2024, Astronomy and Astrophysics, 682, ['L4'])
+- `Ohshima:1996:635` -> `Ohshima:1996:635` (ADS `1996CPL...256..635O`, 1996, Chemical Physics Letters, 256, ['635'])
+- `Borgo:1979:115` -> `Borgo:1979:115` (ADS `1979CPL....63..115B`, 1979, Chemical Physics Letters, 63, ['115'])
+- `Kirchhoff:1969:2437` -> `Kirchhoff:1969:2437` (ADS `1969JAChS..91.2437K`, 1969, Journal of the American Chemical Society, 91, ['2437'])
+- `Heineking:1993:62` -> `Heineking:1993:62` (ADS `1993JMoSp.158...62H`, 1993, Journal of Molecular Spectroscopy, 158, ['62'])
+- `2021ApJ...922...62C` -> `Canta:2021:62` (ADS `2021ApJ...922...62C`, 2021, The Astrophysical Journal, 922, ['62'])
+- `Gordon et al. 2001 ApJS 134, 311` -> `Gordon:2001:311` (ADS `2001ApJS..134..311G`, 2001, The Astrophysical Journal Supplement Series, 134, ['311'])
+- `2021A&A...650L..14C` -> `Cernicharo:2021:L14` (ADS `2021A&A...650L..14C`, 2021, Astronomy and Astrophysics, 650, ['L14'])
+- `1992ApJ...386L..27C` -> `Cooksy:1992:L27` (ADS `1992ApJ...386L..27C`, 1992, The Astrophysical Journal, 386, ['L27'])
+- `1992JMoSp.153..610C` -> `Cooksy:1992:610` (ADS `1992JMoSp.153..610C`, 1992, Journal of Molecular Spectroscopy, 153, ['610'])
+- `1996ApJ...462..561C` -> `Chen:1996:561` (ADS `1996ApJ...462..561C`, 1996, The Astrophysical Journal, 462, ['561'])
+- `2021A&A...656L..21C` -> `Cernicharo:2021:L21` (ADS `2021A&A...656L..21C`, 2021, Astronomy and Astrophysics, 656, ['L21'])
+- `2019JChPh.151e4312C` -> `Cabezas:2019:054312` (ADS `2019JChPh.151e4312C`, 2019, Journal of Chemical Physics, 151, ['054312'])
+- `2023A&A...672L..12C` -> `Cabezas:2023:L12` (ADS `2023A&A...672L..12C`, 2023, Astronomy and Astrophysics, 672, ['L12'])
+- `2023A&A...672L..13C` -> `Cernicharo:2023:L13` (ADS `2023A&A...672L..13C`, 2023, Astronomy and Astrophysics, 672, ['L13'])
+- `Cordonnier:1996:59` -> `Cordonnier:1996:59` (ADS `1996JMoSp.178...59C`, 1996, Journal of Molecular Spectroscopy, 178, ['59'])
+- `Bogey:1992:L103` -> `Bogey:1992:L103` (ADS `1992ApJ...399L.103B`, 1992, The Astrophysical Journal, 399, ['L103'])
+- `Gabrys:1995:15611` -> `Gabrys:1995:15611` (ADS `1995JPhCh..9915611G`, 1995, Journal of Physical Chemistry, 99, ['15611'])
+- `2024A&A...683A..62M` -> `Muller:2024:A62` (ADS `2024A&A...683A..62M`, 2024, Astronomy and Astrophysics, 683, ['A62'])
+- `Cabezas:2024:L3` -> `Cabezas:2024:L3` (ADS `2024A&A...686L...3C`, 2024, Astronomy and Astrophysics, 686, ['L3'])
+- `2020A&A...642A.206M` -> `Margules:2020:A206` (ADS `2020A&A...642A.206M`, 2020, Astronomy and Astrophysics, 642, ['A206'])
+- `Ogata:1995:3593` -> `Ogata:1995:3593` (ADS `1995JAChS.117.3593O`, 1995, Journal of the American Chemical Society, 117, ['3593'])
+- `2022A&A...659L...9A` -> `Agundez:2022:L9` (ADS `2022A&A...659L...9A`, 2022, Astronomy and Astrophysics, 659, ['L9'])
+- `2022A&A...657L..16C` -> `Cernicharo:2022:L16` (ADS `2022A&A...657L..16C`, 2022, Astronomy and Astrophysics, 657, ['L16'])
+- `Apponi:2001:L65` -> `Apponi:2001:L65` (ADS `2001ApJ...547L..65A`, 2001, The Astrophysical Journal, 547, ['L65'])
+- `Cabezas:2022:L2` -> `Cabezas:2022:L2` (ADS `2022A&A...663L...2C`, 2022, Astronomy and Astrophysics, 663, ['L2'])
+- `Fuentetaja:2022:L4` -> `Fuentetaja:2022:L4` (ADS `2022A&A...667L...4F`, 2022, Astronomy and Astrophysics, 667, ['L4'])
+- `2023A&A...676L...1S` -> `Silva:2023:L1` (ADS `2023A&A...676L...1S`, 2023, Astronomy and Astrophysics, 676, ['L1'])
+- `Mori:2009:204308` -> `Mori:2009:204308` (ADS `2009JChPh.130t4308M`, 2009, Journal of Chemical Physics, 130, ['204308'])
+- `Mori:2011:044319` -> `Mori:2011:044319` (ADS `2011JChPh.134d4319M`, 2011, Journal of Chemical Physics, 134, ['044319'])
+- `Cabezas:2023:L5` -> `Cabezas:2023:L5` (ADS `2023A&A...676L...5C`, 2023, Astronomy and Astrophysics, 676, ['L5'])
+- `Bak:1980:528` -> `Bak:1980:528` (ADS `1980CPL....75..528B`, 1980, Chemical Physics Letters, 75, ['528'])
+- `Winnewisser:1984:193` -> `Winnewisser:1984:193` (ADS `1984JMoSp.105..193W`, 1984, Journal of Molecular Spectroscopy, 105, ['193'])
+- `Stolze:1989:291` -> `Stolze:1989:291` (ADS `1989ZNatA..44..291S`, 1989, Zeitschrift Naturforschung Teil A, 44, ['291'])
+- `Gilmore et al. 1976 ApJ 204, 43` -> `Gilmore:1976:43` (ADS `1976ApJ...204...43G`, 1976, The Astrophysical Journal, 204, ['43'])
+- `Halfen et al. 2015 ApJ 812, L5` -> `Halfen:2015:L5` (ADS `2015ApJ...812L...5H`, 2015, The Astrophysical Journal, 812, ['L5'])
+- `2021A&A...652L..13P` -> `Pardo:2021:L13` (ADS `2021A&A...652L..13P`, 2021, Astronomy and Astrophysics, 652, ['L13'])
+- `1998ApJ...492..849C` -> `Chen:1998:849` (ADS `1998ApJ...492..849C`, 1998, The Astrophysical Journal, 492, ['849'])
+- `2001ApJ...552..409T` -> `Tang:2001:409` (ADS `2001ApJ...552..409T`, 2001, The Astrophysical Journal, 552, ['409'])
+- `2021A&A...654L...9C` -> `Cabezas:2021:L9a` (ADS `2021A&A...654L...9C`, 2021, Astronomy and Astrophysics, 654, ['L9'])
+- `2021A&A...650L...9C` -> `Cabezas:2021:L9` (ADS `2021A&A...650L...9C`, 2021, Astronomy and Astrophysics, 650, ['L9'])
+- `Agundez:2023:L1` -> `Agundez:2023:L1` (ADS `2023A&A...669L...1A`, 2023, Astronomy and Astrophysics, 669, ['L1'])
+- `Cernicharo:2024:L15` -> `Cernicharo:2024:L15` (ADS `2024A&A...686L..15C`, 2024, Astronomy and Astrophysics, 686, ['L15'])
+- `Thorwirth et al. 2003 A&A 398, L11` -> `Thorwirth:2003:L11` (ADS `2003A&A...398L..11T`, 2003, Astronomy and Astrophysics, 398, ['L11'])
+- `1990JMoSp.142..195B` -> `Brown:1990:195` (ADS `1990JMoSp.142..195B`, 1990, Journal of Molecular Spectroscopy, 142, ['195'])
+- `1994JMoSp.163...80M` -> `McNaughton:1994:80` (ADS `1994JMoSp.163...80M`, 1994, Journal of Molecular Spectroscopy, 163, ['80'])
+- `2021ApJ...920L..27Z` -> `Zeng:2021:L27` (ADS `2021ApJ...920L..27Z`, 2021, The Astrophysical Journal, 920, ['L27'])
+- `Melosso:2022:2750` -> `Melosso:2022:2750` (ADS `2022ChCom..58.2750M`, 2022, Chemical Communications, 58, ['2750'])
+- `2022ApJ...929L..11R` -> `Rivilla:2022:L11` (ADS `2022ApJ...929L..11R`, 2022, The Astrophysical Journal, 929, ['L11'])
+- `McCarthy:2002:L55` -> `McCarthy:2002:L55` (ADS `2002ApJ...569L..55M`, 2002, The Astrophysical Journal, 569, ['L55'])
+- `2023A&A...670L..19C` -> `Cernicharo:2023:L19` (ADS `2023A&A...670L..19C`, 2023, Astronomy and Astrophysics, 670, ['L19'])
+- `2018A&A...619A..92B` -> `Bermudez:2018:A92` (ADS `2018A&A...619A..92B`, 2018, Astronomy and Astrophysics, 619, ['A92'])
+- `2023A&A...671L...6F` -> `Fuentetaja:2023:L6` (ADS `2023A&A...671L...6F`, 2023, Astronomy and Astrophysics, 671, ['L6'])
+- `Muller:2024:A8` -> `Muller:2024:A8` (ADS `2024A&A...687A...8M`, 2024, Astronomy and Astrophysics, 687, ['A8'])
+- `Baughcum:1981:6296` -> `Baughcum:1981:6296` (ADS `1981JAChS.103.6296B`, 1981, Journal of the American Chemical Society, 103, ['6296'])
+- `Stolze:1983:243` -> `Stolze:1983:243` (ADS `1983JMoSt..97..243S`, 1983, Journal of Molecular Structure, 97, ['243'])
+- `Baba:1999:4131` -> `Baba:1999:4131` (ADS `1999JChPh.110.4131B`, 1999, Journal of Chemical Physics, 110, ['4131'])
+- `2021A&A...652L..12S` -> `Shingledecker:2021:L12` (ADS `2021A&A...652L..12S`, 2021, Astronomy and Astrophysics, 652, ['L12'])
+- `2003JChPh.119.4353K` -> `Kukolich:2003:4353` (ADS `2003JChPh.119.4353K`, 2003, Journal of Chemical Physics, 119, ['4353'])
+- `2003JMoSp.217..123R` -> `Robertson:2003:123` (ADS `2003JMoSp.217..123R`, 2003, Journal of Molecular Spectroscopy, 217, ['123'])
+- `2021A&A...652L...9C` -> `Cernicharo:2021:L9` (ADS `2021A&A...652L...9C`, 2021, Astronomy and Astrophysics, 652, ['L9'])
+- `2018A&A...616A.173K` -> `Kolesnikova:2018:A173` (ADS `2018A&A...616A.173K`, 2018, Astronomy and Astrophysics, 616, ['A173'])
+- `2021A&A...654L...1R` -> `Rodriguez-Almeida:2021:L1` (ADS `2021A&A...654L...1R`, 2021, Astronomy and Astrophysics, 654, ['L1'])
+- `2022A&A...659L...8C` -> `Cabezas:2022:L8` (ADS `2022A&A...659L...8C`, 2022, Astronomy and Astrophysics, 659, ['L8'])
+- `Lesarri:1995:520` -> `Lesarri:1995:520` (ADS `1995JMoSp.172..520L`, 1995, Journal of Molecular Spectroscopy, 172, ['520'])
+- `Cernicharo:2022:L5` -> `Cernicharo:2022:L5` (ADS `2022A&A...663L...5C`, 2022, Astronomy and Astrophysics, 663, ['L5'])
+- `Lopez:1990:317` -> `Lopez:1990:317` (ADS `1990JMoSp.141..317L`, 1990, Journal of Molecular Spectroscopy, 141, ['317'])
+- `Demaison:1991:455` -> `Demaison:1991:455` (ADS `1991JMoSp.146..455D`, 1991, Journal of Molecular Spectroscopy, 146, ['455'])
+- `Rivilla:2023:L20` -> `Rivilla:2023:L20` (ADS `2023ApJ...953L..20R`, 2023, The Astrophysical Journal, 953, ['L20'])
+- `Cernicharo:2024:A139` -> `Cernicharo:2024:A139` (ADS `2024A&A...686A.139C`, 2024, Astronomy and Astrophysics, 686, ['A139'])
+- `1971JChPh..55..651P` -> `Penn:1971:651` (ADS `1971JChPh..55..651P`, 1971, Journal of Chemical Physics, 55, ['651'])
+- `2003JMoSp.217..278W` -> `Widicus:2003:278` (ADS `2003JMoSp.217..278W`, 2003, Journal of Molecular Spectroscopy, 217, ['278'])
+- `2021PNAS..11801314R` -> `Rivilla:2021:e2101314118` (ADS `2021PNAS..11801314R`, 2021, Proceedings of the National Academy of Science, 118, ['e2101314118'])
+- `Fuentetaja:2022:L3` -> `Fuentetaja:2022:L3` (ADS `2022A&A...663L...3F`, 2022, Astronomy and Astrophysics, 663, ['L3'])
+- `2023ApJ...944L..45R` -> `Remijan:2023:L45` (ADS `2023ApJ...944L..45R`, 2023, The Astrophysical Journal, 944, ['L45'])
+- `Zdanovskaia:2021:9551` -> `Zdanovskaia:2021:9551` (ADS `2021JAChS.143.9551Z`, 2021, Journal of the American Chemical Society, 143, ['9551'])
+- `2023ApJ...948..133C` -> `Cooke:2023:133` (ADS `2023ApJ...948..133C`, 2023, The Astrophysical Journal, 948, ['133'])
+- `2018A&A...620L...6T` -> `Tercero:2018:L6` (ADS `2018A&A...620L...6T`, 2018, Astronomy and Astrophysics, 620, ['L6'])
+- `Dreizier:1981:1187` -> `Dreizier:1981:1187` (ADS `1981ZNatA..36.1187D`, 1981, Zeitschrift Naturforschung Teil A, 36, ['1187'])
+- `Maeda:2006:650` -> `Maeda:2006:650` (ADS `2006ApJS..166..650M`, 2006, The Astrophysical Journal Supplement Series, 166, ['650'])
+- `Belloche:2022:A110` -> `Belloche:2022:A110` (ADS `2022A&A...662A.110B`, 2022, Astronomy and Astrophysics, 662, ['A110'])
+- `Laurie:1961:1516` -> `Laurie:1961:1516` (ADS `1961JChPh..34.1516L`, 1961, Journal of Chemical Physics, 34, ['1516'])
+- `Scharpen:1963:1732` -> `Scharpen:1963:1732` (ADS `1963JChPh..39.1732S`, 1963, Journal of Chemical Physics, 39, ['1732'])
+- `Demaison:1975:325` -> `Demaison:1975:325` (ADS `1975JMoSt..24..325D`, 1975, Journal of Molecular Structure, 24, ['325'])
+- `Gutowsky:1991:91` -> `Gutowsky:1991:91` (ADS `1991JMoSp.147...91G`, 1991, Journal of Molecular Spectroscopy, 147, ['91'])
+- `Fatima:2023:A25` -> `Fatima:2023:A25` (ADS `2023A&A...680A..25F`, 2023, Astronomy and Astrophysics, 680, ['A25'])
+- `2021A&A...655L...1C` -> `Cernicharo:2021:L1` (ADS `2021A&A...655L...1C`, 2021, Astronomy and Astrophysics, 655, ['L1'])
+- `Sakaizumi:1993:112` -> `Sakaizumi:1993:112` (ADS `1993JMoSp.159..112S`, 1993, Journal of Molecular Spectroscopy, 159, ['112'])
+- `Cernicharo:2022:L9` -> `Cernicharo:2022:L9` (ADS `2022A&A...663L...9C`, 2022, Astronomy and Astrophysics, 663, ['L9'])
+- `Fried:2024:L23` -> `Fried:2024:L23` (ADS `2024ApJ...965L..23F`, 2024, The Astrophysical Journal, 965, ['L23'])
+- `Caminati:1986:67` -> `Caminati:1986:67` (ADS `1986CP....110...67C`, 1986, Chemical Physics, 110, ['67'])
+- `Loru:2023:A166` -> `Loru:2023:A166` (ADS `2023A&A...677A.166L`, 2023, Astronomy and Astrophysics, 677, ['A166'])
+- `2022ApJ...938L..12S` -> `Sita:2022:L12` (ADS `2022ApJ...938L..12S`, 2022, The Astrophysical Journal, 938, ['L12'])
+- `Wenzel:2025:262` -> `Wenzel:2025:262` (ADS `2025NatAs...9..262W`, 2025, Nature Astronomy, 9, ['262'])
+
+## Ambiguous
+
+- None
+
+## Unresolved
+
+- `Jevons 1932 Phys Soc. pp 177-179`: No unique metadata-consistent ADS match.
+- `Thomas & Dalby 1968 Can. J. Phys. 46, 2815`: No unique metadata-consistent ADS match.
+- `Cord et al. 1968 Microwave Spectral Tables V5`: No unique metadata-consistent ADS match.
+- `Dixon 1959 Can J. Phys. 37, 1171 and Klaus et al. 1997 A&A 322, L1`: No unique metadata-consistent ADS match.
+- `Nakimi et al. 1998 JMS 191, 176`: No unique metadata-consistent ADS match.
+- `Thaddues & Turner 1975 ApJ 201, L25`: No unique metadata-consistent ADS match.
+- `Steenbeckeliers 1968 Ann. Soc. Sci. Brux 82, 331`: No unique metadata-consistent ADS match.
+- `Shinegari 1967 J Phys Soc Jpn 23, 404`: No unique metadata-consistent ADS match.
+- `McCarthy et al. JCP 110, 1064`: Reference could not be parsed into search metadata.
+- `Oshima & Endo 1993 JMS 159, 458`: No unique metadata-consistent ADS match.
+- `Sanz-Novo:2024:149`: No unique metadata-consistent ADS match.
+- `Sanz-Novo:2024:L26`: No unique metadata-consistent ADS match.
+- `Zukerman et al. 1971 ApJ 163, L41`: No unique metadata-consistent ADS match.
+- `Miller et al. 1962 JMS 8, 153`: No unique metadata-consistent ADS match.
+- `Goldhaber and Betz 1977 ApJ 279, L55`: No unique metadata-consistent ADS match.
+- `Kruger et al. 2010 Ang. Chem. 23, 1644`: No unique metadata-consistent ADS match.
+- `Gottlieb et al. 200 JCP 113, 1910`: Reference could not be parsed into search metadata.
+- `Fayolle et al. 2017 Nature Astron. 1, 702`: No unique metadata-consistent ADS match.
+- `Kessler et al. Phys Rev 79, 54`: Reference could not be parsed into search metadata.
+- `Lee & Amano 1987 ApJ 323`: No unique metadata-consistent ADS match.
+- `Guélin et al. 1998 A&A 355, L1`: No unique metadata-consistent ADS match.
+- `Zaleski et al. 2013 ApJ 765, L9`: No unique metadata-consistent ADS match.
+- `Brown:1982ur`: Reference could not be parsed into search metadata.
+- `Crabtree:2016fj`: Reference could not be parsed into search metadata.
+- `Sanz-Novo:2023:3`: No unique metadata-consistent ADS match.
+- `SanAndres:2024:39`: No unique metadata-consistent ADS match.
+- `Kaushik 1977 CPL 49, 90`: No unique metadata-consistent ADS match.
+- `Haas etal. 1994 JMS 167, 176`: No unique metadata-consistent ADS match.
+- `Bouche et al. 1973 J Mol Struct 18, 211`: No unique metadata-consistent ADS match.
+- `Loomis et al. 2013 ApJL 765, L10`: No unique metadata-consistent ADS match.
+- `Additional work used in Belloche et al. 2019 A&A 628, A10 to be reported in Medvedev et al. in prep as of 9/16/2019.`: No unique metadata-consistent ADS match.
+- `Kasai & Myers JCP 30, 1096`: Reference could not be parsed into search metadata.
+- `Takano et al. 1986 JMS 26, 157`: No unique metadata-consistent ADS match.
+- `Zukerman et al. 1975 ApJ 196, L99`: No unique metadata-consistent ADS match.
+- `Brown:1986lp`: Reference could not be parsed into search metadata.
+- `Sakaizumi:1976uu`: Reference could not be parsed into search metadata.
+- `Heineking:1994op`: Reference could not be parsed into search metadata.
+- `Sanz-Novo:2020:A135`: No unique metadata-consistent ADS match.
+- `Kattija-Ari & Harmony et al. 1980 International Journal of Quantum Chemistry 18, 443`: No unique metadata-consistent ADS match.
+- `Benson & Flygare 1970 J Am Chem Soc 92, 7523`: No unique metadata-consistent ADS match.
+- `Kaushik:1982ld`: Reference could not be parsed into search metadata.
+- `Jimenez-Serra:2022:A181`: No unique metadata-consistent ADS match.
+- `Buckley:1972:1149`: No unique metadata-consistent ADS match.
+- `Cernicharo et al. 2021 A&AL 649, 15`: No unique metadata-consistent ADS match.

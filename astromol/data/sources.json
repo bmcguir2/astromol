@@ -1,0 +1,807 @@
+[
+
+  {
+    "_break": "==========================================",
+    "name": "AFGL 890 LOS",
+    "nick": "AFGL890LOS",
+    "type": "Diffuse Cloud",
+    "ra": "06:10:48.0",
+    "dec": "-06:12:00",
+    "simbad_url": "http://simbad.u-strasbg.fr/simbad/sim-id?Ident=AFGL+890",
+    "latex_name": "AFGL 890 LOS",
+    "note": null
+  },
+
+  {
+    "_break": "==========================================",
+    "name": "AFGL 961 LOS",
+    "nick": "AFGL961LOS",
+    "type": "Diffuse Cloud",
+    "ra": "06:34:37.741",
+    "dec": "+04:12:44.20",
+    "simbad_url": "http://simbad.u-strasbg.fr/simbad/sim-id?Ident=AFGL961",
+    "latex_name": "AFGL 961 LOS",
+    "note": null
+  },
+
+  {
+    "_break": "==========================================",
+    "name": "AFGL 989 LOS",
+    "nick": "AFGL989LOS",
+    "type": "Diffuse Cloud",
+    "ra": "06:41:10.06",
+    "dec": "+09:29:35.8",
+    "simbad_url": "http://simbad.u-strasbg.fr/simbad/sim-id?Ident=AFGL989",
+    "latex_name": "AFGL 989 LOS",
+    "note": null
+  },
+
+  {
+    "_break": "==========================================",
+    "name": "B1-b",
+    "nick": "B1b",
+    "type": "Dark Cloud",
+    "ra": "03:33:20.8",
+    "dec": "+31:07:34",
+    "simbad_url": "http://simbad.u-strasbg.fr/simbad/sim-id?Ident=%5BHKM99%5D+B1-b",
+    "latex_name": "B1-b",
+    "note": null
+  },
+
+  {
+    "_break": "==========================================",
+    "name": "CRL 2688",
+    "nick": "CRL2688",
+    "type": "Carbon Star",
+    "ra": "21:02:18.27",
+    "dec": "+36:41:37.0",
+    "simbad_url": "http://simbad.u-strasbg.fr/simbad/sim-id?Ident=CRL+2688",
+    "latex_name": "CRL 2688",
+    "note": null
+  },
+
+  {
+    "_break": "==========================================",
+    "name": "CRL 618",
+    "nick": "CRL618",
+    "type": "Carbon Star",
+    "ra": "04:42:53.62",
+    "dec": "+36:06:53.40",
+    "simbad_url": "http://simbad.u-strasbg.fr/simbad/sim-id?Ident=CRL+618",
+    "latex_name": "CRL 618",
+    "note": null
+  },
+
+  {
+    "_break": "==========================================",
+    "name": "Cas A LOS",
+    "nick": "CasALOS",
+    "type": "Diffuse Cloud",
+    "ra": "23:23:24.00",
+    "dec": "+58:48:54.0",
+    "simbad_url": "http://simbad.u-strasbg.fr/simbad/sim-id?Ident=Cas+A",
+    "latex_name": "Cas A LOS",
+    "note": null
+  },
+
+  {
+    "_break": "==========================================",
+    "name": "Crab Nebula",
+    "nick": "CrabNebula",
+    "type": "Supernova Remnant",
+    "ra": "05:34:31.94",
+    "dec": "+22:00:52.2",
+    "simbad_url": "http://simbad.u-strasbg.fr/simbad/sim-id?Ident=Crab+Nebula",
+    "latex_name": "Crab Nebula",
+    "note": null
+  },
+
+  {
+    "_break": "==========================================",
+    "name": "Cygnus OB2 - 12",
+    "nick": "CygnusOB212LOS",
+    "type": "Diffuse Cloud",
+    "ra": "20:32:40.96",
+    "dec": "+41:04:13.2",
+    "simbad_url": "http://simbad.u-strasbg.fr/simbad/sim-id?Ident=%4011680932&Name=Schulte%2012",
+    "latex_name": "Cygnus OB2 - 12",
+    "note": null
+  },
+
+  {
+    "_break": "==========================================",
+    "name": "d203-506",
+    "nick": "d203506",
+    "type": "Protostellar",
+    "ra": "05:35:20.318",
+    "dec": "-05:25:05.662",
+    "simbad_url": null,
+    "latex_name": "d203-506",
+    "note": null
+  },
+
+  {
+    "_break": "==========================================",
+    "name": "DR 21",
+    "nick": "DR21",
+    "type": "SFR",
+    "ra": "20:39:01.6",
+    "dec": "+42:19:38",
+    "simbad_url": "http://simbad.u-strasbg.fr/simbad/sim-basic?Ident=DR+21",
+    "latex_name": "DR 21",
+    "note": null
+  },
+
+  {
+    "_break": "==========================================",
+    "name": "DR 21 LOS",
+    "nick": "DR21LOS",
+    "type": "Diffuse Cloud",
+    "ra": "20:39:01.6",
+    "dec": "+42:19:38",
+    "simbad_url": "http://simbad.u-strasbg.fr/simbad/sim-basic?Ident=DR+21",
+    "latex_name": "DR 21 LOS",
+    "note": null
+  },
+
+  {
+    "_break": "==========================================",
+    "name": "DR 21(OH)",
+    "nick": "DR21OH",
+    "type": "SFR",
+    "ra": "20:39:01.01",
+    "dec": "+42:22:50.22",
+    "simbad_url": "http://simbad.u-strasbg.fr/simbad/sim-basic?Ident=DR+21%28OH%29",
+    "latex_name": "DR 21(OH)",
+    "note": null
+  },
+
+  {
+    "_break": "==========================================",
+    "name": "G+0.693-0.027",
+    "nick": "G0693",
+    "type": "Shock",
+    "ra": "17:47:21.9",
+    "dec": "-28:21:27.00",
+    "simbad_url": "http://simbad.u-strasbg.fr/simbad/sim-id?Ident=%404986185&Name=GCM%20%2b0.693%20-0.027",
+    "latex_name": "G+0.693-0.027",
+    "note": null
+  },
+
+  {
+    "_break": "==========================================",
+    "name": "G327.3-0.6 LOS",
+    "nick": "G327306LOS",
+    "type": "Diffuse Cloud",
+    "ra": "15:53:05.0",
+    "dec": "-54:35:24",
+    "simbad_url": "http://simbad.u-strasbg.fr/simbad/sim-id?Ident=G327.3-0.6",
+    "latex_name": "G327.3-0.6 LOS",
+    "note": null
+  },
+
+  {
+    "_break": "==========================================",
+    "name": "GL2136 LOS",
+    "nick": "GL2136LOS",
+    "type": "Diffuse Cloud",
+    "ra": "18:27:18.43",
+    "dec": "-25:04:02.84",
+    "simbad_url": "http://simbad.u-strasbg.fr/simbad/sim-id?Ident=%402520798&Name=GJ%20%202136%20B",
+    "latex_name": "GL2136 LOS",
+    "note": null
+  },
+
+  {
+    "_break": "==========================================",
+    "name": "Galactic Center",
+    "nick": "GalacticCenter",
+    "type": "SFR",
+    "ra": null,
+    "dec": null,
+    "simbad_url": null,
+    "latex_name": "Galactic Center",
+    "note": null
+  },
+
+  {
+    "_break": "==========================================",
+    "name": "HD 124314 LOS",
+    "nick": "HD124314LOS",
+    "type": "Diffuse Cloud",
+    "ra": "14:15:01.61",
+    "dec": "-61:42:24.38",
+    "simbad_url": "http://simbad.u-strasbg.fr/simbad/sim-id?Ident=HD+124314",
+    "latex_name": "HD 124314 LOS",
+    "note": null
+  },
+
+  {
+    "_break": "==========================================",
+    "name": "HD 27778 LOS",
+    "nick": "HD27778LOS",
+    "type": "Diffuse Cloud",
+    "ra": "04:23:59.78",
+    "dec": "24:18:03.53",
+    "simbad_url": "http://simbad.u-strasbg.fr/simbad/sim-id?Ident=HD+27778",
+    "latex_name": "HD 27778 LOS",
+    "note": null
+  },
+
+  {
+    "_break": "==========================================",
+    "name": "Horsehead PDR",
+    "nick": "HorseheadPDR",
+    "type": "PDR",
+    "ra": "05:40:53.936",
+    "dec": "-02:28:00",
+    "simbad_url": "http://simbad.u-strasbg.fr/simbad/sim-id?Ident=%40828287&Name=NAME%20Horsehead%20Nebula",
+    "latex_name": "Horsehead PDR",
+    "note": null
+  },
+
+  {
+    "_break": "==========================================",
+    "name": "IC 443G",
+    "nick": "IC443G",
+    "type": "Supernova Remnant",
+    "ra": "06:16:43.4",
+    "dec": "+22:32:24",
+    "simbad_url": "http://simbad.u-strasbg.fr/simbad/sim-id?Ident=IC+443G",
+    "latex_name": "IC 443G",
+    "note": null
+  },
+
+  {
+    "_break": "==========================================",
+    "name": "IRAS 16293",
+    "nick": "IRAS16293",
+    "type": "Protostellar",
+    "ra": "16:32:22.56",
+    "dec": "-24:28:31.8",
+    "simbad_url": "http://simbad.u-strasbg.fr/simbad/sim-id?Ident=IRAS+16293-2422",
+    "latex_name": "IRAS 16293",
+    "note": null
+  },
+
+  {
+    "_break": "==========================================",
+    "name": "IRC+10216",
+    "nick": "IRC10216",
+    "type": "Carbon Star",
+    "ra": "09:47:57.406",
+    "dec": "+13:16:43.56",
+    "simbad_url": "http://simbad.u-strasbg.fr/simbad/sim-id?Ident=IRC%2B10216",
+    "latex_name": "IRC+10216",
+    "note": null
+  },
+
+  {
+    "_break": "==========================================",
+    "name": "K3-50",
+    "nick": "K350",
+    "type": "HII Region",
+    "ra": "20:04:45.59",
+    "dec": "33:32:42.0",
+    "simbad_url": "http://simbad.u-strasbg.fr/simbad/sim-id?Ident=%402904320&Name=NAME%20K%203-50A",
+    "latex_name": "K3-50",
+    "note": null
+  },
+
+  {
+    "_break": "==========================================",
+    "name": "L134",
+    "nick": "L134",
+    "type": "Dark Cloud",
+    "ra": "15:53:36.3",
+    "dec": "-04:35:26.0",
+    "simbad_url": "http://simbad.u-strasbg.fr/simbad/sim-id?Ident=%402622026&Name=LDN%20%20134",
+    "latex_name": "L134",
+    "note": null
+  },
+
+  {
+    "_break": "==========================================",
+    "name": "L1495B",
+    "nick": "L1495B",
+    "type": "Dark Cloud",
+    "ra": "04:15:41.8",
+    "dec": "+28:47:46.0",
+    "simbad_url": "https://simbad.u-strasbg.fr/simbad/sim-basic?Ident=L1495B",
+    "latex_name": "L1495B",
+    "note": null
+  },
+
+  {
+    "_break": "==========================================",
+    "name": "L1527",
+    "nick": "L1527",
+    "type": "Dark Cloud",
+    "ra": "04:39:53.0",
+    "dec": "+25:45:00",
+    "simbad_url": "http://simbad.u-strasbg.fr/simbad/sim-id?Ident=L1527",
+    "latex_name": "L1527",
+    "note": null
+  },
+
+  {
+    "_break": "==========================================",
+    "name": "L1544",
+    "nick": "L1544",
+    "type": "Dark Cloud",
+    "ra": "05:04:16.6",
+    "dec": "+25:10:48",
+    "simbad_url": "http://simbad.u-strasbg.fr/simbad/sim-id?Ident=L1544",
+    "latex_name": "L1544",
+    "note": null
+  },
+
+  {
+    "_break": "==========================================",
+    "name": "L183",
+    "nick": "L183",
+    "type": "Dark Cloud",
+    "ra": "15:54:12.2",
+    "dec": "-02:49:42",
+    "simbad_url": "http://simbad.u-strasbg.fr/simbad/sim-basic?Ident=L183",
+    "latex_name": "L183",
+    "note": null
+  },
+
+  {
+    "_break": "==========================================",
+    "name": "L483",
+    "nick": "L483",
+    "type": "Dark Cloud",
+    "ra": "18:17:35.0",
+    "dec": "-04:39:48",
+    "simbad_url": "http://simbad.u-strasbg.fr/simbad/sim-id?Ident=L483",
+    "latex_name": "L483",
+    "note": null
+  },
+
+  {
+    "_break": "==========================================",
+    "name": "Diffuse Cloud",
+    "nick": "DiffuseCloud",
+    "type": "Diffuse Cloud",
+    "ra": null,
+    "dec": null,
+    "simbad_url": null,
+    "latex_name": "Diffuse Cloud",
+    "note": null
+  },
+
+  {
+    "_break": "==========================================",
+    "name": "Lupus-1A",
+    "nick": "Lupus1A",
+    "type": "Dark Cloud",
+    "ra": "15:42:52.4",
+    "dec": "-34:07:53.5",
+    "simbad_url": "http://simbad.u-strasbg.fr/simbad/sim-id?Ident=%405549180&Name=NAME%20Lupus-1A",
+    "latex_name": "Lupus-1A",
+    "note": null
+  },
+
+  {
+    "_break": "==========================================",
+    "name": "M17 LOS",
+    "nick": "M17LOS",
+    "type": "Diffuse Cloud",
+    "ra": "18:20:47",
+    "dec": "-16:10:18",
+    "simbad_url": "http://simbad.u-strasbg.fr/simbad/sim-id?Ident=M17",
+    "latex_name": "M17 LOS",
+    "note": null
+  },
+
+  {
+    "_break": "==========================================",
+    "name": "M17SW",
+    "nick": "M17SW",
+    "type": "PDR",
+    "ra": "18:20:23.1",
+    "dec": "-16:11:43",
+    "simbad_url": "http://simbad.u-strasbg.fr/simbad/sim-id?Ident=M17+SW",
+    "latex_name": "M17SW",
+    "note": null
+  },
+
+  {
+    "_break": "==========================================",
+    "name": "M3 LOS",
+    "nick": "M3LOS",
+    "type": "Diffuse Cloud",
+    "ra": "13:42:11.62",
+    "dec": "+28:22:38.2",
+    "simbad_url": "http://simbad.u-strasbg.fr/simbad/sim-id?Ident=M3",
+    "latex_name": "M3 LOS",
+    "note": null
+  },
+
+  {
+    "_break": "==========================================",
+    "name": "NGC 1333 IRAS 4A",
+    "nick": "NGC1333IRAS4A",
+    "type": "SFR",
+    "ra": "03:29:10.5",
+    "dec": "+31:13:31.5",
+    "simbad_url": "https://simbad.u-strasbg.fr/simbad/sim-basic?Ident=NGC+1333",
+    "latex_name": "NGC 1333 IRAS 4A",
+    "note": null
+  },
+
+  {
+    "_break": "==========================================",
+    "name": "NGC 2024",
+    "nick": "NGC2024",
+    "type": "PDR",
+    "ra": "05:41:43",
+    "dec": "-01:50:30",
+    "simbad_url": "http://simbad.u-strasbg.fr/simbad/sim-id?Ident=NGC+2024",
+    "latex_name": "NGC 2024",
+    "note": null
+  },
+
+  {
+    "_break": "==========================================",
+    "name": "NGC 2024 LOS",
+    "nick": "NGC2024LOS",
+    "type": "Diffuse Cloud",
+    "ra": "05:41:43",
+    "dec": "-01:50:30",
+    "simbad_url": "http://simbad.u-strasbg.fr/simbad/sim-id?Ident=NGC+2024",
+    "latex_name": "NGC 2024 LOS",
+    "note": null
+  },
+
+  {
+    "_break": "==========================================",
+    "name": "NGC 2264",
+    "nick": "NGC2264",
+    "type": "YSO",
+    "ra": "06:40:58",
+    "dec": "+09:53:42",
+    "simbad_url": "http://simbad.u-strasbg.fr/simbad/sim-id?Ident=NGC+2264",
+    "latex_name": "NGC 2264",
+    "note": null
+  },
+
+  {
+    "_break": "==========================================",
+    "name": "NGC 6334",
+    "nick": "NGC6334",
+    "type": "SFR",
+    "ra": "17:20:53.3",
+    "dec": "-35:46:59",
+    "simbad_url": "http://simbad.u-strasbg.fr/simbad/sim-id?Ident=%402361705&Name=NAME%20NGC%206334-I",
+    "latex_name": "NGC 6334",
+    "note": null
+  },
+
+  {
+    "_break": "==========================================",
+    "name": "NGC 6334 LOS",
+    "nick": "NGC6334LOS",
+    "type": "Diffuse Cloud",
+    "ra": "17:20:53.3",
+    "dec": "-35:46:59",
+    "simbad_url": "http://simbad.u-strasbg.fr/simbad/sim-id?Ident=%402361705&Name=NAME%20NGC%206334-I",
+    "latex_name": "NGC 6334 LOS",
+    "note": null
+  },
+
+  {
+    "_break": "==========================================",
+    "name": "NGC 7023",
+    "nick": "NGC7023",
+    "type": "PDR",
+    "ra": "21:01:36.9",
+    "dec": "+68:09:48",
+    "simbad_url": "http://simbad.u-strasbg.fr/simbad/sim-id?Ident=NGC+7023",
+    "latex_name": "NGC 7023",
+    "note": null
+  },
+
+  {
+    "_break": "==========================================",
+    "name": "NGC 7027",
+    "nick": "NGC7027",
+    "type": "Planetary Nebula",
+    "ra": "21:07:01.8",
+    "dec": "+42:14:10",
+    "simbad_url": "http://simbad.u-strasbg.fr/simbad/sim-id?Ident=NGC+7023",
+    "latex_name": "NGC 7027",
+    "note": null
+  },
+
+  {
+    "_break": "==========================================",
+    "name": "NGC 7538",
+    "nick": "NGC7538",
+    "type": "YSO",
+    "ra": "23:13:37.2",
+    "dec": "61:30:00",
+    "simbad_url": "http://simbad.u-strasbg.fr/simbad/sim-id?Ident=NGC+7538",
+    "latex_name": "NGC 7538",
+    "note": null
+  },
+
+  {
+    "_break": "==========================================",
+    "name": "NGC 7538 LOS",
+    "nick": "NGC7538LOS",
+    "type": "Diffuse Cloud",
+    "ra": "23:13:37.2",
+    "dec": "61:30:00",
+    "simbad_url": "http://simbad.u-strasbg.fr/simbad/sim-id?Ident=NGC+7538",
+    "latex_name": "NGC 7538 LOS",
+    "note": null
+  },
+
+  {
+    "_break": "==========================================",
+    "name": "Orion",
+    "nick": "OrionKL",
+    "type": "SFR",
+    "ra": "05:35:14.16",
+    "dec": "-05:22:21.5",
+    "simbad_url": "http://simbad.u-strasbg.fr/simbad/sim-id?Ident=Orion+KL",
+    "latex_name": "Orion",
+    "note": null
+  },
+
+  {
+    "_break": "==========================================",
+    "name": "Orion Bar",
+    "nick": "OrionBar",
+    "type": "PDR",
+    "ra": "05:35:22.30",
+    "dec": "-05:24:33.0",
+    "simbad_url": "http://simbad.u-strasbg.fr/simbad/sim-id?Ident=Orion+Bar",
+    "latex_name": "Orion Bar",
+    "note": null
+  },
+
+  {
+    "_break": "==========================================",
+    "name": "PKS 1830-211",
+    "nick": "PKS1830",
+    "type": "External Galaxy",
+    "ra": "18:33:39.94",
+    "dec": "-21:03:39.4",
+    "simbad_url": "https://simbad.cds.unistra.fr/simbad/sim-id?Ident=%402538390&Name=QSO%20B1830-211&submit=submit",
+    "latex_name": "PKS 1830-211",
+    "note": null
+  },
+
+  {
+    "_break": "==========================================",
+    "name": "rho Oph A",
+    "nick": "rhoOphA",
+    "type": "SFR",
+    "ra": "16:25:35.14",
+    "dec": "-23:26:49.9",
+    "simbad_url": "http://simbad.u-strasbg.fr/simbad/sim-id?Ident=Rho+Oph+A",
+    "latex_name": "rho Oph A",
+    "note": null
+  },
+
+  {
+    "_break": "==========================================",
+    "name": "Sgr A",
+    "nick": "SgrA",
+    "type": "Sgr A",
+    "ra": "17:45:40.0",
+    "dec": "-29:00:28.2",
+    "simbad_url": "http://simbad.u-strasbg.fr/simbad/sim-id?Ident=Sgr+A",
+    "latex_name": "Sgr A",
+    "note": null
+  },
+
+  {
+    "_break": "==========================================",
+    "name": "Sgr A LOS",
+    "nick": "SgrALOS",
+    "type": "Diffuse Cloud",
+    "ra": "17:45:40.0",
+    "dec": "-29:00:28.2",
+    "simbad_url": "http://simbad.u-strasbg.fr/simbad/sim-id?Ident=Sgr+A",
+    "latex_name": "Sgr A LOS",
+    "note": null
+  },
+
+  {
+    "_break": "==========================================",
+    "name": "Sgr B2",
+    "nick": "SgrB2",
+    "type": "SFR",
+    "ra": "17:47:20.4",
+    "dec": "-28:23:07",
+    "simbad_url": "http://simbad.u-strasbg.fr/simbad/sim-id?Ident=Sgr+B2",
+    "latex_name": "Sgr B2",
+    "note": null
+  },
+
+  {
+    "_break": "==========================================",
+    "name": "Sgr B2 LOS",
+    "nick": "SgrB2LOS",
+    "type": "Diffuse Cloud",
+    "ra": "17:47:20.4",
+    "dec": "-28:23:07",
+    "simbad_url": "http://simbad.u-strasbg.fr/simbad/sim-id?Ident=Sgr+B2",
+    "latex_name": "Sgr B2 LOS",
+    "note": null
+  },
+
+  {
+    "_break": "==========================================",
+    "name": "TC 1",
+    "nick": "TC1",
+    "type": "Planetary Nebula",
+    "ra": "17:45:35.29",
+    "dec": "-46:05:23.7",
+    "simbad_url": "http://simbad.u-strasbg.fr/simbad/sim-id?Ident=PN%20Tc%201%20",
+    "latex_name": "TC 1",
+    "note": null
+  },
+
+  {
+    "_break": "==========================================",
+    "name": "TMC-1",
+    "nick": "TMC1",
+    "type": "Dark Cloud",
+    "ra": "04:41:45.9",
+    "dec": "+25:41:27",
+    "simbad_url": "http://simbad.u-strasbg.fr/simbad/sim-id?Ident=TMC-1",
+    "latex_name": "TMC-1",
+    "note": null
+  },
+
+  {
+    "_break": "==========================================",
+    "name": "VY Ca Maj",
+    "nick": "VYCaMaj",
+    "type": "Oxygen Star",
+    "ra": "07:22:58.3",
+    "dec": "-25:46:03.2",
+    "simbad_url": "http://simbad.u-strasbg.fr/simbad/sim-id?Ident=VY+Canis+Majoris",
+    "latex_name": "VY Ca Maj",
+    "note": null
+  },
+
+  {
+    "_break": "==========================================",
+    "name": "W3",
+    "nick": "W3",
+    "type": "Diffuse Cloud",
+    "ra": "02:27:04.10",
+    "dec": "+61:52:27.1",
+    "simbad_url": "http://simbad.u-strasbg.fr/simbad/sim-id?Ident=W3",
+    "latex_name": "W3",
+    "note": null
+  },
+
+  {
+    "_break": "==========================================",
+    "name": "W3(OH)",
+    "nick": "W3OH",
+    "type": "SFR",
+    "ra": "02:27:04.1",
+    "dec": "+61:52:52",
+    "simbad_url": "http://simbad.u-strasbg.fr/simbad/sim-id?Ident=W3+%28OH%29&NbIdent=1",
+    "latex_name": "W3(OH)",
+    "note": null
+  },
+
+  {
+    "_break": "==========================================",
+    "name": "W31 LOS",
+    "nick": "W31LOS",
+    "type": "Diffuse Cloud",
+    "ra": "18:10:28.6",
+    "dec": "-19:55:51",
+    "simbad_url": "http://simbad.u-strasbg.fr/simbad/sim-id?Ident=W31",
+    "latex_name": "W31 LOS",
+    "note": null
+  },
+
+  {
+    "_break": "==========================================",
+    "name": "W33 LOS",
+    "nick": "W33LOS",
+    "type": "Diffuse Cloud",
+    "ra": "18:14:14.0",
+    "dec": "-17:55:50",
+    "simbad_url": "http://simbad.u-strasbg.fr/simbad/sim-id?Ident=W33",
+    "latex_name": "W33 LOS",
+    "note": null
+  },
+
+  {
+    "_break": "==========================================",
+    "name": "W43 LOS",
+    "nick": "W43LOS",
+    "type": "Diffuse Cloud",
+    "ra": "18:47:32.4",
+    "dec": "-01:56:31",
+    "simbad_url": "http://simbad.u-strasbg.fr/simbad/sim-id?Ident=W43",
+    "latex_name": "W43 LOS",
+    "note": null
+  },
+
+  {
+    "_break": "==========================================",
+    "name": "W44 LOS",
+    "nick": "W44LOS",
+    "type": "Diffuse Cloud",
+    "ra": "18:56:10.65",
+    "dec": "+01:13:21.30",
+    "simbad_url": "http://simbad.u-strasbg.fr/simbad/sim-id?Ident=W43",
+    "latex_name": "W44 LOS",
+    "note": null
+  },
+
+  {
+    "_break": "==========================================",
+    "name": "W49",
+    "nick": "W49",
+    "type": "SFR",
+    "ra": "19:10:19.6",
+    "dec": "+09:07:42",
+    "simbad_url": "http://simbad.u-strasbg.fr/simbad/sim-id?Ident=W49",
+    "latex_name": "W49",
+    "note": null
+  },
+
+  {
+    "_break": "==========================================",
+    "name": "W49 LOS",
+    "nick": "W49LOS",
+    "type": "Diffuse Cloud",
+    "ra": "19:10:19.6",
+    "dec": "+09:07:42",
+    "simbad_url": "http://simbad.u-strasbg.fr/simbad/sim-id?Ident=W49",
+    "latex_name": "W49 LOS",
+    "note": null
+  },
+
+  {
+    "_break": "==========================================",
+    "name": "W51",
+    "nick": "W51",
+    "type": "SFR",
+    "ra": "19:23:50",
+    "dec": "+14:06:0",
+    "simbad_url": "http://simbad.u-strasbg.fr/simbad/sim-id?Ident=W51",
+    "latex_name": "W51",
+    "note": null
+  },
+
+  {
+    "_break": "==========================================",
+    "name": "W51 LOS",
+    "nick": "W51LOS",
+    "type": "Diffuse Cloud",
+    "ra": "19:23:50",
+    "dec": "+14:06:0",
+    "simbad_url": "http://simbad.u-strasbg.fr/simbad/sim-id?Ident=W51",
+    "latex_name": "W51 LOS",
+    "note": null
+  },
+
+  {
+    "_break": "==========================================",
+    "name": "Xi Per LOS",
+    "nick": "XiPerLOS",
+    "type": "Diffuse Cloud",
+    "ra": "03:58:57.9",
+    "dec": "+35:47:27.74",
+    "simbad_url": "http://simbad.u-strasbg.fr/simbad/sim-id?Ident=Xi+Per",
+    "latex_name": "Xi Per LOS",
+    "note": null
+  }
+
+]

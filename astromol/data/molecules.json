@@ -1,0 +1,49 @@
+{
+  "_break": "==========================================",
+  "name": "methylidyne",
+  "formula": "CH",
+  "table_formula": "\\ce{CH}",
+  "label": "mol:CH",
+
+  "note": null,
+
+  "iupac_name": "methylidyne",
+  "selfies": null,
+  "synonyms": ["CH radical", "methylidyne radical"],
+  "smiles": "[CH]",
+  "canonical_smiles": null,
+  "inchi": null,
+  "inchikey": null,
+
+  "radical_override": null,
+  "fullerene": false,
+  "pah": false,
+  "n_rings": 0,
+  "cyclic": false,
+
+  "rotcon": {
+    "A": null,
+    "B": 425476.0,
+    "C": null,
+    "refs": ["Brazier:1983:1608"],
+    "note": null
+  },
+
+  "dipole": {
+    "a": 1.5,
+    "b": null,
+    "c": null,
+    "refs": ["Brazier:1983:1608"],
+    "note": null
+  },
+
+  "refs": {
+    "lab": ["Brazier:1983:1608"],
+    "computation": []
+  },
+
+  "isotopologue_of": null,
+
+  "latex_header": "Methylidyne, \\ce{CH}",
+  "latex_notes": null
+}

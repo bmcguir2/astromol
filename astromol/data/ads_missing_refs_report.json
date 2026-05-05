@@ -1,0 +1,3577 @@
+{
+  "summary": {
+    "items_considered": 162,
+    "items_by_kind": {
+      "ads_bibcode": 56,
+      "free_text_reference": 33,
+      "parsed_reference_key": 63,
+      "unparsed_free_text_reference": 4,
+      "unparsed_reference_key": 6
+    },
+    "resolved": 118,
+    "ambiguous": 0,
+    "unresolved": 44,
+    "unique_bibcodes": 118,
+    "bibtex_entries": 118,
+    "publication_fields_normalized": 118,
+    "citekeys_normalized": 118,
+    "citekeys_rewritten": 1
+  },
+  "resolved": [
+    {
+      "status": "resolved",
+      "strategy": "direct_bibcode",
+      "item": {
+        "kind": "ads_bibcode",
+        "source_ref": "2021Natur.595..370Z",
+        "issue": {
+          "legacy_var": null,
+          "formula": "13CO",
+          "line": 1406
+        }
+      },
+      "bibcode": "2021Natur.595..370Z",
+      "title": "The <SUP>13</SUP>CO-rich atmosphere of a young accreting super-Jupiter",
+      "year": "2021",
+      "pub": "Nature",
+      "volume": "595",
+      "page": [
+        "370"
+      ],
+      "citekey": "Zhang:2021:370"
+    },
+    {
+      "status": "resolved",
+      "strategy": "direct_bibcode",
+      "item": {
+        "kind": "ads_bibcode",
+        "source_ref": "2022A&A...659A..29B",
+        "issue": {
+          "legacy_var": "NO",
+          "formula": "NO",
+          "line": 1617
+        }
+      },
+      "bibcode": "2022A&A...659A..29B",
+      "title": "A major asymmetric ice trap in a planet-forming disk. III. First detection of dimethyl ether",
+      "year": "2022",
+      "pub": "Astronomy and Astrophysics",
+      "volume": "659",
+      "page": [
+        "A29"
+      ],
+      "citekey": "Brunken:2022:A29"
+    },
+    {
+      "status": "resolved",
+      "strategy": "direct_bibcode",
+      "item": {
+        "kind": "ads_bibcode",
+        "source_ref": "2022A&A...659A.158H",
+        "issue": {
+          "legacy_var": "PN",
+          "formula": "PN",
+          "line": 1730
+        }
+      },
+      "bibcode": "2022A&A...659A.158H",
+      "title": "First extragalactic detection of a phosphorus-bearing molecule with ALCHEMI: Phosphorus nitride (PN)",
+      "year": "2022",
+      "pub": "Astronomy and Astrophysics",
+      "volume": "659",
+      "page": [
+        "A158"
+      ],
+      "citekey": "Haasler:2022:A158"
+    },
+    {
+      "status": "resolved",
+      "strategy": "direct_bibcode",
+      "item": {
+        "kind": "ads_bibcode",
+        "source_ref": "1991JChPh..94.3504P",
+        "issue": {
+          "legacy_var": "POp",
+          "formula": "PO+",
+          "line": 2150
+        }
+      },
+      "bibcode": "1991JChPh..94.3504P",
+      "title": "The microwave spectrum of PO<SUP> + </SUP>: Comparison to SiF<SUP> + </SUP>",
+      "year": "1991",
+      "pub": "Journal of Chemical Physics",
+      "volume": "94",
+      "page": [
+        "3504"
+      ],
+      "citekey": "Petrmichl:1991:3504"
+    },
+    {
+      "status": "resolved",
+      "strategy": "direct_bibcode",
+      "item": {
+        "kind": "ads_bibcode",
+        "source_ref": "2022FrASS...9.9288R",
+        "issue": {
+          "legacy_var": "POp",
+          "formula": "PO+",
+          "line": 2150
+        }
+      },
+      "bibcode": "2022FrASS...9.9288R",
+      "title": "Ionize Hard: Interstellar PO+ Detection",
+      "year": "2022",
+      "pub": "Frontiers in Astronomy and Space Sciences",
+      "volume": "9",
+      "page": [
+        "829288"
+      ],
+      "citekey": "Rivilla:2022:829288"
+    },
+    {
+      "status": "resolved",
+      "strategy": "metadata_search",
+      "item": {
+        "kind": "parsed_reference_key",
+        "source_ref": "Koelemay:2022:L11",
+        "surname": "koelemay",
+        "year": "2022",
+        "volume": null,
+        "page": "L11",
+        "issue": {
+          "legacy_var": "SiP",
+          "formula": "SiP",
+          "line": 2172
+        }
+      },
+      "bibcode": "2022ApJ...940L..11K",
+      "title": "Laboratory and Astronomical Detection of the SiP Radical (X<SUP>2</SUP>\u03a0<SUB> i </SUB>): More Circumstellar Phosphorus",
+      "year": "2022",
+      "pub": "The Astrophysical Journal",
+      "volume": "940",
+      "page": [
+        "L11"
+      ],
+      "citekey": "Koelemay:2022:L11"
+    },
+    {
+      "status": "resolved",
+      "strategy": "metadata_search",
+      "item": {
+        "kind": "parsed_reference_key",
+        "source_ref": "Allen:1996:L57",
+        "surname": "allen",
+        "year": "1996",
+        "volume": null,
+        "page": "L57",
+        "issue": {
+          "legacy_var": "FeC",
+          "formula": "FeC",
+          "line": 2193
+        }
+      },
+      "bibcode": "1996ApJ...472L..57A",
+      "title": "The Pure Rotational Spectrum of FeC (X 3 Delta i)",
+      "year": "1996",
+      "pub": "The Astrophysical Journal",
+      "volume": "472",
+      "page": [
+        "L57"
+      ],
+      "citekey": "Allen:1996:L57"
+    },
+    {
+      "status": "resolved",
+      "strategy": "metadata_search",
+      "item": {
+        "kind": "parsed_reference_key",
+        "source_ref": "Koelemay:2023:L6",
+        "surname": "koelemay",
+        "year": "2023",
+        "volume": null,
+        "page": "L6",
+        "issue": {
+          "legacy_var": "FeC",
+          "formula": "FeC",
+          "line": 2193
+        }
+      },
+      "bibcode": "2023ApJ...958L...6K",
+      "title": "Elusive Iron: Detection of the FeC Radical (X <SUP>3</SUP>\u2206<SUB> i </SUB>) in the Envelope of IRC+10216",
+      "year": "2023",
+      "pub": "The Astrophysical Journal",
+      "volume": "958",
+      "page": [
+        "L6"
+      ],
+      "citekey": "Koelemay:2023:L6"
+    },
+    {
+      "status": "resolved",
+      "strategy": "direct_bibcode",
+      "item": {
+        "kind": "ads_bibcode",
+        "source_ref": "2022ApJ...926..148F",
+        "issue": {
+          "legacy_var": null,
+          "formula": "HC18O+",
+          "line": 2325
+        }
+      },
+      "bibcode": "2022ApJ...926..148F",
+      "title": "Detection of HC<SUP>18</SUP>O<SUP>+</SUP> in a Protoplanetary Disk: Exploring Oxygen Isotope Fractionation of CO",
+      "year": "2022",
+      "pub": "The Astrophysical Journal",
+      "volume": "926",
+      "page": [
+        "148"
+      ],
+      "citekey": "Furuya:2022:148"
+    },
+    {
+      "status": "resolved",
+      "strategy": "direct_bibcode",
+      "item": {
+        "kind": "ads_bibcode",
+        "source_ref": "2021A&A...651L...6B",
+        "issue": {
+          "legacy_var": "SO2",
+          "formula": "SO2",
+          "line": 2532
+        }
+      },
+      "bibcode": "2021A&A...651L...6B",
+      "title": "A major asymmetric ice trap in a planet-forming disk. II. Prominent SO and SO<SUB>2</SUB> pointing to C/O &lt; 1",
+      "year": "2021",
+      "pub": "Astronomy and Astrophysics",
+      "volume": "651",
+      "page": [
+        "L6"
+      ],
+      "citekey": "Booth:2021:L6"
+    },
+    {
+      "status": "resolved",
+      "strategy": "direct_bibcode",
+      "item": {
+        "kind": "ads_bibcode",
+        "source_ref": "2021A&A...653L...5P",
+        "issue": {
+          "legacy_var": "C2S",
+          "formula": "C2S",
+          "line": 2666
+        }
+      },
+      "bibcode": "2021A&A...653L...5P",
+      "title": "An unbiased NOEMA 2.6 to 4 mm survey of the GG Tau ring: First detection of CCS in a protoplanetary disk",
+      "year": "2021",
+      "pub": "Astronomy and Astrophysics",
+      "volume": "653",
+      "page": [
+        "L5"
+      ],
+      "citekey": "Phuong:2021:L5"
+    },
+    {
+      "status": "resolved",
+      "strategy": "metadata_search",
+      "item": {
+        "kind": "free_text_reference",
+        "text": "Cernicharo et al. 2015 ApJ 806, L3",
+        "issue": {
+          "legacy_var": "SiCSi",
+          "formula": "SiCSi",
+          "line": 3174
+        },
+        "surname": "cernicharo",
+        "year": "2015",
+        "volume": "806",
+        "page": "L3"
+      },
+      "bibcode": "2015ApJ...806L...3C",
+      "title": "Discovery of SiCSi in IRC+10216: A Missing Link between Gas and Dust Carriers of Si&amp;ndashC Bonds",
+      "year": "2015",
+      "pub": "The Astrophysical Journal",
+      "volume": "806",
+      "page": [
+        "L3"
+      ],
+      "citekey": "Cernicharo:2015:L3"
+    },
+    {
+      "status": "resolved",
+      "strategy": "metadata_search",
+      "item": {
+        "kind": "parsed_reference_key",
+        "source_ref": "Changala:2022:L42",
+        "surname": "changala",
+        "year": "2022",
+        "volume": null,
+        "page": "L42",
+        "issue": {
+          "legacy_var": "MgC2",
+          "formula": "MgC2",
+          "line": 3302
+        }
+      },
+      "bibcode": "2022ApJ...940L..42C",
+      "title": "Laboratory and Astronomical Discovery of Magnesium Dicarbide, MgC<SUB>2</SUB>",
+      "year": "2022",
+      "pub": "The Astrophysical Journal",
+      "volume": "940",
+      "page": [
+        "L42"
+      ],
+      "citekey": "Changala:2022:L42"
+    },
+    {
+      "status": "resolved",
+      "strategy": "direct_bibcode",
+      "item": {
+        "kind": "ads_bibcode",
+        "source_ref": "2016A&A...591A.126C",
+        "issue": {
+          "legacy_var": "HSO",
+          "formula": "HSO",
+          "line": 3325
+        }
+      },
+      "bibcode": "2016A&A...591A.126C",
+      "title": "Laboratory measurements and astronomical search for the HSO radical",
+      "year": "2016",
+      "pub": "Astronomy and Astrophysics",
+      "volume": "591",
+      "page": [
+        "A126"
+      ],
+      "citekey": "Cazzoli:2016:A126"
+    },
+    {
+      "status": "resolved",
+      "strategy": "direct_bibcode",
+      "item": {
+        "kind": "ads_bibcode",
+        "source_ref": "2023A&A...674L..13M",
+        "issue": {
+          "legacy_var": "HSO",
+          "formula": "HSO",
+          "line": 3325
+        }
+      },
+      "bibcode": "2023A&A...674L..13M",
+      "title": "First detection of the HSO radical in space",
+      "year": "2023",
+      "pub": "Astronomy and Astrophysics",
+      "volume": "674",
+      "page": [
+        "L13"
+      ],
+      "citekey": "Marcelino:2023:L13"
+    },
+    {
+      "status": "resolved",
+      "strategy": "metadata_search",
+      "item": {
+        "kind": "parsed_reference_key",
+        "source_ref": "Gupta:2024:L28",
+        "surname": "gupta",
+        "year": "2024",
+        "volume": null,
+        "page": "L28",
+        "issue": {
+          "legacy_var": "CaC2",
+          "formula": "CaC2",
+          "line": 3350
+        }
+      },
+      "bibcode": "2024ApJ...966L..28G",
+      "title": "Calcium Chemistry in Carbon-rich Circumstellar Environments: The Laboratory and Astronomical Discovery of Calcium Dicarbide, CaC<SUB>2</SUB>",
+      "year": "2024",
+      "pub": "The Astrophysical Journal",
+      "volume": "966",
+      "page": [
+        "L28"
+      ],
+      "citekey": "Gupta:2024:L28"
+    },
+    {
+      "status": "resolved",
+      "strategy": "metadata_search",
+      "item": {
+        "kind": "free_text_reference",
+        "text": "Schutte et al. 1993 Icarus 104, 118",
+        "issue": {
+          "legacy_var": "H2CO",
+          "formula": "H2CO",
+          "line": 3412
+        },
+        "surname": "schutte",
+        "year": "1993",
+        "volume": "104",
+        "page": "118"
+      },
+      "bibcode": "1993Icar..104..118S",
+      "title": "An Experimental Study of the Organic Molecules Produced in Cometary and Interstellar Ice Analogs by Thermal Formaldehyde Reactions",
+      "year": "1993",
+      "pub": "Icarus",
+      "volume": "104",
+      "page": [
+        "118"
+      ],
+      "citekey": "Schutte:1993:118"
+    },
+    {
+      "status": "resolved",
+      "strategy": "direct_bibcode",
+      "item": {
+        "kind": "ads_bibcode",
+        "source_ref": "2021A&A...656A..46M",
+        "issue": {
+          "legacy_var": "HOCN",
+          "formula": "HOCN",
+          "line": 3899
+        }
+      },
+      "bibcode": "2021A&A...656A..46M",
+      "title": "ALCHEMI, an ALMA Comprehensive High-resolution Extragalactic Molecular Inventory. Survey presentation and first results from the ACA array",
+      "year": "2021",
+      "pub": "Astronomy and Astrophysics",
+      "volume": "656",
+      "page": [
+        "A46"
+      ],
+      "citekey": "Martin:2021:A46"
+    },
+    {
+      "status": "resolved",
+      "strategy": "direct_bibcode",
+      "item": {
+        "kind": "ads_bibcode",
+        "source_ref": "1994JChPh.10110350Y",
+        "issue": {
+          "legacy_var": "HNCN",
+          "formula": "HNCN",
+          "line": 4112
+        }
+      },
+      "bibcode": "1994JChPh.10110350Y",
+      "title": "Microwave spectrum of the HNCN radical in the X-tilde <SUP>2</SUP>Ascript ground electronic state",
+      "year": "1994",
+      "pub": "Journal of Chemical Physics",
+      "volume": "101",
+      "page": [
+        "10350"
+      ],
+      "citekey": "Yamamoto:1994:10350"
+    },
+    {
+      "status": "resolved",
+      "strategy": "direct_bibcode",
+      "item": {
+        "kind": "ads_bibcode",
+        "source_ref": "2021MNRAS.506L..79R",
+        "issue": {
+          "legacy_var": "HNCN",
+          "formula": "HNCN",
+          "line": 4112
+        }
+      },
+      "bibcode": "2021MNRAS.506L..79R",
+      "title": "Detection of the cyanomidyl radical (HNCN): a new interstellar species with the NCN backbone",
+      "year": "2021",
+      "pub": "Monthly Notices of the Royal Astronomical Society",
+      "volume": "506",
+      "page": [
+        "L79"
+      ],
+      "citekey": "Rivilla:2021:L79"
+    },
+    {
+      "status": "resolved",
+      "strategy": "direct_bibcode",
+      "item": {
+        "kind": "ads_bibcode",
+        "source_ref": "2021A&A...654A..45C",
+        "issue": {
+          "legacy_var": "H2NC",
+          "formula": "H2NC",
+          "line": 4139
+        }
+      },
+      "bibcode": "2021A&A...654A..45C",
+      "title": "Interstellar detection of the simplest aminocarbyne H<SUB>2</SUB>NC: an ignored but abundant molecule",
+      "year": "2021",
+      "pub": "Astronomy and Astrophysics",
+      "volume": "654",
+      "page": [
+        "A45"
+      ],
+      "citekey": "Cabezas:2021:A45"
+    },
+    {
+      "status": "resolved",
+      "strategy": "direct_bibcode",
+      "item": {
+        "kind": "ads_bibcode",
+        "source_ref": "2022A&A...657L...4C",
+        "issue": {
+          "legacy_var": "HCCSp",
+          "formula": "HCCS+",
+          "line": 4168
+        }
+      },
+      "bibcode": "2022A&A...657L...4C",
+      "title": "Discovery of the elusive thioketenylium, HCCS<SUP>+</SUP>, in TMC-1",
+      "year": "2022",
+      "pub": "Astronomy and Astrophysics",
+      "volume": "657",
+      "page": [
+        "L4"
+      ],
+      "citekey": "Cabezas:2022:L4"
+    },
+    {
+      "status": "resolved",
+      "strategy": "metadata_search",
+      "item": {
+        "kind": "parsed_reference_key",
+        "source_ref": "Berne:2023:56",
+        "surname": "berne",
+        "year": "2023",
+        "volume": null,
+        "page": "56",
+        "issue": {
+          "legacy_var": "CH3p",
+          "formula": "CH3+",
+          "line": 4192
+        }
+      },
+      "bibcode": "2023Natur.621...56B",
+      "title": "Formation of the methyl cation by photochemistry in a protoplanetary disk",
+      "year": "2023",
+      "pub": "Nature",
+      "volume": "621",
+      "page": [
+        "56"
+      ],
+      "citekey": "Berne:2023:56"
+    },
+    {
+      "status": "resolved",
+      "strategy": "metadata_search",
+      "item": {
+        "kind": "parsed_reference_key",
+        "source_ref": "McGuire:2016:22693",
+        "surname": "mcguire",
+        "year": "2016",
+        "volume": null,
+        "page": "22693",
+        "issue": {
+          "legacy_var": "HCNS",
+          "formula": "HCNS",
+          "line": 4214
+        }
+      },
+      "bibcode": "2016PCCP...1822693M",
+      "title": "Molecular polymorphism: microwave spectra, equilibrium structures, and an astronomical investigation of the HNCS isomeric family",
+      "year": "2016",
+      "pub": "Physical Chemistry Chemical Physics (Incorporating Faraday Transactions)",
+      "volume": "18",
+      "page": [
+        "22693"
+      ],
+      "citekey": "McGuire:2016:22693"
+    },
+    {
+      "status": "resolved",
+      "strategy": "metadata_search",
+      "item": {
+        "kind": "parsed_reference_key",
+        "source_ref": "Cernicharo:2024:L4",
+        "surname": "cernicharo",
+        "year": "2024",
+        "volume": null,
+        "page": "L4",
+        "issue": {
+          "legacy_var": "HCNS",
+          "formula": "HCNS",
+          "line": 4214
+        }
+      },
+      "bibcode": "2024A&A...682L...4C",
+      "title": "Discovery of thiofulminic acid with the QUIJOTE line survey: A study of the isomers of HNCS and HNCO in TMC-1",
+      "year": "2024",
+      "pub": "Astronomy and Astrophysics",
+      "volume": "682",
+      "page": [
+        "L4"
+      ],
+      "citekey": "Cernicharo:2024:L4"
+    },
+    {
+      "status": "resolved",
+      "strategy": "metadata_search",
+      "item": {
+        "kind": "parsed_reference_key",
+        "source_ref": "Ohshima:1996:635",
+        "surname": "ohshima",
+        "year": "1996",
+        "volume": null,
+        "page": "635",
+        "issue": {
+          "legacy_var": "HOCSp",
+          "formula": "HOCS+",
+          "line": 4236
+        }
+      },
+      "bibcode": "1996CPL...256..635O",
+      "title": "Rotational spectroscopy of jet-cooled molecular ions and ion complexes",
+      "year": "1996",
+      "pub": "Chemical Physics Letters",
+      "volume": "256",
+      "page": [
+        "635"
+      ],
+      "citekey": "Ohshima:1996:635"
+    },
+    {
+      "status": "resolved",
+      "strategy": "metadata_search",
+      "item": {
+        "kind": "parsed_reference_key",
+        "source_ref": "Borgo:1979:115",
+        "surname": "borgo",
+        "year": "1979",
+        "volume": null,
+        "page": "115",
+        "issue": {
+          "legacy_var": "HNSO",
+          "formula": "HNSO",
+          "line": 4260
+        }
+      },
+      "bibcode": "1979CPL....63..115B",
+      "title": "Centrifugal distortion analysis of thionylimide, HNSO",
+      "year": "1979",
+      "pub": "Chemical Physics Letters",
+      "volume": "63",
+      "page": [
+        "115"
+      ],
+      "citekey": "Borgo:1979:115"
+    },
+    {
+      "status": "resolved",
+      "strategy": "metadata_search",
+      "item": {
+        "kind": "parsed_reference_key",
+        "source_ref": "Kirchhoff:1969:2437",
+        "surname": "kirchhoff",
+        "year": "1969",
+        "volume": null,
+        "page": "2437",
+        "issue": {
+          "legacy_var": "HNSO",
+          "formula": "HNSO",
+          "line": 4260
+        }
+      },
+      "bibcode": "1969JAChS..91.2437K",
+      "title": "Microwave spectrum, structure, and dipole moment of cis-thionylimide",
+      "year": "1969",
+      "pub": "Journal of the American Chemical Society",
+      "volume": "91",
+      "page": [
+        "2437"
+      ],
+      "citekey": "Kirchhoff:1969:2437"
+    },
+    {
+      "status": "resolved",
+      "strategy": "metadata_search",
+      "item": {
+        "kind": "parsed_reference_key",
+        "source_ref": "Heineking:1993:62",
+        "surname": "heineking",
+        "year": "1993",
+        "volume": null,
+        "page": "62",
+        "issue": {
+          "legacy_var": "HNSO",
+          "formula": "HNSO",
+          "line": 4260
+        }
+      },
+      "bibcode": "1993JMoSp.158...62H",
+      "title": "Hyperfine Structures in the Rotational Spectra of Thionylimide, HNSO, and Thionylimide-d, DNSO",
+      "year": "1993",
+      "pub": "Journal of Molecular Spectroscopy",
+      "volume": "158",
+      "page": [
+        "62"
+      ],
+      "citekey": "Heineking:1993:62"
+    },
+    {
+      "status": "resolved",
+      "strategy": "direct_bibcode",
+      "item": {
+        "kind": "ads_bibcode",
+        "source_ref": "2021ApJ...922...62C",
+        "issue": {
+          "legacy_var": "CH2CN",
+          "formula": "CH2CN",
+          "line": 4498
+        }
+      },
+      "bibcode": "2021ApJ...922...62C",
+      "title": "The First Detection of CH<SUB>2</SUB>CN in a Protoplanetary Disk",
+      "year": "2021",
+      "pub": "The Astrophysical Journal",
+      "volume": "922",
+      "page": [
+        "62"
+      ],
+      "citekey": "Canta:2021:62"
+    },
+    {
+      "status": "resolved",
+      "strategy": "metadata_search",
+      "item": {
+        "kind": "free_text_reference",
+        "text": "Gordon et al. 2001 ApJS 134, 311",
+        "issue": {
+          "legacy_var": "C4S",
+          "formula": "C4S",
+          "line": 4954
+        },
+        "surname": "gordon",
+        "year": "2001",
+        "volume": "134",
+        "page": "311"
+      },
+      "bibcode": "2001ApJS..134..311G",
+      "title": "Rotational Spectra of Sulfur-Carbon Chains. I. The Radicals C<SUB>4</SUB>S, C<SUB>5</SUB>S, C<SUB>6</SUB>S, C<SUB>7</SUB>S, C<SUB>8</SUB>S, and C<SUB>9</SUB>S",
+      "year": "2001",
+      "pub": "The Astrophysical Journal Supplement Series",
+      "volume": "134",
+      "page": [
+        "311"
+      ],
+      "citekey": "Gordon:2001:311"
+    },
+    {
+      "status": "resolved",
+      "strategy": "direct_bibcode",
+      "item": {
+        "kind": "ads_bibcode",
+        "source_ref": "2021A&A...650L..14C",
+        "issue": {
+          "legacy_var": "HCSCN",
+          "formula": "HCSCN",
+          "line": 4999
+        }
+      },
+      "bibcode": "2021A&A...650L..14C",
+      "title": "The sulphur saga in TMC-1: Discovery of HCSCN and HCSCCH",
+      "year": "2021",
+      "pub": "Astronomy and Astrophysics",
+      "volume": "650",
+      "page": [
+        "L14"
+      ],
+      "citekey": "Cernicharo:2021:L14"
+    },
+    {
+      "status": "resolved",
+      "strategy": "direct_bibcode",
+      "item": {
+        "kind": "ads_bibcode",
+        "source_ref": "1992ApJ...386L..27C",
+        "issue": {
+          "legacy_var": "HC3O",
+          "formula": "HC3O",
+          "line": 5024
+        }
+      },
+      "bibcode": "1992ApJ...386L..27C",
+      "title": "The Rotational Spectrum of the Carbon Chain Radical HCCCO",
+      "year": "1992",
+      "pub": "The Astrophysical Journal",
+      "volume": "386",
+      "page": [
+        "L27"
+      ],
+      "citekey": "Cooksy:1992:L27"
+    },
+    {
+      "status": "resolved",
+      "strategy": "direct_bibcode",
+      "item": {
+        "kind": "ads_bibcode",
+        "source_ref": "1992JMoSp.153..610C",
+        "issue": {
+          "legacy_var": "HC3O",
+          "formula": "HC3O",
+          "line": 5024
+        }
+      },
+      "bibcode": "1992JMoSp.153..610C",
+      "title": "The millimeter-wave spectra of the HCCCO and DCCCO radicals",
+      "year": "1992",
+      "pub": "Journal of Molecular Spectroscopy",
+      "volume": "153",
+      "page": [
+        "610"
+      ],
+      "citekey": "Cooksy:1992:610"
+    },
+    {
+      "status": "resolved",
+      "strategy": "direct_bibcode",
+      "item": {
+        "kind": "ads_bibcode",
+        "source_ref": "1996ApJ...462..561C",
+        "issue": {
+          "legacy_var": "HC3O",
+          "formula": "HC3O",
+          "line": 5024
+        }
+      },
+      "bibcode": "1996ApJ...462..561C",
+      "title": "Laboratory Measurement of the Hyperfine Structure of HCCCO",
+      "year": "1996",
+      "pub": "The Astrophysical Journal",
+      "volume": "462",
+      "page": [
+        "561"
+      ],
+      "citekey": "Chen:1996:561"
+    },
+    {
+      "status": "resolved",
+      "strategy": "direct_bibcode",
+      "item": {
+        "kind": "ads_bibcode",
+        "source_ref": "2021A&A...656L..21C",
+        "issue": {
+          "legacy_var": "HC3O",
+          "formula": "HC3O",
+          "line": 5024
+        }
+      },
+      "bibcode": "2021A&A...656L..21C",
+      "title": "Discovery of HCCCO and C<SUB>5</SUB>O in TMC-1 with the QUIJOTE line survey",
+      "year": "2021",
+      "pub": "Astronomy and Astrophysics",
+      "volume": "656",
+      "page": [
+        "L21"
+      ],
+      "citekey": "Cernicharo:2021:L21"
+    },
+    {
+      "status": "resolved",
+      "strategy": "direct_bibcode",
+      "item": {
+        "kind": "ads_bibcode",
+        "source_ref": "2019JChPh.151e4312C",
+        "issue": {
+          "legacy_var": "NaCCCN",
+          "formula": "NaCCCN",
+          "line": 5049
+        }
+      },
+      "bibcode": "2019JChPh.151e4312C",
+      "title": "Alkaline and alkaline-earth cyanoacetylides: A combined theoretical and rotational spectroscopic investigation",
+      "year": "2019",
+      "pub": "Journal of Chemical Physics",
+      "volume": "151",
+      "page": [
+        "054312"
+      ],
+      "citekey": "Cabezas:2019:054312"
+    },
+    {
+      "status": "resolved",
+      "strategy": "direct_bibcode",
+      "item": {
+        "kind": "ads_bibcode",
+        "source_ref": "2023A&A...672L..12C",
+        "issue": {
+          "legacy_var": "NaCCCN",
+          "formula": "NaCCCN",
+          "line": 5049
+        }
+      },
+      "bibcode": "2023A&A...672L..12C",
+      "title": "Discovery of two metallic cyanoacetylides in IRC +10216: HMgCCCN and NaCCCN",
+      "year": "2023",
+      "pub": "Astronomy and Astrophysics",
+      "volume": "672",
+      "page": [
+        "L12"
+      ],
+      "citekey": "Cabezas:2023:L12"
+    },
+    {
+      "status": "resolved",
+      "strategy": "direct_bibcode",
+      "item": {
+        "kind": "ads_bibcode",
+        "source_ref": "2023A&A...672L..13C",
+        "issue": {
+          "legacy_var": "MgC3Np",
+          "formula": "MgC3N+",
+          "line": 5072
+        }
+      },
+      "bibcode": "2023A&A...672L..13C",
+      "title": "The magnesium paradigm in IRC +10216: Discovery of MgC<SUB>4</SUB>H<SUP>+</SUP>, MgC<SUB>3</SUB>N<SUP>+</SUP>, MgC<SUB>6</SUB>H<SUP>+</SUP>, and MgC<SUB>5</SUB>N<SUP>+</SUP>",
+      "year": "2023",
+      "pub": "Astronomy and Astrophysics",
+      "volume": "672",
+      "page": [
+        "L13"
+      ],
+      "citekey": "Cernicharo:2023:L13"
+    },
+    {
+      "status": "resolved",
+      "strategy": "metadata_search",
+      "item": {
+        "kind": "parsed_reference_key",
+        "source_ref": "Cordonnier:1996:59",
+        "surname": "cordonnier",
+        "year": "1996",
+        "volume": null,
+        "page": "59",
+        "issue": {
+          "legacy_var": "C2H3p",
+          "formula": "C2H3+",
+          "line": 5096
+        }
+      },
+      "bibcode": "1996JMoSp.178...59C",
+      "title": "Accounting for Tunneling Splittings in the Rotational Spectrum of C <SUB>2</SUB>H <SUP>+</SUP><SUB>3</SUB>",
+      "year": "1996",
+      "pub": "Journal of Molecular Spectroscopy",
+      "volume": "178",
+      "page": [
+        "59"
+      ],
+      "citekey": "Cordonnier:1996:59"
+    },
+    {
+      "status": "resolved",
+      "strategy": "metadata_search",
+      "item": {
+        "kind": "parsed_reference_key",
+        "source_ref": "Bogey:1992:L103",
+        "surname": "bogey",
+        "year": "1992",
+        "volume": null,
+        "page": "L103",
+        "issue": {
+          "legacy_var": "C2H3p",
+          "formula": "C2H3+",
+          "line": 5096
+        }
+      },
+      "bibcode": "1992ApJ...399L.103B",
+      "title": "Laboratory Measurement of the Millimeter and Submillimeter Wave Spectrum of C 2H 3 +",
+      "year": "1992",
+      "pub": "The Astrophysical Journal",
+      "volume": "399",
+      "page": [
+        "L103"
+      ],
+      "citekey": "Bogey:1992:L103"
+    },
+    {
+      "status": "resolved",
+      "strategy": "metadata_search",
+      "item": {
+        "kind": "parsed_reference_key",
+        "source_ref": "Gabrys:1995:15611",
+        "surname": "gabrys",
+        "year": "1995",
+        "volume": null,
+        "page": "15611",
+        "issue": {
+          "legacy_var": "C2H3p",
+          "formula": "C2H3+",
+          "line": 5096
+        }
+      },
+      "bibcode": "1995JPhCh..9915611G",
+      "title": "Infrared Spectroscopy of Carboions. 8. Hollow Cathode Spectroscopy of Protonated Acetylene, C2H3+",
+      "year": "1995",
+      "pub": "Journal of Physical Chemistry",
+      "volume": "99",
+      "page": [
+        "15611"
+      ],
+      "citekey": "Gabrys:1995:15611"
+    },
+    {
+      "status": "resolved",
+      "strategy": "direct_bibcode",
+      "item": {
+        "kind": "ads_bibcode",
+        "source_ref": "2024A&A...683A..62M",
+        "issue": {
+          "legacy_var": "C2H3p",
+          "formula": "C2H3+",
+          "line": 5096
+        }
+      },
+      "bibcode": "2024A&A...683A..62M",
+      "title": "Protonated acetylene in the z = 0.89 molecular absorber toward PKS 1830-211",
+      "year": "2024",
+      "pub": "Astronomy and Astrophysics",
+      "volume": "683",
+      "page": [
+        "A62"
+      ],
+      "citekey": "Muller:2024:A62"
+    },
+    {
+      "status": "resolved",
+      "strategy": "metadata_search",
+      "item": {
+        "kind": "parsed_reference_key",
+        "source_ref": "Cabezas:2024:L3",
+        "surname": "cabezas",
+        "year": "2024",
+        "volume": null,
+        "page": "L3",
+        "issue": {
+          "legacy_var": "NCCHS",
+          "formula": "NCCHS",
+          "line": 5120
+        }
+      },
+      "bibcode": "2024A&A...686L...3C",
+      "title": "Laboratory and astronomical discovery of cyanothioketene, NCCHCS, in the cold starless core TMC-1",
+      "year": "2024",
+      "pub": "Astronomy and Astrophysics",
+      "volume": "686",
+      "page": [
+        "L3"
+      ],
+      "citekey": "Cabezas:2024:L3"
+    },
+    {
+      "status": "resolved",
+      "strategy": "direct_bibcode",
+      "item": {
+        "kind": "ads_bibcode",
+        "source_ref": "2020A&A...642A.206M",
+        "issue": {
+          "legacy_var": "HCSCCH",
+          "formula": "HCSCCH",
+          "line": 5771
+        }
+      },
+      "bibcode": "2020A&A...642A.206M",
+      "title": "Submillimeter-wave spectroscopy and the radio-astronomical investigation of propynethial (HC\u2261CCHS)",
+      "year": "2020",
+      "pub": "Astronomy and Astrophysics",
+      "volume": "642",
+      "page": [
+        "A206"
+      ],
+      "citekey": "Margules:2020:A206"
+    },
+    {
+      "status": "resolved",
+      "strategy": "metadata_search",
+      "item": {
+        "kind": "parsed_reference_key",
+        "source_ref": "Ogata:1995:3593",
+        "surname": "ogata",
+        "year": "1995",
+        "volume": null,
+        "page": "3593",
+        "issue": {
+          "legacy_var": "C5O",
+          "formula": "C5O",
+          "line": 5796
+        }
+      },
+      "bibcode": "1995JAChS.117.3593O",
+      "title": "Rotational Spectra and Structures of Carbon Monoxides C5O, C7O, and C9O",
+      "year": "1995",
+      "pub": "Journal of the American Chemical Society",
+      "volume": "117",
+      "page": [
+        "3593"
+      ],
+      "citekey": "Ogata:1995:3593"
+    },
+    {
+      "status": "resolved",
+      "strategy": "direct_bibcode",
+      "item": {
+        "kind": "ads_bibcode",
+        "source_ref": "2022A&A...659L...9A",
+        "issue": {
+          "legacy_var": "HCCNCHp",
+          "formula": "HCCNCH+",
+          "line": 5820
+        }
+      },
+      "bibcode": "2022A&A...659L...9A",
+      "title": "A new protonated molecule discovered in TMC-1: HCCNCH<SUP>+</SUP>",
+      "year": "2022",
+      "pub": "Astronomy and Astrophysics",
+      "volume": "659",
+      "page": [
+        "L9"
+      ],
+      "citekey": "Agundez:2022:L9"
+    },
+    {
+      "status": "resolved",
+      "strategy": "direct_bibcode",
+      "item": {
+        "kind": "ads_bibcode",
+        "source_ref": "2022A&A...657L..16C",
+        "issue": {
+          "legacy_var": "C5Hp",
+          "formula": "C5H+",
+          "line": 5842
+        }
+      },
+      "bibcode": "2022A&A...657L..16C",
+      "title": "Discovery of C<SUB>5</SUB>H<SUP>+</SUP> and detection of C<SUB>3</SUB>H<SUP>+</SUP> in TMC-1 with the QUIJOTE line survey",
+      "year": "2022",
+      "pub": "Astronomy and Astrophysics",
+      "volume": "657",
+      "page": [
+        "L16"
+      ],
+      "citekey": "Cernicharo:2022:L16"
+    },
+    {
+      "status": "resolved",
+      "strategy": "metadata_search",
+      "item": {
+        "kind": "parsed_reference_key",
+        "source_ref": "Apponi:2001:L65",
+        "surname": "apponi",
+        "year": "2001",
+        "volume": null,
+        "page": "L65",
+        "issue": {
+          "legacy_var": "cC5H",
+          "formula": "C5H",
+          "line": 5864
+        }
+      },
+      "bibcode": "2001ApJ...547L..65A",
+      "title": "The Cyclic C<SUB>5</SUB>H Radical",
+      "year": "2001",
+      "pub": "The Astrophysical Journal",
+      "volume": "547",
+      "page": [
+        "L65"
+      ],
+      "citekey": "Apponi:2001:L65"
+    },
+    {
+      "status": "resolved",
+      "strategy": "metadata_search",
+      "item": {
+        "kind": "parsed_reference_key",
+        "source_ref": "Cabezas:2022:L2",
+        "surname": "cabezas",
+        "year": "2022",
+        "volume": null,
+        "page": "L2",
+        "issue": {
+          "legacy_var": "cC5H",
+          "formula": "C5H",
+          "line": 5864
+        }
+      },
+      "bibcode": "2022A&A...663L...2C",
+      "title": "Discovery of the cyclic C<SUB>5</SUB>H radical in TMC-1",
+      "year": "2022",
+      "pub": "Astronomy and Astrophysics",
+      "volume": "663",
+      "page": [
+        "L2"
+      ],
+      "citekey": "Cabezas:2022:L2"
+    },
+    {
+      "status": "resolved",
+      "strategy": "metadata_search",
+      "item": {
+        "kind": "parsed_reference_key",
+        "source_ref": "Fuentetaja:2022:L4",
+        "surname": "fuentetaja",
+        "year": "2022",
+        "volume": null,
+        "page": "L4",
+        "issue": {
+          "legacy_var": "HC4S",
+          "formula": "HC4S",
+          "line": 5890
+        }
+      },
+      "bibcode": "2022A&A...667L...4F",
+      "title": "Discovery of two new interstellar molecules with QUIJOTE: HCCCHCCC and HCCCCS",
+      "year": "2022",
+      "pub": "Astronomy and Astrophysics",
+      "volume": "667",
+      "page": [
+        "L4"
+      ],
+      "citekey": "Fuentetaja:2022:L4"
+    },
+    {
+      "status": "resolved",
+      "strategy": "direct_bibcode",
+      "item": {
+        "kind": "ads_bibcode",
+        "source_ref": "2023A&A...676L...1S",
+        "issue": {
+          "legacy_var": "H2C3Hp",
+          "formula": "H2C3H+",
+          "line": 5960
+        }
+      },
+      "bibcode": "2023A&A...676L...1S",
+      "title": "Discovery of H<SUB>2</SUB>CCCH<SUP>+</SUP> in TMC-1",
+      "year": "2023",
+      "pub": "Astronomy and Astrophysics",
+      "volume": "676",
+      "page": [
+        "L1"
+      ],
+      "citekey": "Silva:2023:L1"
+    },
+    {
+      "status": "resolved",
+      "strategy": "metadata_search",
+      "item": {
+        "kind": "parsed_reference_key",
+        "source_ref": "Mori:2009:204308",
+        "surname": "mori",
+        "year": "2009",
+        "volume": null,
+        "page": "204308",
+        "issue": {
+          "legacy_var": "HOCOOH",
+          "formula": "HOCOOH",
+          "line": 5984
+        }
+      },
+      "bibcode": "2009JChPh.130t4308M",
+      "title": "Spectroscopic detection of isolated carbonic acid",
+      "year": "2009",
+      "pub": "Journal of Chemical Physics",
+      "volume": "130",
+      "page": [
+        "204308"
+      ],
+      "citekey": "Mori:2009:204308"
+    },
+    {
+      "status": "resolved",
+      "strategy": "metadata_search",
+      "item": {
+        "kind": "parsed_reference_key",
+        "source_ref": "Mori:2011:044319",
+        "surname": "mori",
+        "year": "2011",
+        "volume": null,
+        "page": "044319",
+        "issue": {
+          "legacy_var": "HOCOOH",
+          "formula": "HOCOOH",
+          "line": 5984
+        }
+      },
+      "bibcode": "2011JChPh.134d4319M",
+      "title": "Spectroscopic detection of the most stable carbonic acid, cis-cis H<SUB>2</SUB>CO<SUB>3</SUB>",
+      "year": "2011",
+      "pub": "Journal of Chemical Physics",
+      "volume": "134",
+      "page": [
+        "044319"
+      ],
+      "citekey": "Mori:2011:044319"
+    },
+    {
+      "status": "resolved",
+      "strategy": "metadata_search",
+      "item": {
+        "kind": "parsed_reference_key",
+        "source_ref": "Cabezas:2023:L5",
+        "surname": "cabezas",
+        "year": "2023",
+        "volume": null,
+        "page": "L5",
+        "issue": {
+          "legacy_var": "H2C3N",
+          "formula": "H2C3N",
+          "line": 6011
+        }
+      },
+      "bibcode": "2023A&A...676L...5C",
+      "title": "Laboratory and astronomical discovery of the cyanovinyl radical H<SUB>2</SUB>CCCN",
+      "year": "2023",
+      "pub": "Astronomy and Astrophysics",
+      "volume": "676",
+      "page": [
+        "L5"
+      ],
+      "citekey": "Cabezas:2023:L5"
+    },
+    {
+      "status": "resolved",
+      "strategy": "metadata_search",
+      "item": {
+        "kind": "parsed_reference_key",
+        "source_ref": "Bak:1980:528",
+        "surname": "bak",
+        "year": "1980",
+        "volume": null,
+        "page": "528",
+        "issue": {
+          "legacy_var": "H2CNCN",
+          "formula": "H2CNCN",
+          "line": 6037
+        }
+      },
+      "bibcode": "1980CPL....75..528B",
+      "title": "Extended study of rotational spectra of CH <SUB>2</SUB>\ue5fbN-CN and CD <SUB>2</SUB>\ue5fbN-CN at centimeter wavelengths",
+      "year": "1980",
+      "pub": "Chemical Physics Letters",
+      "volume": "75",
+      "page": [
+        "528"
+      ],
+      "citekey": "Bak:1980:528"
+    },
+    {
+      "status": "resolved",
+      "strategy": "metadata_search",
+      "item": {
+        "kind": "parsed_reference_key",
+        "source_ref": "Winnewisser:1984:193",
+        "surname": "winnewisser",
+        "year": "1984",
+        "volume": null,
+        "page": "193",
+        "issue": {
+          "legacy_var": "H2CNCN",
+          "formula": "H2CNCN",
+          "line": 6037
+        }
+      },
+      "bibcode": "1984JMoSp.105..193W",
+      "title": "The millimeter wave rotational spectrum of N-cyanomethanimine, CH <SUB>2</SUB>NCN",
+      "year": "1984",
+      "pub": "Journal of Molecular Spectroscopy",
+      "volume": "105",
+      "page": [
+        "193"
+      ],
+      "citekey": "Winnewisser:1984:193"
+    },
+    {
+      "status": "resolved",
+      "strategy": "metadata_search",
+      "item": {
+        "kind": "parsed_reference_key",
+        "source_ref": "Stolze:1989:291",
+        "surname": "stolze",
+        "year": "1989",
+        "volume": null,
+        "page": "291",
+        "issue": {
+          "legacy_var": "H2CNCN",
+          "formula": "H2CNCN",
+          "line": 6037
+        }
+      },
+      "bibcode": "1989ZNatA..44..291S",
+      "title": "Confirmation of the Electric Field Gradients at the Nitrogen Nuclei in N-Cyanomethanimine, CH<SUB>2</SUB>NCN, from Low-J Rotational Transitions",
+      "year": "1989",
+      "pub": "Zeitschrift Naturforschung Teil A",
+      "volume": "44",
+      "page": [
+        "291"
+      ],
+      "citekey": "Stolze:1989:291"
+    },
+    {
+      "status": "resolved",
+      "strategy": "metadata_search",
+      "item": {
+        "kind": "free_text_reference",
+        "text": "Gilmore et al. 1976 ApJ 204, 43",
+        "issue": {
+          "legacy_var": "CH3CHO",
+          "formula": "CH3CHO",
+          "line": 6069
+        },
+        "surname": "gilmore",
+        "year": "1976",
+        "volume": "204",
+        "page": "43"
+      },
+      "bibcode": "1976ApJ...204...43G",
+      "title": "Observation of the 6<SUB>16</SUB>-5<SUB>15</SUB> transitions of acetaldehyde in Sagittarius B2.",
+      "year": "1976",
+      "pub": "The Astrophysical Journal",
+      "volume": "204",
+      "page": [
+        "43"
+      ],
+      "citekey": "Gilmore:1976:43"
+    },
+    {
+      "status": "resolved",
+      "strategy": "metadata_search",
+      "item": {
+        "kind": "free_text_reference",
+        "text": "Halfen et al. 2015 ApJ 812, L5",
+        "issue": {
+          "legacy_var": "CH3NCO",
+          "formula": "CH3NCO",
+          "line": 6299
+        },
+        "surname": "halfen",
+        "year": "2015",
+        "volume": "812",
+        "page": "L5"
+      },
+      "bibcode": "2015ApJ...812L...5H",
+      "title": "Interstellar Detection of Methyl Isocyanate CH<SUB>3</SUB>NCO in Sgr B2(N): A Link from Molecular Clouds to Comets",
+      "year": "2015",
+      "pub": "The Astrophysical Journal",
+      "volume": "812",
+      "page": [
+        "L5"
+      ],
+      "citekey": "Halfen:2015:L5"
+    },
+    {
+      "status": "resolved",
+      "strategy": "direct_bibcode",
+      "item": {
+        "kind": "ads_bibcode",
+        "source_ref": "2021A&A...652L..13P",
+        "issue": {
+          "legacy_var": "MgC5N",
+          "formula": "MgC5N",
+          "line": 6437
+        }
+      },
+      "bibcode": "2021A&A...652L..13P",
+      "title": "Magnesium radicals MgC<SUB>5</SUB>N and MgC<SUB>6</SUB>H in IRC +10216",
+      "year": "2021",
+      "pub": "Astronomy and Astrophysics",
+      "volume": "652",
+      "page": [
+        "L13"
+      ],
+      "citekey": "Pardo:2021:L13"
+    },
+    {
+      "status": "resolved",
+      "strategy": "direct_bibcode",
+      "item": {
+        "kind": "ads_bibcode",
+        "source_ref": "1998ApJ...492..849C",
+        "issue": {
+          "legacy_var": "CH2C3N",
+          "formula": "CH2C3N",
+          "line": 6461
+        }
+      },
+      "bibcode": "1998ApJ...492..849C",
+      "title": "Laboratory Detection of a New Carbon Chain Radical: H<SUB>2</SUB>CCCCN",
+      "year": "1998",
+      "pub": "The Astrophysical Journal",
+      "volume": "492",
+      "page": [
+        "849"
+      ],
+      "citekey": "Chen:1998:849"
+    },
+    {
+      "status": "resolved",
+      "strategy": "direct_bibcode",
+      "item": {
+        "kind": "ads_bibcode",
+        "source_ref": "2001ApJ...552..409T",
+        "issue": {
+          "legacy_var": "CH2C3N",
+          "formula": "CH2C3N",
+          "line": 6461
+        }
+      },
+      "bibcode": "2001ApJ...552..409T",
+      "title": "Laboratory Observation of Para-H<SUB>2</SUB>C<SUB>4</SUB>N",
+      "year": "2001",
+      "pub": "The Astrophysical Journal",
+      "volume": "552",
+      "page": [
+        "409"
+      ],
+      "citekey": "Tang:2001:409"
+    },
+    {
+      "status": "resolved",
+      "strategy": "direct_bibcode",
+      "item": {
+        "kind": "ads_bibcode",
+        "source_ref": "2021A&A...654L...9C",
+        "issue": {
+          "legacy_var": "CH2C3N",
+          "formula": "CH2C3N",
+          "line": 6461
+        }
+      },
+      "bibcode": "2021A&A...654L...9C",
+      "title": "Discovery of interstellar 3-cyano propargyl radical, CH<SUB>2</SUB>CCCN",
+      "year": "2021",
+      "pub": "Astronomy and Astrophysics",
+      "volume": "654",
+      "page": [
+        "L9"
+      ],
+      "citekey": "Cabezas:2021:L9a"
+    },
+    {
+      "status": "resolved",
+      "strategy": "direct_bibcode",
+      "item": {
+        "kind": "ads_bibcode",
+        "source_ref": "2021A&A...650L...9C",
+        "issue": {
+          "legacy_var": "H2C5",
+          "formula": "H2C5",
+          "line": 6485
+        }
+      },
+      "bibcode": "2021A&A...650L...9C",
+      "title": "Cumulene carbenes in TMC-1: Astronomical discovery of l-H<SUB>2</SUB>C<SUB>5</SUB>",
+      "year": "2021",
+      "pub": "Astronomy and Astrophysics",
+      "volume": "650",
+      "page": [
+        "L9"
+      ],
+      "citekey": "Cabezas:2021:L9"
+    },
+    {
+      "status": "resolved",
+      "strategy": "metadata_search",
+      "item": {
+        "kind": "parsed_reference_key",
+        "source_ref": "Agundez:2023:L1",
+        "surname": "agundez",
+        "year": "2023",
+        "volume": null,
+        "page": "L1",
+        "issue": {
+          "legacy_var": "NC4NHp",
+          "formula": "NC4NH+",
+          "line": 6511
+        }
+      },
+      "bibcode": "2023A&A...669L...1A",
+      "title": "Discovery of interstellar NC<SUB>4</SUB>NH<SUP>+</SUP>: Dicyanopolyynes are indeed abundant in space",
+      "year": "2023",
+      "pub": "Astronomy and Astrophysics",
+      "volume": "669",
+      "page": [
+        "L1"
+      ],
+      "citekey": "Agundez:2023:L1"
+    },
+    {
+      "status": "resolved",
+      "strategy": "metadata_search",
+      "item": {
+        "kind": "parsed_reference_key",
+        "source_ref": "Cernicharo:2024:L15",
+        "surname": "cernicharo",
+        "year": "2024",
+        "volume": null,
+        "page": "L15",
+        "issue": {
+          "legacy_var": "HC5Np",
+          "formula": "HC5N+",
+          "line": 6558
+        }
+      },
+      "bibcode": "2024A&A...686L..15C",
+      "title": "QUIJOTE discovery of the cation radicals HC<SUB>5</SUB>N<SUP>+</SUP> and HC<SUB>7</SUB>N<SUP>+</SUP>",
+      "year": "2024",
+      "pub": "Astronomy and Astrophysics",
+      "volume": "686",
+      "page": [
+        "L15"
+      ],
+      "citekey": "Cernicharo:2024:L15"
+    },
+    {
+      "status": "resolved",
+      "strategy": "metadata_search",
+      "item": {
+        "kind": "free_text_reference",
+        "text": "Thorwirth et al. 2003 A&A 398, L11",
+        "issue": {
+          "legacy_var": "CH2CHCCH",
+          "formula": "CH2CHCCH",
+          "line": 6962
+        },
+        "surname": "thorwirth",
+        "year": "2003",
+        "volume": "398",
+        "page": "L11"
+      },
+      "bibcode": "2003A&A...398L..11T",
+      "title": "The millimeter-wave spectrum and the dipole moment of vinylacetylene",
+      "year": "2003",
+      "pub": "Astronomy and Astrophysics",
+      "volume": "398",
+      "page": [
+        "L11"
+      ],
+      "citekey": "Thorwirth:2003:L11"
+    },
+    {
+      "status": "resolved",
+      "strategy": "direct_bibcode",
+      "item": {
+        "kind": "ads_bibcode",
+        "source_ref": "1990JMoSp.142..195B",
+        "issue": {
+          "legacy_var": "C2H3NH2",
+          "formula": "C2H3NH2",
+          "line": 7003
+        }
+      },
+      "bibcode": "1990JMoSp.142..195B",
+      "title": "Submillimeter-wave spectrum, far-infrared spectrum, and inversion potential of vinylamine",
+      "year": "1990",
+      "pub": "Journal of Molecular Spectroscopy",
+      "volume": "142",
+      "page": [
+        "195"
+      ],
+      "citekey": "Brown:1990:195"
+    },
+    {
+      "status": "resolved",
+      "strategy": "direct_bibcode",
+      "item": {
+        "kind": "ads_bibcode",
+        "source_ref": "1994JMoSp.163...80M",
+        "issue": {
+          "legacy_var": "C2H3NH2",
+          "formula": "C2H3NH2",
+          "line": 7003
+        }
+      },
+      "bibcode": "1994JMoSp.163...80M",
+      "title": "The Far-Infrared Inversion Transition of Vinylamine",
+      "year": "1994",
+      "pub": "Journal of Molecular Spectroscopy",
+      "volume": "163",
+      "page": [
+        "80"
+      ],
+      "citekey": "McNaughton:1994:80"
+    },
+    {
+      "status": "resolved",
+      "strategy": "direct_bibcode",
+      "item": {
+        "kind": "ads_bibcode",
+        "source_ref": "2021ApJ...920L..27Z",
+        "issue": {
+          "legacy_var": "C2H3NH2",
+          "formula": "C2H3NH2",
+          "line": 7003
+        }
+      },
+      "bibcode": "2021ApJ...920L..27Z",
+      "title": "Probing the Chemical Complexity of Amines in the ISM: Detection of Vinylamine (C<SUB>2</SUB>H<SUB>3</SUB>NH<SUB>2</SUB>) and Tentative Detection of Ethylamine (C<SUB>2</SUB>H<SUB>5</SUB>NH<SUB>2</SUB>)",
+      "year": "2021",
+      "pub": "The Astrophysical Journal",
+      "volume": "920",
+      "page": [
+        "L27"
+      ],
+      "citekey": "Zeng:2021:L27"
+    },
+    {
+      "status": "resolved",
+      "strategy": "metadata_search",
+      "item": {
+        "kind": "parsed_reference_key",
+        "source_ref": "Melosso:2022:2750",
+        "surname": "melosso",
+        "year": "2022",
+        "volume": null,
+        "page": "2750",
+        "issue": {
+          "legacy_var": "HOCHCHOH",
+          "formula": "HOCHCHOH",
+          "line": 7030
+        }
+      },
+      "bibcode": "2022ChCom..58.2750M",
+      "title": "Gas-phase identification of ( Z )-1,2-ethenediol, a key prebiotic intermediate in the formose reaction",
+      "year": "2022",
+      "pub": "Chemical Communications",
+      "volume": "58",
+      "page": [
+        "2750"
+      ],
+      "citekey": "Melosso:2022:2750"
+    },
+    {
+      "status": "resolved",
+      "strategy": "direct_bibcode",
+      "item": {
+        "kind": "ads_bibcode",
+        "source_ref": "2022ApJ...929L..11R",
+        "issue": {
+          "legacy_var": "HOCHCHOH",
+          "formula": "HOCHCHOH",
+          "line": 7030
+        }
+      },
+      "bibcode": "2022ApJ...929L..11R",
+      "title": "Precursors of the RNA World in Space: Detection of (Z)-1,2-ethenediol in the Interstellar Medium, a Key Intermediate in Sugar Formation",
+      "year": "2022",
+      "pub": "The Astrophysical Journal",
+      "volume": "929",
+      "page": [
+        "L11"
+      ],
+      "citekey": "Rivilla:2022:L11"
+    },
+    {
+      "status": "resolved",
+      "strategy": "metadata_search",
+      "item": {
+        "kind": "parsed_reference_key",
+        "source_ref": "McCarthy:2002:L55",
+        "surname": "mccarthy",
+        "year": "2002",
+        "volume": null,
+        "page": "L55",
+        "issue": {
+          "legacy_var": "HCCCHCCC",
+          "formula": "HCCCHCCC",
+          "line": 7057
+        }
+      },
+      "bibcode": "2002ApJ...569L..55M",
+      "title": "Laboratory Detection of a Bent-Chain Carbene Isomer of C<SUB>6</SUB>H<SUB>2</SUB>",
+      "year": "2002",
+      "pub": "The Astrophysical Journal",
+      "volume": "569",
+      "page": [
+        "L55"
+      ],
+      "citekey": "McCarthy:2002:L55"
+    },
+    {
+      "status": "resolved",
+      "strategy": "direct_bibcode",
+      "item": {
+        "kind": "ads_bibcode",
+        "source_ref": "2023A&A...670L..19C",
+        "issue": {
+          "legacy_var": "C7Nm",
+          "formula": "C7N-",
+          "line": 7082
+        }
+      },
+      "bibcode": "2023A&A...670L..19C",
+      "title": "Discovery of the C<SUB>7</SUB>N<SUP>\u2012</SUP> anion in TMC-1 and IRC +10216",
+      "year": "2023",
+      "pub": "Astronomy and Astrophysics",
+      "volume": "670",
+      "page": [
+        "L19"
+      ],
+      "citekey": "Cernicharo:2023:L19"
+    },
+    {
+      "status": "resolved",
+      "strategy": "direct_bibcode",
+      "item": {
+        "kind": "ads_bibcode",
+        "source_ref": "2018A&A...619A..92B",
+        "issue": {
+          "legacy_var": "CH3CHCO",
+          "formula": "CH3CHCO",
+          "line": 7105
+        }
+      },
+      "bibcode": "2018A&A...619A..92B",
+      "title": "The millimeter-wave spectrum of methyl ketene and the astronomical search for it",
+      "year": "2018",
+      "pub": "Astronomy and Astrophysics",
+      "volume": "619",
+      "page": [
+        "A92"
+      ],
+      "citekey": "Bermudez:2018:A92"
+    },
+    {
+      "status": "resolved",
+      "strategy": "direct_bibcode",
+      "item": {
+        "kind": "ads_bibcode",
+        "source_ref": "2023A&A...671L...6F",
+        "issue": {
+          "legacy_var": "CH3CHCO",
+          "formula": "CH3CHCO",
+          "line": 7105
+        }
+      },
+      "bibcode": "2023A&A...671L...6F",
+      "title": "Discovery of CH<SUB>3</SUB>CHCO in TMC-1 with the QUIJOTE line survey",
+      "year": "2023",
+      "pub": "Astronomy and Astrophysics",
+      "volume": "671",
+      "page": [
+        "L6"
+      ],
+      "citekey": "Fuentetaja:2023:L6"
+    },
+    {
+      "status": "resolved",
+      "strategy": "metadata_search",
+      "item": {
+        "kind": "parsed_reference_key",
+        "source_ref": "Muller:2024:A8",
+        "surname": "muller",
+        "year": "2024",
+        "volume": null,
+        "page": "A8",
+        "issue": {
+          "legacy_var": "HOCHCHCHO",
+          "formula": "HOCHCHCHO",
+          "line": 7543
+        }
+      },
+      "bibcode": "2024A&A...687A...8M",
+      "title": "The rotation-tunneling spectrum of 3-hydroxypropenal and confirmation of its detection toward IRAS 16293-2422 B",
+      "year": "2024",
+      "pub": "Astronomy and Astrophysics",
+      "volume": "687",
+      "page": [
+        "A8"
+      ],
+      "citekey": "Muller:2024:A8"
+    },
+    {
+      "status": "resolved",
+      "strategy": "metadata_search",
+      "item": {
+        "kind": "parsed_reference_key",
+        "source_ref": "Baughcum:1981:6296",
+        "surname": "baughcum",
+        "year": "1981",
+        "volume": null,
+        "page": "6296",
+        "issue": {
+          "legacy_var": "HOCHCHCHO",
+          "formula": "HOCHCHCHO",
+          "line": 7543
+        }
+      },
+      "bibcode": "1981JAChS.103.6296B",
+      "title": "Microwave spectroscopic study of malonaldehyde (3-hydroxy-2-propenal). 2. Structure, dipole moment, and tunneling",
+      "year": "1981",
+      "pub": "Journal of the American Chemical Society",
+      "volume": "103",
+      "page": [
+        "6296"
+      ],
+      "citekey": "Baughcum:1981:6296"
+    },
+    {
+      "status": "resolved",
+      "strategy": "metadata_search",
+      "item": {
+        "kind": "parsed_reference_key",
+        "source_ref": "Stolze:1983:243",
+        "surname": "stolze",
+        "year": "1983",
+        "volume": null,
+        "page": "243",
+        "issue": {
+          "legacy_var": "HOCHCHCHO",
+          "formula": "HOCHCHCHO",
+          "line": 7543
+        }
+      },
+      "bibcode": "1983JMoSt..97..243S",
+      "title": "High resolution rotational Zeeman effect spectroscopy using a Ku-band bridge superheterodyne spectrometer with low frequency Stark effect modulation. The rotational Zeeman effect of malonaldehyde",
+      "year": "1983",
+      "pub": "Journal of Molecular Structure",
+      "volume": "97",
+      "page": [
+        "243"
+      ],
+      "citekey": "Stolze:1983:243"
+    },
+    {
+      "status": "resolved",
+      "strategy": "metadata_search",
+      "item": {
+        "kind": "parsed_reference_key",
+        "source_ref": "Baba:1999:4131",
+        "surname": "baba",
+        "year": "1999",
+        "volume": null,
+        "page": "4131",
+        "issue": {
+          "legacy_var": "HOCHCHCHO",
+          "formula": "HOCHCHCHO",
+          "line": 7543
+        }
+      },
+      "bibcode": "1999JChPh.110.4131B",
+      "title": "Detection of the tunneling-rotation transitions of malonaldehyde in the submillimeter-wave region",
+      "year": "1999",
+      "pub": "Journal of Chemical Physics",
+      "volume": "110",
+      "page": [
+        "4131"
+      ],
+      "citekey": "Baba:1999:4131"
+    },
+    {
+      "status": "resolved",
+      "strategy": "direct_bibcode",
+      "item": {
+        "kind": "ads_bibcode",
+        "source_ref": "2021A&A...652L..12S",
+        "issue": {
+          "legacy_var": "H2CCCHC3N",
+          "formula": "H2CCCHC3N",
+          "line": 7774
+        }
+      },
+      "bibcode": "2021A&A...652L..12S",
+      "title": "Detection of interstellar H<SUB>2</SUB>CCCHC<SUB>3</SUB>N. A possible link between chains and rings in cold cores",
+      "year": "2021",
+      "pub": "Astronomy and Astrophysics",
+      "volume": "652",
+      "page": [
+        "L12"
+      ],
+      "citekey": "Shingledecker:2021:L12"
+    },
+    {
+      "status": "resolved",
+      "strategy": "direct_bibcode",
+      "item": {
+        "kind": "ads_bibcode",
+        "source_ref": "2003JChPh.119.4353K",
+        "issue": {
+          "legacy_var": "C6H4",
+          "formula": "C6H4",
+          "line": 7801
+        }
+      },
+      "bibcode": "2003JChPh.119.4353K",
+      "title": "Microwave spectrum of o-benzyne produced in a discharge nozzle",
+      "year": "2003",
+      "pub": "Journal of Chemical Physics",
+      "volume": "119",
+      "page": [
+        "4353"
+      ],
+      "citekey": "Kukolich:2003:4353"
+    },
+    {
+      "status": "resolved",
+      "strategy": "direct_bibcode",
+      "item": {
+        "kind": "ads_bibcode",
+        "source_ref": "2003JMoSp.217..123R",
+        "issue": {
+          "legacy_var": "C6H4",
+          "formula": "C6H4",
+          "line": 7801
+        }
+      },
+      "bibcode": "2003JMoSp.217..123R",
+      "title": "The microwave spectrum of o-benzyne measured in a novel Stark modulated spectrometer for transient molecules",
+      "year": "2003",
+      "pub": "Journal of Molecular Spectroscopy",
+      "volume": "217",
+      "page": [
+        "123"
+      ],
+      "citekey": "Robertson:2003:123"
+    },
+    {
+      "status": "resolved",
+      "strategy": "direct_bibcode",
+      "item": {
+        "kind": "ads_bibcode",
+        "source_ref": "2021A&A...652L...9C",
+        "issue": {
+          "legacy_var": "C6H4",
+          "formula": "C6H4",
+          "line": 7801
+        }
+      },
+      "bibcode": "2021A&A...652L...9C",
+      "title": "Discovery of benzyne, o-C<SUB>6</SUB>H<SUB>4</SUB>, in TMC-1 with the QUIJOTE line survey",
+      "year": "2021",
+      "pub": "Astronomy and Astrophysics",
+      "volume": "652",
+      "page": [
+        "L9"
+      ],
+      "citekey": "Cernicharo:2021:L9"
+    },
+    {
+      "status": "resolved",
+      "strategy": "direct_bibcode",
+      "item": {
+        "kind": "ads_bibcode",
+        "source_ref": "2018A&A...616A.173K",
+        "issue": {
+          "legacy_var": "C2H5NCO",
+          "formula": "C2H5NCO",
+          "line": 7824
+        }
+      },
+      "bibcode": "2018A&A...616A.173K",
+      "title": "Millimeter wave spectra of ethyl isocyanate and searches for it in Orion KL and Sagittarius B2",
+      "year": "2018",
+      "pub": "Astronomy and Astrophysics",
+      "volume": "616",
+      "page": [
+        "A173"
+      ],
+      "citekey": "Kolesnikova:2018:A173"
+    },
+    {
+      "status": "resolved",
+      "strategy": "direct_bibcode",
+      "item": {
+        "kind": "ads_bibcode",
+        "source_ref": "2021A&A...654L...1R",
+        "issue": {
+          "legacy_var": "C2H5NCO",
+          "formula": "C2H5NCO",
+          "line": 7824
+        }
+      },
+      "bibcode": "2021A&A...654L...1R",
+      "title": "First detection of C<SUB>2</SUB>H<SUB>5</SUB>NCO in the ISM and search of other isocyanates towards the G+0.693-0.027 molecular cloud",
+      "year": "2021",
+      "pub": "Astronomy and Astrophysics",
+      "volume": "654",
+      "page": [
+        "L1"
+      ],
+      "citekey": "Rodriguez-Almeida:2021:L1"
+    },
+    {
+      "status": "resolved",
+      "strategy": "direct_bibcode",
+      "item": {
+        "kind": "ads_bibcode",
+        "source_ref": "2022A&A...659L...8C",
+        "issue": {
+          "legacy_var": "HC7NHp",
+          "formula": "HC7NH+",
+          "line": 7849
+        }
+      },
+      "bibcode": "2022A&A...659L...8C",
+      "title": "Discovery of a new molecular ion, HC<SUB>7</SUB>NH<SUP>+</SUP>, in TMC-1",
+      "year": "2022",
+      "pub": "Astronomy and Astrophysics",
+      "volume": "659",
+      "page": [
+        "L8"
+      ],
+      "citekey": "Cabezas:2022:L8"
+    },
+    {
+      "status": "resolved",
+      "strategy": "metadata_search",
+      "item": {
+        "kind": "parsed_reference_key",
+        "source_ref": "Lesarri:1995:520",
+        "surname": "lesarri",
+        "year": "1995",
+        "volume": null,
+        "page": "520",
+        "issue": {
+          "legacy_var": "CH3CHCHCN",
+          "formula": "CH3CHCHCN",
+          "line": 7871
+        }
+      },
+      "bibcode": "1995JMoSp.172..520L",
+      "title": "Rotational Spectra of cis and trans Crotononitriles: Centrifugal Distortion, Hyperfine Structure, Internal Rotation and Structure",
+      "year": "1995",
+      "pub": "Journal of Molecular Spectroscopy",
+      "volume": "172",
+      "page": [
+        "520"
+      ],
+      "citekey": "Lesarri:1995:520"
+    },
+    {
+      "status": "resolved",
+      "strategy": "metadata_search",
+      "item": {
+        "kind": "parsed_reference_key",
+        "source_ref": "Cernicharo:2022:L5",
+        "surname": "cernicharo",
+        "year": "2022",
+        "volume": null,
+        "page": "L5",
+        "issue": {
+          "legacy_var": "CH3CHCHCN",
+          "formula": "CH3CHCHCN",
+          "line": 7871
+        }
+      },
+      "bibcode": "2022A&A...663L...5C",
+      "title": "Discovery of five cyano derivatives of propene with the QUIJOTE line survey",
+      "year": "2022",
+      "pub": "Astronomy and Astrophysics",
+      "volume": "663",
+      "page": [
+        "L5"
+      ],
+      "citekey": "Cernicharo:2022:L5"
+    },
+    {
+      "status": "resolved",
+      "strategy": "metadata_search",
+      "item": {
+        "kind": "parsed_reference_key",
+        "source_ref": "Lopez:1990:317",
+        "surname": "lopez",
+        "year": "1990",
+        "volume": null,
+        "page": "317",
+        "issue": {
+          "legacy_var": "CH2CCH3CN",
+          "formula": "CH2CCH3CN",
+          "line": 7897
+        }
+      },
+      "bibcode": "1990JMoSp.141..317L",
+      "title": "The rotational spectrum of methacrylonitrile: Dipole moment, internal rotation, and centrifugal distortion",
+      "year": "1990",
+      "pub": "Journal of Molecular Spectroscopy",
+      "volume": "141",
+      "page": [
+        "317"
+      ],
+      "citekey": "Lopez:1990:317"
+    },
+    {
+      "status": "resolved",
+      "strategy": "metadata_search",
+      "item": {
+        "kind": "parsed_reference_key",
+        "source_ref": "Demaison:1991:455",
+        "surname": "demaison",
+        "year": "1991",
+        "volume": null,
+        "page": "455",
+        "issue": {
+          "legacy_var": "CH2CHCH2CN",
+          "formula": "CH2CHCH2CN",
+          "line": 7924
+        }
+      },
+      "bibcode": "1991JMoSp.146..455D",
+      "title": "Analysis of the millimeter-wave spectrum of allyl cyanide",
+      "year": "1991",
+      "pub": "Journal of Molecular Spectroscopy",
+      "volume": "146",
+      "page": [
+        "455"
+      ],
+      "citekey": "Demaison:1991:455"
+    },
+    {
+      "status": "resolved",
+      "strategy": "metadata_search",
+      "item": {
+        "kind": "parsed_reference_key",
+        "source_ref": "Rivilla:2023:L20",
+        "surname": "rivilla",
+        "year": "2023",
+        "volume": null,
+        "page": "L20",
+        "issue": {
+          "legacy_var": "NH2COCH2OH",
+          "formula": "NH2COCH2OH",
+          "line": 7951
+        }
+      },
+      "bibcode": "2023ApJ...953L..20R",
+      "title": "First Glycine Isomer Detected in the Interstellar Medium: Glycolamide (NH<SUB>2</SUB>C(O)CH<SUB>2</SUB>OH)",
+      "year": "2023",
+      "pub": "The Astrophysical Journal",
+      "volume": "953",
+      "page": [
+        "L20"
+      ],
+      "citekey": "Rivilla:2023:L20"
+    },
+    {
+      "status": "resolved",
+      "strategy": "metadata_search",
+      "item": {
+        "kind": "parsed_reference_key",
+        "source_ref": "Cernicharo:2024:A139",
+        "surname": "cernicharo",
+        "year": "2024",
+        "volume": null,
+        "page": "A139",
+        "issue": {
+          "legacy_var": "CH3CH2CCH",
+          "formula": "CH3CH2CCH",
+          "line": 7978
+        }
+      },
+      "bibcode": "2024A&A...686A.139C",
+      "title": "CN and CCH derivatives of ethylene and ethane: Confirmation of the detection of CH<SUB>3</SUB>CH<SUB>2</SUB>CCH in TMC-1",
+      "year": "2024",
+      "pub": "Astronomy and Astrophysics",
+      "volume": "686",
+      "page": [
+        "A139"
+      ],
+      "citekey": "Cernicharo:2024:A139"
+    },
+    {
+      "status": "resolved",
+      "strategy": "direct_bibcode",
+      "item": {
+        "kind": "ads_bibcode",
+        "source_ref": "1971JChPh..55..651P",
+        "issue": {
+          "legacy_var": "NH2CH2CH2OH",
+          "formula": "NH2CH2CH2OH",
+          "line": 8145
+        }
+      },
+      "bibcode": "1971JChPh..55..651P",
+      "title": "Microwave Spectrum of 2-Aminoethanol: Structural Effects of the Hydrogen Bond",
+      "year": "1971",
+      "pub": "Journal of Chemical Physics",
+      "volume": "55",
+      "page": [
+        "651"
+      ],
+      "citekey": "Penn:1971:651"
+    },
+    {
+      "status": "resolved",
+      "strategy": "direct_bibcode",
+      "item": {
+        "kind": "ads_bibcode",
+        "source_ref": "2003JMoSp.217..278W",
+        "issue": {
+          "legacy_var": "NH2CH2CH2OH",
+          "formula": "NH2CH2CH2OH",
+          "line": 8145
+        }
+      },
+      "bibcode": "2003JMoSp.217..278W",
+      "title": "Millimeter wavelength measurements of the rotational spectrum of 2-aminoethanol",
+      "year": "2003",
+      "pub": "Journal of Molecular Spectroscopy",
+      "volume": "217",
+      "page": [
+        "278"
+      ],
+      "citekey": "Widicus:2003:278"
+    },
+    {
+      "status": "resolved",
+      "strategy": "direct_bibcode",
+      "item": {
+        "kind": "ads_bibcode",
+        "source_ref": "2021PNAS..11801314R",
+        "issue": {
+          "legacy_var": "NH2CH2CH2OH",
+          "formula": "NH2CH2CH2OH",
+          "line": 8145
+        }
+      },
+      "bibcode": "2021PNAS..11801314R",
+      "title": "Discovery in space of ethanolamine, the simplest phospholipid head group",
+      "year": "2021",
+      "pub": "Proceedings of the National Academy of Science",
+      "volume": "118",
+      "page": [
+        "e2101314118"
+      ],
+      "citekey": "Rivilla:2021:e2101314118"
+    },
+    {
+      "status": "resolved",
+      "strategy": "metadata_search",
+      "item": {
+        "kind": "parsed_reference_key",
+        "source_ref": "Fuentetaja:2022:L3",
+        "surname": "fuentetaja",
+        "year": "2022",
+        "volume": null,
+        "page": "L3",
+        "issue": {
+          "legacy_var": "CH2CCHC4H",
+          "formula": "CH2CCHC4H",
+          "line": 8171
+        }
+      },
+      "bibcode": "2022A&A...663L...3F",
+      "title": "Discovery of CH<SUB>2</SUB>CCHC<SUB>4</SUB>H and a rigorous detection of CH<SUB>2</SUB>CCHC<SUB>3</SUB>N in TMC-1 with the QUIJOTE line survey",
+      "year": "2022",
+      "pub": "Astronomy and Astrophysics",
+      "volume": "663",
+      "page": [
+        "L3"
+      ],
+      "citekey": "Fuentetaja:2022:L3"
+    },
+    {
+      "status": "resolved",
+      "strategy": "direct_bibcode",
+      "item": {
+        "kind": "ads_bibcode",
+        "source_ref": "2023ApJ...944L..45R",
+        "issue": {
+          "legacy_var": "C10Hm",
+          "formula": "C10H-",
+          "line": 8196
+        }
+      },
+      "bibcode": "2023ApJ...944L..45R",
+      "title": "Astronomical Detection of the Interstellar Anion C<SUB>10</SUB>H<SUP>-</SUP> toward TMC-1 from the GOTHAM Large Program on the Green Bank Telescope",
+      "year": "2023",
+      "pub": "The Astrophysical Journal",
+      "volume": "944",
+      "page": [
+        "L45"
+      ],
+      "citekey": "Remijan:2023:L45"
+    },
+    {
+      "status": "resolved",
+      "strategy": "metadata_search",
+      "item": {
+        "kind": "parsed_reference_key",
+        "source_ref": "Zdanovskaia:2021:9551",
+        "surname": "zdanovskaia",
+        "year": "2021",
+        "volume": null,
+        "page": "9551",
+        "issue": {
+          "legacy_var": "C4H5CN",
+          "formula": "C4H5CN",
+          "line": 8218
+        }
+      },
+      "bibcode": "2021JAChS.143.9551Z",
+      "title": "Rotational Spectra of Three Cyanobutadiene Isomers (C5H5N) of Relevance to Astrochemistry and Other Harsh Reaction Environments",
+      "year": "2021",
+      "pub": "Journal of the American Chemical Society",
+      "volume": "143",
+      "page": [
+        "9551"
+      ],
+      "citekey": "Zdanovskaia:2021:9551"
+    },
+    {
+      "status": "resolved",
+      "strategy": "direct_bibcode",
+      "item": {
+        "kind": "ads_bibcode",
+        "source_ref": "2023ApJ...948..133C",
+        "issue": {
+          "legacy_var": "C4H5CN",
+          "formula": "C4H5CN",
+          "line": 8218
+        }
+      },
+      "bibcode": "2023ApJ...948..133C",
+      "title": "Detection of Interstellar E-1-cyano-1,3-butadiene in GOTHAM Observations of TMC-1",
+      "year": "2023",
+      "pub": "The Astrophysical Journal",
+      "volume": "948",
+      "page": [
+        "133"
+      ],
+      "citekey": "Cooke:2023:133"
+    },
+    {
+      "status": "resolved",
+      "strategy": "direct_bibcode",
+      "item": {
+        "kind": "ads_bibcode",
+        "source_ref": "2018A&A...620L...6T",
+        "issue": {
+          "legacy_var": "C2H5OCH3",
+          "formula": "C2H5OCH3",
+          "line": 8328
+        }
+      },
+      "bibcode": "2018A&A...620L...6T",
+      "title": "Chemical segregation of complex organic O-bearing species in Orion KL",
+      "year": "2018",
+      "pub": "Astronomy and Astrophysics",
+      "volume": "620",
+      "page": [
+        "L6"
+      ],
+      "citekey": "Tercero:2018:L6"
+    },
+    {
+      "status": "resolved",
+      "strategy": "metadata_search",
+      "item": {
+        "kind": "parsed_reference_key",
+        "source_ref": "Dreizier:1981:1187",
+        "surname": "dreizier",
+        "year": "1981",
+        "volume": null,
+        "page": "1187",
+        "issue": {
+          "legacy_var": "nCH3CH2CH2OH",
+          "formula": "CH3CH2CH2OH",
+          "line": 8408
+        }
+      },
+      "bibcode": "1981ZNatA..36.1187D",
+      "title": "Centrifugal Distortion and Internal Rotation Analysis in the Ground State of Trans N-Propanol",
+      "year": "1981",
+      "pub": "Zeitschrift Naturforschung Teil A",
+      "volume": "36",
+      "page": [
+        "1187"
+      ],
+      "citekey": "Dreizier:1981:1187"
+    },
+    {
+      "status": "resolved",
+      "strategy": "metadata_search",
+      "item": {
+        "kind": "parsed_reference_key",
+        "source_ref": "Maeda:2006:650",
+        "surname": "maeda",
+        "year": "2006",
+        "volume": null,
+        "page": "650",
+        "issue": {
+          "legacy_var": "iCH3CH2CH2OH",
+          "formula": "CH3CH2CH2OH",
+          "line": 8436
+        }
+      },
+      "bibcode": "2006ApJS..166..650M",
+      "title": "The Millimeter- and Submillimeter-Wave Spectrum of Iso-Propanol [(CH<SUB>3</SUB>)<SUB>2</SUB>CHOH]",
+      "year": "2006",
+      "pub": "The Astrophysical Journal Supplement Series",
+      "volume": "166",
+      "page": [
+        "650"
+      ],
+      "citekey": "Maeda:2006:650"
+    },
+    {
+      "status": "resolved",
+      "strategy": "metadata_search",
+      "item": {
+        "kind": "parsed_reference_key",
+        "source_ref": "Belloche:2022:A110",
+        "surname": "belloche",
+        "year": "2022",
+        "volume": null,
+        "page": "A110",
+        "issue": {
+          "legacy_var": "iCH3CH2CH2OH",
+          "formula": "CH3CH2CH2OH",
+          "line": 8436
+        }
+      },
+      "bibcode": "2022A&A...662A.110B",
+      "title": "Interstellar detection and chemical modeling of iso-propanol and its normal isomer",
+      "year": "2022",
+      "pub": "Astronomy and Astrophysics",
+      "volume": "662",
+      "page": [
+        "A110"
+      ],
+      "citekey": "Belloche:2022:A110"
+    },
+    {
+      "status": "resolved",
+      "strategy": "metadata_search",
+      "item": {
+        "kind": "parsed_reference_key",
+        "source_ref": "Laurie:1961:1516",
+        "surname": "laurie",
+        "year": "1961",
+        "volume": null,
+        "page": "1516",
+        "issue": {
+          "legacy_var": "iC4H8",
+          "formula": "iC4H8",
+          "line": 8464
+        }
+      },
+      "bibcode": "1961JChPh..34.1516L",
+      "title": "Microwave Spectrum of Isobutylene. Dipole Moment, Internal Barrier, Equilibrium Conformation, and Structure",
+      "year": "1961",
+      "pub": "Journal of Chemical Physics",
+      "volume": "34",
+      "page": [
+        "1516"
+      ],
+      "citekey": "Laurie:1961:1516"
+    },
+    {
+      "status": "resolved",
+      "strategy": "metadata_search",
+      "item": {
+        "kind": "parsed_reference_key",
+        "source_ref": "Scharpen:1963:1732",
+        "surname": "scharpen",
+        "year": "1963",
+        "volume": null,
+        "page": "1732",
+        "issue": {
+          "legacy_var": "iC4H8",
+          "formula": "iC4H8",
+          "line": 8464
+        }
+      },
+      "bibcode": "1963JChPh..39.1732S",
+      "title": "Structure of Isobutylene",
+      "year": "1963",
+      "pub": "Journal of Chemical Physics",
+      "volume": "39",
+      "page": [
+        "1732"
+      ],
+      "citekey": "Scharpen:1963:1732"
+    },
+    {
+      "status": "resolved",
+      "strategy": "metadata_search",
+      "item": {
+        "kind": "parsed_reference_key",
+        "source_ref": "Demaison:1975:325",
+        "surname": "demaison",
+        "year": "1975",
+        "volume": null,
+        "page": "325",
+        "issue": {
+          "legacy_var": "iC4H8",
+          "formula": "iC4H8",
+          "line": 8464
+        }
+      },
+      "bibcode": "1975JMoSt..24..325D",
+      "title": "Microwave spectrum, centrifugal distortion, internal rotation and excited torsional states of isobutene",
+      "year": "1975",
+      "pub": "Journal of Molecular Structure",
+      "volume": "24",
+      "page": [
+        "325"
+      ],
+      "citekey": "Demaison:1975:325"
+    },
+    {
+      "status": "resolved",
+      "strategy": "metadata_search",
+      "item": {
+        "kind": "parsed_reference_key",
+        "source_ref": "Gutowsky:1991:91",
+        "surname": "gutowsky",
+        "year": "1991",
+        "volume": null,
+        "page": "91",
+        "issue": {
+          "legacy_var": "iC4H8",
+          "formula": "iC4H8",
+          "line": 8464
+        }
+      },
+      "bibcode": "1991JMoSp.147...91G",
+      "title": "Internal rotation and structure of isobutylene",
+      "year": "1991",
+      "pub": "Journal of Molecular Spectroscopy",
+      "volume": "147",
+      "page": [
+        "91"
+      ],
+      "citekey": "Gutowsky:1991:91"
+    },
+    {
+      "status": "resolved",
+      "strategy": "metadata_search",
+      "item": {
+        "kind": "parsed_reference_key",
+        "source_ref": "Fatima:2023:A25",
+        "surname": "fatima",
+        "year": "2023",
+        "volume": null,
+        "page": "A25",
+        "issue": {
+          "legacy_var": "iC4H8",
+          "formula": "iC4H8",
+          "line": 8464
+        }
+      },
+      "bibcode": "2023A&A...680A..25F",
+      "title": "Millimetre and submillimetre spectroscopy of isobutene and its detection in the molecular cloud G+0.693",
+      "year": "2023",
+      "pub": "Astronomy and Astrophysics",
+      "volume": "680",
+      "page": [
+        "A25"
+      ],
+      "citekey": "Fatima:2023:A25"
+    },
+    {
+      "status": "resolved",
+      "strategy": "direct_bibcode",
+      "item": {
+        "kind": "ads_bibcode",
+        "source_ref": "2021A&A...655L...1C",
+        "issue": {
+          "legacy_var": "C5H5CCH1",
+          "formula": "C5H5CCH",
+          "line": 8537
+        }
+      },
+      "bibcode": "2021A&A...655L...1C",
+      "title": "Discovery of two isomers of ethynyl cyclopentadiene in TMC-1: Abundances of CCH and CN derivatives of hydrocarbon cycles",
+      "year": "2021",
+      "pub": "Astronomy and Astrophysics",
+      "volume": "655",
+      "page": [
+        "L1"
+      ],
+      "citekey": "Cernicharo:2021:L1"
+    },
+    {
+      "status": "resolved",
+      "strategy": "metadata_search",
+      "item": {
+        "kind": "parsed_reference_key",
+        "source_ref": "Sakaizumi:1993:112",
+        "surname": "sakaizumi",
+        "year": "1993",
+        "volume": null,
+        "page": "112",
+        "issue": {
+          "legacy_var": "cC5H4CCH2",
+          "formula": "C5H4CCH2",
+          "line": 8591
+        }
+      },
+      "bibcode": "1993JMoSp.159..112S",
+      "title": "The Microwave Spectra of Fulvenallene and Its Deuterated Species",
+      "year": "1993",
+      "pub": "Journal of Molecular Spectroscopy",
+      "volume": "159",
+      "page": [
+        "112"
+      ],
+      "citekey": "Sakaizumi:1993:112"
+    },
+    {
+      "status": "resolved",
+      "strategy": "metadata_search",
+      "item": {
+        "kind": "parsed_reference_key",
+        "source_ref": "Cernicharo:2022:L9",
+        "surname": "cernicharo",
+        "year": "2022",
+        "volume": null,
+        "page": "L9",
+        "issue": {
+          "legacy_var": "cC5H4CCH2",
+          "formula": "C5H4CCH2",
+          "line": 8591
+        }
+      },
+      "bibcode": "2022A&A...663L...9C",
+      "title": "Discovery of fulvenallene in TMC-1 with the QUIJOTE line survey",
+      "year": "2022",
+      "pub": "Astronomy and Astrophysics",
+      "volume": "663",
+      "page": [
+        "L9"
+      ],
+      "citekey": "Cernicharo:2022:L9"
+    },
+    {
+      "status": "resolved",
+      "strategy": "metadata_search",
+      "item": {
+        "kind": "parsed_reference_key",
+        "source_ref": "Fried:2024:L23",
+        "surname": "fried",
+        "year": "2024",
+        "volume": null,
+        "page": "L23",
+        "issue": {
+          "legacy_var": "CH3OCH2CH2OH",
+          "formula": "CH3OCH2CH2OH",
+          "line": 8616
+        }
+      },
+      "bibcode": "2024ApJ...965L..23F",
+      "title": "Rotational Spectrum and First Interstellar Detection of 2-methoxyethanol Using ALMA Observations of NGC 6334I",
+      "year": "2024",
+      "pub": "The Astrophysical Journal",
+      "volume": "965",
+      "page": [
+        "L23"
+      ],
+      "citekey": "Fried:2024:L23"
+    },
+    {
+      "status": "resolved",
+      "strategy": "metadata_search",
+      "item": {
+        "kind": "parsed_reference_key",
+        "source_ref": "Caminati:1986:67",
+        "surname": "caminati",
+        "year": "1986",
+        "volume": null,
+        "page": "67",
+        "issue": {
+          "legacy_var": "CH3OCH2CH2OH",
+          "formula": "CH3OCH2CH2OH",
+          "line": 8616
+        }
+      },
+      "bibcode": "1986CP....110...67C",
+      "title": "Application of a flexible model to the analysis of the methyl group A-E doubling, as obtained from the microwave spectrum, in several torsionally excited states of 2-methoxyethanol",
+      "year": "1986",
+      "pub": "Chemical Physics",
+      "volume": "110",
+      "page": [
+        "67"
+      ],
+      "citekey": "Caminati:1986:67"
+    },
+    {
+      "status": "resolved",
+      "strategy": "metadata_search",
+      "item": {
+        "kind": "parsed_reference_key",
+        "source_ref": "Loru:2023:A166",
+        "surname": "loru",
+        "year": "2023",
+        "volume": null,
+        "page": "A166",
+        "issue": {
+          "legacy_var": "cC6H5CCH",
+          "formula": "C6H5CCH",
+          "line": 8649
+        }
+      },
+      "bibcode": "2023A&A...677A.166L",
+      "title": "Detection of ethynylbenzene in TMC-1 and the interstellar search for 1,2-diethynylbenzene",
+      "year": "2023",
+      "pub": "Astronomy and Astrophysics",
+      "volume": "677",
+      "page": [
+        "A166"
+      ],
+      "citekey": "Loru:2023:A166"
+    },
+    {
+      "status": "resolved",
+      "strategy": "direct_bibcode",
+      "item": {
+        "kind": "ads_bibcode",
+        "source_ref": "2022ApJ...938L..12S",
+        "issue": {
+          "legacy_var": "C9H7CN",
+          "formula": "C9H7CN",
+          "line": 8754
+        }
+      },
+      "bibcode": "2022ApJ...938L..12S",
+      "title": "Discovery of Interstellar 2-Cyanoindene (2-C<SUB>9</SUB>H<SUB>7</SUB>CN) in GOTHAM Observations of TMC-1",
+      "year": "2022",
+      "pub": "The Astrophysical Journal",
+      "volume": "938",
+      "page": [
+        "L12"
+      ],
+      "citekey": "Sita:2022:L12"
+    },
+    {
+      "status": "resolved",
+      "strategy": "metadata_search",
+      "item": {
+        "kind": "parsed_reference_key",
+        "source_ref": "Wenzel:2025:262",
+        "surname": "wenzel",
+        "year": "2025",
+        "volume": null,
+        "page": "262",
+        "issue": {
+          "legacy_var": "CNP2",
+          "formula": "C16H9CN",
+          "line": 8869
+        }
+      },
+      "bibcode": "2025NatAs...9..262W",
+      "title": "Detections of interstellar aromatic nitriles 2-cyanopyrene and 4-cyanopyrene in TMC-1",
+      "year": "2025",
+      "pub": "Nature Astronomy",
+      "volume": "9",
+      "page": [
+        "262"
+      ],
+      "citekey": "Wenzel:2025:262"
+    }
+  ],
+  "ambiguous": [],
+  "unresolved": [
+    {
+      "status": "unresolved",
+      "reason": "No unique metadata-consistent ADS match.",
+      "item": {
+        "kind": "free_text_reference",
+        "text": "Jevons 1932 Phys Soc. pp 177-179",
+        "issue": {
+          "legacy_var": "CH",
+          "formula": "CH",
+          "line": 1237
+        },
+        "surname": "jevons",
+        "year": "1932",
+        "volume": null,
+        "page": "177"
+      }
+    },
+    {
+      "status": "unresolved",
+      "reason": "No unique metadata-consistent ADS match.",
+      "item": {
+        "kind": "free_text_reference",
+        "text": "Thomas & Dalby 1968 Can. J. Phys. 46, 2815",
+        "issue": {
+          "legacy_var": "CN",
+          "formula": "CN",
+          "line": 1264
+        },
+        "surname": "thomas",
+        "year": "1968",
+        "volume": "46",
+        "page": "2815"
+      }
+    },
+    {
+      "status": "unresolved",
+      "reason": "No unique metadata-consistent ADS match.",
+      "item": {
+        "kind": "free_text_reference",
+        "text": "Cord et al. 1968 Microwave Spectral Tables V5",
+        "issue": {
+          "legacy_var": "CO",
+          "formula": "CO",
+          "line": 1348
+        },
+        "surname": "cord",
+        "year": "1968",
+        "volume": null,
+        "page": "V5"
+      }
+    },
+    {
+      "status": "unresolved",
+      "reason": "No unique metadata-consistent ADS match.",
+      "item": {
+        "kind": "free_text_reference",
+        "text": "Dixon 1959 Can J. Phys. 37, 1171 and Klaus et al. 1997 A&A 322, L1",
+        "issue": {
+          "legacy_var": "NH",
+          "formula": "NH",
+          "line": 1786
+        },
+        "surname": "dixon",
+        "year": "1959",
+        "volume": "322",
+        "page": "L1"
+      }
+    },
+    {
+      "status": "unresolved",
+      "reason": "No unique metadata-consistent ADS match.",
+      "item": {
+        "kind": "free_text_reference",
+        "text": "Nakimi et al. 1998 JMS 191, 176",
+        "issue": {
+          "legacy_var": "TiO",
+          "formula": "TiO",
+          "line": 2056
+        },
+        "surname": "nakimi",
+        "year": "1998",
+        "volume": "191",
+        "page": "176"
+      }
+    },
+    {
+      "status": "unresolved",
+      "reason": "No unique metadata-consistent ADS match.",
+      "item": {
+        "kind": "free_text_reference",
+        "text": "Thaddues & Turner 1975 ApJ 201, L25",
+        "issue": {
+          "legacy_var": "N2Hp",
+          "formula": "N2H+",
+          "line": 2471
+        },
+        "surname": "thaddues",
+        "year": "1975",
+        "volume": "201",
+        "page": "L25"
+      }
+    },
+    {
+      "status": "unresolved",
+      "reason": "No unique metadata-consistent ADS match.",
+      "item": {
+        "kind": "free_text_reference",
+        "text": "Steenbeckeliers 1968 Ann. Soc. Sci. Brux 82, 331",
+        "issue": {
+          "legacy_var": "SO2",
+          "formula": "SO2",
+          "line": 2532
+        },
+        "surname": "steenbeckeliers",
+        "year": "1968",
+        "volume": "82",
+        "page": "331"
+      }
+    },
+    {
+      "status": "unresolved",
+      "reason": "No unique metadata-consistent ADS match.",
+      "item": {
+        "kind": "free_text_reference",
+        "text": "Shinegari 1967 J Phys Soc Jpn 23, 404",
+        "issue": {
+          "legacy_var": "H2CO",
+          "formula": "H2CO",
+          "line": 3412
+        },
+        "surname": "shinegari",
+        "year": "1967",
+        "volume": "23",
+        "page": "404"
+      }
+    },
+    {
+      "status": "unresolved",
+      "reason": "Reference could not be parsed into search metadata.",
+      "item": {
+        "kind": "unparsed_free_text_reference",
+        "text": "McCarthy et al. JCP 110, 1064",
+        "issue": {
+          "legacy_var": "SiC3",
+          "formula": "SiC3",
+          "line": 3811
+        }
+      }
+    },
+    {
+      "status": "unresolved",
+      "reason": "No unique metadata-consistent ADS match.",
+      "item": {
+        "kind": "free_text_reference",
+        "text": "Oshima & Endo 1993 JMS 159, 458",
+        "issue": {
+          "legacy_var": "HCCO",
+          "formula": "HCCO",
+          "line": 4014
+        },
+        "surname": "oshima",
+        "year": "1993",
+        "volume": "159",
+        "page": "458"
+      }
+    },
+    {
+      "status": "unresolved",
+      "reason": "No unique metadata-consistent ADS match.",
+      "item": {
+        "kind": "parsed_reference_key",
+        "source_ref": "Sanz-Novo:2024:149",
+        "surname": "sanznovo",
+        "year": "2024",
+        "volume": null,
+        "page": "149",
+        "issue": {
+          "legacy_var": "HOCSp",
+          "formula": "HOCS+",
+          "line": 4236
+        }
+      }
+    },
+    {
+      "status": "unresolved",
+      "reason": "No unique metadata-consistent ADS match.",
+      "item": {
+        "kind": "parsed_reference_key",
+        "source_ref": "Sanz-Novo:2024:L26",
+        "surname": "sanznovo",
+        "year": "2024",
+        "volume": null,
+        "page": "L26",
+        "issue": {
+          "legacy_var": "HNSO",
+          "formula": "HNSO",
+          "line": 4260
+        }
+      }
+    },
+    {
+      "status": "unresolved",
+      "reason": "No unique metadata-consistent ADS match.",
+      "item": {
+        "kind": "free_text_reference",
+        "text": "Zukerman et al. 1971 ApJ 163, L41",
+        "issue": {
+          "legacy_var": "HCOOH",
+          "formula": "HCOOH",
+          "line": 4318
+        },
+        "surname": "zukerman",
+        "year": "1971",
+        "volume": "163",
+        "page": "L41"
+      }
+    },
+    {
+      "status": "unresolved",
+      "reason": "No unique metadata-consistent ADS match.",
+      "item": {
+        "kind": "free_text_reference",
+        "text": "Miller et al. 1962 JMS 8, 153",
+        "issue": {
+          "legacy_var": "NH2CN",
+          "formula": "NH2CN",
+          "line": 4381
+        },
+        "surname": "miller",
+        "year": "1962",
+        "volume": "8",
+        "page": "153"
+      }
+    },
+    {
+      "status": "unresolved",
+      "reason": "No unique metadata-consistent ADS match.",
+      "item": {
+        "kind": "free_text_reference",
+        "text": "Goldhaber and Betz 1977 ApJ 279, L55",
+        "issue": {
+          "legacy_var": "SiH4",
+          "formula": "SiH4",
+          "line": 4456
+        },
+        "surname": "goldhaber",
+        "year": "1977",
+        "volume": "279",
+        "page": "L55"
+      }
+    },
+    {
+      "status": "unresolved",
+      "reason": "No unique metadata-consistent ADS match.",
+      "item": {
+        "kind": "free_text_reference",
+        "text": "Kruger et al. 2010 Ang. Chem. 23, 1644",
+        "issue": {
+          "legacy_var": "HCCNC",
+          "formula": "HCCNC",
+          "line": 4622
+        },
+        "surname": "kruger",
+        "year": "2010",
+        "volume": "23",
+        "page": "1644"
+      }
+    },
+    {
+      "status": "unresolved",
+      "reason": "Reference could not be parsed into search metadata.",
+      "item": {
+        "kind": "unparsed_free_text_reference",
+        "text": "Gottlieb et al. 200 JCP 113, 1910",
+        "issue": {
+          "legacy_var": "NCCNHp",
+          "formula": "NCCNH+",
+          "line": 4805
+        }
+      }
+    },
+    {
+      "status": "unresolved",
+      "reason": "No unique metadata-consistent ADS match.",
+      "item": {
+        "kind": "free_text_reference",
+        "text": "Fayolle et al. 2017 Nature Astron. 1, 702",
+        "issue": {
+          "legacy_var": "CH3Cl",
+          "formula": "CH3Cl",
+          "line": 4821
+        },
+        "surname": "fayolle",
+        "year": "2017",
+        "volume": "1",
+        "page": "702"
+      }
+    },
+    {
+      "status": "unresolved",
+      "reason": "Reference could not be parsed into search metadata.",
+      "item": {
+        "kind": "unparsed_free_text_reference",
+        "text": "Kessler et al. Phys Rev 79, 54",
+        "issue": {
+          "legacy_var": "CH3CN",
+          "formula": "CH3CN",
+          "line": 5286
+        }
+      }
+    },
+    {
+      "status": "unresolved",
+      "reason": "No unique metadata-consistent ADS match.",
+      "item": {
+        "kind": "free_text_reference",
+        "text": "Lee & Amano 1987 ApJ 323",
+        "issue": {
+          "legacy_var": "HC3NHp",
+          "formula": "HC3NH+",
+          "line": 5494
+        },
+        "surname": "lee",
+        "year": "1987",
+        "volume": null,
+        "page": "323"
+      }
+    },
+    {
+      "status": "unresolved",
+      "reason": "No unique metadata-consistent ADS match.",
+      "item": {
+        "kind": "free_text_reference",
+        "text": "Gu\u00e9lin et al. 1998 A&A 355, L1",
+        "issue": {
+          "legacy_var": "C5N",
+          "formula": "C5N",
+          "line": 5510
+        },
+        "surname": "guelin",
+        "year": "1998",
+        "volume": "355",
+        "page": "L1"
+      }
+    },
+    {
+      "status": "unresolved",
+      "reason": "No unique metadata-consistent ADS match.",
+      "item": {
+        "kind": "free_text_reference",
+        "text": "Zaleski et al. 2013 ApJ 765, L9",
+        "issue": {
+          "legacy_var": "HNCHCN",
+          "formula": "HNCHCN",
+          "line": 5648
+        },
+        "surname": "zaleski",
+        "year": "2013",
+        "volume": "765",
+        "page": "L9"
+      }
+    },
+    {
+      "status": "unresolved",
+      "reason": "Reference could not be parsed into search metadata.",
+      "item": {
+        "kind": "unparsed_reference_key",
+        "source_ref": "Brown:1982ur",
+        "issue": {
+          "legacy_var": "HCSCCH",
+          "formula": "HCSCCH",
+          "line": 5771
+        }
+      }
+    },
+    {
+      "status": "unresolved",
+      "reason": "Reference could not be parsed into search metadata.",
+      "item": {
+        "kind": "unparsed_reference_key",
+        "source_ref": "Crabtree:2016fj",
+        "issue": {
+          "legacy_var": "HCSCCH",
+          "formula": "HCSCCH",
+          "line": 5771
+        }
+      }
+    },
+    {
+      "status": "unresolved",
+      "reason": "No unique metadata-consistent ADS match.",
+      "item": {
+        "kind": "parsed_reference_key",
+        "source_ref": "Sanz-Novo:2023:3",
+        "surname": "sanznovo",
+        "year": "2023",
+        "volume": null,
+        "page": "3",
+        "issue": {
+          "legacy_var": "HOCOOH",
+          "formula": "HOCOOH",
+          "line": 5984
+        }
+      }
+    },
+    {
+      "status": "unresolved",
+      "reason": "No unique metadata-consistent ADS match.",
+      "item": {
+        "kind": "parsed_reference_key",
+        "source_ref": "SanAndres:2024:39",
+        "surname": "sanandres",
+        "year": "2024",
+        "volume": null,
+        "page": "39",
+        "issue": {
+          "legacy_var": "H2CNCN",
+          "formula": "H2CNCN",
+          "line": 6037
+        }
+      }
+    },
+    {
+      "status": "unresolved",
+      "reason": "No unique metadata-consistent ADS match.",
+      "item": {
+        "kind": "free_text_reference",
+        "text": "Kaushik 1977 CPL 49, 90",
+        "issue": {
+          "legacy_var": "CH2CHOH",
+          "formula": "CH2CHOH",
+          "line": 6259
+        },
+        "surname": "kaushik",
+        "year": "1977",
+        "volume": "49",
+        "page": "90"
+      }
+    },
+    {
+      "status": "unresolved",
+      "reason": "No unique metadata-consistent ADS match.",
+      "item": {
+        "kind": "free_text_reference",
+        "text": "Haas etal. 1994 JMS 167, 176",
+        "issue": {
+          "legacy_var": "HC6H",
+          "formula": "HC6H",
+          "line": 6777
+        },
+        "surname": "haasetal",
+        "year": "1994",
+        "volume": "167",
+        "page": "176"
+      }
+    },
+    {
+      "status": "unresolved",
+      "reason": "No unique metadata-consistent ADS match.",
+      "item": {
+        "kind": "free_text_reference",
+        "text": "Bouche et al. 1973 J Mol Struct 18, 211",
+        "issue": {
+          "legacy_var": "CH2CCHCN",
+          "formula": "CH2CCHCN",
+          "line": 6820
+        },
+        "surname": "bouche",
+        "year": "1973",
+        "volume": "18",
+        "page": "211"
+      }
+    },
+    {
+      "status": "unresolved",
+      "reason": "No unique metadata-consistent ADS match.",
+      "item": {
+        "kind": "free_text_reference",
+        "text": "Loomis et al. 2013 ApJL 765, L10",
+        "issue": {
+          "legacy_var": "CH3CHNH",
+          "formula": "CH3CHNH",
+          "line": 6868
+        },
+        "surname": "loomis",
+        "year": "2013",
+        "volume": "765",
+        "page": "L10"
+      }
+    },
+    {
+      "status": "unresolved",
+      "reason": "No unique metadata-consistent ADS match.",
+      "item": {
+        "kind": "free_text_reference",
+        "text": "Additional work used in Belloche et al. 2019 A&A 628, A10 to be reported in Medvedev et al. in prep as of 9/16/2019.",
+        "issue": {
+          "legacy_var": "NH2CONH2",
+          "formula": "NH2CONH2",
+          "line": 6915
+        },
+        "surname": "additionalworkusedinbelloche",
+        "year": "2019",
+        "volume": "16",
+        "page": "2019"
+      }
+    },
+    {
+      "status": "unresolved",
+      "reason": "Reference could not be parsed into search metadata.",
+      "item": {
+        "kind": "unparsed_free_text_reference",
+        "text": "Kasai & Myers JCP 30, 1096",
+        "issue": {
+          "legacy_var": "CH3OCH3",
+          "formula": "CH3OCH3",
+          "line": 7185
+        }
+      }
+    },
+    {
+      "status": "unresolved",
+      "reason": "No unique metadata-consistent ADS match.",
+      "item": {
+        "kind": "free_text_reference",
+        "text": "Takano et al. 1986 JMS 26, 157",
+        "issue": {
+          "legacy_var": "CH3CH2OH",
+          "formula": "CH3CH2OH",
+          "line": 7222
+        },
+        "surname": "takano",
+        "year": "1986",
+        "volume": "26",
+        "page": "157"
+      }
+    },
+    {
+      "status": "unresolved",
+      "reason": "No unique metadata-consistent ADS match.",
+      "item": {
+        "kind": "free_text_reference",
+        "text": "Zukerman et al. 1975 ApJ 196, L99",
+        "issue": {
+          "legacy_var": "CH3CH2OH",
+          "formula": "CH3CH2OH",
+          "line": 7222
+        },
+        "surname": "zukerman",
+        "year": "1975",
+        "volume": "196",
+        "page": "L99"
+      }
+    },
+    {
+      "status": "unresolved",
+      "reason": "Reference could not be parsed into search metadata.",
+      "item": {
+        "kind": "unparsed_reference_key",
+        "source_ref": "Brown:1986lp",
+        "issue": {
+          "legacy_var": "C6H4",
+          "formula": "C6H4",
+          "line": 7801
+        }
+      }
+    },
+    {
+      "status": "unresolved",
+      "reason": "Reference could not be parsed into search metadata.",
+      "item": {
+        "kind": "unparsed_reference_key",
+        "source_ref": "Sakaizumi:1976uu",
+        "issue": {
+          "legacy_var": "C2H5NCO",
+          "formula": "C2H5NCO",
+          "line": 7824
+        }
+      }
+    },
+    {
+      "status": "unresolved",
+      "reason": "Reference could not be parsed into search metadata.",
+      "item": {
+        "kind": "unparsed_reference_key",
+        "source_ref": "Heineking:1994op",
+        "issue": {
+          "legacy_var": "C2H5NCO",
+          "formula": "C2H5NCO",
+          "line": 7824
+        }
+      }
+    },
+    {
+      "status": "unresolved",
+      "reason": "No unique metadata-consistent ADS match.",
+      "item": {
+        "kind": "parsed_reference_key",
+        "source_ref": "Sanz-Novo:2020:A135",
+        "surname": "sanznovo",
+        "year": "2020",
+        "volume": null,
+        "page": "A135",
+        "issue": {
+          "legacy_var": "NH2COCH2OH",
+          "formula": "NH2COCH2OH",
+          "line": 7951
+        }
+      }
+    },
+    {
+      "status": "unresolved",
+      "reason": "No unique metadata-consistent ADS match.",
+      "item": {
+        "kind": "free_text_reference",
+        "text": "Kattija-Ari & Harmony et al. 1980 International Journal of Quantum Chemistry 18, 443",
+        "issue": {
+          "legacy_var": "CH3COCH2OH",
+          "formula": "CH3COCH2OH",
+          "line": 8103
+        },
+        "surname": "kattijaari",
+        "year": "1980",
+        "volume": "18",
+        "page": "443"
+      }
+    },
+    {
+      "status": "unresolved",
+      "reason": "No unique metadata-consistent ADS match.",
+      "item": {
+        "kind": "free_text_reference",
+        "text": "Benson & Flygare 1970 J Am Chem Soc 92, 7523",
+        "issue": {
+          "legacy_var": "C5H6",
+          "formula": "C5H6",
+          "line": 8127
+        },
+        "surname": "benson",
+        "year": "1970",
+        "volume": "92",
+        "page": "7523"
+      }
+    },
+    {
+      "status": "unresolved",
+      "reason": "Reference could not be parsed into search metadata.",
+      "item": {
+        "kind": "unparsed_reference_key",
+        "source_ref": "Kaushik:1982ld",
+        "issue": {
+          "legacy_var": "NH2CH2CH2OH",
+          "formula": "NH2CH2CH2OH",
+          "line": 8145
+        }
+      }
+    },
+    {
+      "status": "unresolved",
+      "reason": "No unique metadata-consistent ADS match.",
+      "item": {
+        "kind": "parsed_reference_key",
+        "source_ref": "Jimenez-Serra:2022:A181",
+        "surname": "jimenezserra",
+        "year": "2022",
+        "volume": null,
+        "page": "A181",
+        "issue": {
+          "legacy_var": "nCH3CH2CH2OH",
+          "formula": "CH3CH2CH2OH",
+          "line": 8408
+        }
+      }
+    },
+    {
+      "status": "unresolved",
+      "reason": "No unique metadata-consistent ADS match.",
+      "item": {
+        "kind": "parsed_reference_key",
+        "source_ref": "Buckley:1972:1149",
+        "surname": "buckley",
+        "year": "1972",
+        "volume": null,
+        "page": "1149",
+        "issue": {
+          "legacy_var": "CH3OCH2CH2OH",
+          "formula": "CH3OCH2CH2OH",
+          "line": 8616
+        }
+      }
+    },
+    {
+      "status": "unresolved",
+      "reason": "No unique metadata-consistent ADS match.",
+      "item": {
+        "kind": "free_text_reference",
+        "text": "Cernicharo et al. 2021 A&AL 649, 15",
+        "issue": {
+          "legacy_var": "C9H8",
+          "formula": "C9H8",
+          "line": 8733
+        },
+        "surname": "cernicharo",
+        "year": "2021",
+        "volume": "649",
+        "page": "15"
+      }
+    }
+  ]
+}
