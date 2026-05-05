@@ -142,10 +142,14 @@ Intrinsic chemical species metadata.
 
 Required fields:
 - `name`
-- `formula`
+- `formula`: canonical internal chemical formula. This must be parseable by
+  `molmass`; isotopologues use explicit bracket notation such as `H2[13C]O`.
 
 Display and notes:
-- `table_formula` (defaults to `formula`)
+- `table_formula`: readable formula body for manuscript tables. This may use
+  mhchem isotope placement such as `H2^{13}CO`, but it does not include the
+  surrounding `\ce{}` wrapper; LaTeX generation adds that wrapper.
+  Defaults to `formula`.
 - `label` (required by `__post_init__`)
 - `note`
 

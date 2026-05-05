@@ -4,17 +4,15 @@ Generated from `scripts/convert_legacy_molecules.py`.
 
 ## Summary
 
-- Converted molecules: 325
+- Converted molecules: 349
 - Converted core detections: 325
 - Reference mappings applied: 878
-- Remaining issues: 160
+- Remaining issues: 154
 
 ## Remaining Issues by Kind
 
 - `extra_context_detection_omitted`: 139
-- `formula_normalized`: 2
-- `missing_name_filled_from_formula`: 4
-- `nested_isotopologues_omitted`: 15
+- `nested_isotopologue_detections_omitted`: 15
 
 ## Reference Alias Mappings
 
@@ -73,9 +71,76 @@ Generated from `scripts/convert_legacy_molecules.py`.
 
 - None
 
+## Nested Isotopologue Detections Omitted
+
+- parent line 1264 `CN` formula `CN` name `cyano radical`; field `ppd_isos`
+  - line 1281; label `mol:C15N`; formula `C15N`; preview `C[15N]`; table `C^{15}N`; context `ppd`
+    - refs: `ppd_d_bib_ids`; resolved `Hily-Blant:2017:L6`; raw `2017A&A...603L...6H`; text `Hily-Blant et al. 2017 A&A 603, L6`
+- parent line 1348 `CO` formula `CO` name `carbon monoxide`; field `ppd_isos`
+  - line 1370; label `mol:13CO`; formula `13CO`; preview `[13C]O`; table `^{13}CO`; context `ppd`
+    - refs: `ppd_d_bib_ids`; resolved `Sargent:1987:294`; raw `1987ApJ...323..294S`; text `Sargent & Beckwith 1987 ApJ 323, 294`
+  - line 1376; label `mol:C18O`; formula `C18O`; preview `C[18O]`; table `C^{18}O`; context `ppd`
+    - refs: `ppd_d_bib_ids`; resolved `Dutrey:1994:149`; raw `1994A&A...286..149D`; text `Dutrey et al. 1994 A&A 286, 149`
+  - line 1382; label `mol:C17O`; formula `C17O`; preview `C[17O]`; table `C^{17}O`; context `ppd`
+    - refs: `ppd_d_bib_ids`; resolved `Smith:2009:163`, `Guilloteau:2013:A92`; raw `2009ApJ...701..163S`, `2013A&A...549A..92G`; text `Smith et al. 2009 ApJ 701, 163; Guilloteau et al. 2013 A&A 549, A92`
+  - line 1388; label `mol:13C17O`; formula `13C17O`; preview `[13C][17O]`; table `^{13}C^{17}O`; context `ppd`
+    - refs: `ppd_d_bib_ids`; resolved `Booth:2019:L31`; raw `2019ApJ...882L..31B`; text `Booth et al. 2019 ApJL 882, L31`
+  - line 1394; label `mol:13C18O`; formula `13C18O`; preview `[13C][18O]`; table `^{13}C^{18}O`; context `ppd`
+    - refs: `ppd_d_bib_ids`; resolved `Zhang:2017:0130`; raw `2017NatAs...1E.130Z`; text `Zhang et al. 2017 Nature Ast. 1, 0130`
+- parent line 1348 `CO` formula `CO` name `carbon monoxide`; field `exo_isos`
+  - line 1406; label `mol:13CO`; formula `13CO`; preview `[13C]O`; table `^{13}CO`; context `exo`
+    - detection fields: `exo_sources`=`TYC 8998-760-1 b`
+    - refs: `exo_d_bib_ids`; resolved `Zhang:2021:370`; raw `2021Natur.595..370Z`; text `Zhang et al. 2021 Nature 595, 370`
+- parent line 1427 `H2` formula `H2` name `hydrogen`; field `ppd_isos`
+  - line 1442; label `mol:HD`; formula `HD`; preview `H[2H]`; table `HD`; context `ppd`
+    - refs: `ppd_d_bib_ids`; resolved `Bergin:2013:644`; raw `2013Natur.493..644B`; text `Bergin et al. 2013 Nature 493, 644`
+- parent line 1476 `CS` formula `CS` name `carbon monosulfide`; field `ppd_isos`
+  - line 1492; label `mol:C34S`; formula `C34S`; preview `C[34S]`; table `C^{34}S`; context `ppd`
+    - refs: `ppd_d_bib_ids`; resolved `Loomis:2020:101`, `LeGal:2019:72`; raw `2020ApJ...893..101L`, `2019ApJ...876...72L`; text `Le Gal et al. 2019 ApJ 876, 72; Loomis et al. 2020 ApJ 893, 101`
+  - line 1498; label `mol:13CS`; formula `13CS`; preview `[13C]S`; table `^{13}CS`; context `ppd`
+    - refs: `ppd_d_bib_ids`; resolved `Loomis:2020:101`, `LeGal:2019:72`; raw `2020ApJ...893..101L`, `2019ApJ...876...72L`; text `Le Gal et al. 2019 ApJ 876, 72; Loomis et al. 2020 ApJ 893, 101`
+- parent line 1514 `SO` formula `SO` name `sulfur monoxide`; field `ppd_isos`
+  - line 1530; label `mol:34SO`; formula `34SO`; preview `[34S]O`; table `34SO`; context `ppd`
+    - refs: `ppd_d_bib_ids`; resolved `Booth:2024:165`; raw `Booth:2024:165`; text `Booth et al. 2024 AJ 167, 165`
+  - line 1536; label `mol:33SO`; formula `33SO`; preview `[33S]O`; table `33SO`; context `ppd`
+    - refs: `ppd_d_bib_ids`; resolved `Booth:2024:165`; raw `Booth:2024:165`; text `Booth et al. 2024 AJ 167, 165`
+- parent line 2296 `HCOp` formula `HCO+` name `formylium cation`; field `ppd_isos`
+  - line 2312; label `mol:DCO+`; formula `DCO+`; preview `[2H]CO+`; table `DCO+`; context `ppd`
+    - refs: `ppd_d_bib_ids`; resolved `vanDishoeck:2003:L1`; raw `2003A&A...400L...1V`; text `van Dishoeck et al. 2003 A&A 400, L1`
+  - line 2318; label `mol:H13CO+`; formula `H13CO+`; preview `H[13C]O+`; table `H^{13}CO+`; context `ppd`
+    - refs: `ppd_d_bib_ids`; resolved `vanZadelhoff:2001:566`, `vanDishoeck:2003:L1`; raw `2001A&A...377..566V`, `2003A&A...400L...1V`; text `van Zadelhoff et al. 2001 A&A 377, 566; van Dishoeck et al. 2003 A&A 400, L1`
+  - line 2325; label `mol:HC18O+`; formula `HC18O+`; preview `HC[18O]+`; table `HC^{18}O+`; context `ppd`
+    - refs: `ppd_d_bib_ids`; resolved `Furuya:2022:148`; raw `2022ApJ...926..148F`; text `Furuya et al. 2022 ApJ 926, 148`
+- parent line 2346 `HCN` formula `HCN` name `hydrogen cyanide`; field `ppd_isos`
+  - line 2362; label `mol:DCN`; formula `DCN`; preview `[2H]CN`; table `DCN`; context `ppd`
+    - refs: `ppd_d_bib_ids`; resolved `Qi:2008:1396`; raw `2008ApJ...681.1396Q`; text `Qi et al. 2008 ApJ 681, 1396`
+  - line 2367; label `mol:H13CN`; formula `H13CN`; preview `H[13C]N`; table `H^{13}CN`; context `ppd`
+    - refs: `ppd_d_bib_ids`; resolved `Guzman:2015:53`; raw `2015ApJ...814...53G`; text `Guzman et al. 2015 ApJ 814, 53`
+  - line 2373; label `mol:HC15N`; formula `HC15N`; preview `HC[15N]`; table `H^{15}CN`; context `ppd`
+    - refs: `ppd_d_bib_ids`; resolved `Guzman:2015:53`; raw `2015ApJ...814...53G`; text `Guzman et al. 2015 ApJ 814, 53`
+- parent line 2416 `HNC` formula `HNC` name `hydrogen isocyanide`; field `ppd_isos`
+  - line 2432; label `mol:DNC`; formula `DNC`; preview `[2H]NC`; table `DNC`; context `ppd`
+    - refs: `ppd_d_bib_ids`; resolved `Loomis:2020:101`; raw `2020ApJ...893..101L`; text `Loomis et al. 2020 ApJ 893, 101`
+- parent line 2471 `N2Hp` formula `N2H+` name `protonated nitrogen`; field `ppd_isos`
+  - line 2487; label `mol:N2D+`; formula `N2D+`; preview `N2[2H]+`; table `N2D+`; context `ppd`
+    - refs: `ppd_d_bib_ids`; resolved `Huang:2015:L26`; raw `2015ApJ...809L..26H`; text `Huang et al. 2015 ApJL 809, L26`
+- parent line 2502 `C2H` formula `C2H` name `ethynyl radical`; field `ppd_isos`
+  - line 2518; label `mol:C2D`; formula `C2D`; preview `C2[2H]`; table `C2D`; context `ppd`
+    - refs: `ppd_d_bib_ids`; resolved `Loomis:2020:101`; raw `2020ApJ...893..101L`; text `Loomis et al. 2020 ApJ 893, 101`
+- parent line 2715 `CO2` formula `CO2` name `carbon dioxide`; field `ppd_isos`
+  - line 2735; label `mol:13CO2`; formula `13CO2`; preview `[13C]O2`; table `^{13}CO2`; context `ppd`
+    - refs: `ppd_d_bib_ids`; resolved `Sturm:2023:A138`; raw `Sturm:2023:A138`; text `Sturm et al. 2023 A&A 679, A138`
+- parent line 3412 `H2CO` formula `H2CO` name `formaldehyde`; field `ppd_isos`
+  - line 3446; label `mol:H213CO`; formula `H2^{13}CO`; preview `H2[13C]O`; table `H2^{13}CO`; context `ppd`
+    - refs: `ppd_d_bib_ids`; resolved `Booth:2024:165`; raw `Booth:2024:165`; text `Booth et al. 2024 AJ 167, 165`
+- parent line 3527 `C2H2` formula `C2H2` name `acetylene`; field `ppd_isos`
+  - line 3543; label `mol:H13CCH`; formula `H13CCH`; preview `H[13C]CH`; table `H^{13}CCH`; context `ppd`
+    - refs: `ppd_d_bib_ids`; resolved `Tabone:2023:805`; raw `Tabone:2023:805`; text `Tabone et al. 2023 Nat. Ast. 7, 805`
+- parent line 4585 `CH4` formula `CH4` name `methane`; field `exo_isos`
+  - line 4608; label `mol:CH3D`; formula `CH3D`; preview `CH3[2H]`; table `CH3D`; context `exo`
+    - refs: `exo_d_bib_ids`; resolved `Rowland:2024:L49`; raw `Rowland:2024:L49`; text `Rowland et al. 2024 ApJ 977, L49`
+
 ## Deferred Categories
 
 - `extra_context_detection_omitted`: 139
-- `nested_isotopologues_omitted`: 15
-- `missing_name_filled_from_formula`: 4
-- `formula_normalized`: 2
+- `nested_isotopologue_detections_omitted`: 15

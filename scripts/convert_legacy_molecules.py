@@ -88,6 +88,40 @@ FORMULA_OVERRIDES = {
     "H2^{13}CO": "H2[13C]O",
 }
 
+ISOTOPOLOGUE_FORMULA_OVERRIDES = {
+    "C15N": "C[15N]",
+    "13CO": "[13C]O",
+    "C18O": "C[18O]",
+    "C17O": "C[17O]",
+    "13C17O": "[13C][17O]",
+    "13C18O": "[13C][18O]",
+    "HD": "H[2H]",
+    "C34S": "C[34S]",
+    "13CS": "[13C]S",
+    "34SO": "[34S]O",
+    "33SO": "[33S]O",
+    "DCO+": "[2H]CO+",
+    "H13CO+": "H[13C]O+",
+    "HC18O+": "HC[18O]+",
+    "DCN": "[2H]CN",
+    "H13CN": "H[13C]N",
+    "HC15N": "HC[15N]",
+    "DNC": "[2H]NC",
+    "N2D+": "N2[2H]+",
+    "C2D": "C2[2H]",
+    "13CO2": "[13C]O2",
+    "H2^{13}CO": "H2[13C]O",
+    "H13CCH": "H[13C]CH",
+    "CH3D": "CH3[2H]",
+}
+
+NAME_OVERRIDES = {
+    "H3p": "Trihydrogen ion",
+    "HNCCC": "Iminopropadienylidene",
+    "HC4N": "cyanoethynylmethylene",
+    "HC7NHp": "Protonated-2,4,6-heptatriynenitrile",
+}
+
 ALLOWED_WAVELENGTHS = {"cm", "mm", "sub-mm", "IR", "UV", "Vis"}
 EXTRA_CONTEXTS = ("ice", "ppd", "exgal", "exo")
 REF_FIELDS = (
@@ -121,6 +155,7 @@ class LegacyConverter:
         legacy_molecules = self._load_legacy_molecules()
         molecules = []
         detections = []
+        molecule_labels = set()
 
         for legacy in legacy_molecules:
             if self.only and not self._matches_only(legacy):
@@ -128,6 +163,15 @@ class LegacyConverter:
 
             molecule = self._convert_molecule(legacy)
             molecules.append(molecule)
+            molecule_labels.add(molecule["label"])
+
+            for isotopologue in self._convert_nested_isotopologue_molecules(
+                legacy, molecule
+            ):
+                if isotopologue["label"] in molecule_labels:
+                    continue
+                molecules.append(isotopologue)
+                molecule_labels.add(isotopologue["label"])
 
             detection = self._convert_main_detection(legacy, molecule["label"])
             if detection is not None:
@@ -328,7 +372,7 @@ class LegacyConverter:
         molecule = {
             "name": name,
             "formula": formula,
-            "table_formula": legacy.get("table_formula") or formula,
+            "table_formula": self._table_formula(legacy, original_formula, formula),
             "label": label,
             "note": self._none_if_blank(legacy.get("notes")),
             "iupac_name": None,
@@ -356,6 +400,90 @@ class LegacyConverter:
 
         return molecule
 
+    def _convert_nested_isotopologue_molecules(self, legacy, parent_molecule):
+        molecules = []
+        for field in ("ice_isos", "ppd_isos", "exgal_isos", "exo_isos"):
+            context = field.replace("_isos", "")
+            for item in self._as_list(legacy.get(field)):
+                if not isinstance(item, dict):
+                    continue
+                molecules.append(
+                    self._convert_nested_isotopologue_molecule(
+                        legacy, parent_molecule, context, item
+                    )
+                )
+        return molecules
+
+    def _convert_nested_isotopologue_molecule(
+        self, legacy, parent_molecule, context, item
+    ):
+        original_formula = item.get("formula")
+        formula = self._normalize_isotopologue_formula(
+            original_formula,
+            {
+                "__legacy_var": legacy.get("__legacy_var"),
+                "__line": item.get("__line"),
+                "formula": original_formula,
+                "name": legacy.get("name"),
+            },
+            parent_molecule["label"],
+        )
+        lab_refs = self._nested_isotopologue_lab_refs(legacy, context, item)
+
+        return {
+            "name": parent_molecule["name"],
+            "formula": formula,
+            "table_formula": self._table_formula(item, original_formula, formula),
+            "label": self._isotopologue_label(original_formula),
+            "note": self._none_if_blank(item.get("notes")),
+            "iupac_name": None,
+            "selfies": None,
+            "synonyms": [],
+            "smiles": self._none_if_blank(item.get("smiles")),
+            "canonical_smiles": None,
+            "inchi": None,
+            "inchikey": None,
+            "radical_override": None,
+            "fullerene": parent_molecule["fullerene"],
+            "pah": parent_molecule["pah"],
+            "n_rings": parent_molecule["n_rings"],
+            "cyclic": parent_molecule["cyclic"],
+            "rotcon": None,
+            "dipole": None,
+            "refs": {
+                "lab": lab_refs,
+                "computation": [],
+            },
+            "isotopologue_of": parent_molecule["label"],
+            "latex_header": None,
+            "latex_notes": None,
+        }
+
+    def _nested_isotopologue_lab_refs(self, legacy, context, item):
+        nested_context = dict(item)
+        nested_context["__legacy_var"] = legacy.get("__legacy_var")
+        nested_context["name"] = legacy.get("name")
+        refs = []
+        refs.extend(
+            self._refs_from_fields(nested_context, "l_ref_bib_ids", "l_refs", "lab")
+        )
+        refs.extend(
+            self._refs_from_fields(
+                nested_context,
+                f"{context}_l_bib_ids",
+                f"{context}_l_refs",
+                "lab",
+            )
+        )
+        return self._unique_preserve_order(refs)
+
+    def _isotopologue_label(self, formula):
+        text = str(formula or "")
+        text = text.replace("^{", "").replace("}", "")
+        text = text.replace("[", "").replace("]", "")
+        text = re.sub(r"[^A-Za-z0-9+_-]", "", text)
+        return f"mol:{text}"
+
     def _molecule_label(self, legacy):
         raw_label = (
             legacy.get("label")
@@ -374,17 +502,16 @@ class LegacyConverter:
         return raw_label if str(raw_label).startswith("mol:") else f"mol:{raw_label}"
 
     def _normalize_formula(self, formula, legacy, label):
-        if formula in FORMULA_OVERRIDES:
-            normalized = FORMULA_OVERRIDES[formula]
-            self._issue(
-                "formula_normalized",
-                "warning",
-                legacy,
-                f"Formula '{formula}' normalized to '{normalized}'.",
-                {"label": label, "original_formula": formula, "formula": normalized},
-            )
-            return normalized
+        normalized = FORMULA_OVERRIDES.get(formula, formula)
+        return self._validate_formula(normalized, formula, legacy, label)
 
+    def _normalize_isotopologue_formula(self, formula, legacy, label):
+        normalized = ISOTOPOLOGUE_FORMULA_OVERRIDES.get(
+            formula, FORMULA_OVERRIDES.get(formula, formula)
+        )
+        return self._validate_formula(normalized, formula, legacy, label)
+
+    def _validate_formula(self, formula, original_formula, legacy, label):
         try:
             Formula(
                 formula,
@@ -400,12 +527,31 @@ class LegacyConverter:
                 "error",
                 legacy,
                 f"Formula '{formula}' could not be parsed by molmass: {exc}",
-                {"label": label, "formula": formula},
+                {
+                    "label": label,
+                    "formula": formula,
+                    "original_formula": original_formula,
+                },
             )
+        return formula
+
+    def _table_formula(self, legacy, original_formula, formula):
+        table_formula = self._none_if_blank(legacy.get("table_formula"))
+        if table_formula is not None:
+            return table_formula
+        if (
+            original_formula in FORMULA_OVERRIDES
+            or original_formula in ISOTOPOLOGUE_FORMULA_OVERRIDES
+        ):
+            return original_formula
         return formula
 
     def _molecule_name(self, legacy, formula, label):
         name = self._none_if_blank(legacy.get("name"))
+        if name is not None:
+            return name
+
+        name = NAME_OVERRIDES.get(legacy.get("__legacy_var"))
         if name is not None:
             return name
 
@@ -886,37 +1032,69 @@ class LegacyConverter:
                 continue
 
             self._issue(
-                "nested_isotopologues_omitted",
+                "nested_isotopologue_detections_omitted",
                 "info",
                 legacy,
-                f"Nested legacy isotopologues in '{field}' omitted from preview.",
+                f"Nested legacy isotopologue detections in '{field}' omitted from preview.",
                 {
                     "field": field,
                     "isotopologues": [
-                        {
-                            "formula": item.get("formula"),
-                            "table_formula": item.get("table_formula"),
-                            "line": item.get("__line"),
-                        }
+                        self._nested_isotopologue_summary(legacy, field, item)
                         for item in nested
                     ],
                 },
             )
 
-            for item in nested:
-                self._normalize_formula(
-                    item.get("formula"),
-                    {
-                        "__legacy_var": legacy.get("__legacy_var"),
-                        "__line": item.get("__line"),
-                        "formula": item.get("formula"),
-                    },
-                    self._molecule_label(legacy),
-                )
-                for ref_field in REF_FIELDS:
-                    if ref_field in item:
-                        text_field = ref_field.replace("_bib_ids", "_refs")
-                        self._refs_from_fields(item, ref_field, text_field, ref_field)
+    def _nested_isotopologue_summary(self, legacy, field, item):
+        context = field.replace("_isos", "")
+        formula = item.get("formula")
+        nested_context = dict(item)
+        nested_context["__legacy_var"] = legacy.get("__legacy_var")
+        nested_context["name"] = item.get("name") or legacy.get("name")
+
+        preview_formula = self._normalize_isotopologue_formula(
+            formula,
+            nested_context,
+            self._molecule_label(legacy),
+        )
+        summary = {
+            "line": item.get("__line"),
+            "formula": formula,
+            "preview_formula": preview_formula,
+            "table_formula": self._table_formula(item, formula, preview_formula),
+            "molecule_label": self._isotopologue_label(formula),
+            "context": context,
+            "detection_fields": {},
+            "references": [],
+        }
+
+        for suffix in ("sources", "telescopes", "wavelengths", "year"):
+            key = f"{context}_{suffix}" if suffix != "year" else suffix
+            if key in item:
+                summary["detection_fields"][key] = item.get(key)
+
+        for ref_field in REF_FIELDS:
+            text_field = ref_field.replace("_bib_ids", "_refs")
+            if ref_field not in item and text_field not in item:
+                continue
+
+            resolved = self._refs_from_fields(
+                nested_context,
+                ref_field,
+                text_field,
+                ref_field,
+            )
+            summary["references"].append(
+                {
+                    "field": ref_field,
+                    "text_field": text_field,
+                    "raw": item.get(ref_field),
+                    "free_text": item.get(text_field),
+                    "resolved": resolved,
+                }
+            )
+
+        return summary
 
     def _validate_preview(self, molecules, detections):
         labels = [molecule["label"] for molecule in molecules]
@@ -990,6 +1168,16 @@ class LegacyConverter:
 
 def write_json(path, data):
     path.write_text(json.dumps(data, indent=2, ensure_ascii=True) + "\n")
+
+
+def triage_value(value):
+    if value is None:
+        return None
+    if isinstance(value, list):
+        return ", ".join(f"`{item}`" for item in value) if value else "[]"
+    if isinstance(value, dict):
+        return f"`{json.dumps(value, ensure_ascii=False, sort_keys=True)}`"
+    return f"`{value}`"
 
 
 def write_triage(path, report):
@@ -1092,15 +1280,65 @@ def write_triage(path, report):
     else:
         lines.append("- None")
 
+    lines.extend(["", "## Nested Isotopologue Detections Omitted", ""])
+    nested_issues = [
+        issue
+        for issue in issues
+        if issue["kind"] == "nested_isotopologue_detections_omitted"
+    ]
+    if nested_issues:
+        for issue in nested_issues:
+            details = issue["details"]
+            name = f" name `{issue['name']}`" if issue.get("name") else ""
+            lines.append(
+                "- "
+                f"parent line {issue['line']} `{issue['legacy_var']}` "
+                f"formula `{issue['formula']}`{name}; field `{details['field']}`"
+            )
+            for isotope in details["isotopologues"]:
+                parts = [
+                    f"line {isotope['line']}",
+                    f"label `{isotope['molecule_label']}`",
+                    f"formula `{isotope['formula']}`",
+                    f"preview `{isotope['preview_formula']}`",
+                    f"table `{isotope['table_formula']}`",
+                    f"context `{isotope['context']}`",
+                ]
+                lines.append(f"  - {'; '.join(parts)}")
+
+                detection_fields = isotope.get("detection_fields") or {}
+                if detection_fields:
+                    fields = [
+                        f"`{key}`={triage_value(value)}"
+                        for key, value in sorted(detection_fields.items())
+                    ]
+                    lines.append(f"    - detection fields: {'; '.join(fields)}")
+
+                for ref in isotope.get("references", []):
+                    ref_parts = [f"`{ref['field']}`"]
+                    raw = triage_value(ref.get("raw"))
+                    free_text = triage_value(ref.get("free_text"))
+                    resolved = triage_value(ref.get("resolved"))
+                    if resolved is not None:
+                        ref_parts.append(f"resolved {resolved}")
+                    if raw is not None:
+                        ref_parts.append(f"raw {raw}")
+                    if free_text is not None:
+                        ref_parts.append(f"text {free_text}")
+                    lines.append(f"    - refs: {'; '.join(ref_parts)}")
+    else:
+        lines.append("- None")
+
     lines.extend(["", "## Deferred Categories", ""])
     for kind in (
         "extra_context_detection_omitted",
-        "nested_isotopologues_omitted",
+        "nested_isotopologue_detections_omitted",
         "missing_name_filled_from_formula",
         "formula_normalized",
     ):
         count = sum(1 for issue in issues if issue["kind"] == kind)
-        lines.append(f"- `{kind}`: {count}")
+        if count:
+            lines.append(f"- `{kind}`: {count}")
 
     path.write_text("\n".join(lines) + "\n")
 
