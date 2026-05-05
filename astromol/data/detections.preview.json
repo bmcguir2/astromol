@@ -4251,7 +4251,9 @@
     "type": "ISM/CSM",
     "first": true,
     "refs": {
-      "observation": []
+      "observation": [
+        "Guelin:1998:L1"
+      ]
     },
     "latex_text": null
   },

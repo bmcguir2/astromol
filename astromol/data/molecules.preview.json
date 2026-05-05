@@ -22,6 +22,7 @@
       "B": 425476,
       "C": null,
       "refs": [
+        "Jevons:1932:177",
         "Brazier:1983:1608"
       ],
       "note": null
@@ -31,12 +32,14 @@
       "b": null,
       "c": null,
       "refs": [
+        "Jevons:1932:177",
         "Brazier:1983:1608"
       ],
       "note": null
     },
     "refs": {
       "lab": [
+        "Jevons:1932:177",
         "Brazier:1983:1608"
       ],
       "computation": []
@@ -980,18 +983,27 @@
       "A": null,
       "B": 489959,
       "C": null,
-      "refs": [],
+      "refs": [
+        "Dixon:1959:1171",
+        "Klaus:1997:L1"
+      ],
       "note": null
     },
     "dipole": {
       "a": 1.4,
       "b": null,
       "c": null,
-      "refs": [],
+      "refs": [
+        "Dixon:1959:1171",
+        "Klaus:1997:L1"
+      ],
       "note": null
     },
     "refs": {
-      "lab": [],
+      "lab": [
+        "Dixon:1959:1171",
+        "Klaus:1997:L1"
+      ],
       "computation": []
     },
     "isotopologue_of": null,
@@ -1653,18 +1665,24 @@
       "A": null,
       "B": 16004,
       "C": null,
-      "refs": [],
+      "refs": [
+        "Namiki:1998:176"
+      ],
       "note": null
     },
     "dipole": {
       "a": 3.3,
       "b": null,
       "c": null,
-      "refs": [],
+      "refs": [
+        "Namiki:1998:176"
+      ],
       "note": null
     },
     "refs": {
-      "lab": [],
+      "lab": [
+        "Namiki:1998:176"
+      ],
       "computation": []
     },
     "isotopologue_of": null,
@@ -2478,18 +2496,24 @@
       "A": 60779,
       "B": 10318,
       "C": 8800,
-      "refs": [],
+      "refs": [
+        "Steenbeckeliers:1968:331"
+      ],
       "note": null
     },
     "dipole": {
       "a": null,
       "b": 1.6,
       "c": null,
-      "refs": [],
+      "refs": [
+        "Steenbeckeliers:1968:331"
+      ],
       "note": null
     },
     "refs": {
-      "lab": [],
+      "lab": [
+        "Steenbeckeliers:1968:331"
+      ],
       "computation": []
     },
     "isotopologue_of": null,
@@ -4362,18 +4386,24 @@
       "A": 281971,
       "B": 38834,
       "C": 34004,
-      "refs": [],
+      "refs": [
+        "Shigenari:1967:404"
+      ],
       "note": null
     },
     "dipole": {
       "a": 2.3,
       "b": null,
       "c": null,
-      "refs": [],
+      "refs": [
+        "Shigenari:1967:404"
+      ],
       "note": null
     },
     "refs": {
-      "lab": [],
+      "lab": [
+        "Shigenari:1967:404"
+      ],
       "computation": []
     },
     "isotopologue_of": null,
@@ -6224,6 +6254,7 @@
       "C": 9866,
       "refs": [
         "Tyler:1972:248",
+        "Millen:1962:153",
         "Lide:1962:142",
         "Johnson:1976:245"
       ],
@@ -6235,6 +6266,7 @@
       "c": 1.0,
       "refs": [
         "Tyler:1972:248",
+        "Millen:1962:153",
         "Lide:1962:142",
         "Johnson:1976:245"
       ],
@@ -6243,6 +6275,7 @@
     "refs": {
       "lab": [
         "Tyler:1972:248",
+        "Millen:1962:153",
         "Lide:1962:142",
         "Johnson:1976:245"
       ],
@@ -6669,18 +6702,24 @@
       "A": null,
       "B": 4968,
       "C": null,
-      "refs": [],
+      "refs": [
+        "Guarnieri:1992:39"
+      ],
       "note": null
     },
     "dipole": {
       "a": 2.9,
       "b": null,
       "c": null,
-      "refs": [],
+      "refs": [
+        "Guarnieri:1992:39"
+      ],
       "note": null
     },
     "refs": {
-      "lab": [],
+      "lab": [
+        "Guarnieri:1992:39"
+      ],
       "computation": []
     },
     "isotopologue_of": null,
@@ -11260,7 +11299,8 @@
         "Kasten:1986:1173",
         "Kretschmer:1996:1159",
         "Godfrey:1997:405",
-        "Remijan:2014:77"
+        "Remijan:2014:77",
+        "Tyree:2022:111706"
       ],
       "note": null
     },
@@ -11273,7 +11313,8 @@
         "Kasten:1986:1173",
         "Kretschmer:1996:1159",
         "Godfrey:1997:405",
-        "Remijan:2014:77"
+        "Remijan:2014:77",
+        "Tyree:2022:111706"
       ],
       "note": null
     },
@@ -11283,7 +11324,8 @@
         "Kasten:1986:1173",
         "Kretschmer:1996:1159",
         "Godfrey:1997:405",
-        "Remijan:2014:77"
+        "Remijan:2014:77",
+        "Tyree:2022:111706"
       ],
       "computation": []
     },
@@ -13557,6 +13599,7 @@
       "B": 3817,
       "C": 2867,
       "refs": [
+        "Kattija-Ari:2009:443",
         "Apponi:2006:1787",
         "Braakman:2010:43"
       ],
@@ -13567,6 +13610,7 @@
       "b": 2.17,
       "c": null,
       "refs": [
+        "Kattija-Ari:2009:443",
         "Apponi:2006:1787",
         "Braakman:2010:43"
       ],
@@ -13574,6 +13618,7 @@
     },
     "refs": {
       "lab": [
+        "Kattija-Ari:2009:443",
         "Apponi:2006:1787",
         "Braakman:2010:43"
       ],

@@ -2,27 +2,35 @@
   "summary": {
     "converted_molecules": 325,
     "converted_detections": 325,
-    "issues": 170,
+    "issues": 160,
     "issues_by_kind": {
       "extra_context_detection_omitted": 139,
       "formula_normalized": 2,
       "missing_name_filled_from_formula": 4,
-      "nested_isotopologues_omitted": 15,
-      "unresolved_free_text_reference": 10
+      "nested_isotopologues_omitted": 15
     },
     "issues_by_severity": {
       "info": 154,
-      "warning": 16
+      "warning": 6
     },
-    "reference_mappings": 867,
+    "reference_mappings": 878,
     "reference_mappings_by_strategy": {
-      "free_text_alias": 26,
-      "free_text_metadata": 573,
+      "free_text_alias": 36,
+      "free_text_metadata": 574,
       "legacy_key_alias": 6,
       "legacy_key_metadata": 262
     }
   },
   "reference_mappings": [
+    {
+      "legacy_var": "CH",
+      "formula": "CH",
+      "line": 1237,
+      "role": "lab",
+      "original": "Jevons 1932 Phys Soc. pp 177-179",
+      "mapped": "Jevons:1932:177",
+      "strategy": "free_text_alias"
+    },
     {
       "legacy_var": "CH",
       "formula": "CH",
@@ -891,6 +899,24 @@
       "legacy_var": "NH",
       "formula": "NH",
       "line": 1786,
+      "role": "lab",
+      "original": "Dixon 1959 Can J. Phys. 37, 1171 and Klaus et al. 1997 A&A 322, L1",
+      "mapped": "Dixon:1959:1171",
+      "strategy": "free_text_alias"
+    },
+    {
+      "legacy_var": "NH",
+      "formula": "NH",
+      "line": 1786,
+      "role": "lab",
+      "original": "Dixon 1959 Can J. Phys. 37, 1171 and Klaus et al. 1997 A&A 322, L1",
+      "mapped": "Klaus:1997:L1",
+      "strategy": "free_text_alias"
+    },
+    {
+      "legacy_var": "NH",
+      "formula": "NH",
+      "line": 1786,
       "role": "observation",
       "original": "Meyer & Roth 1991 ApJ 376, L49",
       "mapped": "Meyer:1991:L49",
@@ -1291,6 +1317,15 @@
       "original": "Neufeld et al. 2012 A&A 542, L6",
       "mapped": "Neufeld:2012:L6",
       "strategy": "free_text_metadata"
+    },
+    {
+      "legacy_var": "TiO",
+      "formula": "TiO",
+      "line": 2056,
+      "role": "lab",
+      "original": "Nakimi et al. 1998 JMS 191, 176",
+      "mapped": "Namiki:1998:176",
+      "strategy": "free_text_alias"
     },
     {
       "legacy_var": "TiO",
@@ -1975,6 +2010,15 @@
       "original": "2020ApJ...893..101L",
       "mapped": "Loomis:2020:101",
       "strategy": "legacy_key_metadata"
+    },
+    {
+      "legacy_var": "SO2",
+      "formula": "SO2",
+      "line": 2532,
+      "role": "lab",
+      "original": "Steenbeckeliers 1968 Ann. Soc. Sci. Brux 82, 331",
+      "mapped": "Steenbeckeliers:1968:331",
+      "strategy": "free_text_alias"
     },
     {
       "legacy_var": "SO2",
@@ -2992,6 +3036,15 @@
       "original": "2021Natur.592..205G",
       "mapped": "Giacobbe:2021:205",
       "strategy": "legacy_key_metadata"
+    },
+    {
+      "legacy_var": "H2CO",
+      "formula": "H2CO",
+      "line": 3412,
+      "role": "lab",
+      "original": "Shinegari 1967 J Phys Soc Jpn 23, 404",
+      "mapped": "Shigenari:1967:404",
+      "strategy": "free_text_alias"
     },
     {
       "legacy_var": "H2CO",
@@ -4078,6 +4131,15 @@
       "formula": "NH2CN",
       "line": 4381,
       "role": "lab",
+      "original": "Miller et al. 1962 JMS 8, 153",
+      "mapped": "Millen:1962:153",
+      "strategy": "free_text_alias"
+    },
+    {
+      "legacy_var": "NH2CN",
+      "formula": "NH2CN",
+      "line": 4381,
+      "role": "lab",
       "original": "Lide 1962 JMS 8, 142",
       "mapped": "Lide:1962:142",
       "strategy": "free_text_metadata"
@@ -4414,6 +4476,15 @@
       "original": "2015ApJ...804...61B",
       "mapped": "Barman:2015:61",
       "strategy": "legacy_key_metadata"
+    },
+    {
+      "legacy_var": "HCCNC",
+      "formula": "HCCNC",
+      "line": 4622,
+      "role": "lab",
+      "original": "Kruger et al. 2010 Ang. Chem. 23, 1644",
+      "mapped": "Guarnieri:1992:39",
+      "strategy": "free_text_alias"
     },
     {
       "legacy_var": "HCCNC",
@@ -5241,6 +5312,15 @@
       "role": "lab",
       "original": "Kasai et al. 1997 ApJ 477, L65",
       "mapped": "Kasai:1997:L65",
+      "strategy": "free_text_metadata"
+    },
+    {
+      "legacy_var": "C5N",
+      "formula": "C5N",
+      "line": 5510,
+      "role": "observation",
+      "original": "Gu\u00e9lin et al. 1998 A&A 355, L1",
+      "mapped": "Guelin:1998:L1",
       "strategy": "free_text_metadata"
     },
     {
@@ -6381,6 +6461,15 @@
       "legacy_var": "NH2CONH2",
       "formula": "NH2CONH2",
       "line": 6915,
+      "role": "lab",
+      "original": "Additional work used in Belloche et al. 2019 A&A 628, A10 to be reported in Medvedev et al. in prep as of 9/16/2019.",
+      "mapped": "Tyree:2022:111706",
+      "strategy": "free_text_alias"
+    },
+    {
+      "legacy_var": "NH2CONH2",
+      "formula": "NH2CONH2",
+      "line": 6915,
       "role": "observation",
       "original": "Belloche et al. 2019 A&A 628, A10",
       "mapped": "Belloche:2019:A10",
@@ -7264,6 +7353,15 @@
       "formula": "CH3COCH2OH",
       "line": 8103,
       "role": "lab",
+      "original": "Kattija-Ari & Harmony et al. 1980 International Journal of Quantum Chemistry 18, 443",
+      "mapped": "Kattija-Ari:2009:443",
+      "strategy": "free_text_alias"
+    },
+    {
+      "legacy_var": "CH3COCH2OH",
+      "formula": "CH3COCH2OH",
+      "line": 8103,
+      "role": "lab",
       "original": "Apponi et al. 2006 ApJ 652, 1787",
       "mapped": "Apponi:2006:1787",
       "strategy": "free_text_metadata"
@@ -7828,27 +7926,6 @@
     }
   ],
   "issues": [
-    {
-      "kind": "unresolved_free_text_reference",
-      "severity": "warning",
-      "legacy_var": "CH",
-      "name": "methylidyne",
-      "formula": "CH",
-      "line": 1237,
-      "message": "Free-text reference does not match references.bib: Jevons 1932 Phys Soc. pp 177-179",
-      "details": {
-        "role": "lab",
-        "source_ref": null,
-        "text": "Jevons 1932 Phys Soc. pp 177-179",
-        "parsed": {
-          "year": "1932",
-          "surname": "jevons",
-          "volume": null,
-          "page": "177"
-        },
-        "candidates": []
-      }
-    },
     {
       "kind": "extra_context_detection_omitted",
       "severity": "info",
@@ -8522,27 +8599,6 @@
       }
     },
     {
-      "kind": "unresolved_free_text_reference",
-      "severity": "warning",
-      "legacy_var": "NH",
-      "name": "imidogen radical",
-      "formula": "NH",
-      "line": 1786,
-      "message": "Free-text reference does not match references.bib: Dixon 1959 Can J. Phys. 37, 1171 and Klaus et al. 1997 A&A 322, L1",
-      "details": {
-        "role": "lab",
-        "source_ref": null,
-        "text": "Dixon 1959 Can J. Phys. 37, 1171 and Klaus et al. 1997 A&A 322, L1",
-        "parsed": {
-          "year": "1959",
-          "surname": "dixon",
-          "volume": "322",
-          "page": "L1"
-        },
-        "candidates": []
-      }
-    },
-    {
       "kind": "extra_context_detection_omitted",
       "severity": "info",
       "legacy_var": "NH",
@@ -8704,27 +8760,6 @@
           "2017A&A...606A.109M"
         ],
         "free_text_refs": "Muller et al. 2017 A&A 606, A109"
-      }
-    },
-    {
-      "kind": "unresolved_free_text_reference",
-      "severity": "warning",
-      "legacy_var": "TiO",
-      "name": "titanium monoxide",
-      "formula": "TiO",
-      "line": 2056,
-      "message": "Free-text reference does not match references.bib: Nakimi et al. 1998 JMS 191, 176",
-      "details": {
-        "role": "lab",
-        "source_ref": null,
-        "text": "Nakimi et al. 1998 JMS 191, 176",
-        "parsed": {
-          "year": "1998",
-          "surname": "nakimi",
-          "volume": "191",
-          "page": "176"
-        },
-        "candidates": []
       }
     },
     {
@@ -9295,27 +9330,6 @@
       }
     },
     {
-      "kind": "unresolved_free_text_reference",
-      "severity": "warning",
-      "legacy_var": "SO2",
-      "name": "sulfur dioxide",
-      "formula": "SO2",
-      "line": 2532,
-      "message": "Free-text reference does not match references.bib: Steenbeckeliers 1968 Ann. Soc. Sci. Brux 82, 331",
-      "details": {
-        "role": "lab",
-        "source_ref": null,
-        "text": "Steenbeckeliers 1968 Ann. Soc. Sci. Brux 82, 331",
-        "parsed": {
-          "year": "1968",
-          "surname": "steenbeckeliers",
-          "volume": "82",
-          "page": "331"
-        },
-        "candidates": []
-      }
-    },
-    {
       "kind": "extra_context_detection_omitted",
       "severity": "info",
       "legacy_var": "SO2",
@@ -9752,27 +9766,6 @@
           "2021Natur.592..205G"
         ],
         "free_text_refs": "Giacobbe et al. 2021 Nature 592, 205"
-      }
-    },
-    {
-      "kind": "unresolved_free_text_reference",
-      "severity": "warning",
-      "legacy_var": "H2CO",
-      "name": "formaldehyde",
-      "formula": "H2CO",
-      "line": 3412,
-      "message": "Free-text reference does not match references.bib: Shinegari 1967 J Phys Soc Jpn 23, 404",
-      "details": {
-        "role": "lab",
-        "source_ref": null,
-        "text": "Shinegari 1967 J Phys Soc Jpn 23, 404",
-        "parsed": {
-          "year": "1967",
-          "surname": "shinegari",
-          "volume": "23",
-          "page": "404"
-        },
-        "candidates": []
       }
     },
     {
@@ -10311,27 +10304,6 @@
       }
     },
     {
-      "kind": "unresolved_free_text_reference",
-      "severity": "warning",
-      "legacy_var": "NH2CN",
-      "name": "cyanamide",
-      "formula": "NH2CN",
-      "line": 4381,
-      "message": "Free-text reference does not match references.bib: Miller et al. 1962 JMS 8, 153",
-      "details": {
-        "role": "lab",
-        "source_ref": null,
-        "text": "Miller et al. 1962 JMS 8, 153",
-        "parsed": {
-          "year": "1962",
-          "surname": "miller",
-          "volume": "8",
-          "page": "153"
-        },
-        "candidates": []
-      }
-    },
-    {
       "kind": "extra_context_detection_omitted",
       "severity": "info",
       "legacy_var": "NH2CN",
@@ -10574,27 +10546,6 @@
       }
     },
     {
-      "kind": "unresolved_free_text_reference",
-      "severity": "warning",
-      "legacy_var": "HCCNC",
-      "name": "isocyanoacetylene",
-      "formula": "HCCNC",
-      "line": 4622,
-      "message": "Free-text reference does not match references.bib: Kruger et al. 2010 Ang. Chem. 23, 1644",
-      "details": {
-        "role": "lab",
-        "source_ref": null,
-        "text": "Kruger et al. 2010 Ang. Chem. 23, 1644",
-        "parsed": {
-          "year": "2010",
-          "surname": "kruger",
-          "volume": "23",
-          "page": "1644"
-        },
-        "candidates": []
-      }
-    },
-    {
       "kind": "missing_name_filled_from_formula",
       "severity": "warning",
       "legacy_var": "HNCCC",
@@ -10765,27 +10716,6 @@
           "2021A&A...656A..46M"
         ],
         "free_text_refs": "Martin et al. 2021 A&A 656, A46"
-      }
-    },
-    {
-      "kind": "unresolved_free_text_reference",
-      "severity": "warning",
-      "legacy_var": "C5N",
-      "name": "cyanobutadiynyl radical",
-      "formula": "C5N",
-      "line": 5510,
-      "message": "Free-text reference does not match references.bib: Gu\u00e9lin et al. 1998 A&A 355, L1",
-      "details": {
-        "role": "observation",
-        "source_ref": null,
-        "text": "Gu\u00e9lin et al. 1998 A&A 355, L1",
-        "parsed": {
-          "year": "1998",
-          "surname": "guelin",
-          "volume": "355",
-          "page": "L1"
-        },
-        "candidates": []
       }
     },
     {
@@ -11042,27 +10972,6 @@
       }
     },
     {
-      "kind": "unresolved_free_text_reference",
-      "severity": "warning",
-      "legacy_var": "NH2CONH2",
-      "name": "urea",
-      "formula": "NH2CONH2",
-      "line": 6915,
-      "message": "Free-text reference does not match references.bib: Additional work used in Belloche et al. 2019 A&A 628, A10 to be reported in Medvedev et al. in prep as of 9/16/2019.",
-      "details": {
-        "role": "lab",
-        "source_ref": null,
-        "text": "Additional work used in Belloche et al. 2019 A&A 628, A10 to be reported in Medvedev et al. in prep as of 9/16/2019.",
-        "parsed": {
-          "year": "2019",
-          "surname": "additionalworkusedinbelloche",
-          "volume": "16",
-          "page": "2019"
-        },
-        "candidates": []
-      }
-    },
-    {
       "kind": "extra_context_detection_omitted",
       "severity": "info",
       "legacy_var": "CH3OCH3",
@@ -11194,27 +11103,6 @@
       "details": {
         "label": "mol:HC7NH+",
         "formula": "HC7NH+"
-      }
-    },
-    {
-      "kind": "unresolved_free_text_reference",
-      "severity": "warning",
-      "legacy_var": "CH3COCH2OH",
-      "name": "hydroxyacetone",
-      "formula": "CH3COCH2OH",
-      "line": 8103,
-      "message": "Free-text reference does not match references.bib: Kattija-Ari & Harmony et al. 1980 International Journal of Quantum Chemistry 18, 443",
-      "details": {
-        "role": "lab",
-        "source_ref": null,
-        "text": "Kattija-Ari & Harmony et al. 1980 International Journal of Quantum Chemistry 18, 443",
-        "parsed": {
-          "year": "1980",
-          "surname": "kattijaari",
-          "volume": "18",
-          "page": "443"
-        },
-        "candidates": []
       }
     },
     {
