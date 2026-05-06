@@ -341,6 +341,14 @@ class Database:
                 entry["radical_override"] = entry["radical"]
             entry.pop("radical")
 
+        if "latex_header" in entry and "latex_section_override" not in entry:
+            entry["latex_section_override"] = entry["latex_header"]
+        entry.pop("latex_header", None)
+
+        if "latex_notes" in entry and "latex_body" not in entry:
+            entry["latex_body"] = entry["latex_notes"]
+        entry.pop("latex_notes", None)
+
         for key in MOLECULE_NON_INIT_FIELDS:
             entry.pop(key, None)
 

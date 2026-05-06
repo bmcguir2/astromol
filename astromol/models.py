@@ -290,8 +290,8 @@ class Molecule:
                                   # null means this IS a parent molecule
 
     # === LaTeX generation ===
-    latex_header: str = None      # e.g. "Methylidyne, CH" — section header for paper
-    latex_notes: str = None       # free text paragraph for paper section
+    latex_section_override: str = None  # optional custom section heading
+    latex_body: str = None              # curated prose for the paper section
 
     def __post_init__(self):
         """Validate metadata and fill in simple defaults."""

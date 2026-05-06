@@ -214,8 +214,9 @@ References and relationships:
 - `isotopologue_of`: parent molecule label or null
 
 LaTeX fields:
-- `latex_header`
-- `latex_notes`
+- `latex_section_override`: optional custom section heading. This should be
+  null for normal generated section headings.
+- `latex_body`: curated prose for the molecule's manuscript section.
 
 Computed from formula or spectroscopy:
 - `atom_counts`

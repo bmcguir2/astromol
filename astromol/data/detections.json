@@ -7270,7 +7270,7 @@
   },
   {
     "note": null,
-    "molecule": "mol:cC5H",
+    "molecule": "mol:c-C5H",
     "sources": [
       "TMC1"
     ],
@@ -9935,7 +9935,7 @@
   },
   {
     "note": null,
-    "molecule": "mol:nCH3CH2CH2OH",
+    "molecule": "mol:n-CH3CH2CH2OH",
     "sources": [
       "G0693"
     ],
@@ -9959,7 +9959,7 @@
   },
   {
     "note": null,
-    "molecule": "mol:iCH3CH2CH2OH",
+    "molecule": "mol:i-CH3CH2CH2OH",
     "sources": [
       "SgrB2"
     ],
@@ -9981,7 +9981,7 @@
   },
   {
     "note": null,
-    "molecule": "mol:iC4H8",
+    "molecule": "mol:i-C4H8",
     "sources": [
       "G0693"
     ],
@@ -10093,7 +10093,7 @@
   },
   {
     "note": null,
-    "molecule": "mol:cC5H4CCH2",
+    "molecule": "mol:c-C5H4CCH2",
     "sources": [
       "TMC1"
     ],
@@ -10159,7 +10159,7 @@
   },
   {
     "note": null,
-    "molecule": "mol:CNN1",
+    "molecule": "mol:1-C10H7CN",
     "sources": [
       "TMC1"
     ],
@@ -10181,7 +10181,7 @@
   },
   {
     "note": null,
-    "molecule": "mol:CNN2",
+    "molecule": "mol:2-C10H7CN",
     "sources": [
       "TMC1"
     ],
@@ -10227,7 +10227,7 @@
   },
   {
     "note": null,
-    "molecule": "mol:C9H7CN",
+    "molecule": "mol:2-C9H7CN",
     "sources": [
       "TMC1"
     ],
@@ -10249,7 +10249,7 @@
   },
   {
     "note": null,
-    "molecule": "mol:CAN1",
+    "molecule": "mol:1-C12H7CN",
     "sources": [
       "TMC1"
     ],
@@ -10271,7 +10271,7 @@
   },
   {
     "note": null,
-    "molecule": "mol:CAN5",
+    "molecule": "mol:5-C12H7CN",
     "sources": [
       "TMC1"
     ],
@@ -10293,7 +10293,7 @@
   },
   {
     "note": null,
-    "molecule": "mol:CNP1",
+    "molecule": "mol:1-C16H9CN",
     "sources": [
       "TMC1"
     ],
@@ -10315,7 +10315,7 @@
   },
   {
     "note": null,
-    "molecule": "mol:CNP2",
+    "molecule": "mol:2-C16H9CN",
     "sources": [
       "TMC1"
     ],
@@ -10337,7 +10337,7 @@
   },
   {
     "note": null,
-    "molecule": "mol:CNP4",
+    "molecule": "mol:4-C16H9CN",
     "sources": [
       "TMC1"
     ],
