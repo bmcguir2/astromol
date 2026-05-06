@@ -230,6 +230,11 @@ Computed from formula or spectroscopy:
 - `is_linear`
 - `kappa`
 
+When a formula uses an isotope label that is valid for the database but
+unsupported by `molmass`, the model uses `ISOTOPE_MASS_OVERRIDES` for hardcoded
+relative atomic masses. Current override:
+- `26Al`: 25.98689188 u
+
 Loader compatibility:
 - Legacy stored/computed fields such as `mass`, `natoms`, `charge`, `du`,
   `maxdu`, `is_linear`, and `kappa` are ignored before constructing

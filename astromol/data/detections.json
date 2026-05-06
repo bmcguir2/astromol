@@ -1,16 +1,10427 @@
 [
   {
-    "note":       "First interstellar molecule ever detected",
-    "molecule":    "mol:CH",
-    "sources":     ["DiffuseCloud"],
-    "telescopes":  ["MtWilson"],
-    "wavelengths": ["UV"],
-    "year":        1937,
-    "type":        "ISM/CSM",
-    "first":       true,
+    "note": null,
+    "molecule": "mol:CH",
+    "sources": [
+      "DiffuseCloud"
+    ],
+    "telescopes": [
+      "MtWilson"
+    ],
+    "wavelengths": [
+      "UV",
+      "Vis"
+    ],
+    "year": 1937,
+    "type": "ISM/CSM",
+    "first": true,
     "refs": {
-      "observation": ["Swings:1937:483"]
+      "observation": [
+        "Dunham:1937:26",
+        "Swings:1937:483",
+        "McKellar:1940:187"
+      ]
     },
-    "latex_text":  "was first detected via UV absorption by \\citet{Swings:1937:483}"
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:CH",
+    "sources": [
+      "LMC",
+      "NGC4945",
+      "NGC5128"
+    ],
+    "telescopes": [],
+    "wavelengths": [],
+    "year": 1980,
+    "type": "exgal",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Whiteoak:1980:17P"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:CD",
+    "sources": [],
+    "telescopes": [],
+    "wavelengths": [],
+    "year": 2023,
+    "type": "ISM/CSM",
+    "first": false,
+    "refs": {
+      "observation": [
+        "Jacob:2023:A69"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:CN",
+    "sources": [
+      "DiffuseCloud"
+    ],
+    "telescopes": [
+      "MtWilson"
+    ],
+    "wavelengths": [
+      "UV"
+    ],
+    "year": 1940,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "McKellar:1940:187"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:CN",
+    "sources": [],
+    "telescopes": [],
+    "wavelengths": [],
+    "year": 1997,
+    "type": "ppd",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Kastner:1997:67",
+        "Dutrey:1997:L55"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:CN",
+    "sources": [
+      "M82",
+      "NGC253",
+      "IC342"
+    ],
+    "telescopes": [],
+    "wavelengths": [],
+    "year": 1988,
+    "type": "exgal",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Henkel:1988:L23"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:C15N",
+    "sources": [],
+    "telescopes": [],
+    "wavelengths": [],
+    "year": 2017,
+    "type": "ppd",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Hily-Blant:2017:L6"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:CH+",
+    "sources": [
+      "DiffuseCloud"
+    ],
+    "telescopes": [
+      "MtWilson"
+    ],
+    "wavelengths": [
+      "UV",
+      "Vis"
+    ],
+    "year": 1941,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Douglas:1941:381",
+        "Dunham:1937:26"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:CH+",
+    "sources": [],
+    "telescopes": [],
+    "wavelengths": [],
+    "year": 2011,
+    "type": "ppd",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Thi:2011:L2"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:CH+",
+    "sources": [
+      "LMC"
+    ],
+    "telescopes": [],
+    "wavelengths": [],
+    "year": 1987,
+    "type": "exgal",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Magain:1987:L5"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:OH",
+    "sources": [
+      "CasALOS"
+    ],
+    "telescopes": [
+      "Millstone"
+    ],
+    "wavelengths": [
+      "cm"
+    ],
+    "year": 1963,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Weinreb:1963:829"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:OH",
+    "sources": [],
+    "telescopes": [],
+    "wavelengths": [],
+    "year": 2008,
+    "type": "ppd",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Mandell:2008:L25",
+        "Salyk:2008:L49"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:OH",
+    "sources": [
+      "M82",
+      "NGC253"
+    ],
+    "telescopes": [],
+    "wavelengths": [],
+    "year": 1971,
+    "type": "exgal",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Weliachew:1971:L47"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:OH",
+    "sources": [],
+    "telescopes": [],
+    "wavelengths": [],
+    "year": 2021,
+    "type": "exo",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Nugroho:2021:L9"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:CO",
+    "sources": [
+      "OrionKL"
+    ],
+    "telescopes": [
+      "NRAO36"
+    ],
+    "wavelengths": [
+      "mm"
+    ],
+    "year": 1970,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Wilson:1970:L43"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:CO",
+    "sources": [],
+    "telescopes": [],
+    "wavelengths": [],
+    "year": 1979,
+    "type": "ice",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Soifer:1979:L53"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:CO",
+    "sources": [],
+    "telescopes": [],
+    "wavelengths": [],
+    "year": 1986,
+    "type": "ppd",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Beckwith:1986:755"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:CO",
+    "sources": [
+      "M82",
+      "NGC253"
+    ],
+    "telescopes": [],
+    "wavelengths": [],
+    "year": 1975,
+    "type": "exgal",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Rickard:1975:L75"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:CO",
+    "sources": [],
+    "telescopes": [],
+    "wavelengths": [],
+    "year": 2011,
+    "type": "exo",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Madhusudhan:2011:64",
+        "Barman:2011:65",
+        "Lanotte:2014:A73",
+        "Barman:2015:61"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:13CO",
+    "sources": [],
+    "telescopes": [],
+    "wavelengths": [],
+    "year": 1987,
+    "type": "ppd",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Sargent:1987:294"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:C18O",
+    "sources": [],
+    "telescopes": [],
+    "wavelengths": [],
+    "year": 1994,
+    "type": "ppd",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Dutrey:1994:149"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:C17O",
+    "sources": [],
+    "telescopes": [],
+    "wavelengths": [],
+    "year": 2009,
+    "type": "ppd",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Smith:2009:163",
+        "Guilloteau:2013:A92"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:13C17O",
+    "sources": [],
+    "telescopes": [],
+    "wavelengths": [],
+    "year": 2019,
+    "type": "ppd",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Booth:2019:L31"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:13C18O",
+    "sources": [],
+    "telescopes": [],
+    "wavelengths": [],
+    "year": 2017,
+    "type": "ppd",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Zhang:2017:0130"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:13CO",
+    "sources": [
+      "TYC89987601b"
+    ],
+    "telescopes": [],
+    "wavelengths": [],
+    "year": 2021,
+    "type": "exo",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Zhang:2021:370"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:H2",
+    "sources": [
+      "XiPerLOS"
+    ],
+    "telescopes": [
+      "Aerobee"
+    ],
+    "wavelengths": [
+      "UV"
+    ],
+    "year": 1970,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Carruthers:1970:L81"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:H2",
+    "sources": [],
+    "telescopes": [],
+    "wavelengths": [],
+    "year": 1999,
+    "type": "ppd",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Thi:1999:L63"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:H2",
+    "sources": [
+      "NGC1068"
+    ],
+    "telescopes": [],
+    "wavelengths": [],
+    "year": 1978,
+    "type": "exgal",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Thompson:1978:L49"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:HD",
+    "sources": [],
+    "telescopes": [],
+    "wavelengths": [],
+    "year": 2013,
+    "type": "ppd",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Bergin:2013:644"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:SiO",
+    "sources": [
+      "SgrB2"
+    ],
+    "telescopes": [
+      "NRAO36"
+    ],
+    "wavelengths": [
+      "mm"
+    ],
+    "year": 1971,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Wilson:1971:L97"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:SiO",
+    "sources": [
+      "NGC253"
+    ],
+    "telescopes": [],
+    "wavelengths": [],
+    "year": 1991,
+    "type": "exgal",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Mauersberger:1991:457"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:CS",
+    "sources": [
+      "OrionKL",
+      "W51",
+      "IRC10216",
+      "DR21"
+    ],
+    "telescopes": [
+      "NRAO36"
+    ],
+    "wavelengths": [
+      "mm"
+    ],
+    "year": 1971,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Penzias:1971:L53"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:CS",
+    "sources": [],
+    "telescopes": [],
+    "wavelengths": [],
+    "year": 1991,
+    "type": "ppd",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Ohashi:1991:2054",
+        "Blake:1992:L99",
+        "Guilloteau:2012:A70"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:CS",
+    "sources": [
+      "M82",
+      "IC342"
+    ],
+    "telescopes": [],
+    "wavelengths": [],
+    "year": 1985,
+    "type": "exgal",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Henkel:1985:L25"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:C34S",
+    "sources": [],
+    "telescopes": [],
+    "wavelengths": [],
+    "year": 2019,
+    "type": "ppd",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Loomis:2020:101",
+        "LeGal:2019:72"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:13CS",
+    "sources": [],
+    "telescopes": [],
+    "wavelengths": [],
+    "year": 2019,
+    "type": "ppd",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Loomis:2020:101",
+        "LeGal:2019:72"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:SO",
+    "sources": [
+      "OrionKL"
+    ],
+    "telescopes": [
+      "NRAO36"
+    ],
+    "wavelengths": [
+      "mm"
+    ],
+    "year": 1973,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Gottlieb:1973:L59"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:SO",
+    "sources": [],
+    "telescopes": [],
+    "wavelengths": [],
+    "year": 2010,
+    "type": "ppd",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Fuente:2010:A19"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:SO",
+    "sources": [
+      "M82",
+      "NGC253"
+    ],
+    "telescopes": [],
+    "wavelengths": [],
+    "year": 1991,
+    "type": "exgal",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Johansson:1991:1",
+        "Petuchowski:1992:137"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:34SO",
+    "sources": [],
+    "telescopes": [],
+    "wavelengths": [],
+    "year": 2024,
+    "type": "ppd",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Booth:2024:165"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:33SO",
+    "sources": [],
+    "telescopes": [],
+    "wavelengths": [],
+    "year": 2024,
+    "type": "ppd",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Booth:2024:165"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:SiS",
+    "sources": [
+      "IRC10216"
+    ],
+    "telescopes": [
+      "NRAO36"
+    ],
+    "wavelengths": [
+      "mm"
+    ],
+    "year": 1975,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Morris:1975:L47"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:SiS",
+    "sources": [],
+    "telescopes": [],
+    "wavelengths": [],
+    "year": 2023,
+    "type": "ppd",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Law:2023:L19"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:NS",
+    "sources": [
+      "SgrB2"
+    ],
+    "telescopes": [
+      "NRAO36"
+    ],
+    "wavelengths": [
+      "mm"
+    ],
+    "year": 1975,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Gottlieb:1975:L147",
+        "Kuiper:1975:L151"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:NS",
+    "sources": [
+      "NGC253"
+    ],
+    "telescopes": [],
+    "wavelengths": [],
+    "year": 2003,
+    "type": "exgal",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Martin:2003:L465"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:C2",
+    "sources": [
+      "CygnusOB212LOS"
+    ],
+    "telescopes": [
+      "MtHopkins"
+    ],
+    "wavelengths": [
+      "IR"
+    ],
+    "year": 1977,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Souza:1977:L49"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:C2",
+    "sources": [
+      "SMC"
+    ],
+    "telescopes": [],
+    "wavelengths": [],
+    "year": 2013,
+    "type": "exgal",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Welty:2013:1107"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:NO",
+    "sources": [
+      "SgrB2"
+    ],
+    "telescopes": [
+      "NRAO36"
+    ],
+    "wavelengths": [
+      "mm"
+    ],
+    "year": 1978,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Liszt:1978:L73"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:NO",
+    "sources": [],
+    "telescopes": [],
+    "wavelengths": [],
+    "year": 2022,
+    "type": "ppd",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Brunken:2022:A29"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:NO",
+    "sources": [
+      "NGC253"
+    ],
+    "telescopes": [],
+    "wavelengths": [],
+    "year": 2003,
+    "type": "exgal",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Martin:2003:L465"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:HCl",
+    "sources": [
+      "OrionKL"
+    ],
+    "telescopes": [
+      "Kuiper"
+    ],
+    "wavelengths": [
+      "sub-mm"
+    ],
+    "year": 1985,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Blake:1985:501"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:HCl",
+    "sources": [
+      "PKS1830LOS"
+    ],
+    "telescopes": [],
+    "wavelengths": [],
+    "year": 2019,
+    "type": "exgal",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Wallstrom:2019:A128"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:NaCl",
+    "sources": [
+      "IRC10216"
+    ],
+    "telescopes": [
+      "IRAM30"
+    ],
+    "wavelengths": [
+      "mm"
+    ],
+    "year": 1987,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Cernicharo:1987:L10"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:AlCl",
+    "sources": [
+      "IRC10216"
+    ],
+    "telescopes": [
+      "IRAM30"
+    ],
+    "wavelengths": [
+      "mm"
+    ],
+    "year": 1987,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Cernicharo:1987:L10"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:KCl",
+    "sources": [
+      "IRC10216"
+    ],
+    "telescopes": [
+      "IRAM30"
+    ],
+    "wavelengths": [
+      "mm"
+    ],
+    "year": 1987,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Cernicharo:1987:L10"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:AlF",
+    "sources": [
+      "IRC10216"
+    ],
+    "telescopes": [
+      "IRAM30"
+    ],
+    "wavelengths": [
+      "mm"
+    ],
+    "year": 1987,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Cernicharo:1987:L10"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:26AlF",
+    "sources": [],
+    "telescopes": [],
+    "wavelengths": [],
+    "year": 2018,
+    "type": "ISM/CSM",
+    "first": false,
+    "refs": {
+      "observation": [
+        "Kaminski:2018:778"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:PN",
+    "sources": [
+      "TMC1",
+      "OrionKL",
+      "W51",
+      "SgrB2"
+    ],
+    "telescopes": [
+      "NRAOARO12",
+      "FCRAO14m",
+      "OVRO"
+    ],
+    "wavelengths": [
+      "mm"
+    ],
+    "year": 1987,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Sutton:1985:341"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:PN",
+    "sources": [
+      "NGC253"
+    ],
+    "telescopes": [],
+    "wavelengths": [],
+    "year": 2022,
+    "type": "exgal",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Haasler:2022:A158"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:SiC",
+    "sources": [
+      "IRC10216"
+    ],
+    "telescopes": [
+      "IRAM30"
+    ],
+    "wavelengths": [
+      "mm"
+    ],
+    "year": 1989,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Cernicharo:1989:L25"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:CP",
+    "sources": [
+      "IRC10216"
+    ],
+    "telescopes": [
+      "IRAM30"
+    ],
+    "wavelengths": [
+      "mm"
+    ],
+    "year": 1990,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Guelin:1990:L9"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:NH",
+    "sources": [
+      "XiPerLOS",
+      "HD27778LOS"
+    ],
+    "telescopes": [
+      "KPNO4m",
+      "IRAM30"
+    ],
+    "wavelengths": [
+      "UV"
+    ],
+    "year": 1991,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Meyer:1991:L49"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:NH",
+    "sources": [
+      "Arp220"
+    ],
+    "telescopes": [],
+    "wavelengths": [],
+    "year": 2004,
+    "type": "exgal",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Gonzalez-Alfonso:2004:247"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:SiN",
+    "sources": [
+      "IRC10216"
+    ],
+    "telescopes": [
+      "NRAOARO12"
+    ],
+    "wavelengths": [
+      "mm"
+    ],
+    "year": 1992,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Turner:1992:L35"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:SO+",
+    "sources": [
+      "IC443G"
+    ],
+    "telescopes": [
+      "NRAOARO12"
+    ],
+    "wavelengths": [
+      "mm"
+    ],
+    "year": 1992,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Turner:1992:L107"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:SO+",
+    "sources": [
+      "PKS1830LOS"
+    ],
+    "telescopes": [],
+    "wavelengths": [],
+    "year": 2011,
+    "type": "exgal",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Muller:2011:A103"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:CO+",
+    "sources": [
+      "M17SW",
+      "NGC7027"
+    ],
+    "telescopes": [
+      "NRAOARO12"
+    ],
+    "wavelengths": [
+      "mm"
+    ],
+    "year": 1993,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Latter:1993:L97"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:CO+",
+    "sources": [
+      "M82"
+    ],
+    "telescopes": [],
+    "wavelengths": [],
+    "year": 2006,
+    "type": "exgal",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Fuente:2006:L105"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:HF",
+    "sources": [
+      "SgrB2LOS"
+    ],
+    "telescopes": [
+      "ISO"
+    ],
+    "wavelengths": [
+      "IR"
+    ],
+    "year": 1997,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Neufeld:1997:L141"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:HF",
+    "sources": [
+      "QSOMrk231",
+      "Arp220",
+      "CloverleafLOS"
+    ],
+    "telescopes": [],
+    "wavelengths": [],
+    "year": 2010,
+    "type": "exgal",
+    "first": true,
+    "refs": {
+      "observation": [
+        "vanderWerf:2010:L42",
+        "Rangwala:2011:94",
+        "Monje:2011:L21"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:N2",
+    "sources": [
+      "HD124314LOS"
+    ],
+    "telescopes": [
+      "FUSE"
+    ],
+    "wavelengths": [
+      "UV"
+    ],
+    "year": 2004,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Knauth:2004:636"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:CF+",
+    "sources": [
+      "OrionBar"
+    ],
+    "telescopes": [
+      "IRAM30",
+      "APEX"
+    ],
+    "wavelengths": [
+      "mm"
+    ],
+    "year": 2006,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Neufeld:2006:L37"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:CF+",
+    "sources": [
+      "PKS1830LOS"
+    ],
+    "telescopes": [],
+    "wavelengths": [],
+    "year": 2016,
+    "type": "exgal",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Muller:2016:L5"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:PO",
+    "sources": [
+      "VYCaMaj"
+    ],
+    "telescopes": [
+      "SMT10"
+    ],
+    "wavelengths": [
+      "mm"
+    ],
+    "year": 2007,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Tenenbaum:2007:L29"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:O2",
+    "sources": [
+      "OrionKL",
+      "rhoOphA"
+    ],
+    "telescopes": [
+      "Odin",
+      "Herschel"
+    ],
+    "wavelengths": [
+      "mm",
+      "sub-mm"
+    ],
+    "year": 2007,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Larsson:2007:999"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:O2",
+    "sources": [
+      "QSOMrk231"
+    ],
+    "telescopes": [],
+    "wavelengths": [],
+    "year": 2020,
+    "type": "exgal",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Wang:2020:129"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:AlO",
+    "sources": [
+      "VYCaMaj"
+    ],
+    "telescopes": [
+      "SMT10"
+    ],
+    "wavelengths": [
+      "mm"
+    ],
+    "year": 2009,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Tenenbaum:2009:L59"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:CN-",
+    "sources": [
+      "IRC10216"
+    ],
+    "telescopes": [
+      "IRAM30"
+    ],
+    "wavelengths": [
+      "mm"
+    ],
+    "year": 2010,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Agundez:2010:L2"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:OH+",
+    "sources": [
+      "SgrB2LOS"
+    ],
+    "telescopes": [
+      "APEX"
+    ],
+    "wavelengths": [
+      "sub-mm"
+    ],
+    "year": 2010,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Wyrowski:2010:A26",
+        "Gerin:2010:L110",
+        "Benz:2010:L35"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:OH+",
+    "sources": [
+      "QSOMrk231",
+      "Arp220",
+      "NGC4418"
+    ],
+    "telescopes": [],
+    "wavelengths": [],
+    "year": 2010,
+    "type": "exgal",
+    "first": true,
+    "refs": {
+      "observation": [
+        "vanderWerf:2010:L42",
+        "Rangwala:2011:94",
+        "Gonzalez-Alfonso:2013:A25"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:SH+",
+    "sources": [
+      "SgrB2"
+    ],
+    "telescopes": [
+      "Herschel"
+    ],
+    "wavelengths": [
+      "sub-mm"
+    ],
+    "year": 2011,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Benz:2010:L35"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:SH+",
+    "sources": [
+      "PKS1830LOS"
+    ],
+    "telescopes": [],
+    "wavelengths": [],
+    "year": 2017,
+    "type": "exgal",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Muller:2017:A109"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:HCl+",
+    "sources": [
+      "W31LOS",
+      "W49LOS"
+    ],
+    "telescopes": [
+      "Herschel"
+    ],
+    "wavelengths": [
+      "sub-mm"
+    ],
+    "year": 2012,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "DeLuca:2012:L37"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:SH",
+    "sources": [
+      "W49LOS"
+    ],
+    "telescopes": [
+      "SOFIA"
+    ],
+    "wavelengths": [
+      "sub-mm"
+    ],
+    "year": 2012,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Neufeld:2012:L6"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:TiO",
+    "sources": [
+      "VYCaMaj"
+    ],
+    "telescopes": [
+      "SMA"
+    ],
+    "wavelengths": [
+      "mm"
+    ],
+    "year": 2013,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Kaminski:2013:A113"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:TiO",
+    "sources": [],
+    "telescopes": [],
+    "wavelengths": [],
+    "year": 2015,
+    "type": "exo",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Haynes:2015:146",
+        "Sedaghati:2017:238",
+        "Nugroho:2017:221"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:ArH+",
+    "sources": [
+      "CrabNebula"
+    ],
+    "telescopes": [
+      "Herschel"
+    ],
+    "wavelengths": [
+      "sub-mm"
+    ],
+    "year": 2013,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Barlow:2013:1343"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:ArH+",
+    "sources": [
+      "PKS1830LOS"
+    ],
+    "telescopes": [],
+    "wavelengths": [],
+    "year": 2015,
+    "type": "exgal",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Muller:2015:L4"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:NS+",
+    "sources": [
+      "B1b",
+      "TMC1",
+      "L483"
+    ],
+    "telescopes": [
+      "IRAM30"
+    ],
+    "wavelengths": [
+      "mm"
+    ],
+    "year": 2018,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Cernicharo:2018:L22"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:HeH+",
+    "sources": [
+      "NGC7027"
+    ],
+    "telescopes": [
+      "SOFIA"
+    ],
+    "wavelengths": [
+      "sub-mm"
+    ],
+    "year": 2019,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Gusten:2019:357"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:VO",
+    "sources": [
+      "VYCaMaj"
+    ],
+    "telescopes": [
+      "Hubble"
+    ],
+    "wavelengths": [
+      "IR"
+    ],
+    "year": 2019,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Humphreys:2019:L26"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:VO",
+    "sources": [],
+    "telescopes": [],
+    "wavelengths": [],
+    "year": 2023,
+    "type": "exo",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Ouyang:2023:065010"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:PO+",
+    "sources": [
+      "G0693"
+    ],
+    "telescopes": [
+      "IRAM30",
+      "Yebes40"
+    ],
+    "wavelengths": [
+      "cm",
+      "mm"
+    ],
+    "year": 2022,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Rivilla:2022:829288"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:SiP",
+    "sources": [
+      "IRC10216"
+    ],
+    "telescopes": [
+      "SMT10",
+      "NRAOARO12"
+    ],
+    "wavelengths": [
+      "mm",
+      "sub-mm"
+    ],
+    "year": 2022,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Koelemay:2022:L11"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:FeC",
+    "sources": [
+      "IRC10216"
+    ],
+    "telescopes": [
+      "NRAOARO12",
+      "SMT10"
+    ],
+    "wavelengths": [
+      "mm",
+      "sub-mm"
+    ],
+    "year": 2023,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Koelemay:2023:L6"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:MgS",
+    "sources": [
+      "G0693"
+    ],
+    "telescopes": [
+      "Yebes40",
+      "IRAM30",
+      "APEX"
+    ],
+    "wavelengths": [
+      "cm",
+      "mm"
+    ],
+    "year": 2024,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Rey-Montejo:2024:174"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:NaS",
+    "sources": [
+      "G0693"
+    ],
+    "telescopes": [
+      "Yebes40",
+      "IRAM30"
+    ],
+    "wavelengths": [
+      "cm",
+      "mm"
+    ],
+    "year": 2024,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Rey-Montejo:2024:174"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:H2O",
+    "sources": [
+      "SgrB2",
+      "OrionKL",
+      "W49"
+    ],
+    "telescopes": [
+      "HatCreek"
+    ],
+    "wavelengths": [
+      "cm"
+    ],
+    "year": 1969,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Cheung:1969:626"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:H2O",
+    "sources": [],
+    "telescopes": [],
+    "wavelengths": [],
+    "year": 1973,
+    "type": "ice",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Gillett:1973:483"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:H2O",
+    "sources": [],
+    "telescopes": [],
+    "wavelengths": [],
+    "year": 2004,
+    "type": "ppd",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Carr:2004:213",
+        "Hogerheijde:2011:338",
+        "Salyk:2008:L49"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:H2O",
+    "sources": [
+      "M33"
+    ],
+    "telescopes": [],
+    "wavelengths": [],
+    "year": 1977,
+    "type": "exgal",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Churchwell:1977:969"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:H2O",
+    "sources": [],
+    "telescopes": [],
+    "wavelengths": [],
+    "year": 2007,
+    "type": "exo",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Tinetti:2007:169",
+        "Deming:2013:95",
+        "Kreidberg:2014:L27",
+        "Kreidberg:2015:66",
+        "Lockwood:2014:L29"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:HDO",
+    "sources": [],
+    "telescopes": [],
+    "wavelengths": [],
+    "year": 1975,
+    "type": "ISM/CSM",
+    "first": false,
+    "refs": {
+      "observation": [
+        "Turner:1975:L125"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:HCO+",
+    "sources": [
+      "W3OH",
+      "OrionKL",
+      "L134",
+      "SgrA",
+      "W51"
+    ],
+    "telescopes": [
+      "NRAO36"
+    ],
+    "wavelengths": [
+      "mm"
+    ],
+    "year": 1970,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Buhl:1970:267"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:HCO+",
+    "sources": [],
+    "telescopes": [],
+    "wavelengths": [],
+    "year": 1997,
+    "type": "ppd",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Kastner:1997:67",
+        "Dutrey:1997:L55"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:HCO+",
+    "sources": [
+      "M82"
+    ],
+    "telescopes": [],
+    "wavelengths": [],
+    "year": 1979,
+    "type": "exgal",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Stark:1979:118"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:DCO+",
+    "sources": [],
+    "telescopes": [],
+    "wavelengths": [],
+    "year": 2003,
+    "type": "ppd",
+    "first": true,
+    "refs": {
+      "observation": [
+        "vanDishoeck:2003:L1"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:H13CO+",
+    "sources": [],
+    "telescopes": [],
+    "wavelengths": [],
+    "year": 2001,
+    "type": "ppd",
+    "first": true,
+    "refs": {
+      "observation": [
+        "vanZadelhoff:2001:566",
+        "vanDishoeck:2003:L1"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:HC18O+",
+    "sources": [],
+    "telescopes": [],
+    "wavelengths": [],
+    "year": 2022,
+    "type": "ppd",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Furuya:2022:148"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:HCN",
+    "sources": [
+      "W3OH",
+      "OrionKL",
+      "SgrA",
+      "W49",
+      "W51",
+      "DR21"
+    ],
+    "telescopes": [
+      "NRAO36"
+    ],
+    "wavelengths": [
+      "mm"
+    ],
+    "year": 1971,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Snyder:1971:L47"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:HCN",
+    "sources": [],
+    "telescopes": [],
+    "wavelengths": [],
+    "year": 1997,
+    "type": "ppd",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Kastner:1997:67",
+        "Dutrey:1997:L55"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:HCN",
+    "sources": [
+      "NGC253",
+      "M82"
+    ],
+    "telescopes": [],
+    "wavelengths": [],
+    "year": 1977,
+    "type": "exgal",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Rickard:1977:390"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:HCN",
+    "sources": [],
+    "telescopes": [],
+    "wavelengths": [],
+    "year": 2018,
+    "type": "exo",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Hawker:2018:L11"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:DCN",
+    "sources": [],
+    "telescopes": [],
+    "wavelengths": [],
+    "year": 2008,
+    "type": "ppd",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Qi:2008:1396"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:H13CN",
+    "sources": [],
+    "telescopes": [],
+    "wavelengths": [],
+    "year": 2015,
+    "type": "ppd",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Guzman:2015:53"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:HC15N",
+    "sources": [],
+    "telescopes": [],
+    "wavelengths": [],
+    "year": 2015,
+    "type": "ppd",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Guzman:2015:53"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:OCS",
+    "sources": [
+      "SgrB2"
+    ],
+    "telescopes": [
+      "NRAO36"
+    ],
+    "wavelengths": [
+      "mm"
+    ],
+    "year": 1971,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Jefferts:1971:L111"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:OCS",
+    "sources": [],
+    "telescopes": [],
+    "wavelengths": [],
+    "year": 1995,
+    "type": "ice",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Palumbo:1995:674",
+        "Palumbo:1997:839"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:OCS",
+    "sources": [
+      "NGC253"
+    ],
+    "telescopes": [],
+    "wavelengths": [],
+    "year": 1995,
+    "type": "exgal",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Mauersberger:1995:23"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:HNC",
+    "sources": [
+      "W51",
+      "NGC2264"
+    ],
+    "telescopes": [
+      "NRAO36"
+    ],
+    "wavelengths": [
+      "mm"
+    ],
+    "year": 1972,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Snyder:1972:17",
+        "Zuckerman:1972:L125"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:HNC",
+    "sources": [],
+    "telescopes": [],
+    "wavelengths": [],
+    "year": 1997,
+    "type": "ppd",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Dutrey:1997:L55"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:HNC",
+    "sources": [
+      "IC342"
+    ],
+    "telescopes": [],
+    "wavelengths": [],
+    "year": 1988,
+    "type": "exgal",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Henkel:1988:L23"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:DNC",
+    "sources": [],
+    "telescopes": [],
+    "wavelengths": [],
+    "year": 2020,
+    "type": "ppd",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Loomis:2020:101"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:H2S",
+    "sources": [
+      "W3",
+      "W3OH",
+      "OrionKL",
+      "NGC2264",
+      "SgrB2",
+      "W51",
+      "DR21OH",
+      "NGC7538"
+    ],
+    "telescopes": [
+      "NRAO36"
+    ],
+    "wavelengths": [
+      "mm"
+    ],
+    "year": 1972,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Thaddeus:1972:L73"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:H2S",
+    "sources": [],
+    "telescopes": [],
+    "wavelengths": [],
+    "year": 2018,
+    "type": "ppd",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Phuong:2018:L5"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:H2S",
+    "sources": [
+      "LMC"
+    ],
+    "telescopes": [],
+    "wavelengths": [],
+    "year": 1999,
+    "type": "exgal",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Heikkila:1999:817"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:N2H+",
+    "sources": [
+      "SgrB2",
+      "DR21",
+      "NGC6334",
+      "NGC2264"
+    ],
+    "telescopes": [
+      "NRAO36"
+    ],
+    "wavelengths": [
+      "mm"
+    ],
+    "year": 1974,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Turner:1974:L83",
+        "Green:1974:L89",
+        "Thaddeus:1975:L25"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:N2H+",
+    "sources": [],
+    "telescopes": [],
+    "wavelengths": [],
+    "year": 2003,
+    "type": "ppd",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Qi:2003:986",
+        "Dutrey:2007:615"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:N2H+",
+    "sources": [
+      "NGC253",
+      "Maffei2",
+      "IC342",
+      "M82",
+      "NGC6946"
+    ],
+    "telescopes": [],
+    "wavelengths": [],
+    "year": 1991,
+    "type": "exgal",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Mauersberger:1991:457"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:N2D+",
+    "sources": [],
+    "telescopes": [],
+    "wavelengths": [],
+    "year": 2015,
+    "type": "ppd",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Huang:2015:L26"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:C2H",
+    "sources": [
+      "OrionKL"
+    ],
+    "telescopes": [
+      "NRAO36"
+    ],
+    "wavelengths": [
+      "mm"
+    ],
+    "year": 1974,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Tucker:1974:L115"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:C2H",
+    "sources": [],
+    "telescopes": [],
+    "wavelengths": [],
+    "year": 1997,
+    "type": "ppd",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Dutrey:1997:L55"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:C2H",
+    "sources": [
+      "M82"
+    ],
+    "telescopes": [],
+    "wavelengths": [],
+    "year": 1988,
+    "type": "exgal",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Henkel:1988:L23"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:C2D",
+    "sources": [],
+    "telescopes": [],
+    "wavelengths": [],
+    "year": 2020,
+    "type": "ppd",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Loomis:2020:101"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:SO2",
+    "sources": [
+      "OrionKL",
+      "SgrB2"
+    ],
+    "telescopes": [
+      "NRAO36"
+    ],
+    "wavelengths": [
+      "mm"
+    ],
+    "year": 1975,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Snyder:1975:L81"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:SO2",
+    "sources": [],
+    "telescopes": [],
+    "wavelengths": [],
+    "year": 2021,
+    "type": "ppd",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Booth:2021:L6"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:SO2",
+    "sources": [
+      "NGC253"
+    ],
+    "telescopes": [],
+    "wavelengths": [],
+    "year": 2003,
+    "type": "exgal",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Martin:2003:L465"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:SO2",
+    "sources": [],
+    "telescopes": [],
+    "wavelengths": [],
+    "year": 2023,
+    "type": "exo",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Alderson:2023:664",
+        "Beatty:2024:L10"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:HCO",
+    "sources": [
+      "W3",
+      "NGC2024",
+      "W51",
+      "K350"
+    ],
+    "telescopes": [
+      "NRAO36"
+    ],
+    "wavelengths": [
+      "mm"
+    ],
+    "year": 1976,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Snyder:1976:L91"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:HCO",
+    "sources": [
+      "M82"
+    ],
+    "telescopes": [],
+    "wavelengths": [],
+    "year": 1995,
+    "type": "exgal",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Sage:1995:625",
+        "Garcia-Burillo:2002:L55"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:HNO",
+    "sources": [
+      "SgrB2",
+      "NGC2024"
+    ],
+    "telescopes": [
+      "NRAO36"
+    ],
+    "wavelengths": [
+      "mm"
+    ],
+    "year": 1977,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Ulich:1977:L105"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:HCS+",
+    "sources": [
+      "OrionKL",
+      "SgrB2"
+    ],
+    "telescopes": [
+      "NRAO36",
+      "Bell7m"
+    ],
+    "wavelengths": [
+      "mm"
+    ],
+    "year": 1981,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Thaddeus:1981:L41"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:HCS+",
+    "sources": [
+      "PKS1830LOS"
+    ],
+    "telescopes": [],
+    "wavelengths": [],
+    "year": 2013,
+    "type": "exgal",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Muller:2013:A109"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:HOC+",
+    "sources": [
+      "SgrB2"
+    ],
+    "telescopes": [
+      "FCRAO14m",
+      "Onsala20m"
+    ],
+    "wavelengths": [
+      "mm"
+    ],
+    "year": 1983,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Woods:1983:583"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:HOC+",
+    "sources": [
+      "NGC1068"
+    ],
+    "telescopes": [],
+    "wavelengths": [],
+    "year": 2004,
+    "type": "exgal",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Usero:2004:897"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:SiC2",
+    "sources": [
+      "IRC10216"
+    ],
+    "telescopes": [
+      "NRAO36",
+      "Bell7m"
+    ],
+    "wavelengths": [
+      "mm"
+    ],
+    "year": 1984,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Thaddeus:1984:L45"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:C2S",
+    "sources": [
+      "TMC1",
+      "IRC10216",
+      "SgrB2"
+    ],
+    "telescopes": [
+      "Nobeyama45",
+      "IRAM30"
+    ],
+    "wavelengths": [
+      "cm",
+      "mm"
+    ],
+    "year": 1987,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Saito:1987:L115"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:C2S",
+    "sources": [
+      "GGTau"
+    ],
+    "telescopes": [],
+    "wavelengths": [],
+    "year": 2021,
+    "type": "ppd",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Phuong:2021:L5"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:C2S",
+    "sources": [
+      "NGC253"
+    ],
+    "telescopes": [],
+    "wavelengths": [],
+    "year": 2006,
+    "type": "exgal",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Martin:2006:450"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:C3",
+    "sources": [
+      "IRC10216"
+    ],
+    "telescopes": [
+      "KPNO4m"
+    ],
+    "wavelengths": [
+      "IR"
+    ],
+    "year": 1988,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Hinkle:1988:1319"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:C3",
+    "sources": [
+      "SMC"
+    ],
+    "telescopes": [],
+    "wavelengths": [],
+    "year": 2013,
+    "type": "exgal",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Welty:2013:1107"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:13CCC",
+    "sources": [],
+    "telescopes": [],
+    "wavelengths": [],
+    "year": 2020,
+    "type": "ISM/CSM",
+    "first": false,
+    "refs": {
+      "observation": [
+        "Giesen:2020:A120"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:C13CC",
+    "sources": [],
+    "telescopes": [],
+    "wavelengths": [],
+    "year": 2020,
+    "type": "ISM/CSM",
+    "first": false,
+    "refs": {
+      "observation": [
+        "Giesen:2020:A120"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:CO2",
+    "sources": [
+      "AFGL961LOS",
+      "AFGL989LOS",
+      "AFGL890LOS"
+    ],
+    "telescopes": [
+      "IRAS"
+    ],
+    "wavelengths": [
+      "IR"
+    ],
+    "year": 1989,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "DHendecourt:1989:L5",
+        "vanDishoeck:1996:L349"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:CO2",
+    "sources": [],
+    "telescopes": [],
+    "wavelengths": [],
+    "year": 1989,
+    "type": "ice",
+    "first": true,
+    "refs": {
+      "observation": [
+        "DHendecourt:1989:L5"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:CO2",
+    "sources": [],
+    "telescopes": [],
+    "wavelengths": [],
+    "year": 2008,
+    "type": "ppd",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Carr:2008:1504"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:CO2",
+    "sources": [],
+    "telescopes": [],
+    "wavelengths": [],
+    "year": 2010,
+    "type": "exo",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Stevenson:2010:1161",
+        "Madhusudhan:2011:64",
+        "Lanotte:2014:A73",
+        "JWST:2023:649"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:13CO2",
+    "sources": [],
+    "telescopes": [],
+    "wavelengths": [],
+    "year": 2023,
+    "type": "ppd",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Sturm:2023:A138"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:CH2",
+    "sources": [
+      "OrionKL"
+    ],
+    "telescopes": [
+      "NRAOARO12"
+    ],
+    "wavelengths": [
+      "mm"
+    ],
+    "year": 1989,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Hollis:1989:794"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:C2O",
+    "sources": [
+      "TMC1"
+    ],
+    "telescopes": [
+      "Nobeyama45"
+    ],
+    "wavelengths": [
+      "cm"
+    ],
+    "year": 1991,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Ohishi:1991:L39"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:MgNC",
+    "sources": [
+      "IRC10216"
+    ],
+    "telescopes": [
+      "IRAM30"
+    ],
+    "wavelengths": [
+      "mm"
+    ],
+    "year": 1993,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Guelin:1986:L17"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:NH2",
+    "sources": [
+      "SgrB2LOS"
+    ],
+    "telescopes": [
+      "CSO"
+    ],
+    "wavelengths": [
+      "sub-mm"
+    ],
+    "year": 1993,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "vanDishoeck:1993:L83"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:NH2",
+    "sources": [
+      "PKS1830LOS"
+    ],
+    "telescopes": [],
+    "wavelengths": [],
+    "year": 2014,
+    "type": "exgal",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Muller:2014:A112"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:NHD",
+    "sources": [],
+    "telescopes": [],
+    "wavelengths": [],
+    "year": 2020,
+    "type": "ISM/CSM",
+    "first": false,
+    "refs": {
+      "observation": [
+        "Melosso:2020:A153"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:ND2",
+    "sources": [],
+    "telescopes": [],
+    "wavelengths": [],
+    "year": 2020,
+    "type": "ISM/CSM",
+    "first": false,
+    "refs": {
+      "observation": [
+        "Melosso:2020:A153"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:NaCN",
+    "sources": [
+      "IRC10216"
+    ],
+    "telescopes": [
+      "NRAOARO12"
+    ],
+    "wavelengths": [
+      "mm"
+    ],
+    "year": 1994,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Turner:1994:L97"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:N2O",
+    "sources": [
+      "SgrB2"
+    ],
+    "telescopes": [
+      "NRAOARO12"
+    ],
+    "wavelengths": [
+      "mm"
+    ],
+    "year": 1994,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Ziurys:1994:L181"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:MgCN",
+    "sources": [
+      "IRC10216"
+    ],
+    "telescopes": [
+      "NRAOARO12",
+      "IRAM30"
+    ],
+    "wavelengths": [
+      "mm"
+    ],
+    "year": 1995,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Ziurys:1995:L47"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:H3+",
+    "sources": [
+      "GL2136LOS",
+      "W33LOS"
+    ],
+    "telescopes": [
+      "UKIRT"
+    ],
+    "wavelengths": [
+      "IR"
+    ],
+    "year": 1996,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Geballe:1996:334"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:H3+",
+    "sources": [
+      "IRAS08572p3915"
+    ],
+    "telescopes": [],
+    "wavelengths": [],
+    "year": 2006,
+    "type": "exgal",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Geballe:2006:907"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:SiCN",
+    "sources": [
+      "IRC10216"
+    ],
+    "telescopes": [
+      "IRAM30"
+    ],
+    "wavelengths": [
+      "mm"
+    ],
+    "year": 2000,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Guelin:2000:L9"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:AlNC",
+    "sources": [
+      "IRC10216"
+    ],
+    "telescopes": [
+      "IRAM30"
+    ],
+    "wavelengths": [
+      "mm"
+    ],
+    "year": 2002,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Ziurys:2002:L45"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:SiNC",
+    "sources": [
+      "IRC10216"
+    ],
+    "telescopes": [
+      "IRAM30"
+    ],
+    "wavelengths": [
+      "mm"
+    ],
+    "year": 2004,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Guelin:2004:L49"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:HCP",
+    "sources": [
+      "IRC10216"
+    ],
+    "telescopes": [
+      "IRAM30"
+    ],
+    "wavelengths": [
+      "mm"
+    ],
+    "year": 2007,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Agundez:2007:L91"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:CCP",
+    "sources": [
+      "IRC10216"
+    ],
+    "telescopes": [
+      "NRAOARO12"
+    ],
+    "wavelengths": [
+      "mm"
+    ],
+    "year": 2008,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Halfen:2008:L101"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:AlOH",
+    "sources": [
+      "VYCaMaj"
+    ],
+    "telescopes": [
+      "NRAOARO12",
+      "SMT10"
+    ],
+    "wavelengths": [
+      "mm"
+    ],
+    "year": 2010,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Tenenbaum:2010:L93"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:H2O+",
+    "sources": [
+      "SgrB2",
+      "SgrB2LOS",
+      "NGC6334",
+      "DR21"
+    ],
+    "telescopes": [
+      "Herschel"
+    ],
+    "wavelengths": [
+      "sub-mm"
+    ],
+    "year": 2010,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Ossenkopf:2010:L111",
+        "Gerin:2010:L110"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:H2O+",
+    "sources": [
+      "M82"
+    ],
+    "telescopes": [],
+    "wavelengths": [],
+    "year": 2010,
+    "type": "exgal",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Weiss:2010:L1"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:H2Cl+",
+    "sources": [
+      "SgrB2",
+      "SgrB2LOS",
+      "NGC6334",
+      "NGC6334LOS"
+    ],
+    "telescopes": [
+      "Herschel"
+    ],
+    "wavelengths": [
+      "sub-mm"
+    ],
+    "year": 2010,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Lis:2010:L9"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:H2Cl+",
+    "sources": [
+      "PKS1830LOS"
+    ],
+    "telescopes": [],
+    "wavelengths": [],
+    "year": 2014,
+    "type": "exgal",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Muller:2014:L6"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:KCN",
+    "sources": [
+      "IRC10216"
+    ],
+    "telescopes": [
+      "NRAOARO12",
+      "SMT10",
+      "IRAM30"
+    ],
+    "wavelengths": [
+      "mm"
+    ],
+    "year": 2010,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Pulliam:2010:L181"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:FeCN",
+    "sources": [
+      "IRC10216"
+    ],
+    "telescopes": [
+      "NRAOARO12"
+    ],
+    "wavelengths": [
+      "mm"
+    ],
+    "year": 2011,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Zack:2011:L36"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:HO2",
+    "sources": [
+      "rhoOphA"
+    ],
+    "telescopes": [
+      "IRAM30",
+      "APEX"
+    ],
+    "wavelengths": [
+      "mm"
+    ],
+    "year": 2012,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Parise:2012:L11"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:TiO2",
+    "sources": [
+      "VYCaMaj"
+    ],
+    "telescopes": [
+      "SMA",
+      "PdBI"
+    ],
+    "wavelengths": [
+      "mm"
+    ],
+    "year": 2013,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Kaminski:2013:A113"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:CCN",
+    "sources": [
+      "IRC10216"
+    ],
+    "telescopes": [
+      "NRAOARO12",
+      "SMT10"
+    ],
+    "wavelengths": [
+      "mm"
+    ],
+    "year": 2014,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Anderson:2014:L1"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:SiCSi",
+    "sources": [
+      "IRC10216"
+    ],
+    "telescopes": [
+      "IRAM30"
+    ],
+    "wavelengths": [
+      "mm"
+    ],
+    "year": 2015,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Cernicharo:2015:L3"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:S2H",
+    "sources": [
+      "HorseheadPDR"
+    ],
+    "telescopes": [
+      "IRAM30"
+    ],
+    "wavelengths": [
+      "mm"
+    ],
+    "year": 2017,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Fuente:2017:L49"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:HCS",
+    "sources": [
+      "L483"
+    ],
+    "telescopes": [
+      "IRAM30"
+    ],
+    "wavelengths": [
+      "mm"
+    ],
+    "year": 2018,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Agundez:2018:L1"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:HSC",
+    "sources": [
+      "L483"
+    ],
+    "telescopes": [
+      "IRAM30"
+    ],
+    "wavelengths": [
+      "mm"
+    ],
+    "year": 2018,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Agundez:2018:L1"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:NCO",
+    "sources": [
+      "L483"
+    ],
+    "telescopes": [
+      "IRAM30"
+    ],
+    "wavelengths": [
+      "mm"
+    ],
+    "year": 2018,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Marcelino:2018:L10"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:CaNC",
+    "sources": [
+      "IRC10216"
+    ],
+    "telescopes": [
+      "IRAM30"
+    ],
+    "wavelengths": [
+      "mm"
+    ],
+    "year": 2019,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Cernicharo:2019:L4"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:NCS",
+    "sources": [
+      "TMC1"
+    ],
+    "telescopes": [
+      "Yebes40"
+    ],
+    "wavelengths": [
+      "cm"
+    ],
+    "year": 2021,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Cernicharo:2021:L3"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:MgC2",
+    "sources": [
+      "IRC10216"
+    ],
+    "telescopes": [
+      "Yebes40",
+      "IRAM30"
+    ],
+    "wavelengths": [
+      "cm",
+      "mm"
+    ],
+    "year": 2022,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Changala:2022:L42"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:HSO",
+    "sources": [
+      "B1b",
+      "TMC1",
+      "L183",
+      "L483",
+      "L1495B",
+      "L1527",
+      "Lupus1A"
+    ],
+    "telescopes": [
+      "Yebes40",
+      "IRAM30"
+    ],
+    "wavelengths": [
+      "cm",
+      "mm"
+    ],
+    "year": 2023,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Marcelino:2023:L13"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:CaC2",
+    "sources": [
+      "IRC10216"
+    ],
+    "telescopes": [
+      "GBT",
+      "Yebes40",
+      "IRAM30"
+    ],
+    "wavelengths": [
+      "cm",
+      "mm"
+    ],
+    "year": 2024,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Gupta:2024:L28"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:NH3",
+    "sources": [
+      "GalacticCenter"
+    ],
+    "telescopes": [
+      "HatCreek"
+    ],
+    "wavelengths": [
+      "cm"
+    ],
+    "year": 1968,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Cheung:1968:1701"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:NH3",
+    "sources": [],
+    "telescopes": [],
+    "wavelengths": [],
+    "year": 1998,
+    "type": "ice",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Lacy:1998:L105"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:NH3",
+    "sources": [],
+    "telescopes": [],
+    "wavelengths": [],
+    "year": 2016,
+    "type": "ppd",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Salinas:2016:A122"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:NH3",
+    "sources": [
+      "IC342",
+      "NGC253"
+    ],
+    "telescopes": [],
+    "wavelengths": [],
+    "year": 1979,
+    "type": "exgal",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Martin:1979:L7"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:NH3",
+    "sources": [
+      "HD209458b"
+    ],
+    "telescopes": [],
+    "wavelengths": [],
+    "year": 2021,
+    "type": "exo",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Giacobbe:2021:205"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:H2CO",
+    "sources": [
+      "M17LOS",
+      "M3LOS",
+      "W49LOS",
+      "NGC2024LOS",
+      "DR21LOS",
+      "W43LOS",
+      "W44LOS",
+      "W51LOS",
+      "SgrALOS",
+      "SgrB2LOS",
+      "W33LOS",
+      "NGC6334LOS",
+      "CasALOS"
+    ],
+    "telescopes": [
+      "NRAO140"
+    ],
+    "wavelengths": [
+      "cm"
+    ],
+    "year": 1969,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Snyder:1969:679"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:H2CO",
+    "sources": [],
+    "telescopes": [],
+    "wavelengths": [],
+    "year": 2001,
+    "type": "ice",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Keane:2001:254"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:H2CO",
+    "sources": [],
+    "telescopes": [],
+    "wavelengths": [],
+    "year": 1997,
+    "type": "ppd",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Dutrey:1997:L55"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:H2CO",
+    "sources": [
+      "NGC253",
+      "NGC4945"
+    ],
+    "telescopes": [],
+    "wavelengths": [],
+    "year": 1974,
+    "type": "exgal",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Gardner:1974:526"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:H213CO",
+    "sources": [],
+    "telescopes": [],
+    "wavelengths": [],
+    "year": 2024,
+    "type": "ppd",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Booth:2024:165"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:HNCO",
+    "sources": [
+      "SgrB2"
+    ],
+    "telescopes": [
+      "NRAO36"
+    ],
+    "wavelengths": [
+      "cm",
+      "mm"
+    ],
+    "year": 1972,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Snyder:1972:619"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:HNCO",
+    "sources": [
+      "NGC253",
+      "Maffei2",
+      "IC342"
+    ],
+    "telescopes": [],
+    "wavelengths": [],
+    "year": 1991,
+    "type": "exgal",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Nguyen-Q-Rieu:1991:L33"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:H2CS",
+    "sources": [
+      "SgrB2LOS"
+    ],
+    "telescopes": [
+      "Parkes64"
+    ],
+    "wavelengths": [
+      "cm"
+    ],
+    "year": 1973,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Sinclair:1973:85"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:H2CS",
+    "sources": [],
+    "telescopes": [],
+    "wavelengths": [],
+    "year": 2019,
+    "type": "ppd",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Loomis:2020:101",
+        "LeGal:2019:72"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:H2CS",
+    "sources": [
+      "NGC253"
+    ],
+    "telescopes": [],
+    "wavelengths": [],
+    "year": 2006,
+    "type": "exgal",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Martin:2006:450"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:C2H2",
+    "sources": [
+      "IRC10216"
+    ],
+    "telescopes": [
+      "KPNO4m"
+    ],
+    "wavelengths": [
+      "IR"
+    ],
+    "year": 1976,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Ridgway:1976:345"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:C2H2",
+    "sources": [],
+    "telescopes": [],
+    "wavelengths": [],
+    "year": 2006,
+    "type": "ppd",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Lahuis:2006:L145"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:C2H2",
+    "sources": [
+      "LMC"
+    ],
+    "telescopes": [],
+    "wavelengths": [],
+    "year": 2002,
+    "type": "exgal",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Matsuura:2002:L133"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:C2H2",
+    "sources": [
+      "HD209458b"
+    ],
+    "telescopes": [],
+    "wavelengths": [],
+    "year": 2021,
+    "type": "exo",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Giacobbe:2021:205"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:H13CCH",
+    "sources": [],
+    "telescopes": [],
+    "wavelengths": [],
+    "year": 2023,
+    "type": "ppd",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Tabone:2023:805"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:C3N",
+    "sources": [
+      "IRC10216",
+      "TMC1"
+    ],
+    "telescopes": [
+      "NRAO36",
+      "Onsala20m"
+    ],
+    "wavelengths": [
+      "cm",
+      "mm"
+    ],
+    "year": 1977,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Guelin:1977:L81"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:C3N",
+    "sources": [
+      "PKS1830LOS"
+    ],
+    "telescopes": [],
+    "wavelengths": [],
+    "year": 2020,
+    "type": "exgal",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Tercero:2020:L7"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:HNCS",
+    "sources": [
+      "SgrB2"
+    ],
+    "telescopes": [
+      "Bell7m",
+      "NRAO36"
+    ],
+    "wavelengths": [
+      "mm"
+    ],
+    "year": 1979,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Frerking:1979:L143"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:HOCO+",
+    "sources": [
+      "SgrB2"
+    ],
+    "telescopes": [
+      "Bell7m"
+    ],
+    "wavelengths": [
+      "mm"
+    ],
+    "year": 1981,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Thaddeus:1981:L41"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:HOCO+",
+    "sources": [
+      "NGC253"
+    ],
+    "telescopes": [],
+    "wavelengths": [],
+    "year": 2006,
+    "type": "exgal",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Aladro:2015:A101",
+        "Martin:2006:450"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:C3O",
+    "sources": [
+      "TMC1"
+    ],
+    "telescopes": [
+      "NRAOARO12",
+      "FCRAO14m",
+      "Nobeyama45"
+    ],
+    "wavelengths": [
+      "cm",
+      "mm"
+    ],
+    "year": 1985,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Matthews:1984:125"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:l-C3H",
+    "sources": [
+      "TMC1",
+      "IRC10216"
+    ],
+    "telescopes": [
+      "NRAO36",
+      "Bell7m",
+      "FCRAO14m",
+      "Onsala20m"
+    ],
+    "wavelengths": [
+      "cm",
+      "mm"
+    ],
+    "year": 1985,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Thaddeus:1985:L49"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:l-C3H",
+    "sources": [
+      "PKS1830LOS"
+    ],
+    "telescopes": [],
+    "wavelengths": [],
+    "year": 2011,
+    "type": "exgal",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Muller:2011:A103"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:HCNH+",
+    "sources": [
+      "SgrB2"
+    ],
+    "telescopes": [
+      "NRAOARO12",
+      "MWO4m"
+    ],
+    "wavelengths": [
+      "mm"
+    ],
+    "year": 1986,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Ziurys:1986:L31"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:H3O+",
+    "sources": [
+      "OrionKL",
+      "SgrB2"
+    ],
+    "telescopes": [
+      "NRAOARO12",
+      "MWO4m"
+    ],
+    "wavelengths": [
+      "mm"
+    ],
+    "year": 1986,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Wootten:1986:L15",
+        "Hollis:1986:524"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:H3O+",
+    "sources": [
+      "M82",
+      "Arp220"
+    ],
+    "telescopes": [],
+    "wavelengths": [],
+    "year": 2008,
+    "type": "exgal",
+    "first": true,
+    "refs": {
+      "observation": [
+        "vanderTak:2008:L5"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:C3S",
+    "sources": [
+      "TMC1",
+      "IRC10216"
+    ],
+    "telescopes": [
+      "Nobeyama45",
+      "IRAM30"
+    ],
+    "wavelengths": [
+      "cm",
+      "mm"
+    ],
+    "year": 1987,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Yamamoto:1987:L119"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:c-C3H",
+    "sources": [
+      "TMC1"
+    ],
+    "telescopes": [
+      "Nobeyama45"
+    ],
+    "wavelengths": [
+      "mm"
+    ],
+    "year": 1987,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Yamamoto:1987:L55"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": "Legacy detection flag: Tentative",
+    "molecule": "mol:c-C3H",
+    "sources": [
+      "NGC253"
+    ],
+    "telescopes": [],
+    "wavelengths": [],
+    "year": 2006,
+    "type": "exgal",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Martin:2006:450"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:HC2N",
+    "sources": [
+      "IRC10216"
+    ],
+    "telescopes": [
+      "IRAM30"
+    ],
+    "wavelengths": [
+      "mm"
+    ],
+    "year": 1991,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Guelin:1991:L21"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:H2CN",
+    "sources": [
+      "TMC1"
+    ],
+    "telescopes": [
+      "NRAOARO12"
+    ],
+    "wavelengths": [
+      "cm"
+    ],
+    "year": 1994,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Ohishi:1994:L51"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:H2CN",
+    "sources": [
+      "PKS1830LOS"
+    ],
+    "telescopes": [],
+    "wavelengths": [],
+    "year": 2020,
+    "type": "exgal",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Tercero:2020:L7"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:SiC3",
+    "sources": [
+      "IRC10216"
+    ],
+    "telescopes": [
+      "NRAOARO12"
+    ],
+    "wavelengths": [
+      "mm"
+    ],
+    "year": 1999,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Apponi:1999:L103"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:CH3",
+    "sources": [
+      "SgrALOS"
+    ],
+    "telescopes": [
+      "ISO"
+    ],
+    "wavelengths": [
+      "IR"
+    ],
+    "year": 2000,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Feuchtgruber:2000:L111"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:C3N-",
+    "sources": [
+      "IRC10216"
+    ],
+    "telescopes": [
+      "IRAM30"
+    ],
+    "wavelengths": [
+      "mm"
+    ],
+    "year": 2008,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Thaddeus:2008:1132"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:PH3",
+    "sources": [
+      "IRC10216",
+      "CRL2688"
+    ],
+    "telescopes": [
+      "IRAM30",
+      "Herschel",
+      "SMT10",
+      "CSO"
+    ],
+    "wavelengths": [
+      "mm",
+      "sub-mm"
+    ],
+    "year": 2008,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Agundez:2008:L33"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:HCNO",
+    "sources": [
+      "B1b",
+      "L1544",
+      "L183",
+      "L1527"
+    ],
+    "telescopes": [
+      "IRAM30"
+    ],
+    "wavelengths": [
+      "mm"
+    ],
+    "year": 2009,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Marcelino:2009:L27"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:HOCN",
+    "sources": [
+      "SgrB2"
+    ],
+    "telescopes": [
+      "Bell7m",
+      "NRAO36",
+      "NRAOARO12"
+    ],
+    "wavelengths": [
+      "mm"
+    ],
+    "year": 2009,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Brunken:2009:880"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:HOCN",
+    "sources": [
+      "NGC253"
+    ],
+    "telescopes": [],
+    "wavelengths": [],
+    "year": 2021,
+    "type": "exgal",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Martin:2021:A46"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:HSCN",
+    "sources": [
+      "SgrB2"
+    ],
+    "telescopes": [
+      "NRAOARO12"
+    ],
+    "wavelengths": [
+      "mm"
+    ],
+    "year": 2009,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Halfen:2009:L124"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:HOOH",
+    "sources": [
+      "rhoOphA"
+    ],
+    "telescopes": [
+      "APEX"
+    ],
+    "wavelengths": [
+      "mm"
+    ],
+    "year": 2011,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Bergman:2011:L8"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:l-C3H+",
+    "sources": [
+      "HorseheadPDR"
+    ],
+    "telescopes": [
+      "IRAM30"
+    ],
+    "wavelengths": [
+      "mm"
+    ],
+    "year": 2012,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Pety:2012:A68"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:l-C3H+",
+    "sources": [
+      "PKS1830LOS"
+    ],
+    "telescopes": [],
+    "wavelengths": [],
+    "year": 2020,
+    "type": "exgal",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Tercero:2020:L7"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:HMgNC",
+    "sources": [
+      "IRC10216"
+    ],
+    "telescopes": [
+      "IRAM30"
+    ],
+    "wavelengths": [
+      "mm"
+    ],
+    "year": 2013,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Cabezas:2013:133"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:HCCO",
+    "sources": [
+      "Lupus1A",
+      "L483"
+    ],
+    "telescopes": [
+      "IRAM30"
+    ],
+    "wavelengths": [
+      "mm"
+    ],
+    "year": 2015,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Agundez:2015:L5"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:CNCN",
+    "sources": [
+      "L483"
+    ],
+    "telescopes": [
+      "IRAM30"
+    ],
+    "wavelengths": [
+      "mm"
+    ],
+    "year": 2018,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Agundez:2018:L22"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:HONO",
+    "sources": [
+      "IRAS16293"
+    ],
+    "telescopes": [
+      "ALMA"
+    ],
+    "wavelengths": [
+      "sub-mm"
+    ],
+    "year": 2019,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Coutens:2019:L13"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:MgCCH",
+    "sources": [
+      "IRC10216"
+    ],
+    "telescopes": [
+      "IRAM30"
+    ],
+    "wavelengths": [
+      "mm"
+    ],
+    "year": 2019,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Agundez:2014:A45",
+        "Cernicharo:2019:L2"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:HCCS",
+    "sources": [
+      "TMC1"
+    ],
+    "telescopes": [
+      "Yebes40"
+    ],
+    "wavelengths": [
+      "cm"
+    ],
+    "year": 2021,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Cernicharo:2021:L3"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:HNCN",
+    "sources": [
+      "G0693"
+    ],
+    "telescopes": [
+      "Yebes40",
+      "IRAM30"
+    ],
+    "wavelengths": [
+      "cm",
+      "mm"
+    ],
+    "year": 2021,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Rivilla:2021:L79"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:H2NC",
+    "sources": [
+      "L483"
+    ],
+    "telescopes": [
+      "IRAM30"
+    ],
+    "wavelengths": [
+      "mm"
+    ],
+    "year": 2021,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Cabezas:2021:A45"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:H2NC",
+    "sources": [
+      "PKS1830LOS"
+    ],
+    "telescopes": [],
+    "wavelengths": [],
+    "year": 2021,
+    "type": "exgal",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Cabezas:2021:A45"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:HCCS+",
+    "sources": [
+      "TMC1"
+    ],
+    "telescopes": [
+      "IRAM30",
+      "Yebes40"
+    ],
+    "wavelengths": [
+      "cm",
+      "mm"
+    ],
+    "year": 2022,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Cabezas:2022:L4"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:CH3+",
+    "sources": [
+      "d203506"
+    ],
+    "telescopes": [
+      "JWST"
+    ],
+    "wavelengths": [
+      "IR"
+    ],
+    "year": 2023,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Berne:2023:56"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:HCNS",
+    "sources": [
+      "TMC1"
+    ],
+    "telescopes": [
+      "Yebes40"
+    ],
+    "wavelengths": [
+      "cm"
+    ],
+    "year": 2024,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Cernicharo:2024:L4"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:HOCS+",
+    "sources": [
+      "G0693"
+    ],
+    "telescopes": [
+      "Yebes40",
+      "IRAM30"
+    ],
+    "wavelengths": [
+      "cm",
+      "mm"
+    ],
+    "year": 2024,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Sanz-Novo:2024:149"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:HNSO",
+    "sources": [
+      "G0693"
+    ],
+    "telescopes": [
+      "Yebes40",
+      "IRAM30"
+    ],
+    "wavelengths": [
+      "cm",
+      "mm"
+    ],
+    "year": 2024,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Sanz-Novo:2024:L26"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:HC3N",
+    "sources": [
+      "SgrB2"
+    ],
+    "telescopes": [
+      "NRAO140"
+    ],
+    "wavelengths": [
+      "cm"
+    ],
+    "year": 1971,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Turner:1971:L35"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:HC3N",
+    "sources": [],
+    "telescopes": [],
+    "wavelengths": [],
+    "year": 2012,
+    "type": "ppd",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Chapillon:2012:58"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:HC3N",
+    "sources": [
+      "NGC253"
+    ],
+    "telescopes": [],
+    "wavelengths": [],
+    "year": 1988,
+    "type": "exgal",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Mauersberger:1990:63",
+        "Henkel:1988:L23"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:HCOOH",
+    "sources": [
+      "SgrB2"
+    ],
+    "telescopes": [
+      "NRAO140"
+    ],
+    "wavelengths": [
+      "cm"
+    ],
+    "year": 1971,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Zuckerman:1971:L41"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:HCOOH",
+    "sources": [],
+    "telescopes": [],
+    "wavelengths": [],
+    "year": 1999,
+    "type": "ice",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Schutte:1999:966"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:HCOOH",
+    "sources": [],
+    "telescopes": [],
+    "wavelengths": [],
+    "year": 2018,
+    "type": "ppd",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Favre:2018:L2"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:HCOOH",
+    "sources": [
+      "PKS1830LOS"
+    ],
+    "telescopes": [],
+    "wavelengths": [],
+    "year": 2020,
+    "type": "exgal",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Tercero:2020:L7"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:CH2NH",
+    "sources": [
+      "SgrB2"
+    ],
+    "telescopes": [
+      "Parkes64"
+    ],
+    "wavelengths": [
+      "cm"
+    ],
+    "year": 1973,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Godfrey:1973:119"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:CH2NH",
+    "sources": [
+      "PKS1830LOS"
+    ],
+    "telescopes": [],
+    "wavelengths": [],
+    "year": 2011,
+    "type": "exgal",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Muller:2011:A103"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:NH2CN",
+    "sources": [
+      "SgrB2"
+    ],
+    "telescopes": [
+      "NRAO36"
+    ],
+    "wavelengths": [
+      "mm"
+    ],
+    "year": 1975,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Turner:1975:L149"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:NH2CN",
+    "sources": [
+      "NGC253"
+    ],
+    "telescopes": [],
+    "wavelengths": [],
+    "year": 2006,
+    "type": "exgal",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Martin:2006:450"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:H2CCO",
+    "sources": [
+      "SgrB2"
+    ],
+    "telescopes": [
+      "NRAO36"
+    ],
+    "wavelengths": [
+      "mm"
+    ],
+    "year": 1977,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Turner:1977:L75"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:H2CCO",
+    "sources": [
+      "PKS1830LOS"
+    ],
+    "telescopes": [],
+    "wavelengths": [],
+    "year": 2011,
+    "type": "exgal",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Muller:2011:A103"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:C4H",
+    "sources": [
+      "IRC10216"
+    ],
+    "telescopes": [
+      "NRAO36"
+    ],
+    "wavelengths": [
+      "mm"
+    ],
+    "year": 1978,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Guelin:1978:L27"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:C4H",
+    "sources": [
+      "PKS1830LOS"
+    ],
+    "telescopes": [],
+    "wavelengths": [],
+    "year": 2011,
+    "type": "exgal",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Muller:2011:A103"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:SiH4",
+    "sources": [
+      "IRC10216"
+    ],
+    "telescopes": [
+      "IRTF"
+    ],
+    "wavelengths": [
+      "IR"
+    ],
+    "year": 1984,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Goldhaber:1984:L55"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:c-C3H2",
+    "sources": [
+      "SgrB2",
+      "OrionKL",
+      "TMC1"
+    ],
+    "telescopes": [
+      "Bell7m"
+    ],
+    "wavelengths": [
+      "cm",
+      "mm"
+    ],
+    "year": 1985,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Thaddeus:1985:L63"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:c-C3H2",
+    "sources": [],
+    "telescopes": [],
+    "wavelengths": [],
+    "year": 2013,
+    "type": "ppd",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Qi:2013:L14"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:c-C3H2",
+    "sources": [
+      "NGC5128"
+    ],
+    "telescopes": [],
+    "wavelengths": [],
+    "year": 1986,
+    "type": "exgal",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Seaquist:1986:L67"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:CH2CN",
+    "sources": [
+      "TMC1",
+      "SgrB2"
+    ],
+    "telescopes": [
+      "FCRAO14m",
+      "NRAO140",
+      "Onsala20m",
+      "Nobeyama45"
+    ],
+    "wavelengths": [
+      "cm"
+    ],
+    "year": 1988,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Irvine:1988:L107"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:CH2CN",
+    "sources": [],
+    "telescopes": [],
+    "wavelengths": [],
+    "year": 2021,
+    "type": "ppd",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Canta:2021:62"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:CH2CN",
+    "sources": [
+      "PKS1830LOS"
+    ],
+    "telescopes": [],
+    "wavelengths": [],
+    "year": 2011,
+    "type": "exgal",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Muller:2011:A103"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:HDCCN",
+    "sources": [],
+    "telescopes": [],
+    "wavelengths": [],
+    "year": 2021,
+    "type": "ISM/CSM",
+    "first": false,
+    "refs": {
+      "observation": [
+        "Cabezas:2021:L1"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:C5",
+    "sources": [
+      "IRC10216"
+    ],
+    "telescopes": [
+      "KPNO4m"
+    ],
+    "wavelengths": [
+      "IR"
+    ],
+    "year": 1989,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Bernath:1989:562"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:SiC4",
+    "sources": [
+      "IRC10216"
+    ],
+    "telescopes": [
+      "Nobeyama45"
+    ],
+    "wavelengths": [
+      "cm",
+      "mm"
+    ],
+    "year": 1989,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Ohishi:1989:L83"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:H2CCC",
+    "sources": [
+      "TMC1"
+    ],
+    "telescopes": [
+      "IRAM30",
+      "Effelsberg100"
+    ],
+    "wavelengths": [
+      "cm",
+      "mm"
+    ],
+    "year": 1991,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Cernicharo:1991:L39"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:H2CCC",
+    "sources": [
+      "PKS1830LOS"
+    ],
+    "telescopes": [],
+    "wavelengths": [],
+    "year": 2011,
+    "type": "exgal",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Muller:2011:A103"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:CH4",
+    "sources": [
+      "NGC7538LOS"
+    ],
+    "telescopes": [
+      "IRTF"
+    ],
+    "wavelengths": [
+      "IR"
+    ],
+    "year": 1991,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Lacy:1991:556"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:CH4",
+    "sources": [],
+    "telescopes": [],
+    "wavelengths": [],
+    "year": 1991,
+    "type": "ice",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Lacy:1991:556"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:CH4",
+    "sources": [],
+    "telescopes": [],
+    "wavelengths": [],
+    "year": 2013,
+    "type": "ppd",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Gibb:2013:L28"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:CH4",
+    "sources": [],
+    "telescopes": [],
+    "wavelengths": [],
+    "year": 2008,
+    "type": "exo",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Swain:2008:329",
+        "Barman:2011:65",
+        "Stevenson:2014:36",
+        "Barman:2015:61"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:CH3D",
+    "sources": [],
+    "telescopes": [],
+    "wavelengths": [],
+    "year": 2024,
+    "type": "exo",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Rowland:2024:L49"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:HCCNC",
+    "sources": [
+      "TMC1"
+    ],
+    "telescopes": [
+      "Nobeyama45"
+    ],
+    "wavelengths": [
+      "cm",
+      "mm"
+    ],
+    "year": 1992,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Kawaguchi:1992:L51"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:HNCCC",
+    "sources": [
+      "TMC1"
+    ],
+    "telescopes": [
+      "Nobeyama45"
+    ],
+    "wavelengths": [
+      "cm"
+    ],
+    "year": 1992,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Kawaguchi:1992:L49"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:H2COH+",
+    "sources": [
+      "SgrB2",
+      "OrionKL",
+      "W51"
+    ],
+    "telescopes": [
+      "Nobeyama45",
+      "NRAOARO12"
+    ],
+    "wavelengths": [
+      "cm",
+      "mm"
+    ],
+    "year": 1996,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Ohishi:1996:L61"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:C4H-",
+    "sources": [
+      "IRC10216"
+    ],
+    "telescopes": [
+      "IRAM30"
+    ],
+    "wavelengths": [
+      "mm"
+    ],
+    "year": 2007,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Cernicharo:2007:L37"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:CNCHO",
+    "sources": [
+      "SgrB2"
+    ],
+    "telescopes": [
+      "GBT"
+    ],
+    "wavelengths": [
+      "cm"
+    ],
+    "year": 2007,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Remijan:2008:L85"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:HNCNH",
+    "sources": [
+      "SgrB2"
+    ],
+    "telescopes": [
+      "GBT"
+    ],
+    "wavelengths": [
+      "cm"
+    ],
+    "year": 2012,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "McGuire:2012:L33"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:CH3O",
+    "sources": [
+      "B1b"
+    ],
+    "telescopes": [
+      "IRAM30"
+    ],
+    "wavelengths": [
+      "mm"
+    ],
+    "year": 2012,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Cernicharo:2012:L43"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:NH3D+",
+    "sources": [
+      "OrionKL",
+      "B1b"
+    ],
+    "telescopes": [
+      "IRAM30"
+    ],
+    "wavelengths": [
+      "mm"
+    ],
+    "year": 2013,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Gupta:2013:L1"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:H2NCO+",
+    "sources": [
+      "SgrB2",
+      "L483"
+    ],
+    "telescopes": [
+      "GBT"
+    ],
+    "wavelengths": [
+      "cm"
+    ],
+    "year": 2013,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Cernicharo:2013:L10"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:NCCNH+",
+    "sources": [
+      "TMC1",
+      "L483"
+    ],
+    "telescopes": [
+      "IRAM30",
+      "Yebes40"
+    ],
+    "wavelengths": [
+      "cm",
+      "mm"
+    ],
+    "year": 2015,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Agundez:2015:L10"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:CH3Cl",
+    "sources": [
+      "IRAS16293"
+    ],
+    "telescopes": [
+      "ALMA"
+    ],
+    "wavelengths": [
+      "mm"
+    ],
+    "year": 2017,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Fayolle:2017:703"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:MgC3N",
+    "sources": [
+      "IRC10216"
+    ],
+    "telescopes": [
+      "IRAM30",
+      "Yebes40"
+    ],
+    "wavelengths": [
+      "cm",
+      "mm"
+    ],
+    "year": 2019,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Cernicharo:2019:L2"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:HC3O+",
+    "sources": [
+      "TMC1"
+    ],
+    "telescopes": [
+      "IRAM30",
+      "Yebes40"
+    ],
+    "wavelengths": [
+      "cm",
+      "mm"
+    ],
+    "year": 2020,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Cernicharo:2020:L17"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:NH2OH",
+    "sources": [
+      "G0693"
+    ],
+    "telescopes": [
+      "IRAM30"
+    ],
+    "wavelengths": [
+      "mm"
+    ],
+    "year": 2020,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Rivilla:2020:L28"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:HC3S+",
+    "sources": [
+      "TMC1"
+    ],
+    "telescopes": [
+      "Yebes40"
+    ],
+    "wavelengths": [
+      "cm"
+    ],
+    "year": 2021,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Cernicharo:2021:L3b"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:H2CCS",
+    "sources": [
+      "TMC1"
+    ],
+    "telescopes": [
+      "Yebes40"
+    ],
+    "wavelengths": [
+      "cm"
+    ],
+    "year": 2021,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Cernicharo:2021:L3"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:C4S",
+    "sources": [
+      "TMC1"
+    ],
+    "telescopes": [
+      "Yebes40"
+    ],
+    "wavelengths": [
+      "cm"
+    ],
+    "year": 2021,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Cernicharo:2021:L3"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:CHOSH",
+    "sources": [
+      "G0693"
+    ],
+    "telescopes": [
+      "Yebes40",
+      "IRAM30"
+    ],
+    "wavelengths": [
+      "cm",
+      "mm"
+    ],
+    "year": 2021,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Rodriguez-Almeida:2021:L11"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:HCSCN",
+    "sources": [
+      "TMC1"
+    ],
+    "telescopes": [
+      "Yebes40"
+    ],
+    "wavelengths": [
+      "cm"
+    ],
+    "year": 2021,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Cernicharo:2021:L14"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:HC3O",
+    "sources": [
+      "TMC1"
+    ],
+    "telescopes": [
+      "Yebes40"
+    ],
+    "wavelengths": [
+      "cm"
+    ],
+    "year": 2021,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Cernicharo:2021:L21"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:NaCCCN",
+    "sources": [
+      "IRC10216"
+    ],
+    "telescopes": [
+      "Yebes40"
+    ],
+    "wavelengths": [
+      "cm"
+    ],
+    "year": 2023,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Cabezas:2023:L12"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:MgC3N+",
+    "sources": [
+      "IRC10216"
+    ],
+    "telescopes": [
+      "Yebes40"
+    ],
+    "wavelengths": [
+      "cm"
+    ],
+    "year": 2023,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Cernicharo:2023:L13"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:C2H3+",
+    "sources": [
+      "PKS1830"
+    ],
+    "telescopes": [
+      "ALMA"
+    ],
+    "wavelengths": [
+      "mm"
+    ],
+    "year": 2024,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Muller:2024:A62"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:NCCHS",
+    "sources": [
+      "TMC1"
+    ],
+    "telescopes": [
+      "Yebes40"
+    ],
+    "wavelengths": [
+      "cm"
+    ],
+    "year": 2024,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Cabezas:2024:L3"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:HC3N+",
+    "sources": [
+      "TMC1"
+    ],
+    "telescopes": [
+      "Yebes40"
+    ],
+    "wavelengths": [
+      "cm"
+    ],
+    "year": 2024,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Cabezas:2024:L22"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:NC3S",
+    "sources": [
+      "TMC1"
+    ],
+    "telescopes": [
+      "Yebes40"
+    ],
+    "wavelengths": [
+      "cm"
+    ],
+    "year": 2024,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Cernicharo:2024:L13a"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:HC3S",
+    "sources": [
+      "TMC1"
+    ],
+    "telescopes": [
+      "Yebes40"
+    ],
+    "wavelengths": [
+      "cm"
+    ],
+    "year": 2024,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Cernicharo:2024:L13a"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:HCSSH",
+    "sources": [
+      "NGC1333IRAS4A"
+    ],
+    "telescopes": [
+      "ALMA"
+    ],
+    "wavelengths": [
+      "sub-mm"
+    ],
+    "year": 2024,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Manna:2024:2401"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:CH3OH",
+    "sources": [
+      "SgrA",
+      "SgrB2"
+    ],
+    "telescopes": [
+      "NRAO140"
+    ],
+    "wavelengths": [
+      "cm"
+    ],
+    "year": 1970,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Ball:1970:L203"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:CH3OH",
+    "sources": [],
+    "telescopes": [],
+    "wavelengths": [],
+    "year": 1991,
+    "type": "ice",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Grim:1991:473"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:CH3OH",
+    "sources": [],
+    "telescopes": [],
+    "wavelengths": [],
+    "year": 2016,
+    "type": "ppd",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Walsh:2016:L10"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:CH3OH",
+    "sources": [
+      "NGC253",
+      "IC342"
+    ],
+    "telescopes": [],
+    "wavelengths": [],
+    "year": 1987,
+    "type": "exgal",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Henkel:1987:L1"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:CH3CN",
+    "sources": [
+      "SgrA",
+      "SgrB2"
+    ],
+    "telescopes": [
+      "NRAO36"
+    ],
+    "wavelengths": [
+      "mm"
+    ],
+    "year": 1971,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Solomon:1971:L107"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:CH3CN",
+    "sources": [],
+    "telescopes": [],
+    "wavelengths": [],
+    "year": 2015,
+    "type": "ppd",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Oberg:2015:198"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:CH3CN",
+    "sources": [
+      "NGC253"
+    ],
+    "telescopes": [],
+    "wavelengths": [],
+    "year": 1991,
+    "type": "exgal",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Mauersberger:1991:307"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:NH2CHO",
+    "sources": [
+      "SgrB2"
+    ],
+    "telescopes": [
+      "NRAO140"
+    ],
+    "wavelengths": [
+      "cm"
+    ],
+    "year": 1971,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Rubin:1971:L39"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:NH2CHO",
+    "sources": [
+      "PKS1830LOS"
+    ],
+    "telescopes": [],
+    "wavelengths": [],
+    "year": 2013,
+    "type": "exgal",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Muller:2013:A109"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:CH3SH",
+    "sources": [
+      "SgrB2"
+    ],
+    "telescopes": [
+      "Bell7m"
+    ],
+    "wavelengths": [
+      "mm"
+    ],
+    "year": 1979,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Linke:1979:L139"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:CH3SH",
+    "sources": [
+      "PKS1830LOS"
+    ],
+    "telescopes": [],
+    "wavelengths": [],
+    "year": 2020,
+    "type": "exgal",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Tercero:2020:L7"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:C2H4",
+    "sources": [
+      "IRC10216"
+    ],
+    "telescopes": [
+      "McMath"
+    ],
+    "wavelengths": [
+      "IR"
+    ],
+    "year": 1981,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Betz:1981:L103"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:C5H",
+    "sources": [
+      "IRC10216"
+    ],
+    "telescopes": [
+      "IRAM30"
+    ],
+    "wavelengths": [
+      "cm"
+    ],
+    "year": 1986,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Cernicharo:1986:L1"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:CH3NC",
+    "sources": [
+      "SgrB2"
+    ],
+    "telescopes": [
+      "IRAM30"
+    ],
+    "wavelengths": [
+      "mm"
+    ],
+    "year": 1988,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Cernicharo:1988:L1"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:HC2CHO",
+    "sources": [
+      "TMC1"
+    ],
+    "telescopes": [
+      "NRAO140",
+      "Nobeyama45"
+    ],
+    "wavelengths": [
+      "cm"
+    ],
+    "year": 1988,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Irvine:1988:L89"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:HC2CHO",
+    "sources": [
+      "NGC253"
+    ],
+    "telescopes": [],
+    "wavelengths": [],
+    "year": 2021,
+    "type": "exgal",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Martin:2021:A46"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:H2C4",
+    "sources": [
+      "IRC10216"
+    ],
+    "telescopes": [
+      "IRAM30"
+    ],
+    "wavelengths": [
+      "mm"
+    ],
+    "year": 1991,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Cernicharo:1991:L43"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:C5S",
+    "sources": [
+      "IRC10216"
+    ],
+    "telescopes": [
+      "NRAO140"
+    ],
+    "wavelengths": [
+      "cm"
+    ],
+    "year": 1993,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Bell:1993:L37"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:HC3NH+",
+    "sources": [
+      "TMC1"
+    ],
+    "telescopes": [
+      "Nobeyama45"
+    ],
+    "wavelengths": [
+      "cm"
+    ],
+    "year": 1994,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Kawaguchi:1994:L95"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:C5N",
+    "sources": [
+      "TMC1"
+    ],
+    "telescopes": [
+      "IRAM30",
+      "Effelsberg100"
+    ],
+    "wavelengths": [
+      "cm"
+    ],
+    "year": 1998,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Guelin:1998:L1"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:HC4H",
+    "sources": [
+      "CRL618"
+    ],
+    "telescopes": [
+      "ISO"
+    ],
+    "wavelengths": [
+      "IR"
+    ],
+    "year": 2001,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Cernicharo:2001:L123"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:HC4H",
+    "sources": [],
+    "telescopes": [],
+    "wavelengths": [],
+    "year": 2023,
+    "type": "ppd",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Tabone:2023:805"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:HC4H",
+    "sources": [
+      "SMPLMC11"
+    ],
+    "telescopes": [],
+    "wavelengths": [],
+    "year": 2006,
+    "type": "exgal",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Bernard-Salas:2006:L29"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:HC4N",
+    "sources": [
+      "IRC10216"
+    ],
+    "telescopes": [
+      "IRAM30"
+    ],
+    "wavelengths": [
+      "mm"
+    ],
+    "year": 2004,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Cernicharo:2004:L145"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:c-H2C3O",
+    "sources": [
+      "SgrB2"
+    ],
+    "telescopes": [
+      "GBT"
+    ],
+    "wavelengths": [
+      "cm"
+    ],
+    "year": 2006,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Hollis:2006:933"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:CH2CNH",
+    "sources": [
+      "SgrB2"
+    ],
+    "telescopes": [
+      "GBT"
+    ],
+    "wavelengths": [
+      "cm"
+    ],
+    "year": 2006,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Lovas:2006:L137"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:C5N-",
+    "sources": [
+      "IRC10216"
+    ],
+    "telescopes": [
+      "IRAM30"
+    ],
+    "wavelengths": [
+      "mm"
+    ],
+    "year": 2008,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Cernicharo:2008:L83"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:HNCHCN",
+    "sources": [
+      "SgrB2"
+    ],
+    "telescopes": [
+      "GBT"
+    ],
+    "wavelengths": [
+      "cm"
+    ],
+    "year": 2013,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Zaleski:2013:L10"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:SiH3CN",
+    "sources": [
+      "IRC10216"
+    ],
+    "telescopes": [
+      "IRAM30"
+    ],
+    "wavelengths": [
+      "mm"
+    ],
+    "year": 2014,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Agundez:2014:A45"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:MgC4H",
+    "sources": [
+      "IRC10216"
+    ],
+    "telescopes": [
+      "IRAM30",
+      "Yebes40"
+    ],
+    "wavelengths": [
+      "cm",
+      "mm"
+    ],
+    "year": 2019,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Cernicharo:2019:L2"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:CH3CO+",
+    "sources": [
+      "TMC1",
+      "L483",
+      "L1527",
+      "L1544"
+    ],
+    "telescopes": [
+      "IRAM30",
+      "Yebes40"
+    ],
+    "wavelengths": [
+      "cm",
+      "mm"
+    ],
+    "year": 2021,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Cernicharo:2021:L7"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:H2CCCS",
+    "sources": [
+      "TMC1"
+    ],
+    "telescopes": [
+      "Yebes40"
+    ],
+    "wavelengths": [
+      "cm"
+    ],
+    "year": 2021,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Cernicharo:2021:L3"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:CH2CCH",
+    "sources": [
+      "TMC1"
+    ],
+    "telescopes": [
+      "Yebes40"
+    ],
+    "wavelengths": [
+      "cm"
+    ],
+    "year": 2021,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Agundez:2021:L10"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:HCSCCH",
+    "sources": [
+      "TMC1"
+    ],
+    "telescopes": [
+      "Yebes40"
+    ],
+    "wavelengths": [
+      "cm"
+    ],
+    "year": 2021,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Cernicharo:2021:L14"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:C5O",
+    "sources": [
+      "TMC1"
+    ],
+    "telescopes": [
+      "Yebes40"
+    ],
+    "wavelengths": [
+      "cm"
+    ],
+    "year": 2021,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Cernicharo:2021:L21"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:HCCNCH+",
+    "sources": [
+      "TMC1"
+    ],
+    "telescopes": [
+      "Yebes40"
+    ],
+    "wavelengths": [
+      "cm"
+    ],
+    "year": 2022,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Agundez:2022:L9"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:C5H+",
+    "sources": [
+      "TMC1"
+    ],
+    "telescopes": [
+      "Yebes40"
+    ],
+    "wavelengths": [
+      "cm"
+    ],
+    "year": 2022,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Cernicharo:2022:L16"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:cC5H",
+    "sources": [
+      "TMC1"
+    ],
+    "telescopes": [
+      "Yebes40"
+    ],
+    "wavelengths": [
+      "cm"
+    ],
+    "year": 2022,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Cabezas:2022:L2"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:HC4S",
+    "sources": [
+      "TMC1"
+    ],
+    "telescopes": [
+      "Yebes40"
+    ],
+    "wavelengths": [
+      "cm"
+    ],
+    "year": 2022,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Fuentetaja:2022:L4"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:HMgCCCN",
+    "sources": [
+      "IRC10216"
+    ],
+    "telescopes": [
+      "Yebes40"
+    ],
+    "wavelengths": [
+      "cm"
+    ],
+    "year": 2023,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Cabezas:2023:L12"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:MgC4H+",
+    "sources": [
+      "IRC10216"
+    ],
+    "telescopes": [
+      "Yebes40",
+      "IRAM30"
+    ],
+    "wavelengths": [
+      "cm",
+      "mm"
+    ],
+    "year": 2023,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Cernicharo:2023:L13"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:H2C3H+",
+    "sources": [
+      "TMC1"
+    ],
+    "telescopes": [
+      "Yebes40",
+      "IRAM30"
+    ],
+    "wavelengths": [
+      "cm",
+      "mm"
+    ],
+    "year": 2023,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Silva:2023:L1"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:HOCOOH",
+    "sources": [
+      "G0693"
+    ],
+    "telescopes": [
+      "Yebes40",
+      "IRAM30"
+    ],
+    "wavelengths": [
+      "cm",
+      "mm"
+    ],
+    "year": 2023,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Sanz-Novo:2023:3"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:H2C3N",
+    "sources": [
+      "TMC1"
+    ],
+    "telescopes": [
+      "Yebes40"
+    ],
+    "wavelengths": [
+      "cm"
+    ],
+    "year": 2023,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Cabezas:2023:L5"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:H2CNCN",
+    "sources": [
+      "G0693"
+    ],
+    "telescopes": [
+      "Yebes40",
+      "IRAM30"
+    ],
+    "wavelengths": [
+      "cm",
+      "mm"
+    ],
+    "year": 2024,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "SanAndres:2024:39"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:CH3CHO",
+    "sources": [
+      "SgrB2"
+    ],
+    "telescopes": [
+      "NRAO140"
+    ],
+    "wavelengths": [
+      "cm"
+    ],
+    "year": 1973,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Gottlieb:1973:181",
+        "Fourikis:1974:425",
+        "Gilmore:1976:43"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:CH3CHO",
+    "sources": [],
+    "telescopes": [],
+    "wavelengths": [],
+    "year": 2024,
+    "type": "ice",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Chen:2024:A205"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:CH3CHO",
+    "sources": [
+      "PKS1830LOS"
+    ],
+    "telescopes": [],
+    "wavelengths": [],
+    "year": 2011,
+    "type": "exgal",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Muller:2011:A103"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:CHD2CHO",
+    "sources": [],
+    "telescopes": [],
+    "wavelengths": [],
+    "year": 2023,
+    "type": "ISM/CSM",
+    "first": false,
+    "refs": {
+      "observation": [
+        "FerrerAsensio:2023:A177"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:CH3CCH",
+    "sources": [
+      "SgrB2"
+    ],
+    "telescopes": [
+      "NRAO36"
+    ],
+    "wavelengths": [
+      "mm"
+    ],
+    "year": 1973,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Buhl:1973:187"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:CH3CCH",
+    "sources": [
+      "NGC253",
+      "M82"
+    ],
+    "telescopes": [],
+    "wavelengths": [],
+    "year": 1991,
+    "type": "exgal",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Mauersberger:1991:307"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:CH3NH2",
+    "sources": [
+      "SgrB2",
+      "OrionKL"
+    ],
+    "telescopes": [
+      "Mitaka6",
+      "NRAO36",
+      "Parkes64"
+    ],
+    "wavelengths": [
+      "cm",
+      "mm"
+    ],
+    "year": 1974,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Fourikis:1974:L139",
+        "Kaifu:1974:L135"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:CH3NH2",
+    "sources": [
+      "PKS1830LOS"
+    ],
+    "telescopes": [],
+    "wavelengths": [],
+    "year": 2011,
+    "type": "exgal",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Muller:2011:A103"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:CH2CHCN",
+    "sources": [
+      "SgrB2"
+    ],
+    "telescopes": [
+      "Parkes64"
+    ],
+    "wavelengths": [
+      "cm"
+    ],
+    "year": 1975,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Gardner:1975:L127"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:CH2CHCN",
+    "sources": [
+      "PKS1830LOS"
+    ],
+    "telescopes": [],
+    "wavelengths": [],
+    "year": 2020,
+    "type": "exgal",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Tercero:2020:L7"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:HC5N",
+    "sources": [
+      "SgrB2"
+    ],
+    "telescopes": [
+      "Algonquin46"
+    ],
+    "wavelengths": [
+      "cm"
+    ],
+    "year": 1976,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Broten:1976:L143",
+        "Avery:1976:L173"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": "Legacy detection flag: Tentative",
+    "molecule": "mol:HC5N",
+    "sources": [
+      "NGC253"
+    ],
+    "telescopes": [],
+    "wavelengths": [],
+    "year": 2015,
+    "type": "exgal",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Aladro:2015:A101"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:C6H",
+    "sources": [
+      "TMC1"
+    ],
+    "telescopes": [
+      "Nobeyama45"
+    ],
+    "wavelengths": [
+      "cm"
+    ],
+    "year": 1986,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Suzuki:1986:911"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:c-C2H4O",
+    "sources": [
+      "SgrB2"
+    ],
+    "telescopes": [
+      "Haystack37",
+      "Nobeyama45",
+      "SEST15"
+    ],
+    "wavelengths": [
+      "cm",
+      "mm"
+    ],
+    "year": 1997,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Dickens:1997:753"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:c-C2H4O",
+    "sources": [],
+    "telescopes": [],
+    "wavelengths": [],
+    "year": 2024,
+    "type": "ppd",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Booth:2024:165"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:C2H3DO",
+    "sources": [],
+    "telescopes": [],
+    "wavelengths": [],
+    "year": 2023,
+    "type": "ISM/CSM",
+    "first": false,
+    "refs": {
+      "observation": [
+        "Muller:2023:185"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:CH2CHOH",
+    "sources": [
+      "SgrB2"
+    ],
+    "telescopes": [
+      "NRAOARO12"
+    ],
+    "wavelengths": [
+      "mm"
+    ],
+    "year": 2001,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Turner:2001:L207"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:C6H-",
+    "sources": [
+      "TMC1",
+      "IRC10216"
+    ],
+    "telescopes": [
+      "GBT"
+    ],
+    "wavelengths": [
+      "cm"
+    ],
+    "year": 2006,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "McCarthy:2006:L141"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:CH3NCO",
+    "sources": [
+      "SgrB2",
+      "OrionKL"
+    ],
+    "telescopes": [
+      "NRAOARO12",
+      "SMT10"
+    ],
+    "wavelengths": [
+      "mm"
+    ],
+    "year": 2015,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Halfen:2015:L5"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:HC5O",
+    "sources": [
+      "TMC1"
+    ],
+    "telescopes": [
+      "GBT"
+    ],
+    "wavelengths": [
+      "cm"
+    ],
+    "year": 2017,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "McGuire:2017:L28"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:HOCH2CN",
+    "sources": [
+      "IRAS16293"
+    ],
+    "telescopes": [
+      "ALMA"
+    ],
+    "wavelengths": [
+      "mm"
+    ],
+    "year": 2019,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Zeng:2019:L43"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:HC4NC",
+    "sources": [
+      "TMC1"
+    ],
+    "telescopes": [
+      "GBT",
+      "Yebes40"
+    ],
+    "wavelengths": [
+      "mm"
+    ],
+    "year": 2020,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Xue:2020:L9",
+        "Cernicharo:2020:L8"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:HC3HNH",
+    "sources": [
+      "G0693"
+    ],
+    "telescopes": [
+      "IRAM30"
+    ],
+    "wavelengths": [
+      "mm"
+    ],
+    "year": 2020,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Bizzocchi:2020:A98"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:C3HCCH",
+    "sources": [
+      "TMC1"
+    ],
+    "telescopes": [
+      "Yebes40"
+    ],
+    "wavelengths": [
+      "cm"
+    ],
+    "year": 2021,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Cernicharo:2021:L15a"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:MgC5N",
+    "sources": [
+      "IRC10216"
+    ],
+    "telescopes": [
+      "Yebes40"
+    ],
+    "wavelengths": [
+      "cm"
+    ],
+    "year": 2021,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Pardo:2021:L13"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:CH2C3N",
+    "sources": [
+      "TMC1"
+    ],
+    "telescopes": [
+      "Yebes40"
+    ],
+    "wavelengths": [
+      "cm"
+    ],
+    "year": 2021,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Cabezas:2021:L9a"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:l-H2C5",
+    "sources": [
+      "TMC1"
+    ],
+    "telescopes": [
+      "Yebes40"
+    ],
+    "wavelengths": [
+      "cm"
+    ],
+    "year": 2021,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Cabezas:2021:L9"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:NC4NH+",
+    "sources": [
+      "TMC1"
+    ],
+    "telescopes": [
+      "Yebes40"
+    ],
+    "wavelengths": [
+      "cm"
+    ],
+    "year": 2023,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Agundez:2023:L1"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:MgC5N+",
+    "sources": [
+      "IRC10216"
+    ],
+    "telescopes": [
+      "Yebes40"
+    ],
+    "wavelengths": [
+      "cm"
+    ],
+    "year": 2023,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Cernicharo:2023:L13"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:HC5N+",
+    "sources": [
+      "TMC1"
+    ],
+    "telescopes": [
+      "Yebes40"
+    ],
+    "wavelengths": [
+      "cm"
+    ],
+    "year": 2024,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Cernicharo:2024:L15"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:HNC5",
+    "sources": [
+      "TMC1"
+    ],
+    "telescopes": [
+      "Yebes40"
+    ],
+    "wavelengths": [
+      "cm"
+    ],
+    "year": 2024,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Fuentetaja:2024:L29"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:CH2CNCN",
+    "sources": [
+      "TMC1"
+    ],
+    "telescopes": [
+      "Yebes40"
+    ],
+    "wavelengths": [
+      "cm"
+    ],
+    "year": 2024,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Agundez:2024:L31"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:HCOOCH3",
+    "sources": [
+      "SgrB2"
+    ],
+    "telescopes": [
+      "Parkes64",
+      "Effelsberg100"
+    ],
+    "wavelengths": [
+      "cm"
+    ],
+    "year": 1975,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Churchwell:1975:229",
+        "Brown:1975:L29"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:HCOOCH3",
+    "sources": [],
+    "telescopes": [],
+    "wavelengths": [],
+    "year": 2024,
+    "type": "ice",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Chen:2024:A205"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:HCOOCH3",
+    "sources": [
+      "LMC"
+    ],
+    "telescopes": [],
+    "wavelengths": [],
+    "year": 2018,
+    "type": "exgal",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Sewilo:2018:L19"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:CH3C3N",
+    "sources": [
+      "TMC1"
+    ],
+    "telescopes": [
+      "NRAO140"
+    ],
+    "wavelengths": [
+      "cm"
+    ],
+    "year": 1984,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Broten:1984:L25"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:C7H",
+    "sources": [
+      "IRC10216"
+    ],
+    "telescopes": [
+      "IRAM30"
+    ],
+    "wavelengths": [
+      "mm"
+    ],
+    "year": 1997,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Guelin:1997:L1"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:CH3COOH",
+    "sources": [
+      "SgrB2"
+    ],
+    "telescopes": [
+      "BIMA",
+      "OVRO"
+    ],
+    "wavelengths": [
+      "mm"
+    ],
+    "year": 1997,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Mehringer:1997:L71"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:H2C6",
+    "sources": [
+      "TMC1"
+    ],
+    "telescopes": [
+      "Goldstone70"
+    ],
+    "wavelengths": [
+      "cm"
+    ],
+    "year": 1997,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Langer:1997:L63"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:CH2OHCHO",
+    "sources": [
+      "SgrB2"
+    ],
+    "telescopes": [
+      "NRAOARO12"
+    ],
+    "wavelengths": [
+      "mm"
+    ],
+    "year": 2000,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Hollis:2000:L107"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:HC6H",
+    "sources": [
+      "CRL618"
+    ],
+    "telescopes": [
+      "ISO"
+    ],
+    "wavelengths": [
+      "IR"
+    ],
+    "year": 2001,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Cernicharo:2001:L123"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:HC6H",
+    "sources": [
+      "SMPLMC11"
+    ],
+    "telescopes": [],
+    "wavelengths": [],
+    "year": 2006,
+    "type": "exgal",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Bernard-Salas:2006:L29"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:CH2CHCHO",
+    "sources": [
+      "SgrB2",
+      "G327306LOS"
+    ],
+    "telescopes": [
+      "NRAOARO12",
+      "SEST15"
+    ],
+    "wavelengths": [
+      "cm"
+    ],
+    "year": 2004,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Hollis:2004:L21"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:CH2CCHCN",
+    "sources": [
+      "TMC1"
+    ],
+    "telescopes": [
+      "GBT"
+    ],
+    "wavelengths": [
+      "cm"
+    ],
+    "year": 2006,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Lovas:2006:L37"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:NH2CH2CN",
+    "sources": [
+      "SgrB2"
+    ],
+    "telescopes": [
+      "IRAM30",
+      "PdBI",
+      "ATCA"
+    ],
+    "wavelengths": [
+      "mm"
+    ],
+    "year": 2008,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Belloche:2008:179"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:CH3CHNH",
+    "sources": [
+      "SgrB2"
+    ],
+    "telescopes": [
+      "GBT"
+    ],
+    "wavelengths": [
+      "cm"
+    ],
+    "year": 2013,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Loomis:2013:L9"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:CH3SiH3",
+    "sources": [
+      "IRC10216"
+    ],
+    "telescopes": [
+      "IRAM30"
+    ],
+    "wavelengths": [
+      "mm"
+    ],
+    "year": 2017,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Cernicharo:2017:L5"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:NH2CONH2",
+    "sources": [
+      "SgrB2"
+    ],
+    "telescopes": [
+      "ALMA"
+    ],
+    "wavelengths": [
+      "mm"
+    ],
+    "year": 2019,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Belloche:2019:A10"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:HCCCH2CN",
+    "sources": [
+      "TMC1"
+    ],
+    "telescopes": [
+      "GBT"
+    ],
+    "wavelengths": [
+      "cm"
+    ],
+    "year": 2020,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "McGuire:2020:L10a"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:CH2CHCCH",
+    "sources": [
+      "TMC1"
+    ],
+    "telescopes": [
+      "Yebes40"
+    ],
+    "wavelengths": [
+      "cm"
+    ],
+    "year": 2021,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Cernicharo:2021:L2"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:MgC6H",
+    "sources": [
+      "IRC10216"
+    ],
+    "telescopes": [
+      "Yebes40"
+    ],
+    "wavelengths": [
+      "cm"
+    ],
+    "year": 2021,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Pardo:2021:L13"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:C2H3NH2",
+    "sources": [
+      "G0693"
+    ],
+    "telescopes": [
+      "IRAM30",
+      "Yebes40"
+    ],
+    "wavelengths": [
+      "cm",
+      "mm"
+    ],
+    "year": 2021,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Zeng:2021:L27"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:HOCHCHOH",
+    "sources": [
+      "G0693"
+    ],
+    "telescopes": [
+      "Yebes40",
+      "IRAM30"
+    ],
+    "wavelengths": [
+      "cm",
+      "mm"
+    ],
+    "year": 2022,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Rivilla:2022:L11"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:HCCCHCCC",
+    "sources": [
+      "TMC1"
+    ],
+    "telescopes": [
+      "Yebes40"
+    ],
+    "wavelengths": [
+      "cm"
+    ],
+    "year": 2022,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Fuentetaja:2022:L4"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:C7N-",
+    "sources": [
+      "TMC1",
+      "IRC10216"
+    ],
+    "telescopes": [
+      "Yebes40"
+    ],
+    "wavelengths": [
+      "cm"
+    ],
+    "year": 2023,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Cernicharo:2023:L19"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:CH3CHCO",
+    "sources": [
+      "TMC1"
+    ],
+    "telescopes": [
+      "Yebes40"
+    ],
+    "wavelengths": [
+      "cm"
+    ],
+    "year": 2023,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Fuentetaja:2023:L6"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:MgC6H+",
+    "sources": [
+      "IRC10216"
+    ],
+    "telescopes": [
+      "Yebes40"
+    ],
+    "wavelengths": [
+      "cm"
+    ],
+    "year": 2023,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Cernicharo:2023:L13"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:NCCHCHCN",
+    "sources": [
+      "TMC1"
+    ],
+    "telescopes": [
+      "Yebes40"
+    ],
+    "wavelengths": [
+      "cm"
+    ],
+    "year": 2024,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Agundez:2024:L31"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:CH3OCH3",
+    "sources": [
+      "OrionKL"
+    ],
+    "telescopes": [
+      "NRAO36",
+      "NRL85"
+    ],
+    "wavelengths": [
+      "cm",
+      "mm"
+    ],
+    "year": 1974,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Snyder:1974:L79"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:CH3OCH3",
+    "sources": [],
+    "telescopes": [],
+    "wavelengths": [],
+    "year": 2024,
+    "type": "ice",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Chen:2024:A205"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:CH3OCH3",
+    "sources": [],
+    "telescopes": [],
+    "wavelengths": [],
+    "year": 2022,
+    "type": "ppd",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Brunken:2022:A29"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:CH3OCH3",
+    "sources": [
+      "NGC1068",
+      "LMC"
+    ],
+    "telescopes": [],
+    "wavelengths": [],
+    "year": 2018,
+    "type": "exgal",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Qiu:2018:A3",
+        "Sewilo:2018:L19"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:CH3CH2OH",
+    "sources": [
+      "SgrB2"
+    ],
+    "telescopes": [
+      "NRAO36"
+    ],
+    "wavelengths": [
+      "mm"
+    ],
+    "year": 1975,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Zuckerman:1975:L99"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:CH3CH2OH",
+    "sources": [],
+    "telescopes": [],
+    "wavelengths": [],
+    "year": 2024,
+    "type": "ice",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Chen:2024:A205"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:CH3CH2OH",
+    "sources": [
+      "NGC253"
+    ],
+    "telescopes": [],
+    "wavelengths": [],
+    "year": 2021,
+    "type": "exgal",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Martin:2021:A46"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:CH3CH2CN",
+    "sources": [
+      "SgrB2",
+      "OrionKL"
+    ],
+    "telescopes": [
+      "NRAO36"
+    ],
+    "wavelengths": [
+      "mm"
+    ],
+    "year": 1977,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Johnson:1977:370"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:HC7N",
+    "sources": [
+      "TMC1"
+    ],
+    "telescopes": [
+      "Algonquin46",
+      "Haystack37"
+    ],
+    "wavelengths": [
+      "cm"
+    ],
+    "year": 1977,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Kroto:1977:303",
+        "Kroto:1978:L133"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:CH3C4H",
+    "sources": [
+      "TMC1"
+    ],
+    "telescopes": [
+      "Haystack37",
+      "NRAO140",
+      "Effelsberg100"
+    ],
+    "wavelengths": [
+      "cm"
+    ],
+    "year": 1984,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Walmsley:1984:L11"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:C8H",
+    "sources": [
+      "IRC10216"
+    ],
+    "telescopes": [
+      "IRAM30",
+      "Nobeyama45"
+    ],
+    "wavelengths": [
+      "mm"
+    ],
+    "year": 1996,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Cernicharo:1996:L27"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:CH3CONH2",
+    "sources": [
+      "SgrB2"
+    ],
+    "telescopes": [
+      "GBT"
+    ],
+    "wavelengths": [
+      "cm"
+    ],
+    "year": 2006,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Hollis:2006:L25"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:C8H-",
+    "sources": [
+      "TMC1",
+      "IRC10216"
+    ],
+    "telescopes": [
+      "GBT"
+    ],
+    "wavelengths": [
+      "cm"
+    ],
+    "year": 2007,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Brunken:2007:L43",
+        "Remijan:2007:L47"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:CH2CHCH3",
+    "sources": [
+      "TMC1"
+    ],
+    "telescopes": [
+      "IRAM30"
+    ],
+    "wavelengths": [
+      "mm"
+    ],
+    "year": 2007,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Marcelino:2007:L127"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:CH3CH2SH",
+    "sources": [
+      "OrionKL"
+    ],
+    "telescopes": [
+      "IRAM30"
+    ],
+    "wavelengths": [
+      "mm"
+    ],
+    "year": 2014,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Kolesnikova:2014:L7"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:HC7O",
+    "sources": [
+      "TMC1"
+    ],
+    "telescopes": [
+      "GBT"
+    ],
+    "wavelengths": [
+      "cm"
+    ],
+    "year": 2017,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "McGuire:2017:L28"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:CH3NHCHO",
+    "sources": [
+      "SgrB2"
+    ],
+    "telescopes": [
+      "ALMA"
+    ],
+    "wavelengths": [
+      "mm"
+    ],
+    "year": 2021,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Belloche:2019:A10"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:H2CCCHCCH",
+    "sources": [
+      "TMC1"
+    ],
+    "telescopes": [
+      "Yebes40"
+    ],
+    "wavelengths": [
+      "cm"
+    ],
+    "year": 2021,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Cernicharo:2021:L3a"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:HCCCHCHCN",
+    "sources": [
+      "TMC1"
+    ],
+    "telescopes": [
+      "GBT"
+    ],
+    "wavelengths": [
+      "cm"
+    ],
+    "year": 2021,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Lee:2021:L11"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:H2CCHC3N",
+    "sources": [
+      "TMC1"
+    ],
+    "telescopes": [
+      "GBT"
+    ],
+    "wavelengths": [
+      "cm"
+    ],
+    "year": 2021,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Lee:2021:L11"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:HOCHCHCHO",
+    "sources": [
+      "IRAS16293"
+    ],
+    "telescopes": [
+      "ALMA"
+    ],
+    "wavelengths": [
+      "sub-mm"
+    ],
+    "year": 2024,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Muller:2024:A8"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:HC7N+",
+    "sources": [
+      "TMC1"
+    ],
+    "telescopes": [
+      "Yebes40"
+    ],
+    "wavelengths": [
+      "cm"
+    ],
+    "year": 2024,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Cernicharo:2024:L15"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:HCCCH2CCH",
+    "sources": [
+      "TMC1"
+    ],
+    "telescopes": [
+      "Yebes40"
+    ],
+    "wavelengths": [
+      "cm"
+    ],
+    "year": 2024,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Fuentetaja:2024:L15"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:CH3COCH3",
+    "sources": [
+      "SgrB2"
+    ],
+    "telescopes": [
+      "IRAM30",
+      "NRAO140",
+      "NRAOARO12"
+    ],
+    "wavelengths": [
+      "cm",
+      "mm"
+    ],
+    "year": 1987,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Combes:1987:L13"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:CH3COCH3",
+    "sources": [],
+    "telescopes": [],
+    "wavelengths": [],
+    "year": 2024,
+    "type": "ice",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Chen:2024:A205"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:HOCH2CH2OH",
+    "sources": [
+      "SgrB2"
+    ],
+    "telescopes": [
+      "NRAOARO12"
+    ],
+    "wavelengths": [
+      "mm"
+    ],
+    "year": 2002,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Hollis:2002:L59"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:CH3CH2CHO",
+    "sources": [
+      "SgrB2"
+    ],
+    "telescopes": [
+      "GBT"
+    ],
+    "wavelengths": [
+      "cm"
+    ],
+    "year": 2004,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Hollis:2004:L21"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:CH3C5N",
+    "sources": [
+      "TMC1"
+    ],
+    "telescopes": [
+      "GBT"
+    ],
+    "wavelengths": [
+      "cm"
+    ],
+    "year": 2006,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Snyder:2006:412"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:CH3CHCH2O",
+    "sources": [
+      "SgrB2"
+    ],
+    "telescopes": [
+      "GBT"
+    ],
+    "wavelengths": [
+      "cm"
+    ],
+    "year": 2016,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "McGuire:2016:1449"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:CH3OCH2OH",
+    "sources": [
+      "NGC6334"
+    ],
+    "telescopes": [
+      "ALMA"
+    ],
+    "wavelengths": [
+      "mm"
+    ],
+    "year": 2017,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "McGuire:2017:L46"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:H2CCCHC3N",
+    "sources": [
+      "TMC1"
+    ],
+    "telescopes": [
+      "GBT"
+    ],
+    "wavelengths": [
+      "cm"
+    ],
+    "year": 2021,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Shingledecker:2021:L12"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:C6H4",
+    "sources": [
+      "TMC1"
+    ],
+    "telescopes": [
+      "Yebes40",
+      "IRAM30"
+    ],
+    "wavelengths": [
+      "cm"
+    ],
+    "year": 2021,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Cernicharo:2021:L9"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:C2H5NCO",
+    "sources": [
+      "G0693"
+    ],
+    "telescopes": [
+      "IRAM30",
+      "Yebes40"
+    ],
+    "wavelengths": [
+      "cm"
+    ],
+    "year": 2021,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Rodriguez-Almeida:2021:L1"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:HC7NH+",
+    "sources": [
+      "TMC1"
+    ],
+    "telescopes": [
+      "Yebes40"
+    ],
+    "wavelengths": [
+      "cm"
+    ],
+    "year": 2022,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Cabezas:2022:L8"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:CH3CHCHCN",
+    "sources": [
+      "TMC1"
+    ],
+    "telescopes": [
+      "Yebes40"
+    ],
+    "wavelengths": [
+      "cm"
+    ],
+    "year": 2022,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Cernicharo:2022:L5"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:CH2CCH3CN",
+    "sources": [
+      "TMC1"
+    ],
+    "telescopes": [
+      "Yebes40"
+    ],
+    "wavelengths": [
+      "cm"
+    ],
+    "year": 2022,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Cernicharo:2022:L5"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:CH2CHCH2CN",
+    "sources": [
+      "TMC1"
+    ],
+    "telescopes": [
+      "Yebes40"
+    ],
+    "wavelengths": [
+      "cm"
+    ],
+    "year": 2022,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Cernicharo:2022:L5"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:NH2COCH2OH",
+    "sources": [
+      "G0693"
+    ],
+    "telescopes": [
+      "Yebes40",
+      "IRAM30"
+    ],
+    "wavelengths": [
+      "cm",
+      "mm"
+    ],
+    "year": 2023,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Rivilla:2023:L20"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:CH3CH2CCH",
+    "sources": [
+      "TMC1"
+    ],
+    "telescopes": [
+      "Yebes40"
+    ],
+    "wavelengths": [
+      "cm"
+    ],
+    "year": 2024,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Cernicharo:2024:A139"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:HC9N",
+    "sources": [
+      "TMC1"
+    ],
+    "telescopes": [
+      "Algonquin46",
+      "NRAO140"
+    ],
+    "wavelengths": [
+      "cm"
+    ],
+    "year": 1978,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Broten:1978:L105"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:CH3C6H",
+    "sources": [
+      "TMC1"
+    ],
+    "telescopes": [
+      "GBT"
+    ],
+    "wavelengths": [
+      "cm"
+    ],
+    "year": 2006,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Remijan:2006:L37"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:C2H5OCHO",
+    "sources": [
+      "SgrB2"
+    ],
+    "telescopes": [
+      "IRAM30"
+    ],
+    "wavelengths": [
+      "mm"
+    ],
+    "year": 2009,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Belloche:2009:215"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:CH3COOCH3",
+    "sources": [
+      "OrionKL"
+    ],
+    "telescopes": [
+      "IRAM30"
+    ],
+    "wavelengths": [
+      "mm"
+    ],
+    "year": 2013,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Tercero:2013:L13"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:CH3COCH2OH",
+    "sources": [
+      "IRAS16293"
+    ],
+    "telescopes": [
+      "ALMA"
+    ],
+    "wavelengths": [
+      "mm"
+    ],
+    "year": 2020,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Zhou:2020:125"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:C5H6",
+    "sources": [
+      "TMC1"
+    ],
+    "telescopes": [
+      "Yebes40"
+    ],
+    "wavelengths": [
+      "cm"
+    ],
+    "year": 2021,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Cernicharo:2021:L15a"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:NH2CH2CH2OH",
+    "sources": [
+      "G0693"
+    ],
+    "telescopes": [
+      "Yebes40",
+      "IRAM30"
+    ],
+    "wavelengths": [
+      "cm",
+      "mm"
+    ],
+    "year": 2021,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Rivilla:2021:e2101314118"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:CH2CCHC4H",
+    "sources": [
+      "TMC1"
+    ],
+    "telescopes": [
+      "Yebes40"
+    ],
+    "wavelengths": [
+      "cm"
+    ],
+    "year": 2022,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Fuentetaja:2022:L3"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:C10H-",
+    "sources": [
+      "TMC1"
+    ],
+    "telescopes": [
+      "GBT"
+    ],
+    "wavelengths": [
+      "cm"
+    ],
+    "year": 2023,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Remijan:2023:L45"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:C4H5CN",
+    "sources": [
+      "TMC1"
+    ],
+    "telescopes": [
+      "GBT"
+    ],
+    "wavelengths": [
+      "cm"
+    ],
+    "year": 2023,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Cooke:2023:133"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:C6H6",
+    "sources": [
+      "CRL618"
+    ],
+    "telescopes": [
+      "ISO"
+    ],
+    "wavelengths": [
+      "IR"
+    ],
+    "year": 2001,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Cernicharo:2001:L123"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:C6H6",
+    "sources": [],
+    "telescopes": [],
+    "wavelengths": [],
+    "year": 2023,
+    "type": "ppd",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Tabone:2023:805"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:C6H6",
+    "sources": [
+      "SMPLMC11"
+    ],
+    "telescopes": [],
+    "wavelengths": [],
+    "year": 2006,
+    "type": "exgal",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Bernard-Salas:2006:L29"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:n-C3H7CN",
+    "sources": [
+      "SgrB2"
+    ],
+    "telescopes": [
+      "IRAM30"
+    ],
+    "wavelengths": [
+      "mm"
+    ],
+    "year": 2009,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Belloche:2009:215"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:i-C3H7CN",
+    "sources": [
+      "SgrB2"
+    ],
+    "telescopes": [
+      "ALMA"
+    ],
+    "wavelengths": [
+      "mm"
+    ],
+    "year": 2014,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Belloche:2014:1584"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:C2H5OCH3",
+    "sources": [
+      "OrionKL"
+    ],
+    "telescopes": [
+      "ALMA"
+    ],
+    "wavelengths": [
+      "mm"
+    ],
+    "year": 2018,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Tercero:2018:L6"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:1-C5H5CN",
+    "sources": [
+      "TMC1"
+    ],
+    "telescopes": [
+      "GBT"
+    ],
+    "wavelengths": [
+      "cm"
+    ],
+    "year": 2021,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "McCarthy:2021:176"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:2-C5H5CN",
+    "sources": [
+      "TMC1"
+    ],
+    "telescopes": [
+      "GBT"
+    ],
+    "wavelengths": [
+      "cm"
+    ],
+    "year": 2021,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Lee:2021:L2a"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:nCH3CH2CH2OH",
+    "sources": [
+      "G0693"
+    ],
+    "telescopes": [
+      "IRAM30",
+      "Yebes40"
+    ],
+    "wavelengths": [
+      "cm",
+      "mm"
+    ],
+    "year": 2022,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Jimenez-Serra:2022:A181"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:iCH3CH2CH2OH",
+    "sources": [
+      "SgrB2"
+    ],
+    "telescopes": [
+      "ALMA"
+    ],
+    "wavelengths": [
+      "mm"
+    ],
+    "year": 2022,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Belloche:2022:A110"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:iC4H8",
+    "sources": [
+      "G0693"
+    ],
+    "telescopes": [
+      "Yebes40",
+      "IRAM30"
+    ],
+    "wavelengths": [
+      "cm",
+      "mm"
+    ],
+    "year": 2023,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Fatima:2023:A25"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:C6H5CN",
+    "sources": [
+      "TMC1"
+    ],
+    "telescopes": [
+      "GBT"
+    ],
+    "wavelengths": [
+      "cm"
+    ],
+    "year": 2018,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "McGuire:2018:202a"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:HC11N",
+    "sources": [
+      "TMC1"
+    ],
+    "telescopes": [
+      "GBT"
+    ],
+    "wavelengths": [
+      "cm"
+    ],
+    "year": 2021,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Loomis:2021:188a"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:1-C5H5CCH",
+    "sources": [
+      "TMC1"
+    ],
+    "telescopes": [
+      "Yebes40"
+    ],
+    "wavelengths": [
+      "cm"
+    ],
+    "year": 2021,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Cernicharo:2021:L1"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:2-C5H5CCH",
+    "sources": [
+      "TMC1"
+    ],
+    "telescopes": [
+      "Yebes40"
+    ],
+    "wavelengths": [
+      "cm"
+    ],
+    "year": 2021,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Cernicharo:2021:L1"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:cC5H4CCH2",
+    "sources": [
+      "TMC1"
+    ],
+    "telescopes": [
+      "Yebes40"
+    ],
+    "wavelengths": [
+      "cm"
+    ],
+    "year": 2022,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Cernicharo:2022:L9"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:CH3OCH2CH2OH",
+    "sources": [
+      "NGC6334"
+    ],
+    "telescopes": [
+      "ALMA"
+    ],
+    "wavelengths": [
+      "mm"
+    ],
+    "year": 2024,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Fried:2024:L23"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:c-C6H5CCH",
+    "sources": [
+      "TMC1"
+    ],
+    "telescopes": [
+      "Yebes40"
+    ],
+    "wavelengths": [
+      "cm"
+    ],
+    "year": 2023,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Loru:2023:A166"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:CNN1",
+    "sources": [
+      "TMC1"
+    ],
+    "telescopes": [
+      "GBT"
+    ],
+    "wavelengths": [
+      "cm"
+    ],
+    "year": 2021,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "McGuire:2021:1265a"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:CNN2",
+    "sources": [
+      "TMC1"
+    ],
+    "telescopes": [
+      "GBT"
+    ],
+    "wavelengths": [
+      "cm"
+    ],
+    "year": 2021,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "McGuire:2021:1265a"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:C9H8",
+    "sources": [
+      "TMC1"
+    ],
+    "telescopes": [
+      "GBT",
+      "Yebes40"
+    ],
+    "wavelengths": [
+      "cm"
+    ],
+    "year": 2021,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Burkhardt:2021:L18a",
+        "Cernicharo:2021:L15a"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:C9H7CN",
+    "sources": [
+      "TMC1"
+    ],
+    "telescopes": [
+      "GBT"
+    ],
+    "wavelengths": [
+      "cm"
+    ],
+    "year": 2022,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Sita:2022:L12"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:CAN1",
+    "sources": [
+      "TMC1"
+    ],
+    "telescopes": [
+      "Yebes40"
+    ],
+    "wavelengths": [
+      "cm"
+    ],
+    "year": 2024,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Cernicharo:2024:L13b"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:CAN5",
+    "sources": [
+      "TMC1"
+    ],
+    "telescopes": [
+      "Yebes40"
+    ],
+    "wavelengths": [
+      "cm"
+    ],
+    "year": 2024,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Cernicharo:2024:L13b"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:CNP1",
+    "sources": [
+      "TMC1"
+    ],
+    "telescopes": [
+      "GBT"
+    ],
+    "wavelengths": [
+      "cm"
+    ],
+    "year": 2024,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Wenzel:2024:810"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:CNP2",
+    "sources": [
+      "TMC1"
+    ],
+    "telescopes": [
+      "GBT"
+    ],
+    "wavelengths": [
+      "cm"
+    ],
+    "year": 2024,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Wenzel:2025:262"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:CNP4",
+    "sources": [
+      "TMC1"
+    ],
+    "telescopes": [
+      "GBT"
+    ],
+    "wavelengths": [
+      "cm"
+    ],
+    "year": 2024,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Wenzel:2025:262"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:C60",
+    "sources": [
+      "TC1",
+      "NGC7023"
+    ],
+    "telescopes": [
+      "Spitzer"
+    ],
+    "wavelengths": [
+      "IR"
+    ],
+    "year": 2010,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Cami:2010:1180"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:C60+",
+    "sources": [
+      "NGC7023"
+    ],
+    "telescopes": [
+      "Spitzer"
+    ],
+    "wavelengths": [
+      "IR"
+    ],
+    "year": 2013,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Berne:2013:L4"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:C70",
+    "sources": [
+      "TC1"
+    ],
+    "telescopes": [
+      "Spitzer"
+    ],
+    "wavelengths": [
+      "IR"
+    ],
+    "year": 2010,
+    "type": "ISM/CSM",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Cami:2010:1180"
+      ]
+    },
+    "latex_text": null
   }
 ]

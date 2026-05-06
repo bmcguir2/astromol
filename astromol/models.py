@@ -1,7 +1,8 @@
 from dataclasses import dataclass, field
 from datetime import date
 from functools import cached_property
-from molmass import Formula
+import re
+from molmass import ELECTRON, ELEMENTS, Formula, FormulaError
 
 # from rdkit import Chem # type: ignore (VSCode is a terrible program)
 # from rdkit.Chem import Descriptors # type: ignore (VSCode is a terrible program)
@@ -55,6 +56,18 @@ WAVELENGTHS = [
     "UV",             # ultraviolet
     "Vis",            # visible
 ]
+
+SIMPLE_FORMULA_TOKEN = re.compile(
+    r"(?:\[(?P<isotope>\d+)(?P<isotope_symbol>[A-Z][a-z]?)\]|"
+    r"(?P<symbol>[A-Z][a-z]?))(?P<count>\d*)"
+)
+
+ISOTOPE_MASS_OVERRIDES = {
+    # Relative atomic masses for isotope labels used by astromol but not
+    # included in molmass' isotope table. 26Al is from AME2020 data as exposed
+    # by the periodictable package.
+    "26Al": 25.98689188,
+}
 
 DETECTION_REF_ROLES = [
     "observation",    # papers reporting the astronomical detection
@@ -348,6 +361,58 @@ class Molecule:
             allow_empty=False,
         )
 
+    @cached_property
+    def _simple_formula_tokens(self):
+        """Tokenize simple formula strings as a fallback for unsupported isotopes."""
+        formula = self.formula.rstrip("+-")
+        tokens = []
+        position = 0
+
+        while position < len(formula):
+            match = SIMPLE_FORMULA_TOKEN.match(formula, position)
+            if match is None:
+                return None
+
+            symbol = match.group("isotope_symbol") or match.group("symbol")
+            isotope = match.group("isotope")
+            count = int(match.group("count") or 1)
+            tokens.append((symbol, isotope, count))
+            position = match.end()
+
+        return tokens
+
+    def _simple_atom_counts(self, isotopic=False):
+        """Return atom counts from the fallback tokenizer, if applicable."""
+        if self._simple_formula_tokens is None:
+            return None
+
+        counts = {}
+        for symbol, isotope, count in self._simple_formula_tokens:
+            key = f"{isotope}{symbol}" if isotopic and isotope else symbol
+            counts[key] = counts.get(key, 0) + count
+        return counts
+
+    def _fallback_formula_mass(self, average=False):
+        """Compute mass when molmass lacks one explicitly requested isotope."""
+        if self._simple_formula_tokens is None:
+            raise FormulaError("unsupported fallback formula", self.formula, 0)
+
+        total = 0.0
+        for symbol, isotope, count in self._simple_formula_tokens:
+            total += self._fallback_atom_mass(symbol, isotope, average) * count
+
+        return total - self.charge * ELECTRON.mass
+
+    def _fallback_atom_mass(self, symbol, isotope, average):
+        """Return an atomic mass for fallback mass calculations."""
+        if isotope:
+            key = f"{isotope}{symbol}"
+            if key in ISOTOPE_MASS_OVERRIDES:
+                return ISOTOPE_MASS_OVERRIDES[key]
+            return ELEMENTS[symbol].isotopes[int(isotope)].mass
+
+        return ELEMENTS[symbol].mass if average else ELEMENTS[symbol].exactmass
+
     # === Computed properties: use formula via molmass, with explicit overrides ===
 
     @property
@@ -361,11 +426,17 @@ class Molecule:
 
         Use isotope_counts if isotope labels need to be retained.
         """
-        return {
-            symbol: item.count
-            for symbol, item in self._formula.composition(isotopic=False).items()
-            if symbol != "e-"
-        }
+        try:
+            return {
+                symbol: item.count
+                for symbol, item in self._formula.composition(isotopic=False).items()
+                if symbol != "e-"
+            }
+        except FormulaError:
+            counts = self._simple_atom_counts(isotopic=False)
+            if counts is None:
+                raise
+            return counts
 
     @property
     def atoms(self):
@@ -375,36 +446,71 @@ class Molecule:
     @property
     def isotope_counts(self):
         """Elemental composition retaining isotope labels where present."""
-        return {
-            symbol: item.count
-            for symbol, item in self._formula.composition(isotopic=True).items()
-            if symbol != "e-"
-        }
+        try:
+            return {
+                symbol: item.count
+                for symbol, item in self._formula.composition(isotopic=True).items()
+                if symbol != "e-"
+            }
+        except FormulaError:
+            counts = self._simple_atom_counts(isotopic=True)
+            if counts is None:
+                raise
+            return counts
 
     @property
     def mass(self):
         """Exact/monoisotopic molecular mass in amu."""
-        return self._formula.monoisotopic_mass
+        try:
+            return self._formula.monoisotopic_mass
+        except FormulaError:
+            return self._fallback_formula_mass(average=False)
 
     @property
     def average_mass(self):
         """Average molecular mass from terrestrial isotopic abundances."""
-        return self._formula.mass
+        try:
+            return self._formula.mass
+        except FormulaError:
+            return self._fallback_formula_mass(average=True)
 
     @property
     def nominal_mass(self):
         """Nominal integer mass of the formula."""
-        return self._formula.nominal_mass
+        try:
+            return self._formula.nominal_mass
+        except FormulaError:
+            if self._simple_formula_tokens is None:
+                raise
+
+            total = 0
+            for symbol, isotope, count in self._simple_formula_tokens:
+                mass = int(isotope) if isotope else ELEMENTS[symbol].nominalmass
+                total += mass * count
+            return total
 
     @property
     def natoms(self):
         """Total number of nuclei in the formula."""
-        return self._formula.atoms
+        try:
+            return self._formula.atoms
+        except FormulaError:
+            counts = self._simple_atom_counts(isotopic=True)
+            if counts is None:
+                raise
+            return sum(counts.values())
 
     @property
     def charge(self):
         """Formal charge of the molecule."""
-        return self._formula.charge
+        try:
+            return self._formula.charge
+        except FormulaError:
+            signs = re.search(r"([+-]+)$", self.formula)
+            if signs is None:
+                return 0
+            text = signs.group(1)
+            return text.count("+") - text.count("-")
 
     @property
     def cation(self):
@@ -428,13 +534,9 @@ class Molecule:
         This is the sum of neutral atomic numbers minus the molecular charge.
         A cation has fewer electrons; an anion has more.
         """
-        # Imported here so the top-level imports stay focused on the parser.
-        from molmass import ELEMENTS
-
         total = 0
-        for symbol, item in self._formula.composition(isotopic=False).items():
-            if symbol != "e-":
-                total += ELEMENTS[symbol].number * item.count
+        for symbol, count in self.atom_counts.items():
+            total += ELEMENTS[symbol].number * count
         return total - self.charge
 
     @property
