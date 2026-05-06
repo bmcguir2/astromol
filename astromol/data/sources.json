@@ -802,6 +802,18 @@
     "simbad_url": "http://simbad.u-strasbg.fr/simbad/sim-id?Ident=Xi+Per",
     "latex_name": "Xi Per LOS",
     "note": null
+  },
+
+  {
+    "_break": "==========================================",
+    "name": "TYC 8998-760-1 b",
+    "nick": "TYC89987601b",
+    "type": "Exoplanet",
+    "ra": "13:25:12.12",
+    "dec": "-64:56:20.68",
+    "simbad_url": "https://simbad.u-strasbg.fr/simbad/sim-basic?Ident=2MASS+J13251211%E2%88%926456207",
+    "latex_name": "TYC 8998-760-1 b",
+    "note": "Host system also called 2MASS+J13251211-6456207."
   }
 
 ]

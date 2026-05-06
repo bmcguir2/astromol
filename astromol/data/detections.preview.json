@@ -48,6 +48,22 @@
   },
   {
     "note": null,
+    "molecule": "mol:C15N",
+    "sources": [],
+    "telescopes": [],
+    "wavelengths": [],
+    "year": 2017,
+    "type": "ppd",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Hily-Blant:2017:L6"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
     "molecule": "mol:CH+",
     "sources": [
       "DiffuseCloud"
@@ -116,6 +132,105 @@
   },
   {
     "note": null,
+    "molecule": "mol:13CO",
+    "sources": [],
+    "telescopes": [],
+    "wavelengths": [],
+    "year": 1987,
+    "type": "ppd",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Sargent:1987:294"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:C18O",
+    "sources": [],
+    "telescopes": [],
+    "wavelengths": [],
+    "year": 1994,
+    "type": "ppd",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Dutrey:1994:149"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:C17O",
+    "sources": [],
+    "telescopes": [],
+    "wavelengths": [],
+    "year": 2009,
+    "type": "ppd",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Smith:2009:163",
+        "Guilloteau:2013:A92"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:13C17O",
+    "sources": [],
+    "telescopes": [],
+    "wavelengths": [],
+    "year": 2019,
+    "type": "ppd",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Booth:2019:L31"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:13C18O",
+    "sources": [],
+    "telescopes": [],
+    "wavelengths": [],
+    "year": 2017,
+    "type": "ppd",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Zhang:2017:0130"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:13CO",
+    "sources": [
+      "TYC89987601b"
+    ],
+    "telescopes": [],
+    "wavelengths": [],
+    "year": 2021,
+    "type": "exo",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Zhang:2021:370"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
     "molecule": "mol:H2",
     "sources": [
       "XiPerLOS"
@@ -132,6 +247,22 @@
     "refs": {
       "observation": [
         "Carruthers:1970:L81"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:HD",
+    "sources": [],
+    "telescopes": [],
+    "wavelengths": [],
+    "year": 2013,
+    "type": "ppd",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Bergin:2013:644"
       ]
     },
     "latex_text": null
@@ -185,6 +316,40 @@
   },
   {
     "note": null,
+    "molecule": "mol:C34S",
+    "sources": [],
+    "telescopes": [],
+    "wavelengths": [],
+    "year": 2019,
+    "type": "ppd",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Loomis:2020:101",
+        "LeGal:2019:72"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:13CS",
+    "sources": [],
+    "telescopes": [],
+    "wavelengths": [],
+    "year": 2019,
+    "type": "ppd",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Loomis:2020:101",
+        "LeGal:2019:72"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
     "molecule": "mol:SO",
     "sources": [
       "OrionKL"
@@ -201,6 +366,38 @@
     "refs": {
       "observation": [
         "Gottlieb:1973:L59"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:34SO",
+    "sources": [],
+    "telescopes": [],
+    "wavelengths": [],
+    "year": 2024,
+    "type": "ppd",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Booth:2024:165"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:33SO",
+    "sources": [],
+    "telescopes": [],
+    "wavelengths": [],
+    "year": 2024,
+    "type": "ppd",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Booth:2024:165"
       ]
     },
     "latex_text": null
@@ -1100,6 +1297,55 @@
   },
   {
     "note": null,
+    "molecule": "mol:DCO+",
+    "sources": [],
+    "telescopes": [],
+    "wavelengths": [],
+    "year": 2003,
+    "type": "ppd",
+    "first": true,
+    "refs": {
+      "observation": [
+        "vanDishoeck:2003:L1"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:H13CO+",
+    "sources": [],
+    "telescopes": [],
+    "wavelengths": [],
+    "year": 2001,
+    "type": "ppd",
+    "first": true,
+    "refs": {
+      "observation": [
+        "vanZadelhoff:2001:566",
+        "vanDishoeck:2003:L1"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:HC18O+",
+    "sources": [],
+    "telescopes": [],
+    "wavelengths": [],
+    "year": 2022,
+    "type": "ppd",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Furuya:2022:148"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
     "molecule": "mol:HCN",
     "sources": [
       "W3OH",
@@ -1121,6 +1367,54 @@
     "refs": {
       "observation": [
         "Snyder:1971:L47"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:DCN",
+    "sources": [],
+    "telescopes": [],
+    "wavelengths": [],
+    "year": 2008,
+    "type": "ppd",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Qi:2008:1396"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:H13CN",
+    "sources": [],
+    "telescopes": [],
+    "wavelengths": [],
+    "year": 2015,
+    "type": "ppd",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Guzman:2015:53"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:HC15N",
+    "sources": [],
+    "telescopes": [],
+    "wavelengths": [],
+    "year": 2015,
+    "type": "ppd",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Guzman:2015:53"
       ]
     },
     "latex_text": null
@@ -1167,6 +1461,22 @@
       "observation": [
         "Snyder:1972:17",
         "Zuckerman:1972:L125"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:DNC",
+    "sources": [],
+    "telescopes": [],
+    "wavelengths": [],
+    "year": 2020,
+    "type": "ppd",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Loomis:2020:101"
       ]
     },
     "latex_text": null
@@ -1229,6 +1539,22 @@
   },
   {
     "note": null,
+    "molecule": "mol:N2D+",
+    "sources": [],
+    "telescopes": [],
+    "wavelengths": [],
+    "year": 2015,
+    "type": "ppd",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Huang:2015:L26"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
     "molecule": "mol:C2H",
     "sources": [
       "OrionKL"
@@ -1245,6 +1571,22 @@
     "refs": {
       "observation": [
         "Tucker:1974:L115"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:C2D",
+    "sources": [],
+    "telescopes": [],
+    "wavelengths": [],
+    "year": 2020,
+    "type": "ppd",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Loomis:2020:101"
       ]
     },
     "latex_text": null
@@ -1459,6 +1801,22 @@
       "observation": [
         "DHendecourt:1989:L5",
         "vanDishoeck:1996:L349"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:13CO2",
+    "sources": [],
+    "telescopes": [],
+    "wavelengths": [],
+    "year": 2023,
+    "type": "ppd",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Sturm:2023:A138"
       ]
     },
     "latex_text": null
@@ -2231,6 +2589,22 @@
   },
   {
     "note": null,
+    "molecule": "mol:H213CO",
+    "sources": [],
+    "telescopes": [],
+    "wavelengths": [],
+    "year": 2024,
+    "type": "ppd",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Booth:2024:165"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
     "molecule": "mol:HNCO",
     "sources": [
       "SgrB2"
@@ -2292,6 +2666,22 @@
     "refs": {
       "observation": [
         "Ridgway:1976:345"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:H13CCH",
+    "sources": [],
+    "telescopes": [],
+    "wavelengths": [],
+    "year": 2023,
+    "type": "ppd",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Tabone:2023:805"
       ]
     },
     "latex_text": null
@@ -3353,6 +3743,22 @@
     "refs": {
       "observation": [
         "Lacy:1991:556"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:CH3D",
+    "sources": [],
+    "telescopes": [],
+    "wavelengths": [],
+    "year": 2024,
+    "type": "exo",
+    "first": true,
+    "refs": {
+      "observation": [
+        "Rowland:2024:L49"
       ]
     },
     "latex_text": null

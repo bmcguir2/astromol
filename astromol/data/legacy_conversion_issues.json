@@ -1,14 +1,14 @@
 {
   "summary": {
     "converted_molecules": 349,
-    "converted_detections": 325,
-    "issues": 154,
+    "converted_detections": 350,
+    "issues": 164,
     "issues_by_kind": {
       "extra_context_detection_omitted": 139,
-      "nested_isotopologue_detections_omitted": 15
+      "nested_isotopologue_detection_metadata_missing": 25
     },
     "issues_by_severity": {
-      "info": 154
+      "info": 164
     },
     "reference_mappings": 878,
     "reference_mappings_by_strategy": {
@@ -111,6 +111,15 @@
     },
     {
       "legacy_var": "CN",
+      "formula": "C15N",
+      "line": 1281,
+      "role": "observation",
+      "original": "2017A&A...603L...6H",
+      "mapped": "Hily-Blant:2017:L6",
+      "strategy": "legacy_key_metadata"
+    },
+    {
+      "legacy_var": "CN",
       "formula": "CN",
       "line": 1264,
       "role": "ppd_observation",
@@ -134,15 +143,6 @@
       "role": "exgal_observation",
       "original": "1988A&A...201L..23H",
       "mapped": "Henkel:1988:L23",
-      "strategy": "legacy_key_metadata"
-    },
-    {
-      "legacy_var": "CN",
-      "formula": "C15N",
-      "line": 1281,
-      "role": "ppd_d_bib_ids",
-      "original": "2017A&A...603L...6H",
-      "mapped": "Hily-Blant:2017:L6",
       "strategy": "legacy_key_metadata"
     },
     {
@@ -264,6 +264,69 @@
     },
     {
       "legacy_var": "CO",
+      "formula": "13CO",
+      "line": 1370,
+      "role": "observation",
+      "original": "1987ApJ...323..294S",
+      "mapped": "Sargent:1987:294",
+      "strategy": "legacy_key_metadata"
+    },
+    {
+      "legacy_var": "CO",
+      "formula": "C18O",
+      "line": 1376,
+      "role": "observation",
+      "original": "1994A&A...286..149D",
+      "mapped": "Dutrey:1994:149",
+      "strategy": "legacy_key_metadata"
+    },
+    {
+      "legacy_var": "CO",
+      "formula": "C17O",
+      "line": 1382,
+      "role": "observation",
+      "original": "2009ApJ...701..163S",
+      "mapped": "Smith:2009:163",
+      "strategy": "legacy_key_metadata"
+    },
+    {
+      "legacy_var": "CO",
+      "formula": "C17O",
+      "line": 1382,
+      "role": "observation",
+      "original": "2013A&A...549A..92G",
+      "mapped": "Guilloteau:2013:A92",
+      "strategy": "legacy_key_metadata"
+    },
+    {
+      "legacy_var": "CO",
+      "formula": "13C17O",
+      "line": 1388,
+      "role": "observation",
+      "original": "2019ApJ...882L..31B",
+      "mapped": "Booth:2019:L31",
+      "strategy": "legacy_key_metadata"
+    },
+    {
+      "legacy_var": "CO",
+      "formula": "13C18O",
+      "line": 1394,
+      "role": "observation",
+      "original": "2017NatAs...1E.130Z",
+      "mapped": "Zhang:2017:0130",
+      "strategy": "free_text_metadata"
+    },
+    {
+      "legacy_var": "CO",
+      "formula": "13CO",
+      "line": 1406,
+      "role": "observation",
+      "original": "2021Natur.595..370Z",
+      "mapped": "Zhang:2021:370",
+      "strategy": "legacy_key_metadata"
+    },
+    {
+      "legacy_var": "CO",
       "formula": "CO",
       "line": 1348,
       "role": "ice_observation",
@@ -335,69 +398,6 @@
       "strategy": "legacy_key_metadata"
     },
     {
-      "legacy_var": "CO",
-      "formula": "13CO",
-      "line": 1370,
-      "role": "ppd_d_bib_ids",
-      "original": "1987ApJ...323..294S",
-      "mapped": "Sargent:1987:294",
-      "strategy": "legacy_key_metadata"
-    },
-    {
-      "legacy_var": "CO",
-      "formula": "C18O",
-      "line": 1376,
-      "role": "ppd_d_bib_ids",
-      "original": "1994A&A...286..149D",
-      "mapped": "Dutrey:1994:149",
-      "strategy": "legacy_key_metadata"
-    },
-    {
-      "legacy_var": "CO",
-      "formula": "C17O",
-      "line": 1382,
-      "role": "ppd_d_bib_ids",
-      "original": "2009ApJ...701..163S",
-      "mapped": "Smith:2009:163",
-      "strategy": "legacy_key_metadata"
-    },
-    {
-      "legacy_var": "CO",
-      "formula": "C17O",
-      "line": 1382,
-      "role": "ppd_d_bib_ids",
-      "original": "2013A&A...549A..92G",
-      "mapped": "Guilloteau:2013:A92",
-      "strategy": "legacy_key_metadata"
-    },
-    {
-      "legacy_var": "CO",
-      "formula": "13C17O",
-      "line": 1388,
-      "role": "ppd_d_bib_ids",
-      "original": "2019ApJ...882L..31B",
-      "mapped": "Booth:2019:L31",
-      "strategy": "legacy_key_metadata"
-    },
-    {
-      "legacy_var": "CO",
-      "formula": "13C18O",
-      "line": 1394,
-      "role": "ppd_d_bib_ids",
-      "original": "2017NatAs...1E.130Z",
-      "mapped": "Zhang:2017:0130",
-      "strategy": "free_text_metadata"
-    },
-    {
-      "legacy_var": "CO",
-      "formula": "13CO",
-      "line": 1406,
-      "role": "exo_d_bib_ids",
-      "original": "2021Natur.595..370Z",
-      "mapped": "Zhang:2021:370",
-      "strategy": "legacy_key_metadata"
-    },
-    {
       "legacy_var": "H2",
       "formula": "H2",
       "line": 1427,
@@ -417,6 +417,15 @@
     },
     {
       "legacy_var": "H2",
+      "formula": "HD",
+      "line": 1442,
+      "role": "observation",
+      "original": "2013Natur.493..644B",
+      "mapped": "Bergin:2013:644",
+      "strategy": "legacy_key_metadata"
+    },
+    {
+      "legacy_var": "H2",
       "formula": "H2",
       "line": 1427,
       "role": "ppd_observation",
@@ -431,15 +440,6 @@
       "role": "exgal_observation",
       "original": "1978ApJ...222L..49T",
       "mapped": "Thompson:1978:L49",
-      "strategy": "legacy_key_metadata"
-    },
-    {
-      "legacy_var": "H2",
-      "formula": "HD",
-      "line": 1442,
-      "role": "ppd_d_bib_ids",
-      "original": "2013Natur.493..644B",
-      "mapped": "Bergin:2013:644",
       "strategy": "legacy_key_metadata"
     },
     {
@@ -498,6 +498,42 @@
     },
     {
       "legacy_var": "CS",
+      "formula": "C34S",
+      "line": 1492,
+      "role": "observation",
+      "original": "2020ApJ...893..101L",
+      "mapped": "Loomis:2020:101",
+      "strategy": "legacy_key_metadata"
+    },
+    {
+      "legacy_var": "CS",
+      "formula": "C34S",
+      "line": 1492,
+      "role": "observation",
+      "original": "2019ApJ...876...72L",
+      "mapped": "LeGal:2019:72",
+      "strategy": "legacy_key_metadata"
+    },
+    {
+      "legacy_var": "CS",
+      "formula": "13CS",
+      "line": 1498,
+      "role": "observation",
+      "original": "2020ApJ...893..101L",
+      "mapped": "Loomis:2020:101",
+      "strategy": "legacy_key_metadata"
+    },
+    {
+      "legacy_var": "CS",
+      "formula": "13CS",
+      "line": 1498,
+      "role": "observation",
+      "original": "2019ApJ...876...72L",
+      "mapped": "LeGal:2019:72",
+      "strategy": "legacy_key_metadata"
+    },
+    {
+      "legacy_var": "CS",
       "formula": "CS",
       "line": 1476,
       "role": "ppd_observation",
@@ -530,42 +566,6 @@
       "role": "exgal_observation",
       "original": "1985A&A...150L..25H",
       "mapped": "Henkel:1985:L25",
-      "strategy": "legacy_key_metadata"
-    },
-    {
-      "legacy_var": "CS",
-      "formula": "C34S",
-      "line": 1492,
-      "role": "ppd_d_bib_ids",
-      "original": "2020ApJ...893..101L",
-      "mapped": "Loomis:2020:101",
-      "strategy": "legacy_key_metadata"
-    },
-    {
-      "legacy_var": "CS",
-      "formula": "C34S",
-      "line": 1492,
-      "role": "ppd_d_bib_ids",
-      "original": "2019ApJ...876...72L",
-      "mapped": "LeGal:2019:72",
-      "strategy": "legacy_key_metadata"
-    },
-    {
-      "legacy_var": "CS",
-      "formula": "13CS",
-      "line": 1498,
-      "role": "ppd_d_bib_ids",
-      "original": "2020ApJ...893..101L",
-      "mapped": "Loomis:2020:101",
-      "strategy": "legacy_key_metadata"
-    },
-    {
-      "legacy_var": "CS",
-      "formula": "13CS",
-      "line": 1498,
-      "role": "ppd_d_bib_ids",
-      "original": "2019ApJ...876...72L",
-      "mapped": "LeGal:2019:72",
       "strategy": "legacy_key_metadata"
     },
     {
@@ -1605,6 +1605,42 @@
     },
     {
       "legacy_var": "HCOp",
+      "formula": "DCO+",
+      "line": 2312,
+      "role": "observation",
+      "original": "2003A&A...400L...1V",
+      "mapped": "vanDishoeck:2003:L1",
+      "strategy": "legacy_key_metadata"
+    },
+    {
+      "legacy_var": "HCOp",
+      "formula": "H13CO+",
+      "line": 2318,
+      "role": "observation",
+      "original": "2001A&A...377..566V",
+      "mapped": "vanZadelhoff:2001:566",
+      "strategy": "legacy_key_metadata"
+    },
+    {
+      "legacy_var": "HCOp",
+      "formula": "H13CO+",
+      "line": 2318,
+      "role": "observation",
+      "original": "2003A&A...400L...1V",
+      "mapped": "vanDishoeck:2003:L1",
+      "strategy": "legacy_key_metadata"
+    },
+    {
+      "legacy_var": "HCOp",
+      "formula": "HC18O+",
+      "line": 2325,
+      "role": "observation",
+      "original": "2022ApJ...926..148F",
+      "mapped": "Furuya:2022:148",
+      "strategy": "legacy_key_metadata"
+    },
+    {
+      "legacy_var": "HCOp",
       "formula": "HCO+",
       "line": 2296,
       "role": "ppd_observation",
@@ -1631,42 +1667,6 @@
       "strategy": "legacy_key_metadata"
     },
     {
-      "legacy_var": "HCOp",
-      "formula": "DCO+",
-      "line": 2312,
-      "role": "ppd_d_bib_ids",
-      "original": "2003A&A...400L...1V",
-      "mapped": "vanDishoeck:2003:L1",
-      "strategy": "legacy_key_metadata"
-    },
-    {
-      "legacy_var": "HCOp",
-      "formula": "H13CO+",
-      "line": 2318,
-      "role": "ppd_d_bib_ids",
-      "original": "2001A&A...377..566V",
-      "mapped": "vanZadelhoff:2001:566",
-      "strategy": "legacy_key_metadata"
-    },
-    {
-      "legacy_var": "HCOp",
-      "formula": "H13CO+",
-      "line": 2318,
-      "role": "ppd_d_bib_ids",
-      "original": "2003A&A...400L...1V",
-      "mapped": "vanDishoeck:2003:L1",
-      "strategy": "legacy_key_metadata"
-    },
-    {
-      "legacy_var": "HCOp",
-      "formula": "HC18O+",
-      "line": 2325,
-      "role": "ppd_d_bib_ids",
-      "original": "2022ApJ...926..148F",
-      "mapped": "Furuya:2022:148",
-      "strategy": "legacy_key_metadata"
-    },
-    {
       "legacy_var": "HCN",
       "formula": "HCN",
       "line": 2346,
@@ -1683,6 +1683,33 @@
       "original": "Snyder et al. 1971 ApJ 163, L47",
       "mapped": "Snyder:1971:L47",
       "strategy": "free_text_metadata"
+    },
+    {
+      "legacy_var": "HCN",
+      "formula": "DCN",
+      "line": 2362,
+      "role": "observation",
+      "original": "2008ApJ...681.1396Q",
+      "mapped": "Qi:2008:1396",
+      "strategy": "legacy_key_metadata"
+    },
+    {
+      "legacy_var": "HCN",
+      "formula": "H13CN",
+      "line": 2367,
+      "role": "observation",
+      "original": "2015ApJ...814...53G",
+      "mapped": "Guzman:2015:53",
+      "strategy": "legacy_key_metadata"
+    },
+    {
+      "legacy_var": "HCN",
+      "formula": "HC15N",
+      "line": 2373,
+      "role": "observation",
+      "original": "2015ApJ...814...53G",
+      "mapped": "Guzman:2015:53",
+      "strategy": "legacy_key_metadata"
     },
     {
       "legacy_var": "HCN",
@@ -1718,33 +1745,6 @@
       "role": "exo_observation",
       "original": "2018ApJ...863L..11H",
       "mapped": "Hawker:2018:L11",
-      "strategy": "legacy_key_metadata"
-    },
-    {
-      "legacy_var": "HCN",
-      "formula": "DCN",
-      "line": 2362,
-      "role": "ppd_d_bib_ids",
-      "original": "2008ApJ...681.1396Q",
-      "mapped": "Qi:2008:1396",
-      "strategy": "legacy_key_metadata"
-    },
-    {
-      "legacy_var": "HCN",
-      "formula": "H13CN",
-      "line": 2367,
-      "role": "ppd_d_bib_ids",
-      "original": "2015ApJ...814...53G",
-      "mapped": "Guzman:2015:53",
-      "strategy": "legacy_key_metadata"
-    },
-    {
-      "legacy_var": "HCN",
-      "formula": "HC15N",
-      "line": 2373,
-      "role": "ppd_d_bib_ids",
-      "original": "2015ApJ...814...53G",
-      "mapped": "Guzman:2015:53",
       "strategy": "legacy_key_metadata"
     },
     {
@@ -1830,6 +1830,15 @@
     },
     {
       "legacy_var": "HNC",
+      "formula": "DNC",
+      "line": 2432,
+      "role": "observation",
+      "original": "2020ApJ...893..101L",
+      "mapped": "Loomis:2020:101",
+      "strategy": "legacy_key_metadata"
+    },
+    {
+      "legacy_var": "HNC",
       "formula": "HNC",
       "line": 2416,
       "role": "ppd_observation",
@@ -1844,15 +1853,6 @@
       "role": "exgal_observation",
       "original": "1988A&A...201L..23H",
       "mapped": "Henkel:1988:L23",
-      "strategy": "legacy_key_metadata"
-    },
-    {
-      "legacy_var": "HNC",
-      "formula": "DNC",
-      "line": 2432,
-      "role": "ppd_d_bib_ids",
-      "original": "2020ApJ...893..101L",
-      "mapped": "Loomis:2020:101",
       "strategy": "legacy_key_metadata"
     },
     {
@@ -1929,6 +1929,15 @@
     },
     {
       "legacy_var": "N2Hp",
+      "formula": "N2D+",
+      "line": 2487,
+      "role": "observation",
+      "original": "2015ApJ...809L..26H",
+      "mapped": "Huang:2015:L26",
+      "strategy": "legacy_key_metadata"
+    },
+    {
+      "legacy_var": "N2Hp",
       "formula": "N2H+",
       "line": 2471,
       "role": "ppd_observation",
@@ -1955,15 +1964,6 @@
       "strategy": "legacy_key_metadata"
     },
     {
-      "legacy_var": "N2Hp",
-      "formula": "N2D+",
-      "line": 2487,
-      "role": "ppd_d_bib_ids",
-      "original": "2015ApJ...809L..26H",
-      "mapped": "Huang:2015:L26",
-      "strategy": "legacy_key_metadata"
-    },
-    {
       "legacy_var": "C2H",
       "formula": "C2H",
       "line": 2502,
@@ -1983,6 +1983,15 @@
     },
     {
       "legacy_var": "C2H",
+      "formula": "C2D",
+      "line": 2518,
+      "role": "observation",
+      "original": "2020ApJ...893..101L",
+      "mapped": "Loomis:2020:101",
+      "strategy": "legacy_key_metadata"
+    },
+    {
+      "legacy_var": "C2H",
       "formula": "C2H",
       "line": 2502,
       "role": "ppd_observation",
@@ -1997,15 +2006,6 @@
       "role": "exgal_observation",
       "original": "1988A&A...201L..23H",
       "mapped": "Henkel:1988:L23",
-      "strategy": "legacy_key_metadata"
-    },
-    {
-      "legacy_var": "C2H",
-      "formula": "C2D",
-      "line": 2518,
-      "role": "ppd_d_bib_ids",
-      "original": "2020ApJ...893..101L",
-      "mapped": "Loomis:2020:101",
       "strategy": "legacy_key_metadata"
     },
     {
@@ -7944,6 +7944,42 @@
       }
     },
     {
+      "kind": "nested_isotopologue_detection_metadata_missing",
+      "severity": "info",
+      "legacy_var": "CN",
+      "name": "cyano radical",
+      "formula": "C15N",
+      "line": 1281,
+      "message": "Nested isotopologue detection emitted with placeholder metadata.",
+      "details": {
+        "parent_line": 1264,
+        "parent_formula": "CN",
+        "parent_name": "cyano radical",
+        "parent_label": "mol:CN",
+        "field": "ppd_isos",
+        "context": "ppd",
+        "molecule_label": "mol:C15N",
+        "formula": "C15N",
+        "preview_formula": "C[15N]",
+        "table_formula": "C^{15}N",
+        "missing_fields": [
+          "sources",
+          "telescopes",
+          "wavelengths"
+        ],
+        "source_field": null,
+        "sources": [],
+        "telescope_field": null,
+        "telescopes": [],
+        "wavelength_field": null,
+        "wavelengths": [],
+        "year": 2017,
+        "observation_refs": [
+          "Hily-Blant:2017:L6"
+        ]
+      }
+    },
+    {
       "kind": "extra_context_detection_omitted",
       "severity": "info",
       "legacy_var": "CN",
@@ -7982,42 +8018,6 @@
           "1988A&A...201L..23H"
         ],
         "free_text_refs": "Henkel et al. 1988 A&A 201, L23"
-      }
-    },
-    {
-      "kind": "nested_isotopologue_detections_omitted",
-      "severity": "info",
-      "legacy_var": "CN",
-      "name": "cyano radical",
-      "formula": "CN",
-      "line": 1264,
-      "message": "Nested legacy isotopologue detections in 'ppd_isos' omitted from preview.",
-      "details": {
-        "field": "ppd_isos",
-        "isotopologues": [
-          {
-            "line": 1281,
-            "formula": "C15N",
-            "preview_formula": "C[15N]",
-            "table_formula": "C^{15}N",
-            "molecule_label": "mol:C15N",
-            "context": "ppd",
-            "detection_fields": {},
-            "references": [
-              {
-                "field": "ppd_d_bib_ids",
-                "text_field": "ppd_d_refs",
-                "raw": [
-                  "2017A&A...603L...6H"
-                ],
-                "free_text": "Hily-Blant et al. 2017 A&A 603, L6",
-                "resolved": [
-                  "Hily-Blant:2017:L6"
-                ]
-              }
-            ]
-          }
-        ]
       }
     },
     {
@@ -8122,6 +8122,226 @@
       }
     },
     {
+      "kind": "nested_isotopologue_detection_metadata_missing",
+      "severity": "info",
+      "legacy_var": "CO",
+      "name": "carbon monoxide",
+      "formula": "13CO",
+      "line": 1370,
+      "message": "Nested isotopologue detection emitted with placeholder metadata.",
+      "details": {
+        "parent_line": 1348,
+        "parent_formula": "CO",
+        "parent_name": "carbon monoxide",
+        "parent_label": "mol:CO",
+        "field": "ppd_isos",
+        "context": "ppd",
+        "molecule_label": "mol:13CO",
+        "formula": "13CO",
+        "preview_formula": "[13C]O",
+        "table_formula": "^{13}CO",
+        "missing_fields": [
+          "sources",
+          "telescopes",
+          "wavelengths"
+        ],
+        "source_field": null,
+        "sources": [],
+        "telescope_field": null,
+        "telescopes": [],
+        "wavelength_field": null,
+        "wavelengths": [],
+        "year": 1987,
+        "observation_refs": [
+          "Sargent:1987:294"
+        ]
+      }
+    },
+    {
+      "kind": "nested_isotopologue_detection_metadata_missing",
+      "severity": "info",
+      "legacy_var": "CO",
+      "name": "carbon monoxide",
+      "formula": "C18O",
+      "line": 1376,
+      "message": "Nested isotopologue detection emitted with placeholder metadata.",
+      "details": {
+        "parent_line": 1348,
+        "parent_formula": "CO",
+        "parent_name": "carbon monoxide",
+        "parent_label": "mol:CO",
+        "field": "ppd_isos",
+        "context": "ppd",
+        "molecule_label": "mol:C18O",
+        "formula": "C18O",
+        "preview_formula": "C[18O]",
+        "table_formula": "C^{18}O",
+        "missing_fields": [
+          "sources",
+          "telescopes",
+          "wavelengths"
+        ],
+        "source_field": null,
+        "sources": [],
+        "telescope_field": null,
+        "telescopes": [],
+        "wavelength_field": null,
+        "wavelengths": [],
+        "year": 1994,
+        "observation_refs": [
+          "Dutrey:1994:149"
+        ]
+      }
+    },
+    {
+      "kind": "nested_isotopologue_detection_metadata_missing",
+      "severity": "info",
+      "legacy_var": "CO",
+      "name": "carbon monoxide",
+      "formula": "C17O",
+      "line": 1382,
+      "message": "Nested isotopologue detection emitted with placeholder metadata.",
+      "details": {
+        "parent_line": 1348,
+        "parent_formula": "CO",
+        "parent_name": "carbon monoxide",
+        "parent_label": "mol:CO",
+        "field": "ppd_isos",
+        "context": "ppd",
+        "molecule_label": "mol:C17O",
+        "formula": "C17O",
+        "preview_formula": "C[17O]",
+        "table_formula": "C^{17}O",
+        "missing_fields": [
+          "sources",
+          "telescopes",
+          "wavelengths"
+        ],
+        "source_field": null,
+        "sources": [],
+        "telescope_field": null,
+        "telescopes": [],
+        "wavelength_field": null,
+        "wavelengths": [],
+        "year": 2009,
+        "observation_refs": [
+          "Smith:2009:163",
+          "Guilloteau:2013:A92"
+        ]
+      }
+    },
+    {
+      "kind": "nested_isotopologue_detection_metadata_missing",
+      "severity": "info",
+      "legacy_var": "CO",
+      "name": "carbon monoxide",
+      "formula": "13C17O",
+      "line": 1388,
+      "message": "Nested isotopologue detection emitted with placeholder metadata.",
+      "details": {
+        "parent_line": 1348,
+        "parent_formula": "CO",
+        "parent_name": "carbon monoxide",
+        "parent_label": "mol:CO",
+        "field": "ppd_isos",
+        "context": "ppd",
+        "molecule_label": "mol:13C17O",
+        "formula": "13C17O",
+        "preview_formula": "[13C][17O]",
+        "table_formula": "^{13}C^{17}O",
+        "missing_fields": [
+          "sources",
+          "telescopes",
+          "wavelengths"
+        ],
+        "source_field": null,
+        "sources": [],
+        "telescope_field": null,
+        "telescopes": [],
+        "wavelength_field": null,
+        "wavelengths": [],
+        "year": 2019,
+        "observation_refs": [
+          "Booth:2019:L31"
+        ]
+      }
+    },
+    {
+      "kind": "nested_isotopologue_detection_metadata_missing",
+      "severity": "info",
+      "legacy_var": "CO",
+      "name": "carbon monoxide",
+      "formula": "13C18O",
+      "line": 1394,
+      "message": "Nested isotopologue detection emitted with placeholder metadata.",
+      "details": {
+        "parent_line": 1348,
+        "parent_formula": "CO",
+        "parent_name": "carbon monoxide",
+        "parent_label": "mol:CO",
+        "field": "ppd_isos",
+        "context": "ppd",
+        "molecule_label": "mol:13C18O",
+        "formula": "13C18O",
+        "preview_formula": "[13C][18O]",
+        "table_formula": "^{13}C^{18}O",
+        "missing_fields": [
+          "sources",
+          "telescopes",
+          "wavelengths"
+        ],
+        "source_field": null,
+        "sources": [],
+        "telescope_field": null,
+        "telescopes": [],
+        "wavelength_field": null,
+        "wavelengths": [],
+        "year": 2017,
+        "observation_refs": [
+          "Zhang:2017:0130"
+        ]
+      }
+    },
+    {
+      "kind": "nested_isotopologue_detection_metadata_missing",
+      "severity": "info",
+      "legacy_var": "CO",
+      "name": "carbon monoxide",
+      "formula": "13CO",
+      "line": 1406,
+      "message": "Nested isotopologue detection emitted with placeholder metadata.",
+      "details": {
+        "parent_line": 1348,
+        "parent_formula": "CO",
+        "parent_name": "carbon monoxide",
+        "parent_label": "mol:CO",
+        "field": "exo_isos",
+        "context": "exo",
+        "molecule_label": "mol:13CO",
+        "formula": "13CO",
+        "preview_formula": "[13C]O",
+        "table_formula": "^{13}CO",
+        "missing_fields": [
+          "telescopes",
+          "wavelengths"
+        ],
+        "source_field": [
+          "TYC 8998-760-1 b"
+        ],
+        "sources": [
+          "TYC89987601b"
+        ],
+        "telescope_field": null,
+        "telescopes": [],
+        "wavelength_field": null,
+        "wavelengths": [],
+        "year": 2021,
+        "observation_refs": [
+          "Zhang:2021:370"
+        ]
+      }
+    },
+    {
       "kind": "extra_context_detection_omitted",
       "severity": "info",
       "legacy_var": "CO",
@@ -8205,168 +8425,38 @@
       }
     },
     {
-      "kind": "nested_isotopologue_detections_omitted",
+      "kind": "nested_isotopologue_detection_metadata_missing",
       "severity": "info",
-      "legacy_var": "CO",
-      "name": "carbon monoxide",
-      "formula": "CO",
-      "line": 1348,
-      "message": "Nested legacy isotopologue detections in 'ppd_isos' omitted from preview.",
+      "legacy_var": "H2",
+      "name": "hydrogen",
+      "formula": "HD",
+      "line": 1442,
+      "message": "Nested isotopologue detection emitted with placeholder metadata.",
       "details": {
+        "parent_line": 1427,
+        "parent_formula": "H2",
+        "parent_name": "hydrogen",
+        "parent_label": "mol:H2",
         "field": "ppd_isos",
-        "isotopologues": [
-          {
-            "line": 1370,
-            "formula": "13CO",
-            "preview_formula": "[13C]O",
-            "table_formula": "^{13}CO",
-            "molecule_label": "mol:13CO",
-            "context": "ppd",
-            "detection_fields": {},
-            "references": [
-              {
-                "field": "ppd_d_bib_ids",
-                "text_field": "ppd_d_refs",
-                "raw": [
-                  "1987ApJ...323..294S"
-                ],
-                "free_text": "Sargent & Beckwith 1987 ApJ 323, 294",
-                "resolved": [
-                  "Sargent:1987:294"
-                ]
-              }
-            ]
-          },
-          {
-            "line": 1376,
-            "formula": "C18O",
-            "preview_formula": "C[18O]",
-            "table_formula": "C^{18}O",
-            "molecule_label": "mol:C18O",
-            "context": "ppd",
-            "detection_fields": {},
-            "references": [
-              {
-                "field": "ppd_d_bib_ids",
-                "text_field": "ppd_d_refs",
-                "raw": [
-                  "1994A&A...286..149D"
-                ],
-                "free_text": "Dutrey et al. 1994 A&A 286, 149",
-                "resolved": [
-                  "Dutrey:1994:149"
-                ]
-              }
-            ]
-          },
-          {
-            "line": 1382,
-            "formula": "C17O",
-            "preview_formula": "C[17O]",
-            "table_formula": "C^{17}O",
-            "molecule_label": "mol:C17O",
-            "context": "ppd",
-            "detection_fields": {},
-            "references": [
-              {
-                "field": "ppd_d_bib_ids",
-                "text_field": "ppd_d_refs",
-                "raw": [
-                  "2009ApJ...701..163S",
-                  "2013A&A...549A..92G"
-                ],
-                "free_text": "Smith et al. 2009 ApJ 701, 163; Guilloteau et al. 2013 A&A 549, A92",
-                "resolved": [
-                  "Smith:2009:163",
-                  "Guilloteau:2013:A92"
-                ]
-              }
-            ]
-          },
-          {
-            "line": 1388,
-            "formula": "13C17O",
-            "preview_formula": "[13C][17O]",
-            "table_formula": "^{13}C^{17}O",
-            "molecule_label": "mol:13C17O",
-            "context": "ppd",
-            "detection_fields": {},
-            "references": [
-              {
-                "field": "ppd_d_bib_ids",
-                "text_field": "ppd_d_refs",
-                "raw": [
-                  "2019ApJ...882L..31B"
-                ],
-                "free_text": "Booth et al. 2019 ApJL 882, L31",
-                "resolved": [
-                  "Booth:2019:L31"
-                ]
-              }
-            ]
-          },
-          {
-            "line": 1394,
-            "formula": "13C18O",
-            "preview_formula": "[13C][18O]",
-            "table_formula": "^{13}C^{18}O",
-            "molecule_label": "mol:13C18O",
-            "context": "ppd",
-            "detection_fields": {},
-            "references": [
-              {
-                "field": "ppd_d_bib_ids",
-                "text_field": "ppd_d_refs",
-                "raw": [
-                  "2017NatAs...1E.130Z"
-                ],
-                "free_text": "Zhang et al. 2017 Nature Ast. 1, 0130",
-                "resolved": [
-                  "Zhang:2017:0130"
-                ]
-              }
-            ]
-          }
-        ]
-      }
-    },
-    {
-      "kind": "nested_isotopologue_detections_omitted",
-      "severity": "info",
-      "legacy_var": "CO",
-      "name": "carbon monoxide",
-      "formula": "CO",
-      "line": 1348,
-      "message": "Nested legacy isotopologue detections in 'exo_isos' omitted from preview.",
-      "details": {
-        "field": "exo_isos",
-        "isotopologues": [
-          {
-            "line": 1406,
-            "formula": "13CO",
-            "preview_formula": "[13C]O",
-            "table_formula": "^{13}CO",
-            "molecule_label": "mol:13CO",
-            "context": "exo",
-            "detection_fields": {
-              "exo_sources": [
-                "TYC 8998-760-1 b"
-              ]
-            },
-            "references": [
-              {
-                "field": "exo_d_bib_ids",
-                "text_field": "exo_d_refs",
-                "raw": [
-                  "2021Natur.595..370Z"
-                ],
-                "free_text": "Zhang et al. 2021 Nature 595, 370",
-                "resolved": [
-                  "Zhang:2021:370"
-                ]
-              }
-            ]
-          }
+        "context": "ppd",
+        "molecule_label": "mol:HD",
+        "formula": "HD",
+        "preview_formula": "H[2H]",
+        "table_formula": "HD",
+        "missing_fields": [
+          "sources",
+          "telescopes",
+          "wavelengths"
+        ],
+        "source_field": null,
+        "sources": [],
+        "telescope_field": null,
+        "telescopes": [],
+        "wavelength_field": null,
+        "wavelengths": [],
+        "year": 2013,
+        "observation_refs": [
+          "Bergin:2013:644"
         ]
       }
     },
@@ -8411,42 +8501,6 @@
       }
     },
     {
-      "kind": "nested_isotopologue_detections_omitted",
-      "severity": "info",
-      "legacy_var": "H2",
-      "name": "hydrogen",
-      "formula": "H2",
-      "line": 1427,
-      "message": "Nested legacy isotopologue detections in 'ppd_isos' omitted from preview.",
-      "details": {
-        "field": "ppd_isos",
-        "isotopologues": [
-          {
-            "line": 1442,
-            "formula": "HD",
-            "preview_formula": "H[2H]",
-            "table_formula": "HD",
-            "molecule_label": "mol:HD",
-            "context": "ppd",
-            "detection_fields": {},
-            "references": [
-              {
-                "field": "ppd_d_bib_ids",
-                "text_field": "ppd_d_refs",
-                "raw": [
-                  "2013Natur.493..644B"
-                ],
-                "free_text": "Bergin et al. 2013 Nature 493, 644",
-                "resolved": [
-                  "Bergin:2013:644"
-                ]
-              }
-            ]
-          }
-        ]
-      }
-    },
-    {
       "kind": "extra_context_detection_omitted",
       "severity": "info",
       "legacy_var": "SiO",
@@ -8464,6 +8518,80 @@
           "1991A&A...245..457M"
         ],
         "free_text_refs": "Mauersberger & Henkel 1991 A&A 245, 457"
+      }
+    },
+    {
+      "kind": "nested_isotopologue_detection_metadata_missing",
+      "severity": "info",
+      "legacy_var": "CS",
+      "name": "carbon monosulfide",
+      "formula": "C34S",
+      "line": 1492,
+      "message": "Nested isotopologue detection emitted with placeholder metadata.",
+      "details": {
+        "parent_line": 1476,
+        "parent_formula": "CS",
+        "parent_name": "carbon monosulfide",
+        "parent_label": "mol:CS",
+        "field": "ppd_isos",
+        "context": "ppd",
+        "molecule_label": "mol:C34S",
+        "formula": "C34S",
+        "preview_formula": "C[34S]",
+        "table_formula": "C^{34}S",
+        "missing_fields": [
+          "sources",
+          "telescopes",
+          "wavelengths"
+        ],
+        "source_field": null,
+        "sources": [],
+        "telescope_field": null,
+        "telescopes": [],
+        "wavelength_field": null,
+        "wavelengths": [],
+        "year": 2019,
+        "observation_refs": [
+          "Loomis:2020:101",
+          "LeGal:2019:72"
+        ]
+      }
+    },
+    {
+      "kind": "nested_isotopologue_detection_metadata_missing",
+      "severity": "info",
+      "legacy_var": "CS",
+      "name": "carbon monosulfide",
+      "formula": "13CS",
+      "line": 1498,
+      "message": "Nested isotopologue detection emitted with placeholder metadata.",
+      "details": {
+        "parent_line": 1476,
+        "parent_formula": "CS",
+        "parent_name": "carbon monosulfide",
+        "parent_label": "mol:CS",
+        "field": "ppd_isos",
+        "context": "ppd",
+        "molecule_label": "mol:13CS",
+        "formula": "13CS",
+        "preview_formula": "[13C]S",
+        "table_formula": "^{13}CS",
+        "missing_fields": [
+          "sources",
+          "telescopes",
+          "wavelengths"
+        ],
+        "source_field": null,
+        "sources": [],
+        "telescope_field": null,
+        "telescopes": [],
+        "wavelength_field": null,
+        "wavelengths": [],
+        "year": 2019,
+        "observation_refs": [
+          "Loomis:2020:101",
+          "LeGal:2019:72"
+        ]
       }
     },
     {
@@ -8509,64 +8637,74 @@
       }
     },
     {
-      "kind": "nested_isotopologue_detections_omitted",
+      "kind": "nested_isotopologue_detection_metadata_missing",
       "severity": "info",
-      "legacy_var": "CS",
-      "name": "carbon monosulfide",
-      "formula": "CS",
-      "line": 1476,
-      "message": "Nested legacy isotopologue detections in 'ppd_isos' omitted from preview.",
+      "legacy_var": "SO",
+      "name": "sulfur monoxide",
+      "formula": "34SO",
+      "line": 1530,
+      "message": "Nested isotopologue detection emitted with placeholder metadata.",
       "details": {
+        "parent_line": 1514,
+        "parent_formula": "SO",
+        "parent_name": "sulfur monoxide",
+        "parent_label": "mol:SO",
         "field": "ppd_isos",
-        "isotopologues": [
-          {
-            "line": 1492,
-            "formula": "C34S",
-            "preview_formula": "C[34S]",
-            "table_formula": "C^{34}S",
-            "molecule_label": "mol:C34S",
-            "context": "ppd",
-            "detection_fields": {},
-            "references": [
-              {
-                "field": "ppd_d_bib_ids",
-                "text_field": "ppd_d_refs",
-                "raw": [
-                  "2020ApJ...893..101L",
-                  "2019ApJ...876...72L"
-                ],
-                "free_text": "Le Gal et al. 2019 ApJ 876, 72; Loomis et al. 2020 ApJ 893, 101",
-                "resolved": [
-                  "Loomis:2020:101",
-                  "LeGal:2019:72"
-                ]
-              }
-            ]
-          },
-          {
-            "line": 1498,
-            "formula": "13CS",
-            "preview_formula": "[13C]S",
-            "table_formula": "^{13}CS",
-            "molecule_label": "mol:13CS",
-            "context": "ppd",
-            "detection_fields": {},
-            "references": [
-              {
-                "field": "ppd_d_bib_ids",
-                "text_field": "ppd_d_refs",
-                "raw": [
-                  "2020ApJ...893..101L",
-                  "2019ApJ...876...72L"
-                ],
-                "free_text": "Le Gal et al. 2019 ApJ 876, 72; Loomis et al. 2020 ApJ 893, 101",
-                "resolved": [
-                  "Loomis:2020:101",
-                  "LeGal:2019:72"
-                ]
-              }
-            ]
-          }
+        "context": "ppd",
+        "molecule_label": "mol:34SO",
+        "formula": "34SO",
+        "preview_formula": "[34S]O",
+        "table_formula": "34SO",
+        "missing_fields": [
+          "sources",
+          "telescopes",
+          "wavelengths"
+        ],
+        "source_field": null,
+        "sources": [],
+        "telescope_field": null,
+        "telescopes": [],
+        "wavelength_field": null,
+        "wavelengths": [],
+        "year": 2024,
+        "observation_refs": [
+          "Booth:2024:165"
+        ]
+      }
+    },
+    {
+      "kind": "nested_isotopologue_detection_metadata_missing",
+      "severity": "info",
+      "legacy_var": "SO",
+      "name": "sulfur monoxide",
+      "formula": "33SO",
+      "line": 1536,
+      "message": "Nested isotopologue detection emitted with placeholder metadata.",
+      "details": {
+        "parent_line": 1514,
+        "parent_formula": "SO",
+        "parent_name": "sulfur monoxide",
+        "parent_label": "mol:SO",
+        "field": "ppd_isos",
+        "context": "ppd",
+        "molecule_label": "mol:33SO",
+        "formula": "33SO",
+        "preview_formula": "[33S]O",
+        "table_formula": "33SO",
+        "missing_fields": [
+          "sources",
+          "telescopes",
+          "wavelengths"
+        ],
+        "source_field": null,
+        "sources": [],
+        "telescope_field": null,
+        "telescopes": [],
+        "wavelength_field": null,
+        "wavelengths": [],
+        "year": 2024,
+        "observation_refs": [
+          "Booth:2024:165"
         ]
       }
     },
@@ -8609,64 +8747,6 @@
           "1992ApJ...391..137P"
         ],
         "free_text_refs": "Johansson 1991 Proc. IAU Symposium 146, 1; Petuchowski & Bennett 1992 ApJ 391, 137"
-      }
-    },
-    {
-      "kind": "nested_isotopologue_detections_omitted",
-      "severity": "info",
-      "legacy_var": "SO",
-      "name": "sulfur monoxide",
-      "formula": "SO",
-      "line": 1514,
-      "message": "Nested legacy isotopologue detections in 'ppd_isos' omitted from preview.",
-      "details": {
-        "field": "ppd_isos",
-        "isotopologues": [
-          {
-            "line": 1530,
-            "formula": "34SO",
-            "preview_formula": "[34S]O",
-            "table_formula": "34SO",
-            "molecule_label": "mol:34SO",
-            "context": "ppd",
-            "detection_fields": {},
-            "references": [
-              {
-                "field": "ppd_d_bib_ids",
-                "text_field": "ppd_d_refs",
-                "raw": [
-                  "Booth:2024:165"
-                ],
-                "free_text": "Booth et al. 2024 AJ 167, 165",
-                "resolved": [
-                  "Booth:2024:165"
-                ]
-              }
-            ]
-          },
-          {
-            "line": 1536,
-            "formula": "33SO",
-            "preview_formula": "[33S]O",
-            "table_formula": "33SO",
-            "molecule_label": "mol:33SO",
-            "context": "ppd",
-            "detection_fields": {},
-            "references": [
-              {
-                "field": "ppd_d_bib_ids",
-                "text_field": "ppd_d_refs",
-                "raw": [
-                  "Booth:2024:165"
-                ],
-                "free_text": "Booth et al. 2024 AJ 167, 165",
-                "resolved": [
-                  "Booth:2024:165"
-                ]
-              }
-            ]
-          }
-        ]
       }
     },
     {
@@ -9122,6 +9202,115 @@
       }
     },
     {
+      "kind": "nested_isotopologue_detection_metadata_missing",
+      "severity": "info",
+      "legacy_var": "HCOp",
+      "name": "formylium cation",
+      "formula": "DCO+",
+      "line": 2312,
+      "message": "Nested isotopologue detection emitted with placeholder metadata.",
+      "details": {
+        "parent_line": 2296,
+        "parent_formula": "HCO+",
+        "parent_name": "formylium cation",
+        "parent_label": "mol:HCO+",
+        "field": "ppd_isos",
+        "context": "ppd",
+        "molecule_label": "mol:DCO+",
+        "formula": "DCO+",
+        "preview_formula": "[2H]CO+",
+        "table_formula": "DCO+",
+        "missing_fields": [
+          "sources",
+          "telescopes",
+          "wavelengths"
+        ],
+        "source_field": null,
+        "sources": [],
+        "telescope_field": null,
+        "telescopes": [],
+        "wavelength_field": null,
+        "wavelengths": [],
+        "year": 2003,
+        "observation_refs": [
+          "vanDishoeck:2003:L1"
+        ]
+      }
+    },
+    {
+      "kind": "nested_isotopologue_detection_metadata_missing",
+      "severity": "info",
+      "legacy_var": "HCOp",
+      "name": "formylium cation",
+      "formula": "H13CO+",
+      "line": 2318,
+      "message": "Nested isotopologue detection emitted with placeholder metadata.",
+      "details": {
+        "parent_line": 2296,
+        "parent_formula": "HCO+",
+        "parent_name": "formylium cation",
+        "parent_label": "mol:HCO+",
+        "field": "ppd_isos",
+        "context": "ppd",
+        "molecule_label": "mol:H13CO+",
+        "formula": "H13CO+",
+        "preview_formula": "H[13C]O+",
+        "table_formula": "H^{13}CO+",
+        "missing_fields": [
+          "sources",
+          "telescopes",
+          "wavelengths"
+        ],
+        "source_field": null,
+        "sources": [],
+        "telescope_field": null,
+        "telescopes": [],
+        "wavelength_field": null,
+        "wavelengths": [],
+        "year": 2001,
+        "observation_refs": [
+          "vanZadelhoff:2001:566",
+          "vanDishoeck:2003:L1"
+        ]
+      }
+    },
+    {
+      "kind": "nested_isotopologue_detection_metadata_missing",
+      "severity": "info",
+      "legacy_var": "HCOp",
+      "name": "formylium cation",
+      "formula": "HC18O+",
+      "line": 2325,
+      "message": "Nested isotopologue detection emitted with placeholder metadata.",
+      "details": {
+        "parent_line": 2296,
+        "parent_formula": "HCO+",
+        "parent_name": "formylium cation",
+        "parent_label": "mol:HCO+",
+        "field": "ppd_isos",
+        "context": "ppd",
+        "molecule_label": "mol:HC18O+",
+        "formula": "HC18O+",
+        "preview_formula": "HC[18O]+",
+        "table_formula": "HC^{18}O+",
+        "missing_fields": [
+          "sources",
+          "telescopes",
+          "wavelengths"
+        ],
+        "source_field": null,
+        "sources": [],
+        "telescope_field": null,
+        "telescopes": [],
+        "wavelength_field": null,
+        "wavelengths": [],
+        "year": 2022,
+        "observation_refs": [
+          "Furuya:2022:148"
+        ]
+      }
+    },
+    {
       "kind": "extra_context_detection_omitted",
       "severity": "info",
       "legacy_var": "HCOp",
@@ -9163,84 +9352,110 @@
       }
     },
     {
-      "kind": "nested_isotopologue_detections_omitted",
+      "kind": "nested_isotopologue_detection_metadata_missing",
       "severity": "info",
-      "legacy_var": "HCOp",
-      "name": "formylium cation",
-      "formula": "HCO+",
-      "line": 2296,
-      "message": "Nested legacy isotopologue detections in 'ppd_isos' omitted from preview.",
+      "legacy_var": "HCN",
+      "name": "hydrogen cyanide",
+      "formula": "DCN",
+      "line": 2362,
+      "message": "Nested isotopologue detection emitted with placeholder metadata.",
       "details": {
+        "parent_line": 2346,
+        "parent_formula": "HCN",
+        "parent_name": "hydrogen cyanide",
+        "parent_label": "mol:HCN",
         "field": "ppd_isos",
-        "isotopologues": [
-          {
-            "line": 2312,
-            "formula": "DCO+",
-            "preview_formula": "[2H]CO+",
-            "table_formula": "DCO+",
-            "molecule_label": "mol:DCO+",
-            "context": "ppd",
-            "detection_fields": {},
-            "references": [
-              {
-                "field": "ppd_d_bib_ids",
-                "text_field": "ppd_d_refs",
-                "raw": [
-                  "2003A&A...400L...1V"
-                ],
-                "free_text": "van Dishoeck et al. 2003 A&A 400, L1",
-                "resolved": [
-                  "vanDishoeck:2003:L1"
-                ]
-              }
-            ]
-          },
-          {
-            "line": 2318,
-            "formula": "H13CO+",
-            "preview_formula": "H[13C]O+",
-            "table_formula": "H^{13}CO+",
-            "molecule_label": "mol:H13CO+",
-            "context": "ppd",
-            "detection_fields": {},
-            "references": [
-              {
-                "field": "ppd_d_bib_ids",
-                "text_field": "ppd_d_refs",
-                "raw": [
-                  "2001A&A...377..566V",
-                  "2003A&A...400L...1V"
-                ],
-                "free_text": "van Zadelhoff et al. 2001 A&A 377, 566; van Dishoeck et al. 2003 A&A 400, L1",
-                "resolved": [
-                  "vanZadelhoff:2001:566",
-                  "vanDishoeck:2003:L1"
-                ]
-              }
-            ]
-          },
-          {
-            "line": 2325,
-            "formula": "HC18O+",
-            "preview_formula": "HC[18O]+",
-            "table_formula": "HC^{18}O+",
-            "molecule_label": "mol:HC18O+",
-            "context": "ppd",
-            "detection_fields": {},
-            "references": [
-              {
-                "field": "ppd_d_bib_ids",
-                "text_field": "ppd_d_refs",
-                "raw": [
-                  "2022ApJ...926..148F"
-                ],
-                "free_text": "Furuya et al. 2022 ApJ 926, 148",
-                "resolved": [
-                  "Furuya:2022:148"
-                ]
-              }
-            ]
-          }
+        "context": "ppd",
+        "molecule_label": "mol:DCN",
+        "formula": "DCN",
+        "preview_formula": "[2H]CN",
+        "table_formula": "DCN",
+        "missing_fields": [
+          "sources",
+          "telescopes",
+          "wavelengths"
+        ],
+        "source_field": null,
+        "sources": [],
+        "telescope_field": null,
+        "telescopes": [],
+        "wavelength_field": null,
+        "wavelengths": [],
+        "year": 2008,
+        "observation_refs": [
+          "Qi:2008:1396"
+        ]
+      }
+    },
+    {
+      "kind": "nested_isotopologue_detection_metadata_missing",
+      "severity": "info",
+      "legacy_var": "HCN",
+      "name": "hydrogen cyanide",
+      "formula": "H13CN",
+      "line": 2367,
+      "message": "Nested isotopologue detection emitted with placeholder metadata.",
+      "details": {
+        "parent_line": 2346,
+        "parent_formula": "HCN",
+        "parent_name": "hydrogen cyanide",
+        "parent_label": "mol:HCN",
+        "field": "ppd_isos",
+        "context": "ppd",
+        "molecule_label": "mol:H13CN",
+        "formula": "H13CN",
+        "preview_formula": "H[13C]N",
+        "table_formula": "H^{13}CN",
+        "missing_fields": [
+          "sources",
+          "telescopes",
+          "wavelengths"
+        ],
+        "source_field": null,
+        "sources": [],
+        "telescope_field": null,
+        "telescopes": [],
+        "wavelength_field": null,
+        "wavelengths": [],
+        "year": 2015,
+        "observation_refs": [
+          "Guzman:2015:53"
+        ]
+      }
+    },
+    {
+      "kind": "nested_isotopologue_detection_metadata_missing",
+      "severity": "info",
+      "legacy_var": "HCN",
+      "name": "hydrogen cyanide",
+      "formula": "HC15N",
+      "line": 2373,
+      "message": "Nested isotopologue detection emitted with placeholder metadata.",
+      "details": {
+        "parent_line": 2346,
+        "parent_formula": "HCN",
+        "parent_name": "hydrogen cyanide",
+        "parent_label": "mol:HCN",
+        "field": "ppd_isos",
+        "context": "ppd",
+        "molecule_label": "mol:HC15N",
+        "formula": "HC15N",
+        "preview_formula": "HC[15N]",
+        "table_formula": "H^{15}CN",
+        "missing_fields": [
+          "sources",
+          "telescopes",
+          "wavelengths"
+        ],
+        "source_field": null,
+        "sources": [],
+        "telescope_field": null,
+        "telescopes": [],
+        "wavelength_field": null,
+        "wavelengths": [],
+        "year": 2015,
+        "observation_refs": [
+          "Guzman:2015:53"
         ]
       }
     },
@@ -9306,86 +9521,6 @@
       }
     },
     {
-      "kind": "nested_isotopologue_detections_omitted",
-      "severity": "info",
-      "legacy_var": "HCN",
-      "name": "hydrogen cyanide",
-      "formula": "HCN",
-      "line": 2346,
-      "message": "Nested legacy isotopologue detections in 'ppd_isos' omitted from preview.",
-      "details": {
-        "field": "ppd_isos",
-        "isotopologues": [
-          {
-            "line": 2362,
-            "formula": "DCN",
-            "preview_formula": "[2H]CN",
-            "table_formula": "DCN",
-            "molecule_label": "mol:DCN",
-            "context": "ppd",
-            "detection_fields": {},
-            "references": [
-              {
-                "field": "ppd_d_bib_ids",
-                "text_field": "ppd_d_refs",
-                "raw": [
-                  "2008ApJ...681.1396Q"
-                ],
-                "free_text": "Qi et al. 2008 ApJ 681, 1396",
-                "resolved": [
-                  "Qi:2008:1396"
-                ]
-              }
-            ]
-          },
-          {
-            "line": 2367,
-            "formula": "H13CN",
-            "preview_formula": "H[13C]N",
-            "table_formula": "H^{13}CN",
-            "molecule_label": "mol:H13CN",
-            "context": "ppd",
-            "detection_fields": {},
-            "references": [
-              {
-                "field": "ppd_d_bib_ids",
-                "text_field": "ppd_d_refs",
-                "raw": [
-                  "2015ApJ...814...53G"
-                ],
-                "free_text": "Guzman et al. 2015 ApJ 814, 53",
-                "resolved": [
-                  "Guzman:2015:53"
-                ]
-              }
-            ]
-          },
-          {
-            "line": 2373,
-            "formula": "HC15N",
-            "preview_formula": "HC[15N]",
-            "table_formula": "H^{15}CN",
-            "molecule_label": "mol:HC15N",
-            "context": "ppd",
-            "detection_fields": {},
-            "references": [
-              {
-                "field": "ppd_d_bib_ids",
-                "text_field": "ppd_d_refs",
-                "raw": [
-                  "2015ApJ...814...53G"
-                ],
-                "free_text": "Guzman et al. 2015 ApJ 814, 53",
-                "resolved": [
-                  "Guzman:2015:53"
-                ]
-              }
-            ]
-          }
-        ]
-      }
-    },
-    {
       "kind": "extra_context_detection_omitted",
       "severity": "info",
       "legacy_var": "OCS",
@@ -9424,6 +9559,42 @@
           "1995A&A...294...23M"
         ],
         "free_text_refs": "Mauersberger et al. 1995 A&A 294, 23"
+      }
+    },
+    {
+      "kind": "nested_isotopologue_detection_metadata_missing",
+      "severity": "info",
+      "legacy_var": "HNC",
+      "name": "hydrogen isocyanide",
+      "formula": "DNC",
+      "line": 2432,
+      "message": "Nested isotopologue detection emitted with placeholder metadata.",
+      "details": {
+        "parent_line": 2416,
+        "parent_formula": "HNC",
+        "parent_name": "hydrogen isocyanide",
+        "parent_label": "mol:HNC",
+        "field": "ppd_isos",
+        "context": "ppd",
+        "molecule_label": "mol:DNC",
+        "formula": "DNC",
+        "preview_formula": "[2H]NC",
+        "table_formula": "DNC",
+        "missing_fields": [
+          "sources",
+          "telescopes",
+          "wavelengths"
+        ],
+        "source_field": null,
+        "sources": [],
+        "telescope_field": null,
+        "telescopes": [],
+        "wavelength_field": null,
+        "wavelengths": [],
+        "year": 2020,
+        "observation_refs": [
+          "Loomis:2020:101"
+        ]
       }
     },
     {
@@ -9467,42 +9638,6 @@
       }
     },
     {
-      "kind": "nested_isotopologue_detections_omitted",
-      "severity": "info",
-      "legacy_var": "HNC",
-      "name": "hydrogen isocyanide",
-      "formula": "HNC",
-      "line": 2416,
-      "message": "Nested legacy isotopologue detections in 'ppd_isos' omitted from preview.",
-      "details": {
-        "field": "ppd_isos",
-        "isotopologues": [
-          {
-            "line": 2432,
-            "formula": "DNC",
-            "preview_formula": "[2H]NC",
-            "table_formula": "DNC",
-            "molecule_label": "mol:DNC",
-            "context": "ppd",
-            "detection_fields": {},
-            "references": [
-              {
-                "field": "ppd_d_bib_ids",
-                "text_field": "ppd_d_refs",
-                "raw": [
-                  "2020ApJ...893..101L"
-                ],
-                "free_text": "Loomis et al. 2020 ApJ 893, 101",
-                "resolved": [
-                  "Loomis:2020:101"
-                ]
-              }
-            ]
-          }
-        ]
-      }
-    },
-    {
       "kind": "extra_context_detection_omitted",
       "severity": "info",
       "legacy_var": "H2S",
@@ -9540,6 +9675,42 @@
           "1999A&A...344..817H"
         ],
         "free_text_refs": "Hekkila et al. 1999 A&A 344, 817"
+      }
+    },
+    {
+      "kind": "nested_isotopologue_detection_metadata_missing",
+      "severity": "info",
+      "legacy_var": "N2Hp",
+      "name": "protonated nitrogen",
+      "formula": "N2D+",
+      "line": 2487,
+      "message": "Nested isotopologue detection emitted with placeholder metadata.",
+      "details": {
+        "parent_line": 2471,
+        "parent_formula": "N2H+",
+        "parent_name": "protonated nitrogen",
+        "parent_label": "mol:N2H+",
+        "field": "ppd_isos",
+        "context": "ppd",
+        "molecule_label": "mol:N2D+",
+        "formula": "N2D+",
+        "preview_formula": "N2[2H]+",
+        "table_formula": "N2D+",
+        "missing_fields": [
+          "sources",
+          "telescopes",
+          "wavelengths"
+        ],
+        "source_field": null,
+        "sources": [],
+        "telescope_field": null,
+        "telescopes": [],
+        "wavelength_field": null,
+        "wavelengths": [],
+        "year": 2015,
+        "observation_refs": [
+          "Huang:2015:L26"
+        ]
       }
     },
     {
@@ -9584,38 +9755,38 @@
       }
     },
     {
-      "kind": "nested_isotopologue_detections_omitted",
+      "kind": "nested_isotopologue_detection_metadata_missing",
       "severity": "info",
-      "legacy_var": "N2Hp",
-      "name": "protonated nitrogen",
-      "formula": "N2H+",
-      "line": 2471,
-      "message": "Nested legacy isotopologue detections in 'ppd_isos' omitted from preview.",
+      "legacy_var": "C2H",
+      "name": "ethynyl radical",
+      "formula": "C2D",
+      "line": 2518,
+      "message": "Nested isotopologue detection emitted with placeholder metadata.",
       "details": {
+        "parent_line": 2502,
+        "parent_formula": "C2H",
+        "parent_name": "ethynyl radical",
+        "parent_label": "mol:C2H",
         "field": "ppd_isos",
-        "isotopologues": [
-          {
-            "line": 2487,
-            "formula": "N2D+",
-            "preview_formula": "N2[2H]+",
-            "table_formula": "N2D+",
-            "molecule_label": "mol:N2D+",
-            "context": "ppd",
-            "detection_fields": {},
-            "references": [
-              {
-                "field": "ppd_d_bib_ids",
-                "text_field": "ppd_d_refs",
-                "raw": [
-                  "2015ApJ...809L..26H"
-                ],
-                "free_text": "Huang et al. 2015 ApJL 809, L26",
-                "resolved": [
-                  "Huang:2015:L26"
-                ]
-              }
-            ]
-          }
+        "context": "ppd",
+        "molecule_label": "mol:C2D",
+        "formula": "C2D",
+        "preview_formula": "C2[2H]",
+        "table_formula": "C2D",
+        "missing_fields": [
+          "sources",
+          "telescopes",
+          "wavelengths"
+        ],
+        "source_field": null,
+        "sources": [],
+        "telescope_field": null,
+        "telescopes": [],
+        "wavelength_field": null,
+        "wavelengths": [],
+        "year": 2020,
+        "observation_refs": [
+          "Loomis:2020:101"
         ]
       }
     },
@@ -9657,42 +9828,6 @@
           "1988A&A...201L..23H"
         ],
         "free_text_refs": "Henkel et al. 1988 A&A 201, L23"
-      }
-    },
-    {
-      "kind": "nested_isotopologue_detections_omitted",
-      "severity": "info",
-      "legacy_var": "C2H",
-      "name": "ethynyl radical",
-      "formula": "C2H",
-      "line": 2502,
-      "message": "Nested legacy isotopologue detections in 'ppd_isos' omitted from preview.",
-      "details": {
-        "field": "ppd_isos",
-        "isotopologues": [
-          {
-            "line": 2518,
-            "formula": "C2D",
-            "preview_formula": "C2[2H]",
-            "table_formula": "C2D",
-            "molecule_label": "mol:C2D",
-            "context": "ppd",
-            "detection_fields": {},
-            "references": [
-              {
-                "field": "ppd_d_bib_ids",
-                "text_field": "ppd_d_refs",
-                "raw": [
-                  "2020ApJ...893..101L"
-                ],
-                "free_text": "Loomis et al. 2020 ApJ 893, 101",
-                "resolved": [
-                  "Loomis:2020:101"
-                ]
-              }
-            ]
-          }
-        ]
       }
     },
     {
@@ -9880,6 +10015,42 @@
       }
     },
     {
+      "kind": "nested_isotopologue_detection_metadata_missing",
+      "severity": "info",
+      "legacy_var": "CO2",
+      "name": "carbon dioxide",
+      "formula": "13CO2",
+      "line": 2735,
+      "message": "Nested isotopologue detection emitted with placeholder metadata.",
+      "details": {
+        "parent_line": 2715,
+        "parent_formula": "CO2",
+        "parent_name": "carbon dioxide",
+        "parent_label": "mol:CO2",
+        "field": "ppd_isos",
+        "context": "ppd",
+        "molecule_label": "mol:13CO2",
+        "formula": "13CO2",
+        "preview_formula": "[13C]O2",
+        "table_formula": "^{13}CO2",
+        "missing_fields": [
+          "sources",
+          "telescopes",
+          "wavelengths"
+        ],
+        "source_field": null,
+        "sources": [],
+        "telescope_field": null,
+        "telescopes": [],
+        "wavelength_field": null,
+        "wavelengths": [],
+        "year": 2023,
+        "observation_refs": [
+          "Sturm:2023:A138"
+        ]
+      }
+    },
+    {
       "kind": "extra_context_detection_omitted",
       "severity": "info",
       "legacy_var": "CO2",
@@ -9940,42 +10111,6 @@
           "JWST:2023:649"
         ],
         "free_text_refs": "Stevenson et al. 2010 Nature 464, 1161; Madhusudhan et al. 2011 Nature 469, 64; Lanotte et al. 2014 A&A 572, A73; JWST et al. 2023 Nature 614, 649"
-      }
-    },
-    {
-      "kind": "nested_isotopologue_detections_omitted",
-      "severity": "info",
-      "legacy_var": "CO2",
-      "name": "carbon dioxide",
-      "formula": "CO2",
-      "line": 2715,
-      "message": "Nested legacy isotopologue detections in 'ppd_isos' omitted from preview.",
-      "details": {
-        "field": "ppd_isos",
-        "isotopologues": [
-          {
-            "line": 2735,
-            "formula": "13CO2",
-            "preview_formula": "[13C]O2",
-            "table_formula": "^{13}CO2",
-            "molecule_label": "mol:13CO2",
-            "context": "ppd",
-            "detection_fields": {},
-            "references": [
-              {
-                "field": "ppd_d_bib_ids",
-                "text_field": "ppd_d_refs",
-                "raw": [
-                  "Sturm:2023:A138"
-                ],
-                "free_text": "Sturm et al. 2023 A&A 679, A138",
-                "resolved": [
-                  "Sturm:2023:A138"
-                ]
-              }
-            ]
-          }
-        ]
       }
     },
     {
@@ -10139,6 +10274,42 @@
       }
     },
     {
+      "kind": "nested_isotopologue_detection_metadata_missing",
+      "severity": "info",
+      "legacy_var": "H2CO",
+      "name": "formaldehyde",
+      "formula": "H2^{13}CO",
+      "line": 3446,
+      "message": "Nested isotopologue detection emitted with placeholder metadata.",
+      "details": {
+        "parent_line": 3412,
+        "parent_formula": "H2CO",
+        "parent_name": "formaldehyde",
+        "parent_label": "mol:H2CO",
+        "field": "ppd_isos",
+        "context": "ppd",
+        "molecule_label": "mol:H213CO",
+        "formula": "H2^{13}CO",
+        "preview_formula": "H2[13C]O",
+        "table_formula": "H2^{13}CO",
+        "missing_fields": [
+          "sources",
+          "telescopes",
+          "wavelengths"
+        ],
+        "source_field": null,
+        "sources": [],
+        "telescope_field": null,
+        "telescopes": [],
+        "wavelength_field": null,
+        "wavelengths": [],
+        "year": 2024,
+        "observation_refs": [
+          "Booth:2024:165"
+        ]
+      }
+    },
+    {
       "kind": "extra_context_detection_omitted",
       "severity": "info",
       "legacy_var": "H2CO",
@@ -10196,42 +10367,6 @@
           "1974Natur.247..526G"
         ],
         "free_text_refs": "Gardner & Whiteoak 1974 Nature 247, 526"
-      }
-    },
-    {
-      "kind": "nested_isotopologue_detections_omitted",
-      "severity": "info",
-      "legacy_var": "H2CO",
-      "name": "formaldehyde",
-      "formula": "H2CO",
-      "line": 3412,
-      "message": "Nested legacy isotopologue detections in 'ppd_isos' omitted from preview.",
-      "details": {
-        "field": "ppd_isos",
-        "isotopologues": [
-          {
-            "line": 3446,
-            "formula": "H2^{13}CO",
-            "preview_formula": "H2[13C]O",
-            "table_formula": "H2^{13}CO",
-            "molecule_label": "mol:H213CO",
-            "context": "ppd",
-            "detection_fields": {},
-            "references": [
-              {
-                "field": "ppd_d_bib_ids",
-                "text_field": "ppd_d_refs",
-                "raw": [
-                  "Booth:2024:165"
-                ],
-                "free_text": "Booth et al. 2024 AJ 167, 165",
-                "resolved": [
-                  "Booth:2024:165"
-                ]
-              }
-            ]
-          }
-        ]
       }
     },
     {
@@ -10296,6 +10431,42 @@
       }
     },
     {
+      "kind": "nested_isotopologue_detection_metadata_missing",
+      "severity": "info",
+      "legacy_var": "C2H2",
+      "name": "acetylene",
+      "formula": "H13CCH",
+      "line": 3543,
+      "message": "Nested isotopologue detection emitted with placeholder metadata.",
+      "details": {
+        "parent_line": 3527,
+        "parent_formula": "C2H2",
+        "parent_name": "acetylene",
+        "parent_label": "mol:C2H2",
+        "field": "ppd_isos",
+        "context": "ppd",
+        "molecule_label": "mol:H13CCH",
+        "formula": "H13CCH",
+        "preview_formula": "H[13C]CH",
+        "table_formula": "H^{13}CCH",
+        "missing_fields": [
+          "sources",
+          "telescopes",
+          "wavelengths"
+        ],
+        "source_field": null,
+        "sources": [],
+        "telescope_field": null,
+        "telescopes": [],
+        "wavelength_field": null,
+        "wavelengths": [],
+        "year": 2023,
+        "observation_refs": [
+          "Tabone:2023:805"
+        ]
+      }
+    },
+    {
       "kind": "extra_context_detection_omitted",
       "severity": "info",
       "legacy_var": "C2H2",
@@ -10353,42 +10524,6 @@
           "2021Natur.592..205G"
         ],
         "free_text_refs": "Giacobbe et al. 2021 Nature 592, 205"
-      }
-    },
-    {
-      "kind": "nested_isotopologue_detections_omitted",
-      "severity": "info",
-      "legacy_var": "C2H2",
-      "name": "acetylene",
-      "formula": "C2H2",
-      "line": 3527,
-      "message": "Nested legacy isotopologue detections in 'ppd_isos' omitted from preview.",
-      "details": {
-        "field": "ppd_isos",
-        "isotopologues": [
-          {
-            "line": 3543,
-            "formula": "H13CCH",
-            "preview_formula": "H[13C]CH",
-            "table_formula": "H^{13}CCH",
-            "molecule_label": "mol:H13CCH",
-            "context": "ppd",
-            "detection_fields": {},
-            "references": [
-              {
-                "field": "ppd_d_bib_ids",
-                "text_field": "ppd_d_refs",
-                "raw": [
-                  "Tabone:2023:805"
-                ],
-                "free_text": "Tabone et al. 2023 Nat. Ast. 7, 805",
-                "resolved": [
-                  "Tabone:2023:805"
-                ]
-              }
-            ]
-          }
-        ]
       }
     },
     {
@@ -10854,6 +10989,42 @@
       }
     },
     {
+      "kind": "nested_isotopologue_detection_metadata_missing",
+      "severity": "info",
+      "legacy_var": "CH4",
+      "name": "methane",
+      "formula": "CH3D",
+      "line": 4608,
+      "message": "Nested isotopologue detection emitted with placeholder metadata.",
+      "details": {
+        "parent_line": 4585,
+        "parent_formula": "CH4",
+        "parent_name": "methane",
+        "parent_label": "mol:CH4",
+        "field": "exo_isos",
+        "context": "exo",
+        "molecule_label": "mol:CH3D",
+        "formula": "CH3D",
+        "preview_formula": "CH3[2H]",
+        "table_formula": "CH3D",
+        "missing_fields": [
+          "sources",
+          "telescopes",
+          "wavelengths"
+        ],
+        "source_field": null,
+        "sources": [],
+        "telescope_field": null,
+        "telescopes": [],
+        "wavelength_field": null,
+        "wavelengths": [],
+        "year": 2024,
+        "observation_refs": [
+          "Rowland:2024:L49"
+        ]
+      }
+    },
+    {
       "kind": "extra_context_detection_omitted",
       "severity": "info",
       "legacy_var": "CH4",
@@ -10914,42 +11085,6 @@
           "2015ApJ...804...61B"
         ],
         "free_text_refs": "Swain et al. 2008 Nature 452, 329; Barman et al. 2011 ApJ 733, 65; Stevenson et al. 2014 ApJ 791, 36; Barman et al. 2015 ApJ 804, 61"
-      }
-    },
-    {
-      "kind": "nested_isotopologue_detections_omitted",
-      "severity": "info",
-      "legacy_var": "CH4",
-      "name": "methane",
-      "formula": "CH4",
-      "line": 4585,
-      "message": "Nested legacy isotopologue detections in 'exo_isos' omitted from preview.",
-      "details": {
-        "field": "exo_isos",
-        "isotopologues": [
-          {
-            "line": 4608,
-            "formula": "CH3D",
-            "preview_formula": "CH3[2H]",
-            "table_formula": "CH3D",
-            "molecule_label": "mol:CH3D",
-            "context": "exo",
-            "detection_fields": {},
-            "references": [
-              {
-                "field": "exo_d_bib_ids",
-                "text_field": "exo_d_refs",
-                "raw": [
-                  "Rowland:2024:L49"
-                ],
-                "free_text": "Rowland et al. 2024 ApJ 977, L49",
-                "resolved": [
-                  "Rowland:2024:L49"
-                ]
-              }
-            ]
-          }
-        ]
       }
     },
     {

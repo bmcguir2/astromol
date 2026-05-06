@@ -81,6 +81,7 @@ FREE_TEXT_REFERENCE_ALIASES = {
 SOURCE_ALIASES = {
     "LOSCloud": "DiffuseCloud",
     "Orion": "OrionKL",
+    "TYC 8998-760-1 b": "TYC89987601b",
 }
 
 FORMULA_OVERRIDES = {
@@ -124,24 +125,17 @@ NAME_OVERRIDES = {
 
 ALLOWED_WAVELENGTHS = {"cm", "mm", "sub-mm", "IR", "UV", "Vis"}
 EXTRA_CONTEXTS = ("ice", "ppd", "exgal", "exo")
-REF_FIELDS = (
-    "d_ref_bib_ids",
-    "l_ref_bib_ids",
-    "ice_d_bib_ids",
-    "ice_l_bib_ids",
-    "ppd_d_bib_ids",
-    "ppd_l_bib_ids",
-    "exgal_d_bib_ids",
-    "exgal_l_bib_ids",
-    "exo_d_bib_ids",
-    "exo_l_bib_ids",
-)
+NESTED_ISOTOPOLOGUE_FIELDS = ("ice_isos", "ppd_isos", "exgal_isos", "exo_isos")
 
 
 class LegacyConverter:
     def __init__(self, only: set[str] | None = None):
         self.only = only
-        self.reference_ids, self.reference_indexes = self._load_references()
+        (
+            self.reference_ids,
+            self.reference_indexes,
+            self.reference_years,
+        ) = self._load_references()
         self.reference_key_aliases = self._normalized_aliases(REFERENCE_KEY_ALIASES)
         self.free_text_reference_aliases = self._normalized_aliases(
             FREE_TEXT_REFERENCE_ALIASES
@@ -177,8 +171,9 @@ class LegacyConverter:
             if detection is not None:
                 detections.append(detection)
 
+            detections.extend(self._convert_nested_isotopologue_detections(legacy))
+
             self._report_omitted_extra_contexts(legacy)
-            self._report_omitted_nested_isotopologues(legacy)
 
         self._validate_preview(molecules, detections)
         return molecules, detections, self._issue_report(molecules, detections)
@@ -195,6 +190,7 @@ class LegacyConverter:
             database = bibtexparser.load(handle)
 
         reference_ids = {entry["ID"] for entry in database.entries if "ID" in entry}
+        reference_years = {}
         indexes = {
             "ads": defaultdict(list),
             "ads_volume": defaultdict(list),
@@ -205,7 +201,13 @@ class LegacyConverter:
 
         for entry in database.entries:
             ref_id = entry.get("ID")
+            if not ref_id:
+                continue
+
             year = self._normalize_year(entry.get("year"))
+            if year is not None:
+                reference_years[ref_id] = int(year)
+
             volume = self._normalize_volume(entry.get("volume"))
             pages = self._page_variants(entry.get("pages") or entry.get("page"))
             surnames = self._reference_surname_keys(entry)
@@ -229,7 +231,7 @@ class LegacyConverter:
             if base != ref_id:
                 indexes["zotero_base"][base].append(ref_id)
 
-        return reference_ids, indexes
+        return reference_ids, indexes, reference_years
 
     def _normalize_year(self, value):
         match = re.search(r"\d{4}", str(value or ""))
@@ -628,9 +630,217 @@ class LegacyConverter:
             "latex_text": None,
         }
 
+    def _convert_nested_isotopologue_detections(self, legacy):
+        detections = []
+        for field in NESTED_ISOTOPOLOGUE_FIELDS:
+            context = field.replace("_isos", "")
+            for item in self._as_list(legacy.get(field)):
+                if not isinstance(item, dict):
+                    continue
+
+                detection = self._convert_nested_isotopologue_detection(
+                    legacy, field, context, item
+                )
+                if detection is not None:
+                    detections.append(detection)
+
+        return detections
+
+    def _convert_nested_isotopologue_detection(self, legacy, field, context, item):
+        nested_context = self._nested_isotopologue_context(legacy, item)
+        label = self._isotopologue_label(item.get("formula"))
+
+        source_value = self._context_field_value(legacy, item, context, "sources")
+        telescope_value = self._context_field_value(legacy, item, context, "telescopes")
+        wavelength_value = self._context_field_value(legacy, item, context, "wavelengths")
+
+        sources = self._source_refs(source_value, nested_context, f"{context}_sources")
+        telescopes = self._telescope_refs(
+            telescope_value, nested_context, f"{context}_telescopes"
+        )
+        wavelengths = self._wavelengths(wavelength_value, nested_context)
+        observation_refs = self._nested_isotopologue_observation_refs(
+            nested_context, context
+        )
+        year = self._nested_detection_year(legacy, item, context, observation_refs)
+
+        missing_metadata = []
+        if not sources:
+            missing_metadata.append("sources")
+        if not telescopes:
+            missing_metadata.append("telescopes")
+        if not wavelengths:
+            missing_metadata.append("wavelengths")
+
+        missing_required = []
+        if year is None:
+            missing_required.append("year")
+        if not observation_refs:
+            missing_required.append("observation_refs")
+
+        detection_metadata = {
+            "source_field": source_value,
+            "sources": sources,
+            "telescope_field": telescope_value,
+            "telescopes": telescopes,
+            "wavelength_field": wavelength_value,
+            "wavelengths": wavelengths,
+            "year": year,
+            "observation_refs": observation_refs,
+        }
+
+        if missing_metadata:
+            self._report_nested_isotopologue_detection_metadata_missing(
+                legacy,
+                item,
+                field,
+                context,
+                label,
+                missing_metadata,
+                detection_metadata,
+            )
+
+        if missing_required:
+            self._report_incomplete_nested_isotopologue_detection(
+                legacy,
+                item,
+                field,
+                context,
+                label,
+                missing_required,
+                detection_metadata,
+            )
+            return None
+
+        return {
+            "note": self._none_if_blank(item.get("notes") or item.get("note")),
+            "molecule": label,
+            "sources": sources,
+            "telescopes": telescopes,
+            "wavelengths": wavelengths,
+            "year": year,
+            "type": context,
+            "first": True,
+            "refs": {
+                "observation": observation_refs,
+            },
+            "latex_text": None,
+        }
+
+    def _nested_isotopologue_context(self, legacy, item):
+        context = dict(item)
+        context["__legacy_var"] = legacy.get("__legacy_var")
+        context["__line"] = item.get("__line")
+        context["formula"] = item.get("formula")
+        context["name"] = legacy.get("name")
+        return context
+
+    def _context_field_value(self, legacy, item, context, suffix):
+        for key in (f"{context}_{suffix}", suffix):
+            if key in item:
+                return item.get(key)
+
+        key = f"{context}_{suffix}"
+        if key in legacy:
+            return legacy.get(key)
+
+        return None
+
+    def _nested_isotopologue_observation_refs(self, nested_context, context):
+        refs = []
+        for id_field, text_field in (
+            ("d_ref_bib_ids", "d_refs"),
+            (f"{context}_d_bib_ids", f"{context}_d_refs"),
+        ):
+            refs.extend(
+                self._refs_from_fields(nested_context, id_field, text_field, "observation")
+            )
+        return self._unique_preserve_order(refs)
+
+    def _nested_detection_year(self, legacy, item, context, observation_refs):
+        for value in (
+            item.get("year"),
+            item.get(f"{context}_year"),
+            legacy.get(f"{context}_year"),
+        ):
+            year = self._year_value(value)
+            if year is not None:
+                return year
+
+        years = [
+            self.reference_years[ref]
+            for ref in observation_refs
+            if ref in self.reference_years
+        ]
+        return min(years) if years else None
+
+    def _year_value(self, value):
+        if value is None:
+            return None
+        match = re.search(r"\d{4}", str(value))
+        return int(match.group(0)) if match else None
+
+    def _report_incomplete_nested_isotopologue_detection(
+        self, legacy, item, field, context, label, missing, found
+    ):
+        self._report_nested_isotopologue_detection_issue(
+            "nested_isotopologue_detection_incomplete",
+            "Nested isotopologue detection lacks required detection metadata.",
+            legacy,
+            item,
+            field,
+            context,
+            label,
+            missing,
+            found,
+        )
+
+    def _report_nested_isotopologue_detection_metadata_missing(
+        self, legacy, item, field, context, label, missing, found
+    ):
+        self._report_nested_isotopologue_detection_issue(
+            "nested_isotopologue_detection_metadata_missing",
+            "Nested isotopologue detection emitted with placeholder metadata.",
+            legacy,
+            item,
+            field,
+            context,
+            label,
+            missing,
+            found,
+        )
+
+    def _report_nested_isotopologue_detection_issue(
+        self, kind, message, legacy, item, field, context, label, missing, found
+    ):
+        formula = item.get("formula")
+        preview_formula = ISOTOPOLOGUE_FORMULA_OVERRIDES.get(
+            formula, FORMULA_OVERRIDES.get(formula, formula)
+        )
+        self._issue(
+            kind,
+            "info",
+            self._nested_isotopologue_context(legacy, item),
+            message,
+            {
+                "parent_line": legacy.get("__line"),
+                "parent_formula": legacy.get("formula"),
+                "parent_name": legacy.get("name"),
+                "parent_label": self._molecule_label(legacy),
+                "field": field,
+                "context": context,
+                "molecule_label": label,
+                "formula": formula,
+                "preview_formula": preview_formula,
+                "table_formula": self._table_formula(item, formula, preview_formula),
+                "missing_fields": missing,
+                **found,
+            },
+        )
+
     def _source_refs(self, values, legacy, field):
         refs = []
-        for value in self._as_list(values):
+        for value in self._as_field_list(values):
             mapped = SOURCE_ALIASES.get(value, value)
             if mapped not in self.source_nicks:
                 self._issue(
@@ -646,7 +856,7 @@ class LegacyConverter:
 
     def _telescope_refs(self, values, legacy, field):
         refs = []
-        for value in self._as_list(values):
+        for value in self._as_field_list(values):
             if value not in self.telescope_nicks:
                 self._issue(
                     "unknown_telescope",
@@ -661,7 +871,7 @@ class LegacyConverter:
 
     def _wavelengths(self, values, legacy):
         wavelengths = []
-        for value in self._as_list(values):
+        for value in self._as_field_list(values):
             if value not in ALLOWED_WAVELENGTHS:
                 self._issue(
                     "unknown_wavelength",
@@ -1021,81 +1231,6 @@ class LegacyConverter:
                 f"{context}_lab",
             )
 
-    def _report_omitted_nested_isotopologues(self, legacy):
-        for field in ("ice_isos", "ppd_isos", "exgal_isos", "exo_isos"):
-            nested = [
-                item
-                for item in self._as_list(legacy.get(field))
-                if isinstance(item, dict)
-            ]
-            if not nested:
-                continue
-
-            self._issue(
-                "nested_isotopologue_detections_omitted",
-                "info",
-                legacy,
-                f"Nested legacy isotopologue detections in '{field}' omitted from preview.",
-                {
-                    "field": field,
-                    "isotopologues": [
-                        self._nested_isotopologue_summary(legacy, field, item)
-                        for item in nested
-                    ],
-                },
-            )
-
-    def _nested_isotopologue_summary(self, legacy, field, item):
-        context = field.replace("_isos", "")
-        formula = item.get("formula")
-        nested_context = dict(item)
-        nested_context["__legacy_var"] = legacy.get("__legacy_var")
-        nested_context["name"] = item.get("name") or legacy.get("name")
-
-        preview_formula = self._normalize_isotopologue_formula(
-            formula,
-            nested_context,
-            self._molecule_label(legacy),
-        )
-        summary = {
-            "line": item.get("__line"),
-            "formula": formula,
-            "preview_formula": preview_formula,
-            "table_formula": self._table_formula(item, formula, preview_formula),
-            "molecule_label": self._isotopologue_label(formula),
-            "context": context,
-            "detection_fields": {},
-            "references": [],
-        }
-
-        for suffix in ("sources", "telescopes", "wavelengths", "year"):
-            key = f"{context}_{suffix}" if suffix != "year" else suffix
-            if key in item:
-                summary["detection_fields"][key] = item.get(key)
-
-        for ref_field in REF_FIELDS:
-            text_field = ref_field.replace("_bib_ids", "_refs")
-            if ref_field not in item and text_field not in item:
-                continue
-
-            resolved = self._refs_from_fields(
-                nested_context,
-                ref_field,
-                text_field,
-                ref_field,
-            )
-            summary["references"].append(
-                {
-                    "field": ref_field,
-                    "text_field": text_field,
-                    "raw": item.get(ref_field),
-                    "free_text": item.get(text_field),
-                    "resolved": resolved,
-                }
-            )
-
-        return summary
-
     def _validate_preview(self, molecules, detections):
         labels = [molecule["label"] for molecule in molecules]
         for label, count in Counter(labels).items():
@@ -1160,6 +1295,11 @@ class LegacyConverter:
             return value
         return [value]
 
+    def _as_field_list(self, value):
+        if isinstance(value, str):
+            return [part.strip() for part in value.split(",") if part.strip()]
+        return self._as_list(value)
+
     def _none_if_blank(self, value):
         if value == "":
             return None
@@ -1193,7 +1333,7 @@ def write_triage(path, report):
         "## Summary",
         "",
         f"- Converted molecules: {summary['converted_molecules']}",
-        f"- Converted core detections: {summary['converted_detections']}",
+        f"- Converted detections: {summary['converted_detections']}",
         f"- Reference mappings applied: {summary['reference_mappings']}",
         f"- Remaining issues: {summary['issues']}",
         "",
@@ -1280,59 +1420,82 @@ def write_triage(path, report):
     else:
         lines.append("- None")
 
-    lines.extend(["", "## Nested Isotopologue Detections Omitted", ""])
+    lines.extend(["", "## Unknown Data References", ""])
+    unknown_issues = [
+        issue
+        for issue in issues
+        if issue["kind"] in {"unknown_source", "unknown_telescope", "unknown_wavelength"}
+    ]
+    if unknown_issues:
+        for issue in unknown_issues:
+            details = issue["details"]
+            value = (
+                details.get("source")
+                or details.get("telescope")
+                or details.get("wavelength")
+            )
+            mapped = details.get("mapped_source")
+            mapped_text = f"; mapped `{mapped}`" if mapped and mapped != value else ""
+            lines.append(
+                "- "
+                f"line {issue['line']} `{issue['legacy_var']}` "
+                f"formula `{issue['formula']}`; field `{details.get('field')}`; "
+                f"value `{value}`{mapped_text}"
+            )
+    else:
+        lines.append("- None")
+
+    lines.extend(["", "## Nested Isotopologue Detection Gaps", ""])
     nested_issues = [
         issue
         for issue in issues
-        if issue["kind"] == "nested_isotopologue_detections_omitted"
+        if issue["kind"]
+        in {
+            "nested_isotopologue_detection_incomplete",
+            "nested_isotopologue_detection_metadata_missing",
+        }
     ]
     if nested_issues:
         for issue in nested_issues:
             details = issue["details"]
-            name = f" name `{issue['name']}`" if issue.get("name") else ""
+            parent_name = (
+                f" name `{details['parent_name']}`"
+                if details.get("parent_name")
+                else ""
+            )
+            missing = triage_value(details.get("missing_fields"))
             lines.append(
                 "- "
-                f"parent line {issue['line']} `{issue['legacy_var']}` "
-                f"formula `{issue['formula']}`{name}; field `{details['field']}`"
+                f"parent line {details['parent_line']} `{issue['legacy_var']}` "
+                f"formula `{details['parent_formula']}`{parent_name}; "
+                f"item line {issue['line']}; label `{details['molecule_label']}`; "
+                f"formula `{details['formula']}`; preview `{details['preview_formula']}`; "
+                f"table `{details['table_formula']}`; context `{details['context']}`; "
+                f"missing {missing}"
             )
-            for isotope in details["isotopologues"]:
-                parts = [
-                    f"line {isotope['line']}",
-                    f"label `{isotope['molecule_label']}`",
-                    f"formula `{isotope['formula']}`",
-                    f"preview `{isotope['preview_formula']}`",
-                    f"table `{isotope['table_formula']}`",
-                    f"context `{isotope['context']}`",
-                ]
-                lines.append(f"  - {'; '.join(parts)}")
 
-                detection_fields = isotope.get("detection_fields") or {}
-                if detection_fields:
-                    fields = [
-                        f"`{key}`={triage_value(value)}"
-                        for key, value in sorted(detection_fields.items())
-                    ]
-                    lines.append(f"    - detection fields: {'; '.join(fields)}")
-
-                for ref in isotope.get("references", []):
-                    ref_parts = [f"`{ref['field']}`"]
-                    raw = triage_value(ref.get("raw"))
-                    free_text = triage_value(ref.get("free_text"))
-                    resolved = triage_value(ref.get("resolved"))
-                    if resolved is not None:
-                        ref_parts.append(f"resolved {resolved}")
-                    if raw is not None:
-                        ref_parts.append(f"raw {raw}")
-                    if free_text is not None:
-                        ref_parts.append(f"text {free_text}")
-                    lines.append(f"    - refs: {'; '.join(ref_parts)}")
+            fields = [
+                f"`sources`={triage_value(details.get('source_field'))} -> "
+                f"{triage_value(details.get('sources'))}",
+                f"`telescopes`={triage_value(details.get('telescope_field'))} -> "
+                f"{triage_value(details.get('telescopes'))}",
+                f"`wavelengths`={triage_value(details.get('wavelength_field'))} -> "
+                f"{triage_value(details.get('wavelengths'))}",
+                f"`year`=`{details.get('year')}`",
+            ]
+            lines.append(f"  - fields: {'; '.join(fields)}")
+            lines.append(
+                "  - refs: "
+                f"resolved {triage_value(details.get('observation_refs'))}"
+            )
     else:
         lines.append("- None")
 
     lines.extend(["", "## Deferred Categories", ""])
     for kind in (
         "extra_context_detection_omitted",
-        "nested_isotopologue_detections_omitted",
+        "nested_isotopologue_detection_incomplete",
+        "nested_isotopologue_detection_metadata_missing",
         "missing_name_filled_from_formula",
         "formula_normalized",
     ):
