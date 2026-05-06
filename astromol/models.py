@@ -257,6 +257,8 @@ class Molecule:
     pah: bool = False             # True for polycyclic aromatic hydrocarbons
     n_rings: int = 0              # Number of rings in the molecule
     cyclic: bool = False          # Is the molecule cyclic or not
+    # Manually curated analysis tags, grouped by category.
+    tags: dict[str, list[str]] = field(default_factory=dict)
 
     # === Spectroscopic constants ===
     # Lab/computational data — can't be computed from formula.
@@ -295,6 +297,26 @@ class Molecule:
         # Default refs to empty dict.
         if self.refs is None:
             self.refs = {}
+
+        # Validate manually curated tag metadata.
+        if self.tags is None:
+            self.tags = {}
+        if not isinstance(self.tags, dict):
+            raise ValueError(
+                f"Molecule '{self.formula}': tags must be a dict of lists."
+            )
+        for category, values in self.tags.items():
+            if not isinstance(category, str):
+                raise ValueError(
+                    f"Molecule '{self.formula}': tag category must be a string."
+                )
+            if not isinstance(values, list) or not all(
+                isinstance(value, str) for value in values
+            ):
+                raise ValueError(
+                    f"Molecule '{self.formula}': tags['{category}'] "
+                    "must be a list of strings."
+                )
 
         # Validate ref roles.
         for role in self.refs:

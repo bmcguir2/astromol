@@ -168,6 +168,32 @@ Curated flags and structure metadata:
 - `pah`
 - `n_rings`
 - `cyclic`
+- `tags`: dictionary of manually curated analysis annotations. Values are lists
+  of strings. Current category:
+  - `functional_groups`: manually assigned functional-group or structural-motif
+    tags used for analysis. These are curated annotations, not computed
+    structural assertions.
+
+Functional-group tag definitions:
+- `CN`: Cyano/nitrile-family C-N motif. Includes nitriles, metal cyanides,
+  cyanopolyynes, and related species manually classified as containing a
+  cyano-like C-N unit.
+- `NC`: Isocyano/isocyanide-family N-C motif, where the connectivity is the
+  structural isomer of a cyano/nitrile-like group.
+- `CH3`: Methyl group or methyl substituent.
+- `=O`: Carbonyl/oxygen multiple-bond motif, broadly including aldehydes,
+  ketones, acids, esters, amides, ureas, ketenes, isocyanates, and
+  O-terminated carbon-chain analogues.
+- `=S`: Thiocarbonyl/sulfur multiple-bond motif, broadly the sulfur analogue
+  of `=O`, including thioaldehydes, thioketones, thioketenes,
+  isothiocyanates, and S-terminated carbon-chain analogues.
+- `OH`: Hydroxyl group, including alcohols, hydroxy-substituted species,
+  carboxylic acids, and metal hydroxides.
+- `SH`: Thiol/mercapto group, including sulfur analogues of hydroxyl-bearing
+  species.
+- `NH2`: Amino group or primary amide/amine-like `NH2` substituent.
+- `NH`: Imine/imino/secondary amine-like `NH` motif, manually assigned where
+  `NH` is structurally meaningful rather than just present in the formula.
 
 Spectroscopy:
 - `rotcon` (`RotationalConstants` or null)
@@ -175,6 +201,9 @@ Spectroscopy:
 
 References and relationships:
 - `refs`: role-keyed dict using roles from `MOLECULE_REF_ROLES`
+  - `lab` includes laboratory characterization references for the molecule.
+    Legacy context-specific lab references, such as ice laboratory spectra, are
+    normalized here rather than attached to detections.
 - `isotopologue_of`: parent molecule label or null
 
 LaTeX fields:

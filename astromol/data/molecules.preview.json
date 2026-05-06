@@ -17,6 +17,7 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {},
     "rotcon": {
       "A": null,
       "B": 425476,
@@ -66,6 +67,7 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {},
     "rotcon": null,
     "dipole": null,
     "refs": {
@@ -94,6 +96,7 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {},
     "rotcon": {
       "A": null,
       "B": 56693,
@@ -146,6 +149,7 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {},
     "rotcon": null,
     "dipole": null,
     "refs": {
@@ -174,6 +178,7 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {},
     "rotcon": {
       "A": null,
       "B": 417617,
@@ -220,6 +225,7 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {},
     "rotcon": {
       "A": null,
       "B": 556174,
@@ -266,6 +272,7 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {},
     "rotcon": {
       "A": null,
       "B": 57636,
@@ -286,7 +293,8 @@
     },
     "refs": {
       "lab": [
-        "Cord:1968:"
+        "Cord:1968:",
+        "Mantz:1975:155"
       ],
       "computation": []
     },
@@ -312,6 +320,7 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {},
     "rotcon": null,
     "dipole": null,
     "refs": {
@@ -340,6 +349,7 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {},
     "rotcon": null,
     "dipole": null,
     "refs": {
@@ -368,6 +378,7 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {},
     "rotcon": null,
     "dipole": null,
     "refs": {
@@ -396,6 +407,7 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {},
     "rotcon": null,
     "dipole": null,
     "refs": {
@@ -424,6 +436,7 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {},
     "rotcon": null,
     "dipole": null,
     "refs": {
@@ -452,6 +465,7 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {},
     "rotcon": null,
     "dipole": {
       "a": 0.0,
@@ -490,6 +504,7 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {},
     "rotcon": null,
     "dipole": null,
     "refs": {
@@ -518,6 +533,7 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {},
     "rotcon": {
       "A": null,
       "B": 21712,
@@ -567,6 +583,7 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {},
     "rotcon": {
       "A": null,
       "B": 24496,
@@ -613,6 +630,7 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {},
     "rotcon": null,
     "dipole": null,
     "refs": {
@@ -641,6 +659,7 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {},
     "rotcon": null,
     "dipole": null,
     "refs": {
@@ -669,6 +688,7 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {},
     "rotcon": {
       "A": null,
       "B": 21524,
@@ -715,6 +735,7 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {},
     "rotcon": null,
     "dipole": null,
     "refs": {
@@ -743,6 +764,7 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {},
     "rotcon": null,
     "dipole": null,
     "refs": {
@@ -771,6 +793,7 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {},
     "rotcon": {
       "A": null,
       "B": 9077,
@@ -817,6 +840,7 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {},
     "rotcon": {
       "A": null,
       "B": 23155,
@@ -863,6 +887,7 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {},
     "rotcon": null,
     "dipole": {
       "a": 0.0,
@@ -901,6 +926,7 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {},
     "rotcon": {
       "A": null,
       "B": 50849,
@@ -947,6 +973,7 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {},
     "rotcon": {
       "A": null,
       "B": 312989,
@@ -993,6 +1020,7 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {},
     "rotcon": {
       "A": null,
       "B": 6513,
@@ -1039,6 +1067,7 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {},
     "rotcon": {
       "A": null,
       "B": 7289,
@@ -1085,6 +1114,7 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {},
     "rotcon": {
       "A": null,
       "B": 3845,
@@ -1131,6 +1161,7 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {},
     "rotcon": {
       "A": null,
       "B": 16488,
@@ -1177,6 +1208,7 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {},
     "rotcon": null,
     "dipole": null,
     "refs": {
@@ -1205,6 +1237,7 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {},
     "rotcon": {
       "A": null,
       "B": 23495,
@@ -1251,6 +1284,7 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {},
     "rotcon": {
       "A": null,
       "B": 20298,
@@ -1297,6 +1331,7 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {},
     "rotcon": {
       "A": null,
       "B": 23860,
@@ -1343,6 +1378,7 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {},
     "rotcon": {
       "A": null,
       "B": 489959,
@@ -1392,6 +1428,7 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {},
     "rotcon": {
       "A": null,
       "B": 21828,
@@ -1438,6 +1475,7 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {},
     "rotcon": {
       "A": null,
       "B": 23249,
@@ -1484,6 +1522,7 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {},
     "rotcon": {
       "A": null,
       "B": 58983,
@@ -1530,6 +1569,7 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {},
     "rotcon": {
       "A": null,
       "B": 616365,
@@ -1576,6 +1616,7 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {},
     "rotcon": null,
     "dipole": {
       "a": 0.0,
@@ -1614,6 +1655,7 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {},
     "rotcon": {
       "A": null,
       "B": 51294,
@@ -1660,6 +1702,7 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {},
     "rotcon": {
       "A": null,
       "B": 21900,
@@ -1706,6 +1749,7 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {},
     "rotcon": null,
     "dipole": {
       "a": 0.0,
@@ -1746,6 +1790,7 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {},
     "rotcon": {
       "A": null,
       "B": 19142,
@@ -1792,6 +1837,7 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {},
     "rotcon": {
       "A": null,
       "B": 56133,
@@ -1838,6 +1884,7 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {},
     "rotcon": {
       "A": null,
       "B": 492346,
@@ -1884,6 +1931,7 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {},
     "rotcon": {
       "A": null,
       "B": 273810,
@@ -1930,6 +1978,7 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {},
     "rotcon": {
       "A": null,
       "B": 293444,
@@ -1976,6 +2025,7 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {},
     "rotcon": {
       "A": null,
       "B": 283588,
@@ -2025,6 +2075,7 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {},
     "rotcon": {
       "A": null,
       "B": 16004,
@@ -2071,6 +2122,7 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {},
     "rotcon": {
       "A": null,
       "B": 307966,
@@ -2117,6 +2169,7 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {},
     "rotcon": {
       "A": null,
       "B": 25050,
@@ -2163,6 +2216,7 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {},
     "rotcon": {
       "A": null,
       "B": 1006063,
@@ -2209,6 +2263,7 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {},
     "rotcon": {
       "A": null,
       "B": 16381,
@@ -2258,6 +2313,7 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {},
     "rotcon": {
       "A": null,
       "B": 23571,
@@ -2304,6 +2360,7 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {},
     "rotcon": {
       "A": null,
       "B": 7967,
@@ -2350,6 +2407,7 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {},
     "rotcon": {
       "A": null,
       "B": 20173,
@@ -2396,6 +2454,7 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {},
     "rotcon": {
       "A": null,
       "B": 8007,
@@ -2442,6 +2501,7 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {},
     "rotcon": {
       "A": null,
       "B": 6101,
@@ -2488,6 +2548,7 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {},
     "rotcon": {
       "A": 835840,
       "B": 435352,
@@ -2508,7 +2569,8 @@
     },
     "refs": {
       "lab": [
-        "Golden:1948:92"
+        "Golden:1948:92",
+        "Irvine:1968:324"
       ],
       "computation": []
     },
@@ -2534,6 +2596,7 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {},
     "rotcon": null,
     "dipole": null,
     "refs": {
@@ -2565,6 +2628,7 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {},
     "rotcon": {
       "A": null,
       "B": 44594,
@@ -2611,6 +2675,7 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {},
     "rotcon": null,
     "dipole": null,
     "refs": {
@@ -2639,6 +2704,7 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {},
     "rotcon": null,
     "dipole": null,
     "refs": {
@@ -2667,6 +2733,7 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {},
     "rotcon": null,
     "dipole": null,
     "refs": {
@@ -2695,6 +2762,7 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {},
     "rotcon": {
       "A": null,
       "B": 44316,
@@ -2741,6 +2809,7 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {},
     "rotcon": null,
     "dipole": null,
     "refs": {
@@ -2769,6 +2838,7 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {},
     "rotcon": null,
     "dipole": null,
     "refs": {
@@ -2797,6 +2867,7 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {},
     "rotcon": null,
     "dipole": null,
     "refs": {
@@ -2825,6 +2896,7 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {},
     "rotcon": {
       "A": null,
       "B": 6081,
@@ -2845,7 +2917,8 @@
     },
     "refs": {
       "lab": [
-        "King:1954:407"
+        "King:1954:407",
+        "Palumbo:1995:674"
       ],
       "computation": []
     },
@@ -2871,6 +2944,7 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {},
     "rotcon": {
       "A": null,
       "B": 45332,
@@ -2917,6 +2991,7 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {},
     "rotcon": null,
     "dipole": null,
     "refs": {
@@ -2945,6 +3020,7 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {},
     "rotcon": {
       "A": 310584,
       "B": 270368,
@@ -2991,6 +3067,7 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {},
     "rotcon": {
       "A": null,
       "B": 46587,
@@ -3037,6 +3114,7 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {},
     "rotcon": null,
     "dipole": null,
     "refs": {
@@ -3065,6 +3143,7 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {},
     "rotcon": {
       "A": null,
       "B": 43675,
@@ -3111,6 +3190,7 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {},
     "rotcon": null,
     "dipole": null,
     "refs": {
@@ -3139,6 +3219,7 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {},
     "rotcon": {
       "A": 60779,
       "B": 10318,
@@ -3185,6 +3266,7 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {},
     "rotcon": {
       "A": 7829365,
       "B": 44788,
@@ -3231,6 +3313,7 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {},
     "rotcon": {
       "A": 553899,
       "B": 42313,
@@ -3277,6 +3360,7 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {},
     "rotcon": {
       "A": null,
       "B": 10691,
@@ -3323,6 +3407,7 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {},
     "rotcon": {
       "A": null,
       "B": 44744,
@@ -3369,6 +3454,7 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": true,
+    "tags": {},
     "rotcon": {
       "A": 52474,
       "B": 13157,
@@ -3415,6 +3501,7 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {},
     "rotcon": {
       "A": null,
       "B": 6478,
@@ -3461,6 +3548,7 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {},
     "rotcon": null,
     "dipole": {
       "a": 0.0,
@@ -3499,6 +3587,7 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {},
     "rotcon": null,
     "dipole": null,
     "refs": {
@@ -3527,6 +3616,7 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {},
     "rotcon": null,
     "dipole": null,
     "refs": {
@@ -3555,6 +3645,7 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {},
     "rotcon": null,
     "dipole": {
       "a": 0.0,
@@ -3597,6 +3688,7 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {},
     "rotcon": null,
     "dipole": null,
     "refs": {
@@ -3625,6 +3717,7 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {},
     "rotcon": {
       "A": 2211494,
       "B": 253618,
@@ -3671,6 +3764,7 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {},
     "rotcon": {
       "A": null,
       "B": 11546,
@@ -3717,6 +3811,11 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {
+      "functional_groups": [
+        "NC"
+      ]
+    },
     "rotcon": {
       "A": null,
       "B": 5967,
@@ -3763,6 +3862,7 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {},
     "rotcon": {
       "A": 710302,
       "B": 388289,
@@ -3809,6 +3909,7 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {},
     "rotcon": null,
     "dipole": null,
     "refs": {
@@ -3841,6 +3942,7 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {},
     "rotcon": null,
     "dipole": null,
     "refs": {
@@ -3873,6 +3975,11 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {
+      "functional_groups": [
+        "CN"
+      ]
+    },
     "rotcon": {
       "A": 57922,
       "B": 8368,
@@ -3919,6 +4026,7 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {},
     "rotcon": {
       "A": null,
       "B": 12562,
@@ -3965,6 +4073,11 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {
+      "functional_groups": [
+        "CN"
+      ]
+    },
     "rotcon": {
       "A": null,
       "B": 5095,
@@ -4011,6 +4124,7 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {},
     "rotcon": null,
     "dipole": {
       "a": 0.0,
@@ -4049,6 +4163,11 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {
+      "functional_groups": [
+        "CN"
+      ]
+    },
     "rotcon": {
       "A": null,
       "B": 5543,
@@ -4095,6 +4214,11 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {
+      "functional_groups": [
+        "NC"
+      ]
+    },
     "rotcon": {
       "A": null,
       "B": 5985,
@@ -4141,6 +4265,11 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {
+      "functional_groups": [
+        "NC"
+      ]
+    },
     "rotcon": {
       "A": null,
       "B": 6397,
@@ -4187,6 +4316,7 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {},
     "rotcon": {
       "A": null,
       "B": 19976,
@@ -4233,6 +4363,7 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {},
     "rotcon": {
       "A": null,
       "B": 6373,
@@ -4279,6 +4410,11 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {
+      "functional_groups": [
+        "OH"
+      ]
+    },
     "rotcon": {
       "A": null,
       "B": 15740,
@@ -4325,6 +4461,7 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {},
     "rotcon": {
       "A": 870579,
       "B": 372365,
@@ -4374,6 +4511,7 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {},
     "rotcon": {
       "A": 337352,
       "B": 273588,
@@ -4420,6 +4558,11 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {
+      "functional_groups": [
+        "CN"
+      ]
+    },
     "rotcon": {
       "A": 58266,
       "B": 4940,
@@ -4466,6 +4609,11 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {
+      "functional_groups": [
+        "CN"
+      ]
+    },
     "rotcon": {
       "A": null,
       "B": 4080,
@@ -4512,6 +4660,7 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {},
     "rotcon": {
       "A": 610273,
       "B": 33514,
@@ -4564,6 +4713,7 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {},
     "rotcon": {
       "A": 30521,
       "B": 8472,
@@ -4613,6 +4763,11 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {
+      "functional_groups": [
+        "CN"
+      ]
+    },
     "rotcon": {
       "A": null,
       "B": 11939,
@@ -4659,6 +4814,7 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {},
     "rotcon": {
       "A": 64074,
       "B": 4396,
@@ -4705,6 +4861,7 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {},
     "rotcon": {
       "A": 296979,
       "B": 7996,
@@ -4751,6 +4908,7 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {},
     "rotcon": {
       "A": 954000,
       "B": 20359,
@@ -4797,6 +4955,7 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {},
     "rotcon": {
       "A": 295039,
       "B": 22036,
@@ -4843,6 +5002,7 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {},
     "rotcon": {
       "A": null,
       "B": 11677,
@@ -4892,6 +5052,11 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {
+      "functional_groups": [
+        "NC"
+      ]
+    },
     "rotcon": {
       "A": null,
       "B": 4048,
@@ -4941,6 +5106,7 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {},
     "rotcon": {
       "A": null,
       "B": 6106,
@@ -4993,6 +5159,7 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {},
     "rotcon": {
       "A": 51900,
       "B": 11504,
@@ -5039,6 +5206,7 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {},
     "rotcon": {
       "A": 299484,
       "B": 20503,
@@ -5085,6 +5253,7 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {},
     "rotcon": {
       "A": 52371,
       "B": 7551,
@@ -5131,6 +5300,7 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {},
     "rotcon": {
       "A": 298193,
       "B": 298193,
@@ -5151,7 +5321,8 @@
     },
     "refs": {
       "lab": [
-        "Cleeton:1934:234"
+        "Cleeton:1934:234",
+        "DHendecourt:1986:453"
       ],
       "computation": []
     },
@@ -5177,6 +5348,11 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {
+      "functional_groups": [
+        "=O"
+      ]
+    },
     "rotcon": {
       "A": 281971,
       "B": 38834,
@@ -5197,7 +5373,8 @@
     },
     "refs": {
       "lab": [
-        "Shigenari:1967:404"
+        "Shigenari:1967:404",
+        "Schutte:1993:118"
       ],
       "computation": []
     },
@@ -5223,6 +5400,11 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {
+      "functional_groups": [
+        "=O"
+      ]
+    },
     "rotcon": null,
     "dipole": null,
     "refs": {
@@ -5251,6 +5433,11 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {
+      "functional_groups": [
+        "=O"
+      ]
+    },
     "rotcon": {
       "A": 912711,
       "B": 11071,
@@ -5297,6 +5484,11 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {
+      "functional_groups": [
+        "=S"
+      ]
+    },
     "rotcon": {
       "A": 291292,
       "B": 17700,
@@ -5343,6 +5535,7 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {},
     "rotcon": null,
     "dipole": {
       "a": 0.0,
@@ -5381,6 +5574,7 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {},
     "rotcon": null,
     "dipole": null,
     "refs": {
@@ -5409,6 +5603,11 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {
+      "functional_groups": [
+        "CN"
+      ]
+    },
     "rotcon": {
       "A": null,
       "B": 4968,
@@ -5455,6 +5654,11 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {
+      "functional_groups": [
+        "=S"
+      ]
+    },
     "rotcon": {
       "A": 1348662,
       "B": 5883,
@@ -5501,6 +5705,7 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {},
     "rotcon": {
       "A": 789951,
       "B": 10774,
@@ -5550,6 +5755,11 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {
+      "functional_groups": [
+        "=O"
+      ]
+    },
     "rotcon": {
       "A": null,
       "B": 4811,
@@ -5596,6 +5806,7 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {},
     "rotcon": {
       "A": null,
       "B": 11189,
@@ -5642,6 +5853,7 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {},
     "rotcon": {
       "A": null,
       "B": 37056,
@@ -5691,6 +5903,7 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {},
     "rotcon": {
       "A": 334405,
       "B": 334405,
@@ -5743,6 +5956,11 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {
+      "functional_groups": [
+        "=S"
+      ]
+    },
     "rotcon": {
       "A": null,
       "B": 2890,
@@ -5789,6 +6007,7 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": true,
+    "tags": {},
     "rotcon": {
       "A": 44517,
       "B": 34016,
@@ -5835,6 +6054,11 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {
+      "functional_groups": [
+        "CN"
+      ]
+    },
     "rotcon": {
       "A": null,
       "B": 10986,
@@ -5884,6 +6108,11 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {
+      "functional_groups": [
+        "CN"
+      ]
+    },
     "rotcon": {
       "A": 284343,
       "B": 39158,
@@ -5930,6 +6159,7 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": true,
+    "tags": {},
     "rotcon": {
       "A": 37944,
       "B": 6283,
@@ -5979,6 +6209,7 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {},
     "rotcon": null,
     "dipole": {
       "a": 0.0,
@@ -6017,6 +6248,11 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {
+      "functional_groups": [
+        "CN"
+      ]
+    },
     "rotcon": {
       "A": null,
       "B": 4852,
@@ -6063,6 +6299,7 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {},
     "rotcon": {
       "A": 133480,
       "B": 133480,
@@ -6105,6 +6342,7 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {},
     "rotcon": {
       "A": null,
       "B": 11469,
@@ -6151,6 +6389,11 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {
+      "functional_groups": [
+        "CN"
+      ]
+    },
     "rotcon": {
       "A": 681000,
       "B": 10577,
@@ -6197,6 +6440,11 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {
+      "functional_groups": [
+        "CN"
+      ]
+    },
     "rotcon": {
       "A": 289830,
       "B": 5795,
@@ -6243,6 +6491,7 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {},
     "rotcon": {
       "A": 301878,
       "B": 26212,
@@ -6292,6 +6541,7 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {},
     "rotcon": {
       "A": null,
       "B": 11245,
@@ -6338,6 +6588,11 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {
+      "functional_groups": [
+        "NC"
+      ]
+    },
     "rotcon": {
       "A": null,
       "B": 5481,
@@ -6384,6 +6639,11 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {
+      "functional_groups": [
+        "=O"
+      ]
+    },
     "rotcon": {
       "A": null,
       "B": 10831,
@@ -6433,6 +6693,11 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {
+      "functional_groups": [
+        "CN"
+      ]
+    },
     "rotcon": {
       "A": null,
       "B": 5174,
@@ -6482,6 +6747,7 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {},
     "rotcon": {
       "A": 92892,
       "B": 12525,
@@ -6534,6 +6800,7 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {},
     "rotcon": {
       "A": null,
       "B": 4965,
@@ -6580,6 +6847,11 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {
+      "functional_groups": [
+        "=S"
+      ]
+    },
     "rotcon": {
       "A": null,
       "B": 5876,
@@ -6629,6 +6901,11 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {
+      "functional_groups": [
+        "CN"
+      ]
+    },
     "rotcon": {
       "A": 634900,
       "B": 11087,
@@ -6675,6 +6952,11 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {
+      "functional_groups": [
+        "NC"
+      ]
+    },
     "rotcon": {
       "A": 339670,
       "B": 38086,
@@ -6721,6 +7003,11 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {
+      "functional_groups": [
+        "=S"
+      ]
+    },
     "rotcon": {
       "A": null,
       "B": 6021,
@@ -6767,6 +7054,7 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {},
     "rotcon": {
       "A": null,
       "B": 280000,
@@ -6805,6 +7093,7 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {},
     "rotcon": {
       "A": null,
       "B": 6151,
@@ -6854,6 +7143,7 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {},
     "rotcon": {
       "A": 782696,
       "B": 5750,
@@ -6900,6 +7190,7 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {},
     "rotcon": {
       "A": 49316,
       "B": 9870,
@@ -6952,6 +7243,11 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {
+      "functional_groups": [
+        "CN"
+      ]
+    },
     "rotcon": {
       "A": null,
       "B": 4549,
@@ -6998,6 +7294,12 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {
+      "functional_groups": [
+        "=O",
+        "OH"
+      ]
+    },
     "rotcon": {
       "A": 77512,
       "B": 12055,
@@ -7024,7 +7326,8 @@
       "lab": [
         "Zuckerman:1971:L41",
         "Bellet:1971:49",
-        "Bellet:1971:65"
+        "Bellet:1971:65",
+        "Schutte:1999:966"
       ],
       "computation": []
     },
@@ -7050,6 +7353,11 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {
+      "functional_groups": [
+        "NH"
+      ]
+    },
     "rotcon": {
       "A": 196211,
       "B": 34532,
@@ -7099,6 +7407,12 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {
+      "functional_groups": [
+        "NH2",
+        "CN"
+      ]
+    },
     "rotcon": {
       "A": 312142,
       "B": 10130,
@@ -7154,6 +7468,11 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {
+      "functional_groups": [
+        "=O"
+      ]
+    },
     "rotcon": {
       "A": 282473,
       "B": 10294,
@@ -7203,6 +7522,7 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {},
     "rotcon": {
       "A": null,
       "B": 4759,
@@ -7249,6 +7569,7 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {},
     "rotcon": null,
     "dipole": {
       "a": 0.0,
@@ -7287,6 +7608,7 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": true,
+    "tags": {},
     "rotcon": {
       "A": 35093,
       "B": 32213,
@@ -7333,6 +7655,11 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {
+      "functional_groups": [
+        "CN"
+      ]
+    },
     "rotcon": {
       "A": 285130,
       "B": 10246,
@@ -7379,6 +7706,11 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {
+      "functional_groups": [
+        "CN"
+      ]
+    },
     "rotcon": null,
     "dipole": null,
     "refs": {
@@ -7409,6 +7741,7 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {},
     "rotcon": null,
     "dipole": {
       "a": 0.0,
@@ -7447,6 +7780,7 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {},
     "rotcon": {
       "A": null,
       "B": 1534,
@@ -7493,6 +7827,7 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {},
     "rotcon": {
       "A": 288775,
       "B": 10589,
@@ -7539,6 +7874,7 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {},
     "rotcon": null,
     "dipole": {
       "a": 0.0,
@@ -7579,6 +7915,7 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {},
     "rotcon": null,
     "dipole": null,
     "refs": {
@@ -7607,6 +7944,11 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {
+      "functional_groups": [
+        "NC"
+      ]
+    },
     "rotcon": {
       "A": null,
       "B": 4968,
@@ -7653,6 +7995,7 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {},
     "rotcon": {
       "A": null,
       "B": 4668,
@@ -7699,6 +8042,7 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {},
     "rotcon": {
       "A": 197582,
       "B": 34351,
@@ -7745,6 +8089,7 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {},
     "rotcon": {
       "A": null,
       "B": 4655,
@@ -7791,6 +8136,11 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {
+      "functional_groups": [
+        "=O"
+      ]
+    },
     "rotcon": {
       "A": 67470,
       "B": 5010,
@@ -7840,6 +8190,11 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {
+      "functional_groups": [
+        "NH"
+      ]
+    },
     "rotcon": {
       "A": 379244,
       "B": 10367,
@@ -7892,6 +8247,11 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {
+      "functional_groups": [
+        "CH3"
+      ]
+    },
     "rotcon": {
       "A": 513887,
       "B": 27930,
@@ -7941,6 +8301,7 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {},
     "rotcon": {
       "A": 175439,
       "B": 131412,
@@ -7987,6 +8348,11 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {
+      "functional_groups": [
+        "=O"
+      ]
+    },
     "rotcon": {
       "A": 319800,
       "B": 10279,
@@ -8033,6 +8399,7 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {},
     "rotcon": {
       "A": null,
       "B": 4438,
@@ -8082,6 +8449,11 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {
+      "functional_groups": [
+        "CH3"
+      ]
+    },
     "rotcon": {
       "A": 156051,
       "B": 13293,
@@ -8128,6 +8500,11 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {
+      "functional_groups": [
+        "CN"
+      ]
+    },
     "rotcon": {
       "A": null,
       "B": 1381,
@@ -8174,6 +8551,11 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {
+      "functional_groups": [
+        "=O"
+      ]
+    },
     "rotcon": {
       "A": null,
       "B": 4461,
@@ -8220,6 +8602,12 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {
+      "functional_groups": [
+        "NH2",
+        "OH"
+      ]
+    },
     "rotcon": {
       "A": 190976,
       "B": 25219,
@@ -8269,6 +8657,11 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {
+      "functional_groups": [
+        "=S"
+      ]
+    },
     "rotcon": {
       "A": null,
       "B": 2735,
@@ -8315,6 +8708,11 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {
+      "functional_groups": [
+        "=S"
+      ]
+    },
     "rotcon": {
       "A": 286616,
       "B": 5663,
@@ -8367,6 +8765,11 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {
+      "functional_groups": [
+        "=S"
+      ]
+    },
     "rotcon": {
       "A": null,
       "B": 1519,
@@ -8416,6 +8819,11 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {
+      "functional_groups": [
+        "SH"
+      ]
+    },
     "rotcon": {
       "A": 62036,
       "B": 6125,
@@ -8462,6 +8870,11 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {
+      "functional_groups": [
+        "CN"
+      ]
+    },
     "rotcon": {
       "A": 42910,
       "B": 3117,
@@ -8508,6 +8921,11 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {
+      "functional_groups": [
+        "=O"
+      ]
+    },
     "rotcon": {
       "A": 261120,
       "B": 4577,
@@ -8560,6 +8978,11 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {
+      "functional_groups": [
+        "CN"
+      ]
+    },
     "rotcon": {
       "A": null,
       "B": 1321,
@@ -8606,6 +9029,11 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {
+      "functional_groups": [
+        "CN"
+      ]
+    },
     "rotcon": {
       "A": null,
       "B": 1447,
@@ -8652,6 +9080,7 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {},
     "rotcon": {
       "A": 400016,
       "B": 34238,
@@ -8704,6 +9133,11 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {
+      "functional_groups": [
+        "=S"
+      ]
+    },
     "rotcon": {
       "A": 23744,
       "B": 1786,
@@ -8750,6 +9184,11 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {
+      "functional_groups": [
+        "CN"
+      ]
+    },
     "rotcon": {
       "A": null,
       "B": 4533,
@@ -8796,6 +9235,11 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {
+      "functional_groups": [
+        "=S"
+      ]
+    },
     "rotcon": {
       "A": null,
       "B": 1439,
@@ -8842,6 +9286,11 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {
+      "functional_groups": [
+        "=S"
+      ]
+    },
     "rotcon": {
       "A": null,
       "B": 2688,
@@ -8891,6 +9340,11 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {
+      "functional_groups": [
+        "SH"
+      ]
+    },
     "rotcon": {
       "A": 49206,
       "B": 3448,
@@ -8940,6 +9394,12 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {
+      "functional_groups": [
+        "CH3",
+        "OH"
+      ]
+    },
     "rotcon": {
       "A": 127523,
       "B": 24690,
@@ -8960,7 +9420,8 @@
     },
     "refs": {
       "lab": [
-        "Ball:1970:L203"
+        "Ball:1970:L203",
+        "DHendecourt:1986:453"
       ],
       "computation": []
     },
@@ -8986,6 +9447,12 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {
+      "functional_groups": [
+        "CH3",
+        "CN"
+      ]
+    },
     "rotcon": {
       "A": 158099,
       "B": 9199,
@@ -9035,6 +9502,12 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {
+      "functional_groups": [
+        "NH2",
+        "=O"
+      ]
+    },
     "rotcon": {
       "A": 72717,
       "B": 11373,
@@ -9081,6 +9554,12 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {
+      "functional_groups": [
+        "CH3",
+        "SH"
+      ]
+    },
     "rotcon": {
       "A": 102771,
       "B": 12952,
@@ -9127,6 +9606,7 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {},
     "rotcon": null,
     "dipole": {
       "a": 0.0,
@@ -9165,6 +9645,7 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {},
     "rotcon": {
       "A": null,
       "B": 2395,
@@ -9211,6 +9692,12 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {
+      "functional_groups": [
+        "CH3",
+        "NC"
+      ]
+    },
     "rotcon": {
       "A": 157151,
       "B": 10053,
@@ -9260,6 +9747,11 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {
+      "functional_groups": [
+        "=O"
+      ]
+    },
     "rotcon": {
       "A": 68035,
       "B": 4826,
@@ -9306,6 +9798,7 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {},
     "rotcon": {
       "A": 286234,
       "B": 4503,
@@ -9352,6 +9845,11 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {
+      "functional_groups": [
+        "=S"
+      ]
+    },
     "rotcon": {
       "A": null,
       "B": 923,
@@ -9401,6 +9899,7 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {},
     "rotcon": {
       "A": null,
       "B": 4329,
@@ -9447,6 +9946,11 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {
+      "functional_groups": [
+        "CN"
+      ]
+    },
     "rotcon": {
       "A": null,
       "B": 1403,
@@ -9493,6 +9997,7 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {},
     "rotcon": null,
     "dipole": {
       "a": 0.0,
@@ -9531,6 +10036,11 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {
+      "functional_groups": [
+        "CN"
+      ]
+    },
     "rotcon": {
       "A": null,
       "B": 2302,
@@ -9577,6 +10087,11 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": true,
+    "tags": {
+      "functional_groups": [
+        "=O"
+      ]
+    },
     "rotcon": {
       "A": 32041,
       "B": 7825,
@@ -9626,6 +10141,11 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {
+      "functional_groups": [
+        "NH"
+      ]
+    },
     "rotcon": {
       "A": 201444,
       "B": 9663,
@@ -9675,6 +10195,11 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {
+      "functional_groups": [
+        "CN"
+      ]
+    },
     "rotcon": {
       "A": null,
       "B": 1389,
@@ -9721,6 +10246,12 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {
+      "functional_groups": [
+        "NH",
+        "CN"
+      ]
+    },
     "rotcon": {
       "A": null,
       "B": 1389,
@@ -9767,6 +10298,11 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {
+      "functional_groups": [
+        "CN"
+      ]
+    },
     "rotcon": {
       "A": 62695,
       "B": 4972,
@@ -9813,6 +10349,7 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {},
     "rotcon": {
       "A": null,
       "B": 1381,
@@ -9859,6 +10396,11 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {
+      "functional_groups": [
+        "=O"
+      ]
+    },
     "rotcon": {
       "A": null,
       "B": 9134,
@@ -9905,6 +10447,11 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {
+      "functional_groups": [
+        "=S"
+      ]
+    },
     "rotcon": {
       "A": 328500,
       "B": 2539,
@@ -9951,6 +10498,7 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {},
     "rotcon": {
       "A": 288055,
       "B": 9523,
@@ -9997,6 +10545,11 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {
+      "functional_groups": [
+        "=S"
+      ]
+    },
     "rotcon": {
       "A": 42652,
       "B": 3109,
@@ -10049,6 +10602,11 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {
+      "functional_groups": [
+        "=O"
+      ]
+    },
     "rotcon": {
       "A": null,
       "B": 1367,
@@ -10095,6 +10653,7 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {},
     "rotcon": {
       "A": null,
       "B": 4664,
@@ -10141,6 +10700,7 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {},
     "rotcon": {
       "A": null,
       "B": 2412,
@@ -10187,6 +10747,7 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": true,
+    "tags": {},
     "rotcon": {
       "A": 45018,
       "B": 3504,
@@ -10236,6 +10797,11 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {
+      "functional_groups": [
+        "=S"
+      ]
+    },
     "rotcon": {
       "A": null,
       "B": 1434,
@@ -10282,6 +10848,11 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {
+      "functional_groups": [
+        "CN"
+      ]
+    },
     "rotcon": {
       "A": null,
       "B": 1320,
@@ -10328,6 +10899,7 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {},
     "rotcon": {
       "A": null,
       "B": 1449,
@@ -10374,6 +10946,7 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {},
     "rotcon": {
       "A": 281856,
       "B": 9676,
@@ -10420,6 +10993,12 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {
+      "functional_groups": [
+        "=O",
+        "OH"
+      ]
+    },
     "rotcon": {
       "A": 11779,
       "B": 11423,
@@ -10469,6 +11048,11 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {
+      "functional_groups": [
+        "CN"
+      ]
+    },
     "rotcon": {
       "A": 158105,
       "B": 4426,
@@ -10515,6 +11099,12 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {
+      "functional_groups": [
+        "NH2",
+        "CN"
+      ]
+    },
     "rotcon": {
       "A": 63373,
       "B": 5449,
@@ -10567,6 +11157,12 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {
+      "functional_groups": [
+        "CH3",
+        "=O"
+      ]
+    },
     "rotcon": {
       "A": 56449,
       "B": 10160,
@@ -10590,7 +11186,8 @@
     "refs": {
       "lab": [
         "Kilb:1957:1695",
-        "Souter:1970:674"
+        "Souter:1970:674",
+        "Bouilloud:2015:2145"
       ],
       "computation": []
     },
@@ -10616,6 +11213,12 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {
+      "functional_groups": [
+        "CH3",
+        "=O"
+      ]
+    },
     "rotcon": null,
     "dipole": null,
     "refs": {
@@ -10644,6 +11247,11 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {
+      "functional_groups": [
+        "CH3"
+      ]
+    },
     "rotcon": {
       "A": 158590,
       "B": 8546,
@@ -10690,6 +11298,12 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {
+      "functional_groups": [
+        "CH3",
+        "NH2"
+      ]
+    },
     "rotcon": {
       "A": 103156,
       "B": 22608,
@@ -10736,6 +11350,11 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {
+      "functional_groups": [
+        "CN"
+      ]
+    },
     "rotcon": {
       "A": 49851,
       "B": 4971,
@@ -10782,6 +11401,11 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {
+      "functional_groups": [
+        "CN"
+      ]
+    },
     "rotcon": {
       "A": null,
       "B": 1331,
@@ -10828,6 +11452,7 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {},
     "rotcon": {
       "A": null,
       "B": 1391,
@@ -10874,6 +11499,7 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": true,
+    "tags": {},
     "rotcon": {
       "A": 25484,
       "B": 22121,
@@ -10920,6 +11546,7 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": true,
+    "tags": {},
     "rotcon": null,
     "dipole": null,
     "refs": {
@@ -10948,6 +11575,11 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {
+      "functional_groups": [
+        "OH"
+      ]
+    },
     "rotcon": {
       "A": 62868,
       "B": 10456,
@@ -10997,6 +11629,7 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {},
     "rotcon": {
       "A": null,
       "B": 1377,
@@ -11043,6 +11676,12 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {
+      "functional_groups": [
+        "CH3",
+        "=O"
+      ]
+    },
     "rotcon": {
       "A": 128400,
       "B": 4415,
@@ -11089,6 +11728,11 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {
+      "functional_groups": [
+        "=O"
+      ]
+    },
     "rotcon": {
       "A": null,
       "B": 1294,
@@ -11135,6 +11779,12 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {
+      "functional_groups": [
+        "OH",
+        "CN"
+      ]
+    },
     "rotcon": {
       "A": 33610,
       "B": 4838,
@@ -11181,6 +11831,11 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {
+      "functional_groups": [
+        "NC"
+      ]
+    },
     "rotcon": {
       "A": null,
       "B": 1402,
@@ -11227,6 +11882,11 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {
+      "functional_groups": [
+        "NH"
+      ]
+    },
     "rotcon": {
       "A": 54640,
       "B": 4862,
@@ -11282,6 +11942,11 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": true,
+    "tags": {
+      "functional_groups": [
+        "CH3"
+      ]
+    },
     "rotcon": {
       "A": 34639,
       "B": 3425,
@@ -11328,6 +11993,11 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {
+      "functional_groups": [
+        "CN"
+      ]
+    },
     "rotcon": {
       "A": null,
       "B": 576,
@@ -11374,6 +12044,11 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {
+      "functional_groups": [
+        "CN"
+      ]
+    },
     "rotcon": {
       "A": null,
       "B": 2186,
@@ -11423,6 +12098,11 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {
+      "functional_groups": [
+        "CN"
+      ]
+    },
     "rotcon": {
       "A": 277600,
       "B": 2305,
@@ -11469,6 +12149,11 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {
+      "functional_groups": [
+        "CN"
+      ]
+    },
     "rotcon": {
       "A": null,
       "B": 1294,
@@ -11515,6 +12200,11 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {
+      "functional_groups": [
+        "CN"
+      ]
+    },
     "rotcon": {
       "A": null,
       "B": 594,
@@ -11561,6 +12251,11 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {
+      "functional_groups": [
+        "CN"
+      ]
+    },
     "rotcon": {
       "A": null,
       "B": 1338,
@@ -11607,6 +12302,11 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {
+      "functional_groups": [
+        "NH"
+      ]
+    },
     "rotcon": {
       "A": null,
       "B": 1362,
@@ -11653,6 +12353,11 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {
+      "functional_groups": [
+        "CN"
+      ]
+    },
     "rotcon": {
       "A": 20883,
       "B": 2942,
@@ -11711,6 +12416,12 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {
+      "functional_groups": [
+        "=O",
+        "CH3"
+      ]
+    },
     "rotcon": {
       "A": 17630,
       "B": 9243,
@@ -11731,7 +12442,8 @@
     },
     "refs": {
       "lab": [
-        "Brown:1975:L29"
+        "Brown:1975:L29",
+        "TerwisschavanScheltinga:2021:A95"
       ],
       "computation": []
     },
@@ -11757,6 +12469,12 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {
+      "functional_groups": [
+        "CH3",
+        "CN"
+      ]
+    },
     "rotcon": {
       "A": 158099,
       "B": 2066,
@@ -11803,6 +12521,7 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {},
     "rotcon": {
       "A": null,
       "B": 875,
@@ -11849,6 +12568,13 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {
+      "functional_groups": [
+        "CH3",
+        "=O",
+        "OH"
+      ]
+    },
     "rotcon": {
       "A": 11335,
       "B": 9479,
@@ -11895,6 +12621,7 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {},
     "rotcon": {
       "A": 268400,
       "B": 1348,
@@ -11941,6 +12668,12 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {
+      "functional_groups": [
+        "OH",
+        "=O"
+      ]
+    },
     "rotcon": {
       "A": 18446,
       "B": 6526,
@@ -11987,6 +12720,7 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {},
     "rotcon": null,
     "dipole": {
       "a": 0.0,
@@ -12025,6 +12759,11 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {
+      "functional_groups": [
+        "=O"
+      ]
+    },
     "rotcon": {
       "A": 47354,
       "B": 4660,
@@ -12071,6 +12810,11 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {
+      "functional_groups": [
+        "CN"
+      ]
+    },
     "rotcon": {
       "A": 25981,
       "B": 2689,
@@ -12117,6 +12861,12 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {
+      "functional_groups": [
+        "NH2",
+        "CN"
+      ]
+    },
     "rotcon": {
       "A": 30246,
       "B": 4761,
@@ -12163,6 +12913,12 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {
+      "functional_groups": [
+        "CH3",
+        "NH"
+      ]
+    },
     "rotcon": {
       "A": 49961,
       "B": 9828,
@@ -12209,6 +12965,11 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {
+      "functional_groups": [
+        "CH3"
+      ]
+    },
     "rotcon": {
       "A": 56189,
       "B": 10986,
@@ -12255,6 +13016,12 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {
+      "functional_groups": [
+        "NH2",
+        "=O"
+      ]
+    },
     "rotcon": {
       "A": 11233,
       "B": 10369,
@@ -12316,6 +13083,11 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {
+      "functional_groups": [
+        "CN"
+      ]
+    },
     "rotcon": {
       "A": 19820,
       "B": 2910,
@@ -12374,6 +13146,7 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {},
     "rotcon": {
       "A": 50300,
       "B": 4745,
@@ -12426,6 +13199,7 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {},
     "rotcon": {
       "A": null,
       "B": 580,
@@ -12472,6 +13246,11 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {
+      "functional_groups": [
+        "NH2"
+      ]
+    },
     "rotcon": {
       "A": 56320,
       "B": 10035,
@@ -12521,6 +13300,11 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {
+      "functional_groups": [
+        "OH"
+      ]
+    },
     "rotcon": {
       "A": 19507,
       "B": 6312,
@@ -12567,6 +13351,7 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {},
     "rotcon": {
       "A": 21094,
       "B": 1676,
@@ -12613,6 +13398,11 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {
+      "functional_groups": [
+        "CN"
+      ]
+    },
     "rotcon": {
       "A": null,
       "B": 583,
@@ -12659,6 +13449,12 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {
+      "functional_groups": [
+        "CH3",
+        "=O"
+      ]
+    },
     "rotcon": {
       "A": 38587,
       "B": 4774,
@@ -12705,6 +13501,7 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {},
     "rotcon": {
       "A": null,
       "B": 599,
@@ -12751,6 +13548,11 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {
+      "functional_groups": [
+        "CN"
+      ]
+    },
     "rotcon": {
       "A": 7098,
       "B": 2683,
@@ -12800,6 +13602,11 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {
+      "functional_groups": [
+        "CH3"
+      ]
+    },
     "rotcon": {
       "A": 38788,
       "B": 10057,
@@ -12823,7 +13630,8 @@
     "refs": {
       "lab": [
         "Kasai:1959:1096",
-        "Blukis:1963:2753"
+        "Blukis:1963:2753",
+        "TerwisschavanScheltinga:2018:A35"
       ],
       "computation": []
     },
@@ -12849,6 +13657,12 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {
+      "functional_groups": [
+        "CH3",
+        "OH"
+      ]
+    },
     "rotcon": {
       "A": 34892,
       "B": 9351,
@@ -12869,7 +13683,8 @@
     },
     "refs": {
       "lab": [
-        "Takano:1968:157"
+        "Takano:1968:157",
+        "Boudin:1998:749"
       ],
       "computation": []
     },
@@ -12895,6 +13710,12 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {
+      "functional_groups": [
+        "CH3",
+        "CN"
+      ]
+    },
     "rotcon": {
       "A": 27664,
       "B": 4714,
@@ -12941,6 +13762,11 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {
+      "functional_groups": [
+        "CN"
+      ]
+    },
     "rotcon": {
       "A": null,
       "B": 564,
@@ -12987,6 +13813,11 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {
+      "functional_groups": [
+        "CH3"
+      ]
+    },
     "rotcon": {
       "A": 159140,
       "B": 2036,
@@ -13033,6 +13864,7 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {},
     "rotcon": {
       "A": null,
       "B": 587,
@@ -13079,6 +13911,12 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {
+      "functional_groups": [
+        "CH3",
+        "NH2"
+      ]
+    },
     "rotcon": {
       "A": 10788,
       "B": 9331,
@@ -13125,6 +13963,7 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {},
     "rotcon": {
       "A": null,
       "B": 583,
@@ -13171,6 +14010,11 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {
+      "functional_groups": [
+        "CH3"
+      ]
+    },
     "rotcon": {
       "A": 46281,
       "B": 9308,
@@ -13220,6 +14064,12 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {
+      "functional_groups": [
+        "CH3",
+        "SH"
+      ]
+    },
     "rotcon": {
       "A": 28747,
       "B": 5295,
@@ -13266,6 +14116,11 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {
+      "functional_groups": [
+        "=O"
+      ]
+    },
     "rotcon": {
       "A": null,
       "B": 549,
@@ -13312,6 +14167,13 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {
+      "functional_groups": [
+        "CH3",
+        "NH",
+        "=O"
+      ]
+    },
     "rotcon": {
       "A": 19987,
       "B": 6405,
@@ -13358,6 +14220,7 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {},
     "rotcon": {
       "A": 25961,
       "B": 2616,
@@ -13407,6 +14270,11 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {
+      "functional_groups": [
+        "CN"
+      ]
+    },
     "rotcon": {
       "A": 7098,
       "B": 2683,
@@ -13459,6 +14327,11 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {
+      "functional_groups": [
+        "CN"
+      ]
+    },
     "rotcon": {
       "A": 39920,
       "B": 1377,
@@ -13511,6 +14384,12 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {
+      "functional_groups": [
+        "OH",
+        "=O"
+      ]
+    },
     "rotcon": {
       "A": 9840,
       "B": 5186,
@@ -13566,6 +14445,11 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {
+      "functional_groups": [
+        "CN"
+      ]
+    },
     "rotcon": {
       "A": null,
       "B": 568,
@@ -13612,6 +14496,7 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {},
     "rotcon": {
       "A": 19077,
       "B": 2859,
@@ -13658,6 +14543,12 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {
+      "functional_groups": [
+        "CH3",
+        "=O"
+      ]
+    },
     "rotcon": {
       "A": 10165,
       "B": 8515,
@@ -13678,7 +14569,9 @@
     },
     "refs": {
       "lab": [
-        "Vacherand:1986:355"
+        "Vacherand:1986:355",
+        "Hudson:2018:33",
+        "Rachid:2020:A4"
       ],
       "computation": []
     },
@@ -13704,6 +14597,11 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {
+      "functional_groups": [
+        "OH"
+      ]
+    },
     "rotcon": {
       "A": 15361,
       "B": 5588,
@@ -13750,6 +14648,12 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {
+      "functional_groups": [
+        "CH3",
+        "=O"
+      ]
+    },
     "rotcon": {
       "A": 16712,
       "B": 5969,
@@ -13796,6 +14700,12 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {
+      "functional_groups": [
+        "CH3",
+        "CN"
+      ]
+    },
     "rotcon": {
       "A": 158099,
       "B": 778,
@@ -13842,6 +14752,11 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": true,
+    "tags": {
+      "functional_groups": [
+        "CH3"
+      ]
+    },
     "rotcon": {
       "A": 18024,
       "B": 6682,
@@ -13888,6 +14803,12 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {
+      "functional_groups": [
+        "CH3",
+        "OH"
+      ]
+    },
     "rotcon": {
       "A": 17238,
       "B": 5568,
@@ -13934,6 +14855,11 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {
+      "functional_groups": [
+        "CN"
+      ]
+    },
     "rotcon": {
       "A": 15353,
       "B": 954,
@@ -13980,6 +14906,7 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": true,
+    "tags": {},
     "rotcon": {
       "A": 6990,
       "B": 5707,
@@ -14032,6 +14959,12 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {
+      "functional_groups": [
+        "CH3",
+        "=O"
+      ]
+    },
     "rotcon": {
       "A": 339670,
       "B": 38086,
@@ -14084,6 +15017,7 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {},
     "rotcon": {
       "A": null,
       "B": 554,
@@ -14130,6 +15064,12 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {
+      "functional_groups": [
+        "CN",
+        "CH3"
+      ]
+    },
     "rotcon": {
       "A": 38054,
       "B": 2297,
@@ -14179,6 +15119,11 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {
+      "functional_groups": [
+        "CN"
+      ]
+    },
     "rotcon": {
       "A": 9291,
       "B": 4166,
@@ -14228,6 +15173,11 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {
+      "functional_groups": [
+        "CN"
+      ]
+    },
     "rotcon": {
       "A": 11323,
       "B": 3739,
@@ -14277,6 +15227,13 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {
+      "functional_groups": [
+        "NH2",
+        "=O",
+        "OH"
+      ]
+    },
     "rotcon": {
       "A": 10454,
       "B": 4041,
@@ -14323,6 +15280,11 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {
+      "functional_groups": [
+        "CH3"
+      ]
+    },
     "rotcon": {
       "A": 27148,
       "B": 4547,
@@ -14375,6 +15337,11 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {
+      "functional_groups": [
+        "CN"
+      ]
+    },
     "rotcon": {
       "A": null,
       "B": 291,
@@ -14421,6 +15388,11 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {
+      "functional_groups": [
+        "CH3"
+      ]
+    },
     "rotcon": {
       "A": 159140,
       "B": 778,
@@ -14467,6 +15439,12 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {
+      "functional_groups": [
+        "CH3",
+        "=O"
+      ]
+    },
     "rotcon": {
       "A": 17747,
       "B": 2905,
@@ -14513,6 +15491,12 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {
+      "functional_groups": [
+        "CH3",
+        "=O"
+      ]
+    },
     "rotcon": {
       "A": 10247,
       "B": 4170,
@@ -14559,6 +15543,13 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {
+      "functional_groups": [
+        "CH3",
+        "=O",
+        "OH"
+      ]
+    },
     "rotcon": {
       "A": 10074,
       "B": 3817,
@@ -14611,6 +15602,7 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": true,
+    "tags": {},
     "rotcon": {
       "A": 8426,
       "B": 8226,
@@ -14666,6 +15658,12 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {
+      "functional_groups": [
+        "NH2",
+        "OH"
+      ]
+    },
     "rotcon": {
       "A": 14509,
       "B": 5546,
@@ -14718,6 +15716,7 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {},
     "rotcon": {
       "A": 15656,
       "B": 948,
@@ -14764,6 +15763,7 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {},
     "rotcon": {
       "A": null,
       "B": 300,
@@ -14810,6 +15810,11 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {
+      "functional_groups": [
+        "CN"
+      ]
+    },
     "rotcon": {
       "A": 26243,
       "B": 1444,
@@ -14859,6 +15864,7 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": true,
+    "tags": {},
     "rotcon": null,
     "dipole": {
       "a": 0.0,
@@ -14897,6 +15903,12 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {
+      "functional_groups": [
+        "CH3",
+        "CN"
+      ]
+    },
     "rotcon": {
       "A": 23668,
       "B": 2268,
@@ -14943,6 +15955,12 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {
+      "functional_groups": [
+        "CH3",
+        "CN"
+      ]
+    },
     "rotcon": {
       "A": 7941,
       "B": 3968,
@@ -14989,6 +16007,11 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {
+      "functional_groups": [
+        "CH3"
+      ]
+    },
     "rotcon": {
       "A": 27992,
       "B": 4159,
@@ -15038,6 +16061,11 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": true,
+    "tags": {
+      "functional_groups": [
+        "CN"
+      ]
+    },
     "rotcon": {
       "A": 8353,
       "B": 1904,
@@ -15087,6 +16115,11 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": true,
+    "tags": {
+      "functional_groups": [
+        "CN"
+      ]
+    },
     "rotcon": {
       "A": 8236,
       "B": 1902,
@@ -15142,6 +16175,12 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {
+      "functional_groups": [
+        "CH3",
+        "OH"
+      ]
+    },
     "rotcon": {
       "A": 14330,
       "B": 5119,
@@ -15191,6 +16230,12 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {
+      "functional_groups": [
+        "CH3",
+        "OH"
+      ]
+    },
     "rotcon": {
       "A": 8640,
       "B": 8063,
@@ -15237,6 +16282,7 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {},
     "rotcon": {
       "A": 9133,
       "B": 8382,
@@ -15295,6 +16341,11 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": true,
+    "tags": {
+      "functional_groups": [
+        "CN"
+      ]
+    },
     "rotcon": {
       "A": 5655,
       "B": 1547,
@@ -15341,6 +16392,11 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {
+      "functional_groups": [
+        "CN"
+      ]
+    },
     "rotcon": {
       "A": null,
       "B": 169,
@@ -15387,6 +16443,7 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": true,
+    "tags": {},
     "rotcon": {
       "A": 8374,
       "B": 1879,
@@ -15433,6 +16490,7 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": true,
+    "tags": {},
     "rotcon": {
       "A": 8262,
       "B": 1876,
@@ -15479,6 +16537,7 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": true,
+    "tags": {},
     "rotcon": {
       "A": 8181,
       "B": 1887,
@@ -15528,6 +16587,12 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": false,
+    "tags": {
+      "functional_groups": [
+        "CH3",
+        "OH"
+      ]
+    },
     "rotcon": {
       "A": 12982,
       "B": 2743,
@@ -15580,6 +16645,7 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": true,
+    "tags": {},
     "rotcon": {
       "A": 2009,
       "B": 1324,
@@ -15626,6 +16692,11 @@
     "pah": true,
     "n_rings": 0,
     "cyclic": true,
+    "tags": {
+      "functional_groups": [
+        "CN"
+      ]
+    },
     "rotcon": {
       "A": 1479,
       "B": 957,
@@ -15672,6 +16743,11 @@
     "pah": true,
     "n_rings": 0,
     "cyclic": true,
+    "tags": {
+      "functional_groups": [
+        "CN"
+      ]
+    },
     "rotcon": {
       "A": 2707,
       "B": 606,
@@ -15718,6 +16794,7 @@
     "pah": true,
     "n_rings": 0,
     "cyclic": true,
+    "tags": {},
     "rotcon": {
       "A": 3775,
       "B": 1581,
@@ -15767,6 +16844,11 @@
     "pah": true,
     "n_rings": 0,
     "cyclic": true,
+    "tags": {
+      "functional_groups": [
+        "CN"
+      ]
+    },
     "rotcon": {
       "A": 3754,
       "B": 676,
@@ -15813,6 +16895,11 @@
     "pah": true,
     "n_rings": 0,
     "cyclic": true,
+    "tags": {
+      "functional_groups": [
+        "CN"
+      ]
+    },
     "rotcon": {
       "A": 1272,
       "B": 647,
@@ -15859,6 +16946,11 @@
     "pah": true,
     "n_rings": 0,
     "cyclic": true,
+    "tags": {
+      "functional_groups": [
+        "CN"
+      ]
+    },
     "rotcon": {
       "A": 1249,
       "B": 689,
@@ -15905,6 +16997,11 @@
     "pah": true,
     "n_rings": 0,
     "cyclic": true,
+    "tags": {
+      "functional_groups": [
+        "CN"
+      ]
+    },
     "rotcon": {
       "A": 843,
       "B": 373,
@@ -15951,6 +17048,11 @@
     "pah": true,
     "n_rings": 0,
     "cyclic": true,
+    "tags": {
+      "functional_groups": [
+        "CN"
+      ]
+    },
     "rotcon": {
       "A": 1009,
       "B": 313,
@@ -15997,6 +17099,11 @@
     "pah": true,
     "n_rings": 0,
     "cyclic": true,
+    "tags": {
+      "functional_groups": [
+        "CN"
+      ]
+    },
     "rotcon": {
       "A": 651,
       "B": 454,
@@ -16043,6 +17150,7 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": true,
+    "tags": {},
     "rotcon": null,
     "dipole": {
       "a": 0.0,
@@ -16081,6 +17189,7 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": true,
+    "tags": {},
     "rotcon": null,
     "dipole": {
       "a": 0.0,
@@ -16119,6 +17228,7 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": true,
+    "tags": {},
     "rotcon": null,
     "dipole": {
       "a": 0.0,

@@ -267,6 +267,15 @@
       "legacy_var": "CO",
       "formula": "CO",
       "line": 1348,
+      "role": "lab",
+      "original": "Mantz et al. 1975 JMS 57, 155",
+      "mapped": "Mantz:1975:155",
+      "strategy": "free_text_metadata"
+    },
+    {
+      "legacy_var": "CO",
+      "formula": "CO",
+      "line": 1348,
       "role": "observation",
       "original": "Wilson et al. 1970 ApJ 161, L43",
       "mapped": "Wilson:1970:L43",
@@ -280,15 +289,6 @@
       "original": "1979ApJ...232L..53S",
       "mapped": "Soifer:1979:L53",
       "strategy": "legacy_key_metadata"
-    },
-    {
-      "legacy_var": "CO",
-      "formula": "CO",
-      "line": 1348,
-      "role": "lab",
-      "original": "Mantz et al. 1975 JMS 57, 155",
-      "mapped": "Mantz:1975:155",
-      "strategy": "free_text_metadata"
     },
     {
       "legacy_var": "CO",
@@ -1498,6 +1498,15 @@
     },
     {
       "legacy_var": "H2O",
+      "formula": "H2O",
+      "line": 2261,
+      "role": "lab",
+      "original": "Irvine & Pollack 1968 Icarus 8, 324",
+      "mapped": "Irvine:1968:324",
+      "strategy": "free_text_metadata"
+    },
+    {
+      "legacy_var": "H2O",
       "formula": "HDO",
       "line": 2261,
       "role": "lab",
@@ -1531,15 +1540,6 @@
       "original": "1973ApJ...179..483G",
       "mapped": "Gillett:1973:483",
       "strategy": "legacy_key_metadata"
-    },
-    {
-      "legacy_var": "H2O",
-      "formula": "H2O",
-      "line": 2261,
-      "role": "lab",
-      "original": "Irvine & Pollack 1968 Icarus 8, 324",
-      "mapped": "Irvine:1968:324",
-      "strategy": "free_text_metadata"
     },
     {
       "legacy_var": "H2O",
@@ -1806,6 +1806,15 @@
       "legacy_var": "OCS",
       "formula": "OCS",
       "line": 2392,
+      "role": "lab",
+      "original": "Palumbo et al. 1995 ApJ 449, 674",
+      "mapped": "Palumbo:1995:674",
+      "strategy": "free_text_metadata"
+    },
+    {
+      "legacy_var": "OCS",
+      "formula": "OCS",
+      "line": 2392,
       "role": "observation",
       "original": "Jefferts et al. 1971 ApJ 168, L111",
       "mapped": "Jefferts:1971:L111",
@@ -1828,15 +1837,6 @@
       "original": "1997ApJ...479..839P",
       "mapped": "Palumbo:1997:839",
       "strategy": "legacy_key_metadata"
-    },
-    {
-      "legacy_var": "OCS",
-      "formula": "OCS",
-      "line": 2392,
-      "role": "lab",
-      "original": "Palumbo et al. 1995 ApJ 449, 674",
-      "mapped": "Palumbo:1995:674",
-      "strategy": "free_text_metadata"
     },
     {
       "legacy_var": "OCS",
@@ -2328,6 +2328,15 @@
       "legacy_var": "CO2",
       "formula": "CO2",
       "line": 2715,
+      "role": "lab",
+      "original": "d'Hendecourt & Allamandola 1986 A&A Sup. Ser. 64, 453",
+      "mapped": "DHendecourt:1986:453",
+      "strategy": "free_text_metadata"
+    },
+    {
+      "legacy_var": "CO2",
+      "formula": "CO2",
+      "line": 2715,
       "role": "observation",
       "original": "d'Hendecourt & Jourdain de Muizon 1989 A&A 223, L5",
       "mapped": "DHendecourt:1989:L5",
@@ -2350,15 +2359,6 @@
       "original": "1989A&A...223L...5D",
       "mapped": "DHendecourt:1989:L5",
       "strategy": "legacy_key_metadata"
-    },
-    {
-      "legacy_var": "CO2",
-      "formula": "CO2",
-      "line": 2715,
-      "role": "lab",
-      "original": "d'Hendecourt & Allamandola 1986 A&A Sup. Ser. 64, 453",
-      "mapped": "DHendecourt:1986:453",
-      "strategy": "free_text_metadata"
     },
     {
       "legacy_var": "CO2",
@@ -3120,6 +3120,15 @@
       "legacy_var": "NH3",
       "formula": "NH3",
       "line": 3379,
+      "role": "lab",
+      "original": "d'Hendecourt & Allamandola 1986 A&A Sup. Ser. 64, 453",
+      "mapped": "DHendecourt:1986:453",
+      "strategy": "free_text_metadata"
+    },
+    {
+      "legacy_var": "NH3",
+      "formula": "NH3",
+      "line": 3379,
       "role": "observation",
       "original": "Cheung et al. 1968 PRL 25, 1701",
       "mapped": "Cheung:1968:1701",
@@ -3133,15 +3142,6 @@
       "original": "1998ApJ...501L.105L",
       "mapped": "Lacy:1998:L105",
       "strategy": "legacy_key_metadata"
-    },
-    {
-      "legacy_var": "NH3",
-      "formula": "NH3",
-      "line": 3379,
-      "role": "lab",
-      "original": "d'Hendecourt & Allamandola 1986 A&A Sup. Ser. 64, 453",
-      "mapped": "DHendecourt:1986:453",
-      "strategy": "free_text_metadata"
     },
     {
       "legacy_var": "NH3",
@@ -3183,6 +3183,15 @@
       "legacy_var": "H2CO",
       "formula": "H2CO",
       "line": 3412,
+      "role": "lab",
+      "original": "Schutte et al. 1993 Icarus 104, 118",
+      "mapped": "Schutte:1993:118",
+      "strategy": "free_text_metadata"
+    },
+    {
+      "legacy_var": "H2CO",
+      "formula": "H2CO",
+      "line": 3412,
       "role": "observation",
       "original": "Snyder et al. 1969 PRL 22, 679",
       "mapped": "Snyder:1969:679",
@@ -3196,15 +3205,6 @@
       "original": "2001A&A...376..254K",
       "mapped": "Keane:2001:254",
       "strategy": "legacy_key_metadata"
-    },
-    {
-      "legacy_var": "H2CO",
-      "formula": "H2CO",
-      "line": 3412,
-      "role": "lab",
-      "original": "Schutte et al. 1993 Icarus 104, 118",
-      "mapped": "Schutte:1993:118",
-      "strategy": "free_text_metadata"
     },
     {
       "legacy_var": "H2CO",
@@ -4173,6 +4173,15 @@
       "legacy_var": "HCOOH",
       "formula": "HCOOH",
       "line": 4318,
+      "role": "lab",
+      "original": "Schutte et al. 1999 A&A 343, 966",
+      "mapped": "Schutte:1999:966",
+      "strategy": "free_text_metadata"
+    },
+    {
+      "legacy_var": "HCOOH",
+      "formula": "HCOOH",
+      "line": 4318,
       "role": "observation",
       "original": "Zukerman et al. 1971 ApJ 163, L41",
       "mapped": "Zuckerman:1971:L41",
@@ -4186,15 +4195,6 @@
       "original": "1999A&A...343..966S",
       "mapped": "Schutte:1999:966",
       "strategy": "legacy_key_metadata"
-    },
-    {
-      "legacy_var": "HCOOH",
-      "formula": "HCOOH",
-      "line": 4318,
-      "role": "lab",
-      "original": "Schutte et al. 1999 A&A 343, 966",
-      "mapped": "Schutte:1999:966",
-      "strategy": "free_text_metadata"
     },
     {
       "legacy_var": "HCOOH",
@@ -4560,6 +4560,15 @@
       "legacy_var": "CH4",
       "formula": "CH4",
       "line": 4585,
+      "role": "lab",
+      "original": "d'Hendecourt & Allamandola 1986 A&A Sup. Ser. 64, 453",
+      "mapped": "DHendecourt:1986:453",
+      "strategy": "free_text_metadata"
+    },
+    {
+      "legacy_var": "CH4",
+      "formula": "CH4",
+      "line": 4585,
       "role": "observation",
       "original": "Lacy et al. 1991 ApJ 376, 556",
       "mapped": "Lacy:1991:556",
@@ -4573,15 +4582,6 @@
       "original": "1991ApJ...376..556L",
       "mapped": "Lacy:1991:556",
       "strategy": "legacy_key_metadata"
-    },
-    {
-      "legacy_var": "CH4",
-      "formula": "CH4",
-      "line": 4585,
-      "role": "lab",
-      "original": "d'Hendecourt & Allamandola 1986 A&A Sup. Ser. 64, 453",
-      "mapped": "DHendecourt:1986:453",
-      "strategy": "free_text_metadata"
     },
     {
       "legacy_var": "CH4",
@@ -5163,6 +5163,15 @@
       "legacy_var": "CH3OH",
       "formula": "CH3OH",
       "line": 5251,
+      "role": "lab",
+      "original": "d'Hendecourt & Allamandola 1986 A&A Sup. Ser. 64, 453",
+      "mapped": "DHendecourt:1986:453",
+      "strategy": "free_text_metadata"
+    },
+    {
+      "legacy_var": "CH3OH",
+      "formula": "CH3OH",
+      "line": 5251,
       "role": "observation",
       "original": "Ball et al. 1970 ApJ 162, L203",
       "mapped": "Ball:1970:L203",
@@ -5176,15 +5185,6 @@
       "original": "1991A&A...243..473G",
       "mapped": "Grim:1991:473",
       "strategy": "legacy_key_metadata"
-    },
-    {
-      "legacy_var": "CH3OH",
-      "formula": "CH3OH",
-      "line": 5251,
-      "role": "lab",
-      "original": "d'Hendecourt & Allamandola 1986 A&A Sup. Ser. 64, 453",
-      "mapped": "DHendecourt:1986:453",
-      "strategy": "free_text_metadata"
     },
     {
       "legacy_var": "CH3OH",

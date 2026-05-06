@@ -422,6 +422,7 @@ class LegacyConverter:
         lab_refs = self._refs_from_fields(
             legacy, "l_ref_bib_ids", "l_refs", "lab"
         )
+        molecule_lab_refs = self._molecule_lab_refs(legacy, lab_refs)
 
         molecule = {
             "name": name,
@@ -441,10 +442,11 @@ class LegacyConverter:
             "pah": bool(legacy.get("pah", False)),
             "n_rings": 0,
             "cyclic": bool(legacy.get("cyclic", False)),
+            "tags": self._molecule_tags(legacy),
             "rotcon": self._rotcon(legacy, lab_refs),
             "dipole": self._dipole(legacy, lab_refs),
             "refs": {
-                "lab": lab_refs,
+                "lab": molecule_lab_refs,
                 "computation": [],
             },
             "isotopologue_of": None,
@@ -502,6 +504,7 @@ class LegacyConverter:
             "pah": parent_molecule["pah"],
             "n_rings": parent_molecule["n_rings"],
             "cyclic": parent_molecule["cyclic"],
+            "tags": parent_molecule["tags"],
             "rotcon": None,
             "dipole": None,
             "refs": {
@@ -547,6 +550,7 @@ class LegacyConverter:
                     "pah": parent_molecule["pah"],
                     "n_rings": parent_molecule["n_rings"],
                     "cyclic": parent_molecule["cyclic"],
+                    "tags": parent_molecule["tags"],
                     "rotcon": None,
                     "dipole": None,
                     "refs": {
@@ -680,6 +684,22 @@ class LegacyConverter:
         )
         return formula
 
+    def _molecule_tags(self, legacy):
+        tags = [
+            tag
+            for tag in self._as_list(legacy.get("tags"))
+            if self._none_if_blank(tag) is not None
+        ]
+        if not tags:
+            return {}
+        return {"functional_groups": tags}
+
+    def _molecule_lab_refs(self, legacy, lab_refs):
+        refs = list(lab_refs)
+        for context in EXTRA_CONTEXTS:
+            refs.extend(self._extra_context_lab_refs(legacy, context))
+        return self._unique_preserve_order(refs)
+
     def _rotcon(self, legacy, refs):
         rotcon = {
             "A": legacy.get("Acon"),
@@ -772,7 +792,6 @@ class LegacyConverter:
         )
         wavelengths = self._wavelengths(wavelength_value, legacy, emit_issue=False)
         observation_refs = self._extra_context_observation_refs(legacy, context)
-        self._extra_context_lab_refs(legacy, context)
         year = self._context_detection_year(legacy, {}, context, observation_refs)
 
         missing_metadata = []
