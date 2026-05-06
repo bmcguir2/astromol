@@ -4,15 +4,16 @@ Generated from `scripts/convert_legacy_molecules.py`.
 
 ## Summary
 
-- Converted molecules: 349
-- Converted detections: 489
-- Reference mappings applied: 878
-- Remaining issues: 164
+- Converted molecules: 359
+- Converted detections: 499
+- Reference mappings applied: 897
+- Remaining issues: 174
 
 ## Remaining Issues by Kind
 
 - `extra_context_detection_metadata_missing`: 139
 - `nested_isotopologue_detection_metadata_missing`: 25
+- `text_isotopologue_detection_metadata_missing`: 10
 
 ## Reference Alias Mappings
 
@@ -24,6 +25,10 @@ Generated from `scripts/convert_legacy_molecules.py`.
 - line 2056 `TiO` [lab] Nakimi et al. 1998 JMS 191, 176 -> Namiki:1998:176
 - line 2471 `N2Hp` [observation] Thaddues & Turner 1975 ApJ 201, L25 -> Thaddeus:1975:L25
 - line 2532 `SO2` [lab] Steenbeckeliers 1968 Ann. Soc. Sci. Brux 82, 331 -> Steenbeckeliers:1968:331
+- line 2694 `C3` [observation] https://arxiv.org/abs/1911.09751 -> Giesen:2020:A120
+- line 2694 `C3` [observation] https://arxiv.org/abs/1911.09751 -> Giesen:2020:A120
+- line 2807 `NH2` [lab] Melosso et al. 2017 ApJS 233, 1 -> Melosso:2017:15
+- line 2807 `NH2` [lab] Melosso et al. 2017 ApJS 233, 1 -> Melosso:2017:15
 - line 3412 `H2CO` [lab] Shinegari 1967 J Phys Soc Jpn 23, 404 -> Shigenari:1967:404
 - line 3811 `SiC3` [lab] McCarthy et al. JCP 110, 1064 -> McCarthy:1999:10645
 - line 4014 `HCCO` [lab] Oshima & Endo 1993 JMS 159, 458 -> Ohshima:1993:458
@@ -32,6 +37,8 @@ Generated from `scripts/convert_legacy_molecules.py`.
 - line 4381 `NH2CN` [lab] Miller et al. 1962 JMS 8, 153 -> Millen:1962:153
 - line 4456 `SiH4` [lab] Goldhaber and Betz 1977 ApJ 279, L55 -> Goldhaber:1984:L55
 - line 4456 `SiH4` [observation] Goldhaber and Betz 1977 ApJ 279, L55 -> Goldhaber:1984:L55
+- line 4498 `CH2CN` [lab] Cabezas et al. 2021 A&A 646, 1 -> Cabezas:2021:L1
+- line 4498 `CH2CN` [observation] Cabezas et al. 2021 A&A 646, 1 -> Cabezas:2021:L1
 - line 4622 `HCCNC` [lab] Kruger et al. 2010 Ang. Chem. 23, 1644 -> Guarnieri:1992:39
 - line 4805 `NCCNHp` [lab] Gottlieb et al. 200 JCP 113, 1910 -> Gottlieb:2000:1910
 - line 4821 `CH3Cl` [observation] Fayolle et al. 2017 Nature Astron. 1, 702 -> Fayolle:2017:703
@@ -57,6 +64,7 @@ Generated from `scripts/convert_legacy_molecules.py`.
 - line 8103 `CH3COCH2OH` [lab] Kattija-Ari & Harmony et al. 1980 International Journal of Quantum Chemistry 18, 443 -> Kattija-Ari:2009:443
 - line 8127 `C5H6` [lab] Benson & Flygare 1970 J Am Chem Soc 92, 7523 -> Flygare:1970:7523
 - line 8145 `NH2CH2CH2OH` [lab] Kaushik:1982ld -> Kaushik:1982:117
+- line 8355 `C5H5CN1` [lab] 1987BCSJ..60..3903 -> Sakaizumi:1987:3903
 - line 8733 `C9H8` [observation] Cernicharo et al. 2021 A&AL 649, 15 -> Cernicharo:2021:L15a
 
 ## Ambiguous References
@@ -75,28 +83,69 @@ Generated from `scripts/convert_legacy_molecules.py`.
 
 - None
 
+## Source Mapping Review
+
+- Detections with legacy source text reviewed: 83
+- Individual source assignments reviewed: 108
+- Unique legacy source names: 20
+- New source candidates staged: 20
+- Existing source mapping candidates: 0
+- Approved source mappings: 20
+- Manual attention needed: 0
+
+### Needs Approval
+
+- None
+
+### Approved
+
+- `Arp 220` [exgal] -> `Arp220` (Arp 220, External Galaxy); confidence `high`; used by 4 detections; User-approved high-confidence Sesame source match.
+- `Cloverleaf LOS` [exgal] -> `CloverleafLOS` (Cloverleaf LOS, External Galaxy); confidence `high`; used by 1 detection; User-approved line-of-sight source: preserve the LOS qualifier while using the resolved Cloverleaf quasar coordinates.
+- `GG Tau` [ppd] -> `GGTau` (GG Tau, YSO); confidence `medium`; used by 1 detection; User-approved PPD source staging as source type YSO.
+- `HD 209458b` [exo] -> `HD209458b` (HD 209458 b, Exoplanet); confidence `high`; used by 2 detections; User-approved high-confidence Sesame source match.
+- `IC 342` [exgal] -> `IC342` (IC 342, External Galaxy); confidence `high`; used by 7 detections; User-approved high-confidence Sesame source match.
+- `IRAS 08572+3915` [exgal] -> `IRAS08572p3915` (IRAS 08572+3915, External Galaxy); confidence `high`; used by 1 detection; User-approved high-confidence Sesame source match.
+- `LMC` [exgal] -> `LMC` (LMC, External Galaxy); confidence `high`; used by 6 detections; User-approved high-confidence Sesame source match.
+- `M33` [exgal] -> `M33` (M33, External Galaxy); confidence `high`; used by 1 detection; User-approved high-confidence Sesame source match.
+- `M82` [exgal] -> `M82` (M82, External Galaxy); confidence `high`; used by 14 detections; User-approved high-confidence Sesame source match.
+- `Maffei 2` [exgal] -> `Maffei2` (Maffei 2, External Galaxy); confidence `high`; used by 2 detections; User-approved high-confidence Sesame source match.
+- `NGC 1068` [exgal] -> `NGC1068` (NGC 1068, External Galaxy); confidence `high`; used by 3 detections; User-approved high-confidence Sesame source match.
+- `NGC 253` [exgal] -> `NGC253` (NGC 253, External Galaxy); confidence `high`; used by 28 detections; User-approved high-confidence Sesame source match.
+- `NGC 4418` [exgal] -> `NGC4418` (NGC 4418, External Galaxy); confidence `high`; used by 1 detection; User-approved high-confidence Sesame source match.
+- `NGC 4945` [exgal] -> `NGC4945` (NGC 4945, External Galaxy); confidence `high`; used by 2 detections; User-approved high-confidence Sesame source match.
+- `NGC 5128` [exgal] -> `NGC5128` (NGC 5128, External Galaxy); confidence `high`; used by 2 detections; User-approved high-confidence Sesame source match.
+- `NGC 6946` [exgal] -> `NGC6946` (NGC 6946, External Galaxy); confidence `high`; used by 1 detection; User-approved high-confidence Sesame source match.
+- `PKS 1830-211 LOS` [exgal] -> `PKS1830LOS` (PKS 1830-211 LOS, External Galaxy); confidence `high`; used by 24 detections; User-approved line-of-sight source: preserve the LOS qualifier while copying coordinates and link metadata from PKS1830.
+- `QSO Mrk 231` [exgal] -> `QSOMrk231` (QSO Mrk 231, External Galaxy); confidence `medium`; used by 3 detections; User-approved QSO-prefix source staging as Mrk 231.
+- `SMC` [exgal] -> `SMC` (SMC, External Galaxy); confidence `high`; used by 2 detections; User-approved high-confidence Sesame source match.
+- `SMP LMC 11` [exgal] -> `SMPLMC11` (SMP LMC 11, External Galaxy); confidence `medium`; used by 3 detections; User-approved extragalactic source staging despite resolver matching an internal LMC substructure.
+
+### Manual Attention
+
+- None
+
 ## Extra Context Detection Gaps
 
-- line 1237 `CH` formula `CH` name `methylidyne`; label `mol:CH`; context `exgal`; flag `True`; missing `sources`, `telescopes`, `wavelengths`
-  - fields: `sources`=`LMC, NGC 4945, NGC 5128` -> []; `telescopes`=None -> []; `wavelengths`=None -> []; `year`=`1980`
+- line 1237 `CH` formula `CH` name `methylidyne`; label `mol:CH`; context `exgal`; flag `True`; missing `telescopes`, `wavelengths`
+  - fields: `sources`=`LMC, NGC 4945, NGC 5128` -> `LMC`, `NGC4945`, `NGC5128`; `telescopes`=None -> []; `wavelengths`=None -> []; `year`=`1980`
   - refs: resolved `Whiteoak:1980:17P`
 - line 1264 `CN` formula `CN` name `cyano radical`; label `mol:CN`; context `ppd`; flag `True`; missing `sources`, `telescopes`, `wavelengths`
   - fields: `sources`=None -> []; `telescopes`=None -> []; `wavelengths`=None -> []; `year`=`1997`
   - refs: resolved `Kastner:1997:67`, `Dutrey:1997:L55`
-- line 1264 `CN` formula `CN` name `cyano radical`; label `mol:CN`; context `exgal`; flag `True`; missing `sources`, `telescopes`, `wavelengths`
-  - fields: `sources`=`M82, NGC 253, IC 342` -> []; `telescopes`=None -> []; `wavelengths`=None -> []; `year`=`1988`
+- line 1264 `CN` formula `CN` name `cyano radical`; label `mol:CN`; context `exgal`; flag `True`; missing `telescopes`, `wavelengths`
+  - fields: `sources`=`M82, NGC 253, IC 342` -> `M82`, `NGC253`, `IC342`; `telescopes`=None -> []; `wavelengths`=None -> []; `year`=`1988`
   - refs: resolved `Henkel:1988:L23`
 - line 1297 `CHp` formula `CH+` name `methylidyne cation`; label `mol:CH+`; context `ppd`; flag `True`; missing `sources`, `telescopes`, `wavelengths`
   - fields: `sources`=None -> []; `telescopes`=None -> []; `wavelengths`=None -> []; `year`=`2011`
   - refs: resolved `Thi:2011:L2`
-- line 1297 `CHp` formula `CH+` name `methylidyne cation`; label `mol:CH+`; context `exgal`; flag `True`; missing `sources`, `telescopes`, `wavelengths`
-  - fields: `sources`=`LMC` -> []; `telescopes`=None -> []; `wavelengths`=None -> []; `year`=`1987`
+- line 1297 `CHp` formula `CH+` name `methylidyne cation`; label `mol:CH+`; context `exgal`; flag `True`; missing `telescopes`, `wavelengths`
+  - fields: `sources`=`LMC` -> `LMC`; `telescopes`=None -> []; `wavelengths`=None -> []; `year`=`1987`
   - refs: resolved `Magain:1987:L5`
 - line 1321 `OH` formula `OH` name `hydroxyl radical`; label `mol:OH`; context `ppd`; flag `True`; missing `sources`, `telescopes`, `wavelengths`
   - fields: `sources`=None -> []; `telescopes`=None -> []; `wavelengths`=None -> []; `year`=`2008`
   - refs: resolved `Mandell:2008:L25`, `Salyk:2008:L49`
-- line 1321 `OH` formula `OH` name `hydroxyl radical`; label `mol:OH`; context `exgal`; flag `True`; missing `sources`, `telescopes`, `wavelengths`
-  - fields: `sources`=`M82, NGC 253` -> []; `telescopes`=None -> []; `wavelengths`=None -> []; `year`=`1971`
+- line 1321 `OH` formula `OH` name `hydroxyl radical`; label `mol:OH`; context `exgal`; flag `True`; missing `telescopes`, `wavelengths`
+  - fields: `sources`=`M82, NGC 253` -> `M82`, `NGC253`; `telescopes`=None -> []; `wavelengths`=None -> []; `year`=`1971`
   - refs: resolved `Weliachew:1971:L47`
 - line 1321 `OH` formula `OH` name `hydroxyl radical`; label `mol:OH`; context `exo`; flag `True`; missing `sources`, `telescopes`, `wavelengths`
   - fields: `sources`=None -> []; `telescopes`=None -> []; `wavelengths`=None -> []; `year`=`2021`
@@ -107,8 +156,8 @@ Generated from `scripts/convert_legacy_molecules.py`.
 - line 1348 `CO` formula `CO` name `carbon monoxide`; label `mol:CO`; context `ppd`; flag `True`; missing `sources`, `telescopes`, `wavelengths`
   - fields: `sources`=None -> []; `telescopes`=None -> []; `wavelengths`=None -> []; `year`=`1986`
   - refs: resolved `Beckwith:1986:755`
-- line 1348 `CO` formula `CO` name `carbon monoxide`; label `mol:CO`; context `exgal`; flag `True`; missing `sources`, `telescopes`, `wavelengths`
-  - fields: `sources`=`M82, NGC 253` -> []; `telescopes`=None -> []; `wavelengths`=None -> []; `year`=`1975`
+- line 1348 `CO` formula `CO` name `carbon monoxide`; label `mol:CO`; context `exgal`; flag `True`; missing `telescopes`, `wavelengths`
+  - fields: `sources`=`M82, NGC 253` -> `M82`, `NGC253`; `telescopes`=None -> []; `wavelengths`=None -> []; `year`=`1975`
   - refs: resolved `Rickard:1975:L75`
 - line 1348 `CO` formula `CO` name `carbon monoxide`; label `mol:CO`; context `exo`; flag `True`; missing `sources`, `telescopes`, `wavelengths`
   - fields: `sources`=None -> []; `telescopes`=None -> []; `wavelengths`=None -> []; `year`=`2011`
@@ -116,74 +165,74 @@ Generated from `scripts/convert_legacy_molecules.py`.
 - line 1427 `H2` formula `H2` name `hydrogen`; label `mol:H2`; context `ppd`; flag `True`; missing `sources`, `telescopes`, `wavelengths`
   - fields: `sources`=None -> []; `telescopes`=None -> []; `wavelengths`=None -> []; `year`=`1999`
   - refs: resolved `Thi:1999:L63`
-- line 1427 `H2` formula `H2` name `hydrogen`; label `mol:H2`; context `exgal`; flag `True`; missing `sources`, `telescopes`, `wavelengths`
-  - fields: `sources`=`NGC 1068` -> []; `telescopes`=None -> []; `wavelengths`=None -> []; `year`=`1978`
+- line 1427 `H2` formula `H2` name `hydrogen`; label `mol:H2`; context `exgal`; flag `True`; missing `telescopes`, `wavelengths`
+  - fields: `sources`=`NGC 1068` -> `NGC1068`; `telescopes`=None -> []; `wavelengths`=None -> []; `year`=`1978`
   - refs: resolved `Thompson:1978:L49`
-- line 1456 `SiO` formula `SiO` name `silicon monoxide`; label `mol:SiO`; context `exgal`; flag `True`; missing `sources`, `telescopes`, `wavelengths`
-  - fields: `sources`=`NGC 253` -> []; `telescopes`=None -> []; `wavelengths`=None -> []; `year`=`1991`
+- line 1456 `SiO` formula `SiO` name `silicon monoxide`; label `mol:SiO`; context `exgal`; flag `True`; missing `telescopes`, `wavelengths`
+  - fields: `sources`=`NGC 253` -> `NGC253`; `telescopes`=None -> []; `wavelengths`=None -> []; `year`=`1991`
   - refs: resolved `Mauersberger:1991:457`
 - line 1476 `CS` formula `CS` name `carbon monosulfide`; label `mol:CS`; context `ppd`; flag `True`; missing `sources`, `telescopes`, `wavelengths`
   - fields: `sources`=None -> []; `telescopes`=None -> []; `wavelengths`=None -> []; `year`=`1991`
   - refs: resolved `Ohashi:1991:2054`, `Blake:1992:L99`, `Guilloteau:2012:A70`
-- line 1476 `CS` formula `CS` name `carbon monosulfide`; label `mol:CS`; context `exgal`; flag `True`; missing `sources`, `telescopes`, `wavelengths`
-  - fields: `sources`=`M82, IC 342` -> []; `telescopes`=None -> []; `wavelengths`=None -> []; `year`=`1985`
+- line 1476 `CS` formula `CS` name `carbon monosulfide`; label `mol:CS`; context `exgal`; flag `True`; missing `telescopes`, `wavelengths`
+  - fields: `sources`=`M82, IC 342` -> `M82`, `IC342`; `telescopes`=None -> []; `wavelengths`=None -> []; `year`=`1985`
   - refs: resolved `Henkel:1985:L25`
 - line 1514 `SO` formula `SO` name `sulfur monoxide`; label `mol:SO`; context `ppd`; flag `True`; missing `sources`, `telescopes`, `wavelengths`
   - fields: `sources`=None -> []; `telescopes`=None -> []; `wavelengths`=None -> []; `year`=`2010`
   - refs: resolved `Fuente:2010:A19`
-- line 1514 `SO` formula `SO` name `sulfur monoxide`; label `mol:SO`; context `exgal`; flag `True`; missing `sources`, `telescopes`, `wavelengths`
-  - fields: `sources`=`M82, NGC 253` -> []; `telescopes`=None -> []; `wavelengths`=None -> []; `year`=`1991`
+- line 1514 `SO` formula `SO` name `sulfur monoxide`; label `mol:SO`; context `exgal`; flag `True`; missing `telescopes`, `wavelengths`
+  - fields: `sources`=`M82, NGC 253` -> `M82`, `NGC253`; `telescopes`=None -> []; `wavelengths`=None -> []; `year`=`1991`
   - refs: resolved `Johansson:1991:1`, `Petuchowski:1992:137`
 - line 1555 `SiS` formula `SiS` name `silicon monosulfide`; label `mol:SiS`; context `ppd`; flag `True`; missing `sources`, `telescopes`, `wavelengths`
   - fields: `sources`=None -> []; `telescopes`=None -> []; `wavelengths`=None -> []; `year`=`2023`
   - refs: resolved `Law:2023:L19`
-- line 1578 `NS` formula `NS` name `nitrogen monosulfide`; label `mol:NS`; context `exgal`; flag `True`; missing `sources`, `telescopes`, `wavelengths`
-  - fields: `sources`=`NGC 253` -> []; `telescopes`=None -> []; `wavelengths`=None -> []; `year`=`2003`
+- line 1578 `NS` formula `NS` name `nitrogen monosulfide`; label `mol:NS`; context `exgal`; flag `True`; missing `telescopes`, `wavelengths`
+  - fields: `sources`=`NGC 253` -> `NGC253`; `telescopes`=None -> []; `wavelengths`=None -> []; `year`=`2003`
   - refs: resolved `Martin:2003:L465`
-- line 1598 `C2` formula `C2` name `dicarbon`; label `mol:C2`; context `exgal`; flag `True`; missing `sources`, `telescopes`, `wavelengths`
-  - fields: `sources`=`SMC` -> []; `telescopes`=None -> []; `wavelengths`=None -> []; `year`=`2013`
+- line 1598 `C2` formula `C2` name `dicarbon`; label `mol:C2`; context `exgal`; flag `True`; missing `telescopes`, `wavelengths`
+  - fields: `sources`=`SMC` -> `SMC`; `telescopes`=None -> []; `wavelengths`=None -> []; `year`=`2013`
   - refs: resolved `Welty:2013:1107`
 - line 1617 `NO` formula `NO` name `nitric oxide`; label `mol:NO`; context `ppd`; flag `True`; missing `sources`, `telescopes`, `wavelengths`
   - fields: `sources`=None -> []; `telescopes`=None -> []; `wavelengths`=None -> []; `year`=`2022`
   - refs: resolved `Brunken:2022:A29`
-- line 1617 `NO` formula `NO` name `nitric oxide`; label `mol:NO`; context `exgal`; flag `True`; missing `sources`, `telescopes`, `wavelengths`
-  - fields: `sources`=`NGC 253` -> []; `telescopes`=None -> []; `wavelengths`=None -> []; `year`=`2003`
+- line 1617 `NO` formula `NO` name `nitric oxide`; label `mol:NO`; context `exgal`; flag `True`; missing `telescopes`, `wavelengths`
+  - fields: `sources`=`NGC 253` -> `NGC253`; `telescopes`=None -> []; `wavelengths`=None -> []; `year`=`2003`
   - refs: resolved `Martin:2003:L465`
-- line 1644 `HCl` formula `HCl` name `hydrogen chloride`; label `mol:HCl`; context `exgal`; flag `True`; missing `sources`, `telescopes`, `wavelengths`
-  - fields: `sources`=`PKS 1830-211 LOS` -> []; `telescopes`=None -> []; `wavelengths`=None -> []; `year`=`2019`
+- line 1644 `HCl` formula `HCl` name `hydrogen chloride`; label `mol:HCl`; context `exgal`; flag `True`; missing `telescopes`, `wavelengths`
+  - fields: `sources`=`PKS 1830-211 LOS` -> `PKS1830LOS`; `telescopes`=None -> []; `wavelengths`=None -> []; `year`=`2019`
   - refs: resolved `Wallstrom:2019:A128`
-- line 1730 `PN` formula `PN` name `phosphorous mononitride`; label `mol:PN`; context `exgal`; flag `True`; missing `sources`, `telescopes`, `wavelengths`
-  - fields: `sources`=`NGC 253` -> []; `telescopes`=None -> []; `wavelengths`=None -> []; `year`=`2022`
+- line 1730 `PN` formula `PN` name `phosphorous mononitride`; label `mol:PN`; context `exgal`; flag `True`; missing `telescopes`, `wavelengths`
+  - fields: `sources`=`NGC 253` -> `NGC253`; `telescopes`=None -> []; `wavelengths`=None -> []; `year`=`2022`
   - refs: resolved `Haasler:2022:A158`
-- line 1786 `NH` formula `NH` name `imidogen radical`; label `mol:NH`; context `exgal`; flag `True`; missing `sources`, `telescopes`, `wavelengths`
-  - fields: `sources`=`Arp 220` -> []; `telescopes`=None -> []; `wavelengths`=None -> []; `year`=`2004`
+- line 1786 `NH` formula `NH` name `imidogen radical`; label `mol:NH`; context `exgal`; flag `True`; missing `telescopes`, `wavelengths`
+  - fields: `sources`=`Arp 220` -> `Arp220`; `telescopes`=None -> []; `wavelengths`=None -> []; `year`=`2004`
   - refs: resolved `Gonzalez-Alfonso:2004:247`
-- line 1822 `SOp` formula `SO+` name `sulfur monoxide cation`; label `mol:SO+`; context `exgal`; flag `True`; missing `sources`, `telescopes`, `wavelengths`
-  - fields: `sources`=`PKS 1830-211 LOS` -> []; `telescopes`=None -> []; `wavelengths`=None -> []; `year`=`2011`
+- line 1822 `SOp` formula `SO+` name `sulfur monoxide cation`; label `mol:SO+`; context `exgal`; flag `True`; missing `telescopes`, `wavelengths`
+  - fields: `sources`=`PKS 1830-211 LOS` -> `PKS1830LOS`; `telescopes`=None -> []; `wavelengths`=None -> []; `year`=`2011`
   - refs: resolved `Muller:2011:A103`
-- line 1842 `COp` formula `CO+` name `carbon monoxide cation`; label `mol:CO+`; context `exgal`; flag `True`; missing `sources`, `telescopes`, `wavelengths`
-  - fields: `sources`=`M82` -> []; `telescopes`=None -> []; `wavelengths`=None -> []; `year`=`2006`
+- line 1842 `COp` formula `CO+` name `carbon monoxide cation`; label `mol:CO+`; context `exgal`; flag `True`; missing `telescopes`, `wavelengths`
+  - fields: `sources`=`M82` -> `M82`; `telescopes`=None -> []; `wavelengths`=None -> []; `year`=`2006`
   - refs: resolved `Fuente:2006:L105`
-- line 1862 `HF` formula `HF` name `hydrogen fluoride`; label `mol:HF`; context `exgal`; flag `True`; missing `sources`, `telescopes`, `wavelengths`
-  - fields: `sources`=`QSO Mrk 231, Arp 220, Cloverleaf LOS` -> []; `telescopes`=None -> []; `wavelengths`=None -> []; `year`=`2010`
+- line 1862 `HF` formula `HF` name `hydrogen fluoride`; label `mol:HF`; context `exgal`; flag `True`; missing `telescopes`, `wavelengths`
+  - fields: `sources`=`QSO Mrk 231, Arp 220, Cloverleaf LOS` -> `QSOMrk231`, `Arp220`, `CloverleafLOS`; `telescopes`=None -> []; `wavelengths`=None -> []; `year`=`2010`
   - refs: resolved `vanderWerf:2010:L42`, `Rangwala:2011:94`, `Monje:2011:L21`
-- line 1897 `CFp` formula `CF+` name `fluoromethylidynium cation`; label `mol:CF+`; context `exgal`; flag `True`; missing `sources`, `telescopes`, `wavelengths`
-  - fields: `sources`=`PKS 1830-211 LOS` -> []; `telescopes`=None -> []; `wavelengths`=None -> []; `year`=`2016`
+- line 1897 `CFp` formula `CF+` name `fluoromethylidynium cation`; label `mol:CF+`; context `exgal`; flag `True`; missing `telescopes`, `wavelengths`
+  - fields: `sources`=`PKS 1830-211 LOS` -> `PKS1830LOS`; `telescopes`=None -> []; `wavelengths`=None -> []; `year`=`2016`
   - refs: resolved `Muller:2016:L5`
-- line 1933 `O2` formula `O2` name `oxygen`; label `mol:O2`; context `exgal`; flag `True`; missing `sources`, `telescopes`, `wavelengths`
-  - fields: `sources`=`QSO Mrk 231` -> []; `telescopes`=None -> []; `wavelengths`=None -> []; `year`=`2020`
+- line 1933 `O2` formula `O2` name `oxygen`; label `mol:O2`; context `exgal`; flag `True`; missing `telescopes`, `wavelengths`
+  - fields: `sources`=`QSO Mrk 231` -> `QSOMrk231`; `telescopes`=None -> []; `wavelengths`=None -> []; `year`=`2020`
   - refs: resolved `Wang:2020:129`
-- line 1984 `OHp` formula `OH+` name `hydroxyl cation`; label `mol:OH+`; context `exgal`; flag `True`; missing `sources`, `telescopes`, `wavelengths`
-  - fields: `sources`=`QSO Mrk 231, Arp 220, NGC 4418` -> []; `telescopes`=None -> []; `wavelengths`=None -> []; `year`=`2010`
+- line 1984 `OHp` formula `OH+` name `hydroxyl cation`; label `mol:OH+`; context `exgal`; flag `True`; missing `telescopes`, `wavelengths`
+  - fields: `sources`=`QSO Mrk 231, Arp 220, NGC 4418` -> `QSOMrk231`, `Arp220`, `NGC4418`; `telescopes`=None -> []; `wavelengths`=None -> []; `year`=`2010`
   - refs: resolved `vanderWerf:2010:L42`, `Rangwala:2011:94`, `Gonzalez-Alfonso:2013:A25`
-- line 2004 `SHp` formula `SH+` name `sulfanylium cation`; label `mol:SH+`; context `exgal`; flag `True`; missing `sources`, `telescopes`, `wavelengths`
-  - fields: `sources`=`PKS 1830-211 LOS` -> []; `telescopes`=None -> []; `wavelengths`=None -> []; `year`=`2017`
+- line 2004 `SHp` formula `SH+` name `sulfanylium cation`; label `mol:SH+`; context `exgal`; flag `True`; missing `telescopes`, `wavelengths`
+  - fields: `sources`=`PKS 1830-211 LOS` -> `PKS1830LOS`; `telescopes`=None -> []; `wavelengths`=None -> []; `year`=`2017`
   - refs: resolved `Muller:2017:A109`
 - line 2056 `TiO` formula `TiO` name `titanium monoxide`; label `mol:TiO`; context `exo`; flag `True`; missing `sources`, `telescopes`, `wavelengths`
   - fields: `sources`=None -> []; `telescopes`=None -> []; `wavelengths`=None -> []; `year`=`2015`
   - refs: resolved `Haynes:2015:146`, `Sedaghati:2017:238`, `Nugroho:2017:221`
-- line 2075 `ArHp` formula `ArH+` name `argonium`; label `mol:ArH+`; context `exgal`; flag `True`; missing `sources`, `telescopes`, `wavelengths`
-  - fields: `sources`=`PKS 1830-211 LOS` -> []; `telescopes`=None -> []; `wavelengths`=None -> []; `year`=`2015`
+- line 2075 `ArHp` formula `ArH+` name `argonium`; label `mol:ArH+`; context `exgal`; flag `True`; missing `telescopes`, `wavelengths`
+  - fields: `sources`=`PKS 1830-211 LOS` -> `PKS1830LOS`; `telescopes`=None -> []; `wavelengths`=None -> []; `year`=`2015`
   - refs: resolved `Muller:2015:L4`
 - line 2127 `VO` formula `VO` name `vanadium oxide`; label `mol:VO`; context `exo`; flag `True`; missing `sources`, `telescopes`, `wavelengths`
   - fields: `sources`=None -> []; `telescopes`=None -> []; `wavelengths`=None -> []; `year`=`2023`
@@ -194,8 +243,8 @@ Generated from `scripts/convert_legacy_molecules.py`.
 - line 2261 `H2O` formula `H2O` name `water`; label `mol:H2O`; context `ppd`; flag `True`; missing `sources`, `telescopes`, `wavelengths`
   - fields: `sources`=None -> []; `telescopes`=None -> []; `wavelengths`=None -> []; `year`=`2004`
   - refs: resolved `Carr:2004:213`, `Hogerheijde:2011:338`, `Salyk:2008:L49`
-- line 2261 `H2O` formula `H2O` name `water`; label `mol:H2O`; context `exgal`; flag `True`; missing `sources`, `telescopes`, `wavelengths`
-  - fields: `sources`=`M33` -> []; `telescopes`=None -> []; `wavelengths`=None -> []; `year`=`1977`
+- line 2261 `H2O` formula `H2O` name `water`; label `mol:H2O`; context `exgal`; flag `True`; missing `telescopes`, `wavelengths`
+  - fields: `sources`=`M33` -> `M33`; `telescopes`=None -> []; `wavelengths`=None -> []; `year`=`1977`
   - refs: resolved `Churchwell:1977:969`
 - line 2261 `H2O` formula `H2O` name `water`; label `mol:H2O`; context `exo`; flag `True`; missing `sources`, `telescopes`, `wavelengths`
   - fields: `sources`=None -> []; `telescopes`=None -> []; `wavelengths`=None -> []; `year`=`2007`
@@ -203,14 +252,14 @@ Generated from `scripts/convert_legacy_molecules.py`.
 - line 2296 `HCOp` formula `HCO+` name `formylium cation`; label `mol:HCO+`; context `ppd`; flag `True`; missing `sources`, `telescopes`, `wavelengths`
   - fields: `sources`=None -> []; `telescopes`=None -> []; `wavelengths`=None -> []; `year`=`1997`
   - refs: resolved `Kastner:1997:67`, `Dutrey:1997:L55`
-- line 2296 `HCOp` formula `HCO+` name `formylium cation`; label `mol:HCO+`; context `exgal`; flag `True`; missing `sources`, `telescopes`, `wavelengths`
-  - fields: `sources`=`M82` -> []; `telescopes`=None -> []; `wavelengths`=None -> []; `year`=`1979`
+- line 2296 `HCOp` formula `HCO+` name `formylium cation`; label `mol:HCO+`; context `exgal`; flag `True`; missing `telescopes`, `wavelengths`
+  - fields: `sources`=`M82` -> `M82`; `telescopes`=None -> []; `wavelengths`=None -> []; `year`=`1979`
   - refs: resolved `Stark:1979:118`
 - line 2346 `HCN` formula `HCN` name `hydrogen cyanide`; label `mol:HCN`; context `ppd`; flag `True`; missing `sources`, `telescopes`, `wavelengths`
   - fields: `sources`=None -> []; `telescopes`=None -> []; `wavelengths`=None -> []; `year`=`1997`
   - refs: resolved `Kastner:1997:67`, `Dutrey:1997:L55`
-- line 2346 `HCN` formula `HCN` name `hydrogen cyanide`; label `mol:HCN`; context `exgal`; flag `True`; missing `sources`, `telescopes`, `wavelengths`
-  - fields: `sources`=`NGC 253, M82` -> []; `telescopes`=None -> []; `wavelengths`=None -> []; `year`=`1977`
+- line 2346 `HCN` formula `HCN` name `hydrogen cyanide`; label `mol:HCN`; context `exgal`; flag `True`; missing `telescopes`, `wavelengths`
+  - fields: `sources`=`NGC 253, M82` -> `NGC253`, `M82`; `telescopes`=None -> []; `wavelengths`=None -> []; `year`=`1977`
   - refs: resolved `Rickard:1977:390`
 - line 2346 `HCN` formula `HCN` name `hydrogen cyanide`; label `mol:HCN`; context `exo`; flag `True`; missing `sources`, `telescopes`, `wavelengths`
   - fields: `sources`=None -> []; `telescopes`=None -> []; `wavelengths`=None -> []; `year`=`2018`
@@ -218,59 +267,59 @@ Generated from `scripts/convert_legacy_molecules.py`.
 - line 2392 `OCS` formula `OCS` name `carbonyl sulfide`; label `mol:OCS`; context `ice`; flag `True`; missing `sources`, `telescopes`, `wavelengths`
   - fields: `sources`=None -> []; `telescopes`=None -> []; `wavelengths`=None -> []; `year`=`1995`
   - refs: resolved `Palumbo:1995:674`, `Palumbo:1997:839`
-- line 2392 `OCS` formula `OCS` name `carbonyl sulfide`; label `mol:OCS`; context `exgal`; flag `True`; missing `sources`, `telescopes`, `wavelengths`
-  - fields: `sources`=`NGC 253` -> []; `telescopes`=None -> []; `wavelengths`=None -> []; `year`=`1995`
+- line 2392 `OCS` formula `OCS` name `carbonyl sulfide`; label `mol:OCS`; context `exgal`; flag `True`; missing `telescopes`, `wavelengths`
+  - fields: `sources`=`NGC 253` -> `NGC253`; `telescopes`=None -> []; `wavelengths`=None -> []; `year`=`1995`
   - refs: resolved `Mauersberger:1995:23`
 - line 2416 `HNC` formula `HNC` name `hydrogen isocyanide`; label `mol:HNC`; context `ppd`; flag `True`; missing `sources`, `telescopes`, `wavelengths`
   - fields: `sources`=None -> []; `telescopes`=None -> []; `wavelengths`=None -> []; `year`=`1997`
   - refs: resolved `Dutrey:1997:L55`
-- line 2416 `HNC` formula `HNC` name `hydrogen isocyanide`; label `mol:HNC`; context `exgal`; flag `True`; missing `sources`, `telescopes`, `wavelengths`
-  - fields: `sources`=`IC 342` -> []; `telescopes`=None -> []; `wavelengths`=None -> []; `year`=`1988`
+- line 2416 `HNC` formula `HNC` name `hydrogen isocyanide`; label `mol:HNC`; context `exgal`; flag `True`; missing `telescopes`, `wavelengths`
+  - fields: `sources`=`IC 342` -> `IC342`; `telescopes`=None -> []; `wavelengths`=None -> []; `year`=`1988`
   - refs: resolved `Henkel:1988:L23`
 - line 2446 `H2S` formula `H2S` name `hydrogen sulfide`; label `mol:H2S`; context `ppd`; flag `True`; missing `sources`, `telescopes`, `wavelengths`
   - fields: `sources`=None -> []; `telescopes`=None -> []; `wavelengths`=None -> []; `year`=`2018`
   - refs: resolved `Phuong:2018:L5`
-- line 2446 `H2S` formula `H2S` name `hydrogen sulfide`; label `mol:H2S`; context `exgal`; flag `True`; missing `sources`, `telescopes`, `wavelengths`
-  - fields: `sources`=`LMC` -> []; `telescopes`=None -> []; `wavelengths`=None -> []; `year`=`1999`
+- line 2446 `H2S` formula `H2S` name `hydrogen sulfide`; label `mol:H2S`; context `exgal`; flag `True`; missing `telescopes`, `wavelengths`
+  - fields: `sources`=`LMC` -> `LMC`; `telescopes`=None -> []; `wavelengths`=None -> []; `year`=`1999`
   - refs: resolved `Heikkila:1999:817`
 - line 2471 `N2Hp` formula `N2H+` name `protonated nitrogen`; label `mol:N2H+`; context `ppd`; flag `True`; missing `sources`, `telescopes`, `wavelengths`
   - fields: `sources`=None -> []; `telescopes`=None -> []; `wavelengths`=None -> []; `year`=`2003`
   - refs: resolved `Qi:2003:986`, `Dutrey:2007:615`
-- line 2471 `N2Hp` formula `N2H+` name `protonated nitrogen`; label `mol:N2H+`; context `exgal`; flag `True`; missing `sources`, `telescopes`, `wavelengths`
-  - fields: `sources`=`NGC 253, Maffei 2, IC 342, M82, NGC 6946` -> []; `telescopes`=None -> []; `wavelengths`=None -> []; `year`=`1991`
+- line 2471 `N2Hp` formula `N2H+` name `protonated nitrogen`; label `mol:N2H+`; context `exgal`; flag `True`; missing `telescopes`, `wavelengths`
+  - fields: `sources`=`NGC 253, Maffei 2, IC 342, M82, NGC 6946` -> `NGC253`, `Maffei2`, `IC342`, `M82`, `NGC6946`; `telescopes`=None -> []; `wavelengths`=None -> []; `year`=`1991`
   - refs: resolved `Mauersberger:1991:457`
 - line 2502 `C2H` formula `C2H` name `ethynyl radical`; label `mol:C2H`; context `ppd`; flag `True`; missing `sources`, `telescopes`, `wavelengths`
   - fields: `sources`=None -> []; `telescopes`=None -> []; `wavelengths`=None -> []; `year`=`1997`
   - refs: resolved `Dutrey:1997:L55`
-- line 2502 `C2H` formula `C2H` name `ethynyl radical`; label `mol:C2H`; context `exgal`; flag `True`; missing `sources`, `telescopes`, `wavelengths`
-  - fields: `sources`=`M82` -> []; `telescopes`=None -> []; `wavelengths`=None -> []; `year`=`1988`
+- line 2502 `C2H` formula `C2H` name `ethynyl radical`; label `mol:C2H`; context `exgal`; flag `True`; missing `telescopes`, `wavelengths`
+  - fields: `sources`=`M82` -> `M82`; `telescopes`=None -> []; `wavelengths`=None -> []; `year`=`1988`
   - refs: resolved `Henkel:1988:L23`
 - line 2532 `SO2` formula `SO2` name `sulfur dioxide`; label `mol:SO2`; context `ppd`; flag `True`; missing `sources`, `telescopes`, `wavelengths`
   - fields: `sources`=None -> []; `telescopes`=None -> []; `wavelengths`=None -> []; `year`=`2021`
   - refs: resolved `Booth:2021:L6`
-- line 2532 `SO2` formula `SO2` name `sulfur dioxide`; label `mol:SO2`; context `exgal`; flag `True`; missing `sources`, `telescopes`, `wavelengths`
-  - fields: `sources`=`NGC 253` -> []; `telescopes`=None -> []; `wavelengths`=None -> []; `year`=`2003`
+- line 2532 `SO2` formula `SO2` name `sulfur dioxide`; label `mol:SO2`; context `exgal`; flag `True`; missing `telescopes`, `wavelengths`
+  - fields: `sources`=`NGC 253` -> `NGC253`; `telescopes`=None -> []; `wavelengths`=None -> []; `year`=`2003`
   - refs: resolved `Martin:2003:L465`
 - line 2532 `SO2` formula `SO2` name `sulfur dioxide`; label `mol:SO2`; context `exo`; flag `True`; missing `sources`, `telescopes`, `wavelengths`
   - fields: `sources`=None -> []; `telescopes`=None -> []; `wavelengths`=None -> []; `year`=`2023`
   - refs: resolved `Alderson:2023:664`, `Beatty:2024:L10`
-- line 2565 `HCO` formula `HCO` name `formyl radical`; label `mol:HCO`; context `exgal`; flag `True`; missing `sources`, `telescopes`, `wavelengths`
-  - fields: `sources`=`M82` -> []; `telescopes`=None -> []; `wavelengths`=None -> []; `year`=`1995`
+- line 2565 `HCO` formula `HCO` name `formyl radical`; label `mol:HCO`; context `exgal`; flag `True`; missing `telescopes`, `wavelengths`
+  - fields: `sources`=`M82` -> `M82`; `telescopes`=None -> []; `wavelengths`=None -> []; `year`=`1995`
   - refs: resolved `Sage:1995:625`, `Garcia-Burillo:2002:L55`
-- line 2607 `HCSp` formula `HCS+` name `protonated carbon monosulfide`; label `mol:HCS+`; context `exgal`; flag `True`; missing `sources`, `telescopes`, `wavelengths`
-  - fields: `sources`=`PKS 1830-211 LOS` -> []; `telescopes`=None -> []; `wavelengths`=None -> []; `year`=`2013`
+- line 2607 `HCSp` formula `HCS+` name `protonated carbon monosulfide`; label `mol:HCS+`; context `exgal`; flag `True`; missing `telescopes`, `wavelengths`
+  - fields: `sources`=`PKS 1830-211 LOS` -> `PKS1830LOS`; `telescopes`=None -> []; `wavelengths`=None -> []; `year`=`2013`
   - refs: resolved `Muller:2013:A109`
-- line 2627 `HOCp` formula `HOC+` name `hydroxymethyliumylidene`; label `mol:HOC+`; context `exgal`; flag `True`; missing `sources`, `telescopes`, `wavelengths`
-  - fields: `sources`=`NGC 1068` -> []; `telescopes`=None -> []; `wavelengths`=None -> []; `year`=`2004`
+- line 2627 `HOCp` formula `HOC+` name `hydroxymethyliumylidene`; label `mol:HOC+`; context `exgal`; flag `True`; missing `telescopes`, `wavelengths`
+  - fields: `sources`=`NGC 1068` -> `NGC1068`; `telescopes`=None -> []; `wavelengths`=None -> []; `year`=`2004`
   - refs: resolved `Usero:2004:897`
-- line 2666 `C2S` formula `C2S` name `dicarbon sulfide`; label `mol:C2S`; context `ppd`; flag `True`; missing `sources`, `telescopes`, `wavelengths`
-  - fields: `sources`=`GG Tau` -> []; `telescopes`=None -> []; `wavelengths`=None -> []; `year`=`2021`
+- line 2666 `C2S` formula `C2S` name `dicarbon sulfide`; label `mol:C2S`; context `ppd`; flag `True`; missing `telescopes`, `wavelengths`
+  - fields: `sources`=`GG Tau` -> `GGTau`; `telescopes`=None -> []; `wavelengths`=None -> []; `year`=`2021`
   - refs: resolved `Phuong:2021:L5`
-- line 2666 `C2S` formula `C2S` name `dicarbon sulfide`; label `mol:C2S`; context `exgal`; flag `True`; missing `sources`, `telescopes`, `wavelengths`
-  - fields: `sources`=`NGC 253` -> []; `telescopes`=None -> []; `wavelengths`=None -> []; `year`=`2006`
+- line 2666 `C2S` formula `C2S` name `dicarbon sulfide`; label `mol:C2S`; context `exgal`; flag `True`; missing `telescopes`, `wavelengths`
+  - fields: `sources`=`NGC 253` -> `NGC253`; `telescopes`=None -> []; `wavelengths`=None -> []; `year`=`2006`
   - refs: resolved `Martin:2006:450`
-- line 2694 `C3` formula `C3` name `tricarbon`; label `mol:C3`; context `exgal`; flag `True`; missing `sources`, `telescopes`, `wavelengths`
-  - fields: `sources`=`SMC` -> []; `telescopes`=None -> []; `wavelengths`=None -> []; `year`=`2013`
+- line 2694 `C3` formula `C3` name `tricarbon`; label `mol:C3`; context `exgal`; flag `True`; missing `telescopes`, `wavelengths`
+  - fields: `sources`=`SMC` -> `SMC`; `telescopes`=None -> []; `wavelengths`=None -> []; `year`=`2013`
   - refs: resolved `Welty:2013:1107`
 - line 2715 `CO2` formula `CO2` name `carbon dioxide`; label `mol:CO2`; context `ice`; flag `True`; missing `sources`, `telescopes`, `wavelengths`
   - fields: `sources`=None -> []; `telescopes`=None -> []; `wavelengths`=None -> []; `year`=`1989`
@@ -281,17 +330,17 @@ Generated from `scripts/convert_legacy_molecules.py`.
 - line 2715 `CO2` formula `CO2` name `carbon dioxide`; label `mol:CO2`; context `exo`; flag `True`; missing `sources`, `telescopes`, `wavelengths`
   - fields: `sources`=None -> []; `telescopes`=None -> []; `wavelengths`=None -> []; `year`=`2010`
   - refs: resolved `Stevenson:2010:1161`, `Madhusudhan:2011:64`, `Lanotte:2014:A73`, `JWST:2023:649`
-- line 2807 `NH2` formula `NH2` name `amidogen`; label `mol:NH2`; context `exgal`; flag `True`; missing `sources`, `telescopes`, `wavelengths`
-  - fields: `sources`=`PKS 1830-211 LOS` -> []; `telescopes`=None -> []; `wavelengths`=None -> []; `year`=`2014`
+- line 2807 `NH2` formula `NH2` name `amidogen`; label `mol:NH2`; context `exgal`; flag `True`; missing `telescopes`, `wavelengths`
+  - fields: `sources`=`PKS 1830-211 LOS` -> `PKS1830LOS`; `telescopes`=None -> []; `wavelengths`=None -> []; `year`=`2014`
   - refs: resolved `Muller:2014:A112`
-- line 2893 `H3p` formula `H3+`; label `mol:H3+`; context `exgal`; flag `True`; missing `sources`, `telescopes`, `wavelengths`
-  - fields: `sources`=`IRAS 08572+3915` -> []; `telescopes`=None -> []; `wavelengths`=None -> []; `year`=`2006`
+- line 2893 `H3p` formula `H3+`; label `mol:H3+`; context `exgal`; flag `True`; missing `telescopes`, `wavelengths`
+  - fields: `sources`=`IRAS 08572+3915` -> `IRAS08572p3915`; `telescopes`=None -> []; `wavelengths`=None -> []; `year`=`2006`
   - refs: resolved `Geballe:2006:907`
-- line 3028 `H2Op` formula `H2O+` name `oxidaniumyl`; label `mol:H2O+`; context `exgal`; flag `True`; missing `sources`, `telescopes`, `wavelengths`
-  - fields: `sources`=`M82` -> []; `telescopes`=None -> []; `wavelengths`=None -> []; `year`=`2010`
+- line 3028 `H2Op` formula `H2O+` name `oxidaniumyl`; label `mol:H2O+`; context `exgal`; flag `True`; missing `telescopes`, `wavelengths`
+  - fields: `sources`=`M82` -> `M82`; `telescopes`=None -> []; `wavelengths`=None -> []; `year`=`2010`
   - refs: resolved `Weiss:2010:L1`
-- line 3050 `H2Clp` formula `H2Cl+` name `chloronium`; label `mol:H2Cl+`; context `exgal`; flag `True`; missing `sources`, `telescopes`, `wavelengths`
-  - fields: `sources`=`PKS 1830-211 LOS` -> []; `telescopes`=None -> []; `wavelengths`=None -> []; `year`=`2014`
+- line 3050 `H2Clp` formula `H2Cl+` name `chloronium`; label `mol:H2Cl+`; context `exgal`; flag `True`; missing `telescopes`, `wavelengths`
+  - fields: `sources`=`PKS 1830-211 LOS` -> `PKS1830LOS`; `telescopes`=None -> []; `wavelengths`=None -> []; `year`=`2014`
   - refs: resolved `Muller:2014:L6`
 - line 3379 `NH3` formula `NH3` name `ammonia`; label `mol:NH3`; context `ice`; flag `True`; missing `sources`, `telescopes`, `wavelengths`
   - fields: `sources`=None -> []; `telescopes`=None -> []; `wavelengths`=None -> []; `year`=`1998`
@@ -299,11 +348,11 @@ Generated from `scripts/convert_legacy_molecules.py`.
 - line 3379 `NH3` formula `NH3` name `ammonia`; label `mol:NH3`; context `ppd`; flag `True`; missing `sources`, `telescopes`, `wavelengths`
   - fields: `sources`=None -> []; `telescopes`=None -> []; `wavelengths`=None -> []; `year`=`2016`
   - refs: resolved `Salinas:2016:A122`
-- line 3379 `NH3` formula `NH3` name `ammonia`; label `mol:NH3`; context `exgal`; flag `True`; missing `sources`, `telescopes`, `wavelengths`
-  - fields: `sources`=`IC 342, NGC 253` -> []; `telescopes`=None -> []; `wavelengths`=None -> []; `year`=`1979`
+- line 3379 `NH3` formula `NH3` name `ammonia`; label `mol:NH3`; context `exgal`; flag `True`; missing `telescopes`, `wavelengths`
+  - fields: `sources`=`IC 342, NGC 253` -> `IC342`, `NGC253`; `telescopes`=None -> []; `wavelengths`=None -> []; `year`=`1979`
   - refs: resolved `Martin:1979:L7`
-- line 3379 `NH3` formula `NH3` name `ammonia`; label `mol:NH3`; context `exo`; flag `True`; missing `sources`, `telescopes`, `wavelengths`
-  - fields: `sources`=`HD 209458b` -> []; `telescopes`=None -> []; `wavelengths`=None -> []; `year`=`2021`
+- line 3379 `NH3` formula `NH3` name `ammonia`; label `mol:NH3`; context `exo`; flag `True`; missing `telescopes`, `wavelengths`
+  - fields: `sources`=`HD 209458b` -> `HD209458b`; `telescopes`=None -> []; `wavelengths`=None -> []; `year`=`2021`
   - refs: resolved `Giacobbe:2021:205`
 - line 3412 `H2CO` formula `H2CO` name `formaldehyde`; label `mol:H2CO`; context `ice`; flag `True`; missing `sources`, `telescopes`, `wavelengths`
   - fields: `sources`=None -> []; `telescopes`=None -> []; `wavelengths`=None -> []; `year`=`2001`
@@ -311,59 +360,59 @@ Generated from `scripts/convert_legacy_molecules.py`.
 - line 3412 `H2CO` formula `H2CO` name `formaldehyde`; label `mol:H2CO`; context `ppd`; flag `True`; missing `sources`, `telescopes`, `wavelengths`
   - fields: `sources`=None -> []; `telescopes`=None -> []; `wavelengths`=None -> []; `year`=`1997`
   - refs: resolved `Dutrey:1997:L55`
-- line 3412 `H2CO` formula `H2CO` name `formaldehyde`; label `mol:H2CO`; context `exgal`; flag `True`; missing `sources`, `telescopes`, `wavelengths`
-  - fields: `sources`=`NGC 253, NGC 4945` -> []; `telescopes`=None -> []; `wavelengths`=None -> []; `year`=`1974`
+- line 3412 `H2CO` formula `H2CO` name `formaldehyde`; label `mol:H2CO`; context `exgal`; flag `True`; missing `telescopes`, `wavelengths`
+  - fields: `sources`=`NGC 253, NGC 4945` -> `NGC253`, `NGC4945`; `telescopes`=None -> []; `wavelengths`=None -> []; `year`=`1974`
   - refs: resolved `Gardner:1974:526`
-- line 3469 `HNCO` formula `HNCO` name `isocyanic acid`; label `mol:HNCO`; context `exgal`; flag `True`; missing `sources`, `telescopes`, `wavelengths`
-  - fields: `sources`=`NGC 253, Maffei 2, IC 342` -> []; `telescopes`=None -> []; `wavelengths`=None -> []; `year`=`1991`
+- line 3469 `HNCO` formula `HNCO` name `isocyanic acid`; label `mol:HNCO`; context `exgal`; flag `True`; missing `telescopes`, `wavelengths`
+  - fields: `sources`=`NGC 253, Maffei 2, IC 342` -> `NGC253`, `Maffei2`, `IC342`; `telescopes`=None -> []; `wavelengths`=None -> []; `year`=`1991`
   - refs: resolved `Nguyen-Q-Rieu:1991:L33`
 - line 3497 `H2CS` formula `H2CS` name `thioformaldehyde`; label `mol:H2CS`; context `ppd`; flag `True`; missing `sources`, `telescopes`, `wavelengths`
   - fields: `sources`=None -> []; `telescopes`=None -> []; `wavelengths`=None -> []; `year`=`2019`
   - refs: resolved `Loomis:2020:101`, `LeGal:2019:72`
-- line 3497 `H2CS` formula `H2CS` name `thioformaldehyde`; label `mol:H2CS`; context `exgal`; flag `True`; missing `sources`, `telescopes`, `wavelengths`
-  - fields: `sources`=`NGC 253` -> []; `telescopes`=None -> []; `wavelengths`=None -> []; `year`=`2006`
+- line 3497 `H2CS` formula `H2CS` name `thioformaldehyde`; label `mol:H2CS`; context `exgal`; flag `True`; missing `telescopes`, `wavelengths`
+  - fields: `sources`=`NGC 253` -> `NGC253`; `telescopes`=None -> []; `wavelengths`=None -> []; `year`=`2006`
   - refs: resolved `Martin:2006:450`
 - line 3527 `C2H2` formula `C2H2` name `acetylene`; label `mol:C2H2`; context `ppd`; flag `True`; missing `sources`, `telescopes`, `wavelengths`
   - fields: `sources`=None -> []; `telescopes`=None -> []; `wavelengths`=None -> []; `year`=`2006`
   - refs: resolved `Lahuis:2006:L145`
-- line 3527 `C2H2` formula `C2H2` name `acetylene`; label `mol:C2H2`; context `exgal`; flag `True`; missing `sources`, `telescopes`, `wavelengths`
-  - fields: `sources`=`LMC` -> []; `telescopes`=None -> []; `wavelengths`=None -> []; `year`=`2002`
+- line 3527 `C2H2` formula `C2H2` name `acetylene`; label `mol:C2H2`; context `exgal`; flag `True`; missing `telescopes`, `wavelengths`
+  - fields: `sources`=`LMC` -> `LMC`; `telescopes`=None -> []; `wavelengths`=None -> []; `year`=`2002`
   - refs: resolved `Matsuura:2002:L133`
-- line 3527 `C2H2` formula `C2H2` name `acetylene`; label `mol:C2H2`; context `exo`; flag `True`; missing `sources`, `telescopes`, `wavelengths`
-  - fields: `sources`=`HD 209458b` -> []; `telescopes`=None -> []; `wavelengths`=None -> []; `year`=`2021`
+- line 3527 `C2H2` formula `C2H2` name `acetylene`; label `mol:C2H2`; context `exo`; flag `True`; missing `telescopes`, `wavelengths`
+  - fields: `sources`=`HD 209458b` -> `HD209458b`; `telescopes`=None -> []; `wavelengths`=None -> []; `year`=`2021`
   - refs: resolved `Giacobbe:2021:205`
-- line 3565 `C3N` formula `C3N` name `cyanoethynyl radical`; label `mol:C3N`; context `exgal`; flag `True`; missing `sources`, `telescopes`, `wavelengths`
-  - fields: `sources`=`PKS 1830-211 LOS` -> []; `telescopes`=None -> []; `wavelengths`=None -> []; `year`=`2020`
+- line 3565 `C3N` formula `C3N` name `cyanoethynyl radical`; label `mol:C3N`; context `exgal`; flag `True`; missing `telescopes`, `wavelengths`
+  - fields: `sources`=`PKS 1830-211 LOS` -> `PKS1830LOS`; `telescopes`=None -> []; `wavelengths`=None -> []; `year`=`2020`
   - refs: resolved `Tercero:2020:L7`
-- line 3614 `HOCOp` formula `HOCO+` name `protonated carbon dioxide`; label `mol:HOCO+`; context `exgal`; flag `True`; missing `sources`, `telescopes`, `wavelengths`
-  - fields: `sources`=`NGC 253` -> []; `telescopes`=None -> []; `wavelengths`=None -> []; `year`=`2006`
+- line 3614 `HOCOp` formula `HOCO+` name `protonated carbon dioxide`; label `mol:HOCO+`; context `exgal`; flag `True`; missing `telescopes`, `wavelengths`
+  - fields: `sources`=`NGC 253` -> `NGC253`; `telescopes`=None -> []; `wavelengths`=None -> []; `year`=`2006`
   - refs: resolved `Aladro:2015:A101`, `Martin:2006:450`
-- line 3658 `lC3H` formula `C3H` name `propynylidyne radical`; label `mol:l-C3H`; context `exgal`; flag `True`; missing `sources`, `telescopes`, `wavelengths`
-  - fields: `sources`=`PKS 1830-211 LOS` -> []; `telescopes`=None -> []; `wavelengths`=None -> []; `year`=`2011`
+- line 3658 `lC3H` formula `C3H` name `propynylidyne radical`; label `mol:l-C3H`; context `exgal`; flag `True`; missing `telescopes`, `wavelengths`
+  - fields: `sources`=`PKS 1830-211 LOS` -> `PKS1830LOS`; `telescopes`=None -> []; `wavelengths`=None -> []; `year`=`2011`
   - refs: resolved `Muller:2011:A103`
-- line 3696 `H3Op` formula `H3O+` name `hydronium`; label `mol:H3O+`; context `exgal`; flag `True`; missing `sources`, `telescopes`, `wavelengths`
-  - fields: `sources`=`M82, Arp 220` -> []; `telescopes`=None -> []; `wavelengths`=None -> []; `year`=`2008`
+- line 3696 `H3Op` formula `H3O+` name `hydronium`; label `mol:H3O+`; context `exgal`; flag `True`; missing `telescopes`, `wavelengths`
+  - fields: `sources`=`M82, Arp 220` -> `M82`, `Arp220`; `telescopes`=None -> []; `wavelengths`=None -> []; `year`=`2008`
   - refs: resolved `vanderTak:2008:L5`
-- line 3739 `cC3H` formula `C3H` name `cyclopropenylidene radical`; label `mol:c-C3H`; context `exgal`; flag `Tentative`; missing `sources`, `telescopes`, `wavelengths`
-  - fields: `sources`=`NGC 253` -> []; `telescopes`=None -> []; `wavelengths`=None -> []; `year`=`2006`
+- line 3739 `cC3H` formula `C3H` name `cyclopropenylidene radical`; label `mol:c-C3H`; context `exgal`; flag `Tentative`; missing `telescopes`, `wavelengths`
+  - fields: `sources`=`NGC 253` -> `NGC253`; `telescopes`=None -> []; `wavelengths`=None -> []; `year`=`2006`
   - refs: resolved `Martin:2006:450`
-- line 3784 `H2CN` formula `H2CN` name `methylene amidogen radical`; label `mol:H2CN`; context `exgal`; flag `True`; missing `sources`, `telescopes`, `wavelengths`
-  - fields: `sources`=`PKS 1830-211 LOS` -> []; `telescopes`=None -> []; `wavelengths`=None -> []; `year`=`2020`
+- line 3784 `H2CN` formula `H2CN` name `methylene amidogen radical`; label `mol:H2CN`; context `exgal`; flag `True`; missing `telescopes`, `wavelengths`
+  - fields: `sources`=`PKS 1830-211 LOS` -> `PKS1830LOS`; `telescopes`=None -> []; `wavelengths`=None -> []; `year`=`2020`
   - refs: resolved `Tercero:2020:L7`
-- line 3899 `HOCN` formula `HOCN` name `cyanic acid`; label `mol:HOCN`; context `exgal`; flag `True`; missing `sources`, `telescopes`, `wavelengths`
-  - fields: `sources`=`NGC 253` -> []; `telescopes`=None -> []; `wavelengths`=None -> []; `year`=`2021`
+- line 3899 `HOCN` formula `HOCN` name `cyanic acid`; label `mol:HOCN`; context `exgal`; flag `True`; missing `telescopes`, `wavelengths`
+  - fields: `sources`=`NGC 253` -> `NGC253`; `telescopes`=None -> []; `wavelengths`=None -> []; `year`=`2021`
   - refs: resolved `Martin:2021:A46`
-- line 3968 `lC3Hp` formula `C3H+` name `propynylidyne cation`; label `mol:l-C3H+`; context `exgal`; flag `True`; missing `sources`, `telescopes`, `wavelengths`
-  - fields: `sources`=`PKS 1830-211 LOS` -> []; `telescopes`=None -> []; `wavelengths`=None -> []; `year`=`2020`
+- line 3968 `lC3Hp` formula `C3H+` name `propynylidyne cation`; label `mol:l-C3H+`; context `exgal`; flag `True`; missing `telescopes`, `wavelengths`
+  - fields: `sources`=`PKS 1830-211 LOS` -> `PKS1830LOS`; `telescopes`=None -> []; `wavelengths`=None -> []; `year`=`2020`
   - refs: resolved `Tercero:2020:L7`
-- line 4139 `H2NC` formula `H2NC` name `aminocarbyne`; label `mol:H2NC`; context `exgal`; flag `True`; missing `sources`, `telescopes`, `wavelengths`
-  - fields: `sources`=`PKS 1830-211 LOS` -> []; `telescopes`=None -> []; `wavelengths`=None -> []; `year`=`2021`
+- line 4139 `H2NC` formula `H2NC` name `aminocarbyne`; label `mol:H2NC`; context `exgal`; flag `True`; missing `telescopes`, `wavelengths`
+  - fields: `sources`=`PKS 1830-211 LOS` -> `PKS1830LOS`; `telescopes`=None -> []; `wavelengths`=None -> []; `year`=`2021`
   - refs: resolved `Cabezas:2021:A45`
 - line 4290 `HC3N` formula `HC3N` name `cyanoacetylene`; label `mol:HC3N`; context `ppd`; flag `True`; missing `sources`, `telescopes`, `wavelengths`
   - fields: `sources`=None -> []; `telescopes`=None -> []; `wavelengths`=None -> []; `year`=`2012`
   - refs: resolved `Chapillon:2012:58`
-- line 4290 `HC3N` formula `HC3N` name `cyanoacetylene`; label `mol:HC3N`; context `exgal`; flag `True`; missing `sources`, `telescopes`, `wavelengths`
-  - fields: `sources`=`NGC 253` -> []; `telescopes`=None -> []; `wavelengths`=None -> []; `year`=`1988`
+- line 4290 `HC3N` formula `HC3N` name `cyanoacetylene`; label `mol:HC3N`; context `exgal`; flag `True`; missing `telescopes`, `wavelengths`
+  - fields: `sources`=`NGC 253` -> `NGC253`; `telescopes`=None -> []; `wavelengths`=None -> []; `year`=`1988`
   - refs: resolved `Mauersberger:1990:63`, `Henkel:1988:L23`
 - line 4318 `HCOOH` formula `HCOOH` name `formic acid`; label `mol:HCOOH`; context `ice`; flag `True`; missing `sources`, `telescopes`, `wavelengths`
   - fields: `sources`=None -> []; `telescopes`=None -> []; `wavelengths`=None -> []; `year`=`1999`
@@ -371,35 +420,35 @@ Generated from `scripts/convert_legacy_molecules.py`.
 - line 4318 `HCOOH` formula `HCOOH` name `formic acid`; label `mol:HCOOH`; context `ppd`; flag `True`; missing `sources`, `telescopes`, `wavelengths`
   - fields: `sources`=None -> []; `telescopes`=None -> []; `wavelengths`=None -> []; `year`=`2018`
   - refs: resolved `Favre:2018:L2`
-- line 4318 `HCOOH` formula `HCOOH` name `formic acid`; label `mol:HCOOH`; context `exgal`; flag `True`; missing `sources`, `telescopes`, `wavelengths`
-  - fields: `sources`=`PKS 1830-211 LOS` -> []; `telescopes`=None -> []; `wavelengths`=None -> []; `year`=`2020`
+- line 4318 `HCOOH` formula `HCOOH` name `formic acid`; label `mol:HCOOH`; context `exgal`; flag `True`; missing `telescopes`, `wavelengths`
+  - fields: `sources`=`PKS 1830-211 LOS` -> `PKS1830LOS`; `telescopes`=None -> []; `wavelengths`=None -> []; `year`=`2020`
   - refs: resolved `Tercero:2020:L7`
-- line 4353 `CH2NH` formula `CH2NH` name `methanimine`; label `mol:CH2NH`; context `exgal`; flag `True`; missing `sources`, `telescopes`, `wavelengths`
-  - fields: `sources`=`PKS 1830-211 LOS` -> []; `telescopes`=None -> []; `wavelengths`=None -> []; `year`=`2011`
+- line 4353 `CH2NH` formula `CH2NH` name `methanimine`; label `mol:CH2NH`; context `exgal`; flag `True`; missing `telescopes`, `wavelengths`
+  - fields: `sources`=`PKS 1830-211 LOS` -> `PKS1830LOS`; `telescopes`=None -> []; `wavelengths`=None -> []; `year`=`2011`
   - refs: resolved `Muller:2011:A103`
-- line 4381 `NH2CN` formula `NH2CN` name `cyanamide`; label `mol:NH2CN`; context `exgal`; flag `True`; missing `sources`, `telescopes`, `wavelengths`
-  - fields: `sources`=`NGC 253` -> []; `telescopes`=None -> []; `wavelengths`=None -> []; `year`=`2006`
+- line 4381 `NH2CN` formula `NH2CN` name `cyanamide`; label `mol:NH2CN`; context `exgal`; flag `True`; missing `telescopes`, `wavelengths`
+  - fields: `sources`=`NGC 253` -> `NGC253`; `telescopes`=None -> []; `wavelengths`=None -> []; `year`=`2006`
   - refs: resolved `Martin:2006:450`
-- line 4409 `H2CCO` formula `H2CCO` name `ketene`; label `mol:H2CCO`; context `exgal`; flag `True`; missing `sources`, `telescopes`, `wavelengths`
-  - fields: `sources`=`PKS 1830-211 LOS` -> []; `telescopes`=None -> []; `wavelengths`=None -> []; `year`=`2011`
+- line 4409 `H2CCO` formula `H2CCO` name `ketene`; label `mol:H2CCO`; context `exgal`; flag `True`; missing `telescopes`, `wavelengths`
+  - fields: `sources`=`PKS 1830-211 LOS` -> `PKS1830LOS`; `telescopes`=None -> []; `wavelengths`=None -> []; `year`=`2011`
   - refs: resolved `Muller:2011:A103`
-- line 4436 `C4H` formula `C4H` name `butadiynyl radical`; label `mol:C4H`; context `exgal`; flag `True`; missing `sources`, `telescopes`, `wavelengths`
-  - fields: `sources`=`PKS 1830-211 LOS` -> []; `telescopes`=None -> []; `wavelengths`=None -> []; `year`=`2011`
+- line 4436 `C4H` formula `C4H` name `butadiynyl radical`; label `mol:C4H`; context `exgal`; flag `True`; missing `telescopes`, `wavelengths`
+  - fields: `sources`=`PKS 1830-211 LOS` -> `PKS1830LOS`; `telescopes`=None -> []; `wavelengths`=None -> []; `year`=`2011`
   - refs: resolved `Muller:2011:A103`
 - line 4471 `cC3H2` formula `C3H2` name `cyclopropenylidene`; label `mol:c-C3H2`; context `ppd`; flag `True`; missing `sources`, `telescopes`, `wavelengths`
   - fields: `sources`=None -> []; `telescopes`=None -> []; `wavelengths`=None -> []; `year`=`2013`
   - refs: resolved `Qi:2013:L14`
-- line 4471 `cC3H2` formula `C3H2` name `cyclopropenylidene`; label `mol:c-C3H2`; context `exgal`; flag `True`; missing `sources`, `telescopes`, `wavelengths`
-  - fields: `sources`=`NGC 5128` -> []; `telescopes`=None -> []; `wavelengths`=None -> []; `year`=`1986`
+- line 4471 `cC3H2` formula `C3H2` name `cyclopropenylidene`; label `mol:c-C3H2`; context `exgal`; flag `True`; missing `telescopes`, `wavelengths`
+  - fields: `sources`=`NGC 5128` -> `NGC5128`; `telescopes`=None -> []; `wavelengths`=None -> []; `year`=`1986`
   - refs: resolved `Seaquist:1986:L67`
 - line 4498 `CH2CN` formula `CH2CN` name `cyanomethyl radical`; label `mol:CH2CN`; context `ppd`; flag `True`; missing `sources`, `telescopes`, `wavelengths`
   - fields: `sources`=None -> []; `telescopes`=None -> []; `wavelengths`=None -> []; `year`=`2021`
   - refs: resolved `Canta:2021:62`
-- line 4498 `CH2CN` formula `CH2CN` name `cyanomethyl radical`; label `mol:CH2CN`; context `exgal`; flag `True`; missing `sources`, `telescopes`, `wavelengths`
-  - fields: `sources`=`PKS 1830-211 LOS` -> []; `telescopes`=None -> []; `wavelengths`=None -> []; `year`=`2011`
+- line 4498 `CH2CN` formula `CH2CN` name `cyanomethyl radical`; label `mol:CH2CN`; context `exgal`; flag `True`; missing `telescopes`, `wavelengths`
+  - fields: `sources`=`PKS 1830-211 LOS` -> `PKS1830LOS`; `telescopes`=None -> []; `wavelengths`=None -> []; `year`=`2011`
   - refs: resolved `Muller:2011:A103`
-- line 4563 `H2CCC` formula `H2CCC` name `propadienylidene`; label `mol:H2CCC`; context `exgal`; flag `True`; missing `sources`, `telescopes`, `wavelengths`
-  - fields: `sources`=`PKS 1830-211 LOS` -> []; `telescopes`=None -> []; `wavelengths`=None -> []; `year`=`2011`
+- line 4563 `H2CCC` formula `H2CCC` name `propadienylidene`; label `mol:H2CCC`; context `exgal`; flag `True`; missing `telescopes`, `wavelengths`
+  - fields: `sources`=`PKS 1830-211 LOS` -> `PKS1830LOS`; `telescopes`=None -> []; `wavelengths`=None -> []; `year`=`2011`
   - refs: resolved `Muller:2011:A103`
 - line 4585 `CH4` formula `CH4` name `methane`; label `mol:CH4`; context `ice`; flag `True`; missing `sources`, `telescopes`, `wavelengths`
   - fields: `sources`=None -> []; `telescopes`=None -> []; `wavelengths`=None -> []; `year`=`1991`
@@ -416,47 +465,47 @@ Generated from `scripts/convert_legacy_molecules.py`.
 - line 5251 `CH3OH` formula `CH3OH` name `methanol`; label `mol:CH3OH`; context `ppd`; flag `True`; missing `sources`, `telescopes`, `wavelengths`
   - fields: `sources`=None -> []; `telescopes`=None -> []; `wavelengths`=None -> []; `year`=`2016`
   - refs: resolved `Walsh:2016:L10`
-- line 5251 `CH3OH` formula `CH3OH` name `methanol`; label `mol:CH3OH`; context `exgal`; flag `True`; missing `sources`, `telescopes`, `wavelengths`
-  - fields: `sources`=`NGC 253, IC 342` -> []; `telescopes`=None -> []; `wavelengths`=None -> []; `year`=`1987`
+- line 5251 `CH3OH` formula `CH3OH` name `methanol`; label `mol:CH3OH`; context `exgal`; flag `True`; missing `telescopes`, `wavelengths`
+  - fields: `sources`=`NGC 253, IC 342` -> `NGC253`, `IC342`; `telescopes`=None -> []; `wavelengths`=None -> []; `year`=`1987`
   - refs: resolved `Henkel:1987:L1`
 - line 5286 `CH3CN` formula `CH3CN` name `methyl cyanide`; label `mol:CH3CN`; context `ppd`; flag `True`; missing `sources`, `telescopes`, `wavelengths`
   - fields: `sources`=None -> []; `telescopes`=None -> []; `wavelengths`=None -> []; `year`=`2015`
   - refs: resolved `Oberg:2015:198`
-- line 5286 `CH3CN` formula `CH3CN` name `methyl cyanide`; label `mol:CH3CN`; context `exgal`; flag `True`; missing `sources`, `telescopes`, `wavelengths`
-  - fields: `sources`=`NGC 253` -> []; `telescopes`=None -> []; `wavelengths`=None -> []; `year`=`1991`
+- line 5286 `CH3CN` formula `CH3CN` name `methyl cyanide`; label `mol:CH3CN`; context `exgal`; flag `True`; missing `telescopes`, `wavelengths`
+  - fields: `sources`=`NGC 253` -> `NGC253`; `telescopes`=None -> []; `wavelengths`=None -> []; `year`=`1991`
   - refs: resolved `Mauersberger:1991:307`
-- line 5316 `NH2CHO` formula `NH2CHO` name `formamide`; label `mol:NH2CHO`; context `exgal`; flag `True`; missing `sources`, `telescopes`, `wavelengths`
-  - fields: `sources`=`PKS 1830-211 LOS` -> []; `telescopes`=None -> []; `wavelengths`=None -> []; `year`=`2013`
+- line 5316 `NH2CHO` formula `NH2CHO` name `formamide`; label `mol:NH2CHO`; context `exgal`; flag `True`; missing `telescopes`, `wavelengths`
+  - fields: `sources`=`PKS 1830-211 LOS` -> `PKS1830LOS`; `telescopes`=None -> []; `wavelengths`=None -> []; `year`=`2013`
   - refs: resolved `Muller:2013:A109`
-- line 5344 `CH3SH` formula `CH3SH` name `methyl mercaptan`; label `mol:CH3SH`; context `exgal`; flag `True`; missing `sources`, `telescopes`, `wavelengths`
-  - fields: `sources`=`PKS 1830-211 LOS` -> []; `telescopes`=None -> []; `wavelengths`=None -> []; `year`=`2020`
+- line 5344 `CH3SH` formula `CH3SH` name `methyl mercaptan`; label `mol:CH3SH`; context `exgal`; flag `True`; missing `telescopes`, `wavelengths`
+  - fields: `sources`=`PKS 1830-211 LOS` -> `PKS1830LOS`; `telescopes`=None -> []; `wavelengths`=None -> []; `year`=`2020`
   - refs: resolved `Tercero:2020:L7`
-- line 5426 `HC2CHO` formula `HC2CHO` name `propynal`; label `mol:HC2CHO`; context `exgal`; flag `True`; missing `sources`, `telescopes`, `wavelengths`
-  - fields: `sources`=`NGC 253` -> []; `telescopes`=None -> []; `wavelengths`=None -> []; `year`=`2021`
+- line 5426 `HC2CHO` formula `HC2CHO` name `propynal`; label `mol:HC2CHO`; context `exgal`; flag `True`; missing `telescopes`, `wavelengths`
+  - fields: `sources`=`NGC 253` -> `NGC253`; `telescopes`=None -> []; `wavelengths`=None -> []; `year`=`2021`
   - refs: resolved `Martin:2021:A46`
 - line 5531 `HC4H` formula `HC4H` name `diacetylene`; label `mol:HC4H`; context `ppd`; flag `True`; missing `sources`, `telescopes`, `wavelengths`
   - fields: `sources`=None -> []; `telescopes`=None -> []; `wavelengths`=None -> []; `year`=`2023`
   - refs: resolved `Tabone:2023:805`
-- line 5531 `HC4H` formula `HC4H` name `diacetylene`; label `mol:HC4H`; context `exgal`; flag `True`; missing `sources`, `telescopes`, `wavelengths`
-  - fields: `sources`=`SMP LMC 11` -> []; `telescopes`=None -> []; `wavelengths`=None -> []; `year`=`2006`
+- line 5531 `HC4H` formula `HC4H` name `diacetylene`; label `mol:HC4H`; context `exgal`; flag `True`; missing `telescopes`, `wavelengths`
+  - fields: `sources`=`SMP LMC 11` -> `SMPLMC11`; `telescopes`=None -> []; `wavelengths`=None -> []; `year`=`2006`
   - refs: resolved `Bernard-Salas:2006:L29`
 - line 6069 `CH3CHO` formula `CH3CHO` name `acetaldehyde`; label `mol:CH3CHO`; context `ice`; flag `True`; missing `sources`, `telescopes`, `wavelengths`
   - fields: `sources`=None -> []; `telescopes`=None -> []; `wavelengths`=None -> []; `year`=`2024`
   - refs: resolved `Chen:2024:A205`
-- line 6069 `CH3CHO` formula `CH3CHO` name `acetaldehyde`; label `mol:CH3CHO`; context `exgal`; flag `True`; missing `sources`, `telescopes`, `wavelengths`
-  - fields: `sources`=`PKS 1830-211 LOS` -> []; `telescopes`=None -> []; `wavelengths`=None -> []; `year`=`2011`
+- line 6069 `CH3CHO` formula `CH3CHO` name `acetaldehyde`; label `mol:CH3CHO`; context `exgal`; flag `True`; missing `telescopes`, `wavelengths`
+  - fields: `sources`=`PKS 1830-211 LOS` -> `PKS1830LOS`; `telescopes`=None -> []; `wavelengths`=None -> []; `year`=`2011`
   - refs: resolved `Muller:2011:A103`
-- line 6105 `CH3CCH` formula `CH3CCH` name `methylacetylene`; label `mol:CH3CCH`; context `exgal`; flag `True`; missing `sources`, `telescopes`, `wavelengths`
-  - fields: `sources`=`NGC 253, M82` -> []; `telescopes`=None -> []; `wavelengths`=None -> []; `year`=`1991`
+- line 6105 `CH3CCH` formula `CH3CCH` name `methylacetylene`; label `mol:CH3CCH`; context `exgal`; flag `True`; missing `telescopes`, `wavelengths`
+  - fields: `sources`=`NGC 253, M82` -> `NGC253`, `M82`; `telescopes`=None -> []; `wavelengths`=None -> []; `year`=`1991`
   - refs: resolved `Mauersberger:1991:307`
-- line 6133 `CH3NH2` formula `CH3NH2` name `methylamine`; label `mol:CH3NH2`; context `exgal`; flag `True`; missing `sources`, `telescopes`, `wavelengths`
-  - fields: `sources`=`PKS 1830-211 LOS` -> []; `telescopes`=None -> []; `wavelengths`=None -> []; `year`=`2011`
+- line 6133 `CH3NH2` formula `CH3NH2` name `methylamine`; label `mol:CH3NH2`; context `exgal`; flag `True`; missing `telescopes`, `wavelengths`
+  - fields: `sources`=`PKS 1830-211 LOS` -> `PKS1830LOS`; `telescopes`=None -> []; `wavelengths`=None -> []; `year`=`2011`
   - refs: resolved `Muller:2011:A103`
-- line 6161 `CH2CHCN` formula `CH2CHCN` name `vinyl cyanide`; label `mol:CH2CHCN`; context `exgal`; flag `True`; missing `sources`, `telescopes`, `wavelengths`
-  - fields: `sources`=`PKS 1830-211 LOS` -> []; `telescopes`=None -> []; `wavelengths`=None -> []; `year`=`2020`
+- line 6161 `CH2CHCN` formula `CH2CHCN` name `vinyl cyanide`; label `mol:CH2CHCN`; context `exgal`; flag `True`; missing `telescopes`, `wavelengths`
+  - fields: `sources`=`PKS 1830-211 LOS` -> `PKS1830LOS`; `telescopes`=None -> []; `wavelengths`=None -> []; `year`=`2020`
   - refs: resolved `Tercero:2020:L7`
-- line 6189 `HC5N` formula `HC5N` name `cyanodiacetylene`; label `mol:HC5N`; context `exgal`; flag `Tentative`; missing `sources`, `telescopes`, `wavelengths`
-  - fields: `sources`=`NGC 253` -> []; `telescopes`=None -> []; `wavelengths`=None -> []; `year`=`2015`
+- line 6189 `HC5N` formula `HC5N` name `cyanodiacetylene`; label `mol:HC5N`; context `exgal`; flag `Tentative`; missing `telescopes`, `wavelengths`
+  - fields: `sources`=`NGC 253` -> `NGC253`; `telescopes`=None -> []; `wavelengths`=None -> []; `year`=`2015`
   - refs: resolved `Aladro:2015:A101`
 - line 6230 `cC2H4O` formula `C2H4O` name `ethylene oxide`; label `mol:c-C2H4O`; context `ppd`; flag `True`; missing `sources`, `telescopes`, `wavelengths`
   - fields: `sources`=None -> []; `telescopes`=None -> []; `wavelengths`=None -> []; `year`=`2024`
@@ -464,11 +513,11 @@ Generated from `scripts/convert_legacy_molecules.py`.
 - line 6637 `HCOOCH3` formula `HCOOCH3` name `methyl formate`; label `mol:HCOOCH3`; context `ice`; flag `True`; missing `sources`, `telescopes`, `wavelengths`
   - fields: `sources`=None -> []; `telescopes`=None -> []; `wavelengths`=None -> []; `year`=`2024`
   - refs: resolved `Chen:2024:A205`
-- line 6637 `HCOOCH3` formula `HCOOCH3` name `methyl formate`; label `mol:HCOOCH3`; context `exgal`; flag `True`; missing `sources`, `telescopes`, `wavelengths`
-  - fields: `sources`=`LMC` -> []; `telescopes`=None -> []; `wavelengths`=None -> []; `year`=`2018`
+- line 6637 `HCOOCH3` formula `HCOOCH3` name `methyl formate`; label `mol:HCOOCH3`; context `exgal`; flag `True`; missing `telescopes`, `wavelengths`
+  - fields: `sources`=`LMC` -> `LMC`; `telescopes`=None -> []; `wavelengths`=None -> []; `year`=`2018`
   - refs: resolved `Sewilo:2018:L19`
-- line 6777 `HC6H` formula `HC6H` name `triacetylene`; label `mol:HC6H`; context `exgal`; flag `True`; missing `sources`, `telescopes`, `wavelengths`
-  - fields: `sources`=`SMP LMC 11` -> []; `telescopes`=None -> []; `wavelengths`=None -> []; `year`=`2006`
+- line 6777 `HC6H` formula `HC6H` name `triacetylene`; label `mol:HC6H`; context `exgal`; flag `True`; missing `telescopes`, `wavelengths`
+  - fields: `sources`=`SMP LMC 11` -> `SMPLMC11`; `telescopes`=None -> []; `wavelengths`=None -> []; `year`=`2006`
   - refs: resolved `Bernard-Salas:2006:L29`
 - line 7185 `CH3OCH3` formula `CH3OCH3` name `dimethyl ether`; label `mol:CH3OCH3`; context `ice`; flag `True`; missing `sources`, `telescopes`, `wavelengths`
   - fields: `sources`=None -> []; `telescopes`=None -> []; `wavelengths`=None -> []; `year`=`2024`
@@ -476,14 +525,14 @@ Generated from `scripts/convert_legacy_molecules.py`.
 - line 7185 `CH3OCH3` formula `CH3OCH3` name `dimethyl ether`; label `mol:CH3OCH3`; context `ppd`; flag `True`; missing `sources`, `telescopes`, `wavelengths`
   - fields: `sources`=None -> []; `telescopes`=None -> []; `wavelengths`=None -> []; `year`=`2022`
   - refs: resolved `Brunken:2022:A29`
-- line 7185 `CH3OCH3` formula `CH3OCH3` name `dimethyl ether`; label `mol:CH3OCH3`; context `exgal`; flag `True`; missing `sources`, `telescopes`, `wavelengths`
-  - fields: `sources`=`NGC 1068, LMC` -> []; `telescopes`=None -> []; `wavelengths`=None -> []; `year`=`2018`
+- line 7185 `CH3OCH3` formula `CH3OCH3` name `dimethyl ether`; label `mol:CH3OCH3`; context `exgal`; flag `True`; missing `telescopes`, `wavelengths`
+  - fields: `sources`=`NGC 1068, LMC` -> `NGC1068`, `LMC`; `telescopes`=None -> []; `wavelengths`=None -> []; `year`=`2018`
   - refs: resolved `Qiu:2018:A3`, `Sewilo:2018:L19`
 - line 7222 `CH3CH2OH` formula `CH3CH2OH` name `ethanol`; label `mol:CH3CH2OH`; context `ice`; flag `True`; missing `sources`, `telescopes`, `wavelengths`
   - fields: `sources`=None -> []; `telescopes`=None -> []; `wavelengths`=None -> []; `year`=`2024`
   - refs: resolved `Chen:2024:A205`
-- line 7222 `CH3CH2OH` formula `CH3CH2OH` name `ethanol`; label `mol:CH3CH2OH`; context `exgal`; flag `True`; missing `sources`, `telescopes`, `wavelengths`
-  - fields: `sources`=`NGC 253` -> []; `telescopes`=None -> []; `wavelengths`=None -> []; `year`=`2021`
+- line 7222 `CH3CH2OH` formula `CH3CH2OH` name `ethanol`; label `mol:CH3CH2OH`; context `exgal`; flag `True`; missing `telescopes`, `wavelengths`
+  - fields: `sources`=`NGC 253` -> `NGC253`; `telescopes`=None -> []; `wavelengths`=None -> []; `year`=`2021`
   - refs: resolved `Martin:2021:A46`
 - line 7623 `CH3COCH3` formula `CH3COCH3` name `acetone`; label `mol:CH3COCH3`; context `ice`; flag `True`; missing `sources`, `telescopes`, `wavelengths`
   - fields: `sources`=None -> []; `telescopes`=None -> []; `wavelengths`=None -> []; `year`=`2024`
@@ -491,9 +540,42 @@ Generated from `scripts/convert_legacy_molecules.py`.
 - line 8250 `C6H6` formula `C6H6` name `benzene`; label `mol:C6H6`; context `ppd`; flag `True`; missing `sources`, `telescopes`, `wavelengths`
   - fields: `sources`=None -> []; `telescopes`=None -> []; `wavelengths`=None -> []; `year`=`2023`
   - refs: resolved `Tabone:2023:805`
-- line 8250 `C6H6` formula `C6H6` name `benzene`; label `mol:C6H6`; context `exgal`; flag `True`; missing `sources`, `telescopes`, `wavelengths`
-  - fields: `sources`=`SMP LMC 11` -> []; `telescopes`=None -> []; `wavelengths`=None -> []; `year`=`2006`
+- line 8250 `C6H6` formula `C6H6` name `benzene`; label `mol:C6H6`; context `exgal`; flag `True`; missing `telescopes`, `wavelengths`
+  - fields: `sources`=`SMP LMC 11` -> `SMPLMC11`; `telescopes`=None -> []; `wavelengths`=None -> []; `year`=`2006`
   - refs: resolved `Bernard-Salas:2006:L29`
+
+## Legacy Text Isotopologue Detection Gaps
+
+- parent line 1237 `CH` formula `CH` name `methylidyne`; label `mol:CD`; formula `CD`; preview `C[2H]`; table `CD`; context `ISM/CSM`; first `False`; missing `sources`, `telescopes`, `wavelengths`
+  - fields: `sources`=None -> []; `telescopes`=None -> []; `wavelengths`=None -> []; `year`=`2023`
+  - refs: resolved `Jacob:2023:A69`
+- parent line 1712 `AlF` formula `AlF` name `aluminum fluoride`; label `mol:26AlF`; formula `26AlF`; preview `[26Al]F`; table `26AlF`; context `ISM/CSM`; first `False`; missing `sources`, `telescopes`, `wavelengths`
+  - fields: `sources`=None -> []; `telescopes`=None -> []; `wavelengths`=None -> []; `year`=`2018`
+  - refs: resolved `Kaminski:2018:778`
+- parent line 2261 `H2O` formula `H2O` name `water`; label `mol:HDO`; formula `HDO`; preview `H[2H]O`; table `HDO`; context `ISM/CSM`; first `False`; missing `sources`, `telescopes`, `wavelengths`
+  - fields: `sources`=None -> []; `telescopes`=None -> []; `wavelengths`=None -> []; `year`=`1975`
+  - refs: resolved `Turner:1975:L125`
+- parent line 2694 `C3` formula `C3` name `tricarbon`; label `mol:13CCC`; formula `13CCC`; preview `[13C]CC`; table `13CCC`; context `ISM/CSM`; first `False`; missing `sources`, `telescopes`, `wavelengths`
+  - fields: `sources`=None -> []; `telescopes`=None -> []; `wavelengths`=None -> []; `year`=`2020`
+  - refs: resolved `Giesen:2020:A120`
+- parent line 2694 `C3` formula `C3` name `tricarbon`; label `mol:C13CC`; formula `C13CC`; preview `C[13C]C`; table `C13CC`; context `ISM/CSM`; first `False`; missing `sources`, `telescopes`, `wavelengths`
+  - fields: `sources`=None -> []; `telescopes`=None -> []; `wavelengths`=None -> []; `year`=`2020`
+  - refs: resolved `Giesen:2020:A120`
+- parent line 2807 `NH2` formula `NH2` name `amidogen`; label `mol:NHD`; formula `NHD`; preview `NH[2H]`; table `NHD`; context `ISM/CSM`; first `False`; missing `sources`, `telescopes`, `wavelengths`
+  - fields: `sources`=None -> []; `telescopes`=None -> []; `wavelengths`=None -> []; `year`=`2020`
+  - refs: resolved `Melosso:2020:A153`
+- parent line 2807 `NH2` formula `NH2` name `amidogen`; label `mol:ND2`; formula `ND2`; preview `N[2H]2`; table `ND2`; context `ISM/CSM`; first `False`; missing `sources`, `telescopes`, `wavelengths`
+  - fields: `sources`=None -> []; `telescopes`=None -> []; `wavelengths`=None -> []; `year`=`2020`
+  - refs: resolved `Melosso:2020:A153`
+- parent line 4498 `CH2CN` formula `CH2CN` name `cyanomethyl radical`; label `mol:HDCCN`; formula `HDCCN`; preview `H[2H]CCN`; table `HDCCN`; context `ISM/CSM`; first `False`; missing `sources`, `telescopes`, `wavelengths`
+  - fields: `sources`=None -> []; `telescopes`=None -> []; `wavelengths`=None -> []; `year`=`2021`
+  - refs: resolved `Cabezas:2021:L1`
+- parent line 6069 `CH3CHO` formula `CH3CHO` name `acetaldehyde`; label `mol:CHD2CHO`; formula `CHD2CHO`; preview `CH[2H]2CHO`; table `CHD2CHO`; context `ISM/CSM`; first `False`; missing `sources`, `telescopes`, `wavelengths`
+  - fields: `sources`=None -> []; `telescopes`=None -> []; `wavelengths`=None -> []; `year`=`2023`
+  - refs: resolved `FerrerAsensio:2023:A177`
+- parent line 6230 `cC2H4O` formula `C2H4O` name `ethylene oxide`; label `mol:C2H3DO`; formula `C2H3DO`; preview `C2H3[2H]O`; table `C2H3DO`; context `ISM/CSM`; first `False`; missing `sources`, `telescopes`, `wavelengths`
+  - fields: `sources`=None -> []; `telescopes`=None -> []; `wavelengths`=None -> []; `year`=`2023`
+  - refs: resolved `Muller:2023:185`
 
 ## Nested Isotopologue Detection Gaps
 
@@ -576,4 +658,5 @@ Generated from `scripts/convert_legacy_molecules.py`.
 ## Open Conversion/Metadata Issues
 
 - `extra_context_detection_metadata_missing`: 139
+- `text_isotopologue_detection_metadata_missing`: 10
 - `nested_isotopologue_detection_metadata_missing`: 25

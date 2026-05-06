@@ -49,6 +49,34 @@
     "latex_notes": null
   },
   {
+    "name": "methylidyne",
+    "formula": "C[2H]",
+    "table_formula": "CD",
+    "label": "mol:CD",
+    "note": null,
+    "iupac_name": null,
+    "selfies": null,
+    "synonyms": [],
+    "smiles": null,
+    "canonical_smiles": null,
+    "inchi": null,
+    "inchikey": null,
+    "radical_override": null,
+    "fullerene": false,
+    "pah": false,
+    "n_rings": 0,
+    "cyclic": false,
+    "rotcon": null,
+    "dipole": null,
+    "refs": {
+      "lab": [],
+      "computation": []
+    },
+    "isotopologue_of": "mol:CH",
+    "latex_header": null,
+    "latex_notes": null
+  },
+  {
     "name": "cyano radical",
     "formula": "CN",
     "table_formula": "CN",
@@ -1128,6 +1156,34 @@
       "computation": []
     },
     "isotopologue_of": null,
+    "latex_header": null,
+    "latex_notes": null
+  },
+  {
+    "name": "aluminum fluoride",
+    "formula": "[26Al]F",
+    "table_formula": "26AlF",
+    "label": "mol:26AlF",
+    "note": null,
+    "iupac_name": null,
+    "selfies": null,
+    "synonyms": [],
+    "smiles": null,
+    "canonical_smiles": null,
+    "inchi": null,
+    "inchikey": null,
+    "radical_override": null,
+    "fullerene": false,
+    "pah": false,
+    "n_rings": 0,
+    "cyclic": false,
+    "rotcon": null,
+    "dipole": null,
+    "refs": {
+      "lab": [],
+      "computation": []
+    },
+    "isotopologue_of": "mol:AlF",
     "latex_header": null,
     "latex_notes": null
   },
@@ -2461,6 +2517,37 @@
     "latex_notes": null
   },
   {
+    "name": "water",
+    "formula": "H[2H]O",
+    "table_formula": "HDO",
+    "label": "mol:HDO",
+    "note": null,
+    "iupac_name": null,
+    "selfies": null,
+    "synonyms": [],
+    "smiles": null,
+    "canonical_smiles": null,
+    "inchi": null,
+    "inchikey": null,
+    "radical_override": null,
+    "fullerene": false,
+    "pah": false,
+    "n_rings": 0,
+    "cyclic": false,
+    "rotcon": null,
+    "dipole": null,
+    "refs": {
+      "lab": [
+        "DeLucia:1974:211",
+        "Erlandsson:1956:778"
+      ],
+      "computation": []
+    },
+    "isotopologue_of": "mol:H2O",
+    "latex_header": null,
+    "latex_notes": null
+  },
+  {
     "name": "formylium cation",
     "formula": "HCO+",
     "table_formula": "HCO+",
@@ -3395,6 +3482,62 @@
     "latex_notes": null
   },
   {
+    "name": "tricarbon",
+    "formula": "[13C]CC",
+    "table_formula": "13CCC",
+    "label": "mol:13CCC",
+    "note": null,
+    "iupac_name": null,
+    "selfies": null,
+    "synonyms": [],
+    "smiles": null,
+    "canonical_smiles": null,
+    "inchi": null,
+    "inchikey": null,
+    "radical_override": null,
+    "fullerene": false,
+    "pah": false,
+    "n_rings": 0,
+    "cyclic": false,
+    "rotcon": null,
+    "dipole": null,
+    "refs": {
+      "lab": [],
+      "computation": []
+    },
+    "isotopologue_of": "mol:C3",
+    "latex_header": null,
+    "latex_notes": null
+  },
+  {
+    "name": "tricarbon",
+    "formula": "C[13C]C",
+    "table_formula": "C13CC",
+    "label": "mol:C13CC",
+    "note": null,
+    "iupac_name": null,
+    "selfies": null,
+    "synonyms": [],
+    "smiles": null,
+    "canonical_smiles": null,
+    "inchi": null,
+    "inchikey": null,
+    "radical_override": null,
+    "fullerene": false,
+    "pah": false,
+    "n_rings": 0,
+    "cyclic": false,
+    "rotcon": null,
+    "dipole": null,
+    "refs": {
+      "lab": [],
+      "computation": []
+    },
+    "isotopologue_of": "mol:C3",
+    "latex_header": null,
+    "latex_notes": null
+  },
+  {
     "name": "carbon dioxide",
     "formula": "CO2",
     "table_formula": "CO2",
@@ -3645,6 +3788,70 @@
       "computation": []
     },
     "isotopologue_of": null,
+    "latex_header": null,
+    "latex_notes": null
+  },
+  {
+    "name": "amidogen",
+    "formula": "NH[2H]",
+    "table_formula": "NHD",
+    "label": "mol:NHD",
+    "note": null,
+    "iupac_name": null,
+    "selfies": null,
+    "synonyms": [],
+    "smiles": null,
+    "canonical_smiles": null,
+    "inchi": null,
+    "inchikey": null,
+    "radical_override": null,
+    "fullerene": false,
+    "pah": false,
+    "n_rings": 0,
+    "cyclic": false,
+    "rotcon": null,
+    "dipole": null,
+    "refs": {
+      "lab": [
+        "Martin-Drumel:2014:1331",
+        "Melosso:2017:15",
+        "Bizzocchi:2020:59"
+      ],
+      "computation": []
+    },
+    "isotopologue_of": "mol:NH2",
+    "latex_header": null,
+    "latex_notes": null
+  },
+  {
+    "name": "amidogen",
+    "formula": "N[2H]2",
+    "table_formula": "ND2",
+    "label": "mol:ND2",
+    "note": null,
+    "iupac_name": null,
+    "selfies": null,
+    "synonyms": [],
+    "smiles": null,
+    "canonical_smiles": null,
+    "inchi": null,
+    "inchikey": null,
+    "radical_override": null,
+    "fullerene": false,
+    "pah": false,
+    "n_rings": 0,
+    "cyclic": false,
+    "rotcon": null,
+    "dipole": null,
+    "refs": {
+      "lab": [
+        "Martin-Drumel:2014:1331",
+        "Melosso:2017:15",
+        "Bizzocchi:2020:59"
+      ],
+      "computation": []
+    },
+    "isotopologue_of": "mol:NH2",
     "latex_header": null,
     "latex_notes": null
   },
@@ -7155,6 +7362,36 @@
     "latex_notes": null
   },
   {
+    "name": "cyanomethyl radical",
+    "formula": "H[2H]CCN",
+    "table_formula": "HDCCN",
+    "label": "mol:HDCCN",
+    "note": null,
+    "iupac_name": null,
+    "selfies": null,
+    "synonyms": [],
+    "smiles": null,
+    "canonical_smiles": null,
+    "inchi": null,
+    "inchikey": null,
+    "radical_override": null,
+    "fullerene": false,
+    "pah": false,
+    "n_rings": 0,
+    "cyclic": false,
+    "rotcon": null,
+    "dipole": null,
+    "refs": {
+      "lab": [
+        "Cabezas:2021:L1"
+      ],
+      "computation": []
+    },
+    "isotopologue_of": "mol:CH2CN",
+    "latex_header": null,
+    "latex_notes": null
+  },
+  {
     "name": "pentacarbon",
     "formula": "C5",
     "table_formula": "C5",
@@ -10362,6 +10599,34 @@
     "latex_notes": null
   },
   {
+    "name": "acetaldehyde",
+    "formula": "CH[2H]2CHO",
+    "table_formula": "CHD2CHO",
+    "label": "mol:CHD2CHO",
+    "note": null,
+    "iupac_name": null,
+    "selfies": null,
+    "synonyms": [],
+    "smiles": null,
+    "canonical_smiles": null,
+    "inchi": null,
+    "inchikey": null,
+    "radical_override": null,
+    "fullerene": false,
+    "pah": false,
+    "n_rings": 0,
+    "cyclic": false,
+    "rotcon": null,
+    "dipole": null,
+    "refs": {
+      "lab": [],
+      "computation": []
+    },
+    "isotopologue_of": "mol:CH3CHO",
+    "latex_header": null,
+    "latex_notes": null
+  },
+  {
     "name": "methylacetylene",
     "formula": "CH3CCH",
     "table_formula": "CH3CCH",
@@ -10634,6 +10899,34 @@
       "computation": []
     },
     "isotopologue_of": null,
+    "latex_header": null,
+    "latex_notes": null
+  },
+  {
+    "name": "ethylene oxide",
+    "formula": "C2H3[2H]O",
+    "table_formula": "C2H3DO",
+    "label": "mol:C2H3DO",
+    "note": null,
+    "iupac_name": null,
+    "selfies": null,
+    "synonyms": [],
+    "smiles": null,
+    "canonical_smiles": null,
+    "inchi": null,
+    "inchikey": null,
+    "radical_override": null,
+    "fullerene": false,
+    "pah": false,
+    "n_rings": 0,
+    "cyclic": true,
+    "rotcon": null,
+    "dipole": null,
+    "refs": {
+      "lab": [],
+      "computation": []
+    },
+    "isotopologue_of": "mol:c-C2H4O",
     "latex_header": null,
     "latex_notes": null
   },
@@ -14750,7 +15043,8 @@
       "B": 1904,
       "C": 1565,
       "refs": [
-        "Ford:1978:326"
+        "Ford:1978:326",
+        "Sakaizumi:1987:3903"
       ],
       "note": null
     },
@@ -14759,13 +15053,15 @@
       "b": 0.27,
       "c": null,
       "refs": [
-        "Ford:1978:326"
+        "Ford:1978:326",
+        "Sakaizumi:1987:3903"
       ],
       "note": null
     },
     "refs": {
       "lab": [
-        "Ford:1978:326"
+        "Ford:1978:326",
+        "Sakaizumi:1987:3903"
       ],
       "computation": []
     },

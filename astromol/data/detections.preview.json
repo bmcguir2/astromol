@@ -27,7 +27,11 @@
   {
     "note": null,
     "molecule": "mol:CH",
-    "sources": [],
+    "sources": [
+      "LMC",
+      "NGC4945",
+      "NGC5128"
+    ],
     "telescopes": [],
     "wavelengths": [],
     "year": 1980,
@@ -36,6 +40,22 @@
     "refs": {
       "observation": [
         "Whiteoak:1980:17P"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:CD",
+    "sources": [],
+    "telescopes": [],
+    "wavelengths": [],
+    "year": 2023,
+    "type": "ISM/CSM",
+    "first": false,
+    "refs": {
+      "observation": [
+        "Jacob:2023:A69"
       ]
     },
     "latex_text": null
@@ -82,7 +102,11 @@
   {
     "note": null,
     "molecule": "mol:CN",
-    "sources": [],
+    "sources": [
+      "M82",
+      "NGC253",
+      "IC342"
+    ],
     "telescopes": [],
     "wavelengths": [],
     "year": 1988,
@@ -154,7 +178,9 @@
   {
     "note": null,
     "molecule": "mol:CH+",
-    "sources": [],
+    "sources": [
+      "LMC"
+    ],
     "telescopes": [],
     "wavelengths": [],
     "year": 1987,
@@ -209,7 +235,10 @@
   {
     "note": null,
     "molecule": "mol:OH",
-    "sources": [],
+    "sources": [
+      "M82",
+      "NGC253"
+    ],
     "telescopes": [],
     "wavelengths": [],
     "year": 1971,
@@ -295,7 +324,10 @@
   {
     "note": null,
     "molecule": "mol:CO",
-    "sources": [],
+    "sources": [
+      "M82",
+      "NGC253"
+    ],
     "telescopes": [],
     "wavelengths": [],
     "year": 1975,
@@ -467,7 +499,9 @@
   {
     "note": null,
     "molecule": "mol:H2",
-    "sources": [],
+    "sources": [
+      "NGC1068"
+    ],
     "telescopes": [],
     "wavelengths": [],
     "year": 1978,
@@ -521,7 +555,9 @@
   {
     "note": null,
     "molecule": "mol:SiO",
-    "sources": [],
+    "sources": [
+      "NGC253"
+    ],
     "telescopes": [],
     "wavelengths": [],
     "year": 1991,
@@ -580,7 +616,10 @@
   {
     "note": null,
     "molecule": "mol:CS",
-    "sources": [],
+    "sources": [
+      "M82",
+      "IC342"
+    ],
     "telescopes": [],
     "wavelengths": [],
     "year": 1985,
@@ -668,7 +707,10 @@
   {
     "note": null,
     "molecule": "mol:SO",
-    "sources": [],
+    "sources": [
+      "M82",
+      "NGC253"
+    ],
     "telescopes": [],
     "wavelengths": [],
     "year": 1991,
@@ -778,7 +820,9 @@
   {
     "note": null,
     "molecule": "mol:NS",
-    "sources": [],
+    "sources": [
+      "NGC253"
+    ],
     "telescopes": [],
     "wavelengths": [],
     "year": 2003,
@@ -816,7 +860,9 @@
   {
     "note": null,
     "molecule": "mol:C2",
-    "sources": [],
+    "sources": [
+      "SMC"
+    ],
     "telescopes": [],
     "wavelengths": [],
     "year": 2013,
@@ -870,7 +916,9 @@
   {
     "note": null,
     "molecule": "mol:NO",
-    "sources": [],
+    "sources": [
+      "NGC253"
+    ],
     "telescopes": [],
     "wavelengths": [],
     "year": 2003,
@@ -908,7 +956,9 @@
   {
     "note": null,
     "molecule": "mol:HCl",
-    "sources": [],
+    "sources": [
+      "PKS1830LOS"
+    ],
     "telescopes": [],
     "wavelengths": [],
     "year": 2019,
@@ -1011,6 +1061,22 @@
   },
   {
     "note": null,
+    "molecule": "mol:26AlF",
+    "sources": [],
+    "telescopes": [],
+    "wavelengths": [],
+    "year": 2018,
+    "type": "ISM/CSM",
+    "first": false,
+    "refs": {
+      "observation": [
+        "Kaminski:2018:778"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
     "molecule": "mol:PN",
     "sources": [
       "TMC1",
@@ -1039,7 +1105,9 @@
   {
     "note": null,
     "molecule": "mol:PN",
-    "sources": [],
+    "sources": [
+      "NGC253"
+    ],
     "telescopes": [],
     "wavelengths": [],
     "year": 2022,
@@ -1123,7 +1191,9 @@
   {
     "note": null,
     "molecule": "mol:NH",
-    "sources": [],
+    "sources": [
+      "Arp220"
+    ],
     "telescopes": [],
     "wavelengths": [],
     "year": 2004,
@@ -1183,7 +1253,9 @@
   {
     "note": null,
     "molecule": "mol:SO+",
-    "sources": [],
+    "sources": [
+      "PKS1830LOS"
+    ],
     "telescopes": [],
     "wavelengths": [],
     "year": 2011,
@@ -1222,7 +1294,9 @@
   {
     "note": null,
     "molecule": "mol:CO+",
-    "sources": [],
+    "sources": [
+      "M82"
+    ],
     "telescopes": [],
     "wavelengths": [],
     "year": 2006,
@@ -1260,7 +1334,11 @@
   {
     "note": null,
     "molecule": "mol:HF",
-    "sources": [],
+    "sources": [
+      "QSOMrk231",
+      "Arp220",
+      "CloverleafLOS"
+    ],
     "telescopes": [],
     "wavelengths": [],
     "year": 2010,
@@ -1323,7 +1401,9 @@
   {
     "note": null,
     "molecule": "mol:CF+",
-    "sources": [],
+    "sources": [
+      "PKS1830LOS"
+    ],
     "telescopes": [],
     "wavelengths": [],
     "year": 2016,
@@ -1386,7 +1466,9 @@
   {
     "note": null,
     "molecule": "mol:O2",
-    "sources": [],
+    "sources": [
+      "QSOMrk231"
+    ],
     "telescopes": [],
     "wavelengths": [],
     "year": 2020,
@@ -1470,7 +1552,11 @@
   {
     "note": null,
     "molecule": "mol:OH+",
-    "sources": [],
+    "sources": [
+      "QSOMrk231",
+      "Arp220",
+      "NGC4418"
+    ],
     "telescopes": [],
     "wavelengths": [],
     "year": 2010,
@@ -1510,7 +1596,9 @@
   {
     "note": null,
     "molecule": "mol:SH+",
-    "sources": [],
+    "sources": [
+      "PKS1830LOS"
+    ],
     "telescopes": [],
     "wavelengths": [],
     "year": 2017,
@@ -1633,7 +1721,9 @@
   {
     "note": null,
     "molecule": "mol:ArH+",
-    "sources": [],
+    "sources": [
+      "PKS1830LOS"
+    ],
     "telescopes": [],
     "wavelengths": [],
     "year": 2015,
@@ -1912,7 +2002,9 @@
   {
     "note": null,
     "molecule": "mol:H2O",
-    "sources": [],
+    "sources": [
+      "M33"
+    ],
     "telescopes": [],
     "wavelengths": [],
     "year": 1977,
@@ -1941,6 +2033,22 @@
         "Kreidberg:2014:L27",
         "Kreidberg:2015:66",
         "Lockwood:2014:L29"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:HDO",
+    "sources": [],
+    "telescopes": [],
+    "wavelengths": [],
+    "year": 1975,
+    "type": "ISM/CSM",
+    "first": false,
+    "refs": {
+      "observation": [
+        "Turner:1975:L125"
       ]
     },
     "latex_text": null
@@ -1991,7 +2099,9 @@
   {
     "note": null,
     "molecule": "mol:HCO+",
-    "sources": [],
+    "sources": [
+      "M82"
+    ],
     "telescopes": [],
     "wavelengths": [],
     "year": 1979,
@@ -2100,7 +2210,10 @@
   {
     "note": null,
     "molecule": "mol:HCN",
-    "sources": [],
+    "sources": [
+      "NGC253",
+      "M82"
+    ],
     "telescopes": [],
     "wavelengths": [],
     "year": 1977,
@@ -2219,7 +2332,9 @@
   {
     "note": null,
     "molecule": "mol:OCS",
-    "sources": [],
+    "sources": [
+      "NGC253"
+    ],
     "telescopes": [],
     "wavelengths": [],
     "year": 1995,
@@ -2275,7 +2390,9 @@
   {
     "note": null,
     "molecule": "mol:HNC",
-    "sources": [],
+    "sources": [
+      "IC342"
+    ],
     "telescopes": [],
     "wavelengths": [],
     "year": 1988,
@@ -2352,7 +2469,9 @@
   {
     "note": null,
     "molecule": "mol:H2S",
-    "sources": [],
+    "sources": [
+      "LMC"
+    ],
     "telescopes": [],
     "wavelengths": [],
     "year": 1999,
@@ -2412,7 +2531,13 @@
   {
     "note": null,
     "molecule": "mol:N2H+",
-    "sources": [],
+    "sources": [
+      "NGC253",
+      "Maffei2",
+      "IC342",
+      "M82",
+      "NGC6946"
+    ],
     "telescopes": [],
     "wavelengths": [],
     "year": 1991,
@@ -2482,7 +2607,9 @@
   {
     "note": null,
     "molecule": "mol:C2H",
-    "sources": [],
+    "sources": [
+      "M82"
+    ],
     "telescopes": [],
     "wavelengths": [],
     "year": 1988,
@@ -2553,7 +2680,9 @@
   {
     "note": null,
     "molecule": "mol:SO2",
-    "sources": [],
+    "sources": [
+      "NGC253"
+    ],
     "telescopes": [],
     "wavelengths": [],
     "year": 2003,
@@ -2611,7 +2740,9 @@
   {
     "note": null,
     "molecule": "mol:HCO",
-    "sources": [],
+    "sources": [
+      "M82"
+    ],
     "telescopes": [],
     "wavelengths": [],
     "year": 1995,
@@ -2675,7 +2806,9 @@
   {
     "note": null,
     "molecule": "mol:HCS+",
-    "sources": [],
+    "sources": [
+      "PKS1830LOS"
+    ],
     "telescopes": [],
     "wavelengths": [],
     "year": 2013,
@@ -2714,7 +2847,9 @@
   {
     "note": null,
     "molecule": "mol:HOC+",
-    "sources": [],
+    "sources": [
+      "NGC1068"
+    ],
     "telescopes": [],
     "wavelengths": [],
     "year": 2004,
@@ -2779,7 +2914,9 @@
   {
     "note": null,
     "molecule": "mol:C2S",
-    "sources": [],
+    "sources": [
+      "GGTau"
+    ],
     "telescopes": [],
     "wavelengths": [],
     "year": 2021,
@@ -2795,7 +2932,9 @@
   {
     "note": null,
     "molecule": "mol:C2S",
-    "sources": [],
+    "sources": [
+      "NGC253"
+    ],
     "telescopes": [],
     "wavelengths": [],
     "year": 2006,
@@ -2833,7 +2972,9 @@
   {
     "note": null,
     "molecule": "mol:C3",
-    "sources": [],
+    "sources": [
+      "SMC"
+    ],
     "telescopes": [],
     "wavelengths": [],
     "year": 2013,
@@ -2842,6 +2983,38 @@
     "refs": {
       "observation": [
         "Welty:2013:1107"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:13CCC",
+    "sources": [],
+    "telescopes": [],
+    "wavelengths": [],
+    "year": 2020,
+    "type": "ISM/CSM",
+    "first": false,
+    "refs": {
+      "observation": [
+        "Giesen:2020:A120"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:C13CC",
+    "sources": [],
+    "telescopes": [],
+    "wavelengths": [],
+    "year": 2020,
+    "type": "ISM/CSM",
+    "first": false,
+    "refs": {
+      "observation": [
+        "Giesen:2020:A120"
       ]
     },
     "latex_text": null
@@ -3029,7 +3202,9 @@
   {
     "note": null,
     "molecule": "mol:NH2",
-    "sources": [],
+    "sources": [
+      "PKS1830LOS"
+    ],
     "telescopes": [],
     "wavelengths": [],
     "year": 2014,
@@ -3038,6 +3213,38 @@
     "refs": {
       "observation": [
         "Muller:2014:A112"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:NHD",
+    "sources": [],
+    "telescopes": [],
+    "wavelengths": [],
+    "year": 2020,
+    "type": "ISM/CSM",
+    "first": false,
+    "refs": {
+      "observation": [
+        "Melosso:2020:A153"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:ND2",
+    "sources": [],
+    "telescopes": [],
+    "wavelengths": [],
+    "year": 2020,
+    "type": "ISM/CSM",
+    "first": false,
+    "refs": {
+      "observation": [
+        "Melosso:2020:A153"
       ]
     },
     "latex_text": null
@@ -3135,7 +3342,9 @@
   {
     "note": null,
     "molecule": "mol:H3+",
-    "sources": [],
+    "sources": [
+      "IRAS08572p3915"
+    ],
     "telescopes": [],
     "wavelengths": [],
     "year": 2006,
@@ -3310,7 +3519,9 @@
   {
     "note": null,
     "molecule": "mol:H2O+",
-    "sources": [],
+    "sources": [
+      "M82"
+    ],
     "telescopes": [],
     "wavelengths": [],
     "year": 2010,
@@ -3351,7 +3562,9 @@
   {
     "note": null,
     "molecule": "mol:H2Cl+",
-    "sources": [],
+    "sources": [
+      "PKS1830LOS"
+    ],
     "telescopes": [],
     "wavelengths": [],
     "year": 2014,
@@ -3769,7 +3982,10 @@
   {
     "note": null,
     "molecule": "mol:NH3",
-    "sources": [],
+    "sources": [
+      "IC342",
+      "NGC253"
+    ],
     "telescopes": [],
     "wavelengths": [],
     "year": 1979,
@@ -3785,7 +4001,9 @@
   {
     "note": null,
     "molecule": "mol:NH3",
-    "sources": [],
+    "sources": [
+      "HD209458b"
+    ],
     "telescopes": [],
     "wavelengths": [],
     "year": 2021,
@@ -3867,7 +4085,10 @@
   {
     "note": null,
     "molecule": "mol:H2CO",
-    "sources": [],
+    "sources": [
+      "NGC253",
+      "NGC4945"
+    ],
     "telescopes": [],
     "wavelengths": [],
     "year": 1974,
@@ -3922,7 +4143,11 @@
   {
     "note": null,
     "molecule": "mol:HNCO",
-    "sources": [],
+    "sources": [
+      "NGC253",
+      "Maffei2",
+      "IC342"
+    ],
     "telescopes": [],
     "wavelengths": [],
     "year": 1991,
@@ -3977,7 +4202,9 @@
   {
     "note": null,
     "molecule": "mol:H2CS",
-    "sources": [],
+    "sources": [
+      "NGC253"
+    ],
     "telescopes": [],
     "wavelengths": [],
     "year": 2006,
@@ -4031,7 +4258,9 @@
   {
     "note": null,
     "molecule": "mol:C2H2",
-    "sources": [],
+    "sources": [
+      "LMC"
+    ],
     "telescopes": [],
     "wavelengths": [],
     "year": 2002,
@@ -4047,7 +4276,9 @@
   {
     "note": null,
     "molecule": "mol:C2H2",
-    "sources": [],
+    "sources": [
+      "HD209458b"
+    ],
     "telescopes": [],
     "wavelengths": [],
     "year": 2021,
@@ -4104,7 +4335,9 @@
   {
     "note": null,
     "molecule": "mol:C3N",
-    "sources": [],
+    "sources": [
+      "PKS1830LOS"
+    ],
     "telescopes": [],
     "wavelengths": [],
     "year": 2020,
@@ -4165,7 +4398,9 @@
   {
     "note": null,
     "molecule": "mol:HOCO+",
-    "sources": [],
+    "sources": [
+      "NGC253"
+    ],
     "telescopes": [],
     "wavelengths": [],
     "year": 2006,
@@ -4234,7 +4469,9 @@
   {
     "note": null,
     "molecule": "mol:l-C3H",
-    "sources": [],
+    "sources": [
+      "PKS1830LOS"
+    ],
     "telescopes": [],
     "wavelengths": [],
     "year": 2011,
@@ -4298,7 +4535,10 @@
   {
     "note": null,
     "molecule": "mol:H3O+",
-    "sources": [],
+    "sources": [
+      "M82",
+      "Arp220"
+    ],
     "telescopes": [],
     "wavelengths": [],
     "year": 2008,
@@ -4361,7 +4601,9 @@
   {
     "note": "Legacy detection flag: Tentative",
     "molecule": "mol:c-C3H",
-    "sources": [],
+    "sources": [
+      "NGC253"
+    ],
     "telescopes": [],
     "wavelengths": [],
     "year": 2006,
@@ -4421,7 +4663,9 @@
   {
     "note": null,
     "molecule": "mol:H2CN",
-    "sources": [],
+    "sources": [
+      "PKS1830LOS"
+    ],
     "telescopes": [],
     "wavelengths": [],
     "year": 2020,
@@ -4579,7 +4823,9 @@
   {
     "note": null,
     "molecule": "mol:HOCN",
-    "sources": [],
+    "sources": [
+      "NGC253"
+    ],
     "telescopes": [],
     "wavelengths": [],
     "year": 2021,
@@ -4661,7 +4907,9 @@
   {
     "note": null,
     "molecule": "mol:l-C3H+",
-    "sources": [],
+    "sources": [
+      "PKS1830LOS"
+    ],
     "telescopes": [],
     "wavelengths": [],
     "year": 2020,
@@ -4857,7 +5105,9 @@
   {
     "note": null,
     "molecule": "mol:H2NC",
-    "sources": [],
+    "sources": [
+      "PKS1830LOS"
+    ],
     "telescopes": [],
     "wavelengths": [],
     "year": 2021,
@@ -5027,7 +5277,9 @@
   {
     "note": null,
     "molecule": "mol:HC3N",
-    "sources": [],
+    "sources": [
+      "NGC253"
+    ],
     "telescopes": [],
     "wavelengths": [],
     "year": 1988,
@@ -5098,7 +5350,9 @@
   {
     "note": null,
     "molecule": "mol:HCOOH",
-    "sources": [],
+    "sources": [
+      "PKS1830LOS"
+    ],
     "telescopes": [],
     "wavelengths": [],
     "year": 2020,
@@ -5136,7 +5390,9 @@
   {
     "note": null,
     "molecule": "mol:CH2NH",
-    "sources": [],
+    "sources": [
+      "PKS1830LOS"
+    ],
     "telescopes": [],
     "wavelengths": [],
     "year": 2011,
@@ -5174,7 +5430,9 @@
   {
     "note": null,
     "molecule": "mol:NH2CN",
-    "sources": [],
+    "sources": [
+      "NGC253"
+    ],
     "telescopes": [],
     "wavelengths": [],
     "year": 2006,
@@ -5212,7 +5470,9 @@
   {
     "note": null,
     "molecule": "mol:H2CCO",
-    "sources": [],
+    "sources": [
+      "PKS1830LOS"
+    ],
     "telescopes": [],
     "wavelengths": [],
     "year": 2011,
@@ -5250,7 +5510,9 @@
   {
     "note": null,
     "molecule": "mol:C4H",
-    "sources": [],
+    "sources": [
+      "PKS1830LOS"
+    ],
     "telescopes": [],
     "wavelengths": [],
     "year": 2011,
@@ -5329,7 +5591,9 @@
   {
     "note": null,
     "molecule": "mol:c-C3H2",
-    "sources": [],
+    "sources": [
+      "NGC5128"
+    ],
     "telescopes": [],
     "wavelengths": [],
     "year": 1986,
@@ -5387,7 +5651,9 @@
   {
     "note": null,
     "molecule": "mol:CH2CN",
-    "sources": [],
+    "sources": [
+      "PKS1830LOS"
+    ],
     "telescopes": [],
     "wavelengths": [],
     "year": 2011,
@@ -5396,6 +5662,22 @@
     "refs": {
       "observation": [
         "Muller:2011:A103"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:HDCCN",
+    "sources": [],
+    "telescopes": [],
+    "wavelengths": [],
+    "year": 2021,
+    "type": "ISM/CSM",
+    "first": false,
+    "refs": {
+      "observation": [
+        "Cabezas:2021:L1"
       ]
     },
     "latex_text": null
@@ -5472,7 +5754,9 @@
   {
     "note": null,
     "molecule": "mol:H2CCC",
-    "sources": [],
+    "sources": [
+      "PKS1830LOS"
+    ],
     "telescopes": [],
     "wavelengths": [],
     "year": 2011,
@@ -6264,7 +6548,10 @@
   {
     "note": null,
     "molecule": "mol:CH3OH",
-    "sources": [],
+    "sources": [
+      "NGC253",
+      "IC342"
+    ],
     "telescopes": [],
     "wavelengths": [],
     "year": 1987,
@@ -6319,7 +6606,9 @@
   {
     "note": null,
     "molecule": "mol:CH3CN",
-    "sources": [],
+    "sources": [
+      "NGC253"
+    ],
     "telescopes": [],
     "wavelengths": [],
     "year": 1991,
@@ -6357,7 +6646,9 @@
   {
     "note": null,
     "molecule": "mol:NH2CHO",
-    "sources": [],
+    "sources": [
+      "PKS1830LOS"
+    ],
     "telescopes": [],
     "wavelengths": [],
     "year": 2013,
@@ -6395,7 +6686,9 @@
   {
     "note": null,
     "molecule": "mol:CH3SH",
-    "sources": [],
+    "sources": [
+      "PKS1830LOS"
+    ],
     "telescopes": [],
     "wavelengths": [],
     "year": 2020,
@@ -6500,7 +6793,9 @@
   {
     "note": null,
     "molecule": "mol:HC2CHO",
-    "sources": [],
+    "sources": [
+      "NGC253"
+    ],
     "telescopes": [],
     "wavelengths": [],
     "year": 2021,
@@ -6643,7 +6938,9 @@
   {
     "note": null,
     "molecule": "mol:HC4H",
-    "sources": [],
+    "sources": [
+      "SMPLMC11"
+    ],
     "telescopes": [],
     "wavelengths": [],
     "year": 2006,
@@ -7198,7 +7495,9 @@
   {
     "note": null,
     "molecule": "mol:CH3CHO",
-    "sources": [],
+    "sources": [
+      "PKS1830LOS"
+    ],
     "telescopes": [],
     "wavelengths": [],
     "year": 2011,
@@ -7207,6 +7506,22 @@
     "refs": {
       "observation": [
         "Muller:2011:A103"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:CHD2CHO",
+    "sources": [],
+    "telescopes": [],
+    "wavelengths": [],
+    "year": 2023,
+    "type": "ISM/CSM",
+    "first": false,
+    "refs": {
+      "observation": [
+        "FerrerAsensio:2023:A177"
       ]
     },
     "latex_text": null
@@ -7236,7 +7551,10 @@
   {
     "note": null,
     "molecule": "mol:CH3CCH",
-    "sources": [],
+    "sources": [
+      "NGC253",
+      "M82"
+    ],
     "telescopes": [],
     "wavelengths": [],
     "year": 1991,
@@ -7279,7 +7597,9 @@
   {
     "note": null,
     "molecule": "mol:CH3NH2",
-    "sources": [],
+    "sources": [
+      "PKS1830LOS"
+    ],
     "telescopes": [],
     "wavelengths": [],
     "year": 2011,
@@ -7317,7 +7637,9 @@
   {
     "note": null,
     "molecule": "mol:CH2CHCN",
-    "sources": [],
+    "sources": [
+      "PKS1830LOS"
+    ],
     "telescopes": [],
     "wavelengths": [],
     "year": 2020,
@@ -7356,7 +7678,9 @@
   {
     "note": "Legacy detection flag: Tentative",
     "molecule": "mol:HC5N",
-    "sources": [],
+    "sources": [
+      "NGC253"
+    ],
     "telescopes": [],
     "wavelengths": [],
     "year": 2015,
@@ -7428,6 +7752,22 @@
     "refs": {
       "observation": [
         "Booth:2024:165"
+      ]
+    },
+    "latex_text": null
+  },
+  {
+    "note": null,
+    "molecule": "mol:C2H3DO",
+    "sources": [],
+    "telescopes": [],
+    "wavelengths": [],
+    "year": 2023,
+    "type": "ISM/CSM",
+    "first": false,
+    "refs": {
+      "observation": [
+        "Muller:2023:185"
       ]
     },
     "latex_text": null
@@ -7832,7 +8172,9 @@
   {
     "note": null,
     "molecule": "mol:HCOOCH3",
-    "sources": [],
+    "sources": [
+      "LMC"
+    ],
     "telescopes": [],
     "wavelengths": [],
     "year": 2018,
@@ -7981,7 +8323,9 @@
   {
     "note": null,
     "molecule": "mol:HC6H",
-    "sources": [],
+    "sources": [
+      "SMPLMC11"
+    ],
     "telescopes": [],
     "wavelengths": [],
     "year": 2006,
@@ -8414,7 +8758,10 @@
   {
     "note": null,
     "molecule": "mol:CH3OCH3",
-    "sources": [],
+    "sources": [
+      "NGC1068",
+      "LMC"
+    ],
     "telescopes": [],
     "wavelengths": [],
     "year": 2018,
@@ -8469,7 +8816,9 @@
   {
     "note": null,
     "molecule": "mol:CH3CH2OH",
-    "sources": [],
+    "sources": [
+      "NGC253"
+    ],
     "telescopes": [],
     "wavelengths": [],
     "year": 2021,
@@ -9459,7 +9808,9 @@
   {
     "note": null,
     "molecule": "mol:C6H6",
-    "sources": [],
+    "sources": [
+      "SMPLMC11"
+    ],
     "telescopes": [],
     "wavelengths": [],
     "year": 2006,

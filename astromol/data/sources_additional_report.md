@@ -1,0 +1,234 @@
+# Additional Source Resolution Report
+
+Generated from `scripts/resolve_legacy_sources.py`.
+
+This report is a staging artifact. It does not modify `sources.json` or `detections.preview.json`.
+
+## Summary
+
+- Detections with legacy source text reviewed: 83
+- Individual source assignments reviewed: 108
+- Unique legacy source names: 20
+- New source candidates staged: 20
+- Existing source mapping candidates: 0
+- Manual attention needed: 0
+- Confidence breakdown: {"high": 17, "medium": 3}
+
+
+## High Confidence
+
+- `Arp 220` [exgal] (4 detections)
+  - Proposed action: add staged source `Arp220` (Arp 220, External Galaxy)
+  - Resolver: N=NED query `Arp 220` matched `ARP 220` otype `G` at `15:34:57.20 +23:30:13.2`
+  - Reason: User-approved high-confidence Sesame source match.
+  - Used by:
+    - line 1786 `NH` formula `NH` label `mol:NH`
+    - line 1862 `HF` formula `HF` label `mol:HF`
+    - line 1984 `OHp` formula `OH+` label `mol:OH+`
+    - line 3696 `H3Op` formula `H3O+` label `mol:H3O+`
+- `Cloverleaf LOS` [exgal] (1 detection)
+  - Proposed action: add staged source `CloverleafLOS` (Cloverleaf LOS, External Galaxy)
+  - Resolver: N=NED query `Cloverleaf Quasar` matched `CLOVERLEAF` otype `QSO` at `14:15:46.23 +11:29:43.7`
+  - Reason: User-approved line-of-sight source: preserve the LOS qualifier while using the resolved Cloverleaf quasar coordinates.
+  - Used by:
+    - line 1862 `HF` formula `HF` label `mol:HF`
+- `HD 209458b` [exo] (2 detections)
+  - Proposed action: add staged source `HD209458b` (HD 209458 b, Exoplanet)
+  - Resolver: Sc=Simbad (CDS, via client/server) query `HD 209458b` matched `HD 209458b` otype `Pl` at `22:03:10.77 +18:53:03.5`
+  - Reason: User-approved high-confidence Sesame source match.
+  - Used by:
+    - line 3379 `NH3` formula `NH3` label `mol:NH3`
+    - line 3527 `C2H2` formula `C2H2` label `mol:C2H2`
+- `IC 342` [exgal] (7 detections)
+  - Proposed action: add staged source `IC342` (IC 342, External Galaxy)
+  - Resolver: N=NED query `IC 342` matched `IC 0342` otype `G` at `03:46:48.50 +68:05:46.9`
+  - Reason: User-approved high-confidence Sesame source match.
+  - Used by:
+    - line 1264 `CN` formula `CN` label `mol:CN`
+    - line 1476 `CS` formula `CS` label `mol:CS`
+    - line 2416 `HNC` formula `HNC` label `mol:HNC`
+    - line 2471 `N2Hp` formula `N2H+` label `mol:N2H+`
+    - line 3379 `NH3` formula `NH3` label `mol:NH3`
+    - line 3469 `HNCO` formula `HNCO` label `mol:HNCO`
+    - line 5251 `CH3OH` formula `CH3OH` label `mol:CH3OH`
+- `IRAS 08572+3915` [exgal] (1 detection)
+  - Proposed action: add staged source `IRAS08572p3915` (IRAS 08572+3915, External Galaxy)
+  - Resolver: N=NED query `IRAS 08572+3915` matched `IRAS 08572+3915` otype `GPair` at `09:00:25.38 +39:03:54.2`
+  - Reason: User-approved high-confidence Sesame source match.
+  - Used by:
+    - line 2893 `H3p` formula `H3+` label `mol:H3+`
+- `LMC` [exgal] (6 detections)
+  - Proposed action: add staged source `LMC` (LMC, External Galaxy)
+  - Resolver: Sc=Simbad (CDS, via client/server) query `LMC` matched `NAME LMC` otype `G` at `05:23:34.60 -69:45:21.9`
+  - Reason: User-approved high-confidence Sesame source match.
+  - Used by:
+    - line 1237 `CH` formula `CH` label `mol:CH`
+    - line 1297 `CHp` formula `CH+` label `mol:CH+`
+    - line 2446 `H2S` formula `H2S` label `mol:H2S`
+    - line 3527 `C2H2` formula `C2H2` label `mol:C2H2`
+    - line 6637 `HCOOCH3` formula `HCOOCH3` label `mol:HCOOCH3`
+    - line 7185 `CH3OCH3` formula `CH3OCH3` label `mol:CH3OCH3`
+- `M33` [exgal] (1 detection)
+  - Proposed action: add staged source `M33` (M33, External Galaxy)
+  - Resolver: Sc=Simbad (CDS, via client/server) query `M33` matched `M  33` otype `GiG` at `01:33:50.89 +30:39:36.6`
+  - Reason: User-approved high-confidence Sesame source match.
+  - Used by:
+    - line 2261 `H2O` formula `H2O` label `mol:H2O`
+- `M82` [exgal] (14 detections)
+  - Proposed action: add staged source `M82` (M82, External Galaxy)
+  - Resolver: N=NED query `M82` matched `MESSIER 082` otype `G` at `09:55:52.91 +69:40:46.1`
+  - Reason: User-approved high-confidence Sesame source match.
+  - Used by:
+    - line 1264 `CN` formula `CN` label `mol:CN`
+    - line 1321 `OH` formula `OH` label `mol:OH`
+    - line 1348 `CO` formula `CO` label `mol:CO`
+    - line 1476 `CS` formula `CS` label `mol:CS`
+    - line 1514 `SO` formula `SO` label `mol:SO`
+    - line 1842 `COp` formula `CO+` label `mol:CO+`
+    - line 2296 `HCOp` formula `HCO+` label `mol:HCO+`
+    - line 2346 `HCN` formula `HCN` label `mol:HCN`
+    - line 2471 `N2Hp` formula `N2H+` label `mol:N2H+`
+    - line 2502 `C2H` formula `C2H` label `mol:C2H`
+    - line 2565 `HCO` formula `HCO` label `mol:HCO`
+    - line 3028 `H2Op` formula `H2O+` label `mol:H2O+`
+    - line 3696 `H3Op` formula `H3O+` label `mol:H3O+`
+    - line 6105 `CH3CCH` formula `CH3CCH` label `mol:CH3CCH`
+- `Maffei 2` [exgal] (2 detections)
+  - Proposed action: add staged source `Maffei2` (Maffei 2, External Galaxy)
+  - Resolver: N=NED query `Maffei 2` matched `MAFFEI 2` otype `G` at `02:41:54.98 +59:36:14.5`
+  - Reason: User-approved high-confidence Sesame source match.
+  - Used by:
+    - line 2471 `N2Hp` formula `N2H+` label `mol:N2H+`
+    - line 3469 `HNCO` formula `HNCO` label `mol:HNCO`
+- `NGC 1068` [exgal] (3 detections)
+  - Proposed action: add staged source `NGC1068` (NGC 1068, External Galaxy)
+  - Resolver: N=NED query `NGC 1068` matched `NGC 1068` otype `G` at `02:42:40.70 -00:00:47.8`
+  - Reason: User-approved high-confidence Sesame source match.
+  - Used by:
+    - line 1427 `H2` formula `H2` label `mol:H2`
+    - line 2627 `HOCp` formula `HOC+` label `mol:HOC+`
+    - line 7185 `CH3OCH3` formula `CH3OCH3` label `mol:CH3OCH3`
+- `NGC 253` [exgal] (28 detections)
+  - Proposed action: add staged source `NGC253` (NGC 253, External Galaxy)
+  - Resolver: N=NED query `NGC 253` matched `NGC 0253` otype `G` at `00:47:33.13 -25:17:17.0`
+  - Reason: User-approved high-confidence Sesame source match.
+  - Used by:
+    - line 1264 `CN` formula `CN` label `mol:CN`
+    - line 1321 `OH` formula `OH` label `mol:OH`
+    - line 1348 `CO` formula `CO` label `mol:CO`
+    - line 1456 `SiO` formula `SiO` label `mol:SiO`
+    - line 1514 `SO` formula `SO` label `mol:SO`
+    - line 1578 `NS` formula `NS` label `mol:NS`
+    - line 1617 `NO` formula `NO` label `mol:NO`
+    - line 1730 `PN` formula `PN` label `mol:PN`
+    - line 2346 `HCN` formula `HCN` label `mol:HCN`
+    - line 2392 `OCS` formula `OCS` label `mol:OCS`
+    - line 2471 `N2Hp` formula `N2H+` label `mol:N2H+`
+    - line 2532 `SO2` formula `SO2` label `mol:SO2`
+    - line 2666 `C2S` formula `C2S` label `mol:C2S`
+    - line 3379 `NH3` formula `NH3` label `mol:NH3`
+    - line 3412 `H2CO` formula `H2CO` label `mol:H2CO`
+    - line 3469 `HNCO` formula `HNCO` label `mol:HNCO`
+    - line 3497 `H2CS` formula `H2CS` label `mol:H2CS`
+    - line 3614 `HOCOp` formula `HOCO+` label `mol:HOCO+`
+    - line 3739 `cC3H` formula `C3H` label `mol:c-C3H`
+    - line 3899 `HOCN` formula `HOCN` label `mol:HOCN`
+    - line 4290 `HC3N` formula `HC3N` label `mol:HC3N`
+    - line 4381 `NH2CN` formula `NH2CN` label `mol:NH2CN`
+    - line 5251 `CH3OH` formula `CH3OH` label `mol:CH3OH`
+    - line 5286 `CH3CN` formula `CH3CN` label `mol:CH3CN`
+    - line 5426 `HC2CHO` formula `HC2CHO` label `mol:HC2CHO`
+    - line 6105 `CH3CCH` formula `CH3CCH` label `mol:CH3CCH`
+    - line 6189 `HC5N` formula `HC5N` label `mol:HC5N`
+    - line 7222 `CH3CH2OH` formula `CH3CH2OH` label `mol:CH3CH2OH`
+- `NGC 4418` [exgal] (1 detection)
+  - Proposed action: add staged source `NGC4418` (NGC 4418, External Galaxy)
+  - Resolver: N=NED query `NGC 4418` matched `NGC 4418` otype `G` at `12:26:54.60 -00:52:39.2`
+  - Reason: User-approved high-confidence Sesame source match.
+  - Used by:
+    - line 1984 `OHp` formula `OH+` label `mol:OH+`
+- `NGC 4945` [exgal] (2 detections)
+  - Proposed action: add staged source `NGC4945` (NGC 4945, External Galaxy)
+  - Resolver: N=NED query `NGC 4945` matched `NGC 4945` otype `G` at `13:05:27.45 -49:28:04.9`
+  - Reason: User-approved high-confidence Sesame source match.
+  - Used by:
+    - line 1237 `CH` formula `CH` label `mol:CH`
+    - line 3412 `H2CO` formula `H2CO` label `mol:H2CO`
+- `NGC 5128` [exgal] (2 detections)
+  - Proposed action: add staged source `NGC5128` (NGC 5128, External Galaxy)
+  - Resolver: N=NED query `NGC 5128` matched `NGC 5128` otype `G` at `13:25:27.61 -43:01:08.8`
+  - Reason: User-approved high-confidence Sesame source match.
+  - Used by:
+    - line 1237 `CH` formula `CH` label `mol:CH`
+    - line 4471 `cC3H2` formula `C3H2` label `mol:c-C3H2`
+- `NGC 6946` [exgal] (1 detection)
+  - Proposed action: add staged source `NGC6946` (NGC 6946, External Galaxy)
+  - Resolver: Sc=Simbad (CDS, via client/server) query `NGC 6946` matched `NGC  6946` otype `H2G` at `20:34:52.33 +60:09:13.2`
+  - Reason: User-approved high-confidence Sesame source match.
+  - Used by:
+    - line 2471 `N2Hp` formula `N2H+` label `mol:N2H+`
+- `PKS 1830-211 LOS` [exgal] (24 detections)
+  - Proposed action: add staged source `PKS1830LOS` (PKS 1830-211 LOS, External Galaxy)
+  - Resolver: sources.json query `PKS1830` matched `PKS 1830-211` otype `None` at `18:33:39.94 -21:03:39.4`
+  - Reason: User-approved line-of-sight source: preserve the LOS qualifier while copying coordinates and link metadata from PKS1830.
+  - Used by:
+    - line 1644 `HCl` formula `HCl` label `mol:HCl`
+    - line 1822 `SOp` formula `SO+` label `mol:SO+`
+    - line 1897 `CFp` formula `CF+` label `mol:CF+`
+    - line 2004 `SHp` formula `SH+` label `mol:SH+`
+    - line 2075 `ArHp` formula `ArH+` label `mol:ArH+`
+    - line 2607 `HCSp` formula `HCS+` label `mol:HCS+`
+    - line 2807 `NH2` formula `NH2` label `mol:NH2`
+    - line 3050 `H2Clp` formula `H2Cl+` label `mol:H2Cl+`
+    - line 3565 `C3N` formula `C3N` label `mol:C3N`
+    - line 3658 `lC3H` formula `C3H` label `mol:l-C3H`
+    - line 3784 `H2CN` formula `H2CN` label `mol:H2CN`
+    - line 3968 `lC3Hp` formula `C3H+` label `mol:l-C3H+`
+    - line 4139 `H2NC` formula `H2NC` label `mol:H2NC`
+    - line 4318 `HCOOH` formula `HCOOH` label `mol:HCOOH`
+    - line 4353 `CH2NH` formula `CH2NH` label `mol:CH2NH`
+    - line 4409 `H2CCO` formula `H2CCO` label `mol:H2CCO`
+    - line 4436 `C4H` formula `C4H` label `mol:C4H`
+    - line 4498 `CH2CN` formula `CH2CN` label `mol:CH2CN`
+    - line 4563 `H2CCC` formula `H2CCC` label `mol:H2CCC`
+    - line 5316 `NH2CHO` formula `NH2CHO` label `mol:NH2CHO`
+    - line 5344 `CH3SH` formula `CH3SH` label `mol:CH3SH`
+    - line 6069 `CH3CHO` formula `CH3CHO` label `mol:CH3CHO`
+    - line 6133 `CH3NH2` formula `CH3NH2` label `mol:CH3NH2`
+    - line 6161 `CH2CHCN` formula `CH2CHCN` label `mol:CH2CHCN`
+- `SMC` [exgal] (2 detections)
+  - Proposed action: add staged source `SMC` (SMC, External Galaxy)
+  - Resolver: N=NED query `SMC` matched `SMC` otype `G` at `00:52:44.80 -72:49:42.9`
+  - Reason: User-approved high-confidence Sesame source match.
+  - Used by:
+    - line 1598 `C2` formula `C2` label `mol:C2`
+    - line 2694 `C3` formula `C3` label `mol:C3`
+
+## Medium Confidence
+
+- `GG Tau` [ppd] (1 detection)
+  - Proposed action: add staged source `GGTau` (GG Tau, YSO)
+  - Resolver: Sc=Simbad (CDS, via client/server) query `GG Tau` matched `V* GG Tau` otype `Or*` at `04:32:30.35 +17:31:40.4`
+  - Reason: User-approved PPD source staging as source type YSO.
+  - Used by:
+    - line 2666 `C2S` formula `C2S` label `mol:C2S`
+- `QSO Mrk 231` [exgal] (3 detections)
+  - Proposed action: add staged source `QSOMrk231` (QSO Mrk 231, External Galaxy)
+  - Resolver: N=NED query `Mrk 231` matched `MRK 0231` otype `G` at `12:56:14.23 +56:52:25.2`
+  - Reason: User-approved QSO-prefix source staging as Mrk 231.
+  - Used by:
+    - line 1862 `HF` formula `HF` label `mol:HF`
+    - line 1933 `O2` formula `O2` label `mol:O2`
+    - line 1984 `OHp` formula `OH+` label `mol:OH+`
+- `SMP LMC 11` [exgal] (3 detections)
+  - Proposed action: add staged source `SMPLMC11` (SMP LMC 11, External Galaxy)
+  - Resolver: N=NED query `SMP LMC 11` matched `SMP LMC 011` otype `PN` at `04:51:37.83 -67:05:16.8`
+  - Reason: User-approved extragalactic source staging despite resolver matching an internal LMC substructure.
+  - Used by:
+    - line 5531 `HC4H` formula `HC4H` label `mol:HC4H`
+    - line 6777 `HC6H` formula `HC6H` label `mol:HC6H`
+    - line 8250 `C6H6` formula `C6H6` label `mol:C6H6`
+
+## Manual Confidence
+
+- None

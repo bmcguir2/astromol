@@ -24,12 +24,14 @@ DATA_DIR = REPO_ROOT / "astromol" / "data"
 LEGACY_PATH = DATA_DIR / "molecules_legacy.py"
 REFERENCES_PATH = DATA_DIR / "references.bib"
 SOURCES_PATH = DATA_DIR / "sources.json"
+SOURCES_ADDITIONAL_PATH = DATA_DIR / "sources_additional.preview.json"
 TELESCOPES_PATH = DATA_DIR / "telescopes.json"
 
 DEFAULT_MOLECULES_OUT = DATA_DIR / "molecules.preview.json"
 DEFAULT_DETECTIONS_OUT = DATA_DIR / "detections.preview.json"
 DEFAULT_ISSUES_OUT = DATA_DIR / "legacy_conversion_issues.json"
 DEFAULT_TRIAGE_OUT = DATA_DIR / "legacy_conversion_triage.md"
+DEFAULT_SOURCE_ADDITIONAL_REPORT = DATA_DIR / "sources_additional_report.json"
 
 REFERENCE_KEY_ALIASES = {
     "Brown:1982ur": "Brown:1982:1747",
@@ -38,6 +40,7 @@ REFERENCE_KEY_ALIASES = {
     "Heineking:1994op": "Heineking:1994:1177",
     "Kaushik:1982ld": "Kaushik:1982:117",
     "Sakaizumi:1976uu": "Sakaizumi:1976:2908",
+    "1987BCSJ..60..3903": "Sakaizumi:1987:3903",
 }
 
 FREE_TEXT_REFERENCE_ALIASES = {
@@ -73,6 +76,9 @@ FREE_TEXT_REFERENCE_ALIASES = {
     "Thaddues & Turner 1975 ApJ 201, L25": "Thaddeus:1975:L25",
     "Thomas & Dalby 1968 Can. J. Phys. 46, 2815": "Thomson:1968:2815",
     "Additional work used in Belloche et al. 2019 A&A 628, A10 to be reported in Medvedev et al. in prep as of 9/16/2019.": "Tyree:2022:111706",
+    "https://arxiv.org/abs/1911.09751": "Giesen:2020:A120",
+    "Melosso et al. 2017 ApJS 233, 1": "Melosso:2017:15",
+    "Cabezas et al. 2021 A&A 646, 1": "Cabezas:2021:L1",
     "Zaleski et al. 2013 ApJ 765, L9": "Zaleski:2013:L10",
     "Zukerman et al. 1971 ApJ 163, L41": "Zuckerman:1971:L41",
     "Zukerman et al. 1975 ApJ 196, L99": "Zuckerman:1975:L99",
@@ -114,6 +120,16 @@ ISOTOPOLOGUE_FORMULA_OVERRIDES = {
     "H2^{13}CO": "H2[13C]O",
     "H13CCH": "H[13C]CH",
     "CH3D": "CH3[2H]",
+    "CD": "C[2H]",
+    "26AlF": "[26Al]F",
+    "HDO": "H[2H]O",
+    "13CCC": "[13C]CC",
+    "C13CC": "C[13C]C",
+    "NHD": "NH[2H]",
+    "ND2": "N[2H]2",
+    "HDCCN": "H[2H]CCN",
+    "CHD2CHO": "CH[2H]2CHO",
+    "C2H3DO": "C2H3[2H]O",
 }
 
 NAME_OVERRIDES = {
@@ -140,7 +156,8 @@ class LegacyConverter:
         self.free_text_reference_aliases = self._normalized_aliases(
             FREE_TEXT_REFERENCE_ALIASES
         )
-        self.source_nicks = self._load_nicks(SOURCES_PATH)
+        self.source_aliases = self._load_source_aliases()
+        self.source_nicks = self._load_source_nicks()
         self.telescope_nicks = self._load_nicks(TELESCOPES_PATH)
         self.reference_mappings = []
         self.issues = []
@@ -167,6 +184,14 @@ class LegacyConverter:
                 molecules.append(isotopologue)
                 molecule_labels.add(isotopologue["label"])
 
+            for isotopologue in self._convert_text_isotopologue_molecules(
+                legacy, molecule
+            ):
+                if isotopologue["label"] in molecule_labels:
+                    continue
+                molecules.append(isotopologue)
+                molecule_labels.add(isotopologue["label"])
+
             detection = self._convert_main_detection(legacy, molecule["label"])
             if detection is not None:
                 detections.append(detection)
@@ -175,6 +200,7 @@ class LegacyConverter:
                 self._convert_extra_context_detections(legacy, molecule["label"])
             )
             detections.extend(self._convert_nested_isotopologue_detections(legacy))
+            detections.extend(self._convert_text_isotopologue_detections(legacy))
 
         self._validate_preview(molecules, detections)
         return molecules, detections, self._issue_report(molecules, detections)
@@ -294,6 +320,31 @@ class LegacyConverter:
     def _load_nicks(self, path):
         with open(path) as handle:
             return {entry["nick"] for entry in json.load(handle)}
+
+    def _load_source_nicks(self):
+        nicks = self._load_nicks(SOURCES_PATH)
+        for entry in self._load_approved_additional_sources():
+            nicks.add(entry["nick"])
+        return nicks
+
+    def _load_source_aliases(self):
+        aliases = dict(SOURCE_ALIASES)
+        for entry in self._load_approved_additional_sources():
+            legacy_source = entry.get("_legacy_source_string")
+            if legacy_source:
+                aliases[legacy_source] = entry["nick"]
+        return aliases
+
+    def _load_approved_additional_sources(self):
+        if not SOURCES_ADDITIONAL_PATH.exists():
+            return []
+
+        with open(SOURCES_ADDITIONAL_PATH) as handle:
+            return [
+                entry
+                for entry in json.load(handle)
+                if not entry.get("_needs_approval", True)
+            ]
 
     def _load_legacy_molecules(self):
         tree = ast.parse(LEGACY_PATH.read_text())
@@ -460,6 +511,68 @@ class LegacyConverter:
             "isotopologue_of": parent_molecule["label"],
             "latex_header": None,
             "latex_notes": None,
+        }
+
+    def _convert_text_isotopologue_molecules(self, legacy, parent_molecule):
+        molecules = []
+        for formula_text in self._text_isotopologue_formulas(legacy):
+            formula = self._normalize_isotopologue_formula(
+                formula_text,
+                self._text_isotopologue_context(legacy, formula_text),
+                parent_molecule["label"],
+            )
+            lab_refs = self._text_isotopologue_refs(
+                legacy,
+                "isos_l_refs",
+                "lab",
+                formula_text,
+            )
+
+            molecules.append(
+                {
+                    "name": parent_molecule["name"],
+                    "formula": formula,
+                    "table_formula": formula_text,
+                    "label": self._isotopologue_label(formula_text),
+                    "note": None,
+                    "iupac_name": None,
+                    "selfies": None,
+                    "synonyms": [],
+                    "smiles": None,
+                    "canonical_smiles": None,
+                    "inchi": None,
+                    "inchikey": None,
+                    "radical_override": None,
+                    "fullerene": parent_molecule["fullerene"],
+                    "pah": parent_molecule["pah"],
+                    "n_rings": parent_molecule["n_rings"],
+                    "cyclic": parent_molecule["cyclic"],
+                    "rotcon": None,
+                    "dipole": None,
+                    "refs": {
+                        "lab": lab_refs,
+                        "computation": [],
+                    },
+                    "isotopologue_of": parent_molecule["label"],
+                    "latex_header": None,
+                    "latex_notes": None,
+                }
+            )
+
+        return molecules
+
+    def _text_isotopologue_formulas(self, legacy):
+        text = self._none_if_blank(legacy.get("isotopologues"))
+        if text is None:
+            return []
+        return [formula.strip() for formula in str(text).split(",") if formula.strip()]
+
+    def _text_isotopologue_context(self, legacy, formula):
+        return {
+            "__legacy_var": legacy.get("__legacy_var"),
+            "__line": legacy.get("__line"),
+            "formula": formula,
+            "name": legacy.get("name"),
         }
 
     def _nested_isotopologue_lab_refs(self, legacy, context, item):
@@ -755,6 +868,110 @@ class LegacyConverter:
 
         return detections
 
+    def _convert_text_isotopologue_detections(self, legacy):
+        detections = []
+        for formula_text in self._text_isotopologue_formulas(legacy):
+            detection = self._convert_text_isotopologue_detection(legacy, formula_text)
+            if detection is not None:
+                detections.append(detection)
+        return detections
+
+    def _convert_text_isotopologue_detection(self, legacy, formula_text):
+        label = self._isotopologue_label(formula_text)
+        observation_refs = self._text_isotopologue_refs(
+            legacy,
+            "isos_d_refs",
+            "observation",
+            formula_text,
+        )
+        year = self._context_detection_year(legacy, {}, "isotopologue", observation_refs)
+        sources = []
+        telescopes = []
+        wavelengths = []
+
+        missing_metadata = ["sources", "telescopes", "wavelengths"]
+        missing_required = []
+        if year is None:
+            missing_required.append("year")
+        if not observation_refs:
+            missing_required.append("observation_refs")
+
+        detection_metadata = {
+            "source_field": None,
+            "sources": sources,
+            "telescope_field": None,
+            "telescopes": telescopes,
+            "wavelength_field": None,
+            "wavelengths": wavelengths,
+            "year": year,
+            "observation_refs": observation_refs,
+        }
+
+        self._report_text_isotopologue_detection_metadata_missing(
+            legacy,
+            formula_text,
+            label,
+            missing_metadata,
+            detection_metadata,
+        )
+
+        if missing_required:
+            self._report_incomplete_text_isotopologue_detection(
+                legacy,
+                formula_text,
+                label,
+                missing_required,
+                detection_metadata,
+            )
+            return None
+
+        return {
+            "note": None,
+            "molecule": label,
+            "sources": sources,
+            "telescopes": telescopes,
+            "wavelengths": wavelengths,
+            "year": year,
+            "type": "ISM/CSM",
+            "first": False,
+            "refs": {
+                "observation": observation_refs,
+            },
+            "latex_text": None,
+        }
+
+    def _text_isotopologue_refs(self, legacy, text_field, role, formula_text):
+        refs = []
+        chunks = self._text_isotopologue_ref_chunks(
+            legacy.get(text_field),
+            formula_text,
+        )
+        for chunk in chunks:
+            ref = self._resolve_free_text_reference(
+                chunk,
+                self._text_isotopologue_context(legacy, formula_text),
+                role,
+            )
+            if ref is not None:
+                refs.extend(self._as_list(ref))
+        return self._unique_preserve_order(refs)
+
+    def _text_isotopologue_ref_chunks(self, text, formula_text):
+        chunks = []
+        for chunk in self._split_free_text_refs(text):
+            label, cleaned = self._strip_isotope_reference_label(chunk)
+            if label is not None and label != formula_text:
+                continue
+            if cleaned:
+                chunks.append(cleaned)
+        return chunks
+
+    def _strip_isotope_reference_label(self, chunk):
+        match = re.match(r"\s*\[([^\]]+)\]\s*(.*)", str(chunk or ""))
+        if not match:
+            return None, str(chunk or "").strip()
+        return match.group(1).strip(), match.group(2).strip()
+
     def _convert_nested_isotopologue_detection(self, legacy, field, context, item):
         nested_context = self._nested_isotopologue_context(legacy, item)
         label = self._isotopologue_label(item.get("formula"))
@@ -992,10 +1209,63 @@ class LegacyConverter:
             },
         )
 
+    def _report_incomplete_text_isotopologue_detection(
+        self, legacy, formula_text, label, missing, found
+    ):
+        self._report_text_isotopologue_detection_issue(
+            "text_isotopologue_detection_incomplete",
+            "Legacy text isotopologue detection lacks required detection metadata.",
+            legacy,
+            formula_text,
+            label,
+            missing,
+            found,
+        )
+
+    def _report_text_isotopologue_detection_metadata_missing(
+        self, legacy, formula_text, label, missing, found
+    ):
+        self._report_text_isotopologue_detection_issue(
+            "text_isotopologue_detection_metadata_missing",
+            "Legacy text isotopologue detection emitted with placeholder metadata.",
+            legacy,
+            formula_text,
+            label,
+            missing,
+            found,
+        )
+
+    def _report_text_isotopologue_detection_issue(
+        self, kind, message, legacy, formula_text, label, missing, found
+    ):
+        preview_formula = ISOTOPOLOGUE_FORMULA_OVERRIDES.get(
+            formula_text, FORMULA_OVERRIDES.get(formula_text, formula_text)
+        )
+        self._issue(
+            kind,
+            "info",
+            self._text_isotopologue_context(legacy, formula_text),
+            message,
+            {
+                "parent_line": legacy.get("__line"),
+                "parent_formula": legacy.get("formula"),
+                "parent_name": legacy.get("name"),
+                "parent_label": self._molecule_label(legacy),
+                "context": "ISM/CSM",
+                "molecule_label": label,
+                "formula": formula_text,
+                "preview_formula": preview_formula,
+                "table_formula": formula_text,
+                "first": False,
+                "missing_fields": missing,
+                **found,
+            },
+        )
+
     def _source_refs(self, values, legacy, field, emit_issue=True):
         refs = []
         for value in self._as_field_list(values):
-            mapped = SOURCE_ALIASES.get(value, value)
+            mapped = self.source_aliases.get(value, value)
             if mapped not in self.source_nicks:
                 if emit_issue:
                     self._issue(
@@ -1047,11 +1317,12 @@ class LegacyConverter:
         text_chunks = self._split_free_text_refs(legacy.get(text_field))
 
         if raw_ids:
+            can_align_text_refs = len(raw_ids) == len(text_chunks)
             for index, ref_id in enumerate(raw_ids):
                 ref = self._resolve_reference_key(
                     ref_id, legacy, role, emit_issue=False
                 )
-                if ref is None and index < len(text_chunks):
+                if ref is None and can_align_text_refs and index < len(text_chunks):
                     ref = self._resolve_free_text_reference(
                         text_chunks[index],
                         legacy,
@@ -1373,6 +1644,14 @@ class LegacyConverter:
                     {"__legacy_var": detection["molecule"], "__line": None},
                     f"Preview detection references unknown molecule '{detection['molecule']}'.",
                 )
+            for source in detection.get("sources", []):
+                if source not in self.source_nicks:
+                    self._issue(
+                        "preview_detection_unknown_source",
+                        "error",
+                        {"__legacy_var": detection["molecule"], "__line": None},
+                        f"Preview detection references unknown source '{source}'.",
+                    )
 
     def _issue(self, kind, severity, legacy, message, details=None):
         self.issues.append(
@@ -1440,6 +1719,126 @@ def triage_value(value):
     if isinstance(value, dict):
         return f"`{json.dumps(value, ensure_ascii=False, sort_keys=True)}`"
     return f"`{value}`"
+
+
+def count_phrase(count, singular, plural=None):
+    return f"{count} {singular if count == 1 else (plural or singular + 's')}"
+
+
+def source_mapping_review_lines(path=DEFAULT_SOURCE_ADDITIONAL_REPORT):
+    lines = ["", "## Source Mapping Review", ""]
+    if not path.exists():
+        lines.append(
+            "- Not generated yet. Run `scripts/resolve_legacy_sources.py` "
+            "to stage candidate source mappings."
+        )
+        return lines
+
+    try:
+        report = json.loads(path.read_text())
+    except json.JSONDecodeError as exc:
+        lines.append(f"- Could not read `{path.name}`: {exc}")
+        return lines
+
+    summary = report.get("summary", {})
+    records = report.get("records", [])
+    lines.extend(
+        [
+            f"- Detections with legacy source text reviewed: {summary.get('detection_count', 0)}",
+            f"- Individual source assignments reviewed: {summary.get('source_assignment_count', 0)}",
+            f"- Unique legacy source names: {summary.get('unique_source_count', 0)}",
+            f"- New source candidates staged: {summary.get('new_source_candidates', 0)}",
+            f"- Existing source mapping candidates: {summary.get('existing_mappings', 0)}",
+            f"- Approved source mappings: {summary.get('approved', 0)}",
+            f"- Manual attention needed: {summary.get('manual_attention', 0)}",
+            "",
+        ]
+    )
+
+    needs_approval = [
+        record
+        for record in records
+        if record.get("status") == "needs_approval"
+    ]
+    manual = [
+        record
+        for record in records
+        if record.get("status") == "manual_attention"
+    ]
+    approved = [
+        record
+        for record in records
+        if record.get("status") == "approved"
+    ]
+
+    if needs_approval:
+        lines.append("### Needs Approval")
+        lines.append("")
+        for record in needs_approval:
+            contexts = ", ".join(record.get("contexts", []))
+            action = record.get("action")
+            if action == "map_existing":
+                target = f"existing `{record.get('matched_existing_nick')}`"
+            else:
+                target = (
+                    f"new `{record.get('proposed_nick')}` "
+                    f"({record.get('proposed_name')}, {record.get('proposed_type')})"
+                )
+            resolver = record.get("resolver") or {}
+            resolver_text = ""
+            if resolver.get("matched_name"):
+                resolver_text = (
+                    f"; resolver `{resolver.get('database')}` matched "
+                    f"`{resolver.get('matched_name')}`"
+                )
+            lines.append(
+                "- "
+                f"`{record.get('legacy_source')}` [{contexts}] -> {target}; "
+                f"confidence `{record.get('confidence')}`; "
+                f"used by {count_phrase(record.get('usage_count'), 'detection')}"
+                f"{resolver_text}"
+            )
+    else:
+        lines.append("### Needs Approval")
+        lines.append("")
+        lines.append("- None")
+
+    lines.append("")
+    lines.append("### Approved")
+    lines.append("")
+    if approved:
+        for record in approved:
+            contexts = ", ".join(record.get("contexts", []))
+            target = (
+                f"`{record.get('proposed_nick')}` "
+                f"({record.get('proposed_name')}, {record.get('proposed_type')})"
+            )
+            lines.append(
+                "- "
+                f"`{record.get('legacy_source')}` [{contexts}] -> {target}; "
+                f"confidence `{record.get('confidence')}`; "
+                f"used by {count_phrase(record.get('usage_count'), 'detection')}; "
+                f"{record.get('reason')}"
+            )
+    else:
+        lines.append("- None")
+
+    lines.append("")
+    lines.append("### Manual Attention")
+    lines.append("")
+    if manual:
+        for record in manual:
+            contexts = ", ".join(record.get("contexts", []))
+            lines.append(
+                "- "
+                f"`{record.get('legacy_source')}` [{contexts}]; "
+                f"used by {count_phrase(record.get('usage_count'), 'detection')}; "
+                f"{record.get('reason')}"
+            )
+    else:
+        lines.append("- None")
+
+    return lines
 
 
 def write_triage(path, report):
@@ -1567,6 +1966,8 @@ def write_triage(path, report):
     else:
         lines.append("- None")
 
+    lines.extend(source_mapping_review_lines())
+
     lines.extend(["", "## Extra Context Detection Gaps", ""])
     extra_issues = [
         issue
@@ -1589,6 +1990,52 @@ def write_triage(path, report):
                 f"label `{details['molecule_label']}`; "
                 f"context `{details['context']}`; flag `{details['flag']}`; "
                 f"missing {missing}"
+            )
+
+            fields = [
+                f"`sources`={triage_value(details.get('source_field'))} -> "
+                f"{triage_value(details.get('sources'))}",
+                f"`telescopes`={triage_value(details.get('telescope_field'))} -> "
+                f"{triage_value(details.get('telescopes'))}",
+                f"`wavelengths`={triage_value(details.get('wavelength_field'))} -> "
+                f"{triage_value(details.get('wavelengths'))}",
+                f"`year`=`{details.get('year')}`",
+            ]
+            lines.append(f"  - fields: {'; '.join(fields)}")
+            lines.append(
+                "  - refs: "
+                f"resolved {triage_value(details.get('observation_refs'))}"
+            )
+    else:
+        lines.append("- None")
+
+    lines.extend(["", "## Legacy Text Isotopologue Detection Gaps", ""])
+    text_isotopologue_issues = [
+        issue
+        for issue in issues
+        if issue["kind"]
+        in {
+            "text_isotopologue_detection_incomplete",
+            "text_isotopologue_detection_metadata_missing",
+        }
+    ]
+    if text_isotopologue_issues:
+        for issue in text_isotopologue_issues:
+            details = issue["details"]
+            parent_name = (
+                f" name `{details['parent_name']}`"
+                if details.get("parent_name")
+                else ""
+            )
+            missing = triage_value(details.get("missing_fields"))
+            lines.append(
+                "- "
+                f"parent line {details['parent_line']} `{issue['legacy_var']}` "
+                f"formula `{details['parent_formula']}`{parent_name}; "
+                f"label `{details['molecule_label']}`; "
+                f"formula `{details['formula']}`; preview `{details['preview_formula']}`; "
+                f"table `{details['table_formula']}`; context `{details['context']}`; "
+                f"first `{details['first']}`; missing {missing}"
             )
 
             fields = [
@@ -1658,6 +2105,8 @@ def write_triage(path, report):
     for kind in (
         "extra_context_detection_incomplete",
         "extra_context_detection_metadata_missing",
+        "text_isotopologue_detection_incomplete",
+        "text_isotopologue_detection_metadata_missing",
         "nested_isotopologue_detection_incomplete",
         "nested_isotopologue_detection_metadata_missing",
         "missing_name_filled_from_formula",

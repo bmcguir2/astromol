@@ -1,20 +1,21 @@
 {
   "summary": {
-    "converted_molecules": 349,
-    "converted_detections": 489,
-    "issues": 164,
+    "converted_molecules": 359,
+    "converted_detections": 499,
+    "issues": 174,
     "issues_by_kind": {
       "extra_context_detection_metadata_missing": 139,
-      "nested_isotopologue_detection_metadata_missing": 25
+      "nested_isotopologue_detection_metadata_missing": 25,
+      "text_isotopologue_detection_metadata_missing": 10
     },
     "issues_by_severity": {
-      "info": 164
+      "info": 174
     },
-    "reference_mappings": 878,
+    "reference_mappings": 897,
     "reference_mappings_by_strategy": {
-      "free_text_alias": 36,
-      "free_text_metadata": 574,
-      "legacy_key_alias": 6,
+      "free_text_alias": 42,
+      "free_text_metadata": 586,
+      "legacy_key_alias": 7,
       "legacy_key_metadata": 262
     }
   },
@@ -72,6 +73,15 @@
       "original": "1980MNRAS.190P..17W",
       "mapped": "Whiteoak:1980:17P",
       "strategy": "legacy_key_metadata"
+    },
+    {
+      "legacy_var": "CH",
+      "formula": "CD",
+      "line": 1237,
+      "role": "observation",
+      "original": "Jacob et al. 2023 A&A 675, A69",
+      "mapped": "Jacob:2023:A69",
+      "strategy": "free_text_metadata"
     },
     {
       "legacy_var": "CN",
@@ -830,6 +840,15 @@
       "strategy": "free_text_metadata"
     },
     {
+      "legacy_var": "AlF",
+      "formula": "26AlF",
+      "line": 1712,
+      "role": "observation",
+      "original": "Kami\u0144ski et al. 2018 Nature Astronomy 2, 778",
+      "mapped": "Kaminski:2018:778",
+      "strategy": "free_text_metadata"
+    },
+    {
       "legacy_var": "PN",
       "formula": "PN",
       "line": 1730,
@@ -1479,6 +1498,24 @@
     },
     {
       "legacy_var": "H2O",
+      "formula": "HDO",
+      "line": 2261,
+      "role": "lab",
+      "original": "de Lucia et al. 1974 J Phys Chem Ref Data 3, 211",
+      "mapped": "DeLucia:1974:211",
+      "strategy": "free_text_metadata"
+    },
+    {
+      "legacy_var": "H2O",
+      "formula": "HDO",
+      "line": 2261,
+      "role": "lab",
+      "original": "Erlandsson & Cox 1956 J Chem Phys 25, 778",
+      "mapped": "Erlandsson:1956:778",
+      "strategy": "free_text_metadata"
+    },
+    {
+      "legacy_var": "H2O",
       "formula": "H2O",
       "line": 2261,
       "role": "observation",
@@ -1584,6 +1621,15 @@
       "original": "2014ApJ...783L..29L",
       "mapped": "Lockwood:2014:L29",
       "strategy": "legacy_key_metadata"
+    },
+    {
+      "legacy_var": "H2O",
+      "formula": "HDO",
+      "line": 2261,
+      "role": "observation",
+      "original": "Turner et al. 1975 ApJ 198, L125",
+      "mapped": "Turner:1975:L125",
+      "strategy": "free_text_metadata"
     },
     {
       "legacy_var": "HCOp",
@@ -2234,6 +2280,24 @@
       "strategy": "legacy_key_metadata"
     },
     {
+      "legacy_var": "C3",
+      "formula": "13CCC",
+      "line": 2694,
+      "role": "observation",
+      "original": "https://arxiv.org/abs/1911.09751",
+      "mapped": "Giesen:2020:A120",
+      "strategy": "free_text_alias"
+    },
+    {
+      "legacy_var": "C3",
+      "formula": "C13CC",
+      "line": 2694,
+      "role": "observation",
+      "original": "https://arxiv.org/abs/1911.09751",
+      "mapped": "Giesen:2020:A120",
+      "strategy": "free_text_alias"
+    },
+    {
       "legacy_var": "CO2",
       "formula": "CO2",
       "line": 2715,
@@ -2397,6 +2461,60 @@
     },
     {
       "legacy_var": "NH2",
+      "formula": "NHD",
+      "line": 2807,
+      "role": "lab",
+      "original": "Martin-Drumel et al. 2014 JPCA 118, 1331",
+      "mapped": "Martin-Drumel:2014:1331",
+      "strategy": "free_text_metadata"
+    },
+    {
+      "legacy_var": "NH2",
+      "formula": "NHD",
+      "line": 2807,
+      "role": "lab",
+      "original": "Melosso et al. 2017 ApJS 233, 1",
+      "mapped": "Melosso:2017:15",
+      "strategy": "free_text_alias"
+    },
+    {
+      "legacy_var": "NH2",
+      "formula": "NHD",
+      "line": 2807,
+      "role": "lab",
+      "original": "Bizzocchi et al. 2020 ApJS 247, 59",
+      "mapped": "Bizzocchi:2020:59",
+      "strategy": "free_text_metadata"
+    },
+    {
+      "legacy_var": "NH2",
+      "formula": "ND2",
+      "line": 2807,
+      "role": "lab",
+      "original": "Martin-Drumel et al. 2014 JPCA 118, 1331",
+      "mapped": "Martin-Drumel:2014:1331",
+      "strategy": "free_text_metadata"
+    },
+    {
+      "legacy_var": "NH2",
+      "formula": "ND2",
+      "line": 2807,
+      "role": "lab",
+      "original": "Melosso et al. 2017 ApJS 233, 1",
+      "mapped": "Melosso:2017:15",
+      "strategy": "free_text_alias"
+    },
+    {
+      "legacy_var": "NH2",
+      "formula": "ND2",
+      "line": 2807,
+      "role": "lab",
+      "original": "Bizzocchi et al. 2020 ApJS 247, 59",
+      "mapped": "Bizzocchi:2020:59",
+      "strategy": "free_text_metadata"
+    },
+    {
+      "legacy_var": "NH2",
       "formula": "NH2",
       "line": 2807,
       "role": "observation",
@@ -2412,6 +2530,24 @@
       "original": "2014A&A...566A.112M",
       "mapped": "Muller:2014:A112",
       "strategy": "legacy_key_metadata"
+    },
+    {
+      "legacy_var": "NH2",
+      "formula": "NHD",
+      "line": 2807,
+      "role": "observation",
+      "original": "Melosso et al. 2020 A&A 641, A153",
+      "mapped": "Melosso:2020:A153",
+      "strategy": "free_text_metadata"
+    },
+    {
+      "legacy_var": "NH2",
+      "formula": "ND2",
+      "line": 2807,
+      "role": "observation",
+      "original": "Melosso et al. 2020 A&A 641, A153",
+      "mapped": "Melosso:2020:A153",
+      "strategy": "free_text_metadata"
     },
     {
       "legacy_var": "NaCN",
@@ -4296,6 +4432,15 @@
     },
     {
       "legacy_var": "CH2CN",
+      "formula": "HDCCN",
+      "line": 4498,
+      "role": "lab",
+      "original": "Cabezas et al. 2021 A&A 646, 1",
+      "mapped": "Cabezas:2021:L1",
+      "strategy": "free_text_alias"
+    },
+    {
+      "legacy_var": "CH2CN",
       "formula": "CH2CN",
       "line": 4498,
       "role": "observation",
@@ -4320,6 +4465,15 @@
       "original": "2011A&A...535A.103M",
       "mapped": "Muller:2011:A103",
       "strategy": "legacy_key_metadata"
+    },
+    {
+      "legacy_var": "CH2CN",
+      "formula": "HDCCN",
+      "line": 4498,
+      "role": "observation",
+      "original": "Cabezas et al. 2021 A&A 646, 1",
+      "mapped": "Cabezas:2021:L1",
+      "strategy": "free_text_alias"
     },
     {
       "legacy_var": "C5",
@@ -5735,6 +5889,15 @@
       "strategy": "legacy_key_metadata"
     },
     {
+      "legacy_var": "CH3CHO",
+      "formula": "CHD2CHO",
+      "line": 6069,
+      "role": "observation",
+      "original": "Ferrer Asensio et al. 2023 A&A 670, A177",
+      "mapped": "FerrerAsensio:2023:A177",
+      "strategy": "free_text_metadata"
+    },
+    {
       "legacy_var": "CH3CCH",
       "formula": "CH3CCH",
       "line": 6105,
@@ -5894,6 +6057,15 @@
       "role": "observation",
       "original": "Dickens et al. 1997 ApJ 489, 753",
       "mapped": "Dickens:1997:753",
+      "strategy": "free_text_metadata"
+    },
+    {
+      "legacy_var": "cC2H4O",
+      "formula": "C2H3DO",
+      "line": 6230,
+      "role": "observation",
+      "original": "Muller et al. 2023 MNRAS 518, 185",
+      "mapped": "Muller:2023:185",
       "strategy": "free_text_metadata"
     },
     {
@@ -7603,8 +7775,8 @@
       "line": 8355,
       "role": "lab",
       "original": "1987BCSJ..60..3903",
-      "mapped": "Ford:1978:326",
-      "strategy": "free_text_metadata"
+      "mapped": "Sakaizumi:1987:3903",
+      "strategy": "legacy_key_alias"
     },
     {
       "legacy_var": "C5H5CN1",
@@ -7936,12 +8108,15 @@
         "flag": true,
         "molecule_label": "mol:CH",
         "missing_fields": [
-          "sources",
           "telescopes",
           "wavelengths"
         ],
         "source_field": "LMC, NGC 4945, NGC 5128",
-        "sources": [],
+        "sources": [
+          "LMC",
+          "NGC4945",
+          "NGC5128"
+        ],
         "telescope_field": null,
         "telescopes": [],
         "wavelength_field": null,
@@ -7949,6 +8124,42 @@
         "year": 1980,
         "observation_refs": [
           "Whiteoak:1980:17P"
+        ]
+      }
+    },
+    {
+      "kind": "text_isotopologue_detection_metadata_missing",
+      "severity": "info",
+      "legacy_var": "CH",
+      "name": "methylidyne",
+      "formula": "CD",
+      "line": 1237,
+      "message": "Legacy text isotopologue detection emitted with placeholder metadata.",
+      "details": {
+        "parent_line": 1237,
+        "parent_formula": "CH",
+        "parent_name": "methylidyne",
+        "parent_label": "mol:CH",
+        "context": "ISM/CSM",
+        "molecule_label": "mol:CD",
+        "formula": "CD",
+        "preview_formula": "C[2H]",
+        "table_formula": "CD",
+        "first": false,
+        "missing_fields": [
+          "sources",
+          "telescopes",
+          "wavelengths"
+        ],
+        "source_field": null,
+        "sources": [],
+        "telescope_field": null,
+        "telescopes": [],
+        "wavelength_field": null,
+        "wavelengths": [],
+        "year": 2023,
+        "observation_refs": [
+          "Jacob:2023:A69"
         ]
       }
     },
@@ -7995,12 +8206,15 @@
         "flag": true,
         "molecule_label": "mol:CN",
         "missing_fields": [
-          "sources",
           "telescopes",
           "wavelengths"
         ],
         "source_field": "M82, NGC 253, IC 342",
-        "sources": [],
+        "sources": [
+          "M82",
+          "NGC253",
+          "IC342"
+        ],
         "telescope_field": null,
         "telescopes": [],
         "wavelength_field": null,
@@ -8089,12 +8303,13 @@
         "flag": true,
         "molecule_label": "mol:CH+",
         "missing_fields": [
-          "sources",
           "telescopes",
           "wavelengths"
         ],
         "source_field": "LMC",
-        "sources": [],
+        "sources": [
+          "LMC"
+        ],
         "telescope_field": null,
         "telescopes": [],
         "wavelength_field": null,
@@ -8148,12 +8363,14 @@
         "flag": true,
         "molecule_label": "mol:OH",
         "missing_fields": [
-          "sources",
           "telescopes",
           "wavelengths"
         ],
         "source_field": "M82, NGC 253",
-        "sources": [],
+        "sources": [
+          "M82",
+          "NGC253"
+        ],
         "telescope_field": null,
         "telescopes": [],
         "wavelength_field": null,
@@ -8264,12 +8481,14 @@
         "flag": true,
         "molecule_label": "mol:CO",
         "missing_fields": [
-          "sources",
           "telescopes",
           "wavelengths"
         ],
         "source_field": "M82, NGC 253",
-        "sources": [],
+        "sources": [
+          "M82",
+          "NGC253"
+        ],
         "telescope_field": null,
         "telescopes": [],
         "wavelength_field": null,
@@ -8574,12 +8793,13 @@
         "flag": true,
         "molecule_label": "mol:H2",
         "missing_fields": [
-          "sources",
           "telescopes",
           "wavelengths"
         ],
         "source_field": "NGC 1068",
-        "sources": [],
+        "sources": [
+          "NGC1068"
+        ],
         "telescope_field": null,
         "telescopes": [],
         "wavelength_field": null,
@@ -8639,12 +8859,13 @@
         "flag": true,
         "molecule_label": "mol:SiO",
         "missing_fields": [
-          "sources",
           "telescopes",
           "wavelengths"
         ],
         "source_field": "NGC 253",
-        "sources": [],
+        "sources": [
+          "NGC253"
+        ],
         "telescope_field": null,
         "telescopes": [],
         "wavelength_field": null,
@@ -8699,12 +8920,14 @@
         "flag": true,
         "molecule_label": "mol:CS",
         "missing_fields": [
-          "sources",
           "telescopes",
           "wavelengths"
         ],
         "source_field": "M82, IC 342",
-        "sources": [],
+        "sources": [
+          "M82",
+          "IC342"
+        ],
         "telescope_field": null,
         "telescopes": [],
         "wavelength_field": null,
@@ -8831,12 +9054,14 @@
         "flag": true,
         "molecule_label": "mol:SO",
         "missing_fields": [
-          "sources",
           "telescopes",
           "wavelengths"
         ],
         "source_field": "M82, NGC 253",
-        "sources": [],
+        "sources": [
+          "M82",
+          "NGC253"
+        ],
         "telescope_field": null,
         "telescopes": [],
         "wavelength_field": null,
@@ -8962,12 +9187,13 @@
         "flag": true,
         "molecule_label": "mol:NS",
         "missing_fields": [
-          "sources",
           "telescopes",
           "wavelengths"
         ],
         "source_field": "NGC 253",
-        "sources": [],
+        "sources": [
+          "NGC253"
+        ],
         "telescope_field": null,
         "telescopes": [],
         "wavelength_field": null,
@@ -8991,12 +9217,13 @@
         "flag": true,
         "molecule_label": "mol:C2",
         "missing_fields": [
-          "sources",
           "telescopes",
           "wavelengths"
         ],
         "source_field": "SMC",
-        "sources": [],
+        "sources": [
+          "SMC"
+        ],
         "telescope_field": null,
         "telescopes": [],
         "wavelength_field": null,
@@ -9049,12 +9276,13 @@
         "flag": true,
         "molecule_label": "mol:NO",
         "missing_fields": [
-          "sources",
           "telescopes",
           "wavelengths"
         ],
         "source_field": "NGC 253",
-        "sources": [],
+        "sources": [
+          "NGC253"
+        ],
         "telescope_field": null,
         "telescopes": [],
         "wavelength_field": null,
@@ -9078,12 +9306,13 @@
         "flag": true,
         "molecule_label": "mol:HCl",
         "missing_fields": [
-          "sources",
           "telescopes",
           "wavelengths"
         ],
         "source_field": "PKS 1830-211 LOS",
-        "sources": [],
+        "sources": [
+          "PKS1830LOS"
+        ],
         "telescope_field": null,
         "telescopes": [],
         "wavelength_field": null,
@@ -9091,6 +9320,42 @@
         "year": 2019,
         "observation_refs": [
           "Wallstrom:2019:A128"
+        ]
+      }
+    },
+    {
+      "kind": "text_isotopologue_detection_metadata_missing",
+      "severity": "info",
+      "legacy_var": "AlF",
+      "name": "aluminum fluoride",
+      "formula": "26AlF",
+      "line": 1712,
+      "message": "Legacy text isotopologue detection emitted with placeholder metadata.",
+      "details": {
+        "parent_line": 1712,
+        "parent_formula": "AlF",
+        "parent_name": "aluminum fluoride",
+        "parent_label": "mol:AlF",
+        "context": "ISM/CSM",
+        "molecule_label": "mol:26AlF",
+        "formula": "26AlF",
+        "preview_formula": "[26Al]F",
+        "table_formula": "26AlF",
+        "first": false,
+        "missing_fields": [
+          "sources",
+          "telescopes",
+          "wavelengths"
+        ],
+        "source_field": null,
+        "sources": [],
+        "telescope_field": null,
+        "telescopes": [],
+        "wavelength_field": null,
+        "wavelengths": [],
+        "year": 2018,
+        "observation_refs": [
+          "Kaminski:2018:778"
         ]
       }
     },
@@ -9107,12 +9372,13 @@
         "flag": true,
         "molecule_label": "mol:PN",
         "missing_fields": [
-          "sources",
           "telescopes",
           "wavelengths"
         ],
         "source_field": "NGC 253",
-        "sources": [],
+        "sources": [
+          "NGC253"
+        ],
         "telescope_field": null,
         "telescopes": [],
         "wavelength_field": null,
@@ -9136,12 +9402,13 @@
         "flag": true,
         "molecule_label": "mol:NH",
         "missing_fields": [
-          "sources",
           "telescopes",
           "wavelengths"
         ],
         "source_field": "Arp 220",
-        "sources": [],
+        "sources": [
+          "Arp220"
+        ],
         "telescope_field": null,
         "telescopes": [],
         "wavelength_field": null,
@@ -9165,12 +9432,13 @@
         "flag": true,
         "molecule_label": "mol:SO+",
         "missing_fields": [
-          "sources",
           "telescopes",
           "wavelengths"
         ],
         "source_field": "PKS 1830-211 LOS",
-        "sources": [],
+        "sources": [
+          "PKS1830LOS"
+        ],
         "telescope_field": null,
         "telescopes": [],
         "wavelength_field": null,
@@ -9194,12 +9462,13 @@
         "flag": true,
         "molecule_label": "mol:CO+",
         "missing_fields": [
-          "sources",
           "telescopes",
           "wavelengths"
         ],
         "source_field": "M82",
-        "sources": [],
+        "sources": [
+          "M82"
+        ],
         "telescope_field": null,
         "telescopes": [],
         "wavelength_field": null,
@@ -9223,12 +9492,15 @@
         "flag": true,
         "molecule_label": "mol:HF",
         "missing_fields": [
-          "sources",
           "telescopes",
           "wavelengths"
         ],
         "source_field": "QSO Mrk 231, Arp 220, Cloverleaf LOS",
-        "sources": [],
+        "sources": [
+          "QSOMrk231",
+          "Arp220",
+          "CloverleafLOS"
+        ],
         "telescope_field": null,
         "telescopes": [],
         "wavelength_field": null,
@@ -9254,12 +9526,13 @@
         "flag": true,
         "molecule_label": "mol:CF+",
         "missing_fields": [
-          "sources",
           "telescopes",
           "wavelengths"
         ],
         "source_field": "PKS 1830-211 LOS",
-        "sources": [],
+        "sources": [
+          "PKS1830LOS"
+        ],
         "telescope_field": null,
         "telescopes": [],
         "wavelength_field": null,
@@ -9283,12 +9556,13 @@
         "flag": true,
         "molecule_label": "mol:O2",
         "missing_fields": [
-          "sources",
           "telescopes",
           "wavelengths"
         ],
         "source_field": "QSO Mrk 231",
-        "sources": [],
+        "sources": [
+          "QSOMrk231"
+        ],
         "telescope_field": null,
         "telescopes": [],
         "wavelength_field": null,
@@ -9312,12 +9586,15 @@
         "flag": true,
         "molecule_label": "mol:OH+",
         "missing_fields": [
-          "sources",
           "telescopes",
           "wavelengths"
         ],
         "source_field": "QSO Mrk 231, Arp 220, NGC 4418",
-        "sources": [],
+        "sources": [
+          "QSOMrk231",
+          "Arp220",
+          "NGC4418"
+        ],
         "telescope_field": null,
         "telescopes": [],
         "wavelength_field": null,
@@ -9343,12 +9620,13 @@
         "flag": true,
         "molecule_label": "mol:SH+",
         "missing_fields": [
-          "sources",
           "telescopes",
           "wavelengths"
         ],
         "source_field": "PKS 1830-211 LOS",
-        "sources": [],
+        "sources": [
+          "PKS1830LOS"
+        ],
         "telescope_field": null,
         "telescopes": [],
         "wavelength_field": null,
@@ -9403,12 +9681,13 @@
         "flag": true,
         "molecule_label": "mol:ArH+",
         "missing_fields": [
-          "sources",
           "telescopes",
           "wavelengths"
         ],
         "source_field": "PKS 1830-211 LOS",
-        "sources": [],
+        "sources": [
+          "PKS1830LOS"
+        ],
         "telescope_field": null,
         "telescopes": [],
         "wavelength_field": null,
@@ -9521,12 +9800,13 @@
         "flag": true,
         "molecule_label": "mol:H2O",
         "missing_fields": [
-          "sources",
           "telescopes",
           "wavelengths"
         ],
         "source_field": "M33",
-        "sources": [],
+        "sources": [
+          "M33"
+        ],
         "telescope_field": null,
         "telescopes": [],
         "wavelength_field": null,
@@ -9567,6 +9847,42 @@
           "Kreidberg:2014:L27",
           "Kreidberg:2015:66",
           "Lockwood:2014:L29"
+        ]
+      }
+    },
+    {
+      "kind": "text_isotopologue_detection_metadata_missing",
+      "severity": "info",
+      "legacy_var": "H2O",
+      "name": "water",
+      "formula": "HDO",
+      "line": 2261,
+      "message": "Legacy text isotopologue detection emitted with placeholder metadata.",
+      "details": {
+        "parent_line": 2261,
+        "parent_formula": "H2O",
+        "parent_name": "water",
+        "parent_label": "mol:H2O",
+        "context": "ISM/CSM",
+        "molecule_label": "mol:HDO",
+        "formula": "HDO",
+        "preview_formula": "H[2H]O",
+        "table_formula": "HDO",
+        "first": false,
+        "missing_fields": [
+          "sources",
+          "telescopes",
+          "wavelengths"
+        ],
+        "source_field": null,
+        "sources": [],
+        "telescope_field": null,
+        "telescopes": [],
+        "wavelength_field": null,
+        "wavelengths": [],
+        "year": 1975,
+        "observation_refs": [
+          "Turner:1975:L125"
         ]
       }
     },
@@ -9613,12 +9929,13 @@
         "flag": true,
         "molecule_label": "mol:HCO+",
         "missing_fields": [
-          "sources",
           "telescopes",
           "wavelengths"
         ],
         "source_field": "M82",
-        "sources": [],
+        "sources": [
+          "M82"
+        ],
         "telescope_field": null,
         "telescopes": [],
         "wavelength_field": null,
@@ -9781,12 +10098,14 @@
         "flag": true,
         "molecule_label": "mol:HCN",
         "missing_fields": [
-          "sources",
           "telescopes",
           "wavelengths"
         ],
         "source_field": "NGC 253, M82",
-        "sources": [],
+        "sources": [
+          "NGC253",
+          "M82"
+        ],
         "telescope_field": null,
         "telescopes": [],
         "wavelength_field": null,
@@ -9977,12 +10296,13 @@
         "flag": true,
         "molecule_label": "mol:OCS",
         "missing_fields": [
-          "sources",
           "telescopes",
           "wavelengths"
         ],
         "source_field": "NGC 253",
-        "sources": [],
+        "sources": [
+          "NGC253"
+        ],
         "telescope_field": null,
         "telescopes": [],
         "wavelength_field": null,
@@ -10035,12 +10355,13 @@
         "flag": true,
         "molecule_label": "mol:HNC",
         "missing_fields": [
-          "sources",
           "telescopes",
           "wavelengths"
         ],
         "source_field": "IC 342",
-        "sources": [],
+        "sources": [
+          "IC342"
+        ],
         "telescope_field": null,
         "telescopes": [],
         "wavelength_field": null,
@@ -10129,12 +10450,13 @@
         "flag": true,
         "molecule_label": "mol:H2S",
         "missing_fields": [
-          "sources",
           "telescopes",
           "wavelengths"
         ],
         "source_field": "LMC",
-        "sources": [],
+        "sources": [
+          "LMC"
+        ],
         "telescope_field": null,
         "telescopes": [],
         "wavelength_field": null,
@@ -10188,12 +10510,17 @@
         "flag": true,
         "molecule_label": "mol:N2H+",
         "missing_fields": [
-          "sources",
           "telescopes",
           "wavelengths"
         ],
         "source_field": "NGC 253, Maffei 2, IC 342, M82, NGC 6946",
-        "sources": [],
+        "sources": [
+          "NGC253",
+          "Maffei2",
+          "IC342",
+          "M82",
+          "NGC6946"
+        ],
         "telescope_field": null,
         "telescopes": [],
         "wavelength_field": null,
@@ -10282,12 +10609,13 @@
         "flag": true,
         "molecule_label": "mol:C2H",
         "missing_fields": [
-          "sources",
           "telescopes",
           "wavelengths"
         ],
         "source_field": "M82",
-        "sources": [],
+        "sources": [
+          "M82"
+        ],
         "telescope_field": null,
         "telescopes": [],
         "wavelength_field": null,
@@ -10376,12 +10704,13 @@
         "flag": true,
         "molecule_label": "mol:SO2",
         "missing_fields": [
-          "sources",
           "telescopes",
           "wavelengths"
         ],
         "source_field": "NGC 253",
-        "sources": [],
+        "sources": [
+          "NGC253"
+        ],
         "telescope_field": null,
         "telescopes": [],
         "wavelength_field": null,
@@ -10435,12 +10764,13 @@
         "flag": true,
         "molecule_label": "mol:HCO",
         "missing_fields": [
-          "sources",
           "telescopes",
           "wavelengths"
         ],
         "source_field": "M82",
-        "sources": [],
+        "sources": [
+          "M82"
+        ],
         "telescope_field": null,
         "telescopes": [],
         "wavelength_field": null,
@@ -10465,12 +10795,13 @@
         "flag": true,
         "molecule_label": "mol:HCS+",
         "missing_fields": [
-          "sources",
           "telescopes",
           "wavelengths"
         ],
         "source_field": "PKS 1830-211 LOS",
-        "sources": [],
+        "sources": [
+          "PKS1830LOS"
+        ],
         "telescope_field": null,
         "telescopes": [],
         "wavelength_field": null,
@@ -10494,12 +10825,13 @@
         "flag": true,
         "molecule_label": "mol:HOC+",
         "missing_fields": [
-          "sources",
           "telescopes",
           "wavelengths"
         ],
         "source_field": "NGC 1068",
-        "sources": [],
+        "sources": [
+          "NGC1068"
+        ],
         "telescope_field": null,
         "telescopes": [],
         "wavelength_field": null,
@@ -10523,14 +10855,15 @@
         "flag": true,
         "molecule_label": "mol:C2S",
         "missing_fields": [
-          "sources",
           "telescopes",
           "wavelengths"
         ],
         "source_field": [
           "GG Tau"
         ],
-        "sources": [],
+        "sources": [
+          "GGTau"
+        ],
         "telescope_field": null,
         "telescopes": [],
         "wavelength_field": null,
@@ -10554,12 +10887,13 @@
         "flag": true,
         "molecule_label": "mol:C2S",
         "missing_fields": [
-          "sources",
           "telescopes",
           "wavelengths"
         ],
         "source_field": "NGC 253",
-        "sources": [],
+        "sources": [
+          "NGC253"
+        ],
         "telescope_field": null,
         "telescopes": [],
         "wavelength_field": null,
@@ -10583,12 +10917,13 @@
         "flag": true,
         "molecule_label": "mol:C3",
         "missing_fields": [
-          "sources",
           "telescopes",
           "wavelengths"
         ],
         "source_field": "SMC",
-        "sources": [],
+        "sources": [
+          "SMC"
+        ],
         "telescope_field": null,
         "telescopes": [],
         "wavelength_field": null,
@@ -10596,6 +10931,78 @@
         "year": 2013,
         "observation_refs": [
           "Welty:2013:1107"
+        ]
+      }
+    },
+    {
+      "kind": "text_isotopologue_detection_metadata_missing",
+      "severity": "info",
+      "legacy_var": "C3",
+      "name": "tricarbon",
+      "formula": "13CCC",
+      "line": 2694,
+      "message": "Legacy text isotopologue detection emitted with placeholder metadata.",
+      "details": {
+        "parent_line": 2694,
+        "parent_formula": "C3",
+        "parent_name": "tricarbon",
+        "parent_label": "mol:C3",
+        "context": "ISM/CSM",
+        "molecule_label": "mol:13CCC",
+        "formula": "13CCC",
+        "preview_formula": "[13C]CC",
+        "table_formula": "13CCC",
+        "first": false,
+        "missing_fields": [
+          "sources",
+          "telescopes",
+          "wavelengths"
+        ],
+        "source_field": null,
+        "sources": [],
+        "telescope_field": null,
+        "telescopes": [],
+        "wavelength_field": null,
+        "wavelengths": [],
+        "year": 2020,
+        "observation_refs": [
+          "Giesen:2020:A120"
+        ]
+      }
+    },
+    {
+      "kind": "text_isotopologue_detection_metadata_missing",
+      "severity": "info",
+      "legacy_var": "C3",
+      "name": "tricarbon",
+      "formula": "C13CC",
+      "line": 2694,
+      "message": "Legacy text isotopologue detection emitted with placeholder metadata.",
+      "details": {
+        "parent_line": 2694,
+        "parent_formula": "C3",
+        "parent_name": "tricarbon",
+        "parent_label": "mol:C3",
+        "context": "ISM/CSM",
+        "molecule_label": "mol:C13CC",
+        "formula": "C13CC",
+        "preview_formula": "C[13C]C",
+        "table_formula": "C13CC",
+        "first": false,
+        "missing_fields": [
+          "sources",
+          "telescopes",
+          "wavelengths"
+        ],
+        "source_field": null,
+        "sources": [],
+        "telescope_field": null,
+        "telescopes": [],
+        "wavelength_field": null,
+        "wavelengths": [],
+        "year": 2020,
+        "observation_refs": [
+          "Giesen:2020:A120"
         ]
       }
     },
@@ -10738,12 +11145,13 @@
         "flag": true,
         "molecule_label": "mol:NH2",
         "missing_fields": [
-          "sources",
           "telescopes",
           "wavelengths"
         ],
         "source_field": "PKS 1830-211 LOS",
-        "sources": [],
+        "sources": [
+          "PKS1830LOS"
+        ],
         "telescope_field": null,
         "telescopes": [],
         "wavelength_field": null,
@@ -10751,6 +11159,78 @@
         "year": 2014,
         "observation_refs": [
           "Muller:2014:A112"
+        ]
+      }
+    },
+    {
+      "kind": "text_isotopologue_detection_metadata_missing",
+      "severity": "info",
+      "legacy_var": "NH2",
+      "name": "amidogen",
+      "formula": "NHD",
+      "line": 2807,
+      "message": "Legacy text isotopologue detection emitted with placeholder metadata.",
+      "details": {
+        "parent_line": 2807,
+        "parent_formula": "NH2",
+        "parent_name": "amidogen",
+        "parent_label": "mol:NH2",
+        "context": "ISM/CSM",
+        "molecule_label": "mol:NHD",
+        "formula": "NHD",
+        "preview_formula": "NH[2H]",
+        "table_formula": "NHD",
+        "first": false,
+        "missing_fields": [
+          "sources",
+          "telescopes",
+          "wavelengths"
+        ],
+        "source_field": null,
+        "sources": [],
+        "telescope_field": null,
+        "telescopes": [],
+        "wavelength_field": null,
+        "wavelengths": [],
+        "year": 2020,
+        "observation_refs": [
+          "Melosso:2020:A153"
+        ]
+      }
+    },
+    {
+      "kind": "text_isotopologue_detection_metadata_missing",
+      "severity": "info",
+      "legacy_var": "NH2",
+      "name": "amidogen",
+      "formula": "ND2",
+      "line": 2807,
+      "message": "Legacy text isotopologue detection emitted with placeholder metadata.",
+      "details": {
+        "parent_line": 2807,
+        "parent_formula": "NH2",
+        "parent_name": "amidogen",
+        "parent_label": "mol:NH2",
+        "context": "ISM/CSM",
+        "molecule_label": "mol:ND2",
+        "formula": "ND2",
+        "preview_formula": "N[2H]2",
+        "table_formula": "ND2",
+        "first": false,
+        "missing_fields": [
+          "sources",
+          "telescopes",
+          "wavelengths"
+        ],
+        "source_field": null,
+        "sources": [],
+        "telescope_field": null,
+        "telescopes": [],
+        "wavelength_field": null,
+        "wavelengths": [],
+        "year": 2020,
+        "observation_refs": [
+          "Melosso:2020:A153"
         ]
       }
     },
@@ -10767,12 +11247,13 @@
         "flag": true,
         "molecule_label": "mol:H3+",
         "missing_fields": [
-          "sources",
           "telescopes",
           "wavelengths"
         ],
         "source_field": "IRAS 08572+3915",
-        "sources": [],
+        "sources": [
+          "IRAS08572p3915"
+        ],
         "telescope_field": null,
         "telescopes": [],
         "wavelength_field": null,
@@ -10796,12 +11277,13 @@
         "flag": true,
         "molecule_label": "mol:H2O+",
         "missing_fields": [
-          "sources",
           "telescopes",
           "wavelengths"
         ],
         "source_field": "M82",
-        "sources": [],
+        "sources": [
+          "M82"
+        ],
         "telescope_field": null,
         "telescopes": [],
         "wavelength_field": null,
@@ -10825,12 +11307,13 @@
         "flag": true,
         "molecule_label": "mol:H2Cl+",
         "missing_fields": [
-          "sources",
           "telescopes",
           "wavelengths"
         ],
         "source_field": "PKS 1830-211 LOS",
-        "sources": [],
+        "sources": [
+          "PKS1830LOS"
+        ],
         "telescope_field": null,
         "telescopes": [],
         "wavelength_field": null,
@@ -10912,12 +11395,14 @@
         "flag": true,
         "molecule_label": "mol:NH3",
         "missing_fields": [
-          "sources",
           "telescopes",
           "wavelengths"
         ],
         "source_field": "IC 342, NGC 253",
-        "sources": [],
+        "sources": [
+          "IC342",
+          "NGC253"
+        ],
         "telescope_field": null,
         "telescopes": [],
         "wavelength_field": null,
@@ -10941,12 +11426,13 @@
         "flag": true,
         "molecule_label": "mol:NH3",
         "missing_fields": [
-          "sources",
           "telescopes",
           "wavelengths"
         ],
         "source_field": "HD 209458b",
-        "sources": [],
+        "sources": [
+          "HD209458b"
+        ],
         "telescope_field": null,
         "telescopes": [],
         "wavelength_field": null,
@@ -11028,12 +11514,14 @@
         "flag": true,
         "molecule_label": "mol:H2CO",
         "missing_fields": [
-          "sources",
           "telescopes",
           "wavelengths"
         ],
         "source_field": "NGC 253, NGC 4945",
-        "sources": [],
+        "sources": [
+          "NGC253",
+          "NGC4945"
+        ],
         "telescope_field": null,
         "telescopes": [],
         "wavelength_field": null,
@@ -11093,12 +11581,15 @@
         "flag": true,
         "molecule_label": "mol:HNCO",
         "missing_fields": [
-          "sources",
           "telescopes",
           "wavelengths"
         ],
         "source_field": "NGC 253, Maffei 2, IC 342",
-        "sources": [],
+        "sources": [
+          "NGC253",
+          "Maffei2",
+          "IC342"
+        ],
         "telescope_field": null,
         "telescopes": [],
         "wavelength_field": null,
@@ -11152,12 +11643,13 @@
         "flag": true,
         "molecule_label": "mol:H2CS",
         "missing_fields": [
-          "sources",
           "telescopes",
           "wavelengths"
         ],
         "source_field": "NGC 253",
-        "sources": [],
+        "sources": [
+          "NGC253"
+        ],
         "telescope_field": null,
         "telescopes": [],
         "wavelength_field": null,
@@ -11210,12 +11702,13 @@
         "flag": true,
         "molecule_label": "mol:C2H2",
         "missing_fields": [
-          "sources",
           "telescopes",
           "wavelengths"
         ],
         "source_field": "LMC",
-        "sources": [],
+        "sources": [
+          "LMC"
+        ],
         "telescope_field": null,
         "telescopes": [],
         "wavelength_field": null,
@@ -11239,12 +11732,13 @@
         "flag": true,
         "molecule_label": "mol:C2H2",
         "missing_fields": [
-          "sources",
           "telescopes",
           "wavelengths"
         ],
         "source_field": "HD 209458b",
-        "sources": [],
+        "sources": [
+          "HD209458b"
+        ],
         "telescope_field": null,
         "telescopes": [],
         "wavelength_field": null,
@@ -11304,12 +11798,13 @@
         "flag": true,
         "molecule_label": "mol:C3N",
         "missing_fields": [
-          "sources",
           "telescopes",
           "wavelengths"
         ],
         "source_field": "PKS 1830-211 LOS",
-        "sources": [],
+        "sources": [
+          "PKS1830LOS"
+        ],
         "telescope_field": null,
         "telescopes": [],
         "wavelength_field": null,
@@ -11333,12 +11828,13 @@
         "flag": true,
         "molecule_label": "mol:HOCO+",
         "missing_fields": [
-          "sources",
           "telescopes",
           "wavelengths"
         ],
         "source_field": "NGC 253",
-        "sources": [],
+        "sources": [
+          "NGC253"
+        ],
         "telescope_field": null,
         "telescopes": [],
         "wavelength_field": null,
@@ -11363,12 +11859,13 @@
         "flag": true,
         "molecule_label": "mol:l-C3H",
         "missing_fields": [
-          "sources",
           "telescopes",
           "wavelengths"
         ],
         "source_field": "PKS 1830-211 LOS",
-        "sources": [],
+        "sources": [
+          "PKS1830LOS"
+        ],
         "telescope_field": null,
         "telescopes": [],
         "wavelength_field": null,
@@ -11392,12 +11889,14 @@
         "flag": true,
         "molecule_label": "mol:H3O+",
         "missing_fields": [
-          "sources",
           "telescopes",
           "wavelengths"
         ],
         "source_field": "M82, Arp 220",
-        "sources": [],
+        "sources": [
+          "M82",
+          "Arp220"
+        ],
         "telescope_field": null,
         "telescopes": [],
         "wavelength_field": null,
@@ -11421,12 +11920,13 @@
         "flag": "Tentative",
         "molecule_label": "mol:c-C3H",
         "missing_fields": [
-          "sources",
           "telescopes",
           "wavelengths"
         ],
         "source_field": "NGC 253",
-        "sources": [],
+        "sources": [
+          "NGC253"
+        ],
         "telescope_field": null,
         "telescopes": [],
         "wavelength_field": null,
@@ -11450,12 +11950,13 @@
         "flag": true,
         "molecule_label": "mol:H2CN",
         "missing_fields": [
-          "sources",
           "telescopes",
           "wavelengths"
         ],
         "source_field": "PKS 1830-211 LOS",
-        "sources": [],
+        "sources": [
+          "PKS1830LOS"
+        ],
         "telescope_field": null,
         "telescopes": [],
         "wavelength_field": null,
@@ -11479,12 +11980,13 @@
         "flag": true,
         "molecule_label": "mol:HOCN",
         "missing_fields": [
-          "sources",
           "telescopes",
           "wavelengths"
         ],
         "source_field": "NGC 253",
-        "sources": [],
+        "sources": [
+          "NGC253"
+        ],
         "telescope_field": null,
         "telescopes": [],
         "wavelength_field": null,
@@ -11508,12 +12010,13 @@
         "flag": true,
         "molecule_label": "mol:l-C3H+",
         "missing_fields": [
-          "sources",
           "telescopes",
           "wavelengths"
         ],
         "source_field": "PKS 1830-211 LOS",
-        "sources": [],
+        "sources": [
+          "PKS1830LOS"
+        ],
         "telescope_field": null,
         "telescopes": [],
         "wavelength_field": null,
@@ -11537,12 +12040,13 @@
         "flag": true,
         "molecule_label": "mol:H2NC",
         "missing_fields": [
-          "sources",
           "telescopes",
           "wavelengths"
         ],
         "source_field": "PKS 1830-211 LOS",
-        "sources": [],
+        "sources": [
+          "PKS1830LOS"
+        ],
         "telescope_field": null,
         "telescopes": [],
         "wavelength_field": null,
@@ -11595,12 +12099,13 @@
         "flag": true,
         "molecule_label": "mol:HC3N",
         "missing_fields": [
-          "sources",
           "telescopes",
           "wavelengths"
         ],
         "source_field": "NGC 253",
-        "sources": [],
+        "sources": [
+          "NGC253"
+        ],
         "telescope_field": null,
         "telescopes": [],
         "wavelength_field": null,
@@ -11683,12 +12188,13 @@
         "flag": true,
         "molecule_label": "mol:HCOOH",
         "missing_fields": [
-          "sources",
           "telescopes",
           "wavelengths"
         ],
         "source_field": "PKS 1830-211 LOS",
-        "sources": [],
+        "sources": [
+          "PKS1830LOS"
+        ],
         "telescope_field": null,
         "telescopes": [],
         "wavelength_field": null,
@@ -11712,12 +12218,13 @@
         "flag": true,
         "molecule_label": "mol:CH2NH",
         "missing_fields": [
-          "sources",
           "telescopes",
           "wavelengths"
         ],
         "source_field": "PKS 1830-211 LOS",
-        "sources": [],
+        "sources": [
+          "PKS1830LOS"
+        ],
         "telescope_field": null,
         "telescopes": [],
         "wavelength_field": null,
@@ -11741,12 +12248,13 @@
         "flag": true,
         "molecule_label": "mol:NH2CN",
         "missing_fields": [
-          "sources",
           "telescopes",
           "wavelengths"
         ],
         "source_field": "NGC 253",
-        "sources": [],
+        "sources": [
+          "NGC253"
+        ],
         "telescope_field": null,
         "telescopes": [],
         "wavelength_field": null,
@@ -11770,12 +12278,13 @@
         "flag": true,
         "molecule_label": "mol:H2CCO",
         "missing_fields": [
-          "sources",
           "telescopes",
           "wavelengths"
         ],
         "source_field": "PKS 1830-211 LOS",
-        "sources": [],
+        "sources": [
+          "PKS1830LOS"
+        ],
         "telescope_field": null,
         "telescopes": [],
         "wavelength_field": null,
@@ -11799,12 +12308,13 @@
         "flag": true,
         "molecule_label": "mol:C4H",
         "missing_fields": [
-          "sources",
           "telescopes",
           "wavelengths"
         ],
         "source_field": "PKS 1830-211 LOS",
-        "sources": [],
+        "sources": [
+          "PKS1830LOS"
+        ],
         "telescope_field": null,
         "telescopes": [],
         "wavelength_field": null,
@@ -11857,12 +12367,13 @@
         "flag": true,
         "molecule_label": "mol:c-C3H2",
         "missing_fields": [
-          "sources",
           "telescopes",
           "wavelengths"
         ],
         "source_field": "NGC 5128",
-        "sources": [],
+        "sources": [
+          "NGC5128"
+        ],
         "telescope_field": null,
         "telescopes": [],
         "wavelength_field": null,
@@ -11915,12 +12426,13 @@
         "flag": true,
         "molecule_label": "mol:CH2CN",
         "missing_fields": [
-          "sources",
           "telescopes",
           "wavelengths"
         ],
         "source_field": "PKS 1830-211 LOS",
-        "sources": [],
+        "sources": [
+          "PKS1830LOS"
+        ],
         "telescope_field": null,
         "telescopes": [],
         "wavelength_field": null,
@@ -11928,6 +12440,42 @@
         "year": 2011,
         "observation_refs": [
           "Muller:2011:A103"
+        ]
+      }
+    },
+    {
+      "kind": "text_isotopologue_detection_metadata_missing",
+      "severity": "info",
+      "legacy_var": "CH2CN",
+      "name": "cyanomethyl radical",
+      "formula": "HDCCN",
+      "line": 4498,
+      "message": "Legacy text isotopologue detection emitted with placeholder metadata.",
+      "details": {
+        "parent_line": 4498,
+        "parent_formula": "CH2CN",
+        "parent_name": "cyanomethyl radical",
+        "parent_label": "mol:CH2CN",
+        "context": "ISM/CSM",
+        "molecule_label": "mol:HDCCN",
+        "formula": "HDCCN",
+        "preview_formula": "H[2H]CCN",
+        "table_formula": "HDCCN",
+        "first": false,
+        "missing_fields": [
+          "sources",
+          "telescopes",
+          "wavelengths"
+        ],
+        "source_field": null,
+        "sources": [],
+        "telescope_field": null,
+        "telescopes": [],
+        "wavelength_field": null,
+        "wavelengths": [],
+        "year": 2021,
+        "observation_refs": [
+          "Cabezas:2021:L1"
         ]
       }
     },
@@ -11944,12 +12492,13 @@
         "flag": true,
         "molecule_label": "mol:H2CCC",
         "missing_fields": [
-          "sources",
           "telescopes",
           "wavelengths"
         ],
         "source_field": "PKS 1830-211 LOS",
-        "sources": [],
+        "sources": [
+          "PKS1830LOS"
+        ],
         "telescope_field": null,
         "telescopes": [],
         "wavelength_field": null,
@@ -12157,12 +12706,14 @@
         "flag": true,
         "molecule_label": "mol:CH3OH",
         "missing_fields": [
-          "sources",
           "telescopes",
           "wavelengths"
         ],
         "source_field": "NGC 253, IC 342",
-        "sources": [],
+        "sources": [
+          "NGC253",
+          "IC342"
+        ],
         "telescope_field": null,
         "telescopes": [],
         "wavelength_field": null,
@@ -12215,12 +12766,13 @@
         "flag": true,
         "molecule_label": "mol:CH3CN",
         "missing_fields": [
-          "sources",
           "telescopes",
           "wavelengths"
         ],
         "source_field": "NGC 253",
-        "sources": [],
+        "sources": [
+          "NGC253"
+        ],
         "telescope_field": null,
         "telescopes": [],
         "wavelength_field": null,
@@ -12244,12 +12796,13 @@
         "flag": true,
         "molecule_label": "mol:NH2CHO",
         "missing_fields": [
-          "sources",
           "telescopes",
           "wavelengths"
         ],
         "source_field": "PKS 1830-211 LOS",
-        "sources": [],
+        "sources": [
+          "PKS1830LOS"
+        ],
         "telescope_field": null,
         "telescopes": [],
         "wavelength_field": null,
@@ -12273,12 +12826,13 @@
         "flag": true,
         "molecule_label": "mol:CH3SH",
         "missing_fields": [
-          "sources",
           "telescopes",
           "wavelengths"
         ],
         "source_field": "PKS 1830-211 LOS",
-        "sources": [],
+        "sources": [
+          "PKS1830LOS"
+        ],
         "telescope_field": null,
         "telescopes": [],
         "wavelength_field": null,
@@ -12302,12 +12856,13 @@
         "flag": true,
         "molecule_label": "mol:HC2CHO",
         "missing_fields": [
-          "sources",
           "telescopes",
           "wavelengths"
         ],
         "source_field": "NGC 253",
-        "sources": [],
+        "sources": [
+          "NGC253"
+        ],
         "telescope_field": null,
         "telescopes": [],
         "wavelength_field": null,
@@ -12360,12 +12915,13 @@
         "flag": true,
         "molecule_label": "mol:HC4H",
         "missing_fields": [
-          "sources",
           "telescopes",
           "wavelengths"
         ],
         "source_field": "SMP LMC 11",
-        "sources": [],
+        "sources": [
+          "SMPLMC11"
+        ],
         "telescope_field": null,
         "telescopes": [],
         "wavelength_field": null,
@@ -12418,12 +12974,13 @@
         "flag": true,
         "molecule_label": "mol:CH3CHO",
         "missing_fields": [
-          "sources",
           "telescopes",
           "wavelengths"
         ],
         "source_field": "PKS 1830-211 LOS",
-        "sources": [],
+        "sources": [
+          "PKS1830LOS"
+        ],
         "telescope_field": null,
         "telescopes": [],
         "wavelength_field": null,
@@ -12431,6 +12988,42 @@
         "year": 2011,
         "observation_refs": [
           "Muller:2011:A103"
+        ]
+      }
+    },
+    {
+      "kind": "text_isotopologue_detection_metadata_missing",
+      "severity": "info",
+      "legacy_var": "CH3CHO",
+      "name": "acetaldehyde",
+      "formula": "CHD2CHO",
+      "line": 6069,
+      "message": "Legacy text isotopologue detection emitted with placeholder metadata.",
+      "details": {
+        "parent_line": 6069,
+        "parent_formula": "CH3CHO",
+        "parent_name": "acetaldehyde",
+        "parent_label": "mol:CH3CHO",
+        "context": "ISM/CSM",
+        "molecule_label": "mol:CHD2CHO",
+        "formula": "CHD2CHO",
+        "preview_formula": "CH[2H]2CHO",
+        "table_formula": "CHD2CHO",
+        "first": false,
+        "missing_fields": [
+          "sources",
+          "telescopes",
+          "wavelengths"
+        ],
+        "source_field": null,
+        "sources": [],
+        "telescope_field": null,
+        "telescopes": [],
+        "wavelength_field": null,
+        "wavelengths": [],
+        "year": 2023,
+        "observation_refs": [
+          "FerrerAsensio:2023:A177"
         ]
       }
     },
@@ -12447,12 +13040,14 @@
         "flag": true,
         "molecule_label": "mol:CH3CCH",
         "missing_fields": [
-          "sources",
           "telescopes",
           "wavelengths"
         ],
         "source_field": "NGC 253, M82",
-        "sources": [],
+        "sources": [
+          "NGC253",
+          "M82"
+        ],
         "telescope_field": null,
         "telescopes": [],
         "wavelength_field": null,
@@ -12476,12 +13071,13 @@
         "flag": true,
         "molecule_label": "mol:CH3NH2",
         "missing_fields": [
-          "sources",
           "telescopes",
           "wavelengths"
         ],
         "source_field": "PKS 1830-211 LOS",
-        "sources": [],
+        "sources": [
+          "PKS1830LOS"
+        ],
         "telescope_field": null,
         "telescopes": [],
         "wavelength_field": null,
@@ -12505,12 +13101,13 @@
         "flag": true,
         "molecule_label": "mol:CH2CHCN",
         "missing_fields": [
-          "sources",
           "telescopes",
           "wavelengths"
         ],
         "source_field": "PKS 1830-211 LOS",
-        "sources": [],
+        "sources": [
+          "PKS1830LOS"
+        ],
         "telescope_field": null,
         "telescopes": [],
         "wavelength_field": null,
@@ -12534,12 +13131,13 @@
         "flag": "Tentative",
         "molecule_label": "mol:HC5N",
         "missing_fields": [
-          "sources",
           "telescopes",
           "wavelengths"
         ],
         "source_field": "NGC 253",
-        "sources": [],
+        "sources": [
+          "NGC253"
+        ],
         "telescope_field": null,
         "telescopes": [],
         "wavelength_field": null,
@@ -12576,6 +13174,42 @@
         "year": 2024,
         "observation_refs": [
           "Booth:2024:165"
+        ]
+      }
+    },
+    {
+      "kind": "text_isotopologue_detection_metadata_missing",
+      "severity": "info",
+      "legacy_var": "cC2H4O",
+      "name": "ethylene oxide",
+      "formula": "C2H3DO",
+      "line": 6230,
+      "message": "Legacy text isotopologue detection emitted with placeholder metadata.",
+      "details": {
+        "parent_line": 6230,
+        "parent_formula": "C2H4O",
+        "parent_name": "ethylene oxide",
+        "parent_label": "mol:c-C2H4O",
+        "context": "ISM/CSM",
+        "molecule_label": "mol:C2H3DO",
+        "formula": "C2H3DO",
+        "preview_formula": "C2H3[2H]O",
+        "table_formula": "C2H3DO",
+        "first": false,
+        "missing_fields": [
+          "sources",
+          "telescopes",
+          "wavelengths"
+        ],
+        "source_field": null,
+        "sources": [],
+        "telescope_field": null,
+        "telescopes": [],
+        "wavelength_field": null,
+        "wavelengths": [],
+        "year": 2023,
+        "observation_refs": [
+          "Muller:2023:185"
         ]
       }
     },
@@ -12621,12 +13255,13 @@
         "flag": true,
         "molecule_label": "mol:HCOOCH3",
         "missing_fields": [
-          "sources",
           "telescopes",
           "wavelengths"
         ],
         "source_field": "LMC",
-        "sources": [],
+        "sources": [
+          "LMC"
+        ],
         "telescope_field": null,
         "telescopes": [],
         "wavelength_field": null,
@@ -12650,12 +13285,13 @@
         "flag": true,
         "molecule_label": "mol:HC6H",
         "missing_fields": [
-          "sources",
           "telescopes",
           "wavelengths"
         ],
         "source_field": "SMP LMC 11",
-        "sources": [],
+        "sources": [
+          "SMPLMC11"
+        ],
         "telescope_field": null,
         "telescopes": [],
         "wavelength_field": null,
@@ -12737,12 +13373,14 @@
         "flag": true,
         "molecule_label": "mol:CH3OCH3",
         "missing_fields": [
-          "sources",
           "telescopes",
           "wavelengths"
         ],
         "source_field": "NGC 1068, LMC",
-        "sources": [],
+        "sources": [
+          "NGC1068",
+          "LMC"
+        ],
         "telescope_field": null,
         "telescopes": [],
         "wavelength_field": null,
@@ -12796,12 +13434,13 @@
         "flag": true,
         "molecule_label": "mol:CH3CH2OH",
         "missing_fields": [
-          "sources",
           "telescopes",
           "wavelengths"
         ],
         "source_field": "NGC 253",
-        "sources": [],
+        "sources": [
+          "NGC253"
+        ],
         "telescope_field": null,
         "telescopes": [],
         "wavelength_field": null,
@@ -12883,12 +13522,13 @@
         "flag": true,
         "molecule_label": "mol:C6H6",
         "missing_fields": [
-          "sources",
           "telescopes",
           "wavelengths"
         ],
         "source_field": "SMP LMC 11",
-        "sources": [],
+        "sources": [
+          "SMPLMC11"
+        ],
         "telescope_field": null,
         "telescopes": [],
         "wavelength_field": null,
