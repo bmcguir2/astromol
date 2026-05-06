@@ -24,6 +24,13 @@ astromol/
 `test_load.py` is a local smoke script. The data files may be incomplete during
 curation, but loaded cross-references must resolve for `Database()` to succeed.
 
+## Data Provenance
+
+The current `molecules.json`, `detections.json`, and `sources.json` baseline was
+promoted from the legacy conversion workflow in commit `67f37d9`. The final
+audited preview state is preserved in commit `0187018`; use those commits for
+the removed conversion scripts, staging reports, and legacy source data.
+
 ## Data Model
 
 ### Ref
