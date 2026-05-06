@@ -171,9 +171,10 @@ class LegacyConverter:
             if detection is not None:
                 detections.append(detection)
 
+            detections.extend(
+                self._convert_extra_context_detections(legacy, molecule["label"])
+            )
             detections.extend(self._convert_nested_isotopologue_detections(legacy))
-
-            self._report_omitted_extra_contexts(legacy)
 
         self._validate_preview(molecules, detections)
         return molecules, detections, self._issue_report(molecules, detections)
@@ -630,6 +631,114 @@ class LegacyConverter:
             "latex_text": None,
         }
 
+    def _convert_extra_context_detections(self, legacy, label):
+        detections = []
+        for context in EXTRA_CONTEXTS:
+            flag = legacy.get(context)
+            if flag not in (True, "Tentative"):
+                continue
+
+            detection = self._convert_extra_context_detection(
+                legacy, label, context, flag
+            )
+            if detection is not None:
+                detections.append(detection)
+
+        return detections
+
+    def _convert_extra_context_detection(self, legacy, label, context, flag):
+        source_value = legacy.get(f"{context}_sources")
+        telescope_value = legacy.get(f"{context}_telescopes")
+        wavelength_value = legacy.get(f"{context}_wavelengths")
+
+        sources = self._source_refs(
+            source_value, legacy, f"{context}_sources", emit_issue=False
+        )
+        telescopes = self._telescope_refs(
+            telescope_value, legacy, f"{context}_telescopes", emit_issue=False
+        )
+        wavelengths = self._wavelengths(wavelength_value, legacy, emit_issue=False)
+        observation_refs = self._extra_context_observation_refs(legacy, context)
+        self._extra_context_lab_refs(legacy, context)
+        year = self._context_detection_year(legacy, {}, context, observation_refs)
+
+        missing_metadata = []
+        if not sources:
+            missing_metadata.append("sources")
+        if not telescopes:
+            missing_metadata.append("telescopes")
+        if not wavelengths:
+            missing_metadata.append("wavelengths")
+
+        missing_required = []
+        if year is None:
+            missing_required.append("year")
+        if not observation_refs:
+            missing_required.append("observation_refs")
+
+        detection_metadata = {
+            "source_field": source_value,
+            "sources": sources,
+            "telescope_field": telescope_value,
+            "telescopes": telescopes,
+            "wavelength_field": wavelength_value,
+            "wavelengths": wavelengths,
+            "year": year,
+            "observation_refs": observation_refs,
+        }
+
+        if missing_metadata:
+            self._report_extra_context_detection_metadata_missing(
+                legacy,
+                label,
+                context,
+                flag,
+                missing_metadata,
+                detection_metadata,
+            )
+
+        if missing_required:
+            self._report_incomplete_extra_context_detection(
+                legacy,
+                label,
+                context,
+                flag,
+                missing_required,
+                detection_metadata,
+            )
+            return None
+
+        return {
+            "note": "Legacy detection flag: Tentative" if flag == "Tentative" else None,
+            "molecule": label,
+            "sources": sources,
+            "telescopes": telescopes,
+            "wavelengths": wavelengths,
+            "year": year,
+            "type": context,
+            "first": True,
+            "refs": {
+                "observation": observation_refs,
+            },
+            "latex_text": None,
+        }
+
+    def _extra_context_observation_refs(self, legacy, context):
+        return self._refs_from_fields(
+            legacy,
+            f"{context}_d_bib_ids",
+            f"{context}_d_refs",
+            "observation",
+        )
+
+    def _extra_context_lab_refs(self, legacy, context):
+        return self._refs_from_fields(
+            legacy,
+            f"{context}_l_bib_ids",
+            f"{context}_l_refs",
+            "lab",
+        )
+
     def _convert_nested_isotopologue_detections(self, legacy):
         detections = []
         for field in NESTED_ISOTOPOLOGUE_FIELDS:
@@ -662,7 +771,7 @@ class LegacyConverter:
         observation_refs = self._nested_isotopologue_observation_refs(
             nested_context, context
         )
-        year = self._nested_detection_year(legacy, item, context, observation_refs)
+        year = self._context_detection_year(legacy, item, context, observation_refs)
 
         missing_metadata = []
         if not sources:
@@ -757,7 +866,7 @@ class LegacyConverter:
             )
         return self._unique_preserve_order(refs)
 
-    def _nested_detection_year(self, legacy, item, context, observation_refs):
+    def _context_detection_year(self, legacy, item, context, observation_refs):
         for value in (
             item.get("year"),
             item.get(f"{context}_year"),
@@ -779,6 +888,51 @@ class LegacyConverter:
             return None
         match = re.search(r"\d{4}", str(value))
         return int(match.group(0)) if match else None
+
+    def _report_incomplete_extra_context_detection(
+        self, legacy, label, context, flag, missing, found
+    ):
+        self._report_extra_context_detection_issue(
+            "extra_context_detection_incomplete",
+            "Extra-context detection lacks required detection metadata.",
+            legacy,
+            label,
+            context,
+            flag,
+            missing,
+            found,
+        )
+
+    def _report_extra_context_detection_metadata_missing(
+        self, legacy, label, context, flag, missing, found
+    ):
+        self._report_extra_context_detection_issue(
+            "extra_context_detection_metadata_missing",
+            "Extra-context detection emitted with placeholder metadata.",
+            legacy,
+            label,
+            context,
+            flag,
+            missing,
+            found,
+        )
+
+    def _report_extra_context_detection_issue(
+        self, kind, message, legacy, label, context, flag, missing, found
+    ):
+        self._issue(
+            kind,
+            "info",
+            legacy,
+            message,
+            {
+                "context": context,
+                "flag": flag,
+                "molecule_label": label,
+                "missing_fields": missing,
+                **found,
+            },
+        )
 
     def _report_incomplete_nested_isotopologue_detection(
         self, legacy, item, field, context, label, missing, found
@@ -838,48 +992,51 @@ class LegacyConverter:
             },
         )
 
-    def _source_refs(self, values, legacy, field):
+    def _source_refs(self, values, legacy, field, emit_issue=True):
         refs = []
         for value in self._as_field_list(values):
             mapped = SOURCE_ALIASES.get(value, value)
             if mapped not in self.source_nicks:
-                self._issue(
-                    "unknown_source",
-                    "error",
-                    legacy,
-                    f"Unknown source '{value}' in field '{field}'.",
-                    {"field": field, "source": value, "mapped_source": mapped},
-                )
+                if emit_issue:
+                    self._issue(
+                        "unknown_source",
+                        "error",
+                        legacy,
+                        f"Unknown source '{value}' in field '{field}'.",
+                        {"field": field, "source": value, "mapped_source": mapped},
+                    )
                 continue
             refs.append(mapped)
         return refs
 
-    def _telescope_refs(self, values, legacy, field):
+    def _telescope_refs(self, values, legacy, field, emit_issue=True):
         refs = []
         for value in self._as_field_list(values):
             if value not in self.telescope_nicks:
-                self._issue(
-                    "unknown_telescope",
-                    "error",
-                    legacy,
-                    f"Unknown telescope '{value}' in field '{field}'.",
-                    {"field": field, "telescope": value},
-                )
+                if emit_issue:
+                    self._issue(
+                        "unknown_telescope",
+                        "error",
+                        legacy,
+                        f"Unknown telescope '{value}' in field '{field}'.",
+                        {"field": field, "telescope": value},
+                    )
                 continue
             refs.append(value)
         return refs
 
-    def _wavelengths(self, values, legacy):
+    def _wavelengths(self, values, legacy, emit_issue=True):
         wavelengths = []
         for value in self._as_field_list(values):
             if value not in ALLOWED_WAVELENGTHS:
-                self._issue(
-                    "unknown_wavelength",
-                    "error",
-                    legacy,
-                    f"Unknown wavelength '{value}'.",
-                    {"wavelength": value},
-                )
+                if emit_issue:
+                    self._issue(
+                        "unknown_wavelength",
+                        "error",
+                        legacy,
+                        f"Unknown wavelength '{value}'.",
+                        {"wavelength": value},
+                    )
                 continue
             wavelengths.append(value)
         return wavelengths
@@ -1196,41 +1353,6 @@ class LegacyConverter:
                 unique.append(value)
         return unique
 
-    def _report_omitted_extra_contexts(self, legacy):
-        for context in EXTRA_CONTEXTS:
-            flag = legacy.get(context)
-            if flag not in (True, "Tentative"):
-                continue
-
-            self._issue(
-                "extra_context_detection_omitted",
-                "info",
-                legacy,
-                f"Legacy '{context}' detection omitted from preview.",
-                {
-                    "context": context,
-                    "flag": flag,
-                    "source_field": legacy.get(f"{context}_sources"),
-                    "telescope_field": legacy.get(f"{context}_telescopes"),
-                    "wavelength_field": legacy.get(f"{context}_wavelengths"),
-                    "refs": legacy.get(f"{context}_d_bib_ids"),
-                    "free_text_refs": legacy.get(f"{context}_d_refs"),
-                },
-            )
-
-            self._refs_from_fields(
-                legacy,
-                f"{context}_d_bib_ids",
-                f"{context}_d_refs",
-                f"{context}_observation",
-            )
-            self._refs_from_fields(
-                legacy,
-                f"{context}_l_bib_ids",
-                f"{context}_l_refs",
-                f"{context}_lab",
-            )
-
     def _validate_preview(self, molecules, detections):
         labels = [molecule["label"] for molecule in molecules]
         for label, count in Counter(labels).items():
@@ -1445,6 +1567,47 @@ def write_triage(path, report):
     else:
         lines.append("- None")
 
+    lines.extend(["", "## Extra Context Detection Gaps", ""])
+    extra_issues = [
+        issue
+        for issue in issues
+        if issue["kind"]
+        in {
+            "extra_context_detection_incomplete",
+            "extra_context_detection_metadata_missing",
+        }
+    ]
+    if extra_issues:
+        for issue in extra_issues:
+            details = issue["details"]
+            name = f" name `{issue['name']}`" if issue.get("name") else ""
+            missing = triage_value(details.get("missing_fields"))
+            lines.append(
+                "- "
+                f"line {issue['line']} `{issue['legacy_var']}` "
+                f"formula `{issue['formula']}`{name}; "
+                f"label `{details['molecule_label']}`; "
+                f"context `{details['context']}`; flag `{details['flag']}`; "
+                f"missing {missing}"
+            )
+
+            fields = [
+                f"`sources`={triage_value(details.get('source_field'))} -> "
+                f"{triage_value(details.get('sources'))}",
+                f"`telescopes`={triage_value(details.get('telescope_field'))} -> "
+                f"{triage_value(details.get('telescopes'))}",
+                f"`wavelengths`={triage_value(details.get('wavelength_field'))} -> "
+                f"{triage_value(details.get('wavelengths'))}",
+                f"`year`=`{details.get('year')}`",
+            ]
+            lines.append(f"  - fields: {'; '.join(fields)}")
+            lines.append(
+                "  - refs: "
+                f"resolved {triage_value(details.get('observation_refs'))}"
+            )
+    else:
+        lines.append("- None")
+
     lines.extend(["", "## Nested Isotopologue Detection Gaps", ""])
     nested_issues = [
         issue
@@ -1491,9 +1654,10 @@ def write_triage(path, report):
     else:
         lines.append("- None")
 
-    lines.extend(["", "## Deferred Categories", ""])
+    lines.extend(["", "## Open Conversion/Metadata Issues", ""])
     for kind in (
-        "extra_context_detection_omitted",
+        "extra_context_detection_incomplete",
+        "extra_context_detection_metadata_missing",
         "nested_isotopologue_detection_incomplete",
         "nested_isotopologue_detection_metadata_missing",
         "missing_name_filled_from_formula",
