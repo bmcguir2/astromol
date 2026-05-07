@@ -93,10 +93,16 @@ Two scope modes are supported:
 - `CensusView.current(db)`: live database boundary. Accepted secure records are
   selected regardless of census label.
 
+Views exclude isotopologue records by default for molecule counts, context
+tables, source/facility counts, and other standard census products. Pass
+`include_isotopologues=True` to include isotopologue detections and molecules in
+the same census/context query. This option is available for all census scopes
+and all detection contexts.
+
 Before the 2026 census cutoff, `CensusView.for_census(db, "2026")` and
-`CensusView.current(db)` should return the same secure accepted detection sets.
-After the 2026 census is frozen, they may diverge as new post-2026 records are
-added to the live database.
+`CensusView.current(db)` should return the same secure accepted detection sets
+under the same isotopologue setting. After the 2026 census is frozen, they may
+diverge as new post-2026 records are added to the live database.
 
 Tentative and disputed detections are excluded by default. They can be included
 for historical reproduction or review with `include_tentative=True` and
@@ -113,7 +119,19 @@ filtering against raw JSON records.
 inputs are generated as filename-to-content mappings with `scalar_fragments`
 and can be written with `write_scalar_fragments`. Generated scalar fragments
 use the legacy `\endinput` convention so they can be included directly by
-LaTeX manuscript sources.
+LaTeX manuscript sources. ISM/CSM molecule tables are generated with
+`ism_table_fragments` and `write_ism_tables`. Use `layout="legacy"` for audited
+2021-style reproduction and `layout="balanced"` for production manuscript
+output. Membership comes from the view, table ordering uses first accepted
+non-isotopologue ISM/CSM detection date within each atom-count category, and
+balanced output enforces configurable row and column limits while preserving
+explicit molecule labels through `\molref{label}{formula}` cells. Main ISM/CSM
+molecule tables intentionally exclude isotopologue records. When balanced output
+splits one atom-count category across multiple columns, the shared category
+header is rendered with `\multicolumn` and centered over those columns.
+Production ISM tables use a `13+ Atoms` terminal atom-count category before
+PAHs and fullerenes, and should keep visual density constant or decreasing
+across successive table fragments.
 
 ## Data Model
 

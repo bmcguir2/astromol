@@ -40,7 +40,9 @@ class CensusView:
     Use :meth:`for_census` for frozen/historical census outputs and
     :meth:`current` for the live database. In census mode, accepted records are
     selected by ``history.accepted.census <= census``. In current mode,
-    accepted records are selected regardless of census label.
+    accepted records are selected regardless of census label. Context queries
+    exclude isotopologues by default; pass ``include_isotopologues=True`` for
+    isotope-expanded views.
     """
 
     db: object
@@ -130,8 +132,14 @@ class CensusView:
         *,
         include_tentative: bool = False,
         include_disputed: bool = False,
+        include_isotopologues: bool = False,
     ) -> list[Detection]:
-        """Return detections in this view, optionally restricted by type."""
+        """Return detections in this view, optionally restricted by type.
+
+        Isotopologue detections are excluded by default. Set
+        ``include_isotopologues=True`` when the expanded isotopologue inventory
+        is wanted.
+        """
         if detection_type is not None and detection_type not in DETECTION_TYPES:
             raise ValueError(
                 f"Unknown detection type '{detection_type}'. "
@@ -142,6 +150,10 @@ class CensusView:
             detection
             for detection in self.db.detections
             if (detection_type is None or detection.type == detection_type)
+            and (
+                include_isotopologues
+                or detection.molecule.isotopologue_of is None
+            )
             and self.detection_in_scope(
                 detection,
                 include_tentative=include_tentative,
@@ -163,12 +175,14 @@ class CensusView:
         *,
         include_tentative: bool = False,
         include_disputed: bool = False,
+        include_isotopologues: bool = False,
     ) -> list[Detection]:
         """Return detections for one context such as ``"ISM/CSM"``."""
         return self.detections(
             detection_type,
             include_tentative=include_tentative,
             include_disputed=include_disputed,
+            include_isotopologues=include_isotopologues,
         )
 
     def context_molecules(
@@ -177,14 +191,20 @@ class CensusView:
         *,
         include_tentative: bool = False,
         include_disputed: bool = False,
+        include_isotopologues: bool = False,
     ) -> list[Molecule]:
-        """Return unique molecules detected in one context."""
+        """Return unique molecules detected in one context.
+
+        Isotopologues are excluded by default and can be included with
+        ``include_isotopologues=True``.
+        """
         molecules = {
             detection.molecule.label: detection.molecule
             for detection in self.context_detections(
                 detection_type,
                 include_tentative=include_tentative,
                 include_disputed=include_disputed,
+                include_isotopologues=include_isotopologues,
             )
         }
         return sorted(
@@ -195,13 +215,25 @@ class CensusView:
             ),
         )
 
-    def accepted_molecules(self) -> list[Molecule]:
-        """Return molecule records accepted in this view by molecule history."""
+    def accepted_molecules(
+        self,
+        *,
+        include_isotopologues: bool = False,
+    ) -> list[Molecule]:
+        """Return molecule records accepted in this view by molecule history.
+
+        Isotopologues are excluded by default and can be included with
+        ``include_isotopologues=True``.
+        """
         return sorted(
             (
                 molecule
                 for molecule in self.db.molecules.values()
                 if self.accepted_record(molecule)
+                and (
+                    include_isotopologues
+                    or molecule.isotopologue_of is None
+                )
             ),
             key=lambda molecule: (
                 molecule.natoms,
@@ -255,6 +287,7 @@ class CensusView:
         *,
         include_tentative: bool = False,
         include_disputed: bool = False,
+        include_isotopologues: bool = False,
         key: str = "nick",
         group_diffuse_cloud: bool = False,
         diffuse_cloud_label: str = "DiffuseCloud",
@@ -273,6 +306,7 @@ class CensusView:
             detection_type,
             include_tentative=include_tentative,
             include_disputed=include_disputed,
+            include_isotopologues=include_isotopologues,
         ):
             for source in detection.sources:
                 if group_diffuse_cloud and source.type == "Diffuse Cloud":
@@ -289,6 +323,7 @@ class CensusView:
         *,
         include_tentative: bool = False,
         include_disputed: bool = False,
+        include_isotopologues: bool = False,
         key: str = "nick",
     ) -> Counter:
         """Count telescope/facility contributions for detections in this view."""
@@ -302,6 +337,7 @@ class CensusView:
             detection_type,
             include_tentative=include_tentative,
             include_disputed=include_disputed,
+            include_isotopologues=include_isotopologues,
         ):
             for telescope in detection.telescopes:
                 if key == "latex_name":

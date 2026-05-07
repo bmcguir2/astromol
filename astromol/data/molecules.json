@@ -1172,7 +1172,7 @@
   {
     "name": "sulfur monoxide",
     "formula": "[34S]O",
-    "table_formula": "34SO",
+    "table_formula": "^{34}SO",
     "label": "mol:34SO",
     "note": null,
     "iupac_name": null,
@@ -1221,7 +1221,7 @@
   {
     "name": "sulfur monoxide",
     "formula": "[33S]O",
-    "table_formula": "33SO",
+    "table_formula": "^{33}SO",
     "label": "mol:33SO",
     "note": null,
     "iupac_name": null,
@@ -1921,7 +1921,7 @@
   {
     "name": "aluminum fluoride",
     "formula": "[26Al]F",
-    "table_formula": "26AlF",
+    "table_formula": "^{26}AlF",
     "label": "mol:26AlF",
     "note": null,
     "iupac_name": null,
@@ -5645,7 +5645,7 @@
   {
     "name": "tricarbon",
     "formula": "[13C]CC",
-    "table_formula": "13CCC",
+    "table_formula": "^{13}CCC",
     "label": "mol:13CCC",
     "note": null,
     "iupac_name": null,
@@ -5694,7 +5694,7 @@
   {
     "name": "tricarbon",
     "formula": "C[13C]C",
-    "table_formula": "C13CC",
+    "table_formula": "C^{13}CC",
     "label": "mol:C13CC",
     "note": null,
     "iupac_name": null,
@@ -19101,7 +19101,7 @@
     "name": "ethynyl cyclopropenylidne",
     "formula": "C3HCCH",
     "table_formula": "c-C3HCCH",
-    "label": "mol:C3HCCH",
+    "label": "mol:c-C3HCCH",
     "note": null,
     "iupac_name": null,
     "selfies": null,

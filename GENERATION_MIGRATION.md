@@ -55,6 +55,7 @@ view = CensusView(db, census="2021")
 
 view.ism_detections()
 view.ism_molecules()
+view.ism_molecules(include_isotopologues=True)
 view.ppd_detections()
 view.exgal_detections(include_tentative=True)
 view.exoplanet_detections()
@@ -73,7 +74,7 @@ are excluded from accepted tables unless explicitly requested.
 | 0 | Inventory legacy functions and classify target destinations. | Complete |
 | 1 | Implement and verify `CensusView`. | Complete |
 | 2 | Port scalar LaTeX generators. | Complete |
-| 3 | Port LaTeX table generators. | Pending |
+| 3 | Port LaTeX table generators. | In progress |
 | 4 | Port figure data builders and plots. | Pending |
 | 5 | Port PowerPoint molecule slide generation. | Pending |
 | 6 | Add full-output orchestration and PDF-generation workflow. | Pending |
@@ -109,7 +110,7 @@ are excluded from accepted tables unless explicitly requested.
 | `waves_by_source_type` | 3155-3356 | Figure | `astromol.figures` | Pending | Visual comparison to 2021 figure |
 | `kappas` | 3359-3417 | Figure | `astromol.figures` | Pending | Visual comparison if retained |
 | `waves_pie_chart` | 3420-3556 | Figure | `astromol.figures` | Pending | Visual comparison if retained |
-| `make_ism_tables` | 3563-3720 | LaTeX table | `astromol.latex` | Pending | Reproduce 2021 ISM tables |
+| `make_ism_tables` | 3563-3720 | LaTeX table | `astromol.latex` | Complete | Reproduce 2021 ISM tables |
 | `make_exgal_count` | 3722-3739 | LaTeX scalar | `astromol.latex` | Complete | Reproduce `nexgal.tex` value |
 | `make_exgal_percent` | 3741-3758 | LaTeX scalar | `astromol.latex` | Complete | Reproduce `nexgalpercent.tex` value |
 | `_make_exgal_sentence` | 3760-3783 | LaTeX prose fragment | `astromol.latex` | Deferred | Rebuild with table/prose generation |
@@ -156,17 +157,24 @@ Each dependency should be justified by the migrated code:
 `test_census_view.py` verifies the shared view layer against the audited
 historical table memberships:
 
+- Census views exclude isotopologues by default and expose the isotope-expanded
+  record with `include_isotopologues=True`.
 - 2018 ISM/CSM: 204 secure molecules
 - 2018 extragalactic: 63 secure, 65 with tentative rows
 - 2018 exoplanet: 5 secure molecules
-- 2018 PPD: 35 secure molecules
+- 2018 PPD: 23 secure non-isotopologue molecules, 35 with isotopologues
 - 2021 ISM/CSM: 240 secure molecules
 - 2021 extragalactic: 73 secure, 75 with tentative rows
 - 2021 exoplanet: 9 secure molecules
-- 2021 PPD: 40 secure molecules
+- 2021 PPD: 25 secure non-isotopologue molecules, 40 with isotopologues
+- 2026/current ISM/CSM: 325 secure non-isotopologue molecules, 335 with
+  isotopologues
+- 2026/current exoplanet: 11 secure non-isotopologue molecules, 13 with
+  isotopologues
+- 2026/current PPD: 34 secure non-isotopologue molecules, 57 with isotopologues
 - 2021 source/facility contribution counts
 - 2026 census view and current view currently return identical secure
-  accepted detection sets by context
+  accepted detection sets by context under both isotopologue settings
 
 ## Completed Scalar LaTeX Verification
 
@@ -204,8 +212,60 @@ The legacy `_make_exgal_sentence` prose fragment is deferred to the table/prose
 generation phase because its output depends on manuscript phrasing rather than
 a standalone scalar value.
 
+## Completed ISM Table Verification
+
+`astromol.latex` now provides `ism_table_fragments` and `write_ism_tables`,
+which port the legacy `make_ism_tables` output through `CensusView`. The
+renderer supports `layout="legacy"` for audited 2021 reproduction and
+`layout="balanced"` for production manuscript output. Table membership comes
+from accepted non-isotopologue ISM/CSM detections in the view, while ordering
+within each atom-count column uses the first accepted ISM/CSM detection date.
+Molecule links use the compact `\molref{label}{formula}` macro instead of
+repeating full `\hyperref...\ce...` markup in every table cell.
+
+`test_latex_ism_tables.py` verifies the generated 2021 legacy ISM table
+fragments:
+
+| Check | Generated value | Verified value | Result |
+| --- | ---: | ---: | --- |
+| `ism_table_2-7.tex` molecule links | 186 | 186 | Match |
+| `ism_table_8+.tex` molecule links | 54 | 54 | Match |
+| Total linked 2021 ISM/CSM molecules | 240 | 240 | Match |
+| `ism_table_2-7.tex` rendered rows | 23 | 23 | Match |
+| `ism_table_8+.tex` rendered rows | 15 | 15 | Match |
+| 2-7 atom column lengths | `21, 20, 23, 22, 16, 15, 16, 15, 23, 15` | Same | Match |
+| 8+ atom column lengths | `15, 14, 6, 6, 5, 2, 3, 3` | Same | Match |
+| Linked molecule-label set | 2021 accepted ISM/CSM labels | 2021 accepted ISM/CSM labels | Match |
+
+The same test verifies the balanced 2026/current-oriented layout:
+
+| Check | Generated value | Verified value | Result |
+| --- | ---: | ---: | --- |
+| Balanced table fragments | 3 | 3 | Match |
+| Balanced table column counts | `7, 7, 6` | Non-increasing density | Match |
+| Maximum columns per table | 7 | <= 7 | Match |
+| Maximum rows per column | 23 | <= 23 | Match |
+| Total linked 2026 ISM/CSM molecules | 325 | 325 | Match |
+| Linked molecule-label set | 2026 accepted non-isotopologue ISM/CSM labels | 2026 accepted non-isotopologue ISM/CSM labels | Match |
+| Duplicate linked labels | 0 | 0 | Match |
+
+The main ISM molecule table intentionally excludes isotopologue records. The
+balanced layout includes an explicit `13+ Atoms` category before PAHs and
+fullerenes so large non-PAH/non-fullerene molecules remain represented as the
+database grows. When a category is split across multiple columns, the column
+header is rendered once with `\multicolumn` so the atom-count label remains
+centered over the split columns, matching the 2021 manuscript style. A portrait
+AASTeX preview of the current balanced tables was generated successfully during
+the migration check; standalone preview warnings for unresolved molecule
+hyperlinks are expected because the full manuscript section labels are not
+present in the preview wrapper. The production layout packs earlier tables at
+least as densely as later tables so the visual density stays constant or
+decreases across table number; the current 2026/current-oriented output uses
+seven, seven, and six columns across the three table fragments.
+
 ## Immediate Next Step
 
-Begin porting LaTeX table generators, starting with `make_ism_tables`. Table
-generation should consume `CensusView` and reuse the scalar/output helpers
+Continue porting LaTeX table generators. The next candidates are
+`make_exgal_table`, `make_ppd_table`, `make_exo_table`, and `make_ice_table`.
+Table generation should consume `CensusView` and reuse shared output helpers
 rather than reimplementing census membership filters.

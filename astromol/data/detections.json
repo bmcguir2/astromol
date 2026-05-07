@@ -15703,9 +15703,9 @@
     }
   },
   {
-    "id": "det:C3HCCH:ism-csm:2021",
+    "id": "det:c-C3HCCH:ism-csm:2021",
     "note": null,
-    "molecule": "mol:C3HCCH",
+    "molecule": "mol:c-C3HCCH",
     "sources": [
       "TMC1"
     ],

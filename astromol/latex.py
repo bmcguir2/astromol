@@ -3,6 +3,9 @@
 from __future__ import annotations
 
 from collections.abc import Iterable
+from dataclasses import dataclass
+from datetime import date
+from math import ceil
 from pathlib import Path
 
 import numpy as np
@@ -12,6 +15,32 @@ from .models import Detection, Molecule
 
 
 RADIO_WAVELENGTHS = {"cm", "mm", "sub-mm"}
+MOLREF_COMMAND = r"\providecommand{\molref}[2]{\hyperref[#1]{\ce{#2}}}"
+BALANCED_ISM_MAX_COLUMNS = 7
+BALANCED_ISM_MAX_ROWS = 23
+
+
+ISM_TABLE_TWO_SEVEN_SPEC = (
+    r"\begin{tabular*}{\textwidth}{l l @{\extracolsep{\fill}} l l  "
+    r"@{\extracolsep{\fill}} l l  @{\extracolsep{\fill}} l l "
+    r"@{\extracolsep{\fill}} l @{\extracolsep{\fill}} l}"
+)
+
+ISM_TABLE_EIGHT_MORE_SPEC = (
+    r"\begin{tabular*}{\textwidth}{l @{\extracolsep{\fill}} l "
+    r"@{\extracolsep{\fill}} l @{\extracolsep{\fill}} l "
+    r"@{\extracolsep{\fill}} l @{\extracolsep{\fill}} l "
+    r"@{\extracolsep{\fill}} l @{\extracolsep{\fill}} l }"
+)
+
+
+@dataclass(frozen=True)
+class TableColumn:
+    """One logical molecule-table column."""
+
+    header: str
+    anchor: str
+    molecules: list[Molecule]
 
 
 def endinput(value: object) -> str:
@@ -25,6 +54,145 @@ def write_fragments(fragments: dict[str, str], output_dir: str | Path = ".") -> 
     output_path.mkdir(parents=True, exist_ok=True)
     for filename, content in fragments.items():
         (output_path / filename).write_text(content)
+
+
+def molecule_link(molecule: Molecule) -> str:
+    """Return a hyperlinked mhchem formula for a molecule."""
+    return rf"\molref{{{molecule.label}}}{{{molecule.table_formula}}}"
+
+
+def linked_header(anchor: str, text: str) -> str:
+    """Return a hyperlinked table-column header."""
+    return rf"\hyperref[{anchor}]{{{text}}}"
+
+
+def first_detection_sort_keys(
+    detections: Iterable[Detection],
+) -> dict[str, tuple]:
+    """Return first-detection sort keys by molecule label."""
+    keys = {}
+    for detection in detections:
+        label = detection.molecule.label
+        key = (
+            detection.sortdate,
+            detection.molecule.label,
+            detection.id,
+        )
+        if label not in keys or key < keys[label]:
+            keys[label] = key
+    return keys
+
+
+def molecules_by_first_detection(
+    molecules: Iterable[Molecule],
+    detections: Iterable[Detection],
+) -> list[Molecule]:
+    """Sort molecules by first detection represented in ``detections``."""
+    keys = first_detection_sort_keys(detections)
+    return sorted(
+        molecules,
+        key=lambda molecule: keys.get(
+            molecule.label,
+            (date.max, molecule.label, ""),
+        ),
+    )
+
+
+def split_legacy_pair_column(
+    values: list[Molecule],
+) -> tuple[list[Molecule], list[Molecule]]:
+    """Split legacy paired table columns using the historical midpoint rule."""
+    midpoint = int(len(values) / 2) + 1
+    return values[:midpoint], values[midpoint:]
+
+
+def split_balanced_columns(
+    values: list[Molecule],
+    max_rows: int,
+) -> list[list[Molecule]]:
+    """Split values into balanced chunks with no chunk over ``max_rows``."""
+    if not values:
+        return [[]]
+    nchunks = ceil(len(values) / max_rows)
+    chunk_size = ceil(len(values) / nchunks)
+    return [
+        values[index : index + chunk_size]
+        for index in range(0, len(values), chunk_size)
+    ]
+
+
+def table_rows(columns: list[list[Molecule]]) -> list[str]:
+    """Render molecule columns as LaTeX table rows."""
+    nlines = max(len(column) for column in columns)
+    rows = []
+    for index in range(nlines):
+        row = []
+        for column in columns:
+            row.append(molecule_link(column[index]) if index < len(column) else "")
+        rows.append("\t&\t".join(row) + r"\\")
+    return rows
+
+
+def table_column_rows(columns: list[TableColumn]) -> list[str]:
+    """Render logical table columns as LaTeX rows."""
+    return table_rows([column.molecules for column in columns])
+
+
+def table_column_header(columns: list[TableColumn]) -> str:
+    """Render logical table-column headers with grouped split columns."""
+    cells = []
+    index = 0
+    while index < len(columns):
+        column = columns[index]
+        span = 1
+        while (
+            index + span < len(columns)
+            and columns[index + span].header == column.header
+            and columns[index + span].anchor == column.anchor
+        ):
+            span += 1
+
+        linked = linked_header(column.anchor, column.header)
+        if span == 1:
+            cells.append(linked)
+        else:
+            cells.append(rf"\multicolumn{{{span}}}{{c}}{{{linked}}}")
+        index += span
+
+    return " & ".join(cells) + r" \\"
+
+
+def tabular_spec(ncols: int) -> str:
+    """Return a flexible full-width tabular specification."""
+    cols = " ".join(["l"] * ncols)
+    return rf"\begin{{tabular*}}{{\textwidth}}{{@{{\extracolsep{{\fill}}}} {cols} @{{}}}}"
+
+
+def latex_table_fragment(
+    *,
+    caption: str,
+    tabular_spec: str,
+    header: str,
+    rows: list[str],
+    label: str,
+) -> str:
+    """Render a complete LaTeX table fragment."""
+    lines = [
+        MOLREF_COMMAND,
+        r"\begin{table*}",
+        r"\centering",
+        rf"\caption{{{caption}}}",
+        tabular_spec,
+        r"\hline\hline",
+        header,
+        r"\hline",
+        *rows,
+        r"\hline",
+        r"\end{tabular*}",
+        rf"\label{{{label}}}",
+        r"\end{table*}\endinput",
+    ]
+    return "\n".join(lines)
 
 
 def molecule_count(view: CensusView) -> int:
@@ -55,13 +223,8 @@ def context_molecule_count(
         detection_type,
         include_tentative=include_tentative,
         include_disputed=include_disputed,
+        include_isotopologues=include_isotopologues,
     )
-    if not include_isotopologues:
-        molecules = [
-            molecule
-            for molecule in molecules
-            if molecule.isotopologue_of is None
-        ]
     return len(molecules)
 
 
@@ -79,7 +242,7 @@ def ppd_isotopologue_count(view: CensusView) -> int:
     return len(
         [
             molecule
-            for molecule in view.ppd_molecules()
+            for molecule in view.ppd_molecules(include_isotopologues=True)
             if molecule.isotopologue_of is not None
         ]
     )
@@ -284,5 +447,286 @@ def write_scalar_fragments(
 ) -> dict[str, str]:
     """Write standard scalar LaTeX fragments and return generated content."""
     fragments = scalar_fragments(view)
+    write_fragments(fragments, output_dir)
+    return fragments
+
+
+def ism_table_molecules(view: CensusView) -> list[Molecule]:
+    """Return non-isotopologue ISM/CSM molecules for the main molecule table."""
+    return [
+        molecule
+        for molecule in view.ism_molecules()
+        if molecule.isotopologue_of is None
+    ]
+
+
+def ism_table_detections(view: CensusView) -> list[Detection]:
+    """Return non-isotopologue ISM/CSM detections for table ordering."""
+    return [
+        detection
+        for detection in view.ism_detections()
+        if detection.molecule.isotopologue_of is None
+    ]
+
+
+def ism_table_columns(
+    view: CensusView,
+) -> tuple[list[list[Molecule]], list[list[Molecule]]]:
+    """Return legacy ISM/CSM table columns for a census view."""
+    molecules = molecules_by_first_detection(
+        ism_table_molecules(view),
+        ism_table_detections(view),
+    )
+    by_natoms = {
+        natoms: [
+            molecule
+            for molecule in molecules
+            if molecule.natoms == natoms
+        ]
+        for natoms in range(2, 14)
+    }
+
+    two_a, two_b = split_legacy_pair_column(by_natoms[2])
+    three_a, three_b = split_legacy_pair_column(by_natoms[3])
+    four_a, four_b = split_legacy_pair_column(by_natoms[4])
+    five_a, five_b = split_legacy_pair_column(by_natoms[5])
+
+    two_seven = [
+        two_a,
+        two_b,
+        three_a,
+        three_b,
+        four_a,
+        four_b,
+        five_a,
+        five_b,
+        by_natoms[6],
+        by_natoms[7],
+    ]
+    eight_more = [
+        by_natoms[8],
+        by_natoms[9],
+        by_natoms[10],
+        by_natoms[11],
+        by_natoms[12],
+        by_natoms[13],
+        [molecule for molecule in molecules if molecule.pah],
+        [molecule for molecule in molecules if molecule.fullerene],
+    ]
+    return two_seven, eight_more
+
+
+def balanced_ism_table_columns(
+    view: CensusView,
+    *,
+    max_rows: int = BALANCED_ISM_MAX_ROWS,
+    max_columns: int = BALANCED_ISM_MAX_COLUMNS,
+) -> list[list[TableColumn]]:
+    """Return balanced ISM/CSM table columns packed into table groups."""
+    if max_rows < 1:
+        raise ValueError("max_rows must be at least 1.")
+    if max_columns < 1:
+        raise ValueError("max_columns must be at least 1.")
+
+    molecules = molecules_by_first_detection(
+        ism_table_molecules(view),
+        ism_table_detections(view),
+    )
+    categories = []
+    for natoms in range(2, 13):
+        categories.append(
+            (
+                f"{natoms} Atoms",
+                f"{natoms}atoms",
+                [
+                    molecule
+                    for molecule in molecules
+                    if molecule.natoms == natoms
+                    and not molecule.pah
+                    and not molecule.fullerene
+                ],
+            )
+        )
+    categories.append(
+        (
+            "13+ Atoms",
+            "13plusatoms",
+            [
+                molecule
+                for molecule in molecules
+                if molecule.natoms >= 13
+                and not molecule.pah
+                and not molecule.fullerene
+            ],
+        )
+    )
+    categories.extend(
+        [
+            ("PAHs", "pahs", [molecule for molecule in molecules if molecule.pah]),
+            (
+                "Fullerenes",
+                "fullerenes",
+                [molecule for molecule in molecules if molecule.fullerene],
+            ),
+        ]
+    )
+
+    category_groups = []
+    for header, anchor, values in categories:
+        if not values:
+            continue
+        category_groups.append(
+            [
+                TableColumn(header, anchor, chunk)
+                for chunk in split_balanced_columns(values, max_rows)
+            ]
+        )
+
+    groups = []
+    current_group = []
+    for category_group in category_groups:
+        remaining = category_group
+        while remaining:
+            available = max_columns - len(current_group)
+            if available == 0:
+                groups.append(current_group)
+                current_group = []
+                available = max_columns
+
+            if len(remaining) <= available:
+                current_group.extend(remaining)
+                remaining = []
+            else:
+                if current_group:
+                    groups.append(current_group)
+                    current_group = []
+                else:
+                    groups.append(remaining[:max_columns])
+                    remaining = remaining[max_columns:]
+
+    if current_group:
+        groups.append(current_group)
+    return groups
+
+
+def legacy_ism_table_fragments(
+    view: CensusView,
+    basename: str = "ism_table",
+) -> dict[str, str]:
+    """Return the two legacy 2021-style ISM/CSM molecule table fragments."""
+    two_seven, eight_more = ism_table_columns(view)
+    caption = (
+        "List of detected interstellar molecules with {atom_range} atoms, "
+        "categorized by number of atoms, and vertically ordered by detection "
+        "year.  Column headers and molecule formulas are in-document "
+        "hyperlinks in most PDF viewers."
+    )
+    return {
+        f"{basename}_2-7.tex": latex_table_fragment(
+            caption=caption.format(atom_range="two to seven"),
+            tabular_spec=ISM_TABLE_TWO_SEVEN_SPEC,
+            header=(
+                r"\multicolumn{2}{c}{\hyperref[2atoms]{2 Atoms}} &"
+                r"\multicolumn{2}{c}{\hyperref[3atoms]{3 Atoms}}& "
+                r"\multicolumn{2}{c}{\hyperref[4atoms]{4 Atoms}} & "
+                r"\multicolumn{2}{c}{\hyperref[5atoms]{5 Atoms}} & "
+                r"\hyperref[6atoms]{6 Atoms} & "
+                r"\hyperref[7atoms]{7 Atoms} \\"
+            ),
+            rows=table_rows(two_seven),
+            label="two_seven",
+        ),
+        f"{basename}_8+.tex": latex_table_fragment(
+            caption=caption.format(atom_range="eight or more"),
+            tabular_spec=ISM_TABLE_EIGHT_MORE_SPEC,
+            header=(
+                r"\hyperref[8atoms]{8 Atoms} & "
+                r"\hyperref[9atoms]{9 Atoms} & "
+                r"\hyperref[10atoms]{10 Atoms} & "
+                r"\hyperref[11atoms]{11 Atoms} & "
+                r"\hyperref[12atoms]{12 Atoms} & "
+                r"\hyperref[13atoms]{13 Atoms} & "
+                r"\hyperref[pahs]{PAHs} & "
+                r"\hyperref[fullerenes]{Fullerenes}  \\"
+            ),
+            rows=table_rows(eight_more),
+            label="eight_more",
+        ),
+    }
+
+
+def balanced_ism_table_fragments(
+    view: CensusView,
+    basename: str = "ism_table",
+    *,
+    max_rows: int = BALANCED_ISM_MAX_ROWS,
+    max_columns: int = BALANCED_ISM_MAX_COLUMNS,
+) -> dict[str, str]:
+    """Return balanced, future-oriented ISM/CSM molecule table fragments."""
+    groups = balanced_ism_table_columns(
+        view,
+        max_rows=max_rows,
+        max_columns=max_columns,
+    )
+    fragments = {}
+    for index, columns in enumerate(groups, start=1):
+        fragments[f"{basename}_{index}.tex"] = latex_table_fragment(
+            caption=(
+                "List of detected interstellar molecules, categorized by "
+                "number of atoms or molecular family, and vertically ordered "
+                "by detection year.  Column headers and molecule formulas are "
+                "in-document hyperlinks in most PDF viewers."
+            ),
+            tabular_spec=tabular_spec(len(columns)),
+            header=table_column_header(columns),
+            rows=table_column_rows(columns),
+            label=f"ism_molecules_{index}",
+        )
+    return fragments
+
+
+def ism_table_fragments(
+    view: CensusView,
+    basename: str = "ism_table",
+    *,
+    layout: str = "balanced",
+    max_rows: int = BALANCED_ISM_MAX_ROWS,
+    max_columns: int = BALANCED_ISM_MAX_COLUMNS,
+) -> dict[str, str]:
+    """Return ISM/CSM molecule table fragments.
+
+    ``layout="legacy"`` reproduces the two historical audit tables.
+    ``layout="balanced"`` produces future-oriented tables constrained by
+    ``max_rows`` and ``max_columns``.
+    """
+    if layout == "legacy":
+        return legacy_ism_table_fragments(view, basename)
+    if layout == "balanced":
+        return balanced_ism_table_fragments(
+            view,
+            basename,
+            max_rows=max_rows,
+            max_columns=max_columns,
+        )
+    raise ValueError("ISM table layout must be 'legacy' or 'balanced'.")
+
+
+def write_ism_tables(
+    view: CensusView,
+    output_dir: str | Path = ".",
+    basename: str = "ism_table",
+    *,
+    layout: str = "balanced",
+    max_rows: int = BALANCED_ISM_MAX_ROWS,
+    max_columns: int = BALANCED_ISM_MAX_COLUMNS,
+) -> dict[str, str]:
+    """Write standard ISM/CSM molecule tables and return generated content."""
+    fragments = ism_table_fragments(
+        view,
+        basename,
+        layout=layout,
+        max_rows=max_rows,
+        max_columns=max_columns,
+    )
     write_fragments(fragments, output_dir)
     return fragments
