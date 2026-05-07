@@ -25546,5 +25546,63 @@
         }
       ]
     }
+  },
+  {
+    "name": "cyanate anion",
+    "formula": "OCN-",
+    "table_formula": "OCN-",
+    "label": "mol:OCN-",
+    "note": null,
+    "iupac_name": null,
+    "selfies": null,
+    "synonyms": [],
+    "smiles": null,
+    "canonical_smiles": null,
+    "inchi": null,
+    "inchikey": null,
+    "radical_override": null,
+    "fullerene": false,
+    "pah": false,
+    "n_rings": 0,
+    "cyclic": false,
+    "tags": {},
+    "rotcon": {
+      "B": 11514,
+      "refs": [
+        "Lattanzi:2010:1717"
+      ]
+    },
+    "dipole": {
+      "a": 1.504,
+      "refs": [
+        "Pak:1997:5123"
+      ]
+    },
+    "refs": {
+      "lab": [
+        "Schutte:1997:L43",
+        "Lattanzi:2010:1717"
+      ],
+      "computation": [
+        "Pak:1997:5123"
+      ]
+    },
+    "isotopologue_of": null,
+    "latex_section_override": null,
+    "latex_body": "There is a long history of attempts to identify the carrier of the ``XCN\" feature in astrophyiscal ice observations near 2167~cm$^{-1}$.  On the basis of extensive laboratory work (see, e.g., \\citealt{Schutte:1997:L43}), \\citet{vanBroekhuizen:2005:249} claim an identification of \\ce{OCN-} in ices along numerous sightlines to low-mass YSO's using the Very Large Telescope (VLT).  Only a single absorption feature could be ascribed to \\ce{OCN-}.  As this is a single feature detection, and no gas-phase detection has been claimed, \\ce{OCN-} has been listed as a tentative interstellar species in this census.",
+    "history": {
+      "introduced": {
+        "date": "2026-05-07"
+      },
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "added",
+          "summary": "Added molecule record.",
+          "date": "2026-05-07",
+          "fields": []
+        }
+      ]
+    }
   }
 ]

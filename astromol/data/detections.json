@@ -11570,5 +11570,50 @@
         }
       ]
     }
+  },
+  {
+    "id": "det:OCN-:ice:2005",
+    "note": "Claimed OCN- ice identification near 2167 cm^-1 along numerous low-mass YSO sightlines.",
+    "molecule": "mol:OCN-",
+    "sources": [],
+    "telescopes": [
+      "VLT"
+    ],
+    "wavelengths": [
+      "IR"
+    ],
+    "year": 2005,
+    "type": "ice",
+    "status": "tentative",
+    "status_note": "Listed in the 2021 census Tentative Detections section.",
+    "first": false,
+    "month": null,
+    "day": null,
+    "refs": {
+      "observation": [
+        "vanBroekhuizen:2005:249"
+      ]
+    },
+    "confirms": [],
+    "confirmed_by": [],
+    "disputes": [],
+    "disputed_by": [],
+    "supersedes": [],
+    "superseded_by": [],
+    "latex_text": null,
+    "history": {
+      "introduced": {
+        "date": "2026-05-07"
+      },
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "added",
+          "summary": "Added detection record.",
+          "date": "2026-05-07",
+          "fields": []
+        }
+      ]
+    }
   }
 ]

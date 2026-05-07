@@ -780,6 +780,36 @@
         }
       ]
     }
+  },
+
+  {
+    "_break": "==========================================",
+    "name": "Very Large Telescope",
+    "nick": "VLT",
+    "shortname": "VLT",
+    "type": "Optical/IR",
+    "wavelength": ["IR", "Vis"],
+    "diameter": 8.2,
+    "latitude": -24.6272,
+    "longitude": -70.4042,
+    "built": 1998,
+    "decommissioned": null,
+    "latex_name": "VLT",
+    "note": null,
+    "history": {
+      "introduced": {
+        "date": "2026-05-07"
+      },
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "added",
+          "summary": "Added telescope record.",
+          "date": "2026-05-07",
+          "fields": []
+        }
+      ]
+    }
   }
 
 ]
