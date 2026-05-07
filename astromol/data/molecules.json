@@ -25425,5 +25425,67 @@
         }
       ]
     }
+  },
+  {
+    "name": "cyanophosphaethyne",
+    "formula": "NCCP",
+    "table_formula": "NCCP",
+    "label": "mol:NCCP",
+    "note": null,
+    "iupac_name": "phosphanylidyneacetonitrile",
+    "selfies": null,
+    "synonyms": [
+      "phosphanylidyneacetonitrile"
+    ],
+    "smiles": "C(#N)C#P",
+    "canonical_smiles": null,
+    "inchi": "1S/C2NP/c3-1-2-4",
+    "inchikey": "ZDTBSGXXDJXYMT-UHFFFAOYSA-N",
+    "radical_override": null,
+    "fullerene": false,
+    "pah": false,
+    "n_rings": 0,
+    "cyclic": false,
+    "tags": {
+      "functional_groups": [
+        "CN"
+      ]
+    },
+    "rotcon": {
+      "B": 2704,
+      "refs": [
+        "Bizzocchi:2001:110"
+      ]
+    },
+    "dipole": {
+      "a": 3.44,
+      "refs": [
+        "Cooper:1980:333"
+      ]
+    },
+    "refs": {
+      "lab": [
+        "Bizzocchi:2001:110",
+        "Cooper:1980:333"
+      ],
+      "computation": []
+    },
+    "isotopologue_of": null,
+    "latex_section_override": null,
+    "latex_body": "\\citet{Agundez:2014:A45} reported the tentative detection of \\ce{NCCP} in IRAM 30-m observations of IRC+10216.  They identified and tentatively assigned three signals in their spectra to the $J = 15\\rightarrow14$, $16\\rightarrow15$, and $18\\rightarrow17$ transitions of \\ce{NCCP} at 81, 87, and 97~GHz, respectively, based on the laboratory work of \\citet{Bizzocchi:2001:110}.",
+    "history": {
+      "introduced": {
+        "date": "2026-05-07"
+      },
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "added",
+          "summary": "Added molecule record.",
+          "date": "2026-05-07",
+          "fields": []
+        }
+      ]
+    }
   }
 ]

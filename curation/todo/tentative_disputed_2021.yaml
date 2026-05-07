@@ -139,29 +139,3 @@
   refs:
     observation:
     - Cernicharo:2014:40
-- kind: molecule
-  label: mol:NCCP
-  name: cyanophosphaethyne
-  formula: NCCP
-  refs:
-    lab:
-    - Bizzocchi:2001:110
-    computation: []
-  latex_body: \citet{Agundez:2014:A45} reported the tentative detection of \ce{NCCP} in IRAM 30-m observations of IRC+10216.  They identified and tentatively assigned three signals in their spectra to the $J = 15\rightarrow14$, $16\rightarrow15$, and $18\rightarrow17$ transitions of \ce{NCCP} at 81, 87, and 97~GHz, respectively, based on the laboratory work of \citet{Bizzocchi:2001:110}.
-- kind: detection
-  id: det:NCCP:ism-csm:2014
-  molecule: mol:NCCP
-  sources:
-  - IRC10216
-  telescopes:
-  - IRAM30
-  wavelengths:
-  - mm
-  year: 2014
-  type: ISM/CSM
-  status: tentative
-  status_note: Listed in the 2021 census Tentative Detections section.
-  first: false
-  refs:
-    observation:
-    - Agundez:2014:A45
