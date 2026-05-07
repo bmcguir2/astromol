@@ -120,33 +120,6 @@
   _raw_telescopes_not_mapped:
   - VLT
 - kind: molecule
-  label: mol:C2H-
-  name: ethynylide anion
-  formula: C2H-
-  refs:
-    lab:
-    - Brunken:2007:L33
-    computation:
-    - Amano:2008:244305
-  latex_body: \citet{Cernicharo:2008:L83} suggest that an unidentified line at 83.278\,GHz, classified as U83278, in IRAM 30-m observations of IRC+10216 may be due to the $J = 1\rightarrow0$ transition of \ce{C2H-}.  Although they list no source for their line frequency, it presumably is derived from the work of \citet{Brunken:2007:L33} and \citet{Amano:2008:244305}.
-- kind: detection
-  id: det:C2H-:ism-csm:2008
-  molecule: mol:C2H-
-  sources:
-  - IRC10216
-  telescopes:
-  - IRAM30
-  wavelengths:
-  - mm
-  year: 2008
-  type: ISM/CSM
-  status: tentative
-  status_note: Listed in the 2021 census Tentative Detections section.
-  first: false
-  refs:
-    observation:
-    - Cernicharo:2008:L83
-- kind: molecule
   label: mol:C6H5OH
   name: phenol
   formula: C6H5OH

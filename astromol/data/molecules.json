@@ -25184,5 +25184,64 @@
         }
       ]
     }
+  },
+  {
+    "name": "acetylide anion",
+    "formula": "C2H-",
+    "table_formula": "C2H-",
+    "label": "mol:C2H-",
+    "note": null,
+    "iupac_name": null,
+    "selfies": null,
+    "synonyms": [],
+    "smiles": null,
+    "canonical_smiles": null,
+    "inchi": null,
+    "inchikey": null,
+    "radical_override": null,
+    "fullerene": false,
+    "pah": false,
+    "n_rings": 0,
+    "cyclic": false,
+    "tags": {},
+    "rotcon": {
+      "B": 41639,
+      "refs": [
+        "Brunken:2007:L33",
+        "Amano:2008:244305"
+      ]
+    },
+    "dipole": {
+      "a": 3.09,
+      "refs": [
+        "Mladenovic:1998:134"
+      ]
+    },
+    "refs": {
+      "lab": [
+        "Brunken:2007:L33",
+        "Amano:2008:244305"
+      ],
+      "computation": [
+        "Mladenovic:1998:134"
+      ]
+    },
+    "isotopologue_of": null,
+    "latex_section_override": null,
+    "latex_body": "\\citet{Cernicharo:2008:L83} suggest that an unidentified line at 83.278\\,GHz, classified as U83278, in IRAM 30-m observations of IRC+10216 may be due to the $J = 1\\rightarrow0$ transition of \\ce{C2H-}.  Although they list no source for their line frequency, it presumably is derived from the work of \\citet{Brunken:2007:L33} and \\citet{Amano:2008:244305}.",
+    "history": {
+      "introduced": {
+        "date": "2026-05-07"
+      },
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "added",
+          "summary": "Added molecule record.",
+          "date": "2026-05-07",
+          "fields": []
+        }
+      ]
+    }
   }
 ]
