@@ -41,12 +41,19 @@ FORMULA_ALIASES = {
 
 CITATION_ALIASES = {
     "Agundez:2018tm": "Agundez:2018:L22",
+    "Bernath:2005dw": "Bernath:2005:1",
+    "brett_a_mcguire_2021_5046939": "McGuire:2021:astromol",
+    "Brogan:2015cg": "ALMAPartnership:2015:L3",
     "Brunken:2007fx": "Brunken:2007:L43",
     "Buhl:1973tp": "Buhl:1973:187",
+    "Burkhardt:2016bs": "Burkhardt:2016:21",
     "Campbell:2016hl": "Campbell:2016:17",
+    "Condon:2016tr": "Condon:2016:1",
+    "Cooke:2016hw": "Cooke:2016:5",
     "Cord:1968kw": "Cord:1968:",
     "Decin:2018ju": "Decin:2018:113",
     "Godfrey:1997wv": "Godfrey:1997:405",
+    "Gordy:1984uy": "Gordy:1984:1",
     "Gottlieb:1973vc": "Gottlieb:1973:181",
     "Gusten:2019cj": "Gusten:2019:357",
     "Hoeft:1965fh": "Hoeft:1965:1327",
@@ -59,9 +66,19 @@ CITATION_ALIASES = {
     "Kukolich:1965ey": "Kukolich:1965:1322",
     "Lee:2021pd": "Lee:2021:L11",
     "Lee:2021ud": "Lee:2021:L2a",
+    "McCall:2013db": "McCall:2013:20120604",
+    "McGuire:2013bb": "McGuire:2013:1",
     "Morino:2000ff": "Morino:2000:367",
+    "Remijan:2008rt": "Remijan:2008:1",
     "RodriguezAlmeida:2021ht": "Rodriguez-Almeida:2021:L11",
+    "Schlawin:2018cq": "Schlawin:2018:40",
+    "Shklovskii:1953me": "Shklovsky:1953:25",
+    "Tielens:2005ux": "Tielens:2005:1",
+    "Townes:1975ve": "Townes:2013:1",
     "Torring:1968pd": "Torring:1968:777",
+    "vanderTak:2011wd": "vanderTak:2011:449",
+    "Walsh:2017nw": "Walsh:2016:L10",
+    "Willacy:2003if": "Willacy:2004:L87",
 }
 
 
@@ -469,6 +486,13 @@ def build_citation_map(old_refs: dict[str, dict], current_refs: dict[str, dict[s
 CITE_RE = re.compile(r"\\cite(?P<kind>t|p|alt)?\{(?P<keys>[^{}]+)\}")
 
 
+def cited_keys(text: str) -> set[str]:
+    keys = set()
+    for match in CITE_RE.finditer(text):
+        keys.update(key.strip() for key in match.group("keys").split(",") if key.strip())
+    return keys
+
+
 def rewrite_citations(text: str, citation_map: dict[str, dict]) -> tuple[str, list[dict], list[str]]:
     replacements = []
     unresolved = []
@@ -508,7 +532,11 @@ def prefix_marker(entry: dict) -> str | None:
     return None
 
 
-def make_report(import_rows: list[dict], citation_map: dict[str, dict]) -> str:
+def make_report(
+    import_rows: list[dict],
+    citation_map: dict[str, dict],
+    manuscript_cited_keys: set[str],
+) -> str:
     mapped_rows = [row for row in import_rows if row["status"] == "mapped"]
     problem_rows = [row for row in import_rows if row["status"] != "mapped"]
     citation_counts = Counter(
@@ -521,6 +549,11 @@ def make_report(import_rows: list[dict], citation_map: dict[str, dict]) -> str:
         for row in import_rows
         for key in row.get("unresolved_citations", [])
     )
+    unresolved_not_used = [old for old in unresolved_cites if old not in used_unresolved]
+    preserved_existing_rows = [
+        row for row in mapped_rows
+        if row.get("preview_action") == "preserved_existing_latex_body"
+    ]
 
     lines = []
     lines.append("# LaTeX Body Import Preview")
@@ -535,6 +568,8 @@ def make_report(import_rows: list[dict], citation_map: dict[str, dict]) -> str:
     lines.append(f"- Old bibliography entries parsed: {len(citation_map)}")
     lines.append(f"- Old citation keys mapped to current keys: {len(mapped_cites)}")
     lines.append(f"- Old citation keys not mapped: {len(unresolved_cites)}")
+    lines.append(f"- Unmapped old citation keys used in imported molecule bodies: {sum(used_unresolved.values())}")
+    lines.append(f"- Existing molecule `latex_body` values preserved: {len(preserved_existing_rows)}")
     lines.append("")
     lines.append("Preview artifacts:")
     lines.append(f"- `{PREVIEW_PATH.relative_to(ROOT)}`: full molecule JSON preview with imported `latex_body` values.")
@@ -593,17 +628,19 @@ def make_report(import_rows: list[dict], citation_map: dict[str, dict]) -> str:
                 lines.append(f"  - modern table_formula: `{row['modern_table_formula']}`")
     lines.append("")
 
-    lines.append("## Mapped Non-Known Sections")
+    lines.append("## Previously Tentative/Disputed Sections")
     lines.append("")
     non_known_rows = [
         row for row in import_rows
         if row["status"] == "mapped" and row["section"] != "Known Interstellar Molecules"
     ]
     if not non_known_rows:
-        lines.append("No non-known sections mapped to modern molecules.")
+        lines.append("No previously tentative/disputed manuscript sections mapped to modern molecules.")
     else:
         lines.append(
-            "These imported bodies came from old tentative/disputed sections and may need prose updates."
+            "These old manuscript sections now map to modern molecule records because their "
+            "detection status is represented explicitly in detections.json. This list is "
+            "informational and preserved for import traceability."
         )
         lines.append("")
         for row in non_known_rows:
@@ -634,6 +671,47 @@ def make_report(import_rows: list[dict], citation_map: dict[str, dict]) -> str:
     else:
         for key, count in used_unresolved.most_common():
             lines.append(f"- {count}x `{key}`")
+    lines.append("")
+
+    lines.append("## Unmapped Old Bibliography Entries Not Used In Imported Bodies")
+    lines.append("")
+    if not unresolved_not_used:
+        lines.append("No unmapped old bibliography entries remain outside imported molecule bodies.")
+    else:
+        lines.append(
+            "These old bibliography entries could not be mapped to current `references.bib` keys, "
+            "but they are not cited by any imported molecule subsection. Entries marked "
+            "`outside imported molecule subsections` are cited elsewhere in the old manuscript; "
+            "`bibliography-only` means no citation was found before the old bibliography block."
+        )
+        lines.append("")
+        for key in unresolved_not_used:
+            old_ref = citation_map[key]["old_reference"]
+            usage = (
+                "outside imported molecule subsections"
+                if key in manuscript_cited_keys
+                else "bibliography-only"
+            )
+            ref_preview = " ".join(old_ref.get("body", "").split())
+            if len(ref_preview) > 180:
+                ref_preview = ref_preview[:177] + "..."
+            lines.append(f"- `{key}` ({usage}): {ref_preview}")
+    lines.append("")
+
+    lines.append("## Existing LaTeX Bodies Preserved")
+    lines.append("")
+    if not preserved_existing_rows:
+        lines.append("No existing molecule `latex_body` values needed preservation.")
+    else:
+        lines.append(
+            "These molecules already had curated `latex_body` values. The preview preserves "
+            "the existing production prose instead of overwriting it with imported manuscript text."
+        )
+        lines.append("")
+        for row in preserved_existing_rows:
+            lines.append(
+                f"- line {row['tex_line']} `{row['tex_title_plain']}` -> `{row['label']}`"
+            )
     lines.append("")
 
     lines.append("## Mapped Body Previews")
@@ -667,6 +745,8 @@ def main() -> None:
     current_refs = current_reference_indexes()
     old_refs = parse_old_bibliography(tex)
     citation_map = build_citation_map(old_refs, current_refs)
+    manuscript_body = tex.split(r"\begin{thebibliography}", 1)[0]
+    manuscript_cited_keys = cited_keys(manuscript_body)
 
     import_rows = []
     preview_molecules = json.loads(json.dumps(molecules))
@@ -686,14 +766,19 @@ def main() -> None:
             "prefix_marker": prefix_marker(subsection),
         }
         if mapping["label"] in molecules_by_label:
-            row["modern_table_formula"] = molecules_by_label[mapping["label"]].get("table_formula")
-            row["existing_latex_body"] = molecules_by_label[mapping["label"]].get("latex_body")
-            preview_by_label[mapping["label"]]["latex_body"] = rewritten_body
+            molecule = molecules_by_label[mapping["label"]]
+            row["modern_table_formula"] = molecule.get("table_formula")
+            row["existing_latex_body"] = molecule.get("latex_body")
+            if molecule.get("latex_body") and molecule.get("latex_body") != rewritten_body:
+                row["preview_action"] = "preserved_existing_latex_body"
+            else:
+                row["preview_action"] = "imported_latex_body"
+                preview_by_label[mapping["label"]]["latex_body"] = rewritten_body
         import_rows.append(row)
 
     PREVIEW_PATH.write_text(json.dumps(preview_molecules, indent=2) + "\n")
     IMPORT_PATH.write_text(json.dumps(import_rows, indent=2) + "\n")
-    REPORT_PATH.write_text(make_report(import_rows, citation_map))
+    REPORT_PATH.write_text(make_report(import_rows, citation_map, manuscript_cited_keys))
 
     print(f"Wrote {PREVIEW_PATH.relative_to(ROOT)}")
     print(f"Wrote {IMPORT_PATH.relative_to(ROOT)}")

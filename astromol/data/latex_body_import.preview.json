@@ -7,7 +7,7 @@
     "tex_title_plain": "CH (methylidyne)",
     "tex_formula": "CH",
     "tex_name": "methylidyne",
-    "latex_body": "\\citet{Swings:1937:483} suggested that an observed line at $\\lambda = 4300$~\\AA~by \\citet{Dunham:1937:26} using the Mount Wilson Observatory in diffuse gas toward a number of supergiant B stars might have been due to the $^2\\Delta \\leftarrow ^2\\Pi$ transition of CH, reported in the laboratory by \\citet{Jevons:1932:177}.  \\citet{McKellar:1940:187} later identified several additional transitions in observational data.  The first radio identification was reported by \\citet{Rydbeck:1973:466} at 3335~MHz with the Onsala telescope toward more than a dozen sources using estimated fundamental rotational transition frequencies from \\citet{Shklovskii:1953me}, \\citet{Goss:1966:707}, and \\citet{Baird:1971:L83}.  The first direct measurement of the CH rotational spectrum was reported by \\citet{Brazier:1983:1608}.",
+    "latex_body": "\\citet{Swings:1937:483} suggested that an observed line at $\\lambda = 4300$~\\AA~by \\citet{Dunham:1937:26} using the Mount Wilson Observatory in diffuse gas toward a number of supergiant B stars might have been due to the $^2\\Delta \\leftarrow ^2\\Pi$ transition of CH, reported in the laboratory by \\citet{Jevons:1932:177}.  \\citet{McKellar:1940:187} later identified several additional transitions in observational data.  The first radio identification was reported by \\citet{Rydbeck:1973:466} at 3335~MHz with the Onsala telescope toward more than a dozen sources using estimated fundamental rotational transition frequencies from \\citet{Shklovsky:1953:25}, \\citet{Goss:1966:707}, and \\citet{Baird:1971:L83}.  The first direct measurement of the CH rotational spectrum was reported by \\citet{Brazier:1983:1608}.",
     "status": "mapped",
     "confidence": "high",
     "label": "mol:CH",
@@ -44,6 +44,11 @@
         "method": "year_volume_page"
       },
       {
+        "old": "Shklovskii:1953me",
+        "new": "Shklovsky:1953:25",
+        "method": "manual_alias"
+      },
+      {
         "old": "Goss:1966mn",
         "new": "Goss:1966:707",
         "method": "year_volume_page"
@@ -59,12 +64,11 @@
         "method": "year_volume_page"
       }
     ],
-    "unresolved_citations": [
-      "Shklovskii:1953me"
-    ],
+    "unresolved_citations": [],
     "prefix_marker": null,
     "modern_table_formula": "CH",
-    "existing_latex_body": null
+    "existing_latex_body": null,
+    "preview_action": "imported_latex_body"
   },
   {
     "tex_line": 349,
@@ -124,7 +128,8 @@
     "unresolved_citations": [],
     "prefix_marker": null,
     "modern_table_formula": "CN",
-    "existing_latex_body": null
+    "existing_latex_body": null,
+    "preview_action": "imported_latex_body"
   },
   {
     "tex_line": 354,
@@ -170,7 +175,8 @@
     "unresolved_citations": [],
     "prefix_marker": null,
     "modern_table_formula": "CH+",
-    "existing_latex_body": null
+    "existing_latex_body": null,
+    "preview_action": "imported_latex_body"
   },
   {
     "tex_line": 359,
@@ -206,7 +212,8 @@
     "unresolved_citations": [],
     "prefix_marker": null,
     "modern_table_formula": "OH",
-    "existing_latex_body": null
+    "existing_latex_body": null,
+    "preview_action": "imported_latex_body"
   },
   {
     "tex_line": 364,
@@ -241,7 +248,8 @@
     "unresolved_citations": [],
     "prefix_marker": null,
     "modern_table_formula": "CO",
-    "existing_latex_body": null
+    "existing_latex_body": null,
+    "preview_action": "imported_latex_body"
   },
   {
     "tex_line": 369,
@@ -271,7 +279,8 @@
     "unresolved_citations": [],
     "prefix_marker": null,
     "modern_table_formula": "H2",
-    "existing_latex_body": null
+    "existing_latex_body": null,
+    "preview_action": "imported_latex_body"
   },
   {
     "tex_line": 374,
@@ -312,7 +321,8 @@
     "unresolved_citations": [],
     "prefix_marker": null,
     "modern_table_formula": "SiO",
-    "existing_latex_body": null
+    "existing_latex_body": null,
+    "preview_action": "imported_latex_body"
   },
   {
     "tex_line": 379,
@@ -347,7 +357,8 @@
     "unresolved_citations": [],
     "prefix_marker": null,
     "modern_table_formula": "CS",
-    "existing_latex_body": null
+    "existing_latex_body": null,
+    "preview_action": "imported_latex_body"
   },
   {
     "tex_line": 384,
@@ -382,7 +393,8 @@
     "unresolved_citations": [],
     "prefix_marker": null,
     "modern_table_formula": "SO",
-    "existing_latex_body": null
+    "existing_latex_body": null,
+    "preview_action": "imported_latex_body"
   },
   {
     "tex_line": 389,
@@ -418,7 +430,8 @@
     "unresolved_citations": [],
     "prefix_marker": null,
     "modern_table_formula": "SiS",
-    "existing_latex_body": null
+    "existing_latex_body": null,
+    "preview_action": "imported_latex_body"
   },
   {
     "tex_line": 394,
@@ -468,7 +481,8 @@
     "unresolved_citations": [],
     "prefix_marker": null,
     "modern_table_formula": "NS",
-    "existing_latex_body": null
+    "existing_latex_body": null,
+    "preview_action": "imported_latex_body"
   },
   {
     "tex_line": 399,
@@ -504,7 +518,8 @@
     "unresolved_citations": [],
     "prefix_marker": null,
     "modern_table_formula": "C2",
-    "existing_latex_body": null
+    "existing_latex_body": null,
+    "preview_action": "imported_latex_body"
   },
   {
     "tex_line": 404,
@@ -540,7 +555,8 @@
     "unresolved_citations": [],
     "prefix_marker": null,
     "modern_table_formula": "NO",
-    "existing_latex_body": null
+    "existing_latex_body": null,
+    "preview_action": "imported_latex_body"
   },
   {
     "tex_line": 409,
@@ -576,7 +592,8 @@
     "unresolved_citations": [],
     "prefix_marker": null,
     "modern_table_formula": "HCl",
-    "existing_latex_body": null
+    "existing_latex_body": null,
+    "preview_action": "imported_latex_body"
   },
   {
     "tex_line": 414,
@@ -612,7 +629,8 @@
     "unresolved_citations": [],
     "prefix_marker": null,
     "modern_table_formula": "NaCl",
-    "existing_latex_body": null
+    "existing_latex_body": null,
+    "preview_action": "imported_latex_body"
   },
   {
     "tex_line": 419,
@@ -648,7 +666,8 @@
     "unresolved_citations": [],
     "prefix_marker": null,
     "modern_table_formula": "AlCl",
-    "existing_latex_body": null
+    "existing_latex_body": null,
+    "preview_action": "imported_latex_body"
   },
   {
     "tex_line": 424,
@@ -684,7 +703,8 @@
     "unresolved_citations": [],
     "prefix_marker": null,
     "modern_table_formula": "KCl",
-    "existing_latex_body": null
+    "existing_latex_body": null,
+    "preview_action": "imported_latex_body"
   },
   {
     "tex_line": 429,
@@ -729,7 +749,8 @@
     "unresolved_citations": [],
     "prefix_marker": null,
     "modern_table_formula": "AlF",
-    "existing_latex_body": null
+    "existing_latex_body": null,
+    "preview_action": "imported_latex_body"
   },
   {
     "tex_line": 434,
@@ -785,7 +806,8 @@
     "unresolved_citations": [],
     "prefix_marker": null,
     "modern_table_formula": "PN",
-    "existing_latex_body": null
+    "existing_latex_body": null,
+    "preview_action": "imported_latex_body"
   },
   {
     "tex_line": 439,
@@ -816,7 +838,8 @@
     "unresolved_citations": [],
     "prefix_marker": null,
     "modern_table_formula": "SiC",
-    "existing_latex_body": null
+    "existing_latex_body": null,
+    "preview_action": "imported_latex_body"
   },
   {
     "tex_line": 444,
@@ -852,7 +875,8 @@
     "unresolved_citations": [],
     "prefix_marker": null,
     "modern_table_formula": "CP",
-    "existing_latex_body": null
+    "existing_latex_body": null,
+    "preview_action": "imported_latex_body"
   },
   {
     "tex_line": 449,
@@ -898,7 +922,8 @@
     "unresolved_citations": [],
     "prefix_marker": null,
     "modern_table_formula": "NH",
-    "existing_latex_body": null
+    "existing_latex_body": null,
+    "preview_action": "imported_latex_body"
   },
   {
     "tex_line": 454,
@@ -933,7 +958,8 @@
     "unresolved_citations": [],
     "prefix_marker": null,
     "modern_table_formula": "SiN",
-    "existing_latex_body": null
+    "existing_latex_body": null,
+    "preview_action": "imported_latex_body"
   },
   {
     "tex_line": 459,
@@ -969,7 +995,8 @@
     "unresolved_citations": [],
     "prefix_marker": null,
     "modern_table_formula": "SO+",
-    "existing_latex_body": null
+    "existing_latex_body": null,
+    "preview_action": "imported_latex_body"
   },
   {
     "tex_line": 464,
@@ -1020,7 +1047,8 @@
     "unresolved_citations": [],
     "prefix_marker": null,
     "modern_table_formula": "CO+",
-    "existing_latex_body": null
+    "existing_latex_body": null,
+    "preview_action": "imported_latex_body"
   },
   {
     "tex_line": 469,
@@ -1056,7 +1084,8 @@
     "unresolved_citations": [],
     "prefix_marker": null,
     "modern_table_formula": "HF",
-    "existing_latex_body": null
+    "existing_latex_body": null,
+    "preview_action": "imported_latex_body"
   },
   {
     "tex_line": 474,
@@ -1092,7 +1121,8 @@
     "unresolved_citations": [],
     "prefix_marker": null,
     "modern_table_formula": "N2",
-    "existing_latex_body": null
+    "existing_latex_body": null,
+    "preview_action": "imported_latex_body"
   },
   {
     "tex_line": 479,
@@ -1128,7 +1158,8 @@
     "unresolved_citations": [],
     "prefix_marker": null,
     "modern_table_formula": "CF+",
-    "existing_latex_body": null
+    "existing_latex_body": null,
+    "preview_action": "imported_latex_body"
   },
   {
     "tex_line": 484,
@@ -1169,7 +1200,8 @@
     "unresolved_citations": [],
     "prefix_marker": null,
     "modern_table_formula": "PO",
-    "existing_latex_body": null
+    "existing_latex_body": null,
+    "preview_action": "imported_latex_body"
   },
   {
     "tex_line": 489,
@@ -1230,7 +1262,8 @@
     "unresolved_citations": [],
     "prefix_marker": null,
     "modern_table_formula": "O2",
-    "existing_latex_body": null
+    "existing_latex_body": null,
+    "preview_action": "imported_latex_body"
   },
   {
     "tex_line": 494,
@@ -1266,7 +1299,8 @@
     "unresolved_citations": [],
     "prefix_marker": null,
     "modern_table_formula": "AlO",
-    "existing_latex_body": null
+    "existing_latex_body": null,
+    "preview_action": "imported_latex_body"
   },
   {
     "tex_line": 499,
@@ -1302,7 +1336,8 @@
     "unresolved_citations": [],
     "prefix_marker": null,
     "modern_table_formula": "CN-",
-    "existing_latex_body": null
+    "existing_latex_body": null,
+    "preview_action": "imported_latex_body"
   },
   {
     "tex_line": 504,
@@ -1348,7 +1383,8 @@
     "unresolved_citations": [],
     "prefix_marker": null,
     "modern_table_formula": "OH+",
-    "existing_latex_body": null
+    "existing_latex_body": null,
+    "preview_action": "imported_latex_body"
   },
   {
     "tex_line": 509,
@@ -1419,7 +1455,8 @@
     "unresolved_citations": [],
     "prefix_marker": null,
     "modern_table_formula": "SH+",
-    "existing_latex_body": null
+    "existing_latex_body": null,
+    "preview_action": "imported_latex_body"
   },
   {
     "tex_line": 514,
@@ -1455,7 +1492,8 @@
     "unresolved_citations": [],
     "prefix_marker": null,
     "modern_table_formula": "HCl+",
-    "existing_latex_body": null
+    "existing_latex_body": null,
+    "preview_action": "imported_latex_body"
   },
   {
     "tex_line": 519,
@@ -1496,7 +1534,8 @@
     "unresolved_citations": [],
     "prefix_marker": null,
     "modern_table_formula": "SH",
-    "existing_latex_body": null
+    "existing_latex_body": null,
+    "preview_action": "imported_latex_body"
   },
   {
     "tex_line": 524,
@@ -1532,7 +1571,8 @@
     "unresolved_citations": [],
     "prefix_marker": null,
     "modern_table_formula": "TiO",
-    "existing_latex_body": null
+    "existing_latex_body": null,
+    "preview_action": "imported_latex_body"
   },
   {
     "tex_line": 529,
@@ -1578,7 +1618,8 @@
     "unresolved_citations": [],
     "prefix_marker": null,
     "modern_table_formula": "ArH+",
-    "existing_latex_body": null
+    "existing_latex_body": null,
+    "preview_action": "imported_latex_body"
   },
   {
     "tex_line": 534,
@@ -1609,7 +1650,8 @@
     "unresolved_citations": [],
     "prefix_marker": null,
     "modern_table_formula": "NS+",
-    "existing_latex_body": null
+    "existing_latex_body": null,
+    "preview_action": "imported_latex_body"
   },
   {
     "tex_line": 539,
@@ -1645,7 +1687,8 @@
     "unresolved_citations": [],
     "prefix_marker": null,
     "modern_table_formula": "HeH+",
-    "existing_latex_body": null
+    "existing_latex_body": null,
+    "preview_action": "imported_latex_body"
   },
   {
     "tex_line": 544,
@@ -1686,7 +1729,8 @@
     "unresolved_citations": [],
     "prefix_marker": null,
     "modern_table_formula": "VO",
-    "existing_latex_body": null
+    "existing_latex_body": null,
+    "preview_action": "imported_latex_body"
   },
   {
     "tex_line": 560,
@@ -1721,7 +1765,8 @@
     "unresolved_citations": [],
     "prefix_marker": null,
     "modern_table_formula": "H2O",
-    "existing_latex_body": null
+    "existing_latex_body": null,
+    "preview_action": "imported_latex_body"
   },
   {
     "tex_line": 565,
@@ -1761,7 +1806,8 @@
     "unresolved_citations": [],
     "prefix_marker": null,
     "modern_table_formula": "HCO+",
-    "existing_latex_body": null
+    "existing_latex_body": null,
+    "preview_action": "imported_latex_body"
   },
   {
     "tex_line": 570,
@@ -1796,7 +1842,8 @@
     "unresolved_citations": [],
     "prefix_marker": null,
     "modern_table_formula": "HCN",
-    "existing_latex_body": null
+    "existing_latex_body": null,
+    "preview_action": "imported_latex_body"
   },
   {
     "tex_line": 575,
@@ -1832,7 +1879,8 @@
     "unresolved_citations": [],
     "prefix_marker": null,
     "modern_table_formula": "OCS",
-    "existing_latex_body": null
+    "existing_latex_body": null,
+    "preview_action": "imported_latex_body"
   },
   {
     "tex_line": 580,
@@ -1877,7 +1925,8 @@
     "unresolved_citations": [],
     "prefix_marker": null,
     "modern_table_formula": "HNC",
-    "existing_latex_body": null
+    "existing_latex_body": null,
+    "preview_action": "imported_latex_body"
   },
   {
     "tex_line": 585,
@@ -1913,7 +1962,8 @@
     "unresolved_citations": [],
     "prefix_marker": null,
     "modern_table_formula": "H2S",
-    "existing_latex_body": null
+    "existing_latex_body": null,
+    "preview_action": "imported_latex_body"
   },
   {
     "tex_line": 590,
@@ -1958,7 +2008,8 @@
     "unresolved_citations": [],
     "prefix_marker": null,
     "modern_table_formula": "N2H+",
-    "existing_latex_body": null
+    "existing_latex_body": null,
+    "preview_action": "imported_latex_body"
   },
   {
     "tex_line": 595,
@@ -2003,7 +2054,8 @@
     "unresolved_citations": [],
     "prefix_marker": null,
     "modern_table_formula": "C2H",
-    "existing_latex_body": null
+    "existing_latex_body": null,
+    "preview_action": "imported_latex_body"
   },
   {
     "tex_line": 600,
@@ -2044,7 +2096,8 @@
     "unresolved_citations": [],
     "prefix_marker": null,
     "modern_table_formula": "SO2",
-    "existing_latex_body": null
+    "existing_latex_body": null,
+    "preview_action": "imported_latex_body"
   },
   {
     "tex_line": 605,
@@ -2080,7 +2133,8 @@
     "unresolved_citations": [],
     "prefix_marker": null,
     "modern_table_formula": "HCO",
-    "existing_latex_body": null
+    "existing_latex_body": null,
+    "preview_action": "imported_latex_body"
   },
   {
     "tex_line": 610,
@@ -2136,7 +2190,8 @@
     "unresolved_citations": [],
     "prefix_marker": null,
     "modern_table_formula": "HNO",
-    "existing_latex_body": null
+    "existing_latex_body": null,
+    "preview_action": "imported_latex_body"
   },
   {
     "tex_line": 615,
@@ -2172,7 +2227,8 @@
     "unresolved_citations": [],
     "prefix_marker": null,
     "modern_table_formula": "HCS+",
-    "existing_latex_body": null
+    "existing_latex_body": null,
+    "preview_action": "imported_latex_body"
   },
   {
     "tex_line": 620,
@@ -2213,7 +2269,8 @@
     "unresolved_citations": [],
     "prefix_marker": null,
     "modern_table_formula": "HOC+",
-    "existing_latex_body": null
+    "existing_latex_body": null,
+    "preview_action": "imported_latex_body"
   },
   {
     "tex_line": 625,
@@ -2221,17 +2278,15 @@
     "tex_label": "SiC2",
     "tex_title": "\\ce{c-SiC2} (silacyclopropynylidene)",
     "tex_title_plain": "c-SiC2 (silacyclopropynylidene)",
-    "tex_formula": "SiC2",
+    "tex_formula": "c-SiC2",
     "tex_name": "silacyclopropynylidene",
     "latex_body": "\\citet{Thaddeus:1984:L45} reported the detection of \\ce{c-SiC2} in NRAO 36-ft and Bell 7-m telescope observations of IRC+10216.  Nine transitions between 93--171~GHz were observed and assigned based on the laboratory work of \\citet{Michalopoulos:1984:3556} who derived rotational constants from rotationally resolved optical transitions.  \\citet{Thaddeus:1984:L45} note that a number of these transitions had previously been observed in IRC+10216 and classified as unidentified by various other researchers as early as 1976. \\citet{Suenram:1989:L103} and \\citet{Gottlieb:1989:L29} subsequently reported the laboratory observation of the pure rotational spectrum. \\ce{c-SiC2} was the first molecular ring molecule identified in the ISM.",
     "status": "mapped",
     "confidence": "high",
-    "label": "mol:SiC2",
+    "label": "mol:c-SiC2",
     "mapping_methods": [
-      "tex_label",
       "formula_as_label",
       "table_formula",
-      "formula",
       "name"
     ],
     "citation_replacements": [
@@ -2263,8 +2318,9 @@
     ],
     "unresolved_citations": [],
     "prefix_marker": "c-",
-    "modern_table_formula": "SiC2",
-    "existing_latex_body": null
+    "modern_table_formula": "c-SiC2",
+    "existing_latex_body": null,
+    "preview_action": "imported_latex_body"
   },
   {
     "tex_line": 630,
@@ -2315,7 +2371,8 @@
     "unresolved_citations": [],
     "prefix_marker": null,
     "modern_table_formula": "C2S",
-    "existing_latex_body": null
+    "existing_latex_body": null,
+    "preview_action": "imported_latex_body"
   },
   {
     "tex_line": 635,
@@ -2350,7 +2407,8 @@
     "unresolved_citations": [],
     "prefix_marker": null,
     "modern_table_formula": "C3",
-    "existing_latex_body": null
+    "existing_latex_body": null,
+    "preview_action": "imported_latex_body"
   },
   {
     "tex_line": 640,
@@ -2400,7 +2458,8 @@
     "unresolved_citations": [],
     "prefix_marker": null,
     "modern_table_formula": "CO2",
-    "existing_latex_body": null
+    "existing_latex_body": null,
+    "preview_action": "imported_latex_body"
   },
   {
     "tex_line": 645,
@@ -2441,7 +2500,8 @@
     "unresolved_citations": [],
     "prefix_marker": null,
     "modern_table_formula": "CH2",
-    "existing_latex_body": null
+    "existing_latex_body": null,
+    "preview_action": "imported_latex_body"
   },
   {
     "tex_line": 650,
@@ -2477,7 +2537,8 @@
     "unresolved_citations": [],
     "prefix_marker": null,
     "modern_table_formula": "C2O",
-    "existing_latex_body": null
+    "existing_latex_body": null,
+    "preview_action": "imported_latex_body"
   },
   {
     "tex_line": 655,
@@ -2513,7 +2574,8 @@
     "unresolved_citations": [],
     "prefix_marker": null,
     "modern_table_formula": "MgNC",
-    "existing_latex_body": null
+    "existing_latex_body": null,
+    "preview_action": "imported_latex_body"
   },
   {
     "tex_line": 660,
@@ -2553,7 +2615,8 @@
     "unresolved_citations": [],
     "prefix_marker": null,
     "modern_table_formula": "NH2",
-    "existing_latex_body": null
+    "existing_latex_body": null,
+    "preview_action": "imported_latex_body"
   },
   {
     "tex_line": 665,
@@ -2589,7 +2652,8 @@
     "unresolved_citations": [],
     "prefix_marker": null,
     "modern_table_formula": "NaCN",
-    "existing_latex_body": null
+    "existing_latex_body": null,
+    "preview_action": "imported_latex_body"
   },
   {
     "tex_line": 670,
@@ -2625,7 +2689,8 @@
     "unresolved_citations": [],
     "prefix_marker": null,
     "modern_table_formula": "N2O",
-    "existing_latex_body": null
+    "existing_latex_body": null,
+    "preview_action": "imported_latex_body"
   },
   {
     "tex_line": 675,
@@ -2660,7 +2725,8 @@
     "unresolved_citations": [],
     "prefix_marker": null,
     "modern_table_formula": "MgCN",
-    "existing_latex_body": null
+    "existing_latex_body": null,
+    "preview_action": "imported_latex_body"
   },
   {
     "tex_line": 680,
@@ -2700,7 +2766,8 @@
     "unresolved_citations": [],
     "prefix_marker": null,
     "modern_table_formula": "H3+",
-    "existing_latex_body": null
+    "existing_latex_body": null,
+    "preview_action": "imported_latex_body"
   },
   {
     "tex_line": 685,
@@ -2736,7 +2803,8 @@
     "unresolved_citations": [],
     "prefix_marker": null,
     "modern_table_formula": "SiCN",
-    "existing_latex_body": null
+    "existing_latex_body": null,
+    "preview_action": "imported_latex_body"
   },
   {
     "tex_line": 690,
@@ -2772,7 +2840,8 @@
     "unresolved_citations": [],
     "prefix_marker": null,
     "modern_table_formula": "AlNC",
-    "existing_latex_body": null
+    "existing_latex_body": null,
+    "preview_action": "imported_latex_body"
   },
   {
     "tex_line": 695,
@@ -2807,7 +2876,8 @@
     "unresolved_citations": [],
     "prefix_marker": null,
     "modern_table_formula": "SiNC",
-    "existing_latex_body": null
+    "existing_latex_body": null,
+    "preview_action": "imported_latex_body"
   },
   {
     "tex_line": 700,
@@ -2843,7 +2913,8 @@
     "unresolved_citations": [],
     "prefix_marker": null,
     "modern_table_formula": "HCP",
-    "existing_latex_body": null
+    "existing_latex_body": null,
+    "preview_action": "imported_latex_body"
   },
   {
     "tex_line": 705,
@@ -2874,7 +2945,8 @@
     "unresolved_citations": [],
     "prefix_marker": null,
     "modern_table_formula": "CCP",
-    "existing_latex_body": null
+    "existing_latex_body": null,
+    "preview_action": "imported_latex_body"
   },
   {
     "tex_line": 710,
@@ -2910,7 +2982,8 @@
     "unresolved_citations": [],
     "prefix_marker": null,
     "modern_table_formula": "AlOH",
-    "existing_latex_body": null
+    "existing_latex_body": null,
+    "preview_action": "imported_latex_body"
   },
   {
     "tex_line": 715,
@@ -2955,7 +3028,8 @@
     "unresolved_citations": [],
     "prefix_marker": null,
     "modern_table_formula": "H2O+",
-    "existing_latex_body": null
+    "existing_latex_body": null,
+    "preview_action": "imported_latex_body"
   },
   {
     "tex_line": 720,
@@ -2990,7 +3064,8 @@
     "unresolved_citations": [],
     "prefix_marker": null,
     "modern_table_formula": "H2Cl+",
-    "existing_latex_body": null
+    "existing_latex_body": null,
+    "preview_action": "imported_latex_body"
   },
   {
     "tex_line": 725,
@@ -3026,7 +3101,8 @@
     "unresolved_citations": [],
     "prefix_marker": null,
     "modern_table_formula": "KCN",
-    "existing_latex_body": null
+    "existing_latex_body": null,
+    "preview_action": "imported_latex_body"
   },
   {
     "tex_line": 730,
@@ -3067,7 +3143,8 @@
     "unresolved_citations": [],
     "prefix_marker": null,
     "modern_table_formula": "FeCN",
-    "existing_latex_body": null
+    "existing_latex_body": null,
+    "preview_action": "imported_latex_body"
   },
   {
     "tex_line": 735,
@@ -3113,7 +3190,8 @@
     "unresolved_citations": [],
     "prefix_marker": null,
     "modern_table_formula": "HO2",
-    "existing_latex_body": null
+    "existing_latex_body": null,
+    "preview_action": "imported_latex_body"
   },
   {
     "tex_line": 740,
@@ -3154,7 +3232,8 @@
     "unresolved_citations": [],
     "prefix_marker": null,
     "modern_table_formula": "TiO2",
-    "existing_latex_body": null
+    "existing_latex_body": null,
+    "preview_action": "imported_latex_body"
   },
   {
     "tex_line": 745,
@@ -3190,7 +3269,8 @@
     "unresolved_citations": [],
     "prefix_marker": null,
     "modern_table_formula": "CCN",
-    "existing_latex_body": null
+    "existing_latex_body": null,
+    "preview_action": "imported_latex_body"
   },
   {
     "tex_line": 750,
@@ -3226,7 +3306,8 @@
     "unresolved_citations": [],
     "prefix_marker": null,
     "modern_table_formula": "SiCSi",
-    "existing_latex_body": null
+    "existing_latex_body": null,
+    "preview_action": "imported_latex_body"
   },
   {
     "tex_line": 755,
@@ -3267,7 +3348,8 @@
     "unresolved_citations": [],
     "prefix_marker": null,
     "modern_table_formula": "S2H",
-    "existing_latex_body": null
+    "existing_latex_body": null,
+    "preview_action": "imported_latex_body"
   },
   {
     "tex_line": 760,
@@ -3302,7 +3384,8 @@
     "unresolved_citations": [],
     "prefix_marker": null,
     "modern_table_formula": "HCS",
-    "existing_latex_body": null
+    "existing_latex_body": null,
+    "preview_action": "imported_latex_body"
   },
   {
     "tex_line": 765,
@@ -3337,7 +3420,8 @@
     "unresolved_citations": [],
     "prefix_marker": null,
     "modern_table_formula": "HSC",
-    "existing_latex_body": null
+    "existing_latex_body": null,
+    "preview_action": "imported_latex_body"
   },
   {
     "tex_line": 770,
@@ -3378,7 +3462,8 @@
     "unresolved_citations": [],
     "prefix_marker": null,
     "modern_table_formula": "NCO",
-    "existing_latex_body": null
+    "existing_latex_body": null,
+    "preview_action": "imported_latex_body"
   },
   {
     "tex_line": 775,
@@ -3424,7 +3509,8 @@
     "unresolved_citations": [],
     "prefix_marker": null,
     "modern_table_formula": "CaNC",
-    "existing_latex_body": null
+    "existing_latex_body": null,
+    "preview_action": "imported_latex_body"
   },
   {
     "tex_line": 780,
@@ -3470,7 +3556,8 @@
     "unresolved_citations": [],
     "prefix_marker": null,
     "modern_table_formula": "NCS",
-    "existing_latex_body": null
+    "existing_latex_body": null,
+    "preview_action": "imported_latex_body"
   },
   {
     "tex_line": 796,
@@ -3521,7 +3608,8 @@
     "unresolved_citations": [],
     "prefix_marker": null,
     "modern_table_formula": "NH3",
-    "existing_latex_body": null
+    "existing_latex_body": null,
+    "preview_action": "imported_latex_body"
   },
   {
     "tex_line": 801,
@@ -3556,7 +3644,8 @@
     "unresolved_citations": [],
     "prefix_marker": null,
     "modern_table_formula": "H2CO",
-    "existing_latex_body": null
+    "existing_latex_body": null,
+    "preview_action": "imported_latex_body"
   },
   {
     "tex_line": 806,
@@ -3597,7 +3686,8 @@
     "unresolved_citations": [],
     "prefix_marker": null,
     "modern_table_formula": "HNCO",
-    "existing_latex_body": null
+    "existing_latex_body": null,
+    "preview_action": "imported_latex_body"
   },
   {
     "tex_line": 811,
@@ -3633,7 +3723,8 @@
     "unresolved_citations": [],
     "prefix_marker": null,
     "modern_table_formula": "H2CS",
-    "existing_latex_body": null
+    "existing_latex_body": null,
+    "preview_action": "imported_latex_body"
   },
   {
     "tex_line": 816,
@@ -3668,7 +3759,8 @@
     "unresolved_citations": [],
     "prefix_marker": null,
     "modern_table_formula": "C2H2",
-    "existing_latex_body": null
+    "existing_latex_body": null,
+    "preview_action": "imported_latex_body"
   },
   {
     "tex_line": 821,
@@ -3709,7 +3801,8 @@
     "unresolved_citations": [],
     "prefix_marker": null,
     "modern_table_formula": "C3N",
-    "existing_latex_body": null
+    "existing_latex_body": null,
+    "preview_action": "imported_latex_body"
   },
   {
     "tex_line": 826,
@@ -3745,7 +3838,8 @@
     "unresolved_citations": [],
     "prefix_marker": null,
     "modern_table_formula": "HNCS",
-    "existing_latex_body": null
+    "existing_latex_body": null,
+    "preview_action": "imported_latex_body"
   },
   {
     "tex_line": 831,
@@ -3786,7 +3880,8 @@
     "unresolved_citations": [],
     "prefix_marker": null,
     "modern_table_formula": "HOCO+",
-    "existing_latex_body": null
+    "existing_latex_body": null,
+    "preview_action": "imported_latex_body"
   },
   {
     "tex_line": 836,
@@ -3831,7 +3926,8 @@
     "unresolved_citations": [],
     "prefix_marker": null,
     "modern_table_formula": "C3O",
-    "existing_latex_body": null
+    "existing_latex_body": null,
+    "preview_action": "imported_latex_body"
   },
   {
     "tex_line": 841,
@@ -3866,7 +3962,8 @@
     "unresolved_citations": [],
     "prefix_marker": "l-",
     "modern_table_formula": "l-C3H",
-    "existing_latex_body": null
+    "existing_latex_body": null,
+    "preview_action": "imported_latex_body"
   },
   {
     "tex_line": 846,
@@ -3907,7 +4004,8 @@
     "unresolved_citations": [],
     "prefix_marker": null,
     "modern_table_formula": "HCNH+",
-    "existing_latex_body": null
+    "existing_latex_body": null,
+    "preview_action": "imported_latex_body"
   },
   {
     "tex_line": 851,
@@ -3972,7 +4070,8 @@
     "unresolved_citations": [],
     "prefix_marker": null,
     "modern_table_formula": "H3O+",
-    "existing_latex_body": null
+    "existing_latex_body": null,
+    "preview_action": "imported_latex_body"
   },
   {
     "tex_line": 856,
@@ -4007,7 +4106,8 @@
     "unresolved_citations": [],
     "prefix_marker": null,
     "modern_table_formula": "C3S",
-    "existing_latex_body": null
+    "existing_latex_body": null,
+    "preview_action": "imported_latex_body"
   },
   {
     "tex_line": 861,
@@ -4037,7 +4137,8 @@
     "unresolved_citations": [],
     "prefix_marker": "c-",
     "modern_table_formula": "c-C3H",
-    "existing_latex_body": null
+    "existing_latex_body": null,
+    "preview_action": "imported_latex_body"
   },
   {
     "tex_line": 866,
@@ -4078,7 +4179,8 @@
     "unresolved_citations": [],
     "prefix_marker": null,
     "modern_table_formula": "HC2N",
-    "existing_latex_body": null
+    "existing_latex_body": null,
+    "preview_action": "imported_latex_body"
   },
   {
     "tex_line": 871,
@@ -4114,7 +4216,8 @@
     "unresolved_citations": [],
     "prefix_marker": null,
     "modern_table_formula": "H2CN",
-    "existing_latex_body": null
+    "existing_latex_body": null,
+    "preview_action": "imported_latex_body"
   },
   {
     "tex_line": 876,
@@ -4155,7 +4258,8 @@
     "unresolved_citations": [],
     "prefix_marker": null,
     "modern_table_formula": "SiC3",
-    "existing_latex_body": null
+    "existing_latex_body": null,
+    "preview_action": "imported_latex_body"
   },
   {
     "tex_line": 881,
@@ -4196,7 +4300,8 @@
     "unresolved_citations": [],
     "prefix_marker": null,
     "modern_table_formula": "CH3",
-    "existing_latex_body": null
+    "existing_latex_body": null,
+    "preview_action": "imported_latex_body"
   },
   {
     "tex_line": 886,
@@ -4227,7 +4332,8 @@
     "unresolved_citations": [],
     "prefix_marker": null,
     "modern_table_formula": "C3N-",
-    "existing_latex_body": null
+    "existing_latex_body": null,
+    "preview_action": "imported_latex_body"
   },
   {
     "tex_line": 891,
@@ -4293,7 +4399,8 @@
     "unresolved_citations": [],
     "prefix_marker": null,
     "modern_table_formula": "PH3",
-    "existing_latex_body": null
+    "existing_latex_body": null,
+    "preview_action": "imported_latex_body"
   },
   {
     "tex_line": 896,
@@ -4329,7 +4436,8 @@
     "unresolved_citations": [],
     "prefix_marker": null,
     "modern_table_formula": "HCNO",
-    "existing_latex_body": null
+    "existing_latex_body": null,
+    "preview_action": "imported_latex_body"
   },
   {
     "tex_line": 901,
@@ -4375,7 +4483,8 @@
     "unresolved_citations": [],
     "prefix_marker": null,
     "modern_table_formula": "HOCN",
-    "existing_latex_body": null
+    "existing_latex_body": null,
+    "preview_action": "imported_latex_body"
   },
   {
     "tex_line": 906,
@@ -4411,7 +4520,8 @@
     "unresolved_citations": [],
     "prefix_marker": null,
     "modern_table_formula": "HSCN",
-    "existing_latex_body": null
+    "existing_latex_body": null,
+    "preview_action": "imported_latex_body"
   },
   {
     "tex_line": 911,
@@ -4452,7 +4562,8 @@
     "unresolved_citations": [],
     "prefix_marker": null,
     "modern_table_formula": "HOOH",
-    "existing_latex_body": null
+    "existing_latex_body": null,
+    "preview_action": "imported_latex_body"
   },
   {
     "tex_line": 916,
@@ -4516,7 +4627,8 @@
     "unresolved_citations": [],
     "prefix_marker": "l-",
     "modern_table_formula": "l-C3H+",
-    "existing_latex_body": null
+    "existing_latex_body": null,
+    "preview_action": "imported_latex_body"
   },
   {
     "tex_line": 921,
@@ -4547,7 +4659,8 @@
     "unresolved_citations": [],
     "prefix_marker": null,
     "modern_table_formula": "HMgNC",
-    "existing_latex_body": null
+    "existing_latex_body": null,
+    "preview_action": "imported_latex_body"
   },
   {
     "tex_line": 926,
@@ -4588,7 +4701,8 @@
     "unresolved_citations": [],
     "prefix_marker": null,
     "modern_table_formula": "HCCO",
-    "existing_latex_body": null
+    "existing_latex_body": null,
+    "preview_action": "imported_latex_body"
   },
   {
     "tex_line": 932,
@@ -4629,7 +4743,8 @@
     "unresolved_citations": [],
     "prefix_marker": null,
     "modern_table_formula": "CNCN",
-    "existing_latex_body": null
+    "existing_latex_body": null,
+    "preview_action": "imported_latex_body"
   },
   {
     "tex_line": 937,
@@ -4675,7 +4790,8 @@
     "unresolved_citations": [],
     "prefix_marker": null,
     "modern_table_formula": "HONO",
-    "existing_latex_body": null
+    "existing_latex_body": null,
+    "preview_action": "imported_latex_body"
   },
   {
     "tex_line": 942,
@@ -4715,7 +4831,8 @@
     "unresolved_citations": [],
     "prefix_marker": null,
     "modern_table_formula": "MgCCH",
-    "existing_latex_body": null
+    "existing_latex_body": null,
+    "preview_action": "imported_latex_body"
   },
   {
     "tex_line": 947,
@@ -4756,7 +4873,8 @@
     "unresolved_citations": [],
     "prefix_marker": null,
     "modern_table_formula": "HCCS",
-    "existing_latex_body": null
+    "existing_latex_body": null,
+    "preview_action": "imported_latex_body"
   },
   {
     "tex_line": 964,
@@ -4797,7 +4915,8 @@
     "unresolved_citations": [],
     "prefix_marker": null,
     "modern_table_formula": "HC3N",
-    "existing_latex_body": null
+    "existing_latex_body": null,
+    "preview_action": "imported_latex_body"
   },
   {
     "tex_line": 969,
@@ -4843,7 +4962,8 @@
     "unresolved_citations": [],
     "prefix_marker": null,
     "modern_table_formula": "HCOOH",
-    "existing_latex_body": null
+    "existing_latex_body": null,
+    "preview_action": "imported_latex_body"
   },
   {
     "tex_line": 974,
@@ -4879,7 +4999,8 @@
     "unresolved_citations": [],
     "prefix_marker": null,
     "modern_table_formula": "CH2NH",
-    "existing_latex_body": null
+    "existing_latex_body": null,
+    "preview_action": "imported_latex_body"
   },
   {
     "tex_line": 979,
@@ -4930,7 +5051,8 @@
     "unresolved_citations": [],
     "prefix_marker": null,
     "modern_table_formula": "NH2CN",
-    "existing_latex_body": null
+    "existing_latex_body": null,
+    "preview_action": "imported_latex_body"
   },
   {
     "tex_line": 984,
@@ -4971,7 +5093,8 @@
     "unresolved_citations": [],
     "prefix_marker": null,
     "modern_table_formula": "H2CCO",
-    "existing_latex_body": null
+    "existing_latex_body": null,
+    "preview_action": "imported_latex_body"
   },
   {
     "tex_line": 989,
@@ -5022,7 +5145,8 @@
     "unresolved_citations": [],
     "prefix_marker": null,
     "modern_table_formula": "C4H",
-    "existing_latex_body": null
+    "existing_latex_body": null,
+    "preview_action": "imported_latex_body"
   },
   {
     "tex_line": 994,
@@ -5053,7 +5177,8 @@
     "unresolved_citations": [],
     "prefix_marker": null,
     "modern_table_formula": "SiH4",
-    "existing_latex_body": null
+    "existing_latex_body": null,
+    "preview_action": "imported_latex_body"
   },
   {
     "tex_line": 999,
@@ -5098,7 +5223,8 @@
     "unresolved_citations": [],
     "prefix_marker": "c-",
     "modern_table_formula": "c-C3H2",
-    "existing_latex_body": null
+    "existing_latex_body": null,
+    "preview_action": "imported_latex_body"
   },
   {
     "tex_line": 1004,
@@ -5133,7 +5259,8 @@
     "unresolved_citations": [],
     "prefix_marker": null,
     "modern_table_formula": "CH2CN",
-    "existing_latex_body": null
+    "existing_latex_body": null,
+    "preview_action": "imported_latex_body"
   },
   {
     "tex_line": 1009,
@@ -5169,7 +5296,8 @@
     "unresolved_citations": [],
     "prefix_marker": null,
     "modern_table_formula": "C5",
-    "existing_latex_body": null
+    "existing_latex_body": null,
+    "preview_action": "imported_latex_body"
   },
   {
     "tex_line": 1014,
@@ -5200,7 +5328,8 @@
     "unresolved_citations": [],
     "prefix_marker": null,
     "modern_table_formula": "SiC4",
-    "existing_latex_body": null
+    "existing_latex_body": null,
+    "preview_action": "imported_latex_body"
   },
   {
     "tex_line": 1019,
@@ -5241,7 +5370,8 @@
     "unresolved_citations": [],
     "prefix_marker": null,
     "modern_table_formula": "H2CCC",
-    "existing_latex_body": null
+    "existing_latex_body": null,
+    "preview_action": "imported_latex_body"
   },
   {
     "tex_line": 1024,
@@ -5281,7 +5411,8 @@
     "unresolved_citations": [],
     "prefix_marker": null,
     "modern_table_formula": "CH4",
-    "existing_latex_body": null
+    "existing_latex_body": null,
+    "preview_action": "imported_latex_body"
   },
   {
     "tex_line": 1029,
@@ -5316,7 +5447,8 @@
     "unresolved_citations": [],
     "prefix_marker": null,
     "modern_table_formula": "HCCNC",
-    "existing_latex_body": null
+    "existing_latex_body": null,
+    "preview_action": "imported_latex_body"
   },
   {
     "tex_line": 1034,
@@ -5346,7 +5478,8 @@
     "unresolved_citations": [],
     "prefix_marker": null,
     "modern_table_formula": "HNCCC",
-    "existing_latex_body": null
+    "existing_latex_body": null,
+    "preview_action": "imported_latex_body"
   },
   {
     "tex_line": 1039,
@@ -5382,7 +5515,8 @@
     "unresolved_citations": [],
     "prefix_marker": null,
     "modern_table_formula": "H2COH+",
-    "existing_latex_body": null
+    "existing_latex_body": null,
+    "preview_action": "imported_latex_body"
   },
   {
     "tex_line": 1044,
@@ -5418,7 +5552,8 @@
     "unresolved_citations": [],
     "prefix_marker": null,
     "modern_table_formula": "C4H-",
-    "existing_latex_body": null
+    "existing_latex_body": null,
+    "preview_action": "imported_latex_body"
   },
   {
     "tex_line": 1049,
@@ -5459,7 +5594,8 @@
     "unresolved_citations": [],
     "prefix_marker": null,
     "modern_table_formula": "CNCHO",
-    "existing_latex_body": null
+    "existing_latex_body": null,
+    "preview_action": "imported_latex_body"
   },
   {
     "tex_line": 1054,
@@ -5505,7 +5641,8 @@
     "unresolved_citations": [],
     "prefix_marker": null,
     "modern_table_formula": "HNCNH",
-    "existing_latex_body": null
+    "existing_latex_body": null,
+    "preview_action": "imported_latex_body"
   },
   {
     "tex_line": 1059,
@@ -5546,7 +5683,8 @@
     "unresolved_citations": [],
     "prefix_marker": null,
     "modern_table_formula": "CH3O",
-    "existing_latex_body": null
+    "existing_latex_body": null,
+    "preview_action": "imported_latex_body"
   },
   {
     "tex_line": 1064,
@@ -5581,7 +5719,8 @@
     "unresolved_citations": [],
     "prefix_marker": null,
     "modern_table_formula": "NH3D+",
-    "existing_latex_body": null
+    "existing_latex_body": null,
+    "preview_action": "imported_latex_body"
   },
   {
     "tex_line": 1069,
@@ -5617,7 +5756,8 @@
     "unresolved_citations": [],
     "prefix_marker": null,
     "modern_table_formula": "H2NCO+",
-    "existing_latex_body": null
+    "existing_latex_body": null,
+    "preview_action": "imported_latex_body"
   },
   {
     "tex_line": 1074,
@@ -5658,7 +5798,8 @@
     "unresolved_citations": [],
     "prefix_marker": null,
     "modern_table_formula": "NCCNH+",
-    "existing_latex_body": null
+    "existing_latex_body": null,
+    "preview_action": "imported_latex_body"
   },
   {
     "tex_line": 1079,
@@ -5694,7 +5835,8 @@
     "unresolved_citations": [],
     "prefix_marker": null,
     "modern_table_formula": "CH3Cl",
-    "existing_latex_body": null
+    "existing_latex_body": null,
+    "preview_action": "imported_latex_body"
   },
   {
     "tex_line": 1084,
@@ -5725,7 +5867,8 @@
     "unresolved_citations": [],
     "prefix_marker": null,
     "modern_table_formula": "MgC3N",
-    "existing_latex_body": null
+    "existing_latex_body": null,
+    "preview_action": "imported_latex_body"
   },
   {
     "tex_line": 1089,
@@ -5761,7 +5904,8 @@
     "unresolved_citations": [],
     "prefix_marker": null,
     "modern_table_formula": "HC3O+",
-    "existing_latex_body": null
+    "existing_latex_body": null,
+    "preview_action": "imported_latex_body"
   },
   {
     "tex_line": 1094,
@@ -5802,7 +5946,8 @@
     "unresolved_citations": [],
     "prefix_marker": null,
     "modern_table_formula": "NH2OH",
-    "existing_latex_body": null
+    "existing_latex_body": null,
+    "preview_action": "imported_latex_body"
   },
   {
     "tex_line": 1099,
@@ -5838,7 +5983,8 @@
     "unresolved_citations": [],
     "prefix_marker": null,
     "modern_table_formula": "HC3S+",
-    "existing_latex_body": null
+    "existing_latex_body": null,
+    "preview_action": "imported_latex_body"
   },
   {
     "tex_line": 1104,
@@ -5884,7 +6030,8 @@
     "unresolved_citations": [],
     "prefix_marker": null,
     "modern_table_formula": "H2CCS",
-    "existing_latex_body": null
+    "existing_latex_body": null,
+    "preview_action": "imported_latex_body"
   },
   {
     "tex_line": 1109,
@@ -5930,7 +6077,8 @@
     "unresolved_citations": [],
     "prefix_marker": null,
     "modern_table_formula": "C4S",
-    "existing_latex_body": null
+    "existing_latex_body": null,
+    "preview_action": "imported_latex_body"
   },
   {
     "tex_line": 1114,
@@ -5965,7 +6113,8 @@
     "unresolved_citations": [],
     "prefix_marker": null,
     "modern_table_formula": "CHOSH",
-    "existing_latex_body": null
+    "existing_latex_body": null,
+    "preview_action": "imported_latex_body"
   },
   {
     "tex_line": 1130,
@@ -5996,7 +6145,8 @@
     "unresolved_citations": [],
     "prefix_marker": null,
     "modern_table_formula": "CH3OH",
-    "existing_latex_body": null
+    "existing_latex_body": null,
+    "preview_action": "imported_latex_body"
   },
   {
     "tex_line": 1135,
@@ -6042,7 +6192,8 @@
     "unresolved_citations": [],
     "prefix_marker": null,
     "modern_table_formula": "CH3CN",
-    "existing_latex_body": null
+    "existing_latex_body": null,
+    "preview_action": "imported_latex_body"
   },
   {
     "tex_line": 1140,
@@ -6073,7 +6224,8 @@
     "unresolved_citations": [],
     "prefix_marker": null,
     "modern_table_formula": "NH2CHO",
-    "existing_latex_body": null
+    "existing_latex_body": null,
+    "preview_action": "imported_latex_body"
   },
   {
     "tex_line": 1145,
@@ -6114,7 +6266,8 @@
     "unresolved_citations": [],
     "prefix_marker": null,
     "modern_table_formula": "CH3SH",
-    "existing_latex_body": null
+    "existing_latex_body": null,
+    "preview_action": "imported_latex_body"
   },
   {
     "tex_line": 1150,
@@ -6155,7 +6308,8 @@
     "unresolved_citations": [],
     "prefix_marker": null,
     "modern_table_formula": "C2H4",
-    "existing_latex_body": null
+    "existing_latex_body": null,
+    "preview_action": "imported_latex_body"
   },
   {
     "tex_line": 1155,
@@ -6200,7 +6354,8 @@
     "unresolved_citations": [],
     "prefix_marker": null,
     "modern_table_formula": "C5H",
-    "existing_latex_body": null
+    "existing_latex_body": null,
+    "preview_action": "imported_latex_body"
   },
   {
     "tex_line": 1160,
@@ -6251,7 +6406,8 @@
     "unresolved_citations": [],
     "prefix_marker": null,
     "modern_table_formula": "CH3NC",
-    "existing_latex_body": null
+    "existing_latex_body": null,
+    "preview_action": "imported_latex_body"
   },
   {
     "tex_line": 1165,
@@ -6287,7 +6443,8 @@
     "unresolved_citations": [],
     "prefix_marker": null,
     "modern_table_formula": "HC2CHO",
-    "existing_latex_body": null
+    "existing_latex_body": null,
+    "preview_action": "imported_latex_body"
   },
   {
     "tex_line": 1170,
@@ -6323,7 +6480,8 @@
     "unresolved_citations": [],
     "prefix_marker": null,
     "modern_table_formula": "H2C4",
-    "existing_latex_body": null
+    "existing_latex_body": null,
+    "preview_action": "imported_latex_body"
   },
   {
     "tex_line": 1175,
@@ -6369,7 +6527,8 @@
     "unresolved_citations": [],
     "prefix_marker": null,
     "modern_table_formula": "C5S",
-    "existing_latex_body": null
+    "existing_latex_body": null,
+    "preview_action": "imported_latex_body"
   },
   {
     "tex_line": 1180,
@@ -6410,7 +6569,8 @@
     "unresolved_citations": [],
     "prefix_marker": null,
     "modern_table_formula": "HC3NH+",
-    "existing_latex_body": null
+    "existing_latex_body": null,
+    "preview_action": "imported_latex_body"
   },
   {
     "tex_line": 1185,
@@ -6446,7 +6606,8 @@
     "unresolved_citations": [],
     "prefix_marker": null,
     "modern_table_formula": "C5N",
-    "existing_latex_body": null
+    "existing_latex_body": null,
+    "preview_action": "imported_latex_body"
   },
   {
     "tex_line": 1190,
@@ -6482,7 +6643,8 @@
     "unresolved_citations": [],
     "prefix_marker": null,
     "modern_table_formula": "HC4H",
-    "existing_latex_body": null
+    "existing_latex_body": null,
+    "preview_action": "imported_latex_body"
   },
   {
     "tex_line": 1195,
@@ -6517,7 +6679,8 @@
     "unresolved_citations": [],
     "prefix_marker": null,
     "modern_table_formula": "HC4N",
-    "existing_latex_body": null
+    "existing_latex_body": null,
+    "preview_action": "imported_latex_body"
   },
   {
     "tex_line": 1200,
@@ -6557,7 +6720,8 @@
     "unresolved_citations": [],
     "prefix_marker": "c-",
     "modern_table_formula": "c-H2C3O",
-    "existing_latex_body": null
+    "existing_latex_body": null,
+    "preview_action": "imported_latex_body"
   },
   {
     "tex_line": 1205,
@@ -6598,7 +6762,8 @@
     "unresolved_citations": [],
     "prefix_marker": null,
     "modern_table_formula": "CH2CNH",
-    "existing_latex_body": null
+    "existing_latex_body": null,
+    "preview_action": "imported_latex_body"
   },
   {
     "tex_line": 1210,
@@ -6634,7 +6799,8 @@
     "unresolved_citations": [],
     "prefix_marker": null,
     "modern_table_formula": "C5N-",
-    "existing_latex_body": null
+    "existing_latex_body": null,
+    "preview_action": "imported_latex_body"
   },
   {
     "tex_line": 1215,
@@ -6665,7 +6831,8 @@
     "unresolved_citations": [],
     "prefix_marker": null,
     "modern_table_formula": "HNCHCN",
-    "existing_latex_body": null
+    "existing_latex_body": null,
+    "preview_action": "imported_latex_body"
   },
   {
     "tex_line": 1220,
@@ -6706,7 +6873,8 @@
     "unresolved_citations": [],
     "prefix_marker": null,
     "modern_table_formula": "SiH3CN",
-    "existing_latex_body": null
+    "existing_latex_body": null,
+    "preview_action": "imported_latex_body"
   },
   {
     "tex_line": 1225,
@@ -6742,7 +6910,8 @@
     "unresolved_citations": [],
     "prefix_marker": null,
     "modern_table_formula": "MgC4H",
-    "existing_latex_body": null
+    "existing_latex_body": null,
+    "preview_action": "imported_latex_body"
   },
   {
     "tex_line": 1230,
@@ -6773,7 +6942,8 @@
     "unresolved_citations": [],
     "prefix_marker": null,
     "modern_table_formula": "CH3CO+",
-    "existing_latex_body": null
+    "existing_latex_body": null,
+    "preview_action": "imported_latex_body"
   },
   {
     "tex_line": 1235,
@@ -6809,7 +6979,8 @@
     "unresolved_citations": [],
     "prefix_marker": null,
     "modern_table_formula": "H2CCCS",
-    "existing_latex_body": null
+    "existing_latex_body": null,
+    "preview_action": "imported_latex_body"
   },
   {
     "tex_line": 1240,
@@ -6845,7 +7016,8 @@
     "unresolved_citations": [],
     "prefix_marker": null,
     "modern_table_formula": "CH2CCH",
-    "existing_latex_body": null
+    "existing_latex_body": null,
+    "preview_action": "imported_latex_body"
   },
   {
     "tex_line": 1256,
@@ -6890,7 +7062,8 @@
     "unresolved_citations": [],
     "prefix_marker": null,
     "modern_table_formula": "CH3CHO",
-    "existing_latex_body": null
+    "existing_latex_body": null,
+    "preview_action": "imported_latex_body"
   },
   {
     "tex_line": 1261,
@@ -6935,7 +7108,8 @@
     "unresolved_citations": [],
     "prefix_marker": null,
     "modern_table_formula": "CH3CCH",
-    "existing_latex_body": null
+    "existing_latex_body": null,
+    "preview_action": "imported_latex_body"
   },
   {
     "tex_line": 1266,
@@ -6986,7 +7160,8 @@
     "unresolved_citations": [],
     "prefix_marker": null,
     "modern_table_formula": "CH3NH2",
-    "existing_latex_body": null
+    "existing_latex_body": null,
+    "preview_action": "imported_latex_body"
   },
   {
     "tex_line": 1271,
@@ -7027,7 +7202,8 @@
     "unresolved_citations": [],
     "prefix_marker": null,
     "modern_table_formula": "CH2CHCN",
-    "existing_latex_body": null
+    "existing_latex_body": null,
+    "preview_action": "imported_latex_body"
   },
   {
     "tex_line": 1276,
@@ -7068,7 +7244,8 @@
     "unresolved_citations": [],
     "prefix_marker": null,
     "modern_table_formula": "HC5N",
-    "existing_latex_body": null
+    "existing_latex_body": null,
+    "preview_action": "imported_latex_body"
   },
   {
     "tex_line": 1281,
@@ -7109,7 +7286,8 @@
     "unresolved_citations": [],
     "prefix_marker": null,
     "modern_table_formula": "C6H",
-    "existing_latex_body": null
+    "existing_latex_body": null,
+    "preview_action": "imported_latex_body"
   },
   {
     "tex_line": 1286,
@@ -7143,7 +7321,8 @@
     "unresolved_citations": [],
     "prefix_marker": "c-",
     "modern_table_formula": "c-C2H4O",
-    "existing_latex_body": null
+    "existing_latex_body": null,
+    "preview_action": "imported_latex_body"
   },
   {
     "tex_line": 1291,
@@ -7184,7 +7363,8 @@
     "unresolved_citations": [],
     "prefix_marker": null,
     "modern_table_formula": "CH2CHOH",
-    "existing_latex_body": null
+    "existing_latex_body": null,
+    "preview_action": "imported_latex_body"
   },
   {
     "tex_line": 1296,
@@ -7225,7 +7405,8 @@
     "unresolved_citations": [],
     "prefix_marker": null,
     "modern_table_formula": "C6H-",
-    "existing_latex_body": null
+    "existing_latex_body": null,
+    "preview_action": "imported_latex_body"
   },
   {
     "tex_line": 1301,
@@ -7261,7 +7442,8 @@
     "unresolved_citations": [],
     "prefix_marker": null,
     "modern_table_formula": "CH3NCO",
-    "existing_latex_body": null
+    "existing_latex_body": null,
+    "preview_action": "imported_latex_body"
   },
   {
     "tex_line": 1306,
@@ -7297,7 +7479,8 @@
     "unresolved_citations": [],
     "prefix_marker": null,
     "modern_table_formula": "HC5O",
-    "existing_latex_body": null
+    "existing_latex_body": null,
+    "preview_action": "imported_latex_body"
   },
   {
     "tex_line": 1311,
@@ -7333,7 +7516,8 @@
     "unresolved_citations": [],
     "prefix_marker": null,
     "modern_table_formula": "HOCH2CN",
-    "existing_latex_body": null
+    "existing_latex_body": null,
+    "preview_action": "imported_latex_body"
   },
   {
     "tex_line": 1316,
@@ -7379,7 +7563,8 @@
     "unresolved_citations": [],
     "prefix_marker": null,
     "modern_table_formula": "HC3HNH",
-    "existing_latex_body": null
+    "existing_latex_body": null,
+    "preview_action": "imported_latex_body"
   },
   {
     "tex_line": 1321,
@@ -7429,7 +7614,8 @@
     "unresolved_citations": [],
     "prefix_marker": null,
     "modern_table_formula": "HC4NC",
-    "existing_latex_body": null
+    "existing_latex_body": null,
+    "preview_action": "imported_latex_body"
   },
   {
     "tex_line": 1326,
@@ -7463,7 +7649,8 @@
     "unresolved_citations": [],
     "prefix_marker": "c-",
     "modern_table_formula": "c-C3HCCH",
-    "existing_latex_body": null
+    "existing_latex_body": null,
+    "preview_action": "imported_latex_body"
   },
   {
     "tex_line": 1342,
@@ -7504,7 +7691,8 @@
     "unresolved_citations": [],
     "prefix_marker": null,
     "modern_table_formula": "HCOOCH3",
-    "existing_latex_body": null
+    "existing_latex_body": null,
+    "preview_action": "imported_latex_body"
   },
   {
     "tex_line": 1347,
@@ -7540,7 +7728,8 @@
     "unresolved_citations": [],
     "prefix_marker": null,
     "modern_table_formula": "CH3C3N",
-    "existing_latex_body": null
+    "existing_latex_body": null,
+    "preview_action": "imported_latex_body"
   },
   {
     "tex_line": 1352,
@@ -7576,7 +7765,8 @@
     "unresolved_citations": [],
     "prefix_marker": null,
     "modern_table_formula": "C7H",
-    "existing_latex_body": null
+    "existing_latex_body": null,
+    "preview_action": "imported_latex_body"
   },
   {
     "tex_line": 1357,
@@ -7617,7 +7807,8 @@
     "unresolved_citations": [],
     "prefix_marker": null,
     "modern_table_formula": "CH3COOH",
-    "existing_latex_body": null
+    "existing_latex_body": null,
+    "preview_action": "imported_latex_body"
   },
   {
     "tex_line": 1362,
@@ -7653,7 +7844,8 @@
     "unresolved_citations": [],
     "prefix_marker": null,
     "modern_table_formula": "H2C6",
-    "existing_latex_body": null
+    "existing_latex_body": null,
+    "preview_action": "imported_latex_body"
   },
   {
     "tex_line": 1367,
@@ -7688,7 +7880,8 @@
     "unresolved_citations": [],
     "prefix_marker": null,
     "modern_table_formula": "CH2OHCHO",
-    "existing_latex_body": null
+    "existing_latex_body": null,
+    "preview_action": "imported_latex_body"
   },
   {
     "tex_line": 1372,
@@ -7724,7 +7917,8 @@
     "unresolved_citations": [],
     "prefix_marker": null,
     "modern_table_formula": "HC6H",
-    "existing_latex_body": null
+    "existing_latex_body": null,
+    "preview_action": "imported_latex_body"
   },
   {
     "tex_line": 1377,
@@ -7770,7 +7964,8 @@
     "unresolved_citations": [],
     "prefix_marker": null,
     "modern_table_formula": "CH2CHCHO",
-    "existing_latex_body": null
+    "existing_latex_body": null,
+    "preview_action": "imported_latex_body"
   },
   {
     "tex_line": 1382,
@@ -7811,7 +8006,8 @@
     "unresolved_citations": [],
     "prefix_marker": null,
     "modern_table_formula": "CH2CCHCN",
-    "existing_latex_body": null
+    "existing_latex_body": null,
+    "preview_action": "imported_latex_body"
   },
   {
     "tex_line": 1387,
@@ -7857,7 +8053,8 @@
     "unresolved_citations": [],
     "prefix_marker": null,
     "modern_table_formula": "NH2CH2CN",
-    "existing_latex_body": null
+    "existing_latex_body": null,
+    "preview_action": "imported_latex_body"
   },
   {
     "tex_line": 1392,
@@ -7888,7 +8085,8 @@
     "unresolved_citations": [],
     "prefix_marker": null,
     "modern_table_formula": "CH3CHNH",
-    "existing_latex_body": null
+    "existing_latex_body": null,
+    "preview_action": "imported_latex_body"
   },
   {
     "tex_line": 1397,
@@ -7929,7 +8127,8 @@
     "unresolved_citations": [],
     "prefix_marker": null,
     "modern_table_formula": "CH3SiH3",
-    "existing_latex_body": null
+    "existing_latex_body": null,
+    "preview_action": "imported_latex_body"
   },
   {
     "tex_line": 1402,
@@ -7985,7 +8184,8 @@
     "unresolved_citations": [],
     "prefix_marker": null,
     "modern_table_formula": "NH2CONH2",
-    "existing_latex_body": null
+    "existing_latex_body": null,
+    "preview_action": "imported_latex_body"
   },
   {
     "tex_line": 1407,
@@ -8036,7 +8236,8 @@
     "unresolved_citations": [],
     "prefix_marker": null,
     "modern_table_formula": "HCCCH2CN",
-    "existing_latex_body": null
+    "existing_latex_body": null,
+    "preview_action": "imported_latex_body"
   },
   {
     "tex_line": 1412,
@@ -8082,7 +8283,8 @@
     "unresolved_citations": [],
     "prefix_marker": null,
     "modern_table_formula": "CH2CHCCH",
-    "existing_latex_body": null
+    "existing_latex_body": null,
+    "preview_action": "imported_latex_body"
   },
   {
     "tex_line": 1428,
@@ -8123,7 +8325,8 @@
     "unresolved_citations": [],
     "prefix_marker": null,
     "modern_table_formula": "CH3OCH3",
-    "existing_latex_body": null
+    "existing_latex_body": null,
+    "preview_action": "imported_latex_body"
   },
   {
     "tex_line": 1433,
@@ -8169,7 +8372,8 @@
     "unresolved_citations": [],
     "prefix_marker": null,
     "modern_table_formula": "CH3CH2OH",
-    "existing_latex_body": null
+    "existing_latex_body": null,
+    "preview_action": "imported_latex_body"
   },
   {
     "tex_line": 1438,
@@ -8220,7 +8424,8 @@
     "unresolved_citations": [],
     "prefix_marker": null,
     "modern_table_formula": "CH3CH2CN",
-    "existing_latex_body": null
+    "existing_latex_body": null,
+    "preview_action": "imported_latex_body"
   },
   {
     "tex_line": 1443,
@@ -8306,7 +8511,8 @@
     "unresolved_citations": [],
     "prefix_marker": null,
     "modern_table_formula": "HC7N",
-    "existing_latex_body": null
+    "existing_latex_body": null,
+    "preview_action": "imported_latex_body"
   },
   {
     "tex_line": 1454,
@@ -8367,7 +8573,8 @@
     "unresolved_citations": [],
     "prefix_marker": null,
     "modern_table_formula": "CH3C4H",
-    "existing_latex_body": null
+    "existing_latex_body": null,
+    "preview_action": "imported_latex_body"
   },
   {
     "tex_line": 1463,
@@ -8413,7 +8620,8 @@
     "unresolved_citations": [],
     "prefix_marker": null,
     "modern_table_formula": "C8H",
-    "existing_latex_body": null
+    "existing_latex_body": null,
+    "preview_action": "imported_latex_body"
   },
   {
     "tex_line": 1468,
@@ -8453,7 +8661,8 @@
     "unresolved_citations": [],
     "prefix_marker": null,
     "modern_table_formula": "CH3CONH2",
-    "existing_latex_body": null
+    "existing_latex_body": null,
+    "preview_action": "imported_latex_body"
   },
   {
     "tex_line": 1473,
@@ -8504,7 +8713,8 @@
     "unresolved_citations": [],
     "prefix_marker": null,
     "modern_table_formula": "C8H-",
-    "existing_latex_body": null
+    "existing_latex_body": null,
+    "preview_action": "imported_latex_body"
   },
   {
     "tex_line": 1478,
@@ -8545,7 +8755,8 @@
     "unresolved_citations": [],
     "prefix_marker": null,
     "modern_table_formula": "CH2CHCH3",
-    "existing_latex_body": null
+    "existing_latex_body": null,
+    "preview_action": "imported_latex_body"
   },
   {
     "tex_line": 1483,
@@ -8601,7 +8812,8 @@
     "unresolved_citations": [],
     "prefix_marker": null,
     "modern_table_formula": "CH3CH2SH",
-    "existing_latex_body": null
+    "existing_latex_body": null,
+    "preview_action": "imported_latex_body"
   },
   {
     "tex_line": 1488,
@@ -8647,7 +8859,8 @@
     "unresolved_citations": [],
     "prefix_marker": null,
     "modern_table_formula": "HC7O",
-    "existing_latex_body": null
+    "existing_latex_body": null,
+    "preview_action": "imported_latex_body"
   },
   {
     "tex_line": 1493,
@@ -8688,7 +8901,8 @@
     "unresolved_citations": [],
     "prefix_marker": null,
     "modern_table_formula": "H2CCCHCCH",
-    "existing_latex_body": null
+    "existing_latex_body": null,
+    "preview_action": "imported_latex_body"
   },
   {
     "tex_line": 1498,
@@ -8734,7 +8948,8 @@
     "unresolved_citations": [],
     "prefix_marker": null,
     "modern_table_formula": "HCCCHCHCN",
-    "existing_latex_body": null
+    "existing_latex_body": null,
+    "preview_action": "imported_latex_body"
   },
   {
     "tex_line": 1503,
@@ -8780,7 +8995,8 @@
     "unresolved_citations": [],
     "prefix_marker": null,
     "modern_table_formula": "H2CCHC3N",
-    "existing_latex_body": null
+    "existing_latex_body": null,
+    "preview_action": "imported_latex_body"
   },
   {
     "tex_line": 1519,
@@ -8816,7 +9032,8 @@
     "unresolved_citations": [],
     "prefix_marker": null,
     "modern_table_formula": "CH3COCH3",
-    "existing_latex_body": null
+    "existing_latex_body": null,
+    "preview_action": "imported_latex_body"
   },
   {
     "tex_line": 1524,
@@ -8857,7 +9074,8 @@
     "unresolved_citations": [],
     "prefix_marker": null,
     "modern_table_formula": "HOCH2CH2OH",
-    "existing_latex_body": null
+    "existing_latex_body": null,
+    "preview_action": "imported_latex_body"
   },
   {
     "tex_line": 1529,
@@ -8892,7 +9110,8 @@
     "unresolved_citations": [],
     "prefix_marker": null,
     "modern_table_formula": "CH3CH2CHO",
-    "existing_latex_body": null
+    "existing_latex_body": null,
+    "preview_action": "imported_latex_body"
   },
   {
     "tex_line": 1534,
@@ -8933,7 +9152,8 @@
     "unresolved_citations": [],
     "prefix_marker": null,
     "modern_table_formula": "CH3C5N",
-    "existing_latex_body": null
+    "existing_latex_body": null,
+    "preview_action": "imported_latex_body"
   },
   {
     "tex_line": 1539,
@@ -8964,7 +9184,8 @@
     "unresolved_citations": [],
     "prefix_marker": null,
     "modern_table_formula": "CH3CHCH2O",
-    "existing_latex_body": null
+    "existing_latex_body": null,
+    "preview_action": "imported_latex_body"
   },
   {
     "tex_line": 1544,
@@ -9000,7 +9221,8 @@
     "unresolved_citations": [],
     "prefix_marker": null,
     "modern_table_formula": "CH3OCH2OH",
-    "existing_latex_body": null
+    "existing_latex_body": null,
+    "preview_action": "imported_latex_body"
   },
   {
     "tex_line": 1560,
@@ -9036,7 +9258,8 @@
     "unresolved_citations": [],
     "prefix_marker": null,
     "modern_table_formula": "HC9N",
-    "existing_latex_body": null
+    "existing_latex_body": null,
+    "preview_action": "imported_latex_body"
   },
   {
     "tex_line": 1565,
@@ -9072,7 +9295,8 @@
     "unresolved_citations": [],
     "prefix_marker": null,
     "modern_table_formula": "CH3C6H",
-    "existing_latex_body": null
+    "existing_latex_body": null,
+    "preview_action": "imported_latex_body"
   },
   {
     "tex_line": 1570,
@@ -9117,7 +9341,8 @@
     "unresolved_citations": [],
     "prefix_marker": null,
     "modern_table_formula": "C2H5OCHO",
-    "existing_latex_body": null
+    "existing_latex_body": null,
+    "preview_action": "imported_latex_body"
   },
   {
     "tex_line": 1575,
@@ -9153,7 +9378,8 @@
     "unresolved_citations": [],
     "prefix_marker": null,
     "modern_table_formula": "CH3COOCH3",
-    "existing_latex_body": null
+    "existing_latex_body": null,
+    "preview_action": "imported_latex_body"
   },
   {
     "tex_line": 1580,
@@ -9199,7 +9425,8 @@
     "unresolved_citations": [],
     "prefix_marker": null,
     "modern_table_formula": "CH3COCH2OH",
-    "existing_latex_body": null
+    "existing_latex_body": null,
+    "preview_action": "imported_latex_body"
   },
   {
     "tex_line": 1585,
@@ -9249,7 +9476,8 @@
     "unresolved_citations": [],
     "prefix_marker": null,
     "modern_table_formula": "C5H6",
-    "existing_latex_body": null
+    "existing_latex_body": null,
+    "preview_action": "imported_latex_body"
   },
   {
     "tex_line": 1601,
@@ -9285,7 +9513,8 @@
     "unresolved_citations": [],
     "prefix_marker": null,
     "modern_table_formula": "C6H6",
-    "existing_latex_body": null
+    "existing_latex_body": null,
+    "preview_action": "imported_latex_body"
   },
   {
     "tex_line": 1606,
@@ -9314,7 +9543,8 @@
     "unresolved_citations": [],
     "prefix_marker": "n-",
     "modern_table_formula": "n-C3H7CN",
-    "existing_latex_body": null
+    "existing_latex_body": null,
+    "preview_action": "imported_latex_body"
   },
   {
     "tex_line": 1611,
@@ -9348,7 +9578,8 @@
     "unresolved_citations": [],
     "prefix_marker": "i-",
     "modern_table_formula": "i-C3H7CN",
-    "existing_latex_body": null
+    "existing_latex_body": null,
+    "preview_action": "imported_latex_body"
   },
   {
     "tex_line": 1616,
@@ -9393,7 +9624,8 @@
     "unresolved_citations": [],
     "prefix_marker": "1-",
     "modern_table_formula": "1-C5H5CN",
-    "existing_latex_body": null
+    "existing_latex_body": null,
+    "preview_action": "imported_latex_body"
   },
   {
     "tex_line": 1621,
@@ -9438,7 +9670,8 @@
     "unresolved_citations": [],
     "prefix_marker": "2-",
     "modern_table_formula": "2-C5H5CN",
-    "existing_latex_body": null
+    "existing_latex_body": null,
+    "preview_action": "imported_latex_body"
   },
   {
     "tex_line": 1637,
@@ -9474,7 +9707,8 @@
     "unresolved_citations": [],
     "prefix_marker": null,
     "modern_table_formula": "C6H5CN",
-    "existing_latex_body": null
+    "existing_latex_body": null,
+    "preview_action": "imported_latex_body"
   },
   {
     "tex_line": 1642,
@@ -9545,7 +9779,8 @@
     "unresolved_citations": [],
     "prefix_marker": null,
     "modern_table_formula": "HC11N",
-    "existing_latex_body": null
+    "existing_latex_body": null,
+    "preview_action": "imported_latex_body"
   },
   {
     "tex_line": 1661,
@@ -9579,7 +9814,8 @@
     "unresolved_citations": [],
     "prefix_marker": "1-",
     "modern_table_formula": "1-C10H7CN",
-    "existing_latex_body": null
+    "existing_latex_body": null,
+    "preview_action": "imported_latex_body"
   },
   {
     "tex_line": 1666,
@@ -9613,7 +9849,8 @@
     "unresolved_citations": [],
     "prefix_marker": "2-",
     "modern_table_formula": "2-C10H7CN",
-    "existing_latex_body": null
+    "existing_latex_body": null,
+    "preview_action": "imported_latex_body"
   },
   {
     "tex_line": 1671,
@@ -9659,7 +9896,8 @@
     "unresolved_citations": [],
     "prefix_marker": null,
     "modern_table_formula": "C9H8",
-    "existing_latex_body": null
+    "existing_latex_body": null,
+    "preview_action": "imported_latex_body"
   },
   {
     "tex_line": 1687,
@@ -9700,7 +9938,8 @@
     "unresolved_citations": [],
     "prefix_marker": null,
     "modern_table_formula": "C60",
-    "existing_latex_body": null
+    "existing_latex_body": null,
+    "preview_action": "imported_latex_body"
   },
   {
     "tex_line": 1692,
@@ -9756,7 +9995,8 @@
     "unresolved_citations": [],
     "prefix_marker": null,
     "modern_table_formula": "C60+",
-    "existing_latex_body": null
+    "existing_latex_body": null,
+    "preview_action": "imported_latex_body"
   },
   {
     "tex_line": 1697,
@@ -9802,7 +10042,8 @@
     "unresolved_citations": [],
     "prefix_marker": null,
     "modern_table_formula": "C70",
-    "existing_latex_body": null
+    "existing_latex_body": null,
+    "preview_action": "imported_latex_body"
   },
   {
     "tex_line": 1713,
@@ -9813,10 +10054,12 @@
     "tex_formula": "C2H5N",
     "tex_name": "aziridine",
     "latex_body": "\\citet{Dickens:2001:643} reported the tentative detection of the $J_{K_a,K_c} = 5_{5,0}\\rightarrow4_{4,1}$ transition of \\ce{C2H5N}, also known as ethylenimine, at 226~GHz toward Sgr B2, G34.3+.2, G10.47+0.03, and G327.3-0.6 in observations made with the SEST 15-m, NRAO 12-m, and NASA Deep Space Network 70-m telescopes.  The laboratory data were reported by \\citet{Thorwirth:2000:116}.",
-    "status": "unmapped",
-    "confidence": "none",
-    "label": null,
-    "mapping_methods": [],
+    "status": "mapped",
+    "confidence": "medium",
+    "label": "mol:c-C2H4NH",
+    "mapping_methods": [
+      "name"
+    ],
     "citation_replacements": [
       {
         "old": "Dickens:2001uc",
@@ -9830,7 +10073,10 @@
       }
     ],
     "unresolved_citations": [],
-    "prefix_marker": null
+    "prefix_marker": null,
+    "modern_table_formula": "c-C2H4NH",
+    "existing_latex_body": "\\citet{Dickens:2001:643} reported the tentative detection of the $J_{K_a,K_c} = 5_{5,0}\\rightarrow4_{4,1}$ transition of \\ce{c-C2H4NH}, also known as ethylenimine, at 226~GHz toward Sgr B2, G34.3+0.2, G10.47+0.03, and G327.3-0.6 in observations made with the SEST 15-m, NRAO 12-m, and NASA Deep Space Network 70-m telescopes.  The laboratory data were reported by \\citet{Thorwirth:2000:323,Thorwirth:2000:116,Tolles:1965:2253}.",
+    "preview_action": "preserved_existing_latex_body"
   },
   {
     "tex_line": 1718,
@@ -9841,10 +10087,15 @@
     "tex_formula": "SiH",
     "tex_name": "silicon hydride",
     "latex_body": "\\citet{Schilke:2001:281} reported the tentative detection of two features in a CSO line survey of Orion that were coincident with transitions of SiH.  Two groups of hyperfine transitions in the $^2\\Pi _{1/2}$ state at 625 and 628~GHz fell within range of the observations.  The lower set is significantly blended with other emitting species, whereas the higher-frequency set appears unblended, and may show partially resolved hyperfine structure.  The laboratory frequencies were from \\citet{Brown:1985:188}.",
-    "status": "unmapped",
-    "confidence": "none",
-    "label": null,
-    "mapping_methods": [],
+    "status": "mapped",
+    "confidence": "high",
+    "label": "mol:SiH",
+    "mapping_methods": [
+      "tex_label",
+      "formula_as_label",
+      "table_formula",
+      "formula"
+    ],
     "citation_replacements": [
       {
         "old": "Schilke:2001fr",
@@ -9858,7 +10109,10 @@
       }
     ],
     "unresolved_citations": [],
-    "prefix_marker": null
+    "prefix_marker": null,
+    "modern_table_formula": "SiH",
+    "existing_latex_body": "\\citet{Schilke:2001:281} reported the tentative detection of two features in a CSO line survey of Orion that were coincident with transitions of SiH.  Two groups of hyperfine transitions in the $^2\\Pi _{1/2}$ state at 625 and 628~GHz fell within range of the observations.  The lower set is significantly blended with other emitting species, whereas the higher-frequency set appears unblended, and may show partially resolved hyperfine structure.  The laboratory frequencies were from \\citet{Brown:1985:188}.",
+    "preview_action": "imported_latex_body"
   },
   {
     "tex_line": 1723,
@@ -9869,10 +10123,16 @@
     "tex_formula": "FeO",
     "tex_name": "iron monoxide",
     "latex_body": "\\citet{Walmsley:2002:L109} identified an absorption feature in IRAM 30-m observations of Sgr B2 at 153~GHz that they tentatively assign to the $J = 5\\rightarrow4$, $\\Omega = 4$ transition of FeO, based on the laboratory work of \\citet{Allen:1996:130}.  Later, \\citet{Furuya:2003:L21} used the Nobeyama Millimeter Array to confirm the detection of this line, but no additional transitions were observed.  Most recently, \\citet{Decin:2018:113} reported a tentative detection of the $11\\rightarrow10$, $\\Omega = 4$ transition in ALMA observations of R Dor at 337~GHz.",
-    "status": "unmapped",
-    "confidence": "none",
-    "label": null,
-    "mapping_methods": [],
+    "status": "mapped",
+    "confidence": "high",
+    "label": "mol:FeO",
+    "mapping_methods": [
+      "tex_label",
+      "formula_as_label",
+      "table_formula",
+      "formula",
+      "name"
+    ],
     "citation_replacements": [
       {
         "old": "Walmsley:2002ud",
@@ -9896,7 +10156,10 @@
       }
     ],
     "unresolved_citations": [],
-    "prefix_marker": null
+    "prefix_marker": null,
+    "modern_table_formula": "FeO",
+    "existing_latex_body": "\\citet{Walmsley:2002:L109} identified an absorption feature in IRAM 30-m observations of Sgr B2 at 153~GHz that they tentatively assign to the $J = 5\\rightarrow4$, $\\Omega = 4$ transition of FeO, based on the laboratory work of \\citet{Allen:1996:130}.  Later, \\citet{Furuya:2003:L21} used the Nobeyama Millimeter Array to confirm the detection of this line, but no additional transitions were observed.  Most recently, \\citet{Decin:2018:113} reported a tentative detection of the $11\\rightarrow10$, $\\Omega = 4$ transition in ALMA observations of R Dor at 337~GHz.",
+    "preview_action": "imported_latex_body"
   },
   {
     "tex_line": 1728,
@@ -9907,10 +10170,15 @@
     "tex_formula": "OCN-",
     "tex_name": "cyanate anion",
     "latex_body": "There is a long history of attempts to identify the carrier of the ``XCN\" feature in astrophyiscal ice observations near 2167~cm$^{-1}$.  On the basis of extensive laboratory work (see, e.g., \\citealt{Schutte:1997:L43}), \\citet{vanBroekhuizen:2005:249} claim an identification of \\ce{OCN-} in ices along numerous sightlines to low-mass YSO's using the Very Large Telescope (VLT).  Only a single absorption feature could be ascribed to \\ce{OCN-}.  As this is a single feature detection, and no gas-phase detection has been claimed, \\ce{OCN-} has been listed as a tentative interstellar species in this census.",
-    "status": "unmapped",
-    "confidence": "none",
-    "label": null,
-    "mapping_methods": [],
+    "status": "mapped",
+    "confidence": "high",
+    "label": "mol:OCN-",
+    "mapping_methods": [
+      "formula_as_label",
+      "table_formula",
+      "formula",
+      "name"
+    ],
     "citation_replacements": [
       {
         "old": "Schutte:1997hd",
@@ -9924,7 +10192,10 @@
       }
     ],
     "unresolved_citations": [],
-    "prefix_marker": null
+    "prefix_marker": null,
+    "modern_table_formula": "OCN-",
+    "existing_latex_body": "There is a long history of attempts to identify the carrier of the ``XCN\" feature in astrophyiscal ice observations near 2167~cm$^{-1}$.  On the basis of extensive laboratory work (see, e.g., \\citealt{Schutte:1997:L43}), \\citet{vanBroekhuizen:2005:249} claim an identification of \\ce{OCN-} in ices along numerous sightlines to low-mass YSO's using the Very Large Telescope (VLT).  Only a single absorption feature could be ascribed to \\ce{OCN-}.  As this is a single feature detection, and no gas-phase detection has been claimed, \\ce{OCN-} has been listed as a tentative interstellar species in this census.",
+    "preview_action": "imported_latex_body"
   },
   {
     "tex_line": 1733,
@@ -9935,10 +10206,15 @@
     "tex_formula": "C2H-",
     "tex_name": "ethynylide anion",
     "latex_body": "\\citet{Cernicharo:2008:L83} suggest that an unidentified line at 83.278\\,GHz, classified as U83278, in IRAM 30-m observations of IRC+10216 may be due to the $J = 1\\rightarrow0$ transition of \\ce{C2H-}.  Although they list no source for their line frequency, it presumably is derived from the work of \\citet{Brunken:2007:L33} and \\citet{Amano:2008:244305}.",
-    "status": "unmapped",
-    "confidence": "none",
-    "label": null,
-    "mapping_methods": [],
+    "status": "mapped",
+    "confidence": "high",
+    "label": "mol:C2H-",
+    "mapping_methods": [
+      "tex_label",
+      "formula_as_label",
+      "table_formula",
+      "formula"
+    ],
     "citation_replacements": [
       {
         "old": "Cernicharo:2008wi",
@@ -9957,7 +10233,10 @@
       }
     ],
     "unresolved_citations": [],
-    "prefix_marker": null
+    "prefix_marker": null,
+    "modern_table_formula": "C2H-",
+    "existing_latex_body": "\\citet{Cernicharo:2008:L83} suggest that an unidentified line at 83.278\\,GHz, classified as U83278, in IRAM 30-m observations of IRC+10216 may be due to the $J = 1\\rightarrow0$ transition of \\ce{C2H-}.  Although they list no source for their line frequency, it presumably is derived from the work of \\citet{Brunken:2007:L33} and \\citet{Amano:2008:244305}.",
+    "preview_action": "imported_latex_body"
   },
   {
     "tex_line": 1738,
@@ -9968,10 +10247,13 @@
     "tex_formula": "C6H5OH",
     "tex_name": "phenol",
     "latex_body": "\\citet{Kolesnikova:2013:13} reported the laboratory rotational spectroscopy of \\ce{C6H5OH}, and identified a number of coincidences between transitions of \\ce{C6H5OH} and unassigned lines in IRAM 30-m observations of Orion between 80--280~GHz \\citep{Tercero:2012:A119}.",
-    "status": "unmapped",
-    "confidence": "none",
-    "label": null,
-    "mapping_methods": [],
+    "status": "mapped",
+    "confidence": "high",
+    "label": "mol:c-C6H5OH",
+    "mapping_methods": [
+      "formula",
+      "name"
+    ],
     "citation_replacements": [
       {
         "old": "Kolesnikova:2013hw",
@@ -9985,7 +10267,10 @@
       }
     ],
     "unresolved_citations": [],
-    "prefix_marker": null
+    "prefix_marker": null,
+    "modern_table_formula": "c-C6H5OH",
+    "existing_latex_body": "\\citet{Kolesnikova:2013:13} reported the laboratory rotational spectroscopy of \\ce{C6H5OH}, and identified a number of coincidences between transitions of \\ce{C6H5OH} and unassigned lines in IRAM 30-m observations of Orion between 80--280~GHz from \\citep{Tercero:2012:A119}.",
+    "preview_action": "preserved_existing_latex_body"
   },
   {
     "tex_line": 1743,
@@ -9996,10 +10281,14 @@
     "tex_formula": "NO+",
     "tex_name": "nitrosylium cation",
     "latex_body": "\\citet{Cernicharo:2014:40} reported the tentative detection of a single line ($J = 2\\rightarrow1$) of \\ce{NO+} at 238~GHz toward B1-b using the IRAM 30-m telescope.  The assignment was made based on laboratory rotational spectroscopy described in the same paper.",
-    "status": "unmapped",
-    "confidence": "none",
-    "label": null,
-    "mapping_methods": [],
+    "status": "mapped",
+    "confidence": "high",
+    "label": "mol:NO+",
+    "mapping_methods": [
+      "formula_as_label",
+      "table_formula",
+      "formula"
+    ],
     "citation_replacements": [
       {
         "old": "Cernicharo:2014eq",
@@ -10008,7 +10297,10 @@
       }
     ],
     "unresolved_citations": [],
-    "prefix_marker": null
+    "prefix_marker": null,
+    "modern_table_formula": "NO+",
+    "existing_latex_body": "\\citet{Cernicharo:2014:40} reported the tentative detection of a single line ($J = 2\\rightarrow1$) of \\ce{NO+} at 238~GHz toward B1-b using the IRAM 30-m telescope.  The assignment was made based on laboratory rotational spectroscopy described in the same paper.",
+    "preview_action": "imported_latex_body"
   },
   {
     "tex_line": 1749,
@@ -10019,10 +10311,16 @@
     "tex_formula": "NCCP",
     "tex_name": "cyanophosphaethyne",
     "latex_body": "\\citet{Agundez:2014:A45} reported the tentative detection of \\ce{NCCP} in IRAM 30-m observations of IRC+10216.  They identified and tentatively assigned three signals in their spectra to the $J = 15\\rightarrow14$, $16\\rightarrow15$, and $18\\rightarrow17$ transitions of \\ce{NCCP} at 81, 87, and 97~GHz, respectively, based on the laboratory work of \\citet{Bizzocchi:2001:110}.",
-    "status": "unmapped",
-    "confidence": "none",
-    "label": null,
-    "mapping_methods": [],
+    "status": "mapped",
+    "confidence": "high",
+    "label": "mol:NCCP",
+    "mapping_methods": [
+      "tex_label",
+      "formula_as_label",
+      "table_formula",
+      "formula",
+      "name"
+    ],
     "citation_replacements": [
       {
         "old": "Agundez:2014gm",
@@ -10036,7 +10334,10 @@
       }
     ],
     "unresolved_citations": [],
-    "prefix_marker": null
+    "prefix_marker": null,
+    "modern_table_formula": "NCCP",
+    "existing_latex_body": "\\citet{Agundez:2014:A45} reported the tentative detection of \\ce{NCCP} in IRAM 30-m observations of IRC+10216.  They identified and tentatively assigned three signals in their spectra to the $J = 15\\rightarrow14$, $16\\rightarrow15$, and $18\\rightarrow17$ transitions of \\ce{NCCP} at 81, 87, and 97~GHz, respectively, based on the laboratory work of \\citet{Bizzocchi:2001:110}.",
+    "preview_action": "imported_latex_body"
   },
   {
     "tex_line": 1754,
@@ -10096,7 +10397,8 @@
     "unresolved_citations": [],
     "prefix_marker": null,
     "modern_table_formula": "C2H5OCH3",
-    "existing_latex_body": null
+    "existing_latex_body": null,
+    "preview_action": "imported_latex_body"
   },
   {
     "tex_line": 1759,
@@ -10126,7 +10428,8 @@
     "unresolved_citations": [],
     "prefix_marker": null,
     "modern_table_formula": "CH3NHCHO",
-    "existing_latex_body": null
+    "existing_latex_body": null,
+    "preview_action": "imported_latex_body"
   },
   {
     "tex_line": 1764,
@@ -10137,10 +10440,16 @@
     "tex_formula": "HC5NH+",
     "tex_name": "protonated cyanodiacetylene cation",
     "latex_body": "\\citet{Marcelino:2020:L6} report a tentative detection of \\ce{HC5NH+} in Yebes 40-m observations of TMC-1.  They identify a series of eight harmonically spaced lines in the data corresponding to a rotational constant $B$ = 1295.8158\\,MHz.  Based on quantum chemical calculations, they suggest either \\ce{HC5NH+} or \\ce{NC4NH+} as the potential carrier, eventually proposing \\ce{HC5NH+} as the more likely.  The lack of laboratory frequencies for confirmation is the remaining hinderance.",
-    "status": "unmapped",
-    "confidence": "none",
-    "label": null,
-    "mapping_methods": [],
+    "status": "mapped",
+    "confidence": "high",
+    "label": "mol:HC5NH+",
+    "mapping_methods": [
+      "tex_label",
+      "formula_as_label",
+      "table_formula",
+      "formula",
+      "name"
+    ],
     "citation_replacements": [
       {
         "old": "2020A&A...643L...6M",
@@ -10149,7 +10458,10 @@
       }
     ],
     "unresolved_citations": [],
-    "prefix_marker": null
+    "prefix_marker": null,
+    "modern_table_formula": "HC5NH+",
+    "existing_latex_body": "\\citet{Marcelino:2020:L6} report a tentative detection of \\ce{HC5NH+} in Yebes 40-m observations of TMC-1.  They identify a series of eight harmonically spaced lines in the data corresponding to a rotational constant $B$ = 1295.8158\\,MHz.  Based on quantum chemical calculations, they suggest either \\ce{HC5NH+} or \\ce{NC4NH+} as the potential carrier, eventually proposing \\ce{HC5NH+} as the more likely.",
+    "preview_action": "preserved_existing_latex_body"
   },
   {
     "tex_line": 1769,
@@ -10199,7 +10511,8 @@
     "unresolved_citations": [],
     "prefix_marker": null,
     "modern_table_formula": "CH3CH2CCH",
-    "existing_latex_body": null
+    "existing_latex_body": null,
+    "preview_action": "imported_latex_body"
   },
   {
     "tex_line": 1779,
@@ -10210,10 +10523,15 @@
     "tex_formula": "NH2CH2COOH",
     "tex_name": "glycine",
     "latex_body": "\\citet{Kuan:2003:848} reported a detection of 27 lines of \\ce{NH2CH2COOH} in observations toward Orion, Sgr B2, and W51 using the NRAO 12-m telescope.  Each source contained 13--16 of the 27 features; three features were seen in common between the sources.  The frequencies were obtained from the rotational constants measured and reported in \\citet{Suenram:1980:7180} and \\citet{Lovas:1995:L201}.  The detection was later disputed by \\citet{Snyder:2005:914}, who claimed to have identified a number of issues with the analysis.  Notably, \\citet{Snyder:2005:914} argue that the frequency predictions used by \\citet{Kuan:2003:848} were extrapolated too far above the measured laboratory transitions.  \\citet{Snyder:2005:914} used laboratory frequencies from \\citet{Ilyushin:2005:15} that covered the observed frequency range, and examined archival NRAO 12-m and SEST 15-m observations of Orion, Sgr B2, and W51.  They report a number of ``missing'' transitions of \\ce{NH2CH2COOH} that they predicted should have been strongly detected, if the detection of \\citet{Kuan:2003:848} held.  Subsequent searches by \\citet{Jones:2007:579}, \\citet{Cunningham:2007:1201}, and \\citet{Belloche:2008:179} using both interferometers and single-dish facilities failed to detect \\ce{NH2CH2COOH}, and set upper limits to the column density lower than that claimed in the detection of \\citet{Kuan:2003:848} (see \\citealt{Belloche:2008:179} \\S4.4 for a detailed discussion).",
-    "status": "unmapped",
-    "confidence": "none",
-    "label": null,
-    "mapping_methods": [],
+    "status": "mapped",
+    "confidence": "high",
+    "label": "mol:NH2CH2COOH",
+    "mapping_methods": [
+      "formula_as_label",
+      "table_formula",
+      "formula",
+      "name"
+    ],
     "citation_replacements": [
       {
         "old": "Kuan:2003yt",
@@ -10287,6 +10605,9 @@
       }
     ],
     "unresolved_citations": [],
-    "prefix_marker": null
+    "prefix_marker": null,
+    "modern_table_formula": "NH2CH2COOH",
+    "existing_latex_body": "\\citet{Kuan:2003:848} reported a detection of 27 lines of \\ce{NH2CH2COOH} in observations toward Orion, Sgr B2, and W51 using the NRAO 12-m telescope.  Each source contained 13--16 of the 27 features; three features were seen in common between the sources.  The frequencies were obtained from the rotational constants measured and reported in \\citet{Suenram:1980:7180} and \\citet{Lovas:1995:L201}.  The detection was later disputed by \\citet{Snyder:2005:914}, who claimed to have identified a number of issues with the analysis.  Notably, \\citet{Snyder:2005:914} argue that the frequency predictions used by \\citet{Kuan:2003:848} were extrapolated too far above the measured laboratory transitions.  \\citet{Snyder:2005:914} used laboratory frequencies from \\citet{Ilyushin:2005:15} that covered the observed frequency range, and examined archival NRAO 12-m and SEST 15-m observations of Orion, Sgr B2, and W51.  They report a number of ``missing'' transitions of \\ce{NH2CH2COOH} that they predicted should have been strongly detected, if the detection of \\citet{Kuan:2003:848} held.  Subsequent searches by \\citet{Jones:2007:579}, \\citet{Cunningham:2007:1201}, and \\citet{Belloche:2008:179} using both interferometers and single-dish facilities failed to detect \\ce{NH2CH2COOH}, and set upper limits to the column density lower than that claimed in the detection of \\citet{Kuan:2003:848} (see \\citealt{Belloche:2008:179} \\S4.4 for a detailed discussion).",
+    "preview_action": "imported_latex_body"
   }
 ]
