@@ -10001,6 +10001,9 @@
         "Cernicharo:2024:A139"
       ]
     },
+    "confirms": [
+      "det:CH3CH2CCH:ism-csm:2021"
+    ],
     "latex_text": null
   },
   {
@@ -10953,6 +10956,55 @@
         "Dickens:2001:643"
       ]
     },
+    "latex_text": null,
+    "history": {
+      "introduced": {
+        "date": "2026-05-07"
+      },
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "added",
+          "summary": "Added detection record.",
+          "date": "2026-05-07",
+          "fields": []
+        }
+      ]
+    }
+  },
+  {
+    "id": "det:CH3CH2CCH:ism-csm:2021",
+    "note": null,
+    "molecule": "mol:CH3CH2CCH",
+    "sources": [
+      "TMC1"
+    ],
+    "telescopes": [
+      "Yebes40"
+    ],
+    "wavelengths": [
+      "cm"
+    ],
+    "year": 2021,
+    "type": "ISM/CSM",
+    "status": "tentative",
+    "status_note": "Listed in the 2021 census Tentative Detections section.",
+    "first": false,
+    "month": null,
+    "day": null,
+    "refs": {
+      "observation": [
+        "Cernicharo:2021:L2"
+      ]
+    },
+    "confirms": [],
+    "confirmed_by": [
+      "det:CH3CH2CCH:ism-csm:2024"
+    ],
+    "disputes": [],
+    "disputed_by": [],
+    "supersedes": [],
+    "superseded_by": [],
     "latex_text": null,
     "history": {
       "introduced": {

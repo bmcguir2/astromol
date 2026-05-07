@@ -300,25 +300,6 @@
   refs:
     observation:
     - Marcelino:2020:L6
-- kind: detection
-  id: det:CH3CH2CCH:ism-csm:2021
-  molecule: mol:CH3CH2CCH
-  sources:
-  - TMC1
-  telescopes:
-  - Yebes40
-  wavelengths:
-  - cm
-  year: 2021
-  type: ISM/CSM
-  status: tentative
-  status_note: Listed in the 2021 census Tentative Detections section.
-  first: false
-  refs:
-    observation:
-    - Cernicharo:2021:L2
-  confirmed_by:
-  - det:CH3CH2CCH:ism-csm:2024
 - kind: molecule
   label: mol:NH2CH2COOH
   name: glycine
