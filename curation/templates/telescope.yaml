@@ -1,0 +1,18 @@
+# Copy this block into curation/staging/<name>.yaml and fill it in.
+# Required fields: kind, name, nick, shortname, type, wavelength.
+# Optional fields can be left blank; stage_records.py prunes empty template
+# sections and fills production defaults.
+
+- kind: telescope  # REQUIRED
+  name: Example Telescope  # REQUIRED; string
+  nick: ExampleTelescope  # REQUIRED; unique string key used by detections
+  shortname: Example Telescope  # REQUIRED; short human-readable name
+  type: Single Dish  # REQUIRED; telescope type from TELESCOPE_TYPES
+  wavelength: []  # REQUIRED; list of wavelength regimes
+  diameter:  # number in meters
+  latitude:  # number in decimal degrees, not sexagesimal
+  longitude:  # number in decimal degrees, not sexagesimal
+  built:  # integer year
+  decommissioned:  # integer year, blank if active
+  note:  # string
+  latex_name:  # string used for generated LaTeX

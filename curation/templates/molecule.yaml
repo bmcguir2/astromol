@@ -1,0 +1,43 @@
+# Copy this block into curation/staging/<name>.yaml and fill it in.
+# Required fields: kind, label, name, formula.
+# Optional fields can be left blank; stage_records.py prunes empty template
+# sections and fills production defaults.
+
+- kind: molecule  # REQUIRED
+  label: mol:EXAMPLE  # REQUIRED
+  name: example molecule  # REQUIRED
+  formula: example  # REQUIRED
+  table_formula: example
+  note:
+  iupac_name:
+  selfies:
+  synonyms: []
+  smiles:
+  canonical_smiles:
+  inchi:
+  inchikey:
+  radical_override:
+  fullerene: false
+  pah: false
+  n_rings: 0
+  cyclic: false
+  tags:
+    functional_groups: []
+  rotcon:
+    A:
+    B:
+    C:
+    refs: []
+    note:
+  dipole:
+    a:
+    b:
+    c:
+    refs: []
+    note:
+  refs:
+    lab: []
+    computation: []
+  isotopologue_of:
+  latex_section_override:
+  latex_body:

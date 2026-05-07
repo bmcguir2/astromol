@@ -45,7 +45,6 @@ DETECTION_TYPES = [
     "ppd",            # protoplanetary disk detection
     "exo",            # exoplanet atmosphere detection
     "comet",          # detection in a comet
-    "tentative",      # tentative/unconfirmed detection
 ]
 
 WAVELENGTHS = [
@@ -72,8 +71,14 @@ ISOTOPE_MASS_OVERRIDES = {
 DETECTION_REF_ROLES = [
     "observation",    # papers reporting the astronomical detection
     "confirmation",   # paper confirming a tentative detection
-    "refutation",     # paper challenging a detection
-    "correction",     # paper correcting/retracting a detection
+    "dispute",        # paper challenging a detection
+    "correction",     # paper correcting detection metadata or interpretation
+]
+
+DETECTION_STATUSES = [
+    "secure",
+    "tentative",
+    "disputed",
 ]
 
 HISTORY_EVENT_KINDS = [
@@ -152,7 +157,6 @@ class RecordHistory:
 
     introduced: dict = None
     last_modified: str = None
-    last_reviewed: str = None
     events: list[HistoryEvent] = field(default_factory=list)
 
     def __post_init__(self):
@@ -706,6 +710,8 @@ class Detection:
     year: int                 # year of detection, e.g. 1937
     type: str                 # one of DETECTION_TYPES, e.g. "first"
     note: str = None
+    status: str = "secure"    # one of DETECTION_STATUSES
+    status_note: str = None   # explanation for tentative/disputed status
 
     # === Significance flag ===
     first: bool = False       # True if this is the first detection of this molecule
@@ -735,6 +741,14 @@ class Detection:
                 f"Detection of '{self.molecule}': "
                 f"unknown type '{self.type}'. "
                 f"Must be one of: {DETECTION_TYPES}"
+            )
+
+        # Validate detection status
+        if self.status not in DETECTION_STATUSES:
+            raise ValueError(
+                f"Detection of '{self.molecule}': "
+                f"unknown status '{self.status}'. "
+                f"Must be one of: {DETECTION_STATUSES}"
             )
 
         # Validate each wavelength in the list

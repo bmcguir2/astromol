@@ -417,6 +417,8 @@ class Database:
         """Convert a nested history payload into a RecordHistory object."""
         history_data = entry.get("history")
         if history_data is not None and not isinstance(history_data, RecordHistory):
+            history_data = dict(history_data)
+            history_data.pop("last_reviewed", None)
             entry["history"] = RecordHistory(**history_data)
 
     # ================================================================

@@ -1,0 +1,101 @@
+- kind: molecule  # REQUIRED
+  label: mol:c-C2H4NH  # REQUIRED
+  name: aziridine  # REQUIRED
+  formula: C2H4NH  # REQUIRED
+  table_formula: c-C2H4NH
+  note:
+  iupac_name: aziridine
+  selfies:
+  synonyms: [aziridine]
+  smiles: C1CN1
+  canonical_smiles:
+  inchi: 1S/C2H5N/c1-2-3-1/h3H,1-2H2
+  inchikey: NOWKCMXCCJGMRR-UHFFFAOYSA-N
+  radical_override:
+  fullerene: false
+  pah: false
+  n_rings: 1
+  cyclic: true
+  tags:
+    functional_groups: [NH]
+  rotcon:
+    A: 22736
+    B: 21192
+    C: 13383
+    refs: [Thorwirth:2000:116,Thorwirth:2000:323,Tolles:1965:2253]
+    note:
+  dipole:
+    a:
+    b: 0.97
+    c: 1.357
+    refs: [Thorwirth:2000:116]
+    note:
+  refs:
+    lab: [Thorwirth:2000:323,Thorwirth:2000:116,Tolles:1965:2253]
+    computation: []
+  isotopologue_of:
+  latex_section_override:
+  latex_body: \citet{Dickens:2001:643} reported the tentative detection of the $J_{K_a,K_c} = 5_{5,0}\rightarrow4_{4,1}$ transition of \ce{c-C2H4NH}, also known as ethylenimine, at 226~GHz toward Sgr B2, G34.3+0.2, G10.47+0.03, and G327.3-0.6 in observations made with the SEST 15-m, NRAO 12-m, and NASA Deep Space Network 70-m telescopes.  The laboratory data were reported by \citet{Thorwirth:2000:323,Thorwirth:2000:116,Tolles:1965:2253}.
+  history:
+    introduced:
+      date:
+      census: 2021
+      legacy_version:
+    last_modified:
+    events: []
+
+- kind: source  # REQUIRED
+  name: G34.3+0.2  # REQUIRED
+  nick: G34302  # REQUIRED
+  type: SFR  # REQUIRED
+  ra: "18:53:18.5"
+  dec: "+01:14:59"
+  simbad_url: https://simbad.cds.unistra.fr/simbad/sim-id?Ident=%402658023
+  latex_name: G34.3+0.2
+  note: Also known as RAFGL 2271.
+
+- kind: source  # REQUIRED
+  name: G10.47+0.03  # REQUIRED
+  nick: G1047003  # REQUIRED
+  type: SFR  # REQUIRED
+  ra: "18:08:38.4"
+  dec: "-19:51:52"
+  simbad_url: https://simbad.cds.unistra.fr/simbad/sim-id?Ident=%402534261
+  latex_name: G10.47+0.03
+  note:
+
+- kind: source  # REQUIRED
+  name: G327.3-0.6  # REQUIRED
+  nick: G327306  # REQUIRED
+  type: SFR  # REQUIRED
+  ra: "15:53:05.0"
+  dec: "-54:35:24"
+  simbad_url: http://simbad.u-strasbg.fr/simbad/sim-id?Ident=G327.3-0.6
+  latex_name: G327.3-0.6
+  note:
+  _curation_note: Staged as a non-LOS source for the aziridine emission-context detection; sources.json already has G327306LOS for diffuse-cloud line-of-sight use.
+
+- kind: detection  # REQUIRED
+  molecule: mol:c-C2H4NH  # REQUIRED
+  sources: [SgrB2, G34302, G1047003, G327306]
+  telescopes: [SEST15, NRAOARO12, Goldstone70]
+  wavelengths: [mm]
+  year: 2001  # REQUIRED
+  type: ISM/CSM  # REQUIRED
+  status: tentative
+  status_note: Listed as a tentative detection in the 2021 census prose.
+  note: Tentative detection of the 226 GHz 5(5,0)-4(4,1) transition reported toward Sgr B2, G34.3+0.2, G10.47+0.03, and G327.3-0.6.
+  first: false
+  month: 3
+  day: 01
+  refs:
+    observation: [Dickens:2001:643]
+    confirmation: []
+    dispute: []
+    correction: []
+  latex_text:
+
+  # Staging-only fields. These are reported but not written to JSON.
+  _raw_sources_not_mapped: []
+  _raw_telescopes_not_mapped: []
+  _curation_note: Populated from the molecule latex_body; G34.3+.2 normalized to G34.3+0.2.

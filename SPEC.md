@@ -38,6 +38,21 @@ preserved as `history.events[*].legacy_version`, while
 present in the legacy database but absent from `2021_census_arxiv.tex` are
 therefore marked as introduced in the `2026` census.
 
+## Curation Workflow
+
+Production data lives in the JSON files under `astromol/data/`. New records
+should normally be staged first using copy/paste YAML templates from
+`curation/templates/`, with working staging files kept under `curation/staging/`.
+Run `python scripts/stage_records.py --staging <file.yaml>` to generate preview
+JSON and a review report. Use `--apply` only after the preview is accepted.
+The staging script automatically populates semantic history metadata for new
+records, including `history.introduced.date`, `history.last_modified`, and an
+initial `added` event dated with the staging run date.
+
+When the schema for `Molecule`, `Detection`, `Source`, or `Telescope` changes,
+the corresponding curation template, `scripts/stage_records.py`, and this
+specification must be updated in the same change.
+
 ## Data Model
 
 ### Ref
@@ -161,7 +176,6 @@ events that explain when and why a record was added, updated, or corrected.
 History fields:
 - `introduced`: dict with optional `date` and `census` keys
 - `last_modified`: ISO date string for the last semantic database change
-- `last_reviewed`: ISO date string for the last explicit review
 - `events`: list of `HistoryEvent`
 
 `HistoryEvent` fields:
@@ -303,6 +317,8 @@ Required fields:
 
 Optional fields:
 - `note`
+- `status`: value from `DETECTION_STATUSES`; defaults to `secure`
+- `status_note`: concise explanation for tentative or disputed detections
 - `first`
 - `month`
 - `day`
@@ -312,6 +328,33 @@ Optional fields:
 
 Computed:
 - `sortdate`
+
+Detection status is independent of detection type. `type` records the
+astrophysical context, such as `ISM/CSM`, `ice`, or `exgal`; `status` records
+whether the claim is `secure`, `tentative`, or `disputed`. Molecule inclusion
+does not imply a secure astronomical detection. Tentative and disputed records
+should normally keep `first: false` unless a deliberate curation decision says
+otherwise.
+
+Current `DETECTION_TYPES`:
+- `ISM/CSM`
+- `isotopologue`
+- `ice`
+- `exgal`
+- `ppd`
+- `exo`
+- `comet`
+
+Current `DETECTION_STATUSES`:
+- `secure`
+- `tentative`
+- `disputed`
+
+Current `DETECTION_REF_ROLES`:
+- `observation`: paper reporting the detection claim
+- `confirmation`: paper confirming an earlier tentative detection
+- `dispute`: paper challenging a detection claim
+- `correction`: paper correcting detection metadata or interpretation
 
 ## Reference Loading
 
