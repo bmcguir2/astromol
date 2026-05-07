@@ -25299,5 +25299,72 @@
         }
       ]
     }
+  },
+  {
+    "name": "glycine",
+    "formula": "NH2CH2COOH",
+    "table_formula": "NH2CH2COOH",
+    "label": "mol:NH2CH2COOH",
+    "note": null,
+    "iupac_name": "glycine",
+    "selfies": null,
+    "synonyms": [],
+    "smiles": "C(C(=O)O)N",
+    "canonical_smiles": null,
+    "inchi": "1S/C2H5NO2/c3-1-2(4)5/h1,3H2,(H,4,5)",
+    "inchikey": "DHMQDGOQFOQNFH-UHFFFAOYSA-N",
+    "radical_override": null,
+    "fullerene": false,
+    "pah": false,
+    "n_rings": 0,
+    "cyclic": false,
+    "tags": {
+      "functional_groups": [
+        "OH",
+        "NH2",
+        "=O"
+      ]
+    },
+    "rotcon": {
+      "A": 10341,
+      "B": 3876,
+      "C": 2912,
+      "refs": [
+        "Suenram:1980:7180",
+        "Lovas:1995:L201"
+      ]
+    },
+    "dipole": {
+      "a": 0.911,
+      "b": 0.607,
+      "refs": [
+        "Lovas:1995:L201"
+      ]
+    },
+    "refs": {
+      "lab": [
+        "Suenram:1980:7180",
+        "Lovas:1995:L201",
+        "Ilyushin:2005:15"
+      ],
+      "computation": []
+    },
+    "isotopologue_of": null,
+    "latex_section_override": null,
+    "latex_body": "\\citet{Kuan:2003:848} reported a detection of 27 lines of \\ce{NH2CH2COOH} in observations toward Orion, Sgr B2, and W51 using the NRAO 12-m telescope.  Each source contained 13--16 of the 27 features; three features were seen in common between the sources.  The frequencies were obtained from the rotational constants measured and reported in \\citet{Suenram:1980:7180} and \\citet{Lovas:1995:L201}.  The detection was later disputed by \\citet{Snyder:2005:914}, who claimed to have identified a number of issues with the analysis.  Notably, \\citet{Snyder:2005:914} argue that the frequency predictions used by \\citet{Kuan:2003:848} were extrapolated too far above the measured laboratory transitions.  \\citet{Snyder:2005:914} used laboratory frequencies from \\citet{Ilyushin:2005:15} that covered the observed frequency range, and examined archival NRAO 12-m and SEST 15-m observations of Orion, Sgr B2, and W51.  They report a number of ``missing'' transitions of \\ce{NH2CH2COOH} that they predicted should have been strongly detected, if the detection of \\citet{Kuan:2003:848} held.  Subsequent searches by \\citet{Jones:2007:579}, \\citet{Cunningham:2007:1201}, and \\citet{Belloche:2008:179} using both interferometers and single-dish facilities failed to detect \\ce{NH2CH2COOH}, and set upper limits to the column density lower than that claimed in the detection of \\citet{Kuan:2003:848} (see \\citealt{Belloche:2008:179} \\S4.4 for a detailed discussion).",
+    "history": {
+      "introduced": {
+        "date": "2026-05-07"
+      },
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "added",
+          "summary": "Added molecule record.",
+          "date": "2026-05-07",
+          "fields": []
+        }
+      ]
+    }
   }
 ]

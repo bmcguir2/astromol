@@ -11321,5 +11321,61 @@
         }
       ]
     }
+  },
+  {
+    "id": "det:NH2CH2COOH:ism-csm:2003",
+    "note": null,
+    "molecule": "mol:NH2CH2COOH",
+    "sources": [
+      "OrionKL",
+      "SgrB2",
+      "W51"
+    ],
+    "telescopes": [
+      "NRAOARO12",
+      "SEST15"
+    ],
+    "wavelengths": [
+      "mm"
+    ],
+    "year": 2003,
+    "type": "ISM/CSM",
+    "status": "disputed",
+    "status_note": "Listed in the 2021 census Disputed Detections section.",
+    "first": false,
+    "month": null,
+    "day": null,
+    "refs": {
+      "observation": [
+        "Kuan:2003:848"
+      ],
+      "dispute": [
+        "Snyder:2005:914",
+        "Jones:2007:579",
+        "Cunningham:2007:1201",
+        "Belloche:2008:179"
+      ]
+    },
+    "confirms": [],
+    "confirmed_by": [],
+    "disputes": [],
+    "disputed_by": [],
+    "supersedes": [],
+    "superseded_by": [],
+    "latex_text": null,
+    "history": {
+      "introduced": {
+        "date": "2026-05-07"
+      },
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "added",
+          "summary": "Added detection record.",
+          "date": "2026-05-07",
+          "fields": []
+        }
+      ]
+    }
   }
 ]
