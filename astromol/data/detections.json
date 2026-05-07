@@ -796,11 +796,21 @@
       },
       "accepted": {
         "date": null,
-        "census": "2021",
+        "census": "2026",
         "context": "confirmed_exo"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "updated",
+          "summary": "Marked exoplanet detection as accepted after the 2021 census cutoff.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -7613,7 +7623,7 @@
     "wavelengths": [],
     "year": 2006,
     "type": "exgal",
-    "first": true,
+    "first": false,
     "refs": {
       "observation": [
         "Martin:2006:450"
@@ -7622,16 +7632,28 @@
     "latex_text": null,
     "history": {
       "introduced": {
-        "context": "confirmed"
+        "census": "2018",
+        "context": "tentative"
       },
-      "accepted": {
-        "date": null,
-        "census": "2021",
-        "context": "confirmed_exgal"
-      },
-      "last_modified": null,
-      "events": []
-    }
+      "accepted": null,
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Preserved tentative extragalactic detection status from the census table.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "status",
+            "status_note",
+            "first",
+            "history"
+          ]
+        }
+      ]
+    },
+    "status": "tentative",
+    "status_note": "Marked tentative in the 2021 extragalactic table; curator confirmed this tentative extragalactic status should be preserved."
   },
   {
     "id": "det:HC2N:ism-csm:1991",
@@ -7978,11 +8000,21 @@
       },
       "accepted": {
         "date": null,
-        "census": "2021",
+        "census": "2026",
         "context": "confirmed_exgal"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "updated",
+          "summary": "Marked extragalactic detection as accepted after the 2021 census cutoff.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -8429,11 +8461,21 @@
       },
       "accepted": {
         "date": null,
-        "census": "2021",
+        "census": "2026",
         "context": "confirmed_exgal"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "updated",
+          "summary": "Marked extragalactic detection as accepted after the 2021 census cutoff.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -11180,11 +11222,21 @@
       },
       "accepted": {
         "date": null,
-        "census": "2021",
+        "census": "2026",
         "context": "confirmed_exgal"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "updated",
+          "summary": "Marked extragalactic detection as accepted after the 2021 census cutoff.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -12585,7 +12637,7 @@
     "wavelengths": [],
     "year": 2015,
     "type": "exgal",
-    "first": true,
+    "first": false,
     "refs": {
       "observation": [
         "Aladro:2015:A101"
@@ -12594,16 +12646,28 @@
     "latex_text": null,
     "history": {
       "introduced": {
-        "context": "confirmed"
+        "census": "2018",
+        "context": "tentative"
       },
-      "accepted": {
-        "date": null,
-        "census": "2021",
-        "context": "confirmed_exgal"
-      },
-      "last_modified": null,
-      "events": []
-    }
+      "accepted": null,
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Preserved tentative extragalactic detection status from the census table.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "status",
+            "status_note",
+            "first",
+            "history"
+          ]
+        }
+      ]
+    },
+    "status": "tentative",
+    "status_note": "Marked tentative in the 2021 extragalactic table; curator confirmed this tentative extragalactic status should be preserved."
   },
   {
     "id": "det:C6H:ism-csm:1986",
@@ -14425,11 +14489,21 @@
       },
       "accepted": {
         "date": null,
-        "census": "2021",
+        "census": "2026",
         "context": "confirmed_exgal"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "updated",
+          "summary": "Marked extragalactic detection as accepted after the 2021 census cutoff.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {

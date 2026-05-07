@@ -26,6 +26,11 @@ differs from the historical table representation.
   a calendar year. When a historical table includes a tentative/disputed item,
   the audit reports both exact historical reproduction and the modern
   secure-only interpretation.
+- A complete 2018-vs-2021 accepted-history reconstruction is deferred until
+  the 2018 census tables are added to this audit. Detection-level
+  `history.accepted.census` is reliable for contexts already audited here, but
+  should not be treated as globally authoritative for the 2018/2021 boundary
+  until the corresponding 2018 tables have been cross-checked.
 - Differences are classified before any corrective action:
   - `conversion_error`: current data failed to preserve intended legacy content.
   - `intentional_schema_change`: modern identifiers or fields intentionally
@@ -211,3 +216,136 @@ The historical 2021 PPD table is fully reproduced by selecting secure PPD
 detections with `history.accepted.census <= 2021`. Detection-level accepted
 census membership resolves both the isotopologue standalone-record formalism
 and the 2021 cutoff cases.
+
+## Extragalactic Table
+
+Input file:
+- `astromol/data/exgal_table.tex`
+
+Check:
+- Parsed every `\ce{...}` species entry from the table body, including dagger
+  markers for tentative detections.
+- Mapped table formulas to current molecule labels via `table_formula`.
+- Compared against current secure `type: "exgal"` detections accepted in or
+  before the 2021 census according to detection `history.accepted.census`.
+- Compared the full historical table, including tentative dagger-marked rows,
+  against secure accepted entries plus tentative entries introduced by the 2021
+  census.
+
+Results:
+- Parsed expected table entries: 75.
+- Expected entries mapped to current molecule labels: 75/75.
+- Historical table entries marked tentative with dagger symbols: 2
+  (`mol:c-C3H`, `mol:HC5N`).
+- Current secure exgal detections with `history.accepted.census <= 2021`: 73.
+- Missing expected secure entries: 0.
+- Extra current secure entries: 0.
+- Missing expected entries in the full historical all-status reproduction: 0.
+- Extra current entries in the full historical all-status reproduction: 0.
+
+Discrepancies and notes:
+
+| Item | Historical Table | Current Data | Classification | Resolution |
+| --- | --- | --- | --- | --- |
+| Post-cutoff 2021 exgal detections | `CH3CH2OH`, `H2NC`, `HC2CHO`, and `HOCN` absent | Current secure exgal detections have `year: 2021`; curator confirmed they entered after the 2021 census cutoff. | `status_formalism_change` | Corrected. Detection `history.accepted.census` is now `2026` for `det:CH3CH2OH:exgal:2021`, `det:H2NC:exgal:2021`, `det:HC2CHO:exgal:2021`, and `det:HOCN:exgal:2021`. |
+| Tentative exgal entries | `c-C3H` and `HC5N` marked with dagger symbols | The legacy conversion preserved `note: Legacy detection flag: Tentative`, but the first detection-history normalization treated missing `status` as secure and marked both as accepted in 2021. | `conversion_error` | Corrected. `det:c-C3H:exgal:2006` and `det:HC5N:exgal:2015` now have `status: tentative`, `first: false`, `history.introduced.census: 2018`, `history.introduced.context: tentative`, and `history.accepted: null`. |
+
+Cause of the 2021-vs-2018 accepted-history error:
+
+Detection-level history was generated after the molecule-level history pass.
+The temporary bulk rule used for contexts other than ISM/CSM, PPD, and ice
+treated secure detections with `year <= 2021` as accepted in the 2021 census.
+Because these two exgal records did not have structured `status: tentative`
+yet, they were interpreted as secure and assigned `history.accepted.census:
+2021`. The legacy tentative information existed only as free text in `note`,
+so it was not used by the bulk history normalization.
+
+Conclusion:
+
+The extragalactic table is fully reproduced. Secure accepted 2021-scope exgal
+detections reproduce the secure historical table entries, and the full
+historical all-status reproduction also matches once the two dagger-marked
+tentative detections are represented with structured status.
+
+## Exoplanet Table
+
+Input file:
+- `astromol/data/exo_table.tex`
+
+Check:
+- Parsed every `\ce{...}` species entry from the table body.
+- Mapped table formulas to current molecule labels via `table_formula`.
+- Compared against current secure `type: "exo"` detections accepted in or
+  before the 2021 census according to detection `history.accepted.census`.
+- The table caption explicitly excludes tentative and disputed detections, so
+  the database-side comparison is secure-only.
+
+Results:
+- Parsed expected table entries: 9.
+- Expected entries mapped to current molecule labels: 9/9.
+- Current secure exoplanet detections with `history.accepted.census <= 2021`:
+  9.
+- Missing expected entries: 0.
+- Extra current secure entries: 0.
+
+Discrepancies and notes:
+
+| Item | Historical Table | Current Data | Classification | Resolution |
+| --- | --- | --- | --- | --- |
+| `13CO` exoplanet detection | Absent from the 2021 exoplanet table | `det:13CO:exo:2021` has `year: 2021` and `status: secure`; curator confirmed it entered after the 2021 census cutoff. | `status_formalism_change` | Corrected. Detection `history.accepted.census` is now `2026`. |
+
+Conclusion:
+
+The exoplanet table is fully reproduced by selecting secure exoplanet
+detections accepted in or before the 2021 census.
+
+## Source Count Table
+
+Input file:
+- `astromol/data/source_table.tex`
+
+Check:
+- Parsed every source/count pair from the two-column table body.
+- Counted source contributions from current secure `type: "ISM/CSM"`
+  detections accepted in or before the 2021 census according to detection
+  `history.accepted.census`.
+- Used current source `latex_name` values for display-name matching.
+- Applied the historical table grouping rule that all diffuse-cloud/line-of-
+  sight detections are consolidated as `LOS Cloud`. This is a historical table
+  label; the modern source type is `Diffuse Cloud`.
+
+Results:
+- Parsed expected source rows: 38.
+- Current grouped source rows: 38.
+- Missing expected rows: 0.
+- Extra current rows: 0.
+- Count mismatches: 0.
+
+Conclusion:
+
+The source contribution table is fully reproduced by the current data when the
+historical `LOS Cloud` grouping convention is applied to modern
+`Diffuse Cloud` source records.
+
+## Facilities Count Table
+
+Input file:
+- `astromol/data/facilities_table.tex`
+
+Check:
+- Parsed every facility/count pair from the two-column table body.
+- Counted facility contributions from current secure `type: "ISM/CSM"`
+  detections accepted in or before the 2021 census according to detection
+  `history.accepted.census`.
+- Used current telescope `latex_name` values for display-name matching.
+
+Results:
+- Parsed expected facility rows: 46.
+- Current facility rows: 46.
+- Missing expected rows: 0.
+- Extra current rows: 0.
+- Count mismatches: 0.
+
+Conclusion:
+
+The facility contribution table is fully reproduced by the current data.
