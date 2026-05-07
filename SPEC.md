@@ -79,6 +79,30 @@ When the schema for `Molecule`, `Detection`, `Source`, or `Telescope` changes,
 the corresponding curation template, `scripts/stage_records.py`, and this
 specification must be updated in the same change.
 
+## Census Views
+
+Use `astromol.census.CensusView` as the shared filtering layer for manuscript
+tables, figures, slides, scalar counts, and other census outputs. Output
+generators should consume a view instead of filtering raw `Database` records
+directly.
+
+Two scope modes are supported:
+
+- `CensusView.for_census(db, "2021")`: frozen/historical census boundary.
+  Accepted secure records are selected with `history.accepted.census <= 2021`.
+- `CensusView.current(db)`: live database boundary. Accepted secure records are
+  selected regardless of census label.
+
+Before the 2026 census cutoff, `CensusView.for_census(db, "2026")` and
+`CensusView.current(db)` should return the same secure accepted detection sets.
+After the 2026 census is frozen, they may diverge as new post-2026 records are
+added to the live database.
+
+Tentative and disputed detections are excluded by default. They can be included
+for historical reproduction or review with `include_tentative=True` and
+`include_disputed=True`, in which case the view uses record introduction
+history rather than accepted history.
+
 ## Data Model
 
 ### Ref
