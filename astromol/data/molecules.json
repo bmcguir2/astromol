@@ -25676,5 +25676,56 @@
         }
       ]
     }
+  },
+  {
+    "name": "silylidyne",
+    "formula": "SiH",
+    "table_formula": "SiH",
+    "label": "mol:SiH",
+    "note": null,
+    "iupac_name": "silylidyne",
+    "selfies": null,
+    "synonyms": [
+      "silicon hydride"
+    ],
+    "smiles": "[SiH]",
+    "canonical_smiles": null,
+    "inchi": "1S/HSi/h1H",
+    "inchikey": "QHGSGZLLHBKSAH-UHFFFAOYSA-N",
+    "radical_override": null,
+    "fullerene": false,
+    "pah": false,
+    "n_rings": 0,
+    "cyclic": false,
+    "tags": {},
+    "rotcon": {
+      "B": 221599
+    },
+    "dipole": {
+      "a": 0.087
+    },
+    "refs": {
+      "lab": [
+        "Brown:1985:188"
+      ],
+      "computation": []
+    },
+    "isotopologue_of": null,
+    "latex_section_override": null,
+    "latex_body": "\\citet{Schilke:2001:281} reported the tentative detection of two features in a CSO line survey of Orion that were coincident with transitions of SiH.  Two groups of hyperfine transitions in the $^2\\Pi _{1/2}$ state at 625 and 628~GHz fell within range of the observations.  The lower set is significantly blended with other emitting species, whereas the higher-frequency set appears unblended, and may show partially resolved hyperfine structure.  The laboratory frequencies were from \\citet{Brown:1985:188}.",
+    "history": {
+      "introduced": {
+        "date": "2026-05-07"
+      },
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "added",
+          "summary": "Added molecule record.",
+          "date": "2026-05-07",
+          "fields": []
+        }
+      ]
+    }
   }
 ]
