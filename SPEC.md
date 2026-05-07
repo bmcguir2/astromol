@@ -103,6 +103,18 @@ for historical reproduction or review with `include_tentative=True` and
 `include_disputed=True`, in which case the view uses record introduction
 history rather than accepted history.
 
+## Output Generation
+
+Manuscript, figure, table, and slide generators should live in the package API
+and consume `CensusView` instances. They must not duplicate census-boundary
+filtering against raw JSON records.
+
+`astromol.latex` contains the first migrated output helpers. Scalar manuscript
+inputs are generated as filename-to-content mappings with `scalar_fragments`
+and can be written with `write_scalar_fragments`. Generated scalar fragments
+use the legacy `\endinput` convention so they can be included directly by
+LaTeX manuscript sources.
+
 ## Data Model
 
 ### Ref

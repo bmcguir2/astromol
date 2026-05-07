@@ -72,7 +72,7 @@ are excluded from accepted tables unless explicitly requested.
 | --- | --- | --- |
 | 0 | Inventory legacy functions and classify target destinations. | Complete |
 | 1 | Implement and verify `CensusView`. | Complete |
-| 2 | Port scalar LaTeX generators. | Pending |
+| 2 | Port scalar LaTeX generators. | Complete |
 | 3 | Port LaTeX table generators. | Pending |
 | 4 | Port figure data builders and plots. | Pending |
 | 5 | Port PowerPoint molecule slide generation. | Pending |
@@ -110,15 +110,15 @@ are excluded from accepted tables unless explicitly requested.
 | `kappas` | 3359-3417 | Figure | `astromol.figures` | Pending | Visual comparison if retained |
 | `waves_pie_chart` | 3420-3556 | Figure | `astromol.figures` | Pending | Visual comparison if retained |
 | `make_ism_tables` | 3563-3720 | LaTeX table | `astromol.latex` | Pending | Reproduce 2021 ISM tables |
-| `make_exgal_count` | 3722-3739 | LaTeX scalar | `astromol.latex` | Pending | Reproduce `nexgal.tex` value |
-| `make_exgal_percent` | 3741-3758 | LaTeX scalar | `astromol.latex` | Pending | Reproduce `nexgalpercent.tex` value |
-| `_make_exgal_sentence` | 3760-3783 | LaTeX prose fragment | `astromol.latex` | Pending | Reproduce exgal source sentence |
-| `make_det_count` | 3785-3802 | LaTeX scalar | `astromol.latex` | Pending | Reproduce `ndetects.tex` value |
-| `make_elem_count` | 3805-3832 | LaTeX scalar | `astromol.latex` | Pending | Reproduce `nelems.tex` value |
-| `make_ppd_count` | 3834-3859 | LaTeX scalar | `astromol.latex` | Pending | Reproduce `nppds.tex` value |
-| `make_exo_count` | 3861-3885 | LaTeX scalar | `astromol.latex` | Pending | Reproduce `nexos.tex` value |
-| `make_ices_count` | 3887-3911 | LaTeX scalar | `astromol.latex` | Pending | Reproduce `nices.tex` value |
-| `make_ppd_isos_count` | 3913-3938 | LaTeX scalar | `astromol.latex` | Pending | Reproduce `nppdisos.tex` value |
+| `make_exgal_count` | 3722-3739 | LaTeX scalar | `astromol.latex` | Complete | Reproduce `nexgal.tex` value |
+| `make_exgal_percent` | 3741-3758 | LaTeX scalar | `astromol.latex` | Complete | Reproduce `nexgalpercent.tex` value |
+| `_make_exgal_sentence` | 3760-3783 | LaTeX prose fragment | `astromol.latex` | Deferred | Rebuild with table/prose generation |
+| `make_det_count` | 3785-3802 | LaTeX scalar | `astromol.latex` | Complete | Reproduce `ndetects.tex` value |
+| `make_elem_count` | 3805-3832 | LaTeX scalar | `astromol.latex` | Complete | Reproduce `nelems.tex` value |
+| `make_ppd_count` | 3834-3859 | LaTeX scalar | `astromol.latex` | Complete | Reproduce `nppds.tex` value |
+| `make_exo_count` | 3861-3885 | LaTeX scalar | `astromol.latex` | Complete | Reproduce `nexos.tex` value |
+| `make_ices_count` | 3887-3911 | LaTeX scalar | `astromol.latex` | Complete | Reproduce `nices.tex` value |
+| `make_ppd_isos_count` | 3913-3938 | LaTeX scalar | `astromol.latex` | Complete | Reproduce `nppdisos.tex` value |
 | `make_exgal_table` | 3941-4140 | LaTeX table | `astromol.latex` | Pending | Reproduce 2021 exgal table |
 | `make_ppd_table` | 4143-4301 | LaTeX table | `astromol.latex` | Pending | Reproduce 2021 PPD table |
 | `make_exo_table` | 4304-4406 | LaTeX table | `astromol.latex` | Pending | Reproduce 2021 exoplanet table |
@@ -126,15 +126,15 @@ are excluded from accepted tables unless explicitly requested.
 | `make_det_per_year_by_atoms_table` | 4525-4655 | LaTeX table | `astromol.latex` | Pending | Reproduce rate table |
 | `make_facility_table` | 4657-4753 | LaTeX table | `astromol.latex` | Pending | Reproduce 2021 facility table |
 | `make_source_table` | 4756-4860 | LaTeX table | `astromol.latex` | Pending | Reproduce 2021 source table |
-| `make_rate_counts` | 4862-4913 | LaTeX scalar group | `astromol.latex` | Pending | Reproduce rate scalar files |
-| `make_percent_radio` | 4915-4939 | LaTeX scalar | `astromol.latex` | Pending | Reproduce `radiopercent.tex` value |
-| `make_scopes_count` | 4941-4964 | LaTeX scalar | `astromol.latex` | Pending | Reproduce `nscopes.tex` value |
-| `make_percent_unsat` | 4966-4995 | LaTeX scalar | `astromol.latex` | Pending | Reproduce `unsatpercent.tex` value |
-| `make_sat_list` | 4997-5026 | LaTeX scalar/list | `astromol.latex` | Pending | Reproduce `satlist.tex` content |
-| `make_sat_count` | 5028-5054 | LaTeX scalar | `astromol.latex` | Pending | Reproduce `nsats.tex` value |
-| `make_sat_percent` | 5056-5085 | LaTeX scalar | `astromol.latex` | Pending | Reproduce `satpercent.tex` value |
-| `make_sfr_rad_percent` | 5087-5113 | LaTeX scalar | `astromol.latex` | Pending | Reproduce `sfr_rad_percent.tex` value |
-| `make_dark_rad_percent` | 5115-5141 | LaTeX scalar | `astromol.latex` | Pending | Reproduce `dark_rad_percent.tex` value |
+| `make_rate_counts` | 4862-4913 | LaTeX scalar group | `astromol.latex` | Complete | Reproduce rate scalar files |
+| `make_percent_radio` | 4915-4939 | LaTeX scalar | `astromol.latex` | Complete | Reproduce `radiopercent.tex` value |
+| `make_scopes_count` | 4941-4964 | LaTeX scalar | `astromol.latex` | Complete | Reproduce `nscopes.tex` value |
+| `make_percent_unsat` | 4966-4995 | LaTeX scalar | `astromol.latex` | Complete | Reproduce `unsatpercent.tex` value |
+| `make_sat_list` | 4997-5026 | LaTeX scalar/list | `astromol.latex` | Complete | Reproduce `satlist.tex` content |
+| `make_sat_count` | 5028-5054 | LaTeX scalar | `astromol.latex` | Complete | Reproduce `nsats.tex` value |
+| `make_sat_percent` | 5056-5085 | LaTeX scalar | `astromol.latex` | Complete | Reproduce `satpercent.tex` value |
+| `make_sfr_rad_percent` | 5087-5113 | LaTeX scalar | `astromol.latex` | Complete | Reproduce `sfr_rad_percent.tex` value |
+| `make_dark_rad_percent` | 5115-5141 | LaTeX scalar | `astromol.latex` | Complete | Reproduce `dark_rad_percent.tex` value |
 | `make_mols_slide` | 5147-5561 | PowerPoint slide | `astromol.slides` | Pending | Visual comparison to legacy slide |
 
 ## Dependency Notes
@@ -144,8 +144,9 @@ Legacy imports include `numpy`, `matplotlib`, `periodictable`, `colour`,
 project dependency metadata before these become required package features.
 Each dependency should be justified by the migrated code:
 
-- Keep `numpy` and `matplotlib` for plotting unless a specific replacement is
-  chosen.
+- Keep `numpy` for array/statistical helpers and for parity with legacy
+  polynomial rate fits.
+- Keep `matplotlib` for plotting unless a specific replacement is chosen.
 - Keep `python-pptx` for the molecule slide product.
 - Re-evaluate `periodictable`, `colour`, `seaborn`, and `scipy` as each plot is
   ported; avoid carrying dependencies that only supported legacy styling.
@@ -167,8 +168,44 @@ historical table memberships:
 - 2026 census view and current view currently return identical secure
   accepted detection sets by context
 
+## Completed Scalar LaTeX Verification
+
+`astromol.latex` now provides scalar fragment generators that consume a
+`CensusView` and return filename-to-content mappings. `write_scalar_fragments`
+can write those mappings to a manuscript input directory. The implementation
+ports the count, percentage, saturated hydrocarbon, radical-source, telescope,
+and detection-rate scalar outputs from the legacy module.
+
+`test_latex_scalars.py` verifies the generated 2021 scalar fragments against
+the audited refactor database view:
+
+| Fragment | Generated value | Verified value | Result |
+| --- | ---: | ---: | --- |
+| `ndetects.tex` | 240 | 240 | Match |
+| `nelems.tex` | 19 | 19 | Match |
+| `nppds.tex` | 25 | 25 | Match |
+| `nppdisos.tex` | 15 | 15 | Match |
+| `nexgal.tex` | 73 | 73 | Match |
+| `nexgalpercent.tex` | 30 | 30 | Match |
+| `nexos.tex` | 9 | 9 | Match |
+| `nices.tex` | 9 | 9 | Match |
+| `radiopercent.tex` | 90 | 90 | Match |
+| `nscopes.tex` | 46 | 46 | Match |
+| `unsatpercent.tex` | 93 | 93 | Match |
+| `satlist.tex` | `\ce{CH3Cl}, \ce{CH4}, \ce{CH3OH}, \ce{CH3SH}, \ce{CH3NH2}, \ce{CH3CH2OH}, \ce{CH3CH2SH}, \ce{CH3OCH3}, \ce{CH3OCH2OH}, and \ce{HOCH2CH2OH}` | Same | Match |
+| `nsats.tex` | 10 | 10 | Match |
+| `satpercent.tex` | 7 | 7 | Match |
+| `sfr_rad_percent.tex` | 8 | 8 | Match |
+| `dark_rad_percent.tex` | 25 | 25 | Match |
+| `rate_since_1968.tex` | 3.9 | 3.9 | Match |
+| `rate_since_2005.tex` | 6.0 | 6.0 | Match |
+
+The legacy `_make_exgal_sentence` prose fragment is deferred to the table/prose
+generation phase because its output depends on manuscript phrasing rather than
+a standalone scalar value.
+
 ## Immediate Next Step
 
-Begin porting scalar LaTeX generators, starting with `make_det_count`,
-`make_elem_count`, and the context count functions. These should consume
-`CensusView` rather than filtering raw database records.
+Begin porting LaTeX table generators, starting with `make_ism_tables`. Table
+generation should consume `CensusView` and reuse the scalar/output helpers
+rather than reimplementing census membership filters.
