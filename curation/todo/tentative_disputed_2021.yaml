@@ -165,22 +165,3 @@
   refs:
     observation:
     - Agundez:2014:A45
-- kind: detection
-  id: det:CH3NHCHO:ism-csm:2017
-  molecule: mol:CH3NHCHO
-  sources:
-  - SgrB2
-  telescopes:
-  - ALMA
-  wavelengths:
-  - mm
-  year: 2017
-  type: ISM/CSM
-  status: tentative
-  status_note: Listed in the 2021 census Tentative Detections section.
-  first: false
-  refs:
-    observation:
-    - Belloche:2017:A49
-  confirmed_by:
-  - det:CH3NHCHO:ism-csm:2021
