@@ -29,6 +29,20 @@
   supersedes: []
   superseded_by: []
   latex_text:
+  # Optional. Leave blank to let stage_records.py populate a standard
+  # history block. Secure detections default to current-census accepted
+  # membership; tentative/disputed detections default to accepted: null.
+  history:
+    introduced:
+      date:
+      census:
+      context:
+    accepted:
+      date:
+      census:
+      context:
+    last_modified:
+    events: []
 
   # Staging-only fields. These are reported but not written to JSON.
   _raw_sources_not_mapped: []

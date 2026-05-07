@@ -58,9 +58,12 @@ History metadata is generated automatically for staged records. By default the
 script adds `history.introduced.date`, `history.last_modified`, and an initial
 dated `added` event using the staging run date. New molecule records also
 default to `history.introduced.context: confirmed` and a current-census
-`history.accepted` block. For a molecule that should be tracked but is not yet
-accepted as confirmed, set `history.accepted: null` and set
-`history.introduced.context` to `tentative` or `disputed`.
+`history.accepted` block. Secure detection records likewise default to a
+current-census `history.accepted` block for their detection context. Tentative
+or disputed detection records default to `history.accepted: null`. For any
+record that should be tracked but is not yet accepted as confirmed, set
+`history.accepted: null` and set `history.introduced.context` to `tentative` or
+`disputed`.
 
 Detection records require a stable `id`. Use the default format
 `det:<molecule-label-without-mol-prefix>:<context>:<year>`, for example

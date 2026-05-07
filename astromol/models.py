@@ -200,7 +200,7 @@ class RecordHistory:
 
     @property
     def accepted_census(self):
-        """Census release where this molecule first became accepted/confirmed."""
+        """Census release where this record first became accepted/confirmed."""
         if self.accepted is None:
             return None
         return self.accepted.get("census")
@@ -863,6 +863,26 @@ class Detection:
                         f"'{field_name}' contains invalid detection ID "
                         f"'{detection_id}'."
                     )
+
+    @property
+    def introduced_census(self):
+        """Census release where this detection entered astromol tracking."""
+        return None if self.history is None else self.history.introduced_census
+
+    @property
+    def introduced_context(self):
+        """Context for detection introduction, such as confirmed or tentative."""
+        return None if self.history is None else self.history.introduced_context
+
+    @property
+    def accepted_census(self):
+        """Census release where this detection first became accepted/confirmed."""
+        return None if self.history is None else self.history.accepted_census
+
+    @property
+    def accepted_context(self):
+        """Context for first accepted/confirmed census membership."""
+        return None if self.history is None else self.history.accepted_context
 
     @property
     def sortdate(self):

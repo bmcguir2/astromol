@@ -294,7 +294,19 @@ def clean_payload_value(key: str, value):
     return prune_empty_template_value(value)
 
 
-def default_history(kind: str, run_date: str) -> dict:
+def detection_context(detection_type: str | None) -> str:
+    if not detection_type:
+        return "confirmed"
+    normalized = detection_type.lower().replace("/", "_").replace("-", "_")
+    return f"confirmed_{normalized}"
+
+
+def default_history(
+    kind: str,
+    run_date: str,
+    status: str = "secure",
+    detection_type: str | None = None,
+) -> dict:
     introduced = {
         "date": run_date,
     }
@@ -317,28 +329,54 @@ def default_history(kind: str, run_date: str) -> dict:
             "census": CURRENT_CENSUS,
             "context": "confirmed",
         }
+    elif kind == "detection":
+        introduced["context"] = "confirmed" if status == "secure" else status
+        history["accepted"] = None
+        if status == "secure":
+            history["accepted"] = {
+                "date": run_date,
+                "census": CURRENT_CENSUS,
+                "context": detection_context(detection_type),
+            }
     return history
 
 
-def normalize_history(kind: str, history: dict | None, run_date: str) -> dict:
+def normalize_history(
+    kind: str,
+    history: dict | None,
+    run_date: str,
+    status: str = "secure",
+    detection_type: str | None = None,
+) -> dict:
     if history is None:
-        return default_history(kind, run_date)
+        return default_history(
+            kind,
+            run_date,
+            status=status,
+            detection_type=detection_type,
+        )
 
     history = dict(history)
     history.pop("last_reviewed", None)
     introduced = dict(history.get("introduced") or {})
     if not introduced.get("date"):
         introduced["date"] = run_date
-    if kind == "molecule" and not introduced.get("context"):
+    if kind in {"molecule", "detection"} and not introduced.get("context"):
         introduced["context"] = (
             "tentative" if "accepted" in history and history["accepted"] is None
-            else "confirmed"
+            else "confirmed" if status == "secure"
+            else status
         )
     history["introduced"] = introduced
 
-    if kind == "molecule":
+    if kind in {"molecule", "detection"}:
         if "accepted" not in history:
-            history["accepted"] = default_history(kind, run_date)["accepted"]
+            history["accepted"] = default_history(
+                kind,
+                run_date,
+                status=status,
+                detection_type=detection_type,
+            )["accepted"]
         elif history["accepted"] is not None:
             accepted = dict(history["accepted"] or {})
             if not accepted.get("date"):
@@ -346,7 +384,11 @@ def normalize_history(kind: str, history: dict | None, run_date: str) -> dict:
             if not accepted.get("census"):
                 accepted["census"] = CURRENT_CENSUS
             if not accepted.get("context"):
-                accepted["context"] = "confirmed"
+                accepted["context"] = (
+                    detection_context(detection_type)
+                    if kind == "detection"
+                    else "confirmed"
+                )
             history["accepted"] = accepted
     else:
         history.pop("accepted", None)
@@ -361,7 +403,12 @@ def normalize_history(kind: str, history: dict | None, run_date: str) -> dict:
             event["date"] = run_date
         events.append(event)
     if not events:
-        events = default_history(kind, run_date)["events"]
+        events = default_history(
+            kind,
+            run_date,
+            status=status,
+            detection_type=detection_type,
+        )["events"]
     history["events"] = events
     return history
 
@@ -661,7 +708,13 @@ def main() -> None:
             continue
 
         record = merge_defaults(kind, raw)
-        record["history"] = normalize_history(kind, record.get("history"), run_date)
+        record["history"] = normalize_history(
+            kind,
+            record.get("history"),
+            run_date,
+            status=record.get("status", "secure"),
+            detection_type=record.get("type"),
+        )
         row_id = identity(kind, record)
         if kind in {"molecule", "source", "telescope", "detection"} and row_id:
             staged[kind].add(row_id)

@@ -63,10 +63,10 @@ Run `python scripts/stage_records.py --staging <file.yaml>` to generate preview
 JSON and a review report. Use `--apply` only after the preview is accepted.
 The staging script automatically populates semantic history metadata for new
 records, including `history.introduced.date`, `history.last_modified`, and an
-initial `added` event dated with the staging run date. New molecule records
-also default to a current-census `history.accepted` block; set
-`history.accepted: null` for molecules that are tracked but not yet accepted as
-confirmed detections.
+initial `added` event dated with the staging run date. New molecule records and
+secure detection records also default to a current-census `history.accepted`
+block; set `history.accepted: null` for records that are tracked but not yet
+accepted as confirmed.
 
 When the schema for `Molecule`, `Detection`, `Source`, or `Telescope` changes,
 the corresponding curation template, `scripts/stage_records.py`, and this
@@ -197,10 +197,11 @@ History fields:
 - `introduced`: dict with optional `date`, `census`, and `context` keys. This
   records when a molecule or record entered astromol tracking or census
   discussion.
-- `accepted`: molecule-only dict, or `null`, with optional `date`, `census`,
-  and `context` keys. This records when a molecule first became an accepted
-  confirmed census entry. Use `null` for molecules that are tracked only as
-  tentative or disputed.
+- `accepted`: dict, or `null`, with optional `date`, `census`, and `context`
+  keys. For molecules, this records when the molecule first became an accepted
+  confirmed census entry. For detections, this records when that detection
+  context first became part of an accepted census table or census update. Use
+  `null` for tentative or disputed records.
 - `last_modified`: ISO date string for the last semantic database change
 - `events`: list of `HistoryEvent`
 
@@ -213,12 +214,15 @@ History fields:
 - `legacy_version`: optional legacy astromol version identifier preserved from
   the pre-refactor database
 
-Molecules accepted in a given census table should be selected with
+Molecules accepted in a general census table should be selected with molecule
 `history.accepted.census`, not `history.introduced.census` and not detection
-year alone. This matters for molecules discussed as tentative or disputed in an
-earlier census and confirmed later. Records changed for a given census can be
-selected from `history.events[*].census`, independently of whether they were
-newly introduced or newly accepted.
+year alone. Context-specific tables, such as ice, PPD, extragalactic, and
+exoplanet tables, should be selected with detection
+`history.accepted.census`. This matters for records discussed as tentative or
+disputed in an earlier census, confirmed later, or published before a census
+cutoff but not accepted into that census table. Records changed for a given
+census can be selected from `history.events[*].census`, independently of
+whether they were newly introduced or newly accepted.
 
 ### Molecule
 
