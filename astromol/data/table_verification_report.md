@@ -1,9 +1,10 @@
-# 2021 Table Verification Report
+# Census Table Verification Report
 
 This temporary audit report records cross-verification of the refactored
-`astromol` JSON data against LaTeX tables from the 2021 census manuscript.
+`astromol` JSON data against LaTeX tables from the 2018 and 2021 census
+manuscripts.
 
-The purpose is to verify that the refactor preserved the curated 2021 census
+The purpose is to verify that the refactor preserved the curated census
 content while also documenting places where the modern schema intentionally
 differs from the historical table representation.
 
@@ -26,11 +27,9 @@ differs from the historical table representation.
   a calendar year. When a historical table includes a tentative/disputed item,
   the audit reports both exact historical reproduction and the modern
   secure-only interpretation.
-- A complete 2018-vs-2021 accepted-history reconstruction is deferred until
-  the 2018 census tables are added to this audit. Detection-level
-  `history.accepted.census` is reliable for contexts already audited here, but
-  should not be treated as globally authoritative for the 2018/2021 boundary
-  until the corresponding 2018 tables have been cross-checked.
+- The 2018-vs-2021 accepted-history reconstruction is complete for the 2018
+  ISM/CSM, exoplanet, extragalactic, and protoplanetary-disk tables provided
+  in this audit. No 2018 ice table was provided in this pass.
 - Differences are classified before any corrective action:
   - `conversion_error`: current data failed to preserve intended legacy content.
   - `intentional_schema_change`: modern identifiers or fields intentionally
@@ -41,6 +40,49 @@ differs from the historical table representation.
   - `legacy_table_issue`: the 2021 table itself appears incomplete, inconsistent,
     or superseded.
   - `needs_human_decision`: discrepancy needs curator judgment.
+
+## 2018 Accepted-History Reconstruction
+
+Input files:
+- `astromol/data/2018_ism_tables.tex`
+- `astromol/data/2018_exgal_table.tex`
+- `astromol/data/2018_exo_table.tex`
+- `astromol/data/2018_ppd_table.tex`
+
+Check:
+- Parsed every molecule/species entry from the 2018 ISM/CSM, exoplanet,
+  extragalactic, and protoplanetary-disk tables.
+- Mapped historical labels/formula display variants to current molecule labels
+  where needed, including `SiC2 -> mol:c-SiC2`, `C5H -> mol:C5H`,
+  `(CH3)2CO -> mol:CH3COCH3`, and isotopologue display formulas such as
+  `^{13}CO -> mol:13CO`.
+- Compared each table against current detections in the corresponding context
+  using detection `history.accepted.census <= 2018`.
+- Preserved the 2018 extragalactic dagger-marked entries as tentative rather
+  than accepted detections.
+
+Corrections applied:
+- Updated 104 secure detection records from `history.accepted.census: 2021`
+  to `history.accepted.census: 2018`.
+- Preserved the two 2018 extragalactic tentative detections
+  (`det:c-C3H:exgal:2006` and `det:HC5N:exgal:2015`) with
+  `status: tentative`, `first: false`, `history.introduced.census: 2018`, and
+  `history.accepted: null`.
+
+Results:
+
+| Table | Expected entries | Tentative entries | Secure accepted entries | Missing | Extra |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| 2018 ISM/CSM | 204 | 0 | 204 | 0 | 0 |
+| 2018 exoplanet | 5 | 0 | 5 | 0 | 0 |
+| 2018 extragalactic | 65 | 2 | 63 | 0 | 0 |
+| 2018 PPD | 35 | 0 | 35 | 0 | 0 |
+
+Conclusion:
+
+The provided 2018 tables are fully reproduced by the current data. This
+resolves the broad 2018-vs-2021 accepted-history gap for the provided
+ISM/CSM, exoplanet, extragalactic, and protoplanetary-disk contexts.
 
 ## ISM Tables
 

@@ -33,8 +33,18 @@
         "census": "2018",
         "context": "confirmed_ism_csm"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked ISM/CSM detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -63,11 +73,21 @@
       },
       "accepted": {
         "date": null,
-        "census": "2021",
+        "census": "2018",
         "context": "confirmed_exgal"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked exgal detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -130,8 +150,18 @@
         "census": "2018",
         "context": "confirmed_ism_csm"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked ISM/CSM detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -157,11 +187,21 @@
       },
       "accepted": {
         "date": null,
-        "census": "2021",
+        "census": "2018",
         "context": "confirmed_ppd"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked ppd detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -190,11 +230,21 @@
       },
       "accepted": {
         "date": null,
-        "census": "2021",
+        "census": "2018",
         "context": "confirmed_exgal"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked exgal detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -219,11 +269,21 @@
       },
       "accepted": {
         "date": null,
-        "census": "2021",
+        "census": "2018",
         "context": "confirmed_ppd"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked ppd detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -259,8 +319,18 @@
         "census": "2018",
         "context": "confirmed_ism_csm"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked ISM/CSM detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -285,11 +355,21 @@
       },
       "accepted": {
         "date": null,
-        "census": "2021",
+        "census": "2018",
         "context": "confirmed_ppd"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked ppd detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -316,11 +396,21 @@
       },
       "accepted": {
         "date": null,
-        "census": "2021",
+        "census": "2018",
         "context": "confirmed_exgal"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked exgal detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -354,8 +444,18 @@
         "census": "2018",
         "context": "confirmed_ism_csm"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked ISM/CSM detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -381,11 +481,21 @@
       },
       "accepted": {
         "date": null,
-        "census": "2021",
+        "census": "2018",
         "context": "confirmed_ppd"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked ppd detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -413,11 +523,21 @@
       },
       "accepted": {
         "date": null,
-        "census": "2021",
+        "census": "2018",
         "context": "confirmed_exgal"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked exgal detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -480,8 +600,18 @@
         "census": "2018",
         "context": "confirmed_ism_csm"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked ISM/CSM detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -535,11 +665,21 @@
       },
       "accepted": {
         "date": null,
-        "census": "2021",
+        "census": "2018",
         "context": "confirmed_ppd"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked ppd detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -567,11 +707,21 @@
       },
       "accepted": {
         "date": null,
-        "census": "2021",
+        "census": "2018",
         "context": "confirmed_exgal"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked exgal detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -599,11 +749,21 @@
       },
       "accepted": {
         "date": null,
-        "census": "2021",
+        "census": "2018",
         "context": "confirmed_exo"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked exo detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -628,11 +788,21 @@
       },
       "accepted": {
         "date": null,
-        "census": "2021",
+        "census": "2018",
         "context": "confirmed_ppd"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked ppd detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -657,11 +827,21 @@
       },
       "accepted": {
         "date": null,
-        "census": "2021",
+        "census": "2018",
         "context": "confirmed_ppd"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked ppd detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -687,11 +867,21 @@
       },
       "accepted": {
         "date": null,
-        "census": "2021",
+        "census": "2018",
         "context": "confirmed_ppd"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked ppd detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -844,8 +1034,18 @@
         "census": "2018",
         "context": "confirmed_ism_csm"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked ISM/CSM detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -870,11 +1070,21 @@
       },
       "accepted": {
         "date": null,
-        "census": "2021",
+        "census": "2018",
         "context": "confirmed_ppd"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked ppd detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -901,11 +1111,21 @@
       },
       "accepted": {
         "date": null,
-        "census": "2021",
+        "census": "2018",
         "context": "confirmed_exgal"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked exgal detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -930,11 +1150,21 @@
       },
       "accepted": {
         "date": null,
-        "census": "2021",
+        "census": "2018",
         "context": "confirmed_ppd"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked ppd detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -968,8 +1198,18 @@
         "census": "2018",
         "context": "confirmed_ism_csm"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked ISM/CSM detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -996,11 +1236,21 @@
       },
       "accepted": {
         "date": null,
-        "census": "2021",
+        "census": "2018",
         "context": "confirmed_exgal"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked exgal detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -1037,8 +1287,18 @@
         "census": "2018",
         "context": "confirmed_ism_csm"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked ISM/CSM detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -1065,11 +1325,21 @@
       },
       "accepted": {
         "date": null,
-        "census": "2021",
+        "census": "2018",
         "context": "confirmed_ppd"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked ppd detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -1097,11 +1367,21 @@
       },
       "accepted": {
         "date": null,
-        "census": "2021",
+        "census": "2018",
         "context": "confirmed_exgal"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked exgal detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -1127,11 +1407,21 @@
       },
       "accepted": {
         "date": null,
-        "census": "2021",
+        "census": "2018",
         "context": "confirmed_ppd"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked ppd detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -1195,8 +1485,18 @@
         "census": "2018",
         "context": "confirmed_ism_csm"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked ISM/CSM detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -1221,11 +1521,21 @@
       },
       "accepted": {
         "date": null,
-        "census": "2021",
+        "census": "2018",
         "context": "confirmed_ppd"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked ppd detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -1254,11 +1564,21 @@
       },
       "accepted": {
         "date": null,
-        "census": "2021",
+        "census": "2018",
         "context": "confirmed_exgal"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked exgal detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -1350,8 +1670,18 @@
         "census": "2018",
         "context": "confirmed_ism_csm"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked ISM/CSM detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -1415,8 +1745,18 @@
         "census": "2018",
         "context": "confirmed_ism_csm"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked ISM/CSM detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -1443,11 +1783,21 @@
       },
       "accepted": {
         "date": null,
-        "census": "2021",
+        "census": "2018",
         "context": "confirmed_exgal"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked exgal detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -1481,8 +1831,18 @@
         "census": "2018",
         "context": "confirmed_ism_csm"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked ISM/CSM detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -1547,8 +1907,18 @@
         "census": "2018",
         "context": "confirmed_ism_csm"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked ISM/CSM detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -1604,11 +1974,21 @@
       },
       "accepted": {
         "date": null,
-        "census": "2021",
+        "census": "2018",
         "context": "confirmed_exgal"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked exgal detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -1642,8 +2022,18 @@
         "census": "2018",
         "context": "confirmed_ism_csm"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked ISM/CSM detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -1708,8 +2098,18 @@
         "census": "2018",
         "context": "confirmed_ism_csm"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked ISM/CSM detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -1743,8 +2143,18 @@
         "census": "2018",
         "context": "confirmed_ism_csm"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked ISM/CSM detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -1778,8 +2188,18 @@
         "census": "2018",
         "context": "confirmed_ism_csm"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked ISM/CSM detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -1813,8 +2233,18 @@
         "census": "2018",
         "context": "confirmed_ism_csm"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked ISM/CSM detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -1882,8 +2312,18 @@
         "census": "2018",
         "context": "confirmed_ism_csm"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked ISM/CSM detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -1948,8 +2388,18 @@
         "census": "2018",
         "context": "confirmed_ism_csm"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked ISM/CSM detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -1983,8 +2433,18 @@
         "census": "2018",
         "context": "confirmed_ism_csm"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked ISM/CSM detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -2020,8 +2480,18 @@
         "census": "2018",
         "context": "confirmed_ism_csm"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked ISM/CSM detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -2048,11 +2518,21 @@
       },
       "accepted": {
         "date": null,
-        "census": "2021",
+        "census": "2018",
         "context": "confirmed_exgal"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked exgal detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -2086,8 +2566,18 @@
         "census": "2018",
         "context": "confirmed_ism_csm"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked ISM/CSM detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -2121,8 +2611,18 @@
         "census": "2018",
         "context": "confirmed_ism_csm"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked ISM/CSM detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -2149,11 +2649,21 @@
       },
       "accepted": {
         "date": null,
-        "census": "2021",
+        "census": "2018",
         "context": "confirmed_exgal"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked exgal detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -2188,8 +2698,18 @@
         "census": "2018",
         "context": "confirmed_ism_csm"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked ISM/CSM detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -2216,11 +2736,21 @@
       },
       "accepted": {
         "date": null,
-        "census": "2021",
+        "census": "2018",
         "context": "confirmed_exgal"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked exgal detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -2254,8 +2784,18 @@
         "census": "2018",
         "context": "confirmed_ism_csm"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked ISM/CSM detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -2286,11 +2826,21 @@
       },
       "accepted": {
         "date": null,
-        "census": "2021",
+        "census": "2018",
         "context": "confirmed_exgal"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked exgal detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -2324,8 +2874,18 @@
         "census": "2018",
         "context": "confirmed_ism_csm"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked ISM/CSM detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -2360,8 +2920,18 @@
         "census": "2018",
         "context": "confirmed_ism_csm"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked ISM/CSM detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -2388,11 +2958,21 @@
       },
       "accepted": {
         "date": null,
-        "census": "2021",
+        "census": "2018",
         "context": "confirmed_exgal"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked exgal detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -2426,8 +3006,18 @@
         "census": "2018",
         "context": "confirmed_ism_csm"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked ISM/CSM detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -2464,8 +3054,18 @@
         "census": "2018",
         "context": "confirmed_ism_csm"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked ISM/CSM detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -2530,8 +3130,18 @@
         "census": "2018",
         "context": "confirmed_ism_csm"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked ISM/CSM detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -2565,8 +3175,18 @@
         "census": "2018",
         "context": "confirmed_ism_csm"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked ISM/CSM detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -2602,8 +3222,18 @@
         "census": "2018",
         "context": "confirmed_ism_csm"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked ISM/CSM detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -2634,11 +3264,21 @@
       },
       "accepted": {
         "date": null,
-        "census": "2021",
+        "census": "2018",
         "context": "confirmed_exgal"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked exgal detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -2672,8 +3312,18 @@
         "census": "2018",
         "context": "confirmed_ism_csm"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked ISM/CSM detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -2700,11 +3350,21 @@
       },
       "accepted": {
         "date": null,
-        "census": "2021",
+        "census": "2018",
         "context": "confirmed_exgal"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked exgal detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -2739,8 +3399,18 @@
         "census": "2018",
         "context": "confirmed_ism_csm"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked ISM/CSM detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -2774,8 +3444,18 @@
         "census": "2018",
         "context": "confirmed_ism_csm"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked ISM/CSM detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -2809,8 +3489,18 @@
         "census": "2018",
         "context": "confirmed_ism_csm"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked ISM/CSM detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -2837,11 +3527,21 @@
       },
       "accepted": {
         "date": null,
-        "census": "2021",
+        "census": "2018",
         "context": "confirmed_exo"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked exo detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -2875,8 +3575,18 @@
         "census": "2018",
         "context": "confirmed_ism_csm"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked ISM/CSM detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -2903,11 +3613,21 @@
       },
       "accepted": {
         "date": null,
-        "census": "2021",
+        "census": "2018",
         "context": "confirmed_exgal"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked exgal detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -2943,8 +3663,18 @@
         "census": "2018",
         "context": "confirmed_ism_csm"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked ISM/CSM detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -3265,8 +3995,18 @@
         "census": "2018",
         "context": "confirmed_ism_csm"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked ISM/CSM detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -3322,11 +4062,21 @@
       },
       "accepted": {
         "date": null,
-        "census": "2021",
+        "census": "2018",
         "context": "confirmed_ppd"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked ppd detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -3353,11 +4103,21 @@
       },
       "accepted": {
         "date": null,
-        "census": "2021",
+        "census": "2018",
         "context": "confirmed_exgal"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked exgal detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -3386,11 +4146,21 @@
       },
       "accepted": {
         "date": null,
-        "census": "2021",
+        "census": "2018",
         "context": "confirmed_exo"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked exo detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -3457,8 +4227,18 @@
         "census": "2018",
         "context": "confirmed_ism_csm"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked ISM/CSM detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -3484,11 +4264,21 @@
       },
       "accepted": {
         "date": null,
-        "census": "2021",
+        "census": "2018",
         "context": "confirmed_ppd"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked ppd detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -3515,11 +4305,21 @@
       },
       "accepted": {
         "date": null,
-        "census": "2021",
+        "census": "2018",
         "context": "confirmed_exgal"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked exgal detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -3544,11 +4344,21 @@
       },
       "accepted": {
         "date": null,
-        "census": "2021",
+        "census": "2018",
         "context": "confirmed_ppd"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked ppd detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -3574,11 +4384,21 @@
       },
       "accepted": {
         "date": null,
-        "census": "2021",
+        "census": "2018",
         "context": "confirmed_ppd"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked ppd detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -3646,8 +4466,18 @@
         "census": "2018",
         "context": "confirmed_ism_csm"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked ISM/CSM detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -3673,11 +4503,21 @@
       },
       "accepted": {
         "date": null,
-        "census": "2021",
+        "census": "2018",
         "context": "confirmed_ppd"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked ppd detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -3705,11 +4545,21 @@
       },
       "accepted": {
         "date": null,
-        "census": "2021",
+        "census": "2018",
         "context": "confirmed_exgal"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked exgal detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -3763,11 +4613,21 @@
       },
       "accepted": {
         "date": null,
-        "census": "2021",
+        "census": "2018",
         "context": "confirmed_ppd"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked ppd detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -3792,11 +4652,21 @@
       },
       "accepted": {
         "date": null,
-        "census": "2021",
+        "census": "2018",
         "context": "confirmed_ppd"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked ppd detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -3821,11 +4691,21 @@
       },
       "accepted": {
         "date": null,
-        "census": "2021",
+        "census": "2018",
         "context": "confirmed_ppd"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked ppd detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -3859,8 +4739,18 @@
         "census": "2018",
         "context": "confirmed_ism_csm"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked ISM/CSM detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -3917,11 +4807,21 @@
       },
       "accepted": {
         "date": null,
-        "census": "2021",
+        "census": "2018",
         "context": "confirmed_exgal"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked exgal detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -3957,8 +4857,18 @@
         "census": "2018",
         "context": "confirmed_ism_csm"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked ISM/CSM detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -3983,11 +4893,21 @@
       },
       "accepted": {
         "date": null,
-        "census": "2021",
+        "census": "2018",
         "context": "confirmed_ppd"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked ppd detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -4014,11 +4934,21 @@
       },
       "accepted": {
         "date": null,
-        "census": "2021",
+        "census": "2018",
         "context": "confirmed_exgal"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked exgal detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -4088,8 +5018,18 @@
         "census": "2018",
         "context": "confirmed_ism_csm"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked ISM/CSM detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -4145,11 +5085,21 @@
       },
       "accepted": {
         "date": null,
-        "census": "2021",
+        "census": "2018",
         "context": "confirmed_exgal"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked exgal detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -4188,8 +5138,18 @@
         "census": "2018",
         "context": "confirmed_ism_csm"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked ISM/CSM detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -4215,11 +5175,21 @@
       },
       "accepted": {
         "date": null,
-        "census": "2021",
+        "census": "2018",
         "context": "confirmed_ppd"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked ppd detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -4250,11 +5220,21 @@
       },
       "accepted": {
         "date": null,
-        "census": "2021",
+        "census": "2018",
         "context": "confirmed_exgal"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked exgal detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -4279,11 +5259,21 @@
       },
       "accepted": {
         "date": null,
-        "census": "2021",
+        "census": "2018",
         "context": "confirmed_ppd"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked ppd detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -4317,8 +5307,18 @@
         "census": "2018",
         "context": "confirmed_ism_csm"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked ISM/CSM detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -4343,11 +5343,21 @@
       },
       "accepted": {
         "date": null,
-        "census": "2021",
+        "census": "2018",
         "context": "confirmed_ppd"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked ppd detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -4374,11 +5384,21 @@
       },
       "accepted": {
         "date": null,
-        "census": "2021",
+        "census": "2018",
         "context": "confirmed_exgal"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked exgal detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -4442,8 +5462,18 @@
         "census": "2018",
         "context": "confirmed_ism_csm"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked ISM/CSM detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -4509,11 +5539,21 @@
       },
       "accepted": {
         "date": null,
-        "census": "2021",
+        "census": "2018",
         "context": "confirmed_exgal"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked exgal detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -4580,8 +5620,18 @@
         "census": "2018",
         "context": "confirmed_ism_csm"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked ISM/CSM detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -4609,11 +5659,21 @@
       },
       "accepted": {
         "date": null,
-        "census": "2021",
+        "census": "2018",
         "context": "confirmed_exgal"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked exgal detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -4648,8 +5708,18 @@
         "census": "2018",
         "context": "confirmed_ism_csm"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked ISM/CSM detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -4685,8 +5755,18 @@
         "census": "2018",
         "context": "confirmed_ism_csm"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked ISM/CSM detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -4713,11 +5793,21 @@
       },
       "accepted": {
         "date": null,
-        "census": "2021",
+        "census": "2018",
         "context": "confirmed_exgal"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked exgal detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -4752,8 +5842,18 @@
         "census": "2018",
         "context": "confirmed_ism_csm"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked ISM/CSM detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -4780,11 +5880,21 @@
       },
       "accepted": {
         "date": null,
-        "census": "2021",
+        "census": "2018",
         "context": "confirmed_exgal"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked exgal detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -4819,8 +5929,18 @@
         "census": "2018",
         "context": "confirmed_ism_csm"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked ISM/CSM detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -4858,8 +5978,18 @@
         "census": "2018",
         "context": "confirmed_ism_csm"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked ISM/CSM detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -4927,11 +6057,21 @@
       },
       "accepted": {
         "date": null,
-        "census": "2021",
+        "census": "2018",
         "context": "confirmed_exgal"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked exgal detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -4965,8 +6105,18 @@
         "census": "2018",
         "context": "confirmed_ism_csm"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked ISM/CSM detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -5092,8 +6242,18 @@
         "census": "2018",
         "context": "confirmed_ism_csm"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked ISM/CSM detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -5147,11 +6307,21 @@
       },
       "accepted": {
         "date": null,
-        "census": "2021",
+        "census": "2018",
         "context": "confirmed_ppd"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked ppd detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -5179,11 +6349,21 @@
       },
       "accepted": {
         "date": null,
-        "census": "2021",
+        "census": "2018",
         "context": "confirmed_exo"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked exo detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -5246,8 +6426,18 @@
         "census": "2018",
         "context": "confirmed_ism_csm"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked ISM/CSM detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -5281,8 +6471,18 @@
         "census": "2018",
         "context": "confirmed_ism_csm"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked ISM/CSM detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -5316,8 +6516,18 @@
         "census": "2018",
         "context": "confirmed_ism_csm"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked ISM/CSM detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -5351,8 +6561,18 @@
         "census": "2018",
         "context": "confirmed_ism_csm"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked ISM/CSM detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -5379,11 +6599,21 @@
       },
       "accepted": {
         "date": null,
-        "census": "2021",
+        "census": "2018",
         "context": "confirmed_exgal"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked exgal detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -5475,8 +6705,18 @@
         "census": "2018",
         "context": "confirmed_ism_csm"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked ISM/CSM detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -5510,8 +6750,18 @@
         "census": "2018",
         "context": "confirmed_ism_csm"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked ISM/CSM detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -5546,8 +6796,18 @@
         "census": "2018",
         "context": "confirmed_ism_csm"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked ISM/CSM detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -5582,8 +6842,18 @@
         "census": "2018",
         "context": "confirmed_ism_csm"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked ISM/CSM detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -5610,11 +6880,21 @@
       },
       "accepted": {
         "date": null,
-        "census": "2021",
+        "census": "2018",
         "context": "confirmed_exgal"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked exgal detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -5648,8 +6928,18 @@
         "census": "2018",
         "context": "confirmed_ism_csm"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked ISM/CSM detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -5683,8 +6973,18 @@
         "census": "2018",
         "context": "confirmed_ism_csm"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked ISM/CSM detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -5718,8 +7018,18 @@
         "census": "2018",
         "context": "confirmed_ism_csm"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked ISM/CSM detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -5753,8 +7063,18 @@
         "census": "2018",
         "context": "confirmed_ism_csm"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked ISM/CSM detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -5788,8 +7108,18 @@
         "census": "2018",
         "context": "confirmed_ism_csm"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked ISM/CSM detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -5824,8 +7154,18 @@
         "census": "2018",
         "context": "confirmed_ism_csm"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked ISM/CSM detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -5863,8 +7203,18 @@
         "census": "2018",
         "context": "confirmed_ism_csm"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked ISM/CSM detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -5891,11 +7241,21 @@
       },
       "accepted": {
         "date": null,
-        "census": "2021",
+        "census": "2018",
         "context": "confirmed_exgal"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked exgal detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -5932,8 +7292,18 @@
         "census": "2018",
         "context": "confirmed_ism_csm"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked ISM/CSM detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -5960,11 +7330,21 @@
       },
       "accepted": {
         "date": null,
-        "census": "2021",
+        "census": "2018",
         "context": "confirmed_exgal"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked exgal detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -6000,8 +7380,18 @@
         "census": "2018",
         "context": "confirmed_ism_csm"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked ISM/CSM detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -6035,8 +7425,18 @@
         "census": "2018",
         "context": "confirmed_ism_csm"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked ISM/CSM detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -6071,8 +7471,18 @@
         "census": "2018",
         "context": "confirmed_ism_csm"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked ISM/CSM detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -6107,8 +7517,18 @@
         "census": "2018",
         "context": "confirmed_ism_csm"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked ISM/CSM detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -6143,8 +7563,18 @@
         "census": "2018",
         "context": "confirmed_ism_csm"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked ISM/CSM detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -6178,8 +7608,18 @@
         "census": "2018",
         "context": "confirmed_ism_csm"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked ISM/CSM detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -6213,8 +7653,18 @@
         "census": "2018",
         "context": "confirmed_ism_csm"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked ISM/CSM detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -6248,8 +7698,18 @@
         "census": "2018",
         "context": "confirmed_ism_csm"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked ISM/CSM detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -6283,8 +7743,18 @@
         "census": "2018",
         "context": "confirmed_ism_csm"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked ISM/CSM detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -6318,8 +7788,18 @@
         "census": "2018",
         "context": "confirmed_ism_csm"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked ISM/CSM detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -6541,8 +8021,18 @@
         "census": "2018",
         "context": "confirmed_ism_csm"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked ISM/CSM detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -6596,11 +8086,21 @@
       },
       "accepted": {
         "date": null,
-        "census": "2021",
+        "census": "2018",
         "context": "confirmed_ppd"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked ppd detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -6628,11 +8128,21 @@
       },
       "accepted": {
         "date": null,
-        "census": "2021",
+        "census": "2018",
         "context": "confirmed_exgal"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked exgal detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -6709,8 +8219,18 @@
         "census": "2018",
         "context": "confirmed_ism_csm"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked ISM/CSM detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -6764,11 +8284,21 @@
       },
       "accepted": {
         "date": null,
-        "census": "2021",
+        "census": "2018",
         "context": "confirmed_ppd"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked ppd detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -6796,11 +8326,21 @@
       },
       "accepted": {
         "date": null,
-        "census": "2021",
+        "census": "2018",
         "context": "confirmed_exgal"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked exgal detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -6864,8 +8404,18 @@
         "census": "2018",
         "context": "confirmed_ism_csm"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked ISM/CSM detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -6894,11 +8444,21 @@
       },
       "accepted": {
         "date": null,
-        "census": "2021",
+        "census": "2018",
         "context": "confirmed_exgal"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked exgal detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -6932,8 +8492,18 @@
         "census": "2018",
         "context": "confirmed_ism_csm"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked ISM/CSM detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -6990,11 +8560,21 @@
       },
       "accepted": {
         "date": null,
-        "census": "2021",
+        "census": "2018",
         "context": "confirmed_exgal"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked exgal detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -7028,8 +8608,18 @@
         "census": "2018",
         "context": "confirmed_ism_csm"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked ISM/CSM detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -7054,11 +8644,21 @@
       },
       "accepted": {
         "date": null,
-        "census": "2021",
+        "census": "2018",
         "context": "confirmed_ppd"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked ppd detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -7085,11 +8685,21 @@
       },
       "accepted": {
         "date": null,
-        "census": "2021",
+        "census": "2018",
         "context": "confirmed_exgal"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked exgal detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -7186,8 +8796,18 @@
         "census": "2018",
         "context": "confirmed_ism_csm"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked ISM/CSM detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -7253,8 +8873,18 @@
         "census": "2018",
         "context": "confirmed_ism_csm"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked ISM/CSM detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -7288,8 +8918,18 @@
         "census": "2018",
         "context": "confirmed_ism_csm"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked ISM/CSM detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -7317,11 +8957,21 @@
       },
       "accepted": {
         "date": null,
-        "census": "2021",
+        "census": "2018",
         "context": "confirmed_exgal"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked exgal detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -7358,8 +9008,18 @@
         "census": "2018",
         "context": "confirmed_ism_csm"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked ISM/CSM detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -7398,8 +9058,18 @@
         "census": "2018",
         "context": "confirmed_ism_csm"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked ISM/CSM detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -7426,11 +9096,21 @@
       },
       "accepted": {
         "date": null,
-        "census": "2021",
+        "census": "2018",
         "context": "confirmed_exgal"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked exgal detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -7465,8 +9145,18 @@
         "census": "2018",
         "context": "confirmed_ism_csm"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked ISM/CSM detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -7503,8 +9193,18 @@
         "census": "2018",
         "context": "confirmed_ism_csm"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked ISM/CSM detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -7532,11 +9232,21 @@
       },
       "accepted": {
         "date": null,
-        "census": "2021",
+        "census": "2018",
         "context": "confirmed_exgal"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked exgal detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -7573,8 +9283,18 @@
         "census": "2018",
         "context": "confirmed_ism_csm"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked ISM/CSM detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -7608,8 +9328,18 @@
         "census": "2018",
         "context": "confirmed_ism_csm"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked ISM/CSM detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -7646,6 +9376,17 @@
           "fields": [
             "status",
             "status_note",
+            "first",
+            "history"
+          ]
+        },
+        {
+          "kind": "corrected",
+          "summary": "Preserved tentative extragalactic status from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "status",
             "first",
             "history"
           ]
@@ -7686,8 +9427,18 @@
         "census": "2018",
         "context": "confirmed_ism_csm"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked ISM/CSM detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -7721,8 +9472,18 @@
         "census": "2018",
         "context": "confirmed_ism_csm"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked ISM/CSM detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -7787,8 +9548,18 @@
         "census": "2018",
         "context": "confirmed_ism_csm"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked ISM/CSM detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -7822,8 +9593,18 @@
         "census": "2018",
         "context": "confirmed_ism_csm"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked ISM/CSM detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -7857,8 +9638,18 @@
         "census": "2018",
         "context": "confirmed_ism_csm"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked ISM/CSM detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -7897,8 +9688,18 @@
         "census": "2018",
         "context": "confirmed_ism_csm"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked ISM/CSM detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -7935,8 +9736,18 @@
         "census": "2018",
         "context": "confirmed_ism_csm"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked ISM/CSM detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -7972,8 +9783,18 @@
         "census": "2018",
         "context": "confirmed_ism_csm"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked ISM/CSM detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -8048,8 +9869,18 @@
         "census": "2018",
         "context": "confirmed_ism_csm"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked ISM/CSM detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -8083,8 +9914,18 @@
         "census": "2018",
         "context": "confirmed_ism_csm"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked ISM/CSM detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -8118,8 +9959,18 @@
         "census": "2018",
         "context": "confirmed_ism_csm"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked ISM/CSM detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -8184,8 +10035,18 @@
         "census": "2018",
         "context": "confirmed_ism_csm"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked ISM/CSM detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -8220,8 +10081,18 @@
         "census": "2018",
         "context": "confirmed_ism_csm"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked ISM/CSM detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -8255,8 +10126,18 @@
         "census": "2018",
         "context": "confirmed_ism_csm"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked ISM/CSM detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -8690,8 +10571,18 @@
         "census": "2018",
         "context": "confirmed_ism_csm"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked ISM/CSM detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -8716,11 +10607,21 @@
       },
       "accepted": {
         "date": null,
-        "census": "2021",
+        "census": "2018",
         "context": "confirmed_ppd"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked ppd detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -8748,11 +10649,21 @@
       },
       "accepted": {
         "date": null,
-        "census": "2021",
+        "census": "2018",
         "context": "confirmed_exgal"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked exgal detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -8786,8 +10697,18 @@
         "census": "2018",
         "context": "confirmed_ism_csm"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked ISM/CSM detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -8841,11 +10762,21 @@
       },
       "accepted": {
         "date": null,
-        "census": "2021",
+        "census": "2018",
         "context": "confirmed_ppd"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked ppd detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -8910,8 +10841,18 @@
         "census": "2018",
         "context": "confirmed_ism_csm"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked ISM/CSM detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -8938,11 +10879,21 @@
       },
       "accepted": {
         "date": null,
-        "census": "2021",
+        "census": "2018",
         "context": "confirmed_exgal"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked exgal detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -8976,8 +10927,18 @@
         "census": "2018",
         "context": "confirmed_ism_csm"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked ISM/CSM detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -9004,11 +10965,21 @@
       },
       "accepted": {
         "date": null,
-        "census": "2021",
+        "census": "2018",
         "context": "confirmed_exgal"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked exgal detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -9042,8 +11013,18 @@
         "census": "2018",
         "context": "confirmed_ism_csm"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked ISM/CSM detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -9070,11 +11051,21 @@
       },
       "accepted": {
         "date": null,
-        "census": "2021",
+        "census": "2018",
         "context": "confirmed_exgal"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked exgal detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -9108,8 +11099,18 @@
         "census": "2018",
         "context": "confirmed_ism_csm"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked ISM/CSM detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -9136,11 +11137,21 @@
       },
       "accepted": {
         "date": null,
-        "census": "2021",
+        "census": "2018",
         "context": "confirmed_exgal"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked exgal detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -9174,8 +11185,18 @@
         "census": "2018",
         "context": "confirmed_ism_csm"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked ISM/CSM detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -9212,8 +11233,18 @@
         "census": "2018",
         "context": "confirmed_ism_csm"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked ISM/CSM detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -9238,11 +11269,21 @@
       },
       "accepted": {
         "date": null,
-        "census": "2021",
+        "census": "2018",
         "context": "confirmed_ppd"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked ppd detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -9269,11 +11310,21 @@
       },
       "accepted": {
         "date": null,
-        "census": "2021",
+        "census": "2018",
         "context": "confirmed_exgal"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked exgal detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -9311,8 +11362,18 @@
         "census": "2018",
         "context": "confirmed_ism_csm"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked ISM/CSM detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -9378,11 +11439,21 @@
       },
       "accepted": {
         "date": null,
-        "census": "2021",
+        "census": "2018",
         "context": "confirmed_exgal"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked exgal detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -9445,8 +11516,18 @@
         "census": "2018",
         "context": "confirmed_ism_csm"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked ISM/CSM detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -9481,8 +11562,18 @@
         "census": "2018",
         "context": "confirmed_ism_csm"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked ISM/CSM detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -9518,8 +11609,18 @@
         "census": "2018",
         "context": "confirmed_ism_csm"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked ISM/CSM detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -9546,11 +11647,21 @@
       },
       "accepted": {
         "date": null,
-        "census": "2021",
+        "census": "2018",
         "context": "confirmed_exgal"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked exgal detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -9584,8 +11695,18 @@
         "census": "2018",
         "context": "confirmed_ism_csm"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked ISM/CSM detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -9639,11 +11760,21 @@
       },
       "accepted": {
         "date": null,
-        "census": "2021",
+        "census": "2018",
         "context": "confirmed_ppd"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked ppd detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -9671,11 +11802,21 @@
       },
       "accepted": {
         "date": null,
-        "census": "2021",
+        "census": "2018",
         "context": "confirmed_exo"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked exo detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -9739,8 +11880,18 @@
         "census": "2018",
         "context": "confirmed_ism_csm"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked ISM/CSM detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -9774,8 +11925,18 @@
         "census": "2018",
         "context": "confirmed_ism_csm"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked ISM/CSM detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -9813,8 +11974,18 @@
         "census": "2018",
         "context": "confirmed_ism_csm"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked ISM/CSM detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -9848,8 +12019,18 @@
         "census": "2018",
         "context": "confirmed_ism_csm"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked ISM/CSM detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -9883,8 +12064,18 @@
         "census": "2018",
         "context": "confirmed_ism_csm"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked ISM/CSM detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -9918,8 +12109,18 @@
         "census": "2018",
         "context": "confirmed_ism_csm"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked ISM/CSM detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -9953,8 +12154,18 @@
         "census": "2018",
         "context": "confirmed_ism_csm"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked ISM/CSM detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -9989,8 +12200,18 @@
         "census": "2018",
         "context": "confirmed_ism_csm"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked ISM/CSM detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -10025,8 +12246,18 @@
         "census": "2018",
         "context": "confirmed_ism_csm"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked ISM/CSM detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -10063,8 +12294,18 @@
         "census": "2018",
         "context": "confirmed_ism_csm"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked ISM/CSM detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -10098,8 +12339,18 @@
         "census": "2018",
         "context": "confirmed_ism_csm"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked ISM/CSM detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -10735,8 +12986,18 @@
         "census": "2018",
         "context": "confirmed_ism_csm"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked ISM/CSM detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -10790,11 +13051,21 @@
       },
       "accepted": {
         "date": null,
-        "census": "2021",
+        "census": "2018",
         "context": "confirmed_ppd"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked ppd detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -10822,11 +13093,21 @@
       },
       "accepted": {
         "date": null,
-        "census": "2021",
+        "census": "2018",
         "context": "confirmed_exgal"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked exgal detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -10861,8 +13142,18 @@
         "census": "2018",
         "context": "confirmed_ism_csm"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked ISM/CSM detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -10887,11 +13178,21 @@
       },
       "accepted": {
         "date": null,
-        "census": "2021",
+        "census": "2018",
         "context": "confirmed_ppd"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked ppd detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -10918,11 +13219,21 @@
       },
       "accepted": {
         "date": null,
-        "census": "2021",
+        "census": "2018",
         "context": "confirmed_exgal"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked exgal detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -10956,8 +13267,18 @@
         "census": "2018",
         "context": "confirmed_ism_csm"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked ISM/CSM detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -10984,11 +13305,21 @@
       },
       "accepted": {
         "date": null,
-        "census": "2021",
+        "census": "2018",
         "context": "confirmed_exgal"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked exgal detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -11022,8 +13353,18 @@
         "census": "2018",
         "context": "confirmed_ism_csm"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked ISM/CSM detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -11088,8 +13429,18 @@
         "census": "2018",
         "context": "confirmed_ism_csm"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked ISM/CSM detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -11123,8 +13474,18 @@
         "census": "2018",
         "context": "confirmed_ism_csm"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked ISM/CSM detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -11158,8 +13519,18 @@
         "census": "2018",
         "context": "confirmed_ism_csm"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked ISM/CSM detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -11194,8 +13565,18 @@
         "census": "2018",
         "context": "confirmed_ism_csm"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked ISM/CSM detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -11270,8 +13651,18 @@
         "census": "2018",
         "context": "confirmed_ism_csm"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked ISM/CSM detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -11305,8 +13696,18 @@
         "census": "2018",
         "context": "confirmed_ism_csm"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked ISM/CSM detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -11340,8 +13741,18 @@
         "census": "2018",
         "context": "confirmed_ism_csm"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked ISM/CSM detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -11376,8 +13787,18 @@
         "census": "2018",
         "context": "confirmed_ism_csm"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked ISM/CSM detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -11411,8 +13832,18 @@
         "census": "2018",
         "context": "confirmed_ism_csm"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked ISM/CSM detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -11468,11 +13899,21 @@
       },
       "accepted": {
         "date": null,
-        "census": "2021",
+        "census": "2018",
         "context": "confirmed_exgal"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked exgal detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -11506,8 +13947,18 @@
         "census": "2018",
         "context": "confirmed_ism_csm"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked ISM/CSM detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -11541,8 +13992,18 @@
         "census": "2018",
         "context": "confirmed_ism_csm"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked ISM/CSM detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -11576,8 +14037,18 @@
         "census": "2018",
         "context": "confirmed_ism_csm"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked ISM/CSM detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -11611,8 +14082,18 @@
         "census": "2018",
         "context": "confirmed_ism_csm"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked ISM/CSM detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -11646,8 +14127,18 @@
         "census": "2018",
         "context": "confirmed_ism_csm"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked ISM/CSM detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -11681,8 +14172,18 @@
         "census": "2018",
         "context": "confirmed_ism_csm"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked ISM/CSM detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -12293,8 +14794,18 @@
         "census": "2018",
         "context": "confirmed_ism_csm"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked ISM/CSM detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -12350,11 +14861,21 @@
       },
       "accepted": {
         "date": null,
-        "census": "2021",
+        "census": "2018",
         "context": "confirmed_exgal"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked exgal detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -12417,8 +14938,18 @@
         "census": "2018",
         "context": "confirmed_ism_csm"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked ISM/CSM detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -12446,11 +14977,21 @@
       },
       "accepted": {
         "date": null,
-        "census": "2021",
+        "census": "2018",
         "context": "confirmed_exgal"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked exgal detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -12489,8 +15030,18 @@
         "census": "2018",
         "context": "confirmed_ism_csm"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked ISM/CSM detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -12517,11 +15068,21 @@
       },
       "accepted": {
         "date": null,
-        "census": "2021",
+        "census": "2018",
         "context": "confirmed_exgal"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked exgal detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -12555,8 +15116,18 @@
         "census": "2018",
         "context": "confirmed_ism_csm"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked ISM/CSM detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -12622,8 +15193,18 @@
         "census": "2018",
         "context": "confirmed_ism_csm"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked ISM/CSM detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -12660,6 +15241,17 @@
           "fields": [
             "status",
             "status_note",
+            "first",
+            "history"
+          ]
+        },
+        {
+          "kind": "corrected",
+          "summary": "Preserved tentative extragalactic status from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "status",
             "first",
             "history"
           ]
@@ -12700,8 +15292,18 @@
         "census": "2018",
         "context": "confirmed_ism_csm"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked ISM/CSM detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -12738,8 +15340,18 @@
         "census": "2018",
         "context": "confirmed_ism_csm"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked ISM/CSM detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -12831,8 +15443,18 @@
         "census": "2018",
         "context": "confirmed_ism_csm"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked ISM/CSM detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -12867,8 +15489,18 @@
         "census": "2018",
         "context": "confirmed_ism_csm"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked ISM/CSM detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -12904,8 +15536,18 @@
         "census": "2018",
         "context": "confirmed_ism_csm"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked ISM/CSM detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -12939,8 +15581,18 @@
         "census": "2018",
         "context": "confirmed_ism_csm"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked ISM/CSM detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -13398,8 +16050,18 @@
         "census": "2018",
         "context": "confirmed_ism_csm"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked ISM/CSM detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -13455,11 +16117,21 @@
       },
       "accepted": {
         "date": null,
-        "census": "2021",
+        "census": "2018",
         "context": "confirmed_exgal"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked exgal detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -13493,8 +16165,18 @@
         "census": "2018",
         "context": "confirmed_ism_csm"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked ISM/CSM detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -13528,8 +16210,18 @@
         "census": "2018",
         "context": "confirmed_ism_csm"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked ISM/CSM detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -13564,8 +16256,18 @@
         "census": "2018",
         "context": "confirmed_ism_csm"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked ISM/CSM detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -13599,8 +16301,18 @@
         "census": "2018",
         "context": "confirmed_ism_csm"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked ISM/CSM detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -13634,8 +16346,18 @@
         "census": "2018",
         "context": "confirmed_ism_csm"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked ISM/CSM detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -13669,8 +16391,18 @@
         "census": "2018",
         "context": "confirmed_ism_csm"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked ISM/CSM detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -13697,11 +16429,21 @@
       },
       "accepted": {
         "date": null,
-        "census": "2021",
+        "census": "2018",
         "context": "confirmed_exgal"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked exgal detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -13737,8 +16479,18 @@
         "census": "2018",
         "context": "confirmed_ism_csm"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked ISM/CSM detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -13772,8 +16524,18 @@
         "census": "2018",
         "context": "confirmed_ism_csm"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked ISM/CSM detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -13809,8 +16571,18 @@
         "census": "2018",
         "context": "confirmed_ism_csm"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked ISM/CSM detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -13844,8 +16616,18 @@
         "census": "2018",
         "context": "confirmed_ism_csm"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked ISM/CSM detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -13879,8 +16661,18 @@
         "census": "2018",
         "context": "confirmed_ism_csm"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked ISM/CSM detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -14306,8 +17098,18 @@
         "census": "2018",
         "context": "confirmed_ism_csm"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked ISM/CSM detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -14394,11 +17196,21 @@
       },
       "accepted": {
         "date": null,
-        "census": "2021",
+        "census": "2018",
         "context": "confirmed_exgal"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked exgal detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -14432,8 +17244,18 @@
         "census": "2018",
         "context": "confirmed_ism_csm"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked ISM/CSM detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -14538,8 +17360,18 @@
         "census": "2018",
         "context": "confirmed_ism_csm"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked ISM/CSM detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -14575,8 +17407,18 @@
         "census": "2018",
         "context": "confirmed_ism_csm"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked ISM/CSM detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -14612,8 +17454,18 @@
         "census": "2018",
         "context": "confirmed_ism_csm"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked ISM/CSM detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -14648,8 +17500,18 @@
         "census": "2018",
         "context": "confirmed_ism_csm"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked ISM/CSM detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -14683,8 +17545,18 @@
         "census": "2018",
         "context": "confirmed_ism_csm"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked ISM/CSM detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -14720,8 +17592,18 @@
         "census": "2018",
         "context": "confirmed_ism_csm"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked ISM/CSM detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -14755,8 +17637,18 @@
         "census": "2018",
         "context": "confirmed_ism_csm"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked ISM/CSM detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -14787,11 +17679,21 @@
       },
       "accepted": {
         "date": null,
-        "census": "2021",
+        "census": "2018",
         "context": "confirmed_ism_csm"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked ISM/CSM detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -14825,8 +17727,18 @@
         "census": "2018",
         "context": "confirmed_ism_csm"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked ISM/CSM detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -15111,8 +18023,18 @@
         "census": "2018",
         "context": "confirmed_ism_csm"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked ISM/CSM detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -15175,8 +18097,18 @@
         "census": "2018",
         "context": "confirmed_ism_csm"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked ISM/CSM detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -15210,8 +18142,18 @@
         "census": "2018",
         "context": "confirmed_ism_csm"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked ISM/CSM detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -15245,8 +18187,18 @@
         "census": "2018",
         "context": "confirmed_ism_csm"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked ISM/CSM detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -15280,8 +18232,18 @@
         "census": "2018",
         "context": "confirmed_ism_csm"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked ISM/CSM detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -15315,8 +18277,18 @@
         "census": "2018",
         "context": "confirmed_ism_csm"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked ISM/CSM detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -15673,8 +18645,18 @@
         "census": "2018",
         "context": "confirmed_ism_csm"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked ISM/CSM detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -15708,8 +18690,18 @@
         "census": "2018",
         "context": "confirmed_ism_csm"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked ISM/CSM detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -15743,8 +18735,18 @@
         "census": "2018",
         "context": "confirmed_ism_csm"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked ISM/CSM detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -15778,8 +18780,18 @@
         "census": "2018",
         "context": "confirmed_ism_csm"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked ISM/CSM detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -16025,8 +19037,18 @@
         "census": "2018",
         "context": "confirmed_ism_csm"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked ISM/CSM detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -16082,11 +19104,21 @@
       },
       "accepted": {
         "date": null,
-        "census": "2021",
+        "census": "2018",
         "context": "confirmed_exgal"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked exgal detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -16120,8 +19152,18 @@
         "census": "2018",
         "context": "confirmed_ism_csm"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked ISM/CSM detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -16155,8 +19197,18 @@
         "census": "2018",
         "context": "confirmed_ism_csm"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked ISM/CSM detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -16408,8 +19460,18 @@
         "census": "2018",
         "context": "confirmed_ism_csm"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked ISM/CSM detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -16971,8 +20033,18 @@
         "census": "2018",
         "context": "confirmed_ism_csm"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked ISM/CSM detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -17006,8 +20078,18 @@
         "census": "2018",
         "context": "confirmed_ism_csm"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked ISM/CSM detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
@@ -17041,8 +20123,18 @@
         "census": "2018",
         "context": "confirmed_ism_csm"
       },
-      "last_modified": null,
-      "events": []
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "corrected",
+          "summary": "Marked ISM/CSM detection as accepted in the 2018 census from the 2018 table audit.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
+        }
+      ]
     }
   },
   {
