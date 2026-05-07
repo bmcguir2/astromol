@@ -25366,5 +25366,64 @@
         }
       ]
     }
+  },
+  {
+    "name": "protonated cyanodiacetylene cation",
+    "formula": "HC5NH+",
+    "table_formula": "HC5NH+",
+    "label": "mol:HC5NH+",
+    "note": null,
+    "iupac_name": null,
+    "selfies": null,
+    "synonyms": [
+      "butadiynyliminomethylium"
+    ],
+    "smiles": null,
+    "canonical_smiles": null,
+    "inchi": null,
+    "inchikey": null,
+    "radical_override": null,
+    "fullerene": false,
+    "pah": false,
+    "n_rings": 0,
+    "cyclic": false,
+    "tags": {},
+    "rotcon": {
+      "B": 1296,
+      "refs": [
+        "Marcelino:2020:L6"
+      ]
+    },
+    "dipole": {
+      "a": 3.26,
+      "refs": [
+        "Marcelino:2020:L6"
+      ]
+    },
+    "refs": {
+      "lab": [
+        "Marcelino:2020:L6"
+      ],
+      "computation": [
+        "Marcelino:2020:L6"
+      ]
+    },
+    "isotopologue_of": null,
+    "latex_section_override": null,
+    "latex_body": "\\citet{Marcelino:2020:L6} report a tentative detection of \\ce{HC5NH+} in Yebes 40-m observations of TMC-1.  They identify a series of eight harmonically spaced lines in the data corresponding to a rotational constant $B$ = 1295.8158\\,MHz.  Based on quantum chemical calculations, they suggest either \\ce{HC5NH+} or \\ce{NC4NH+} as the potential carrier, eventually proposing \\ce{HC5NH+} as the more likely.",
+    "history": {
+      "introduced": {
+        "date": "2026-05-07"
+      },
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "added",
+          "summary": "Added molecule record.",
+          "date": "2026-05-07",
+          "fields": []
+        }
+      ]
+    }
   }
 ]
