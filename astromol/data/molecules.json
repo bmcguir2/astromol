@@ -25613,5 +25613,68 @@
         }
       ]
     }
+  },
+  {
+    "name": "phenol",
+    "formula": "C6H5OH",
+    "table_formula": "c-C6H5OH",
+    "label": "mol:c-C6H5OH",
+    "note": null,
+    "iupac_name": "phenol",
+    "selfies": null,
+    "synonyms": [],
+    "smiles": "Oc1ccccc1",
+    "canonical_smiles": null,
+    "inchi": "1S/C6H6O/c7-6-4-2-1-3-5-6/h1-5,7H",
+    "inchikey": "ISWSIDIOOBJBQZ-UHFFFAOYSA-N",
+    "radical_override": null,
+    "fullerene": false,
+    "pah": false,
+    "n_rings": 1,
+    "cyclic": true,
+    "tags": {
+      "functional_groups": [
+        "OH"
+      ]
+    },
+    "rotcon": {
+      "A": 5650,
+      "B": 2619,
+      "C": 1790,
+      "refs": [
+        "Kolesnikova:2013:13"
+      ]
+    },
+    "dipole": {
+      "a": -0.133,
+      "b": 1.217,
+      "refs": [
+        "Larsen:1979:175"
+      ]
+    },
+    "refs": {
+      "lab": [
+        "Kolesnikova:2013:13",
+        "Larsen:1979:175"
+      ],
+      "computation": []
+    },
+    "isotopologue_of": null,
+    "latex_section_override": null,
+    "latex_body": "\\citet{Kolesnikova:2013:13} reported the laboratory rotational spectroscopy of \\ce{C6H5OH}, and identified a number of coincidences between transitions of \\ce{C6H5OH} and unassigned lines in IRAM 30-m observations of Orion between 80--280~GHz from \\citep{Tercero:2012:A119}.",
+    "history": {
+      "introduced": {
+        "date": "2026-05-07"
+      },
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "added",
+          "summary": "Added molecule record.",
+          "date": "2026-05-07",
+          "fields": []
+        }
+      ]
+    }
   }
 ]
