@@ -4607,8 +4607,8 @@
   {
     "name": "silacyclopropynylidene",
     "formula": "SiC2",
-    "table_formula": "SiC2",
-    "label": "mol:SiC2",
+    "table_formula": "c-SiC2",
+    "label": "mol:c-SiC2",
     "note": null,
     "iupac_name": null,
     "selfies": null,
@@ -4656,7 +4656,7 @@
         "census": "2018",
         "legacy_version": "2018.0.0"
       },
-      "last_modified": null,
+      "last_modified": "2026-05-07",
       "events": [
         {
           "date": null,
@@ -4665,6 +4665,15 @@
           "fields": [],
           "summary": "Initial entry",
           "legacy_version": "2018.0.0"
+        },
+        {
+          "kind": "corrected",
+          "summary": "Restored cyclic SiC2 identity in label and table formula.",
+          "date": "2026-05-07",
+          "fields": [
+            "label",
+            "table_formula"
+          ]
         }
       ]
     }

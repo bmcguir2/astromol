@@ -3008,9 +3008,9 @@
     "latex_text": null
   },
   {
-    "id": "det:SiC2:ism-csm:1984",
+    "id": "det:c-SiC2:ism-csm:1984",
     "note": null,
-    "molecule": "mol:SiC2",
+    "molecule": "mol:c-SiC2",
     "sources": [
       "IRC10216"
     ],
