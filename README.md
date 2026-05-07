@@ -55,6 +55,22 @@ python scripts/stage_records.py --staging curation/staging/example.yaml --apply
 See `curation/README.md` for template notes, YAML quoting rules, and schema
 maintenance expectations.
 
+## AI Assistance and Data Curation
+
+This project uses OpenAI Codex as a coding assistant for software
+implementation, refactoring, validation scripts, documentation drafts, and
+workflow support.
+
+Scientific database content is not AI-generated. Molecule records, detection
+records, source/telescope metadata, reference mappings, classifications, and
+curation decisions are derived from the scientific literature, Zotero-managed
+bibliography exports, legacy census materials, and human curator review. AI
+assistance may be used to stage or transform records for review, but no staged
+scientific data are accepted into production without human verification.
+
+The project maintainer is responsible for all committed code, data, and
+documentation.
+
 ## Reference Workflow
 
 References are maintained in Zotero and exported to

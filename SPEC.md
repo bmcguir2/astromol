@@ -38,6 +38,15 @@ preserved as `history.events[*].legacy_version`, while
 present in the legacy database but absent from `2021_census_arxiv.tex` are
 therefore marked as introduced in the `2026` census.
 
+OpenAI Codex is used as a coding assistant for software implementation,
+refactoring, validation scripts, documentation drafts, and workflow support.
+Scientific database content is not AI-generated. Molecule records, detection
+records, source/telescope metadata, reference mappings, classifications, and
+curation decisions are derived from the scientific literature, Zotero-managed
+bibliography exports, legacy census materials, and human curator review. AI
+assistance may be used to stage or transform records for review, but no staged
+scientific data are accepted into production without human verification.
+
 ## Curation Workflow
 
 Production data lives in the JSON files under `astromol/data/`. New records
