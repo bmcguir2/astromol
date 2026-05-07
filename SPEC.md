@@ -45,6 +45,13 @@ commit preserves the one-off parser, source TeX, preview JSON, and review
 report used for the audit trail; those staging artifacts are not part of the
 working data model.
 
+Historical census table verification was performed against the 2021 table
+sources in commit `8e6b1dd` and the 2018 ISM/CSM, exoplanet, extragalactic,
+and protoplanetary-disk tables in commit `d93b902`. Those commits preserve the
+temporary table inputs and verification report used to validate accepted census
+membership and detection-history boundaries. The table audit artifacts are not
+part of the working data model.
+
 OpenAI Codex is used as a coding assistant for software implementation,
 refactoring, validation scripts, documentation drafts, and workflow support.
 Scientific database content is not AI-generated. Molecule records, detection
