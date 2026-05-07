@@ -76,6 +76,12 @@ DETECTION_REF_ROLES = [
     "correction",     # paper correcting/retracting a detection
 ]
 
+HISTORY_EVENT_KINDS = [
+    "added",
+    "updated",
+    "corrected",
+]
+
 
 @dataclass
 class Ref:
@@ -113,6 +119,57 @@ class Ref:
     def __repr__(self):
         """What you see when you print this object."""
         return f"{self.author} {self.year}, {self.journal}"
+
+
+@dataclass
+class HistoryEvent:
+    """A semantic database-history event exposed through a record."""
+
+    kind: str
+    summary: str
+    date: str = None
+    census: str = None
+    fields: list[str] = field(default_factory=list)
+    legacy_version: str = None
+
+    def __post_init__(self):
+        if self.kind not in HISTORY_EVENT_KINDS:
+            raise ValueError(
+                f"History event has unknown kind '{self.kind}'. "
+                f"Must be one of: {HISTORY_EVENT_KINDS}"
+            )
+        if self.fields is None:
+            self.fields = []
+        if not isinstance(self.fields, list) or not all(
+            isinstance(value, str) for value in self.fields
+        ):
+            raise ValueError("History event fields must be a list of strings.")
+
+
+@dataclass
+class RecordHistory:
+    """Semantic update history for a database record."""
+
+    introduced: dict = None
+    last_modified: str = None
+    last_reviewed: str = None
+    events: list[HistoryEvent] = field(default_factory=list)
+
+    def __post_init__(self):
+        if self.introduced is None:
+            self.introduced = {}
+        if not isinstance(self.introduced, dict):
+            raise ValueError("Record history introduced must be a dict.")
+
+        converted_events = []
+        for event in self.events or []:
+            if isinstance(event, HistoryEvent):
+                converted_events.append(event)
+            elif isinstance(event, dict):
+                converted_events.append(HistoryEvent(**event))
+            else:
+                raise ValueError("Record history events must be dicts or HistoryEvent objects.")
+        self.events = converted_events
     
 @dataclass
 class Telescope:
@@ -133,6 +190,7 @@ class Telescope:
     decommissioned: int = None    # year decommissioned, null if still active
     note: str = None              # any free-text notes
     latex_name: str = None        # e.g. "GBT" — for paper generation
+    history: RecordHistory = None # semantic record-history metadata
 
     @property
     def active(self):
@@ -158,6 +216,7 @@ class Source:
     simbad_url: str = None  # link to SIMBAD entry
     latex_name: str = None  # e.g. "Sgr~B2" — for paper generation
     note: str = None          # private notes, from _note in JSON
+    history: RecordHistory = None # semantic record-history metadata
 
     def __post_init__(self):
         """Runs automatically after __init__. Validates the data."""
@@ -292,6 +351,7 @@ class Molecule:
     # === LaTeX generation ===
     latex_section_override: str = None  # optional custom section heading
     latex_body: str = None              # curated prose for the paper section
+    history: RecordHistory = None       # semantic record-history metadata
 
     def __post_init__(self):
         """Validate metadata and fill in simple defaults."""
@@ -664,6 +724,7 @@ class Detection:
     # === LaTeX generation ===
     latex_text: str = None    # sentence fragment for paper generation
                               # may contain {placeholder} syntax for dynamic resolution
+    history: RecordHistory = None # semantic record-history metadata
 
     def __post_init__(self):
         """Validates types, wavelengths, ref roles, and sets defaults."""

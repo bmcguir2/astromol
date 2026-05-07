@@ -4,6 +4,7 @@ from pathlib import Path
 from .models import (
     Ref, Telescope, Source,
     RotationalConstants, DipoleMoment, Molecule, Detection,
+    RecordHistory,
 )
 
 # Path to the data directory, relative to this file
@@ -206,6 +207,7 @@ class Database:
         with open(DATA_DIR / "telescopes.json") as f:
             for entry in json.load(f):
                 entry = {k: v for k, v in entry.items() if not k.startswith("_")}
+                self._normalize_history(entry)
                 tel = Telescope(**entry)
                 self.telescopes[tel.nick] = tel
 
@@ -214,6 +216,7 @@ class Database:
         with open(DATA_DIR / "sources.json") as f:
             for entry in json.load(f):
                 entry = {k: v for k, v in entry.items() if not k.startswith("_")}
+                self._normalize_history(entry)
                 src = Source(**entry)
                 self.sources[src.nick] = src
 
@@ -335,6 +338,7 @@ class Database:
         accepted by Molecule.__init__.
         """
         entry = dict(entry)
+        self._normalize_history(entry)
 
         if "radical" in entry:
             if "radical_override" not in entry:
@@ -383,6 +387,7 @@ class Database:
         with open(DATA_DIR / "detections.json") as f:
             for entry in json.load(f):
                 entry = {k: v for k, v in entry.items() if not k.startswith("_")}
+                self._normalize_history(entry)
 
                 # Resolve molecule label to Molecule object
                 entry["molecule"] = self.molecules[entry["molecule"]]
@@ -407,6 +412,12 @@ class Database:
 
                 det = Detection(**entry)
                 self.detections.append(det)
+
+    def _normalize_history(self, entry):
+        """Convert a nested history payload into a RecordHistory object."""
+        history_data = entry.get("history")
+        if history_data is not None and not isinstance(history_data, RecordHistory):
+            entry["history"] = RecordHistory(**history_data)
 
     # ================================================================
     # Simple accessors

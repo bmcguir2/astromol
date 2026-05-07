@@ -31,6 +31,13 @@ promoted from the legacy conversion workflow in commit `67f37d9`. The final
 audited preview state is preserved in commit `0187018`; use those commits for
 the removed conversion scripts, staging reports, and legacy source data.
 
+Molecule history records were imported from the legacy `census_version` and
+`change_log` fields through a staged preview workflow. Legacy versions are
+preserved as `history.events[*].legacy_version`, while
+`history.introduced.census` records the first print census appearance. Molecules
+present in the legacy database but absent from `2021_census_arxiv.tex` are
+therefore marked as introduced in the `2026` census.
+
 ## Data Model
 
 ### Ref
@@ -74,6 +81,7 @@ Optional fields:
 - `decommissioned`
 - `note`
 - `latex_name`
+- `history`: optional `RecordHistory`
 
 Computed:
 - `active`
@@ -93,6 +101,7 @@ Optional fields:
 - `simbad_url`
 - `latex_name`
 - `note`
+- `history`: optional `RecordHistory`
 
 Current `SOURCE_TYPES`:
 - `SFR`
@@ -142,6 +151,32 @@ Computed:
 
 Compatibility:
 - `ref` returns the first item in `refs`, or `None`.
+
+### RecordHistory
+
+Semantic update history exposed through database records. This is not intended
+to replace git as the fine-grained audit trail. It records user-facing database
+events that explain when and why a record was added, updated, or corrected.
+
+History fields:
+- `introduced`: dict with optional `date` and `census` keys
+- `last_modified`: ISO date string for the last semantic database change
+- `last_reviewed`: ISO date string for the last explicit review
+- `events`: list of `HistoryEvent`
+
+`HistoryEvent` fields:
+- `kind`: one of `added`, `updated`, or `corrected`
+- `summary`: concise human-readable description of the event
+- `date`: optional ISO date string
+- `census`: optional census release string, such as `2021` or `2026`
+- `fields`: optional list of affected field names
+- `legacy_version`: optional legacy astromol version identifier preserved from
+  the pre-refactor database
+
+Records introduced in a given census can be selected with
+`history.introduced.census`. Records changed for a given census can be selected
+from `history.events[*].census`, independently of whether they were newly
+introduced.
 
 ### Molecule
 
@@ -218,6 +253,9 @@ LaTeX fields:
   null for normal generated section headings.
 - `latex_body`: curated prose for the molecule's manuscript section.
 
+History:
+- `history`: optional `RecordHistory`
+
 Computed from formula or spectroscopy:
 - `atom_counts`
 - `atoms`
@@ -270,6 +308,7 @@ Optional fields:
 - `day`
 - `refs`: role-keyed dict using roles from `DETECTION_REF_ROLES`
 - `latex_text`
+- `history`: optional `RecordHistory`
 
 Computed:
 - `sortdate`
