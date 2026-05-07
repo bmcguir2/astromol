@@ -59,39 +59,6 @@
     observation:
     - Schilke:2001:281
 - kind: molecule
-  label: mol:FeO
-  name: iron monoxide
-  formula: FeO
-  refs:
-    lab:
-    - Allen:1996:130
-    computation: []
-  latex_body: \citet{Walmsley:2002:L109} identified an absorption feature in IRAM 30-m observations of Sgr B2 at 153~GHz that they tentatively assign to the $J = 5\rightarrow4$, $\Omega = 4$ transition of FeO, based on the laboratory work of \citet{Allen:1996:130}.  Later, \citet{Furuya:2003:L21} used the Nobeyama Millimeter Array to confirm the detection of this line, but no additional transitions were observed.  Most recently, \citet{Decin:2018:113} reported a tentative detection of the $11\rightarrow10$, $\Omega = 4$ transition in ALMA observations of R Dor at 337~GHz.
-- kind: detection
-  id: det:FeO:ism-csm:2002
-  molecule: mol:FeO
-  sources:
-  - SgrB2
-  telescopes:
-  - IRAM30
-  - Nobeyama45
-  - ALMA
-  wavelengths:
-  - mm
-  - sub-mm
-  year: 2002
-  type: ISM/CSM
-  status: tentative
-  status_note: Listed in the 2021 census Tentative Detections section; follow-up papers are retained as observation/context references.
-  first: false
-  refs:
-    observation:
-    - Walmsley:2002:L109
-    - Furuya:2003:L21
-    - Decin:2018:113
-  _raw_sources_not_mapped:
-  - R Dor
-- kind: molecule
   label: mol:OCN-
   name: cyanate anion
   formula: OCN-

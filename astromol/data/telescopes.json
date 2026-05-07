@@ -750,6 +750,36 @@
     "decommissioned": 1983,
     "latex_name": "IRAS",
     "note": null
+  },
+
+  {
+    "_break": "==========================================",
+    "name": "Nobeyama Millimeter Array",
+    "nick": "NMA",
+    "shortname": "NMA",
+    "type": "Interferometer",
+    "wavelength": ["mm"],
+    "diameter": null,
+    "latitude": 35.9417,
+    "longitude": 138.4758,
+    "built": 1984,
+    "decommissioned": 2011,
+    "latex_name": "NMA",
+    "note": "Definitely no longer in active use, but the exact date of last use is not clear. Date is from a website on Japanese telescopes (https://sites.google.com/view/radioastronomy/nobeyama-millimeter-array).",
+    "history": {
+      "introduced": {
+        "date": "2026-05-07"
+      },
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "added",
+          "summary": "Added telescope record.",
+          "date": "2026-05-07",
+          "fields": []
+        }
+      ]
+    }
   }
 
 ]

@@ -2535,5 +2535,29 @@
         }
       ]
     }
+  },
+  {
+    "name": "R Dor",
+    "nick": "RDor",
+    "type": "AGB Star",
+    "ra": "04:36:45.6",
+    "dec": "-62:04:37.8",
+    "simbad_url": "https://simbad.cds.unistra.fr/simbad/sim-basic?Ident=R+Dor",
+    "latex_name": "R Dor",
+    "note": null,
+    "history": {
+      "introduced": {
+        "date": "2026-05-07"
+      },
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "added",
+          "summary": "Added source record.",
+          "date": "2026-05-07",
+          "fields": []
+        }
+      ]
+    }
   }
 ]

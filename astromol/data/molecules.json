@@ -25243,5 +25243,61 @@
         }
       ]
     }
+  },
+  {
+    "name": "iron monoxide",
+    "formula": "FeO",
+    "table_formula": "FeO",
+    "label": "mol:FeO",
+    "note": null,
+    "iupac_name": "iron(II) oxide",
+    "selfies": null,
+    "synonyms": [],
+    "smiles": "[Fe]=O",
+    "canonical_smiles": null,
+    "inchi": "1S/Fe.O",
+    "inchikey": "UQSXHKLRYXJYBZ-UHFFFAOYSA-N",
+    "radical_override": null,
+    "fullerene": false,
+    "pah": false,
+    "n_rings": 0,
+    "cyclic": false,
+    "tags": {},
+    "rotcon": {
+      "B": 15494,
+      "refs": [
+        "Allen:1996:130"
+      ]
+    },
+    "dipole": {
+      "a": 4.5,
+      "refs": [
+        "Steimle:2004:12303"
+      ]
+    },
+    "refs": {
+      "lab": [
+        "Allen:1996:130",
+        "Steimle:2004:12303"
+      ],
+      "computation": []
+    },
+    "isotopologue_of": null,
+    "latex_section_override": null,
+    "latex_body": "\\citet{Walmsley:2002:L109} identified an absorption feature in IRAM 30-m observations of Sgr B2 at 153~GHz that they tentatively assign to the $J = 5\\rightarrow4$, $\\Omega = 4$ transition of FeO, based on the laboratory work of \\citet{Allen:1996:130}.  Later, \\citet{Furuya:2003:L21} used the Nobeyama Millimeter Array to confirm the detection of this line, but no additional transitions were observed.  Most recently, \\citet{Decin:2018:113} reported a tentative detection of the $11\\rightarrow10$, $\\Omega = 4$ transition in ALMA observations of R Dor at 337~GHz.",
+    "history": {
+      "introduced": {
+        "date": "2026-05-07"
+      },
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "added",
+          "summary": "Added molecule record.",
+          "date": "2026-05-07",
+          "fields": []
+        }
+      ]
+    }
   }
 ]

@@ -11223,5 +11223,103 @@
         }
       ]
     }
+  },
+  {
+    "id": "det:FeO:ism-csm:2002",
+    "note": "Tentative assignment of the 153 GHz J=5-4, Omega=4 FeO transition toward Sgr B2; later followed up with the Nobeyama Millimeter Array.",
+    "molecule": "mol:FeO",
+    "sources": [
+      "SgrB2"
+    ],
+    "telescopes": [
+      "IRAM30",
+      "NMA"
+    ],
+    "wavelengths": [
+      "mm"
+    ],
+    "year": 2002,
+    "type": "ISM/CSM",
+    "status": "tentative",
+    "status_note": "Listed in the 2021 census Tentative Detections section.",
+    "first": false,
+    "month": null,
+    "day": null,
+    "refs": {
+      "observation": [
+        "Walmsley:2002:L109"
+      ],
+      "confirmation": [
+        "Furuya:2003:L21"
+      ]
+    },
+    "confirms": [],
+    "confirmed_by": [],
+    "disputes": [],
+    "disputed_by": [],
+    "supersedes": [],
+    "superseded_by": [],
+    "latex_text": null,
+    "history": {
+      "introduced": {
+        "date": "2026-05-07"
+      },
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "added",
+          "summary": "Added detection record.",
+          "date": "2026-05-07",
+          "fields": []
+        }
+      ]
+    }
+  },
+  {
+    "id": "det:FeO:ism-csm:2018",
+    "note": "Tentative assignment of the 337 GHz 11-10, Omega=4 transition toward R Dor.",
+    "molecule": "mol:FeO",
+    "sources": [
+      "RDor"
+    ],
+    "telescopes": [
+      "ALMA"
+    ],
+    "wavelengths": [
+      "sub-mm"
+    ],
+    "year": 2018,
+    "type": "ISM/CSM",
+    "status": "tentative",
+    "status_note": null,
+    "first": false,
+    "month": null,
+    "day": null,
+    "refs": {
+      "observation": [
+        "Decin:2018:113"
+      ]
+    },
+    "confirms": [],
+    "confirmed_by": [],
+    "disputes": [],
+    "disputed_by": [],
+    "supersedes": [],
+    "superseded_by": [],
+    "latex_text": null,
+    "history": {
+      "introduced": {
+        "date": "2026-05-07"
+      },
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "added",
+          "summary": "Added detection record.",
+          "date": "2026-05-07",
+          "fields": []
+        }
+      ]
+    }
   }
 ]

@@ -18,6 +18,7 @@ SOURCE_TYPES = [
     "Dark Cloud",
     "Carbon Star",
     "Oxygen Star",
+    "AGB Star",
     "Planetary Nebula",
     "Protostellar",
     "Diffuse Cloud",
