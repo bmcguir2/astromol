@@ -42,6 +42,18 @@ Each staged record has a `kind`:
 Fields beginning with `_` are staging-only notes. They are allowed in YAML and
 reported when useful, but they are not written into production JSON.
 
+## Generated Staging Files
+
+When Codex or another helper generates staging YAML for curator review, it
+should include the full field set from the relevant template for every staged
+record. Do not emit compact records containing only fields that were obvious
+from the source text. Curators need the unused optional fields visible so they
+can fill in laboratory constants, dipole moments, identifiers, notes,
+relationships, and other metadata during review.
+
+Leave unknown optional values blank. The staging script prunes blank template
+values and fills production defaults when previewing or applying records.
+
 History metadata is generated automatically for staged records. By default the
 script adds `history.introduced.date`, `history.last_modified`, and an initial
 dated `added` event using the staging run date. Add an explicit `history` block
