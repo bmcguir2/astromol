@@ -10365,6 +10365,10 @@
         "Tercero:2018:L6"
       ]
     },
+    "confirms": [
+      "det:C2H5OCH3:ism-csm:2001",
+      "det:C2H5OCH3:ism-csm:2015"
+    ],
     "latex_text": null
   },
   {
@@ -11048,6 +11052,158 @@
     },
     "confirms": [],
     "confirmed_by": [],
+    "disputes": [],
+    "disputed_by": [],
+    "supersedes": [],
+    "superseded_by": [],
+    "latex_text": null,
+    "history": {
+      "introduced": {
+        "date": "2026-05-07"
+      },
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "added",
+          "summary": "Added detection record.",
+          "date": "2026-05-07",
+          "fields": []
+        }
+      ]
+    }
+  },
+  {
+    "id": "det:C2H5OCH3:ism-csm:2001",
+    "note": null,
+    "molecule": "mol:C2H5OCH3",
+    "sources": [
+      "OrionKL",
+      "SgrB2"
+    ],
+    "telescopes": [
+      "NRAOARO12",
+      "BIMA"
+    ],
+    "wavelengths": [
+      "mm"
+    ],
+    "year": 2001,
+    "type": "ISM/CSM",
+    "status": "tentative",
+    "status_note": "Tentative detection claim toward Orion-KL and Sgr B2(N); the later secure Orion-KL detection is linked as confirmation, but that was specifically in Orion-KL; the Sgr B2(N) detection is not confirmed there.",
+    "first": false,
+    "month": null,
+    "day": null,
+    "refs": {
+      "observation": [
+        "Charnley:2001:685"
+      ]
+    },
+    "confirms": [],
+    "confirmed_by": [
+      "det:C2H5OCH3:ism-csm:2018"
+    ],
+    "disputes": [],
+    "disputed_by": [],
+    "supersedes": [],
+    "superseded_by": [],
+    "latex_text": null,
+    "history": {
+      "introduced": {
+        "date": "2026-05-07"
+      },
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "added",
+          "summary": "Added detection record.",
+          "date": "2026-05-07",
+          "fields": []
+        }
+      ]
+    }
+  },
+  {
+    "id": "det:C2H5OCH3:ism-csm:2005",
+    "note": "Source is represented with the existing W51 source record; the literature claim specifically refers to W51e2.",
+    "molecule": "mol:C2H5OCH3",
+    "sources": [
+      "W51"
+    ],
+    "telescopes": [
+      "IRAM30",
+      "SEST15"
+    ],
+    "wavelengths": [
+      "mm"
+    ],
+    "year": 2005,
+    "type": "ISM/CSM",
+    "status": "disputed",
+    "status_note": "Reported detection toward W51e2 later disputed by Carroll et al. 2015, who re-observed W51e2 and Sgr B2(N) and did not detect C2H5OCH3.",
+    "first": false,
+    "month": null,
+    "day": null,
+    "refs": {
+      "observation": [
+        "Fuchs:2005:521"
+      ],
+      "dispute": [
+        "Carroll:2015:15"
+      ]
+    },
+    "confirms": [],
+    "confirmed_by": [],
+    "disputes": [],
+    "disputed_by": [],
+    "supersedes": [],
+    "superseded_by": [],
+    "latex_text": null,
+    "history": {
+      "introduced": {
+        "date": "2026-05-07"
+      },
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "added",
+          "summary": "Added detection record.",
+          "date": "2026-05-07",
+          "fields": []
+        }
+      ]
+    }
+  },
+  {
+    "id": "det:C2H5OCH3:ism-csm:2015",
+    "note": null,
+    "molecule": "mol:C2H5OCH3",
+    "sources": [
+      "OrionKL"
+    ],
+    "telescopes": [
+      "IRAM30",
+      "ALMA"
+    ],
+    "wavelengths": [
+      "mm"
+    ],
+    "year": 2015,
+    "type": "ISM/CSM",
+    "status": "tentative",
+    "status_note": "Evidence supporting the earlier Orion-KL tentative detection, but the authors stated the detection should still be viewed as tentative.",
+    "first": false,
+    "month": null,
+    "day": null,
+    "refs": {
+      "observation": [
+        "Tercero:2015:L1"
+      ]
+    },
+    "confirms": [],
+    "confirmed_by": [
+      "det:C2H5OCH3:ism-csm:2018"
+    ],
     "disputes": [],
     "disputed_by": [],
     "supersedes": [],

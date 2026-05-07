@@ -199,36 +199,6 @@
     observation:
     - Agundez:2014:A45
 - kind: detection
-  id: det:C2H5OCH3:ism-csm:2001
-  molecule: mol:C2H5OCH3
-  sources:
-  - OrionKL
-  - SgrB2
-  - W51
-  telescopes:
-  - NRAOARO12
-  - BIMA
-  - IRAM30
-  - SEST15
-  - GBT
-  - ALMA
-  wavelengths:
-  - mm
-  year: 2001
-  type: ISM/CSM
-  status: tentative
-  status_note: Listed in the 2021 census Tentative Detections section; a later challenge is retained under refs.dispute.
-  first: false
-  refs:
-    observation:
-    - Charnley:2001:685
-    - Fuchs:2005:521
-    - Tercero:2015:L1
-    dispute:
-    - Carroll:2015:15
-  confirmed_by:
-  - det:C2H5OCH3:ism-csm:2018
-- kind: detection
   id: det:CH3NHCHO:ism-csm:2017
   molecule: mol:CH3NHCHO
   sources:
