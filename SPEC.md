@@ -35,8 +35,14 @@ Molecule history records were imported from the legacy `census_version` and
 `change_log` fields through a staged preview workflow. Legacy versions are
 preserved as `history.events[*].legacy_version`, while
 `history.introduced.census` records the first print census appearance. Molecules
-present in the legacy database but absent from `2021_census_arxiv.tex` are
+present in the legacy database but absent from the 2021 census LaTeX source are
 therefore marked as introduced in the `2026` census.
+
+Molecule manuscript prose from the 2021 census LaTeX source was imported into
+`molecules.json` through a staged preview workflow in commit `f2f4c4d`. That
+commit preserves the one-off parser, source TeX, preview JSON, and review
+report used for the audit trail; those staging artifacts are not part of the
+working data model.
 
 OpenAI Codex is used as a coding assistant for software implementation,
 refactoring, validation scripts, documentation drafts, and workflow support.
