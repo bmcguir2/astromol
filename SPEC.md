@@ -34,9 +34,10 @@ the removed conversion scripts, staging reports, and legacy source data.
 Molecule history records were imported from the legacy `census_version` and
 `change_log` fields through a staged preview workflow. Legacy versions are
 preserved as `history.events[*].legacy_version`, while
-`history.introduced.census` records the first print census appearance. Molecules
-present in the legacy database but absent from the 2021 census LaTeX source are
-therefore marked as introduced in the `2026` census.
+`history.introduced.census` records when a molecule entered astromol tracking
+or census discussion. Confirmed census membership is tracked separately with
+`history.accepted.census`, which distinguishes accepted entries from tentative
+or disputed molecules discussed in an earlier census.
 
 Molecule manuscript prose from the 2021 census LaTeX source was imported into
 `molecules.json` through a staged preview workflow in commit `f2f4c4d`. That
@@ -62,7 +63,10 @@ Run `python scripts/stage_records.py --staging <file.yaml>` to generate preview
 JSON and a review report. Use `--apply` only after the preview is accepted.
 The staging script automatically populates semantic history metadata for new
 records, including `history.introduced.date`, `history.last_modified`, and an
-initial `added` event dated with the staging run date.
+initial `added` event dated with the staging run date. New molecule records
+also default to a current-census `history.accepted` block; set
+`history.accepted: null` for molecules that are tracked but not yet accepted as
+confirmed detections.
 
 When the schema for `Molecule`, `Detection`, `Source`, or `Telescope` changes,
 the corresponding curation template, `scripts/stage_records.py`, and this
@@ -190,7 +194,13 @@ to replace git as the fine-grained audit trail. It records user-facing database
 events that explain when and why a record was added, updated, or corrected.
 
 History fields:
-- `introduced`: dict with optional `date` and `census` keys
+- `introduced`: dict with optional `date`, `census`, and `context` keys. This
+  records when a molecule or record entered astromol tracking or census
+  discussion.
+- `accepted`: molecule-only dict, or `null`, with optional `date`, `census`,
+  and `context` keys. This records when a molecule first became an accepted
+  confirmed census entry. Use `null` for molecules that are tracked only as
+  tentative or disputed.
 - `last_modified`: ISO date string for the last semantic database change
 - `events`: list of `HistoryEvent`
 
@@ -203,10 +213,12 @@ History fields:
 - `legacy_version`: optional legacy astromol version identifier preserved from
   the pre-refactor database
 
-Records introduced in a given census can be selected with
-`history.introduced.census`. Records changed for a given census can be selected
-from `history.events[*].census`, independently of whether they were newly
-introduced.
+Molecules accepted in a given census table should be selected with
+`history.accepted.census`, not `history.introduced.census` and not detection
+year alone. This matters for molecules discussed as tentative or disputed in an
+earlier census and confirmed later. Records changed for a given census can be
+selected from `history.events[*].census`, independently of whether they were
+newly introduced or newly accepted.
 
 ### Molecule
 

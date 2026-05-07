@@ -41,3 +41,17 @@
   isotopologue_of:
   latex_section_override:
   latex_body:
+  # Optional. Leave blank to let stage_records.py populate a standard
+  # confirmed-entry history. To stage a molecule that is tracked but not yet
+  # accepted as confirmed, replace the accepted block with `accepted: null`.
+  history:
+    introduced:
+      date:
+      census:
+      context:
+    accepted:
+      date:
+      census:
+      context:
+    last_modified:
+    events: []

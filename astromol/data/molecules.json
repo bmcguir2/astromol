@@ -52,7 +52,13 @@
       "introduced": {
         "date": null,
         "census": "2018",
-        "legacy_version": "2018.0.0"
+        "legacy_version": "2018.0.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2018",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -104,7 +110,27 @@
     },
     "isotopologue_of": "mol:CH",
     "latex_section_override": null,
-    "latex_body": null
+    "latex_body": null,
+    "history": {
+      "introduced": {
+        "date": "2026-05-07",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": "2026-05-07",
+        "census": "2026",
+        "context": "confirmed_ism_csm"
+      },
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "added",
+          "summary": "Added molecule record.",
+          "date": "2026-05-07",
+          "fields": []
+        }
+      ]
+    }
   },
   {
     "name": "cyano radical",
@@ -162,7 +188,13 @@
       "introduced": {
         "date": null,
         "census": "2018",
-        "legacy_version": "2018.0.0"
+        "legacy_version": "2018.0.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2018",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -204,7 +236,27 @@
     },
     "isotopologue_of": "mol:CN",
     "latex_section_override": null,
-    "latex_body": null
+    "latex_body": null,
+    "history": {
+      "introduced": {
+        "date": "2026-05-07",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": "2026-05-07",
+        "census": "2026",
+        "context": "confirmed_ppd"
+      },
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "added",
+          "summary": "Added molecule record.",
+          "date": "2026-05-07",
+          "fields": []
+        }
+      ]
+    }
   },
   {
     "name": "methylidyne cation",
@@ -256,7 +308,13 @@
       "introduced": {
         "date": null,
         "census": "2018",
-        "legacy_version": "2018.0.0"
+        "legacy_version": "2018.0.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2018",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -321,7 +379,13 @@
       "introduced": {
         "date": null,
         "census": "2018",
-        "legacy_version": "2018.0.0"
+        "legacy_version": "2018.0.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2018",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -387,7 +451,13 @@
       "introduced": {
         "date": null,
         "census": "2018",
-        "legacy_version": "2018.0.0"
+        "legacy_version": "2018.0.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2018",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -447,7 +517,27 @@
     },
     "isotopologue_of": "mol:CO",
     "latex_section_override": null,
-    "latex_body": null
+    "latex_body": null,
+    "history": {
+      "introduced": {
+        "date": "2026-05-07",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": "2026-05-07",
+        "census": "2026",
+        "context": "confirmed_ppd"
+      },
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "added",
+          "summary": "Added molecule record.",
+          "date": "2026-05-07",
+          "fields": []
+        }
+      ]
+    }
   },
   {
     "name": "carbon monoxide",
@@ -476,7 +566,27 @@
     },
     "isotopologue_of": "mol:CO",
     "latex_section_override": null,
-    "latex_body": null
+    "latex_body": null,
+    "history": {
+      "introduced": {
+        "date": "2026-05-07",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": "2026-05-07",
+        "census": "2026",
+        "context": "confirmed_ppd"
+      },
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "added",
+          "summary": "Added molecule record.",
+          "date": "2026-05-07",
+          "fields": []
+        }
+      ]
+    }
   },
   {
     "name": "carbon monoxide",
@@ -505,7 +615,27 @@
     },
     "isotopologue_of": "mol:CO",
     "latex_section_override": null,
-    "latex_body": null
+    "latex_body": null,
+    "history": {
+      "introduced": {
+        "date": "2026-05-07",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": "2026-05-07",
+        "census": "2026",
+        "context": "confirmed_ppd"
+      },
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "added",
+          "summary": "Added molecule record.",
+          "date": "2026-05-07",
+          "fields": []
+        }
+      ]
+    }
   },
   {
     "name": "carbon monoxide",
@@ -534,7 +664,27 @@
     },
     "isotopologue_of": "mol:CO",
     "latex_section_override": null,
-    "latex_body": null
+    "latex_body": null,
+    "history": {
+      "introduced": {
+        "date": "2026-05-07",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": "2026-05-07",
+        "census": "2026",
+        "context": "confirmed_ppd"
+      },
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "added",
+          "summary": "Added molecule record.",
+          "date": "2026-05-07",
+          "fields": []
+        }
+      ]
+    }
   },
   {
     "name": "carbon monoxide",
@@ -563,7 +713,27 @@
     },
     "isotopologue_of": "mol:CO",
     "latex_section_override": null,
-    "latex_body": null
+    "latex_body": null,
+    "history": {
+      "introduced": {
+        "date": "2026-05-07",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": "2026-05-07",
+        "census": "2026",
+        "context": "confirmed_ppd"
+      },
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "added",
+          "summary": "Added molecule record.",
+          "date": "2026-05-07",
+          "fields": []
+        }
+      ]
+    }
   },
   {
     "name": "hydrogen",
@@ -607,7 +777,13 @@
       "introduced": {
         "date": null,
         "census": "2018",
-        "legacy_version": "2018.0.0"
+        "legacy_version": "2018.0.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2018",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -649,7 +825,27 @@
     },
     "isotopologue_of": "mol:H2",
     "latex_section_override": null,
-    "latex_body": null
+    "latex_body": null,
+    "history": {
+      "introduced": {
+        "date": "2026-05-07",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": "2026-05-07",
+        "census": "2026",
+        "context": "confirmed_ppd"
+      },
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "added",
+          "summary": "Added molecule record.",
+          "date": "2026-05-07",
+          "fields": []
+        }
+      ]
+    }
   },
   {
     "name": "silicon monoxide",
@@ -704,7 +900,13 @@
       "introduced": {
         "date": null,
         "census": "2018",
-        "legacy_version": "2018.0.0"
+        "legacy_version": "2018.0.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2018",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -769,7 +971,13 @@
       "introduced": {
         "date": null,
         "census": "2018",
-        "legacy_version": "2018.0.0"
+        "legacy_version": "2018.0.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2018",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -811,7 +1019,27 @@
     },
     "isotopologue_of": "mol:CS",
     "latex_section_override": null,
-    "latex_body": null
+    "latex_body": null,
+    "history": {
+      "introduced": {
+        "date": "2026-05-07",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": "2026-05-07",
+        "census": "2026",
+        "context": "confirmed_ppd"
+      },
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "added",
+          "summary": "Added molecule record.",
+          "date": "2026-05-07",
+          "fields": []
+        }
+      ]
+    }
   },
   {
     "name": "carbon monosulfide",
@@ -840,7 +1068,27 @@
     },
     "isotopologue_of": "mol:CS",
     "latex_section_override": null,
-    "latex_body": null
+    "latex_body": null,
+    "history": {
+      "introduced": {
+        "date": "2026-05-07",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": "2026-05-07",
+        "census": "2026",
+        "context": "confirmed_ppd"
+      },
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "added",
+          "summary": "Added molecule record.",
+          "date": "2026-05-07",
+          "fields": []
+        }
+      ]
+    }
   },
   {
     "name": "sulfur monoxide",
@@ -892,7 +1140,13 @@
       "introduced": {
         "date": null,
         "census": "2018",
-        "legacy_version": "2018.0.0"
+        "legacy_version": "2018.0.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2018",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -942,7 +1196,27 @@
     },
     "isotopologue_of": "mol:SO",
     "latex_section_override": null,
-    "latex_body": null
+    "latex_body": null,
+    "history": {
+      "introduced": {
+        "date": "2026-05-07",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": "2026-05-07",
+        "census": "2026",
+        "context": "confirmed_ppd"
+      },
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "added",
+          "summary": "Added molecule record.",
+          "date": "2026-05-07",
+          "fields": []
+        }
+      ]
+    }
   },
   {
     "name": "sulfur monoxide",
@@ -971,7 +1245,27 @@
     },
     "isotopologue_of": "mol:SO",
     "latex_section_override": null,
-    "latex_body": null
+    "latex_body": null,
+    "history": {
+      "introduced": {
+        "date": "2026-05-07",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": "2026-05-07",
+        "census": "2026",
+        "context": "confirmed_ppd"
+      },
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "added",
+          "summary": "Added molecule record.",
+          "date": "2026-05-07",
+          "fields": []
+        }
+      ]
+    }
   },
   {
     "name": "silicon monosulfide",
@@ -1023,7 +1317,13 @@
       "introduced": {
         "date": null,
         "census": "2018",
-        "legacy_version": "2018.0.0"
+        "legacy_version": "2018.0.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2018",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -1098,7 +1398,13 @@
       "introduced": {
         "date": null,
         "census": "2018",
-        "legacy_version": "2018.0.0"
+        "legacy_version": "2018.0.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2018",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -1155,7 +1461,13 @@
       "introduced": {
         "date": null,
         "census": "2018",
-        "legacy_version": "2018.0.0"
+        "legacy_version": "2018.0.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2018",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -1220,7 +1532,13 @@
       "introduced": {
         "date": null,
         "census": "2018",
-        "legacy_version": "2018.0.0"
+        "legacy_version": "2018.0.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2018",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -1295,7 +1613,13 @@
       "introduced": {
         "date": null,
         "census": "2018",
-        "legacy_version": "2018.0.0"
+        "legacy_version": "2018.0.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2018",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -1360,7 +1684,13 @@
       "introduced": {
         "date": null,
         "census": "2018",
-        "legacy_version": "2018.0.0"
+        "legacy_version": "2018.0.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2018",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -1425,7 +1755,13 @@
       "introduced": {
         "date": null,
         "census": "2018",
-        "legacy_version": "2018.0.0"
+        "legacy_version": "2018.0.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2018",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -1490,7 +1826,13 @@
       "introduced": {
         "date": null,
         "census": "2018",
-        "legacy_version": "2018.0.0"
+        "legacy_version": "2018.0.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2018",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -1555,7 +1897,13 @@
       "introduced": {
         "date": null,
         "census": "2018",
-        "legacy_version": "2018.0.0"
+        "legacy_version": "2018.0.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2018",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -1597,7 +1945,27 @@
     },
     "isotopologue_of": "mol:AlF",
     "latex_section_override": null,
-    "latex_body": null
+    "latex_body": null,
+    "history": {
+      "introduced": {
+        "date": "2026-05-07",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": "2026-05-07",
+        "census": "2026",
+        "context": "confirmed_ism_csm"
+      },
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "added",
+          "summary": "Added molecule record.",
+          "date": "2026-05-07",
+          "fields": []
+        }
+      ]
+    }
   },
   {
     "name": "phosphorous mononitride",
@@ -1649,7 +2017,13 @@
       "introduced": {
         "date": null,
         "census": "2018",
-        "legacy_version": "2018.0.0"
+        "legacy_version": "2018.0.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2018",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -1724,7 +2098,13 @@
       "introduced": {
         "date": null,
         "census": "2018",
-        "legacy_version": "2018.0.0"
+        "legacy_version": "2018.0.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2018",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -1789,7 +2169,13 @@
       "introduced": {
         "date": null,
         "census": "2018",
-        "legacy_version": "2018.0.0"
+        "legacy_version": "2018.0.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2018",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -1857,7 +2243,13 @@
       "introduced": {
         "date": null,
         "census": "2018",
-        "legacy_version": "2018.0.0"
+        "legacy_version": "2018.0.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2018",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -1922,7 +2314,13 @@
       "introduced": {
         "date": null,
         "census": "2018",
-        "legacy_version": "2018.0.0"
+        "legacy_version": "2018.0.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2018",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -1987,7 +2385,13 @@
       "introduced": {
         "date": null,
         "census": "2018",
-        "legacy_version": "2018.0.0"
+        "legacy_version": "2018.0.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2018",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -2052,7 +2456,13 @@
       "introduced": {
         "date": null,
         "census": "2018",
-        "legacy_version": "2018.0.0"
+        "legacy_version": "2018.0.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2018",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -2117,7 +2527,13 @@
       "introduced": {
         "date": null,
         "census": "2018",
-        "legacy_version": "2018.0.0"
+        "legacy_version": "2018.0.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2018",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -2174,7 +2590,13 @@
       "introduced": {
         "date": null,
         "census": "2018",
-        "legacy_version": "2018.0.0"
+        "legacy_version": "2018.0.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2018",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -2239,7 +2661,13 @@
       "introduced": {
         "date": null,
         "census": "2018",
-        "legacy_version": "2018.0.0"
+        "legacy_version": "2018.0.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2018",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -2304,7 +2732,13 @@
       "introduced": {
         "date": null,
         "census": "2018",
-        "legacy_version": "2018.0.0"
+        "legacy_version": "2018.0.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2018",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -2363,7 +2797,13 @@
       "introduced": {
         "date": null,
         "census": "2018",
-        "legacy_version": "2018.0.0"
+        "legacy_version": "2018.0.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2018",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -2428,7 +2868,13 @@
       "introduced": {
         "date": null,
         "census": "2018",
-        "legacy_version": "2018.0.0"
+        "legacy_version": "2018.0.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2018",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -2493,7 +2939,13 @@
       "introduced": {
         "date": null,
         "census": "2018",
-        "legacy_version": "2018.0.0"
+        "legacy_version": "2018.0.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2018",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -2558,7 +3010,13 @@
       "introduced": {
         "date": null,
         "census": "2018",
-        "legacy_version": "2018.0.0"
+        "legacy_version": "2018.0.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2018",
+        "context": "confirmed_exgal"
       },
       "last_modified": null,
       "events": [
@@ -2623,7 +3081,13 @@
       "introduced": {
         "date": null,
         "census": "2018",
-        "legacy_version": "2018.0.0"
+        "legacy_version": "2018.0.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2018",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -2688,7 +3152,13 @@
       "introduced": {
         "date": null,
         "census": "2018",
-        "legacy_version": "2018.0.0"
+        "legacy_version": "2018.0.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2018",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -2756,7 +3226,13 @@
       "introduced": {
         "date": null,
         "census": "2018",
-        "legacy_version": "2018.0.0"
+        "legacy_version": "2018.0.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2018",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -2821,7 +3297,13 @@
       "introduced": {
         "date": null,
         "census": "2018",
-        "legacy_version": "2018.0.0"
+        "legacy_version": "2018.0.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2018",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -2886,7 +3368,13 @@
       "introduced": {
         "date": null,
         "census": "2018",
-        "legacy_version": "2018.0.0"
+        "legacy_version": "2018.0.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2018",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -2951,7 +3439,13 @@
       "introduced": {
         "date": null,
         "census": "2018",
-        "legacy_version": "2018.0.0"
+        "legacy_version": "2018.0.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2018",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -3016,7 +3510,13 @@
       "introduced": {
         "date": null,
         "census": "2021",
-        "legacy_version": "2021.0.0"
+        "legacy_version": "2021.0.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2021",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -3084,7 +3584,13 @@
       "introduced": {
         "date": null,
         "census": "2021",
-        "legacy_version": "2021.0.0"
+        "legacy_version": "2021.0.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2021",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -3159,7 +3665,13 @@
       "introduced": {
         "date": null,
         "census": "2026",
-        "legacy_version": "2021.4.0"
+        "legacy_version": "2021.4.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2026",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -3224,7 +3736,13 @@
       "introduced": {
         "date": null,
         "census": "2026",
-        "legacy_version": "2021.6.0"
+        "legacy_version": "2021.6.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2026",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -3289,7 +3807,13 @@
       "introduced": {
         "date": null,
         "census": "2026",
-        "legacy_version": "2021.8.0"
+        "legacy_version": "2021.8.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2026",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -3354,7 +3878,13 @@
       "introduced": {
         "date": null,
         "census": "2026",
-        "legacy_version": "2021.10.0"
+        "legacy_version": "2021.10.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2026",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -3419,7 +3949,13 @@
       "introduced": {
         "date": null,
         "census": "2026",
-        "legacy_version": "2021.10.0"
+        "legacy_version": "2021.10.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2026",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -3485,7 +4021,13 @@
       "introduced": {
         "date": null,
         "census": "2018",
-        "legacy_version": "2018.0.0"
+        "legacy_version": "2018.0.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2018",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -3530,7 +4072,27 @@
     },
     "isotopologue_of": "mol:H2O",
     "latex_section_override": null,
-    "latex_body": null
+    "latex_body": null,
+    "history": {
+      "introduced": {
+        "date": "2026-05-07",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": "2026-05-07",
+        "census": "2026",
+        "context": "confirmed_ism_csm"
+      },
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "added",
+          "summary": "Added molecule record.",
+          "date": "2026-05-07",
+          "fields": []
+        }
+      ]
+    }
   },
   {
     "name": "formylium cation",
@@ -3582,7 +4144,13 @@
       "introduced": {
         "date": null,
         "census": "2018",
-        "legacy_version": "2018.0.0"
+        "legacy_version": "2018.0.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2018",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -3634,7 +4202,27 @@
     },
     "isotopologue_of": "mol:HCO+",
     "latex_section_override": null,
-    "latex_body": null
+    "latex_body": null,
+    "history": {
+      "introduced": {
+        "date": "2026-05-07",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": "2026-05-07",
+        "census": "2026",
+        "context": "confirmed_ppd"
+      },
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "added",
+          "summary": "Added molecule record.",
+          "date": "2026-05-07",
+          "fields": []
+        }
+      ]
+    }
   },
   {
     "name": "formylium cation",
@@ -3663,7 +4251,27 @@
     },
     "isotopologue_of": "mol:HCO+",
     "latex_section_override": null,
-    "latex_body": null
+    "latex_body": null,
+    "history": {
+      "introduced": {
+        "date": "2026-05-07",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": "2026-05-07",
+        "census": "2026",
+        "context": "confirmed_ppd"
+      },
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "added",
+          "summary": "Added molecule record.",
+          "date": "2026-05-07",
+          "fields": []
+        }
+      ]
+    }
   },
   {
     "name": "formylium cation",
@@ -3692,7 +4300,27 @@
     },
     "isotopologue_of": "mol:HCO+",
     "latex_section_override": null,
-    "latex_body": null
+    "latex_body": null,
+    "history": {
+      "introduced": {
+        "date": "2026-05-07",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": "2026-05-07",
+        "census": "2026",
+        "context": "confirmed_ppd"
+      },
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "added",
+          "summary": "Added molecule record.",
+          "date": "2026-05-07",
+          "fields": []
+        }
+      ]
+    }
   },
   {
     "name": "hydrogen cyanide",
@@ -3744,7 +4372,13 @@
       "introduced": {
         "date": null,
         "census": "2018",
-        "legacy_version": "2018.0.0"
+        "legacy_version": "2018.0.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2018",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -3786,7 +4420,27 @@
     },
     "isotopologue_of": "mol:HCN",
     "latex_section_override": null,
-    "latex_body": null
+    "latex_body": null,
+    "history": {
+      "introduced": {
+        "date": "2026-05-07",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": "2026-05-07",
+        "census": "2026",
+        "context": "confirmed_ppd"
+      },
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "added",
+          "summary": "Added molecule record.",
+          "date": "2026-05-07",
+          "fields": []
+        }
+      ]
+    }
   },
   {
     "name": "hydrogen cyanide",
@@ -3815,7 +4469,27 @@
     },
     "isotopologue_of": "mol:HCN",
     "latex_section_override": null,
-    "latex_body": null
+    "latex_body": null,
+    "history": {
+      "introduced": {
+        "date": "2026-05-07",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": "2026-05-07",
+        "census": "2026",
+        "context": "confirmed_ppd"
+      },
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "added",
+          "summary": "Added molecule record.",
+          "date": "2026-05-07",
+          "fields": []
+        }
+      ]
+    }
   },
   {
     "name": "hydrogen cyanide",
@@ -3844,7 +4518,27 @@
     },
     "isotopologue_of": "mol:HCN",
     "latex_section_override": null,
-    "latex_body": null
+    "latex_body": null,
+    "history": {
+      "introduced": {
+        "date": "2026-05-07",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": "2026-05-07",
+        "census": "2026",
+        "context": "confirmed_ppd"
+      },
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "added",
+          "summary": "Added molecule record.",
+          "date": "2026-05-07",
+          "fields": []
+        }
+      ]
+    }
   },
   {
     "name": "carbonyl sulfide",
@@ -3897,7 +4591,13 @@
       "introduced": {
         "date": null,
         "census": "2018",
-        "legacy_version": "2018.0.0"
+        "legacy_version": "2018.0.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2018",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -3962,7 +4662,13 @@
       "introduced": {
         "date": null,
         "census": "2018",
-        "legacy_version": "2018.0.0"
+        "legacy_version": "2018.0.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2018",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -4004,7 +4710,27 @@
     },
     "isotopologue_of": "mol:HNC",
     "latex_section_override": null,
-    "latex_body": null
+    "latex_body": null,
+    "history": {
+      "introduced": {
+        "date": "2026-05-07",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": "2026-05-07",
+        "census": "2026",
+        "context": "confirmed_ppd"
+      },
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "added",
+          "summary": "Added molecule record.",
+          "date": "2026-05-07",
+          "fields": []
+        }
+      ]
+    }
   },
   {
     "name": "hydrogen sulfide",
@@ -4056,7 +4782,13 @@
       "introduced": {
         "date": null,
         "census": "2018",
-        "legacy_version": "2018.0.0"
+        "legacy_version": "2018.0.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2018",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -4121,7 +4853,13 @@
       "introduced": {
         "date": null,
         "census": "2018",
-        "legacy_version": "2018.0.0"
+        "legacy_version": "2018.0.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2018",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -4163,7 +4901,27 @@
     },
     "isotopologue_of": "mol:N2H+",
     "latex_section_override": null,
-    "latex_body": null
+    "latex_body": null,
+    "history": {
+      "introduced": {
+        "date": "2026-05-07",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": "2026-05-07",
+        "census": "2026",
+        "context": "confirmed_ppd"
+      },
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "added",
+          "summary": "Added molecule record.",
+          "date": "2026-05-07",
+          "fields": []
+        }
+      ]
+    }
   },
   {
     "name": "ethynyl radical",
@@ -4215,7 +4973,13 @@
       "introduced": {
         "date": null,
         "census": "2018",
-        "legacy_version": "2018.0.0"
+        "legacy_version": "2018.0.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2018",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -4257,7 +5021,27 @@
     },
     "isotopologue_of": "mol:C2H",
     "latex_section_override": null,
-    "latex_body": null
+    "latex_body": null,
+    "history": {
+      "introduced": {
+        "date": "2026-05-07",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": "2026-05-07",
+        "census": "2026",
+        "context": "confirmed_ppd"
+      },
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "added",
+          "summary": "Added molecule record.",
+          "date": "2026-05-07",
+          "fields": []
+        }
+      ]
+    }
   },
   {
     "name": "sulfur dioxide",
@@ -4309,7 +5093,13 @@
       "introduced": {
         "date": null,
         "census": "2018",
-        "legacy_version": "2018.0.0"
+        "legacy_version": "2018.0.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2018",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -4394,7 +5184,13 @@
       "introduced": {
         "date": null,
         "census": "2018",
-        "legacy_version": "2018.0.0"
+        "legacy_version": "2018.0.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2018",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -4459,7 +5255,13 @@
       "introduced": {
         "date": null,
         "census": "2018",
-        "legacy_version": "2018.0.0"
+        "legacy_version": "2018.0.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2018",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -4524,7 +5326,13 @@
       "introduced": {
         "date": null,
         "census": "2018",
-        "legacy_version": "2018.0.0"
+        "legacy_version": "2018.0.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2018",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -4589,7 +5397,13 @@
       "introduced": {
         "date": null,
         "census": "2018",
-        "legacy_version": "2018.0.0"
+        "legacy_version": "2018.0.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2018",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -4654,7 +5468,13 @@
       "introduced": {
         "date": null,
         "census": "2018",
-        "legacy_version": "2018.0.0"
+        "legacy_version": "2018.0.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2018",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": "2026-05-07",
       "events": [
@@ -4728,7 +5548,13 @@
       "introduced": {
         "date": null,
         "census": "2018",
-        "legacy_version": "2018.0.0"
+        "legacy_version": "2018.0.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2018",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -4795,7 +5621,13 @@
       "introduced": {
         "date": null,
         "census": "2018",
-        "legacy_version": "2018.0.0"
+        "legacy_version": "2018.0.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2018",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -4837,7 +5669,27 @@
     },
     "isotopologue_of": "mol:C3",
     "latex_section_override": null,
-    "latex_body": null
+    "latex_body": null,
+    "history": {
+      "introduced": {
+        "date": "2026-05-07",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": "2026-05-07",
+        "census": "2026",
+        "context": "confirmed_ism_csm"
+      },
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "added",
+          "summary": "Added molecule record.",
+          "date": "2026-05-07",
+          "fields": []
+        }
+      ]
+    }
   },
   {
     "name": "tricarbon",
@@ -4866,7 +5718,27 @@
     },
     "isotopologue_of": "mol:C3",
     "latex_section_override": null,
-    "latex_body": null
+    "latex_body": null,
+    "history": {
+      "introduced": {
+        "date": "2026-05-07",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": "2026-05-07",
+        "census": "2026",
+        "context": "confirmed_ism_csm"
+      },
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "added",
+          "summary": "Added molecule record.",
+          "date": "2026-05-07",
+          "fields": []
+        }
+      ]
+    }
   },
   {
     "name": "carbon dioxide",
@@ -4914,7 +5786,13 @@
       "introduced": {
         "date": null,
         "census": "2018",
-        "legacy_version": "2018.0.0"
+        "legacy_version": "2018.0.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2018",
+        "context": "confirmed_ice"
       },
       "last_modified": null,
       "events": [
@@ -4966,7 +5844,27 @@
     },
     "isotopologue_of": "mol:CO2",
     "latex_section_override": null,
-    "latex_body": null
+    "latex_body": null,
+    "history": {
+      "introduced": {
+        "date": "2026-05-07",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": "2026-05-07",
+        "census": "2026",
+        "context": "confirmed_ppd"
+      },
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "added",
+          "summary": "Added molecule record.",
+          "date": "2026-05-07",
+          "fields": []
+        }
+      ]
+    }
   },
   {
     "name": "methylene",
@@ -5018,7 +5916,13 @@
       "introduced": {
         "date": null,
         "census": "2018",
-        "legacy_version": "2018.0.0"
+        "legacy_version": "2018.0.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2018",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -5083,7 +5987,13 @@
       "introduced": {
         "date": null,
         "census": "2018",
-        "legacy_version": "2018.0.0"
+        "legacy_version": "2018.0.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2018",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -5152,7 +6062,13 @@
       "introduced": {
         "date": null,
         "census": "2018",
-        "legacy_version": "2018.0.0"
+        "legacy_version": "2018.0.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2018",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -5227,7 +6143,13 @@
       "introduced": {
         "date": null,
         "census": "2018",
-        "legacy_version": "2018.0.0"
+        "legacy_version": "2018.0.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2018",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -5273,7 +6195,27 @@
     },
     "isotopologue_of": "mol:NH2",
     "latex_section_override": null,
-    "latex_body": null
+    "latex_body": null,
+    "history": {
+      "introduced": {
+        "date": "2026-05-07",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": "2026-05-07",
+        "census": "2026",
+        "context": "confirmed_ism_csm"
+      },
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "added",
+          "summary": "Added molecule record.",
+          "date": "2026-05-07",
+          "fields": []
+        }
+      ]
+    }
   },
   {
     "name": "amidogen",
@@ -5306,7 +6248,27 @@
     },
     "isotopologue_of": "mol:NH2",
     "latex_section_override": null,
-    "latex_body": null
+    "latex_body": null,
+    "history": {
+      "introduced": {
+        "date": "2026-05-07",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": "2026-05-07",
+        "census": "2026",
+        "context": "confirmed_ism_csm"
+      },
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "added",
+          "summary": "Added molecule record.",
+          "date": "2026-05-07",
+          "fields": []
+        }
+      ]
+    }
   },
   {
     "name": "sodium cyanide",
@@ -5362,7 +6324,13 @@
       "introduced": {
         "date": null,
         "census": "2018",
-        "legacy_version": "2018.0.0"
+        "legacy_version": "2018.0.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2018",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -5437,7 +6405,13 @@
       "introduced": {
         "date": null,
         "census": "2018",
-        "legacy_version": "2018.0.0"
+        "legacy_version": "2018.0.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2018",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -5506,7 +6480,13 @@
       "introduced": {
         "date": null,
         "census": "2018",
-        "legacy_version": "2018.0.0"
+        "legacy_version": "2018.0.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2018",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -5573,7 +6553,13 @@
       "introduced": {
         "date": null,
         "census": "2018",
-        "legacy_version": "2018.0.0"
+        "legacy_version": "2018.0.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2018",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -5642,7 +6628,13 @@
       "introduced": {
         "date": null,
         "census": "2018",
-        "legacy_version": "2018.0.0"
+        "legacy_version": "2018.0.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2018",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -5721,7 +6713,13 @@
       "introduced": {
         "date": null,
         "census": "2018",
-        "legacy_version": "2018.0.0"
+        "legacy_version": "2018.0.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2018",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -5800,7 +6798,13 @@
       "introduced": {
         "date": null,
         "census": "2018",
-        "legacy_version": "2018.0.0"
+        "legacy_version": "2018.0.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2018",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -5875,7 +6879,13 @@
       "introduced": {
         "date": null,
         "census": "2018",
-        "legacy_version": "2018.0.0"
+        "legacy_version": "2018.0.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2018",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -5940,7 +6950,13 @@
       "introduced": {
         "date": null,
         "census": "2018",
-        "legacy_version": "2018.0.0"
+        "legacy_version": "2018.0.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2018",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -6009,7 +7025,13 @@
       "introduced": {
         "date": null,
         "census": "2018",
-        "legacy_version": "2018.0.0"
+        "legacy_version": "2018.0.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2018",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -6087,7 +7109,13 @@
       "introduced": {
         "date": null,
         "census": "2018",
-        "legacy_version": "2018.0.0"
+        "legacy_version": "2018.0.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2018",
+        "context": "confirmed_exgal"
       },
       "last_modified": null,
       "events": [
@@ -6152,7 +7180,13 @@
       "introduced": {
         "date": null,
         "census": "2018",
-        "legacy_version": "2018.0.0"
+        "legacy_version": "2018.0.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2018",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -6221,7 +7255,13 @@
       "introduced": {
         "date": null,
         "census": "2018",
-        "legacy_version": "2018.0.0"
+        "legacy_version": "2018.0.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2018",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -6300,7 +7340,13 @@
       "introduced": {
         "date": null,
         "census": "2018",
-        "legacy_version": "2018.0.0"
+        "legacy_version": "2018.0.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2018",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -6381,7 +7427,13 @@
       "introduced": {
         "date": null,
         "census": "2018",
-        "legacy_version": "2018.0.0"
+        "legacy_version": "2018.0.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2018",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -6449,7 +7501,13 @@
       "introduced": {
         "date": null,
         "census": "2018",
-        "legacy_version": "2018.0.0"
+        "legacy_version": "2018.0.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2018",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -6518,7 +7576,13 @@
       "introduced": {
         "date": null,
         "census": "2018",
-        "legacy_version": "2018.0.0"
+        "legacy_version": "2018.0.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2018",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -6593,7 +7657,13 @@
       "introduced": {
         "date": null,
         "census": "2018",
-        "legacy_version": "2018.0.0"
+        "legacy_version": "2018.0.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2018",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -6658,7 +7728,13 @@
       "introduced": {
         "date": null,
         "census": "2018",
-        "legacy_version": "2018.0.0"
+        "legacy_version": "2018.0.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2018",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -6723,7 +7799,13 @@
       "introduced": {
         "date": null,
         "census": "2018",
-        "legacy_version": "2018.0.0"
+        "legacy_version": "2018.0.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2018",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -6788,7 +7870,13 @@
       "introduced": {
         "date": null,
         "census": "2018",
-        "legacy_version": "2018.0.0"
+        "legacy_version": "2018.0.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2018",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -6856,7 +7944,13 @@
       "introduced": {
         "date": null,
         "census": "2018",
-        "legacy_version": "2018.0.0"
+        "legacy_version": "2018.0.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2018",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -6928,7 +8022,13 @@
       "introduced": {
         "date": null,
         "census": "2021",
-        "legacy_version": "2021.0.0"
+        "legacy_version": "2021.0.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2021",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -7009,7 +8109,13 @@
       "introduced": {
         "date": null,
         "census": "2021",
-        "legacy_version": "2021.0.0"
+        "legacy_version": "2021.0.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2021",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -7074,7 +8180,13 @@
       "introduced": {
         "date": null,
         "census": "2026",
-        "legacy_version": "2021.6.0"
+        "legacy_version": "2021.6.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2026",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -7139,7 +8251,13 @@
       "introduced": {
         "date": null,
         "census": "2026",
-        "legacy_version": "2021.7.0"
+        "legacy_version": "2021.7.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2026",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -7204,7 +8322,13 @@
       "introduced": {
         "date": null,
         "census": "2026",
-        "legacy_version": "2021.9.0"
+        "legacy_version": "2021.9.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2026",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -7270,7 +8394,13 @@
       "introduced": {
         "date": null,
         "census": "2018",
-        "legacy_version": "2018.0.0"
+        "legacy_version": "2018.0.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2018",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -7340,7 +8470,13 @@
       "introduced": {
         "date": null,
         "census": "2018",
-        "legacy_version": "2018.0.0"
+        "legacy_version": "2018.0.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2018",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -7406,7 +8542,27 @@
     },
     "isotopologue_of": "mol:H2CO",
     "latex_section_override": null,
-    "latex_body": null
+    "latex_body": null,
+    "history": {
+      "introduced": {
+        "date": "2026-05-07",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": "2026-05-07",
+        "census": "2026",
+        "context": "confirmed_ppd"
+      },
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "added",
+          "summary": "Added molecule record.",
+          "date": "2026-05-07",
+          "fields": []
+        }
+      ]
+    }
   },
   {
     "name": "isocyanic acid",
@@ -7462,7 +8618,13 @@
       "introduced": {
         "date": null,
         "census": "2018",
-        "legacy_version": "2018.0.0"
+        "legacy_version": "2018.0.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2018",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -7541,7 +8703,13 @@
       "introduced": {
         "date": null,
         "census": "2018",
-        "legacy_version": "2018.0.0"
+        "legacy_version": "2018.0.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2018",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -7608,7 +8776,13 @@
       "introduced": {
         "date": null,
         "census": "2018",
-        "legacy_version": "2018.0.0"
+        "legacy_version": "2018.0.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2018",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -7660,7 +8834,27 @@
     },
     "isotopologue_of": "mol:C2H2",
     "latex_section_override": null,
-    "latex_body": null
+    "latex_body": null,
+    "history": {
+      "introduced": {
+        "date": "2026-05-07",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": "2026-05-07",
+        "census": "2026",
+        "context": "confirmed_ppd"
+      },
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "added",
+          "summary": "Added molecule record.",
+          "date": "2026-05-07",
+          "fields": []
+        }
+      ]
+    }
   },
   {
     "name": "cyanoethynyl radical",
@@ -7716,7 +8910,13 @@
       "introduced": {
         "date": null,
         "census": "2018",
-        "legacy_version": "2018.0.0"
+        "legacy_version": "2018.0.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2018",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -7795,7 +8995,13 @@
       "introduced": {
         "date": null,
         "census": "2018",
-        "legacy_version": "2018.0.0"
+        "legacy_version": "2018.0.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2018",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -7873,7 +9079,13 @@
       "introduced": {
         "date": null,
         "census": "2018",
-        "legacy_version": "2018.0.0"
+        "legacy_version": "2018.0.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2018",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -7942,7 +9154,13 @@
       "introduced": {
         "date": null,
         "census": "2018",
-        "legacy_version": "2018.0.0"
+        "legacy_version": "2018.0.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2018",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -8017,7 +9235,13 @@
       "introduced": {
         "date": null,
         "census": "2018",
-        "legacy_version": "2018.0.0"
+        "legacy_version": "2018.0.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2018",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -8085,7 +9309,13 @@
       "introduced": {
         "date": null,
         "census": "2018",
-        "legacy_version": "2018.0.0"
+        "legacy_version": "2018.0.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2018",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -8156,7 +9386,13 @@
       "introduced": {
         "date": null,
         "census": "2018",
-        "legacy_version": "2018.0.0"
+        "legacy_version": "2018.0.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2018",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -8225,7 +9461,13 @@
       "introduced": {
         "date": null,
         "census": "2018",
-        "legacy_version": "2018.0.0"
+        "legacy_version": "2018.0.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2018",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -8300,7 +9542,13 @@
       "introduced": {
         "date": null,
         "census": "2018",
-        "legacy_version": "2018.0.0"
+        "legacy_version": "2018.0.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2018",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -8372,7 +9620,13 @@
       "introduced": {
         "date": null,
         "census": "2018",
-        "legacy_version": "2018.0.0"
+        "legacy_version": "2018.0.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2018",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -8451,7 +9705,13 @@
       "introduced": {
         "date": null,
         "census": "2018",
-        "legacy_version": "2018.0.0"
+        "legacy_version": "2018.0.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2018",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -8529,7 +9789,13 @@
       "introduced": {
         "date": null,
         "census": "2018",
-        "legacy_version": "2018.0.0"
+        "legacy_version": "2018.0.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2018",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -8586,7 +9852,13 @@
       "introduced": {
         "date": null,
         "census": "2018",
-        "legacy_version": "2018.0.0"
+        "legacy_version": "2018.0.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2018",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -8655,7 +9927,13 @@
       "introduced": {
         "date": null,
         "census": "2018",
-        "legacy_version": "2018.0.0"
+        "legacy_version": "2018.0.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2018",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -8726,7 +10004,13 @@
       "introduced": {
         "date": null,
         "census": "2018",
-        "legacy_version": "2018.0.0"
+        "legacy_version": "2018.0.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2018",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -8791,7 +10075,13 @@
       "introduced": {
         "date": null,
         "census": "2018",
-        "legacy_version": "2018.0.0"
+        "legacy_version": "2018.0.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2018",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -8860,7 +10150,13 @@
       "introduced": {
         "date": null,
         "census": "2018",
-        "legacy_version": "2018.0.0"
+        "legacy_version": "2018.0.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2018",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -8949,7 +10245,13 @@
       "introduced": {
         "date": null,
         "census": "2018",
-        "legacy_version": "2018.0.0"
+        "legacy_version": "2018.0.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2018",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -9027,7 +10329,13 @@
       "introduced": {
         "date": null,
         "census": "2018",
-        "legacy_version": "2018.0.0"
+        "legacy_version": "2018.0.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2018",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -9092,7 +10400,13 @@
       "introduced": {
         "date": null,
         "census": "2018",
-        "legacy_version": "2018.0.0"
+        "legacy_version": "2018.0.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2018",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -9171,7 +10485,13 @@
       "introduced": {
         "date": null,
         "census": "2018",
-        "legacy_version": "2018.0.0"
+        "legacy_version": "2018.0.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2018",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -9253,7 +10573,13 @@
       "introduced": {
         "date": null,
         "census": "2018",
-        "legacy_version": "2018.0.0"
+        "legacy_version": "2018.0.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2018",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -9335,7 +10661,13 @@
       "introduced": {
         "date": null,
         "census": "2018",
-        "legacy_version": "2018.0.0"
+        "legacy_version": "2018.0.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2018",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -9416,7 +10748,13 @@
       "introduced": {
         "date": null,
         "census": "2021",
-        "legacy_version": "2021.0.0"
+        "legacy_version": "2021.0.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2021",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -9481,7 +10819,13 @@
       "introduced": {
         "date": null,
         "census": "2021",
-        "legacy_version": "2021.0.0"
+        "legacy_version": "2021.0.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2021",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -9553,7 +10897,13 @@
       "introduced": {
         "date": null,
         "census": "2021",
-        "legacy_version": "2021.0.0"
+        "legacy_version": "2021.0.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2021",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -9632,7 +10982,13 @@
       "introduced": {
         "date": null,
         "census": "2026",
-        "legacy_version": "2021.1.0"
+        "legacy_version": "2021.1.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2026",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -9711,7 +11067,13 @@
       "introduced": {
         "date": null,
         "census": "2026",
-        "legacy_version": "2021.3.0"
+        "legacy_version": "2021.3.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2026",
+        "context": "confirmed_exgal"
       },
       "last_modified": null,
       "events": [
@@ -9790,7 +11152,13 @@
       "introduced": {
         "date": null,
         "census": "2026",
-        "legacy_version": "2021.4.0"
+        "legacy_version": "2021.4.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2026",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -9857,7 +11225,13 @@
       "introduced": {
         "date": null,
         "census": "2026",
-        "legacy_version": "2021.8.0"
+        "legacy_version": "2021.8.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2026",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -9925,7 +11299,13 @@
       "introduced": {
         "date": null,
         "census": "2026",
-        "legacy_version": "2021.9.0"
+        "legacy_version": "2021.9.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2026",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -9990,7 +11370,13 @@
       "introduced": {
         "date": null,
         "census": "2026",
-        "legacy_version": "2021.9.0"
+        "legacy_version": "2021.9.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2026",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -10061,7 +11447,13 @@
       "introduced": {
         "date": null,
         "census": "2026",
-        "legacy_version": "2021.9.0"
+        "legacy_version": "2021.9.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2026",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -10130,7 +11522,13 @@
       "introduced": {
         "date": null,
         "census": "2018",
-        "legacy_version": "2018.0.0"
+        "legacy_version": "2018.0.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2018",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -10217,7 +11615,13 @@
       "introduced": {
         "date": null,
         "census": "2018",
-        "legacy_version": "2018.0.0"
+        "legacy_version": "2018.0.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2018",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -10299,7 +11703,13 @@
       "introduced": {
         "date": null,
         "census": "2018",
-        "legacy_version": "2018.0.0"
+        "legacy_version": "2018.0.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2018",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -10388,7 +11798,13 @@
       "introduced": {
         "date": null,
         "census": "2018",
-        "legacy_version": "2018.0.0"
+        "legacy_version": "2018.0.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2018",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -10470,7 +11886,13 @@
       "introduced": {
         "date": null,
         "census": "2018",
-        "legacy_version": "2018.0.0"
+        "legacy_version": "2018.0.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2018",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -10545,7 +11967,13 @@
       "introduced": {
         "date": null,
         "census": "2018",
-        "legacy_version": "2018.0.0"
+        "legacy_version": "2018.0.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2018",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -10602,7 +12030,13 @@
       "introduced": {
         "date": null,
         "census": "2018",
-        "legacy_version": "2018.0.0"
+        "legacy_version": "2018.0.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2018",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -10667,7 +12101,13 @@
       "introduced": {
         "date": null,
         "census": "2018",
-        "legacy_version": "2018.0.0"
+        "legacy_version": "2018.0.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2018",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -10736,7 +12176,13 @@
       "introduced": {
         "date": null,
         "census": "2018",
-        "legacy_version": "2018.0.0"
+        "legacy_version": "2018.0.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2018",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -10804,7 +12250,27 @@
     },
     "isotopologue_of": "mol:CH2CN",
     "latex_section_override": null,
-    "latex_body": null
+    "latex_body": null,
+    "history": {
+      "introduced": {
+        "date": "2026-05-07",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": "2026-05-07",
+        "census": "2026",
+        "context": "confirmed_ism_csm"
+      },
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "added",
+          "summary": "Added molecule record.",
+          "date": "2026-05-07",
+          "fields": []
+        }
+      ]
+    }
   },
   {
     "name": "pentacarbon",
@@ -10848,7 +12314,13 @@
       "introduced": {
         "date": null,
         "census": "2018",
-        "legacy_version": "2018.0.0"
+        "legacy_version": "2018.0.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2018",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -10913,7 +12385,13 @@
       "introduced": {
         "date": null,
         "census": "2018",
-        "legacy_version": "2018.0.0"
+        "legacy_version": "2018.0.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2018",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -10978,7 +12456,13 @@
       "introduced": {
         "date": null,
         "census": "2018",
-        "legacy_version": "2018.0.0"
+        "legacy_version": "2018.0.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2018",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -11037,7 +12521,13 @@
       "introduced": {
         "date": null,
         "census": "2018",
-        "legacy_version": "2018.0.0"
+        "legacy_version": "2018.0.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2018",
+        "context": "confirmed_ice"
       },
       "last_modified": null,
       "events": [
@@ -11089,7 +12579,27 @@
     },
     "isotopologue_of": "mol:CH4",
     "latex_section_override": null,
-    "latex_body": null
+    "latex_body": null,
+    "history": {
+      "introduced": {
+        "date": "2026-05-07",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": "2026-05-07",
+        "census": "2026",
+        "context": "confirmed_exo"
+      },
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "added",
+          "summary": "Added molecule record.",
+          "date": "2026-05-07",
+          "fields": []
+        }
+      ]
+    }
   },
   {
     "name": "isocyanoacetylene",
@@ -11145,7 +12655,13 @@
       "introduced": {
         "date": null,
         "census": "2018",
-        "legacy_version": "2018.0.0"
+        "legacy_version": "2018.0.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2018",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -11220,7 +12736,13 @@
       "introduced": {
         "date": null,
         "census": "2018",
-        "legacy_version": "2018.0.0"
+        "legacy_version": "2018.0.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2018",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -11285,7 +12807,13 @@
       "introduced": {
         "date": null,
         "census": "2018",
-        "legacy_version": "2018.0.0"
+        "legacy_version": "2018.0.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2018",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -11350,7 +12878,13 @@
       "introduced": {
         "date": null,
         "census": "2018",
-        "legacy_version": "2018.0.0"
+        "legacy_version": "2018.0.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2018",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -11422,7 +12956,13 @@
       "introduced": {
         "date": null,
         "census": "2018",
-        "legacy_version": "2018.0.0"
+        "legacy_version": "2018.0.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2018",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -11507,7 +13047,13 @@
       "introduced": {
         "date": null,
         "census": "2018",
-        "legacy_version": "2018.0.0"
+        "legacy_version": "2018.0.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2018",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -11589,7 +13135,13 @@
       "introduced": {
         "date": null,
         "census": "2018",
-        "legacy_version": "2018.0.0"
+        "legacy_version": "2018.0.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2018",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -11664,7 +13216,13 @@
       "introduced": {
         "date": null,
         "census": "2018",
-        "legacy_version": "2018.0.0"
+        "legacy_version": "2018.0.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2018",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -11733,7 +13291,13 @@
       "introduced": {
         "date": null,
         "census": "2018",
-        "legacy_version": "2018.0.0"
+        "legacy_version": "2018.0.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2018",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -11811,7 +13375,13 @@
       "introduced": {
         "date": null,
         "census": "2018",
-        "legacy_version": "2018.0.0"
+        "legacy_version": "2018.0.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2018",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -11880,7 +13450,13 @@
       "introduced": {
         "date": null,
         "census": "2018",
-        "legacy_version": "2018.0.0"
+        "legacy_version": "2018.0.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2018",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -11959,7 +13535,13 @@
       "introduced": {
         "date": null,
         "census": "2021",
-        "legacy_version": "2021.0.0"
+        "legacy_version": "2021.0.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2021",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -12038,7 +13620,13 @@
       "introduced": {
         "date": null,
         "census": "2021",
-        "legacy_version": "2021.0.0"
+        "legacy_version": "2021.0.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2021",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -12121,7 +13709,13 @@
       "introduced": {
         "date": null,
         "census": "2021",
-        "legacy_version": "2021.0.0"
+        "legacy_version": "2021.0.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2021",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -12200,7 +13794,13 @@
       "introduced": {
         "date": null,
         "census": "2021",
-        "legacy_version": "2021.0.0"
+        "legacy_version": "2021.0.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2021",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -12285,7 +13885,13 @@
       "introduced": {
         "date": null,
         "census": "2021",
-        "legacy_version": "2021.0.0"
+        "legacy_version": "2021.0.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2021",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -12367,7 +13973,13 @@
       "introduced": {
         "date": null,
         "census": "2021",
-        "legacy_version": "2021.0.0"
+        "legacy_version": "2021.0.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2021",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -12446,7 +14058,13 @@
       "introduced": {
         "date": null,
         "census": "2021",
-        "legacy_version": "2021.0.0"
+        "legacy_version": "2021.0.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2021",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -12525,7 +14143,13 @@
       "introduced": {
         "date": null,
         "census": "2026",
-        "legacy_version": "2021.1.0"
+        "legacy_version": "2021.1.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2026",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -12610,7 +14234,13 @@
       "introduced": {
         "date": null,
         "census": "2026",
-        "legacy_version": "2021.4.0"
+        "legacy_version": "2021.4.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2026",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -12689,7 +14319,13 @@
       "introduced": {
         "date": null,
         "census": "2026",
-        "legacy_version": "2021.7.0"
+        "legacy_version": "2021.7.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2026",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -12768,7 +14404,13 @@
       "introduced": {
         "date": null,
         "census": "2026",
-        "legacy_version": "2021.7.0"
+        "legacy_version": "2021.7.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2026",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -12849,7 +14491,13 @@
       "introduced": {
         "date": null,
         "census": "2026",
-        "legacy_version": "2021.9.0"
+        "legacy_version": "2021.9.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2026",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -12918,7 +14566,13 @@
       "introduced": {
         "date": null,
         "census": "2026",
-        "legacy_version": "2021.9.0"
+        "legacy_version": "2021.9.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2026",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -12997,7 +14651,13 @@
       "introduced": {
         "date": null,
         "census": "2026",
-        "legacy_version": "2021.10.0"
+        "legacy_version": "2021.10.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2026",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -13076,7 +14736,13 @@
       "introduced": {
         "date": null,
         "census": "2026",
-        "legacy_version": "2021.10.0"
+        "legacy_version": "2021.10.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2026",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -13158,7 +14824,13 @@
       "introduced": {
         "date": null,
         "census": "2026",
-        "legacy_version": "2021.10.0"
+        "legacy_version": "2021.10.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2026",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -13240,7 +14912,13 @@
       "introduced": {
         "date": null,
         "census": "2026",
-        "legacy_version": "2021.10.0"
+        "legacy_version": "2021.10.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2026",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -13321,7 +14999,13 @@
       "introduced": {
         "date": null,
         "census": "2018",
-        "legacy_version": "2018.0.0"
+        "legacy_version": "2018.0.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2018",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -13404,7 +15088,13 @@
       "introduced": {
         "date": null,
         "census": "2018",
-        "legacy_version": "2018.0.0"
+        "legacy_version": "2018.0.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2018",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -13484,7 +15174,13 @@
       "introduced": {
         "date": null,
         "census": "2018",
-        "legacy_version": "2018.0.0"
+        "legacy_version": "2018.0.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2018",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -13564,7 +15260,13 @@
       "introduced": {
         "date": null,
         "census": "2018",
-        "legacy_version": "2018.0.0"
+        "legacy_version": "2018.0.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2018",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -13631,7 +15333,13 @@
       "introduced": {
         "date": null,
         "census": "2018",
-        "legacy_version": "2018.0.0"
+        "legacy_version": "2018.0.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2018",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -13696,7 +15404,13 @@
       "introduced": {
         "date": null,
         "census": "2018",
-        "legacy_version": "2018.0.0"
+        "legacy_version": "2018.0.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2018",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -13769,7 +15483,13 @@
       "introduced": {
         "date": null,
         "census": "2018",
-        "legacy_version": "2018.0.0"
+        "legacy_version": "2018.0.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2018",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -13848,7 +15568,13 @@
       "introduced": {
         "date": null,
         "census": "2018",
-        "legacy_version": "2018.0.0"
+        "legacy_version": "2018.0.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2018",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -13933,7 +15659,13 @@
       "introduced": {
         "date": null,
         "census": "2018",
-        "legacy_version": "2018.0.0"
+        "legacy_version": "2018.0.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2018",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -14005,7 +15737,13 @@
       "introduced": {
         "date": null,
         "census": "2018",
-        "legacy_version": "2018.0.0"
+        "legacy_version": "2018.0.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2018",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -14080,7 +15818,13 @@
       "introduced": {
         "date": null,
         "census": "2018",
-        "legacy_version": "2018.0.0"
+        "legacy_version": "2018.0.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2018",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -14149,7 +15893,13 @@
       "introduced": {
         "date": null,
         "census": "2018",
-        "legacy_version": "2018.0.0"
+        "legacy_version": "2018.0.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2018",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -14216,7 +15966,13 @@
       "introduced": {
         "date": null,
         "census": "2018",
-        "legacy_version": "2018.0.0"
+        "legacy_version": "2018.0.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2018",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -14295,7 +16051,13 @@
       "introduced": {
         "date": null,
         "census": "2018",
-        "legacy_version": "2018.0.0"
+        "legacy_version": "2018.0.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2018",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -14377,7 +16139,13 @@
       "introduced": {
         "date": null,
         "census": "2018",
-        "legacy_version": "2018.0.0"
+        "legacy_version": "2018.0.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2018",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -14459,7 +16227,13 @@
       "introduced": {
         "date": null,
         "census": "2018",
-        "legacy_version": "2018.0.0"
+        "legacy_version": "2018.0.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2018",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -14538,7 +16312,13 @@
       "introduced": {
         "date": null,
         "census": "2018",
-        "legacy_version": "2018.0.0"
+        "legacy_version": "2018.0.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2018",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -14618,7 +16398,13 @@
       "introduced": {
         "date": null,
         "census": "2018",
-        "legacy_version": "2018.0.0"
+        "legacy_version": "2018.0.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2018",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -14697,7 +16483,13 @@
       "introduced": {
         "date": null,
         "census": "2018",
-        "legacy_version": "2018.0.0"
+        "legacy_version": "2018.0.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2018",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -14772,7 +16564,13 @@
       "introduced": {
         "date": null,
         "census": "2021",
-        "legacy_version": "2021.0.0"
+        "legacy_version": "2021.0.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2021",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -14841,7 +16639,13 @@
       "introduced": {
         "date": null,
         "census": "2021",
-        "legacy_version": "2021.0.0"
+        "legacy_version": "2021.0.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2021",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -14920,7 +16724,13 @@
       "introduced": {
         "date": null,
         "census": "2021",
-        "legacy_version": "2021.0.0"
+        "legacy_version": "2021.0.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2021",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -14995,7 +16805,13 @@
       "introduced": {
         "date": null,
         "census": "2021",
-        "legacy_version": "2021.0.0"
+        "legacy_version": "2021.0.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2021",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -15070,7 +16886,13 @@
       "introduced": {
         "date": null,
         "census": "2026",
-        "legacy_version": "2021.1.0"
+        "legacy_version": "2021.1.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2026",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -15149,7 +16971,13 @@
       "introduced": {
         "date": null,
         "census": "2026",
-        "legacy_version": "2021.4.0"
+        "legacy_version": "2021.4.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2026",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -15224,7 +17052,13 @@
       "introduced": {
         "date": null,
         "census": "2026",
-        "legacy_version": "2021.7.0"
+        "legacy_version": "2021.7.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2026",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -15289,7 +17123,13 @@
       "introduced": {
         "date": null,
         "census": "2026",
-        "legacy_version": "2021.4.0"
+        "legacy_version": "2021.4.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2026",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -15357,7 +17197,13 @@
       "introduced": {
         "date": null,
         "census": "2026",
-        "legacy_version": "2021.5.0"
+        "legacy_version": "2021.5.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2026",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -15436,7 +17282,13 @@
       "introduced": {
         "date": null,
         "census": "2026",
-        "legacy_version": "2021.6.0"
+        "legacy_version": "2021.6.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2026",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -15515,7 +17367,13 @@
       "introduced": {
         "date": null,
         "census": "2026",
-        "legacy_version": "2021.7.0"
+        "legacy_version": "2021.7.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2026",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -15590,7 +17448,13 @@
       "introduced": {
         "date": null,
         "census": "2026",
-        "legacy_version": "2021.7.0"
+        "legacy_version": "2021.7.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2026",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -15655,7 +17519,13 @@
       "introduced": {
         "date": null,
         "census": "2026",
-        "legacy_version": "2021.8.0"
+        "legacy_version": "2021.8.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2026",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -15728,7 +17598,13 @@
       "introduced": {
         "date": null,
         "census": "2026",
-        "legacy_version": "2021.8.0"
+        "legacy_version": "2021.8.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2026",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -15807,7 +17683,13 @@
       "introduced": {
         "date": null,
         "census": "2026",
-        "legacy_version": "2021.8.0"
+        "legacy_version": "2021.8.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2026",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -15893,7 +17775,13 @@
       "introduced": {
         "date": null,
         "census": "2026",
-        "legacy_version": "2021.9.0"
+        "legacy_version": "2021.9.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2026",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -15977,7 +17865,13 @@
       "introduced": {
         "date": null,
         "census": "2018",
-        "legacy_version": "2018.0.0"
+        "legacy_version": "2018.0.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2018",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -16044,7 +17938,27 @@
     },
     "isotopologue_of": "mol:CH3CHO",
     "latex_section_override": null,
-    "latex_body": null
+    "latex_body": null,
+    "history": {
+      "introduced": {
+        "date": "2026-05-07",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": "2026-05-07",
+        "census": "2026",
+        "context": "confirmed_ism_csm"
+      },
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "added",
+          "summary": "Added molecule record.",
+          "date": "2026-05-07",
+          "fields": []
+        }
+      ]
+    }
   },
   {
     "name": "methylacetylene",
@@ -16100,7 +18014,13 @@
       "introduced": {
         "date": null,
         "census": "2018",
-        "legacy_version": "2018.0.0"
+        "legacy_version": "2018.0.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2018",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -16180,7 +18100,13 @@
       "introduced": {
         "date": null,
         "census": "2018",
-        "legacy_version": "2018.0.0"
+        "legacy_version": "2018.0.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2018",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -16259,7 +18185,13 @@
       "introduced": {
         "date": null,
         "census": "2018",
-        "legacy_version": "2018.0.0"
+        "legacy_version": "2018.0.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2018",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -16338,7 +18270,13 @@
       "introduced": {
         "date": null,
         "census": "2018",
-        "legacy_version": "2018.0.0"
+        "legacy_version": "2018.0.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2018",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -16413,7 +18351,13 @@
       "introduced": {
         "date": null,
         "census": "2018",
-        "legacy_version": "2018.0.0"
+        "legacy_version": "2018.0.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2018",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -16478,7 +18422,13 @@
       "introduced": {
         "date": null,
         "census": "2018",
-        "legacy_version": "2018.0.0"
+        "legacy_version": "2018.0.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2018",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -16530,7 +18480,27 @@
     },
     "isotopologue_of": "mol:c-C2H4O",
     "latex_section_override": null,
-    "latex_body": null
+    "latex_body": null,
+    "history": {
+      "introduced": {
+        "date": "2026-05-07",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": "2026-05-07",
+        "census": "2026",
+        "context": "confirmed_ism_csm"
+      },
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "added",
+          "summary": "Added molecule record.",
+          "date": "2026-05-07",
+          "fields": []
+        }
+      ]
+    }
   },
   {
     "name": "vinyl alcohol",
@@ -16589,7 +18559,13 @@
       "introduced": {
         "date": null,
         "census": "2018",
-        "legacy_version": "2018.0.0"
+        "legacy_version": "2018.0.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2018",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -16664,7 +18640,13 @@
       "introduced": {
         "date": null,
         "census": "2018",
-        "legacy_version": "2018.0.0"
+        "legacy_version": "2018.0.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2018",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -16734,7 +18716,13 @@
       "introduced": {
         "date": null,
         "census": "2018",
-        "legacy_version": "2018.0.0"
+        "legacy_version": "2018.0.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2018",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -16813,7 +18801,13 @@
       "introduced": {
         "date": null,
         "census": "2018",
-        "legacy_version": "2018.0.0"
+        "legacy_version": "2018.0.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2018",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -16893,7 +18887,13 @@
       "introduced": {
         "date": null,
         "census": "2021",
-        "legacy_version": "2021.0.0"
+        "legacy_version": "2021.0.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2021",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -16972,7 +18972,13 @@
       "introduced": {
         "date": null,
         "census": "2021",
-        "legacy_version": "2021.0.0"
+        "legacy_version": "2021.0.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2021",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -17060,7 +19066,13 @@
       "introduced": {
         "date": null,
         "census": "2021",
-        "legacy_version": "2021.0.0"
+        "legacy_version": "2021.0.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2021",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -17139,7 +19151,13 @@
       "introduced": {
         "date": null,
         "census": "2021",
-        "legacy_version": "2021.1.0"
+        "legacy_version": "2021.1.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2021",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -17218,7 +19236,13 @@
       "introduced": {
         "date": null,
         "census": "2026",
-        "legacy_version": "2021.1.0"
+        "legacy_version": "2021.1.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2026",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -17300,7 +19324,13 @@
       "introduced": {
         "date": null,
         "census": "2026",
-        "legacy_version": "2021.4.0"
+        "legacy_version": "2021.4.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2026",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -17379,7 +19409,13 @@
       "introduced": {
         "date": null,
         "census": "2026",
-        "legacy_version": "2021.7.0"
+        "legacy_version": "2021.7.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2026",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -17458,7 +19494,13 @@
       "introduced": {
         "date": null,
         "census": "2026",
-        "legacy_version": "2021.6.0"
+        "legacy_version": "2021.6.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2026",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -17537,7 +19579,13 @@
       "introduced": {
         "date": null,
         "census": "2026",
-        "legacy_version": "2021.7.0"
+        "legacy_version": "2021.7.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2026",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -17616,7 +19664,13 @@
       "introduced": {
         "date": null,
         "census": "2026",
-        "legacy_version": "2021.10.0"
+        "legacy_version": "2021.10.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2026",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -17695,7 +19749,13 @@
       "introduced": {
         "date": null,
         "census": "2026",
-        "legacy_version": "2021.10.0"
+        "legacy_version": "2021.10.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2026",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -17786,7 +19846,13 @@
       "introduced": {
         "date": null,
         "census": "2026",
-        "legacy_version": "2021.10.0"
+        "legacy_version": "2021.10.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2026",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -17867,7 +19933,13 @@
       "introduced": {
         "date": null,
         "census": "2018",
-        "legacy_version": "2018.0.0"
+        "legacy_version": "2018.0.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2018",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -17967,7 +20039,13 @@
       "introduced": {
         "date": null,
         "census": "2018",
-        "legacy_version": "2018.0.0"
+        "legacy_version": "2018.0.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2018",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -18042,7 +20120,13 @@
       "introduced": {
         "date": null,
         "census": "2018",
-        "legacy_version": "2018.0.0"
+        "legacy_version": "2018.0.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2018",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -18113,7 +20197,13 @@
       "introduced": {
         "date": null,
         "census": "2018",
-        "legacy_version": "2018.0.0"
+        "legacy_version": "2018.0.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2018",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -18188,7 +20278,13 @@
       "introduced": {
         "date": null,
         "census": "2018",
-        "legacy_version": "2018.0.0"
+        "legacy_version": "2018.0.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2018",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -18258,7 +20354,13 @@
       "introduced": {
         "date": null,
         "census": "2018",
-        "legacy_version": "2018.0.0"
+        "legacy_version": "2018.0.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2018",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -18325,7 +20427,13 @@
       "introduced": {
         "date": null,
         "census": "2018",
-        "legacy_version": "2018.0.0"
+        "legacy_version": "2018.0.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2018",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -18394,7 +20502,13 @@
       "introduced": {
         "date": null,
         "census": "2018",
-        "legacy_version": "2018.0.0"
+        "legacy_version": "2018.0.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2018",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -18473,7 +20587,13 @@
       "introduced": {
         "date": null,
         "census": "2018",
-        "legacy_version": "2018.0.0"
+        "legacy_version": "2018.0.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2018",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -18553,7 +20673,13 @@
       "introduced": {
         "date": null,
         "census": "2018",
-        "legacy_version": "2018.0.0"
+        "legacy_version": "2018.0.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2018",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -18633,7 +20759,13 @@
       "introduced": {
         "date": null,
         "census": "2018",
-        "legacy_version": "2018.0.0"
+        "legacy_version": "2018.0.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2018",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -18712,7 +20844,13 @@
       "introduced": {
         "date": null,
         "census": "2018",
-        "legacy_version": "2018.0.0"
+        "legacy_version": "2018.0.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2018",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -18807,7 +20945,13 @@
       "introduced": {
         "date": null,
         "census": "2021",
-        "legacy_version": "2021.0.0"
+        "legacy_version": "2021.0.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2021",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -18898,7 +21042,13 @@
       "introduced": {
         "date": null,
         "census": "2021",
-        "legacy_version": "2021.0.0"
+        "legacy_version": "2021.0.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2021",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -18979,7 +21129,13 @@
       "introduced": {
         "date": null,
         "census": "2021",
-        "legacy_version": "2021.0.0"
+        "legacy_version": "2021.0.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2021",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -19044,7 +21200,13 @@
       "introduced": {
         "date": null,
         "census": "2026",
-        "legacy_version": "2021.1.0"
+        "legacy_version": "2021.1.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2026",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -19116,7 +21278,13 @@
       "introduced": {
         "date": null,
         "census": "2026",
-        "legacy_version": "2021.4.0"
+        "legacy_version": "2021.4.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2026",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -19195,7 +21363,13 @@
       "introduced": {
         "date": null,
         "census": "2026",
-        "legacy_version": "2021.4.0"
+        "legacy_version": "2021.4.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2026",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -19270,7 +21444,13 @@
       "introduced": {
         "date": null,
         "census": "2026",
-        "legacy_version": "2021.6.0"
+        "legacy_version": "2021.6.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2026",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -19339,7 +21519,13 @@
       "introduced": {
         "date": null,
         "census": "2026",
-        "legacy_version": "2021.7.0"
+        "legacy_version": "2021.7.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2026",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -19409,7 +21595,13 @@
       "introduced": {
         "date": null,
         "census": "2026",
-        "legacy_version": "2021.7.0"
+        "legacy_version": "2021.7.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2026",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -19484,7 +21676,13 @@
       "introduced": {
         "date": null,
         "census": "2026",
-        "legacy_version": "2021.7.0"
+        "legacy_version": "2021.7.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2026",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -19556,7 +21754,13 @@
       "introduced": {
         "date": null,
         "census": "2026",
-        "legacy_version": "2021.10.0"
+        "legacy_version": "2021.10.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2026",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -19639,7 +21843,13 @@
       "introduced": {
         "date": null,
         "census": "2018",
-        "legacy_version": "2018.0.0"
+        "legacy_version": "2018.0.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2018",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -19740,7 +21950,13 @@
       "introduced": {
         "date": null,
         "census": "2018",
-        "legacy_version": "2018.0.0"
+        "legacy_version": "2018.0.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2018",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -19840,7 +22056,13 @@
       "introduced": {
         "date": null,
         "census": "2018",
-        "legacy_version": "2018.0.0"
+        "legacy_version": "2018.0.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2018",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -19919,7 +22141,13 @@
       "introduced": {
         "date": null,
         "census": "2018",
-        "legacy_version": "2018.0.0"
+        "legacy_version": "2018.0.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2018",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -20009,7 +22237,13 @@
       "introduced": {
         "date": null,
         "census": "2018",
-        "legacy_version": "2018.0.0"
+        "legacy_version": "2018.0.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2018",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -20084,7 +22318,13 @@
       "introduced": {
         "date": null,
         "census": "2018",
-        "legacy_version": "2018.0.0"
+        "legacy_version": "2018.0.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2018",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -20154,7 +22394,13 @@
       "introduced": {
         "date": null,
         "census": "2018",
-        "legacy_version": "2018.0.0"
+        "legacy_version": "2018.0.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2018",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -20229,7 +22475,13 @@
       "introduced": {
         "date": null,
         "census": "2018",
-        "legacy_version": "2018.0.0"
+        "legacy_version": "2018.0.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2018",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -20301,7 +22553,13 @@
       "introduced": {
         "date": null,
         "census": "2018",
-        "legacy_version": "2018.0.0"
+        "legacy_version": "2018.0.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2018",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -20381,7 +22639,13 @@
       "introduced": {
         "date": null,
         "census": "2021",
-        "legacy_version": "2021.0.0"
+        "legacy_version": "2021.0.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2021",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -20460,7 +22724,13 @@
       "introduced": {
         "date": null,
         "census": "2018",
-        "legacy_version": "2018.0.0"
+        "legacy_version": "2018.0.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2018",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -20541,9 +22811,15 @@
       "introduced": {
         "date": null,
         "census": "2021",
-        "legacy_version": "2021.2.0"
+        "legacy_version": "2021.2.0",
+        "context": "tentative"
       },
-      "last_modified": null,
+      "accepted": {
+        "date": null,
+        "census": "2026",
+        "context": "confirmed_ism_csm"
+      },
+      "last_modified": "2026-05-07",
       "events": [
         {
           "date": null,
@@ -20562,6 +22838,15 @@
           ],
           "summary": "Functional group tag",
           "legacy_version": "2021.10.1"
+        },
+        {
+          "kind": "updated",
+          "summary": "Marked accepted census membership separately from earlier tentative discussion.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
         }
       ]
     }
@@ -20619,7 +22904,13 @@
       "introduced": {
         "date": null,
         "census": "2021",
-        "legacy_version": "2021.0.0"
+        "legacy_version": "2021.0.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2021",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -20694,7 +22985,13 @@
       "introduced": {
         "date": null,
         "census": "2021",
-        "legacy_version": "2021.0.0"
+        "legacy_version": "2021.0.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2021",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -20779,7 +23076,13 @@
       "introduced": {
         "date": null,
         "census": "2021",
-        "legacy_version": "2021.0.0"
+        "legacy_version": "2021.0.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2021",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -20868,7 +23171,13 @@
       "introduced": {
         "date": null,
         "census": "2026",
-        "legacy_version": "2021.10.0"
+        "legacy_version": "2021.10.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2026",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -20947,7 +23256,13 @@
       "introduced": {
         "date": null,
         "census": "2026",
-        "legacy_version": "2021.10.0"
+        "legacy_version": "2021.10.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2026",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -21022,7 +23337,13 @@
       "introduced": {
         "date": null,
         "census": "2026",
-        "legacy_version": "2021.10.0"
+        "legacy_version": "2021.10.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2026",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -21094,7 +23415,13 @@
       "introduced": {
         "date": null,
         "census": "2018",
-        "legacy_version": "2018.0.0"
+        "legacy_version": "2018.0.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2018",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -21183,7 +23510,13 @@
       "introduced": {
         "date": null,
         "census": "2018",
-        "legacy_version": "2018.0.0"
+        "legacy_version": "2018.0.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2018",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -21263,7 +23596,13 @@
       "introduced": {
         "date": null,
         "census": "2018",
-        "legacy_version": "2018.0.0"
+        "legacy_version": "2018.0.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2018",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -21343,7 +23682,13 @@
       "introduced": {
         "date": null,
         "census": "2018",
-        "legacy_version": "2018.0.0"
+        "legacy_version": "2018.0.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2018",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -21422,7 +23767,13 @@
       "introduced": {
         "date": null,
         "census": "2018",
-        "legacy_version": "2018.0.0"
+        "legacy_version": "2018.0.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2018",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -21502,7 +23853,13 @@
       "introduced": {
         "date": null,
         "census": "2018",
-        "legacy_version": "2018.0.0"
+        "legacy_version": "2018.0.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2018",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -21581,7 +23938,13 @@
       "introduced": {
         "date": null,
         "census": "2026",
-        "legacy_version": "2021.7.0"
+        "legacy_version": "2021.7.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2026",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -21662,7 +24025,13 @@
       "introduced": {
         "date": null,
         "census": "2026",
-        "legacy_version": "2021.1.0"
+        "legacy_version": "2021.1.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2026",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -21738,7 +24107,13 @@
       "introduced": {
         "date": null,
         "census": "2026",
-        "legacy_version": "2021.3.0"
+        "legacy_version": "2021.3.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2026",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -21813,7 +24188,13 @@
       "introduced": {
         "date": null,
         "census": "2026",
-        "legacy_version": "2021.4.0"
+        "legacy_version": "2021.4.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2026",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -21886,7 +24267,13 @@
       "introduced": {
         "date": null,
         "census": "2026",
-        "legacy_version": "2021.5.0"
+        "legacy_version": "2021.5.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2026",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -21968,7 +24355,13 @@
       "introduced": {
         "date": null,
         "census": "2026",
-        "legacy_version": "2021.5.0"
+        "legacy_version": "2021.5.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2026",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -22050,7 +24443,13 @@
       "introduced": {
         "date": null,
         "census": "2026",
-        "legacy_version": "2021.5.0"
+        "legacy_version": "2021.5.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2026",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -22131,7 +24530,13 @@
       "introduced": {
         "date": null,
         "census": "2026",
-        "legacy_version": "2021.8.0"
+        "legacy_version": "2021.8.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2026",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -22216,9 +24621,15 @@
       "introduced": {
         "date": null,
         "census": "2021",
-        "legacy_version": "2021.9.0"
+        "legacy_version": "2021.9.0",
+        "context": "tentative"
       },
-      "last_modified": null,
+      "accepted": {
+        "date": null,
+        "census": "2026",
+        "context": "confirmed_ism_csm"
+      },
+      "last_modified": "2026-05-07",
       "events": [
         {
           "date": null,
@@ -22237,6 +24648,15 @@
           ],
           "summary": "Functional group tag",
           "legacy_version": "2021.10.1"
+        },
+        {
+          "kind": "updated",
+          "summary": "Marked accepted census membership separately from earlier tentative discussion.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
         }
       ]
     }
@@ -22295,7 +24715,13 @@
       "introduced": {
         "date": null,
         "census": "2018",
-        "legacy_version": "2018.0.0"
+        "legacy_version": "2018.0.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2018",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -22374,7 +24800,13 @@
       "introduced": {
         "date": null,
         "census": "2018",
-        "legacy_version": "2018.0.0"
+        "legacy_version": "2018.0.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2018",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -22454,7 +24886,13 @@
       "introduced": {
         "date": null,
         "census": "2018",
-        "legacy_version": "2018.0.0"
+        "legacy_version": "2018.0.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2018",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -22534,7 +24972,13 @@
       "introduced": {
         "date": null,
         "census": "2018",
-        "legacy_version": "2018.0.0"
+        "legacy_version": "2018.0.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2018",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -22621,7 +25065,13 @@
       "introduced": {
         "date": null,
         "census": "2021",
-        "legacy_version": "2021.0.0"
+        "legacy_version": "2021.0.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2021",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -22705,7 +25155,13 @@
       "introduced": {
         "date": null,
         "census": "2021",
-        "legacy_version": "2021.0.0"
+        "legacy_version": "2021.0.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2021",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -22781,7 +25237,13 @@
       "introduced": {
         "date": null,
         "census": "2026",
-        "legacy_version": "2021.1.0"
+        "legacy_version": "2021.1.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2026",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -22856,7 +25318,13 @@
       "introduced": {
         "date": null,
         "census": "2026",
-        "legacy_version": "2021.5.0"
+        "legacy_version": "2021.5.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2026",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -22921,7 +25389,13 @@
       "introduced": {
         "date": null,
         "census": "2026",
-        "legacy_version": "2021.7.0"
+        "legacy_version": "2021.7.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2026",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -22993,7 +25467,13 @@
       "introduced": {
         "date": null,
         "census": "2026",
-        "legacy_version": "2021.7.0"
+        "legacy_version": "2021.7.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2026",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -23060,7 +25540,13 @@
       "introduced": {
         "date": null,
         "census": "2018",
-        "legacy_version": "2018.0.0"
+        "legacy_version": "2018.0.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2018",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -23140,7 +25626,13 @@
       "introduced": {
         "date": null,
         "census": "2018",
-        "legacy_version": "2018.0.0"
+        "legacy_version": "2018.0.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2018",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -23220,7 +25712,13 @@
       "introduced": {
         "date": null,
         "census": "2018",
-        "legacy_version": "2018.0.0"
+        "legacy_version": "2018.0.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2018",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -23302,9 +25800,15 @@
       "introduced": {
         "date": null,
         "census": "2021",
-        "legacy_version": "2021.7.0"
+        "legacy_version": "2021.7.0",
+        "context": "tentative"
       },
-      "last_modified": null,
+      "accepted": {
+        "date": null,
+        "census": "2026",
+        "context": "confirmed_ism_csm"
+      },
+      "last_modified": "2026-05-07",
       "events": [
         {
           "date": null,
@@ -23323,6 +25827,15 @@
           ],
           "summary": "Functional group tag",
           "legacy_version": "2021.10.1"
+        },
+        {
+          "kind": "updated",
+          "summary": "Marked accepted census membership separately from earlier tentative discussion.",
+          "date": "2026-05-07",
+          "census": "2026",
+          "fields": [
+            "history.accepted"
+          ]
         }
       ]
     }
@@ -23384,7 +25897,13 @@
       "introduced": {
         "date": null,
         "census": "2021",
-        "legacy_version": "2021.0.0"
+        "legacy_version": "2021.0.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2021",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -23472,7 +25991,13 @@
       "introduced": {
         "date": null,
         "census": "2021",
-        "legacy_version": "2021.0.0"
+        "legacy_version": "2021.0.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2021",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -23555,7 +26080,13 @@
       "introduced": {
         "date": null,
         "census": "2026",
-        "legacy_version": "2021.5.0"
+        "legacy_version": "2021.5.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2026",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -23635,7 +26166,13 @@
       "introduced": {
         "date": null,
         "census": "2026",
-        "legacy_version": "2021.5.0"
+        "legacy_version": "2021.5.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2026",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -23722,7 +26259,13 @@
       "introduced": {
         "date": null,
         "census": "2026",
-        "legacy_version": "2021.8.0"
+        "legacy_version": "2021.8.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2026",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -23791,7 +26334,13 @@
       "introduced": {
         "date": null,
         "census": "2018",
-        "legacy_version": "2018.0.0"
+        "legacy_version": "2018.0.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2018",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -23870,7 +26419,13 @@
       "introduced": {
         "date": null,
         "census": "2021",
-        "legacy_version": "2021.0.0"
+        "legacy_version": "2021.0.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2021",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -23945,7 +26500,13 @@
       "introduced": {
         "date": null,
         "census": "2026",
-        "legacy_version": "2021.7.0"
+        "legacy_version": "2021.7.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2026",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -24020,7 +26581,13 @@
       "introduced": {
         "date": null,
         "census": "2026",
-        "legacy_version": "2021.7.0"
+        "legacy_version": "2021.7.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2026",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -24098,7 +26665,13 @@
       "introduced": {
         "date": null,
         "census": "2026",
-        "legacy_version": "2021.5.0"
+        "legacy_version": "2021.5.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2026",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -24174,7 +26747,13 @@
       "introduced": {
         "date": null,
         "census": "2026",
-        "legacy_version": "2021.9.0"
+        "legacy_version": "2021.9.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2026",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -24249,7 +26828,13 @@
       "introduced": {
         "date": null,
         "census": "2026",
-        "legacy_version": "2021.8.0"
+        "legacy_version": "2021.8.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2026",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -24318,7 +26903,13 @@
       "introduced": {
         "date": null,
         "census": "2021",
-        "legacy_version": "2021.0.0"
+        "legacy_version": "2021.0.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2021",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -24397,7 +26988,13 @@
       "introduced": {
         "date": null,
         "census": "2021",
-        "legacy_version": "2021.0.0"
+        "legacy_version": "2021.0.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2021",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -24475,7 +27072,13 @@
       "introduced": {
         "date": null,
         "census": "2021",
-        "legacy_version": "2021.0.0"
+        "legacy_version": "2021.0.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2021",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -24544,7 +27147,13 @@
       "introduced": {
         "date": null,
         "census": "2026",
-        "legacy_version": "2021.7.0"
+        "legacy_version": "2021.7.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2026",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -24613,7 +27222,13 @@
       "introduced": {
         "date": null,
         "census": "2026",
-        "legacy_version": "2021.10.0"
+        "legacy_version": "2021.10.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2026",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -24692,7 +27307,13 @@
       "introduced": {
         "date": null,
         "census": "2026",
-        "legacy_version": "2021.10.0"
+        "legacy_version": "2021.10.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2026",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -24771,7 +27392,13 @@
       "introduced": {
         "date": null,
         "census": "2026",
-        "legacy_version": "2021.10.0"
+        "legacy_version": "2021.10.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2026",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -24850,7 +27477,13 @@
       "introduced": {
         "date": null,
         "census": "2026",
-        "legacy_version": "2021.10.0"
+        "legacy_version": "2021.10.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2026",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -24929,7 +27562,13 @@
       "introduced": {
         "date": null,
         "census": "2026",
-        "legacy_version": "2021.10.0"
+        "legacy_version": "2021.10.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2026",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -24996,7 +27635,13 @@
       "introduced": {
         "date": null,
         "census": "2018",
-        "legacy_version": "2018.0.0"
+        "legacy_version": "2018.0.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2018",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -25053,7 +27698,13 @@
       "introduced": {
         "date": null,
         "census": "2018",
-        "legacy_version": "2018.0.0"
+        "legacy_version": "2018.0.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2018",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -25110,7 +27761,13 @@
       "introduced": {
         "date": null,
         "census": "2018",
-        "legacy_version": "2018.0.0"
+        "legacy_version": "2018.0.0",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": null,
+        "census": "2018",
+        "context": "confirmed_ism_csm"
       },
       "last_modified": null,
       "events": [
@@ -25180,9 +27837,11 @@
     "latex_body": "\\citet{Dickens:2001:643} reported the tentative detection of the $J_{K_a,K_c} = 5_{5,0}\\rightarrow4_{4,1}$ transition of \\ce{c-C2H4NH}, also known as ethylenimine, at 226~GHz toward Sgr B2, G34.3+0.2, G10.47+0.03, and G327.3-0.6 in observations made with the SEST 15-m, NRAO 12-m, and NASA Deep Space Network 70-m telescopes.  The laboratory data were reported by \\citet{Thorwirth:2000:323,Thorwirth:2000:116,Tolles:1965:2253}.",
     "history": {
       "introduced": {
-        "census": 2021,
-        "date": "2026-05-07"
+        "census": "2021",
+        "date": "2026-05-07",
+        "context": "tentative"
       },
+      "accepted": null,
       "last_modified": "2026-05-07",
       "events": [
         {
@@ -25240,8 +27899,11 @@
     "latex_body": "\\citet{Cernicharo:2008:L83} suggest that an unidentified line at 83.278\\,GHz, classified as U83278, in IRAM 30-m observations of IRC+10216 may be due to the $J = 1\\rightarrow0$ transition of \\ce{C2H-}.  Although they list no source for their line frequency, it presumably is derived from the work of \\citet{Brunken:2007:L33} and \\citet{Amano:2008:244305}.",
     "history": {
       "introduced": {
-        "date": "2026-05-07"
+        "date": "2026-05-07",
+        "context": "tentative",
+        "census": "2021"
       },
+      "accepted": null,
       "last_modified": "2026-05-07",
       "events": [
         {
@@ -25296,8 +27958,11 @@
     "latex_body": "\\citet{Walmsley:2002:L109} identified an absorption feature in IRAM 30-m observations of Sgr B2 at 153~GHz that they tentatively assign to the $J = 5\\rightarrow4$, $\\Omega = 4$ transition of FeO, based on the laboratory work of \\citet{Allen:1996:130}.  Later, \\citet{Furuya:2003:L21} used the Nobeyama Millimeter Array to confirm the detection of this line, but no additional transitions were observed.  Most recently, \\citet{Decin:2018:113} reported a tentative detection of the $11\\rightarrow10$, $\\Omega = 4$ transition in ALMA observations of R Dor at 337~GHz.",
     "history": {
       "introduced": {
-        "date": "2026-05-07"
+        "date": "2026-05-07",
+        "context": "tentative",
+        "census": "2021"
       },
+      "accepted": null,
       "last_modified": "2026-05-07",
       "events": [
         {
@@ -25363,8 +28028,11 @@
     "latex_body": "\\citet{Kuan:2003:848} reported a detection of 27 lines of \\ce{NH2CH2COOH} in observations toward Orion, Sgr B2, and W51 using the NRAO 12-m telescope.  Each source contained 13--16 of the 27 features; three features were seen in common between the sources.  The frequencies were obtained from the rotational constants measured and reported in \\citet{Suenram:1980:7180} and \\citet{Lovas:1995:L201}.  The detection was later disputed by \\citet{Snyder:2005:914}, who claimed to have identified a number of issues with the analysis.  Notably, \\citet{Snyder:2005:914} argue that the frequency predictions used by \\citet{Kuan:2003:848} were extrapolated too far above the measured laboratory transitions.  \\citet{Snyder:2005:914} used laboratory frequencies from \\citet{Ilyushin:2005:15} that covered the observed frequency range, and examined archival NRAO 12-m and SEST 15-m observations of Orion, Sgr B2, and W51.  They report a number of ``missing'' transitions of \\ce{NH2CH2COOH} that they predicted should have been strongly detected, if the detection of \\citet{Kuan:2003:848} held.  Subsequent searches by \\citet{Jones:2007:579}, \\citet{Cunningham:2007:1201}, and \\citet{Belloche:2008:179} using both interferometers and single-dish facilities failed to detect \\ce{NH2CH2COOH}, and set upper limits to the column density lower than that claimed in the detection of \\citet{Kuan:2003:848} (see \\citealt{Belloche:2008:179} \\S4.4 for a detailed discussion).",
     "history": {
       "introduced": {
-        "date": "2026-05-07"
+        "date": "2026-05-07",
+        "context": "disputed",
+        "census": "2021"
       },
+      "accepted": null,
       "last_modified": "2026-05-07",
       "events": [
         {
@@ -25422,8 +28090,11 @@
     "latex_body": "\\citet{Marcelino:2020:L6} report a tentative detection of \\ce{HC5NH+} in Yebes 40-m observations of TMC-1.  They identify a series of eight harmonically spaced lines in the data corresponding to a rotational constant $B$ = 1295.8158\\,MHz.  Based on quantum chemical calculations, they suggest either \\ce{HC5NH+} or \\ce{NC4NH+} as the potential carrier, eventually proposing \\ce{HC5NH+} as the more likely.",
     "history": {
       "introduced": {
-        "date": "2026-05-07"
+        "date": "2026-05-07",
+        "context": "tentative",
+        "census": "2021"
       },
+      "accepted": null,
       "last_modified": "2026-05-07",
       "events": [
         {
@@ -25484,8 +28155,11 @@
     "latex_body": "\\citet{Agundez:2014:A45} reported the tentative detection of \\ce{NCCP} in IRAM 30-m observations of IRC+10216.  They identified and tentatively assigned three signals in their spectra to the $J = 15\\rightarrow14$, $16\\rightarrow15$, and $18\\rightarrow17$ transitions of \\ce{NCCP} at 81, 87, and 97~GHz, respectively, based on the laboratory work of \\citet{Bizzocchi:2001:110}.",
     "history": {
       "introduced": {
-        "date": "2026-05-07"
+        "date": "2026-05-07",
+        "context": "tentative",
+        "census": "2021"
       },
+      "accepted": null,
       "last_modified": "2026-05-07",
       "events": [
         {
@@ -25543,8 +28217,11 @@
     "latex_body": "\\citet{Cernicharo:2014:40} reported the tentative detection of a single line ($J = 2\\rightarrow1$) of \\ce{NO+} at 238~GHz toward B1-b using the IRAM 30-m telescope.  The assignment was made based on laboratory rotational spectroscopy described in the same paper.",
     "history": {
       "introduced": {
-        "date": "2026-05-07"
+        "date": "2026-05-07",
+        "context": "tentative",
+        "census": "2021"
       },
+      "accepted": null,
       "last_modified": "2026-05-07",
       "events": [
         {
@@ -25601,8 +28278,11 @@
     "latex_body": "There is a long history of attempts to identify the carrier of the ``XCN\" feature in astrophyiscal ice observations near 2167~cm$^{-1}$.  On the basis of extensive laboratory work (see, e.g., \\citealt{Schutte:1997:L43}), \\citet{vanBroekhuizen:2005:249} claim an identification of \\ce{OCN-} in ices along numerous sightlines to low-mass YSO's using the Very Large Telescope (VLT).  Only a single absorption feature could be ascribed to \\ce{OCN-}.  As this is a single feature detection, and no gas-phase detection has been claimed, \\ce{OCN-} has been listed as a tentative interstellar species in this census.",
     "history": {
       "introduced": {
-        "date": "2026-05-07"
+        "date": "2026-05-07",
+        "context": "tentative",
+        "census": "2021"
       },
+      "accepted": null,
       "last_modified": "2026-05-07",
       "events": [
         {
@@ -25664,8 +28344,11 @@
     "latex_body": "\\citet{Kolesnikova:2013:13} reported the laboratory rotational spectroscopy of \\ce{C6H5OH}, and identified a number of coincidences between transitions of \\ce{C6H5OH} and unassigned lines in IRAM 30-m observations of Orion between 80--280~GHz from \\citep{Tercero:2012:A119}.",
     "history": {
       "introduced": {
-        "date": "2026-05-07"
+        "date": "2026-05-07",
+        "context": "tentative",
+        "census": "2021"
       },
+      "accepted": null,
       "last_modified": "2026-05-07",
       "events": [
         {
@@ -25715,8 +28398,11 @@
     "latex_body": "\\citet{Schilke:2001:281} reported the tentative detection of two features in a CSO line survey of Orion that were coincident with transitions of SiH.  Two groups of hyperfine transitions in the $^2\\Pi _{1/2}$ state at 625 and 628~GHz fell within range of the observations.  The lower set is significantly blended with other emitting species, whereas the higher-frequency set appears unblended, and may show partially resolved hyperfine structure.  The laboratory frequencies were from \\citet{Brown:1985:188}.",
     "history": {
       "introduced": {
-        "date": "2026-05-07"
+        "date": "2026-05-07",
+        "context": "tentative",
+        "census": "2021"
       },
+      "accepted": null,
       "last_modified": "2026-05-07",
       "events": [
         {

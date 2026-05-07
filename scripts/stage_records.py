@@ -23,6 +23,7 @@ except ImportError as exc:  # pragma: no cover - environment guard
 
 ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / "astromol" / "data"
+CURRENT_CENSUS = "2026"
 
 sys.path.insert(0, str(ROOT))
 
@@ -276,6 +277,17 @@ def clean_payload_value(key: str, value):
                 refs[role] = keys
         return refs if refs else MISSING
 
+    if key == "history" and isinstance(value, dict):
+        history = {}
+        for history_key, item in value.items():
+            if history_key == "accepted" and item is None:
+                history[history_key] = None
+                continue
+            pruned = prune_empty_template_value(item)
+            if pruned is not MISSING:
+                history[history_key] = pruned
+        return history if history else MISSING
+
     if key in {"rotcon", "dipole", "history", "tags"}:
         return prune_empty_template_value(value)
 
@@ -283,10 +295,11 @@ def clean_payload_value(key: str, value):
 
 
 def default_history(kind: str, run_date: str) -> dict:
-    return {
-        "introduced": {
-            "date": run_date,
-        },
+    introduced = {
+        "date": run_date,
+    }
+    history = {
+        "introduced": introduced,
         "last_modified": run_date,
         "events": [
             {
@@ -297,6 +310,14 @@ def default_history(kind: str, run_date: str) -> dict:
             }
         ],
     }
+    if kind == "molecule":
+        introduced["context"] = "confirmed"
+        history["accepted"] = {
+            "date": run_date,
+            "census": CURRENT_CENSUS,
+            "context": "confirmed",
+        }
+    return history
 
 
 def normalize_history(kind: str, history: dict | None, run_date: str) -> dict:
@@ -308,7 +329,28 @@ def normalize_history(kind: str, history: dict | None, run_date: str) -> dict:
     introduced = dict(history.get("introduced") or {})
     if not introduced.get("date"):
         introduced["date"] = run_date
+    if kind == "molecule" and not introduced.get("context"):
+        introduced["context"] = (
+            "tentative" if "accepted" in history and history["accepted"] is None
+            else "confirmed"
+        )
     history["introduced"] = introduced
+
+    if kind == "molecule":
+        if "accepted" not in history:
+            history["accepted"] = default_history(kind, run_date)["accepted"]
+        elif history["accepted"] is not None:
+            accepted = dict(history["accepted"] or {})
+            if not accepted.get("date"):
+                accepted["date"] = run_date
+            if not accepted.get("census"):
+                accepted["census"] = CURRENT_CENSUS
+            if not accepted.get("context"):
+                accepted["context"] = "confirmed"
+            history["accepted"] = accepted
+    else:
+        history.pop("accepted", None)
+
     if not history.get("last_modified"):
         history["last_modified"] = run_date
 

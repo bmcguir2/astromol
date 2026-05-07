@@ -166,6 +166,7 @@ class RecordHistory:
     """Semantic update history for a database record."""
 
     introduced: dict = None
+    accepted: dict = None
     last_modified: str = None
     events: list[HistoryEvent] = field(default_factory=list)
 
@@ -174,6 +175,8 @@ class RecordHistory:
             self.introduced = {}
         if not isinstance(self.introduced, dict):
             raise ValueError("Record history introduced must be a dict.")
+        if self.accepted is not None and not isinstance(self.accepted, dict):
+            raise ValueError("Record history accepted must be a dict or None.")
 
         converted_events = []
         for event in self.events or []:
@@ -184,6 +187,30 @@ class RecordHistory:
             else:
                 raise ValueError("Record history events must be dicts or HistoryEvent objects.")
         self.events = converted_events
+
+    @property
+    def introduced_census(self):
+        """Census release where this record entered astromol tracking."""
+        return self.introduced.get("census")
+
+    @property
+    def introduced_context(self):
+        """Context for record introduction, such as confirmed or tentative."""
+        return self.introduced.get("context")
+
+    @property
+    def accepted_census(self):
+        """Census release where this molecule first became accepted/confirmed."""
+        if self.accepted is None:
+            return None
+        return self.accepted.get("census")
+
+    @property
+    def accepted_context(self):
+        """Context for first accepted/confirmed census membership."""
+        if self.accepted is None:
+            return None
+        return self.accepted.get("context")
     
 @dataclass
 class Telescope:
@@ -413,6 +440,26 @@ class Molecule:
                     f"unknown ref role '{role}'. "
                     f"Must be one of: {MOLECULE_REF_ROLES}"
                 )
+
+    @property
+    def introduced_census(self):
+        """Census release where this molecule entered astromol tracking."""
+        return None if self.history is None else self.history.introduced_census
+
+    @property
+    def introduced_context(self):
+        """Context for molecule introduction, such as confirmed or tentative."""
+        return None if self.history is None else self.history.introduced_context
+
+    @property
+    def accepted_census(self):
+        """Census release where this molecule first became accepted/confirmed."""
+        return None if self.history is None else self.history.accepted_census
+
+    @property
+    def accepted_context(self):
+        """Context for first accepted/confirmed census membership."""
+        return None if self.history is None else self.history.accepted_context
 
     @cached_property
     def _formula(self):
