@@ -25487,5 +25487,64 @@
         }
       ]
     }
+  },
+  {
+    "name": "nitric oxide cation",
+    "formula": "NO+",
+    "table_formula": "NO+",
+    "label": "mol:NO+",
+    "note": null,
+    "iupac_name": "nitrilooxonium",
+    "selfies": null,
+    "synonyms": [
+      "nitrosylium ion"
+    ],
+    "smiles": "N#[O+]",
+    "canonical_smiles": null,
+    "inchi": "1S/NO/c1-2/q+1",
+    "inchikey": "KEJOCWOXCDWNID-UHFFFAOYSA-N",
+    "radical_override": null,
+    "fullerene": false,
+    "pah": false,
+    "n_rings": 0,
+    "cyclic": false,
+    "tags": {},
+    "rotcon": {
+      "B": 59597,
+      "refs": [
+        "Cernicharo:2014:40"
+      ]
+    },
+    "dipole": {
+      "b": 0.368,
+      "refs": [
+        "Polak:2004:73"
+      ]
+    },
+    "refs": {
+      "lab": [
+        "Cernicharo:2014:40"
+      ],
+      "computation": [
+        "Polak:2004:73"
+      ]
+    },
+    "isotopologue_of": null,
+    "latex_section_override": null,
+    "latex_body": "\\citet{Cernicharo:2014:40} reported the tentative detection of a single line ($J = 2\\rightarrow1$) of \\ce{NO+} at 238~GHz toward B1-b using the IRAM 30-m telescope.  The assignment was made based on laboratory rotational spectroscopy described in the same paper.",
+    "history": {
+      "introduced": {
+        "date": "2026-05-07"
+      },
+      "last_modified": "2026-05-07",
+      "events": [
+        {
+          "kind": "added",
+          "summary": "Added molecule record.",
+          "date": "2026-05-07",
+          "fields": []
+        }
+      ]
+    }
   }
 ]
