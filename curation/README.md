@@ -47,6 +47,12 @@ script adds `history.introduced.date`, `history.last_modified`, and an initial
 dated `added` event using the staging run date. Add an explicit `history` block
 only when you need to override that default.
 
+Detection records require a stable `id`. Use the default format
+`det:<molecule-label-without-mol-prefix>:<context>:<year>`, for example
+`det:CH3CH2CCH:ism-csm:2021`. Add a final qualifier only when that default
+would collide with another detection. Keep mutable status words such as
+`tentative` out of IDs.
+
 ## YAML Value Notes
 
 YAML will sometimes reinterpret unquoted values. Quote values that must remain

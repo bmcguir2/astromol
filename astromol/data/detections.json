@@ -1,5 +1,6 @@
 [
   {
+    "id": "det:CH:ism-csm:1937",
     "note": null,
     "molecule": "mol:CH",
     "sources": [
@@ -25,6 +26,7 @@
     "latex_text": null
   },
   {
+    "id": "det:CH:exgal:1980",
     "note": null,
     "molecule": "mol:CH",
     "sources": [
@@ -45,6 +47,7 @@
     "latex_text": null
   },
   {
+    "id": "det:CD:ism-csm:2023",
     "note": null,
     "molecule": "mol:CD",
     "sources": [],
@@ -61,6 +64,7 @@
     "latex_text": null
   },
   {
+    "id": "det:CN:ism-csm:1940",
     "note": null,
     "molecule": "mol:CN",
     "sources": [
@@ -83,6 +87,7 @@
     "latex_text": null
   },
   {
+    "id": "det:CN:ppd:1997",
     "note": null,
     "molecule": "mol:CN",
     "sources": [],
@@ -100,6 +105,7 @@
     "latex_text": null
   },
   {
+    "id": "det:CN:exgal:1988",
     "note": null,
     "molecule": "mol:CN",
     "sources": [
@@ -120,6 +126,7 @@
     "latex_text": null
   },
   {
+    "id": "det:C15N:ppd:2017",
     "note": null,
     "molecule": "mol:C15N",
     "sources": [],
@@ -136,6 +143,7 @@
     "latex_text": null
   },
   {
+    "id": "det:CH+:ism-csm:1941",
     "note": null,
     "molecule": "mol:CH+",
     "sources": [
@@ -160,6 +168,7 @@
     "latex_text": null
   },
   {
+    "id": "det:CH+:ppd:2011",
     "note": null,
     "molecule": "mol:CH+",
     "sources": [],
@@ -176,6 +185,7 @@
     "latex_text": null
   },
   {
+    "id": "det:CH+:exgal:1987",
     "note": null,
     "molecule": "mol:CH+",
     "sources": [
@@ -194,6 +204,7 @@
     "latex_text": null
   },
   {
+    "id": "det:OH:ism-csm:1963",
     "note": null,
     "molecule": "mol:OH",
     "sources": [
@@ -216,6 +227,7 @@
     "latex_text": null
   },
   {
+    "id": "det:OH:ppd:2008",
     "note": null,
     "molecule": "mol:OH",
     "sources": [],
@@ -233,6 +245,7 @@
     "latex_text": null
   },
   {
+    "id": "det:OH:exgal:1971",
     "note": null,
     "molecule": "mol:OH",
     "sources": [
@@ -252,6 +265,7 @@
     "latex_text": null
   },
   {
+    "id": "det:OH:exo:2021",
     "note": null,
     "molecule": "mol:OH",
     "sources": [],
@@ -268,6 +282,7 @@
     "latex_text": null
   },
   {
+    "id": "det:CO:ism-csm:1970",
     "note": null,
     "molecule": "mol:CO",
     "sources": [
@@ -290,6 +305,7 @@
     "latex_text": null
   },
   {
+    "id": "det:CO:ice:1979",
     "note": null,
     "molecule": "mol:CO",
     "sources": [],
@@ -306,6 +322,7 @@
     "latex_text": null
   },
   {
+    "id": "det:CO:ppd:1986",
     "note": null,
     "molecule": "mol:CO",
     "sources": [],
@@ -322,6 +339,7 @@
     "latex_text": null
   },
   {
+    "id": "det:CO:exgal:1975",
     "note": null,
     "molecule": "mol:CO",
     "sources": [
@@ -341,6 +359,7 @@
     "latex_text": null
   },
   {
+    "id": "det:CO:exo:2011",
     "note": null,
     "molecule": "mol:CO",
     "sources": [],
@@ -360,6 +379,7 @@
     "latex_text": null
   },
   {
+    "id": "det:13CO:ppd:1987",
     "note": null,
     "molecule": "mol:13CO",
     "sources": [],
@@ -376,6 +396,7 @@
     "latex_text": null
   },
   {
+    "id": "det:C18O:ppd:1994",
     "note": null,
     "molecule": "mol:C18O",
     "sources": [],
@@ -392,6 +413,7 @@
     "latex_text": null
   },
   {
+    "id": "det:C17O:ppd:2009",
     "note": null,
     "molecule": "mol:C17O",
     "sources": [],
@@ -409,6 +431,7 @@
     "latex_text": null
   },
   {
+    "id": "det:13C17O:ppd:2019",
     "note": null,
     "molecule": "mol:13C17O",
     "sources": [],
@@ -425,6 +448,7 @@
     "latex_text": null
   },
   {
+    "id": "det:13C18O:ppd:2017",
     "note": null,
     "molecule": "mol:13C18O",
     "sources": [],
@@ -441,6 +465,7 @@
     "latex_text": null
   },
   {
+    "id": "det:13CO:exo:2021",
     "note": null,
     "molecule": "mol:13CO",
     "sources": [
@@ -459,6 +484,7 @@
     "latex_text": null
   },
   {
+    "id": "det:H2:ism-csm:1970",
     "note": null,
     "molecule": "mol:H2",
     "sources": [
@@ -481,6 +507,7 @@
     "latex_text": null
   },
   {
+    "id": "det:H2:ppd:1999",
     "note": null,
     "molecule": "mol:H2",
     "sources": [],
@@ -497,6 +524,7 @@
     "latex_text": null
   },
   {
+    "id": "det:H2:exgal:1978",
     "note": null,
     "molecule": "mol:H2",
     "sources": [
@@ -515,6 +543,7 @@
     "latex_text": null
   },
   {
+    "id": "det:HD:ppd:2013",
     "note": null,
     "molecule": "mol:HD",
     "sources": [],
@@ -531,6 +560,7 @@
     "latex_text": null
   },
   {
+    "id": "det:SiO:ism-csm:1971",
     "note": null,
     "molecule": "mol:SiO",
     "sources": [
@@ -553,6 +583,7 @@
     "latex_text": null
   },
   {
+    "id": "det:SiO:exgal:1991",
     "note": null,
     "molecule": "mol:SiO",
     "sources": [
@@ -571,6 +602,7 @@
     "latex_text": null
   },
   {
+    "id": "det:CS:ism-csm:1971",
     "note": null,
     "molecule": "mol:CS",
     "sources": [
@@ -596,6 +628,7 @@
     "latex_text": null
   },
   {
+    "id": "det:CS:ppd:1991",
     "note": null,
     "molecule": "mol:CS",
     "sources": [],
@@ -614,6 +647,7 @@
     "latex_text": null
   },
   {
+    "id": "det:CS:exgal:1985",
     "note": null,
     "molecule": "mol:CS",
     "sources": [
@@ -633,6 +667,7 @@
     "latex_text": null
   },
   {
+    "id": "det:C34S:ppd:2019",
     "note": null,
     "molecule": "mol:C34S",
     "sources": [],
@@ -650,6 +685,7 @@
     "latex_text": null
   },
   {
+    "id": "det:13CS:ppd:2019",
     "note": null,
     "molecule": "mol:13CS",
     "sources": [],
@@ -667,6 +703,7 @@
     "latex_text": null
   },
   {
+    "id": "det:SO:ism-csm:1973",
     "note": null,
     "molecule": "mol:SO",
     "sources": [
@@ -689,6 +726,7 @@
     "latex_text": null
   },
   {
+    "id": "det:SO:ppd:2010",
     "note": null,
     "molecule": "mol:SO",
     "sources": [],
@@ -705,6 +743,7 @@
     "latex_text": null
   },
   {
+    "id": "det:SO:exgal:1991",
     "note": null,
     "molecule": "mol:SO",
     "sources": [
@@ -725,6 +764,7 @@
     "latex_text": null
   },
   {
+    "id": "det:34SO:ppd:2024",
     "note": null,
     "molecule": "mol:34SO",
     "sources": [],
@@ -741,6 +781,7 @@
     "latex_text": null
   },
   {
+    "id": "det:33SO:ppd:2024",
     "note": null,
     "molecule": "mol:33SO",
     "sources": [],
@@ -757,6 +798,7 @@
     "latex_text": null
   },
   {
+    "id": "det:SiS:ism-csm:1975",
     "note": null,
     "molecule": "mol:SiS",
     "sources": [
@@ -779,6 +821,7 @@
     "latex_text": null
   },
   {
+    "id": "det:SiS:ppd:2023",
     "note": null,
     "molecule": "mol:SiS",
     "sources": [],
@@ -795,6 +838,7 @@
     "latex_text": null
   },
   {
+    "id": "det:NS:ism-csm:1975",
     "note": null,
     "molecule": "mol:NS",
     "sources": [
@@ -818,6 +862,7 @@
     "latex_text": null
   },
   {
+    "id": "det:NS:exgal:2003",
     "note": null,
     "molecule": "mol:NS",
     "sources": [
@@ -836,6 +881,7 @@
     "latex_text": null
   },
   {
+    "id": "det:C2:ism-csm:1977",
     "note": null,
     "molecule": "mol:C2",
     "sources": [
@@ -858,6 +904,7 @@
     "latex_text": null
   },
   {
+    "id": "det:C2:exgal:2013",
     "note": null,
     "molecule": "mol:C2",
     "sources": [
@@ -876,6 +923,7 @@
     "latex_text": null
   },
   {
+    "id": "det:NO:ism-csm:1978",
     "note": null,
     "molecule": "mol:NO",
     "sources": [
@@ -898,6 +946,7 @@
     "latex_text": null
   },
   {
+    "id": "det:NO:ppd:2022",
     "note": null,
     "molecule": "mol:NO",
     "sources": [],
@@ -914,6 +963,7 @@
     "latex_text": null
   },
   {
+    "id": "det:NO:exgal:2003",
     "note": null,
     "molecule": "mol:NO",
     "sources": [
@@ -932,6 +982,7 @@
     "latex_text": null
   },
   {
+    "id": "det:HCl:ism-csm:1985",
     "note": null,
     "molecule": "mol:HCl",
     "sources": [
@@ -954,6 +1005,7 @@
     "latex_text": null
   },
   {
+    "id": "det:HCl:exgal:2019",
     "note": null,
     "molecule": "mol:HCl",
     "sources": [
@@ -972,6 +1024,7 @@
     "latex_text": null
   },
   {
+    "id": "det:NaCl:ism-csm:1987",
     "note": null,
     "molecule": "mol:NaCl",
     "sources": [
@@ -994,6 +1047,7 @@
     "latex_text": null
   },
   {
+    "id": "det:AlCl:ism-csm:1987",
     "note": null,
     "molecule": "mol:AlCl",
     "sources": [
@@ -1016,6 +1070,7 @@
     "latex_text": null
   },
   {
+    "id": "det:KCl:ism-csm:1987",
     "note": null,
     "molecule": "mol:KCl",
     "sources": [
@@ -1038,6 +1093,7 @@
     "latex_text": null
   },
   {
+    "id": "det:AlF:ism-csm:1987",
     "note": null,
     "molecule": "mol:AlF",
     "sources": [
@@ -1060,6 +1116,7 @@
     "latex_text": null
   },
   {
+    "id": "det:26AlF:ism-csm:2018",
     "note": null,
     "molecule": "mol:26AlF",
     "sources": [],
@@ -1076,6 +1133,7 @@
     "latex_text": null
   },
   {
+    "id": "det:PN:ism-csm:1987",
     "note": null,
     "molecule": "mol:PN",
     "sources": [
@@ -1103,6 +1161,7 @@
     "latex_text": null
   },
   {
+    "id": "det:PN:exgal:2022",
     "note": null,
     "molecule": "mol:PN",
     "sources": [
@@ -1121,6 +1180,7 @@
     "latex_text": null
   },
   {
+    "id": "det:SiC:ism-csm:1989",
     "note": null,
     "molecule": "mol:SiC",
     "sources": [
@@ -1143,6 +1203,7 @@
     "latex_text": null
   },
   {
+    "id": "det:CP:ism-csm:1990",
     "note": null,
     "molecule": "mol:CP",
     "sources": [
@@ -1165,6 +1226,7 @@
     "latex_text": null
   },
   {
+    "id": "det:NH:ism-csm:1991",
     "note": null,
     "molecule": "mol:NH",
     "sources": [
@@ -1189,6 +1251,7 @@
     "latex_text": null
   },
   {
+    "id": "det:NH:exgal:2004",
     "note": null,
     "molecule": "mol:NH",
     "sources": [
@@ -1207,6 +1270,7 @@
     "latex_text": null
   },
   {
+    "id": "det:SiN:ism-csm:1992",
     "note": null,
     "molecule": "mol:SiN",
     "sources": [
@@ -1229,6 +1293,7 @@
     "latex_text": null
   },
   {
+    "id": "det:SO+:ism-csm:1992",
     "note": null,
     "molecule": "mol:SO+",
     "sources": [
@@ -1251,6 +1316,7 @@
     "latex_text": null
   },
   {
+    "id": "det:SO+:exgal:2011",
     "note": null,
     "molecule": "mol:SO+",
     "sources": [
@@ -1269,6 +1335,7 @@
     "latex_text": null
   },
   {
+    "id": "det:CO+:ism-csm:1993",
     "note": null,
     "molecule": "mol:CO+",
     "sources": [
@@ -1292,6 +1359,7 @@
     "latex_text": null
   },
   {
+    "id": "det:CO+:exgal:2006",
     "note": null,
     "molecule": "mol:CO+",
     "sources": [
@@ -1310,6 +1378,7 @@
     "latex_text": null
   },
   {
+    "id": "det:HF:ism-csm:1997",
     "note": null,
     "molecule": "mol:HF",
     "sources": [
@@ -1332,6 +1401,7 @@
     "latex_text": null
   },
   {
+    "id": "det:HF:exgal:2010",
     "note": null,
     "molecule": "mol:HF",
     "sources": [
@@ -1354,6 +1424,7 @@
     "latex_text": null
   },
   {
+    "id": "det:N2:ism-csm:2004",
     "note": null,
     "molecule": "mol:N2",
     "sources": [
@@ -1376,6 +1447,7 @@
     "latex_text": null
   },
   {
+    "id": "det:CF+:ism-csm:2006",
     "note": null,
     "molecule": "mol:CF+",
     "sources": [
@@ -1399,6 +1471,7 @@
     "latex_text": null
   },
   {
+    "id": "det:CF+:exgal:2016",
     "note": null,
     "molecule": "mol:CF+",
     "sources": [
@@ -1417,6 +1490,7 @@
     "latex_text": null
   },
   {
+    "id": "det:PO:ism-csm:2007",
     "note": null,
     "molecule": "mol:PO",
     "sources": [
@@ -1439,6 +1513,7 @@
     "latex_text": null
   },
   {
+    "id": "det:O2:ism-csm:2007",
     "note": null,
     "molecule": "mol:O2",
     "sources": [
@@ -1464,6 +1539,7 @@
     "latex_text": null
   },
   {
+    "id": "det:O2:exgal:2020",
     "note": null,
     "molecule": "mol:O2",
     "sources": [
@@ -1482,6 +1558,7 @@
     "latex_text": null
   },
   {
+    "id": "det:AlO:ism-csm:2009",
     "note": null,
     "molecule": "mol:AlO",
     "sources": [
@@ -1504,6 +1581,7 @@
     "latex_text": null
   },
   {
+    "id": "det:CN-:ism-csm:2010",
     "note": null,
     "molecule": "mol:CN-",
     "sources": [
@@ -1526,6 +1604,7 @@
     "latex_text": null
   },
   {
+    "id": "det:OH+:ism-csm:2010",
     "note": null,
     "molecule": "mol:OH+",
     "sources": [
@@ -1550,6 +1629,7 @@
     "latex_text": null
   },
   {
+    "id": "det:OH+:exgal:2010",
     "note": null,
     "molecule": "mol:OH+",
     "sources": [
@@ -1572,6 +1652,7 @@
     "latex_text": null
   },
   {
+    "id": "det:SH+:ism-csm:2011",
     "note": null,
     "molecule": "mol:SH+",
     "sources": [
@@ -1594,6 +1675,7 @@
     "latex_text": null
   },
   {
+    "id": "det:SH+:exgal:2017",
     "note": null,
     "molecule": "mol:SH+",
     "sources": [
@@ -1612,6 +1694,7 @@
     "latex_text": null
   },
   {
+    "id": "det:HCl+:ism-csm:2012",
     "note": null,
     "molecule": "mol:HCl+",
     "sources": [
@@ -1635,6 +1718,7 @@
     "latex_text": null
   },
   {
+    "id": "det:SH:ism-csm:2012",
     "note": null,
     "molecule": "mol:SH",
     "sources": [
@@ -1657,6 +1741,7 @@
     "latex_text": null
   },
   {
+    "id": "det:TiO:ism-csm:2013",
     "note": null,
     "molecule": "mol:TiO",
     "sources": [
@@ -1679,6 +1764,7 @@
     "latex_text": null
   },
   {
+    "id": "det:TiO:exo:2015",
     "note": null,
     "molecule": "mol:TiO",
     "sources": [],
@@ -1697,6 +1783,7 @@
     "latex_text": null
   },
   {
+    "id": "det:ArH+:ism-csm:2013",
     "note": null,
     "molecule": "mol:ArH+",
     "sources": [
@@ -1719,6 +1806,7 @@
     "latex_text": null
   },
   {
+    "id": "det:ArH+:exgal:2015",
     "note": null,
     "molecule": "mol:ArH+",
     "sources": [
@@ -1737,6 +1825,7 @@
     "latex_text": null
   },
   {
+    "id": "det:NS+:ism-csm:2018",
     "note": null,
     "molecule": "mol:NS+",
     "sources": [
@@ -1761,6 +1850,7 @@
     "latex_text": null
   },
   {
+    "id": "det:HeH+:ism-csm:2019",
     "note": null,
     "molecule": "mol:HeH+",
     "sources": [
@@ -1783,6 +1873,7 @@
     "latex_text": null
   },
   {
+    "id": "det:VO:ism-csm:2019",
     "note": null,
     "molecule": "mol:VO",
     "sources": [
@@ -1805,6 +1896,7 @@
     "latex_text": null
   },
   {
+    "id": "det:VO:exo:2023",
     "note": null,
     "molecule": "mol:VO",
     "sources": [],
@@ -1821,6 +1913,7 @@
     "latex_text": null
   },
   {
+    "id": "det:PO+:ism-csm:2022",
     "note": null,
     "molecule": "mol:PO+",
     "sources": [
@@ -1845,6 +1938,7 @@
     "latex_text": null
   },
   {
+    "id": "det:SiP:ism-csm:2022",
     "note": null,
     "molecule": "mol:SiP",
     "sources": [
@@ -1869,6 +1963,7 @@
     "latex_text": null
   },
   {
+    "id": "det:FeC:ism-csm:2023",
     "note": null,
     "molecule": "mol:FeC",
     "sources": [
@@ -1893,6 +1988,7 @@
     "latex_text": null
   },
   {
+    "id": "det:MgS:ism-csm:2024",
     "note": null,
     "molecule": "mol:MgS",
     "sources": [
@@ -1918,6 +2014,7 @@
     "latex_text": null
   },
   {
+    "id": "det:NaS:ism-csm:2024",
     "note": null,
     "molecule": "mol:NaS",
     "sources": [
@@ -1942,6 +2039,7 @@
     "latex_text": null
   },
   {
+    "id": "det:H2O:ism-csm:1969",
     "note": null,
     "molecule": "mol:H2O",
     "sources": [
@@ -1966,6 +2064,7 @@
     "latex_text": null
   },
   {
+    "id": "det:H2O:ice:1973",
     "note": null,
     "molecule": "mol:H2O",
     "sources": [],
@@ -1982,6 +2081,7 @@
     "latex_text": null
   },
   {
+    "id": "det:H2O:ppd:2004",
     "note": null,
     "molecule": "mol:H2O",
     "sources": [],
@@ -2000,6 +2100,7 @@
     "latex_text": null
   },
   {
+    "id": "det:H2O:exgal:1977",
     "note": null,
     "molecule": "mol:H2O",
     "sources": [
@@ -2018,6 +2119,7 @@
     "latex_text": null
   },
   {
+    "id": "det:H2O:exo:2007",
     "note": null,
     "molecule": "mol:H2O",
     "sources": [],
@@ -2038,6 +2140,7 @@
     "latex_text": null
   },
   {
+    "id": "det:HDO:ism-csm:1975",
     "note": null,
     "molecule": "mol:HDO",
     "sources": [],
@@ -2054,6 +2157,7 @@
     "latex_text": null
   },
   {
+    "id": "det:HCO+:ism-csm:1970",
     "note": null,
     "molecule": "mol:HCO+",
     "sources": [
@@ -2080,6 +2184,7 @@
     "latex_text": null
   },
   {
+    "id": "det:HCO+:ppd:1997",
     "note": null,
     "molecule": "mol:HCO+",
     "sources": [],
@@ -2097,6 +2202,7 @@
     "latex_text": null
   },
   {
+    "id": "det:HCO+:exgal:1979",
     "note": null,
     "molecule": "mol:HCO+",
     "sources": [
@@ -2115,6 +2221,7 @@
     "latex_text": null
   },
   {
+    "id": "det:DCO+:ppd:2003",
     "note": null,
     "molecule": "mol:DCO+",
     "sources": [],
@@ -2131,6 +2238,7 @@
     "latex_text": null
   },
   {
+    "id": "det:H13CO+:ppd:2001",
     "note": null,
     "molecule": "mol:H13CO+",
     "sources": [],
@@ -2148,6 +2256,7 @@
     "latex_text": null
   },
   {
+    "id": "det:HC18O+:ppd:2022",
     "note": null,
     "molecule": "mol:HC18O+",
     "sources": [],
@@ -2164,6 +2273,7 @@
     "latex_text": null
   },
   {
+    "id": "det:HCN:ism-csm:1971",
     "note": null,
     "molecule": "mol:HCN",
     "sources": [
@@ -2191,6 +2301,7 @@
     "latex_text": null
   },
   {
+    "id": "det:HCN:ppd:1997",
     "note": null,
     "molecule": "mol:HCN",
     "sources": [],
@@ -2208,6 +2319,7 @@
     "latex_text": null
   },
   {
+    "id": "det:HCN:exgal:1977",
     "note": null,
     "molecule": "mol:HCN",
     "sources": [
@@ -2227,6 +2339,7 @@
     "latex_text": null
   },
   {
+    "id": "det:HCN:exo:2018",
     "note": null,
     "molecule": "mol:HCN",
     "sources": [],
@@ -2243,6 +2356,7 @@
     "latex_text": null
   },
   {
+    "id": "det:DCN:ppd:2008",
     "note": null,
     "molecule": "mol:DCN",
     "sources": [],
@@ -2259,6 +2373,7 @@
     "latex_text": null
   },
   {
+    "id": "det:H13CN:ppd:2015",
     "note": null,
     "molecule": "mol:H13CN",
     "sources": [],
@@ -2275,6 +2390,7 @@
     "latex_text": null
   },
   {
+    "id": "det:HC15N:ppd:2015",
     "note": null,
     "molecule": "mol:HC15N",
     "sources": [],
@@ -2291,6 +2407,7 @@
     "latex_text": null
   },
   {
+    "id": "det:OCS:ism-csm:1971",
     "note": null,
     "molecule": "mol:OCS",
     "sources": [
@@ -2313,6 +2430,7 @@
     "latex_text": null
   },
   {
+    "id": "det:OCS:ice:1995",
     "note": null,
     "molecule": "mol:OCS",
     "sources": [],
@@ -2330,6 +2448,7 @@
     "latex_text": null
   },
   {
+    "id": "det:OCS:exgal:1995",
     "note": null,
     "molecule": "mol:OCS",
     "sources": [
@@ -2348,6 +2467,7 @@
     "latex_text": null
   },
   {
+    "id": "det:HNC:ism-csm:1972",
     "note": null,
     "molecule": "mol:HNC",
     "sources": [
@@ -2372,6 +2492,7 @@
     "latex_text": null
   },
   {
+    "id": "det:HNC:ppd:1997",
     "note": null,
     "molecule": "mol:HNC",
     "sources": [],
@@ -2388,6 +2509,7 @@
     "latex_text": null
   },
   {
+    "id": "det:HNC:exgal:1988",
     "note": null,
     "molecule": "mol:HNC",
     "sources": [
@@ -2406,6 +2528,7 @@
     "latex_text": null
   },
   {
+    "id": "det:DNC:ppd:2020",
     "note": null,
     "molecule": "mol:DNC",
     "sources": [],
@@ -2422,6 +2545,7 @@
     "latex_text": null
   },
   {
+    "id": "det:H2S:ism-csm:1972",
     "note": null,
     "molecule": "mol:H2S",
     "sources": [
@@ -2451,6 +2575,7 @@
     "latex_text": null
   },
   {
+    "id": "det:H2S:ppd:2018",
     "note": null,
     "molecule": "mol:H2S",
     "sources": [],
@@ -2467,6 +2592,7 @@
     "latex_text": null
   },
   {
+    "id": "det:H2S:exgal:1999",
     "note": null,
     "molecule": "mol:H2S",
     "sources": [
@@ -2485,6 +2611,7 @@
     "latex_text": null
   },
   {
+    "id": "det:N2H+:ism-csm:1974",
     "note": null,
     "molecule": "mol:N2H+",
     "sources": [
@@ -2512,6 +2639,7 @@
     "latex_text": null
   },
   {
+    "id": "det:N2H+:ppd:2003",
     "note": null,
     "molecule": "mol:N2H+",
     "sources": [],
@@ -2529,6 +2657,7 @@
     "latex_text": null
   },
   {
+    "id": "det:N2H+:exgal:1991",
     "note": null,
     "molecule": "mol:N2H+",
     "sources": [
@@ -2551,6 +2680,7 @@
     "latex_text": null
   },
   {
+    "id": "det:N2D+:ppd:2015",
     "note": null,
     "molecule": "mol:N2D+",
     "sources": [],
@@ -2567,6 +2697,7 @@
     "latex_text": null
   },
   {
+    "id": "det:C2H:ism-csm:1974",
     "note": null,
     "molecule": "mol:C2H",
     "sources": [
@@ -2589,6 +2720,7 @@
     "latex_text": null
   },
   {
+    "id": "det:C2H:ppd:1997",
     "note": null,
     "molecule": "mol:C2H",
     "sources": [],
@@ -2605,6 +2737,7 @@
     "latex_text": null
   },
   {
+    "id": "det:C2H:exgal:1988",
     "note": null,
     "molecule": "mol:C2H",
     "sources": [
@@ -2623,6 +2756,7 @@
     "latex_text": null
   },
   {
+    "id": "det:C2D:ppd:2020",
     "note": null,
     "molecule": "mol:C2D",
     "sources": [],
@@ -2639,6 +2773,7 @@
     "latex_text": null
   },
   {
+    "id": "det:SO2:ism-csm:1975",
     "note": null,
     "molecule": "mol:SO2",
     "sources": [
@@ -2662,6 +2797,7 @@
     "latex_text": null
   },
   {
+    "id": "det:SO2:ppd:2021",
     "note": null,
     "molecule": "mol:SO2",
     "sources": [],
@@ -2678,6 +2814,7 @@
     "latex_text": null
   },
   {
+    "id": "det:SO2:exgal:2003",
     "note": null,
     "molecule": "mol:SO2",
     "sources": [
@@ -2696,6 +2833,7 @@
     "latex_text": null
   },
   {
+    "id": "det:SO2:exo:2023",
     "note": null,
     "molecule": "mol:SO2",
     "sources": [],
@@ -2713,6 +2851,7 @@
     "latex_text": null
   },
   {
+    "id": "det:HCO:ism-csm:1976",
     "note": null,
     "molecule": "mol:HCO",
     "sources": [
@@ -2738,6 +2877,7 @@
     "latex_text": null
   },
   {
+    "id": "det:HCO:exgal:1995",
     "note": null,
     "molecule": "mol:HCO",
     "sources": [
@@ -2757,6 +2897,7 @@
     "latex_text": null
   },
   {
+    "id": "det:HNO:ism-csm:1977",
     "note": null,
     "molecule": "mol:HNO",
     "sources": [
@@ -2780,6 +2921,7 @@
     "latex_text": null
   },
   {
+    "id": "det:HCS+:ism-csm:1981",
     "note": null,
     "molecule": "mol:HCS+",
     "sources": [
@@ -2804,6 +2946,7 @@
     "latex_text": null
   },
   {
+    "id": "det:HCS+:exgal:2013",
     "note": null,
     "molecule": "mol:HCS+",
     "sources": [
@@ -2822,6 +2965,7 @@
     "latex_text": null
   },
   {
+    "id": "det:HOC+:ism-csm:1983",
     "note": null,
     "molecule": "mol:HOC+",
     "sources": [
@@ -2845,6 +2989,7 @@
     "latex_text": null
   },
   {
+    "id": "det:HOC+:exgal:2004",
     "note": null,
     "molecule": "mol:HOC+",
     "sources": [
@@ -2863,6 +3008,7 @@
     "latex_text": null
   },
   {
+    "id": "det:SiC2:ism-csm:1984",
     "note": null,
     "molecule": "mol:SiC2",
     "sources": [
@@ -2886,6 +3032,7 @@
     "latex_text": null
   },
   {
+    "id": "det:C2S:ism-csm:1987",
     "note": null,
     "molecule": "mol:C2S",
     "sources": [
@@ -2912,6 +3059,7 @@
     "latex_text": null
   },
   {
+    "id": "det:C2S:ppd:2021",
     "note": null,
     "molecule": "mol:C2S",
     "sources": [
@@ -2930,6 +3078,7 @@
     "latex_text": null
   },
   {
+    "id": "det:C2S:exgal:2006",
     "note": null,
     "molecule": "mol:C2S",
     "sources": [
@@ -2948,6 +3097,7 @@
     "latex_text": null
   },
   {
+    "id": "det:C3:ism-csm:1988",
     "note": null,
     "molecule": "mol:C3",
     "sources": [
@@ -2970,6 +3120,7 @@
     "latex_text": null
   },
   {
+    "id": "det:C3:exgal:2013",
     "note": null,
     "molecule": "mol:C3",
     "sources": [
@@ -2988,6 +3139,7 @@
     "latex_text": null
   },
   {
+    "id": "det:13CCC:ism-csm:2020",
     "note": null,
     "molecule": "mol:13CCC",
     "sources": [],
@@ -3004,6 +3156,7 @@
     "latex_text": null
   },
   {
+    "id": "det:C13CC:ism-csm:2020",
     "note": null,
     "molecule": "mol:C13CC",
     "sources": [],
@@ -3020,6 +3173,7 @@
     "latex_text": null
   },
   {
+    "id": "det:CO2:ism-csm:1989",
     "note": null,
     "molecule": "mol:CO2",
     "sources": [
@@ -3045,6 +3199,7 @@
     "latex_text": null
   },
   {
+    "id": "det:CO2:ice:1989",
     "note": null,
     "molecule": "mol:CO2",
     "sources": [],
@@ -3061,6 +3216,7 @@
     "latex_text": null
   },
   {
+    "id": "det:CO2:ppd:2008",
     "note": null,
     "molecule": "mol:CO2",
     "sources": [],
@@ -3077,6 +3233,7 @@
     "latex_text": null
   },
   {
+    "id": "det:CO2:exo:2010",
     "note": null,
     "molecule": "mol:CO2",
     "sources": [],
@@ -3096,6 +3253,7 @@
     "latex_text": null
   },
   {
+    "id": "det:13CO2:ppd:2023",
     "note": null,
     "molecule": "mol:13CO2",
     "sources": [],
@@ -3112,6 +3270,7 @@
     "latex_text": null
   },
   {
+    "id": "det:CH2:ism-csm:1989",
     "note": null,
     "molecule": "mol:CH2",
     "sources": [
@@ -3134,6 +3293,7 @@
     "latex_text": null
   },
   {
+    "id": "det:C2O:ism-csm:1991",
     "note": null,
     "molecule": "mol:C2O",
     "sources": [
@@ -3156,6 +3316,7 @@
     "latex_text": null
   },
   {
+    "id": "det:MgNC:ism-csm:1993",
     "note": null,
     "molecule": "mol:MgNC",
     "sources": [
@@ -3178,6 +3339,7 @@
     "latex_text": null
   },
   {
+    "id": "det:NH2:ism-csm:1993",
     "note": null,
     "molecule": "mol:NH2",
     "sources": [
@@ -3200,6 +3362,7 @@
     "latex_text": null
   },
   {
+    "id": "det:NH2:exgal:2014",
     "note": null,
     "molecule": "mol:NH2",
     "sources": [
@@ -3218,6 +3381,7 @@
     "latex_text": null
   },
   {
+    "id": "det:NHD:ism-csm:2020",
     "note": null,
     "molecule": "mol:NHD",
     "sources": [],
@@ -3234,6 +3398,7 @@
     "latex_text": null
   },
   {
+    "id": "det:ND2:ism-csm:2020",
     "note": null,
     "molecule": "mol:ND2",
     "sources": [],
@@ -3250,6 +3415,7 @@
     "latex_text": null
   },
   {
+    "id": "det:NaCN:ism-csm:1994",
     "note": null,
     "molecule": "mol:NaCN",
     "sources": [
@@ -3272,6 +3438,7 @@
     "latex_text": null
   },
   {
+    "id": "det:N2O:ism-csm:1994",
     "note": null,
     "molecule": "mol:N2O",
     "sources": [
@@ -3294,6 +3461,7 @@
     "latex_text": null
   },
   {
+    "id": "det:MgCN:ism-csm:1995",
     "note": null,
     "molecule": "mol:MgCN",
     "sources": [
@@ -3317,6 +3485,7 @@
     "latex_text": null
   },
   {
+    "id": "det:H3+:ism-csm:1996",
     "note": null,
     "molecule": "mol:H3+",
     "sources": [
@@ -3340,6 +3509,7 @@
     "latex_text": null
   },
   {
+    "id": "det:H3+:exgal:2006",
     "note": null,
     "molecule": "mol:H3+",
     "sources": [
@@ -3358,6 +3528,7 @@
     "latex_text": null
   },
   {
+    "id": "det:SiCN:ism-csm:2000",
     "note": null,
     "molecule": "mol:SiCN",
     "sources": [
@@ -3380,6 +3551,7 @@
     "latex_text": null
   },
   {
+    "id": "det:AlNC:ism-csm:2002",
     "note": null,
     "molecule": "mol:AlNC",
     "sources": [
@@ -3402,6 +3574,7 @@
     "latex_text": null
   },
   {
+    "id": "det:SiNC:ism-csm:2004",
     "note": null,
     "molecule": "mol:SiNC",
     "sources": [
@@ -3424,6 +3597,7 @@
     "latex_text": null
   },
   {
+    "id": "det:HCP:ism-csm:2007",
     "note": null,
     "molecule": "mol:HCP",
     "sources": [
@@ -3446,6 +3620,7 @@
     "latex_text": null
   },
   {
+    "id": "det:CCP:ism-csm:2008",
     "note": null,
     "molecule": "mol:CCP",
     "sources": [
@@ -3468,6 +3643,7 @@
     "latex_text": null
   },
   {
+    "id": "det:AlOH:ism-csm:2010",
     "note": null,
     "molecule": "mol:AlOH",
     "sources": [
@@ -3491,6 +3667,7 @@
     "latex_text": null
   },
   {
+    "id": "det:H2O+:ism-csm:2010",
     "note": null,
     "molecule": "mol:H2O+",
     "sources": [
@@ -3517,6 +3694,7 @@
     "latex_text": null
   },
   {
+    "id": "det:H2O+:exgal:2010",
     "note": null,
     "molecule": "mol:H2O+",
     "sources": [
@@ -3535,6 +3713,7 @@
     "latex_text": null
   },
   {
+    "id": "det:H2Cl+:ism-csm:2010",
     "note": null,
     "molecule": "mol:H2Cl+",
     "sources": [
@@ -3560,6 +3739,7 @@
     "latex_text": null
   },
   {
+    "id": "det:H2Cl+:exgal:2014",
     "note": null,
     "molecule": "mol:H2Cl+",
     "sources": [
@@ -3578,6 +3758,7 @@
     "latex_text": null
   },
   {
+    "id": "det:KCN:ism-csm:2010",
     "note": null,
     "molecule": "mol:KCN",
     "sources": [
@@ -3602,6 +3783,7 @@
     "latex_text": null
   },
   {
+    "id": "det:FeCN:ism-csm:2011",
     "note": null,
     "molecule": "mol:FeCN",
     "sources": [
@@ -3624,6 +3806,7 @@
     "latex_text": null
   },
   {
+    "id": "det:HO2:ism-csm:2012",
     "note": null,
     "molecule": "mol:HO2",
     "sources": [
@@ -3647,6 +3830,7 @@
     "latex_text": null
   },
   {
+    "id": "det:TiO2:ism-csm:2013",
     "note": null,
     "molecule": "mol:TiO2",
     "sources": [
@@ -3670,6 +3854,7 @@
     "latex_text": null
   },
   {
+    "id": "det:CCN:ism-csm:2014",
     "note": null,
     "molecule": "mol:CCN",
     "sources": [
@@ -3693,6 +3878,7 @@
     "latex_text": null
   },
   {
+    "id": "det:SiCSi:ism-csm:2015",
     "note": null,
     "molecule": "mol:SiCSi",
     "sources": [
@@ -3715,6 +3901,7 @@
     "latex_text": null
   },
   {
+    "id": "det:S2H:ism-csm:2017",
     "note": null,
     "molecule": "mol:S2H",
     "sources": [
@@ -3737,6 +3924,7 @@
     "latex_text": null
   },
   {
+    "id": "det:HCS:ism-csm:2018",
     "note": null,
     "molecule": "mol:HCS",
     "sources": [
@@ -3759,6 +3947,7 @@
     "latex_text": null
   },
   {
+    "id": "det:HSC:ism-csm:2018",
     "note": null,
     "molecule": "mol:HSC",
     "sources": [
@@ -3781,6 +3970,7 @@
     "latex_text": null
   },
   {
+    "id": "det:NCO:ism-csm:2018",
     "note": null,
     "molecule": "mol:NCO",
     "sources": [
@@ -3803,6 +3993,7 @@
     "latex_text": null
   },
   {
+    "id": "det:CaNC:ism-csm:2019",
     "note": null,
     "molecule": "mol:CaNC",
     "sources": [
@@ -3825,6 +4016,7 @@
     "latex_text": null
   },
   {
+    "id": "det:NCS:ism-csm:2021",
     "note": null,
     "molecule": "mol:NCS",
     "sources": [
@@ -3847,6 +4039,7 @@
     "latex_text": null
   },
   {
+    "id": "det:MgC2:ism-csm:2022",
     "note": null,
     "molecule": "mol:MgC2",
     "sources": [
@@ -3871,6 +4064,7 @@
     "latex_text": null
   },
   {
+    "id": "det:HSO:ism-csm:2023",
     "note": null,
     "molecule": "mol:HSO",
     "sources": [
@@ -3901,6 +4095,7 @@
     "latex_text": null
   },
   {
+    "id": "det:CaC2:ism-csm:2024",
     "note": null,
     "molecule": "mol:CaC2",
     "sources": [
@@ -3926,6 +4121,7 @@
     "latex_text": null
   },
   {
+    "id": "det:NH3:ism-csm:1968",
     "note": null,
     "molecule": "mol:NH3",
     "sources": [
@@ -3948,6 +4144,7 @@
     "latex_text": null
   },
   {
+    "id": "det:NH3:ice:1998",
     "note": null,
     "molecule": "mol:NH3",
     "sources": [],
@@ -3964,6 +4161,7 @@
     "latex_text": null
   },
   {
+    "id": "det:NH3:ppd:2016",
     "note": null,
     "molecule": "mol:NH3",
     "sources": [],
@@ -3980,6 +4178,7 @@
     "latex_text": null
   },
   {
+    "id": "det:NH3:exgal:1979",
     "note": null,
     "molecule": "mol:NH3",
     "sources": [
@@ -3999,6 +4198,7 @@
     "latex_text": null
   },
   {
+    "id": "det:NH3:exo:2021",
     "note": null,
     "molecule": "mol:NH3",
     "sources": [
@@ -4017,6 +4217,7 @@
     "latex_text": null
   },
   {
+    "id": "det:H2CO:ism-csm:1969",
     "note": null,
     "molecule": "mol:H2CO",
     "sources": [
@@ -4051,6 +4252,7 @@
     "latex_text": null
   },
   {
+    "id": "det:H2CO:ice:2001",
     "note": null,
     "molecule": "mol:H2CO",
     "sources": [],
@@ -4067,6 +4269,7 @@
     "latex_text": null
   },
   {
+    "id": "det:H2CO:ppd:1997",
     "note": null,
     "molecule": "mol:H2CO",
     "sources": [],
@@ -4083,6 +4286,7 @@
     "latex_text": null
   },
   {
+    "id": "det:H2CO:exgal:1974",
     "note": null,
     "molecule": "mol:H2CO",
     "sources": [
@@ -4102,6 +4306,7 @@
     "latex_text": null
   },
   {
+    "id": "det:H213CO:ppd:2024",
     "note": null,
     "molecule": "mol:H213CO",
     "sources": [],
@@ -4118,6 +4323,7 @@
     "latex_text": null
   },
   {
+    "id": "det:HNCO:ism-csm:1972",
     "note": null,
     "molecule": "mol:HNCO",
     "sources": [
@@ -4141,6 +4347,7 @@
     "latex_text": null
   },
   {
+    "id": "det:HNCO:exgal:1991",
     "note": null,
     "molecule": "mol:HNCO",
     "sources": [
@@ -4161,6 +4368,7 @@
     "latex_text": null
   },
   {
+    "id": "det:H2CS:ism-csm:1973",
     "note": null,
     "molecule": "mol:H2CS",
     "sources": [
@@ -4183,6 +4391,7 @@
     "latex_text": null
   },
   {
+    "id": "det:H2CS:ppd:2019",
     "note": null,
     "molecule": "mol:H2CS",
     "sources": [],
@@ -4200,6 +4409,7 @@
     "latex_text": null
   },
   {
+    "id": "det:H2CS:exgal:2006",
     "note": null,
     "molecule": "mol:H2CS",
     "sources": [
@@ -4218,6 +4428,7 @@
     "latex_text": null
   },
   {
+    "id": "det:C2H2:ism-csm:1976",
     "note": null,
     "molecule": "mol:C2H2",
     "sources": [
@@ -4240,6 +4451,7 @@
     "latex_text": null
   },
   {
+    "id": "det:C2H2:ppd:2006",
     "note": null,
     "molecule": "mol:C2H2",
     "sources": [],
@@ -4256,6 +4468,7 @@
     "latex_text": null
   },
   {
+    "id": "det:C2H2:exgal:2002",
     "note": null,
     "molecule": "mol:C2H2",
     "sources": [
@@ -4274,6 +4487,7 @@
     "latex_text": null
   },
   {
+    "id": "det:C2H2:exo:2021",
     "note": null,
     "molecule": "mol:C2H2",
     "sources": [
@@ -4292,6 +4506,7 @@
     "latex_text": null
   },
   {
+    "id": "det:H13CCH:ppd:2023",
     "note": null,
     "molecule": "mol:H13CCH",
     "sources": [],
@@ -4308,6 +4523,7 @@
     "latex_text": null
   },
   {
+    "id": "det:C3N:ism-csm:1977",
     "note": null,
     "molecule": "mol:C3N",
     "sources": [
@@ -4333,6 +4549,7 @@
     "latex_text": null
   },
   {
+    "id": "det:C3N:exgal:2020",
     "note": null,
     "molecule": "mol:C3N",
     "sources": [
@@ -4351,6 +4568,7 @@
     "latex_text": null
   },
   {
+    "id": "det:HNCS:ism-csm:1979",
     "note": null,
     "molecule": "mol:HNCS",
     "sources": [
@@ -4374,6 +4592,7 @@
     "latex_text": null
   },
   {
+    "id": "det:HOCO+:ism-csm:1981",
     "note": null,
     "molecule": "mol:HOCO+",
     "sources": [
@@ -4396,6 +4615,7 @@
     "latex_text": null
   },
   {
+    "id": "det:HOCO+:exgal:2006",
     "note": null,
     "molecule": "mol:HOCO+",
     "sources": [
@@ -4415,6 +4635,7 @@
     "latex_text": null
   },
   {
+    "id": "det:C3O:ism-csm:1985",
     "note": null,
     "molecule": "mol:C3O",
     "sources": [
@@ -4440,6 +4661,7 @@
     "latex_text": null
   },
   {
+    "id": "det:l-C3H:ism-csm:1985",
     "note": null,
     "molecule": "mol:l-C3H",
     "sources": [
@@ -4467,6 +4689,7 @@
     "latex_text": null
   },
   {
+    "id": "det:l-C3H:exgal:2011",
     "note": null,
     "molecule": "mol:l-C3H",
     "sources": [
@@ -4485,6 +4708,7 @@
     "latex_text": null
   },
   {
+    "id": "det:HCNH+:ism-csm:1986",
     "note": null,
     "molecule": "mol:HCNH+",
     "sources": [
@@ -4508,6 +4732,7 @@
     "latex_text": null
   },
   {
+    "id": "det:H3O+:ism-csm:1986",
     "note": null,
     "molecule": "mol:H3O+",
     "sources": [
@@ -4533,6 +4758,7 @@
     "latex_text": null
   },
   {
+    "id": "det:H3O+:exgal:2008",
     "note": null,
     "molecule": "mol:H3O+",
     "sources": [
@@ -4552,6 +4778,7 @@
     "latex_text": null
   },
   {
+    "id": "det:C3S:ism-csm:1987",
     "note": null,
     "molecule": "mol:C3S",
     "sources": [
@@ -4577,6 +4804,7 @@
     "latex_text": null
   },
   {
+    "id": "det:c-C3H:ism-csm:1987",
     "note": null,
     "molecule": "mol:c-C3H",
     "sources": [
@@ -4599,6 +4827,7 @@
     "latex_text": null
   },
   {
+    "id": "det:c-C3H:exgal:2006",
     "note": "Legacy detection flag: Tentative",
     "molecule": "mol:c-C3H",
     "sources": [
@@ -4617,6 +4846,7 @@
     "latex_text": null
   },
   {
+    "id": "det:HC2N:ism-csm:1991",
     "note": null,
     "molecule": "mol:HC2N",
     "sources": [
@@ -4639,6 +4869,7 @@
     "latex_text": null
   },
   {
+    "id": "det:H2CN:ism-csm:1994",
     "note": null,
     "molecule": "mol:H2CN",
     "sources": [
@@ -4661,6 +4892,7 @@
     "latex_text": null
   },
   {
+    "id": "det:H2CN:exgal:2020",
     "note": null,
     "molecule": "mol:H2CN",
     "sources": [
@@ -4679,6 +4911,7 @@
     "latex_text": null
   },
   {
+    "id": "det:SiC3:ism-csm:1999",
     "note": null,
     "molecule": "mol:SiC3",
     "sources": [
@@ -4701,6 +4934,7 @@
     "latex_text": null
   },
   {
+    "id": "det:CH3:ism-csm:2000",
     "note": null,
     "molecule": "mol:CH3",
     "sources": [
@@ -4723,6 +4957,7 @@
     "latex_text": null
   },
   {
+    "id": "det:C3N-:ism-csm:2008",
     "note": null,
     "molecule": "mol:C3N-",
     "sources": [
@@ -4745,6 +4980,7 @@
     "latex_text": null
   },
   {
+    "id": "det:PH3:ism-csm:2008",
     "note": null,
     "molecule": "mol:PH3",
     "sources": [
@@ -4772,6 +5008,7 @@
     "latex_text": null
   },
   {
+    "id": "det:HCNO:ism-csm:2009",
     "note": null,
     "molecule": "mol:HCNO",
     "sources": [
@@ -4797,6 +5034,7 @@
     "latex_text": null
   },
   {
+    "id": "det:HOCN:ism-csm:2009",
     "note": null,
     "molecule": "mol:HOCN",
     "sources": [
@@ -4821,6 +5059,7 @@
     "latex_text": null
   },
   {
+    "id": "det:HOCN:exgal:2021",
     "note": null,
     "molecule": "mol:HOCN",
     "sources": [
@@ -4839,6 +5078,7 @@
     "latex_text": null
   },
   {
+    "id": "det:HSCN:ism-csm:2009",
     "note": null,
     "molecule": "mol:HSCN",
     "sources": [
@@ -4861,6 +5101,7 @@
     "latex_text": null
   },
   {
+    "id": "det:HOOH:ism-csm:2011",
     "note": null,
     "molecule": "mol:HOOH",
     "sources": [
@@ -4883,6 +5124,7 @@
     "latex_text": null
   },
   {
+    "id": "det:l-C3H+:ism-csm:2012",
     "note": null,
     "molecule": "mol:l-C3H+",
     "sources": [
@@ -4905,6 +5147,7 @@
     "latex_text": null
   },
   {
+    "id": "det:l-C3H+:exgal:2020",
     "note": null,
     "molecule": "mol:l-C3H+",
     "sources": [
@@ -4923,6 +5166,7 @@
     "latex_text": null
   },
   {
+    "id": "det:HMgNC:ism-csm:2013",
     "note": null,
     "molecule": "mol:HMgNC",
     "sources": [
@@ -4945,6 +5189,7 @@
     "latex_text": null
   },
   {
+    "id": "det:HCCO:ism-csm:2015",
     "note": null,
     "molecule": "mol:HCCO",
     "sources": [
@@ -4968,6 +5213,7 @@
     "latex_text": null
   },
   {
+    "id": "det:CNCN:ism-csm:2018",
     "note": null,
     "molecule": "mol:CNCN",
     "sources": [
@@ -4990,6 +5236,7 @@
     "latex_text": null
   },
   {
+    "id": "det:HONO:ism-csm:2019",
     "note": null,
     "molecule": "mol:HONO",
     "sources": [
@@ -5012,6 +5259,7 @@
     "latex_text": null
   },
   {
+    "id": "det:MgCCH:ism-csm:2019",
     "note": null,
     "molecule": "mol:MgCCH",
     "sources": [
@@ -5035,6 +5283,7 @@
     "latex_text": null
   },
   {
+    "id": "det:HCCS:ism-csm:2021",
     "note": null,
     "molecule": "mol:HCCS",
     "sources": [
@@ -5057,6 +5306,7 @@
     "latex_text": null
   },
   {
+    "id": "det:HNCN:ism-csm:2021",
     "note": null,
     "molecule": "mol:HNCN",
     "sources": [
@@ -5081,6 +5331,7 @@
     "latex_text": null
   },
   {
+    "id": "det:H2NC:ism-csm:2021",
     "note": null,
     "molecule": "mol:H2NC",
     "sources": [
@@ -5103,6 +5354,7 @@
     "latex_text": null
   },
   {
+    "id": "det:H2NC:exgal:2021",
     "note": null,
     "molecule": "mol:H2NC",
     "sources": [
@@ -5121,6 +5373,7 @@
     "latex_text": null
   },
   {
+    "id": "det:HCCS+:ism-csm:2022",
     "note": null,
     "molecule": "mol:HCCS+",
     "sources": [
@@ -5145,6 +5398,7 @@
     "latex_text": null
   },
   {
+    "id": "det:CH3+:ism-csm:2023",
     "note": null,
     "molecule": "mol:CH3+",
     "sources": [
@@ -5167,6 +5421,7 @@
     "latex_text": null
   },
   {
+    "id": "det:HCNS:ism-csm:2024",
     "note": null,
     "molecule": "mol:HCNS",
     "sources": [
@@ -5189,6 +5444,7 @@
     "latex_text": null
   },
   {
+    "id": "det:HOCS+:ism-csm:2024",
     "note": null,
     "molecule": "mol:HOCS+",
     "sources": [
@@ -5213,6 +5469,7 @@
     "latex_text": null
   },
   {
+    "id": "det:HNSO:ism-csm:2024",
     "note": null,
     "molecule": "mol:HNSO",
     "sources": [
@@ -5237,6 +5494,7 @@
     "latex_text": null
   },
   {
+    "id": "det:HC3N:ism-csm:1971",
     "note": null,
     "molecule": "mol:HC3N",
     "sources": [
@@ -5259,6 +5517,7 @@
     "latex_text": null
   },
   {
+    "id": "det:HC3N:ppd:2012",
     "note": null,
     "molecule": "mol:HC3N",
     "sources": [],
@@ -5275,6 +5534,7 @@
     "latex_text": null
   },
   {
+    "id": "det:HC3N:exgal:1988",
     "note": null,
     "molecule": "mol:HC3N",
     "sources": [
@@ -5294,6 +5554,7 @@
     "latex_text": null
   },
   {
+    "id": "det:HCOOH:ism-csm:1971",
     "note": null,
     "molecule": "mol:HCOOH",
     "sources": [
@@ -5316,6 +5577,7 @@
     "latex_text": null
   },
   {
+    "id": "det:HCOOH:ice:1999",
     "note": null,
     "molecule": "mol:HCOOH",
     "sources": [],
@@ -5332,6 +5594,7 @@
     "latex_text": null
   },
   {
+    "id": "det:HCOOH:ppd:2018",
     "note": null,
     "molecule": "mol:HCOOH",
     "sources": [],
@@ -5348,6 +5611,7 @@
     "latex_text": null
   },
   {
+    "id": "det:HCOOH:exgal:2020",
     "note": null,
     "molecule": "mol:HCOOH",
     "sources": [
@@ -5366,6 +5630,7 @@
     "latex_text": null
   },
   {
+    "id": "det:CH2NH:ism-csm:1973",
     "note": null,
     "molecule": "mol:CH2NH",
     "sources": [
@@ -5388,6 +5653,7 @@
     "latex_text": null
   },
   {
+    "id": "det:CH2NH:exgal:2011",
     "note": null,
     "molecule": "mol:CH2NH",
     "sources": [
@@ -5406,6 +5672,7 @@
     "latex_text": null
   },
   {
+    "id": "det:NH2CN:ism-csm:1975",
     "note": null,
     "molecule": "mol:NH2CN",
     "sources": [
@@ -5428,6 +5695,7 @@
     "latex_text": null
   },
   {
+    "id": "det:NH2CN:exgal:2006",
     "note": null,
     "molecule": "mol:NH2CN",
     "sources": [
@@ -5446,6 +5714,7 @@
     "latex_text": null
   },
   {
+    "id": "det:H2CCO:ism-csm:1977",
     "note": null,
     "molecule": "mol:H2CCO",
     "sources": [
@@ -5468,6 +5737,7 @@
     "latex_text": null
   },
   {
+    "id": "det:H2CCO:exgal:2011",
     "note": null,
     "molecule": "mol:H2CCO",
     "sources": [
@@ -5486,6 +5756,7 @@
     "latex_text": null
   },
   {
+    "id": "det:C4H:ism-csm:1978",
     "note": null,
     "molecule": "mol:C4H",
     "sources": [
@@ -5508,6 +5779,7 @@
     "latex_text": null
   },
   {
+    "id": "det:C4H:exgal:2011",
     "note": null,
     "molecule": "mol:C4H",
     "sources": [
@@ -5526,6 +5798,7 @@
     "latex_text": null
   },
   {
+    "id": "det:SiH4:ism-csm:1984",
     "note": null,
     "molecule": "mol:SiH4",
     "sources": [
@@ -5548,6 +5821,7 @@
     "latex_text": null
   },
   {
+    "id": "det:c-C3H2:ism-csm:1985",
     "note": null,
     "molecule": "mol:c-C3H2",
     "sources": [
@@ -5573,6 +5847,7 @@
     "latex_text": null
   },
   {
+    "id": "det:c-C3H2:ppd:2013",
     "note": null,
     "molecule": "mol:c-C3H2",
     "sources": [],
@@ -5589,6 +5864,7 @@
     "latex_text": null
   },
   {
+    "id": "det:c-C3H2:exgal:1986",
     "note": null,
     "molecule": "mol:c-C3H2",
     "sources": [
@@ -5607,6 +5883,7 @@
     "latex_text": null
   },
   {
+    "id": "det:CH2CN:ism-csm:1988",
     "note": null,
     "molecule": "mol:CH2CN",
     "sources": [
@@ -5633,6 +5910,7 @@
     "latex_text": null
   },
   {
+    "id": "det:CH2CN:ppd:2021",
     "note": null,
     "molecule": "mol:CH2CN",
     "sources": [],
@@ -5649,6 +5927,7 @@
     "latex_text": null
   },
   {
+    "id": "det:CH2CN:exgal:2011",
     "note": null,
     "molecule": "mol:CH2CN",
     "sources": [
@@ -5667,6 +5946,7 @@
     "latex_text": null
   },
   {
+    "id": "det:HDCCN:ism-csm:2021",
     "note": null,
     "molecule": "mol:HDCCN",
     "sources": [],
@@ -5683,6 +5963,7 @@
     "latex_text": null
   },
   {
+    "id": "det:C5:ism-csm:1989",
     "note": null,
     "molecule": "mol:C5",
     "sources": [
@@ -5705,6 +5986,7 @@
     "latex_text": null
   },
   {
+    "id": "det:SiC4:ism-csm:1989",
     "note": null,
     "molecule": "mol:SiC4",
     "sources": [
@@ -5728,6 +6010,7 @@
     "latex_text": null
   },
   {
+    "id": "det:H2CCC:ism-csm:1991",
     "note": null,
     "molecule": "mol:H2CCC",
     "sources": [
@@ -5752,6 +6035,7 @@
     "latex_text": null
   },
   {
+    "id": "det:H2CCC:exgal:2011",
     "note": null,
     "molecule": "mol:H2CCC",
     "sources": [
@@ -5770,6 +6054,7 @@
     "latex_text": null
   },
   {
+    "id": "det:CH4:ism-csm:1991",
     "note": null,
     "molecule": "mol:CH4",
     "sources": [
@@ -5792,6 +6077,7 @@
     "latex_text": null
   },
   {
+    "id": "det:CH4:ice:1991",
     "note": null,
     "molecule": "mol:CH4",
     "sources": [],
@@ -5808,6 +6094,7 @@
     "latex_text": null
   },
   {
+    "id": "det:CH4:ppd:2013",
     "note": null,
     "molecule": "mol:CH4",
     "sources": [],
@@ -5824,6 +6111,7 @@
     "latex_text": null
   },
   {
+    "id": "det:CH4:exo:2008",
     "note": null,
     "molecule": "mol:CH4",
     "sources": [],
@@ -5843,6 +6131,7 @@
     "latex_text": null
   },
   {
+    "id": "det:CH3D:exo:2024",
     "note": null,
     "molecule": "mol:CH3D",
     "sources": [],
@@ -5859,6 +6148,7 @@
     "latex_text": null
   },
   {
+    "id": "det:HCCNC:ism-csm:1992",
     "note": null,
     "molecule": "mol:HCCNC",
     "sources": [
@@ -5882,6 +6172,7 @@
     "latex_text": null
   },
   {
+    "id": "det:HNCCC:ism-csm:1992",
     "note": null,
     "molecule": "mol:HNCCC",
     "sources": [
@@ -5904,6 +6195,7 @@
     "latex_text": null
   },
   {
+    "id": "det:H2COH+:ism-csm:1996",
     "note": null,
     "molecule": "mol:H2COH+",
     "sources": [
@@ -5930,6 +6222,7 @@
     "latex_text": null
   },
   {
+    "id": "det:C4H-:ism-csm:2007",
     "note": null,
     "molecule": "mol:C4H-",
     "sources": [
@@ -5952,6 +6245,7 @@
     "latex_text": null
   },
   {
+    "id": "det:CNCHO:ism-csm:2007",
     "note": null,
     "molecule": "mol:CNCHO",
     "sources": [
@@ -5974,6 +6268,7 @@
     "latex_text": null
   },
   {
+    "id": "det:HNCNH:ism-csm:2012",
     "note": null,
     "molecule": "mol:HNCNH",
     "sources": [
@@ -5996,6 +6291,7 @@
     "latex_text": null
   },
   {
+    "id": "det:CH3O:ism-csm:2012",
     "note": null,
     "molecule": "mol:CH3O",
     "sources": [
@@ -6018,6 +6314,7 @@
     "latex_text": null
   },
   {
+    "id": "det:NH3D+:ism-csm:2013",
     "note": null,
     "molecule": "mol:NH3D+",
     "sources": [
@@ -6041,6 +6338,7 @@
     "latex_text": null
   },
   {
+    "id": "det:H2NCO+:ism-csm:2013",
     "note": null,
     "molecule": "mol:H2NCO+",
     "sources": [
@@ -6064,6 +6362,7 @@
     "latex_text": null
   },
   {
+    "id": "det:NCCNH+:ism-csm:2015",
     "note": null,
     "molecule": "mol:NCCNH+",
     "sources": [
@@ -6089,6 +6388,7 @@
     "latex_text": null
   },
   {
+    "id": "det:CH3Cl:ism-csm:2017",
     "note": null,
     "molecule": "mol:CH3Cl",
     "sources": [
@@ -6111,6 +6411,7 @@
     "latex_text": null
   },
   {
+    "id": "det:MgC3N:ism-csm:2019",
     "note": null,
     "molecule": "mol:MgC3N",
     "sources": [
@@ -6135,6 +6436,7 @@
     "latex_text": null
   },
   {
+    "id": "det:HC3O+:ism-csm:2020",
     "note": null,
     "molecule": "mol:HC3O+",
     "sources": [
@@ -6159,6 +6461,7 @@
     "latex_text": null
   },
   {
+    "id": "det:NH2OH:ism-csm:2020",
     "note": null,
     "molecule": "mol:NH2OH",
     "sources": [
@@ -6181,6 +6484,7 @@
     "latex_text": null
   },
   {
+    "id": "det:HC3S+:ism-csm:2021",
     "note": null,
     "molecule": "mol:HC3S+",
     "sources": [
@@ -6203,6 +6507,7 @@
     "latex_text": null
   },
   {
+    "id": "det:H2CCS:ism-csm:2021",
     "note": null,
     "molecule": "mol:H2CCS",
     "sources": [
@@ -6225,6 +6530,7 @@
     "latex_text": null
   },
   {
+    "id": "det:C4S:ism-csm:2021",
     "note": null,
     "molecule": "mol:C4S",
     "sources": [
@@ -6247,6 +6553,7 @@
     "latex_text": null
   },
   {
+    "id": "det:CHOSH:ism-csm:2021",
     "note": null,
     "molecule": "mol:CHOSH",
     "sources": [
@@ -6271,6 +6578,7 @@
     "latex_text": null
   },
   {
+    "id": "det:HCSCN:ism-csm:2021",
     "note": null,
     "molecule": "mol:HCSCN",
     "sources": [
@@ -6293,6 +6601,7 @@
     "latex_text": null
   },
   {
+    "id": "det:HC3O:ism-csm:2021",
     "note": null,
     "molecule": "mol:HC3O",
     "sources": [
@@ -6315,6 +6624,7 @@
     "latex_text": null
   },
   {
+    "id": "det:NaCCCN:ism-csm:2023",
     "note": null,
     "molecule": "mol:NaCCCN",
     "sources": [
@@ -6337,6 +6647,7 @@
     "latex_text": null
   },
   {
+    "id": "det:MgC3N+:ism-csm:2023",
     "note": null,
     "molecule": "mol:MgC3N+",
     "sources": [
@@ -6359,6 +6670,7 @@
     "latex_text": null
   },
   {
+    "id": "det:C2H3+:ism-csm:2024",
     "note": null,
     "molecule": "mol:C2H3+",
     "sources": [
@@ -6381,6 +6693,7 @@
     "latex_text": null
   },
   {
+    "id": "det:NCCHS:ism-csm:2024",
     "note": null,
     "molecule": "mol:NCCHS",
     "sources": [
@@ -6403,6 +6716,7 @@
     "latex_text": null
   },
   {
+    "id": "det:HC3N+:ism-csm:2024",
     "note": null,
     "molecule": "mol:HC3N+",
     "sources": [
@@ -6425,6 +6739,7 @@
     "latex_text": null
   },
   {
+    "id": "det:NC3S:ism-csm:2024",
     "note": null,
     "molecule": "mol:NC3S",
     "sources": [
@@ -6447,6 +6762,7 @@
     "latex_text": null
   },
   {
+    "id": "det:HC3S:ism-csm:2024",
     "note": null,
     "molecule": "mol:HC3S",
     "sources": [
@@ -6469,6 +6785,7 @@
     "latex_text": null
   },
   {
+    "id": "det:HCSSH:ism-csm:2024",
     "note": null,
     "molecule": "mol:HCSSH",
     "sources": [
@@ -6491,6 +6808,7 @@
     "latex_text": null
   },
   {
+    "id": "det:CH3OH:ism-csm:1970",
     "note": null,
     "molecule": "mol:CH3OH",
     "sources": [
@@ -6514,6 +6832,7 @@
     "latex_text": null
   },
   {
+    "id": "det:CH3OH:ice:1991",
     "note": null,
     "molecule": "mol:CH3OH",
     "sources": [],
@@ -6530,6 +6849,7 @@
     "latex_text": null
   },
   {
+    "id": "det:CH3OH:ppd:2016",
     "note": null,
     "molecule": "mol:CH3OH",
     "sources": [],
@@ -6546,6 +6866,7 @@
     "latex_text": null
   },
   {
+    "id": "det:CH3OH:exgal:1987",
     "note": null,
     "molecule": "mol:CH3OH",
     "sources": [
@@ -6565,6 +6886,7 @@
     "latex_text": null
   },
   {
+    "id": "det:CH3CN:ism-csm:1971",
     "note": null,
     "molecule": "mol:CH3CN",
     "sources": [
@@ -6588,6 +6910,7 @@
     "latex_text": null
   },
   {
+    "id": "det:CH3CN:ppd:2015",
     "note": null,
     "molecule": "mol:CH3CN",
     "sources": [],
@@ -6604,6 +6927,7 @@
     "latex_text": null
   },
   {
+    "id": "det:CH3CN:exgal:1991",
     "note": null,
     "molecule": "mol:CH3CN",
     "sources": [
@@ -6622,6 +6946,7 @@
     "latex_text": null
   },
   {
+    "id": "det:NH2CHO:ism-csm:1971",
     "note": null,
     "molecule": "mol:NH2CHO",
     "sources": [
@@ -6644,6 +6969,7 @@
     "latex_text": null
   },
   {
+    "id": "det:NH2CHO:exgal:2013",
     "note": null,
     "molecule": "mol:NH2CHO",
     "sources": [
@@ -6662,6 +6988,7 @@
     "latex_text": null
   },
   {
+    "id": "det:CH3SH:ism-csm:1979",
     "note": null,
     "molecule": "mol:CH3SH",
     "sources": [
@@ -6684,6 +7011,7 @@
     "latex_text": null
   },
   {
+    "id": "det:CH3SH:exgal:2020",
     "note": null,
     "molecule": "mol:CH3SH",
     "sources": [
@@ -6702,6 +7030,7 @@
     "latex_text": null
   },
   {
+    "id": "det:C2H4:ism-csm:1981",
     "note": null,
     "molecule": "mol:C2H4",
     "sources": [
@@ -6724,6 +7053,7 @@
     "latex_text": null
   },
   {
+    "id": "det:C5H:ism-csm:1986",
     "note": null,
     "molecule": "mol:C5H",
     "sources": [
@@ -6746,6 +7076,7 @@
     "latex_text": null
   },
   {
+    "id": "det:CH3NC:ism-csm:1988",
     "note": null,
     "molecule": "mol:CH3NC",
     "sources": [
@@ -6768,6 +7099,7 @@
     "latex_text": null
   },
   {
+    "id": "det:HC2CHO:ism-csm:1988",
     "note": null,
     "molecule": "mol:HC2CHO",
     "sources": [
@@ -6791,6 +7123,7 @@
     "latex_text": null
   },
   {
+    "id": "det:HC2CHO:exgal:2021",
     "note": null,
     "molecule": "mol:HC2CHO",
     "sources": [
@@ -6809,6 +7142,7 @@
     "latex_text": null
   },
   {
+    "id": "det:H2C4:ism-csm:1991",
     "note": null,
     "molecule": "mol:H2C4",
     "sources": [
@@ -6831,6 +7165,7 @@
     "latex_text": null
   },
   {
+    "id": "det:C5S:ism-csm:1993",
     "note": null,
     "molecule": "mol:C5S",
     "sources": [
@@ -6853,6 +7188,7 @@
     "latex_text": null
   },
   {
+    "id": "det:HC3NH+:ism-csm:1994",
     "note": null,
     "molecule": "mol:HC3NH+",
     "sources": [
@@ -6875,6 +7211,7 @@
     "latex_text": null
   },
   {
+    "id": "det:C5N:ism-csm:1998",
     "note": null,
     "molecule": "mol:C5N",
     "sources": [
@@ -6898,6 +7235,7 @@
     "latex_text": null
   },
   {
+    "id": "det:HC4H:ism-csm:2001",
     "note": null,
     "molecule": "mol:HC4H",
     "sources": [
@@ -6920,6 +7258,7 @@
     "latex_text": null
   },
   {
+    "id": "det:HC4H:ppd:2023",
     "note": null,
     "molecule": "mol:HC4H",
     "sources": [],
@@ -6936,6 +7275,7 @@
     "latex_text": null
   },
   {
+    "id": "det:HC4H:exgal:2006",
     "note": null,
     "molecule": "mol:HC4H",
     "sources": [
@@ -6954,6 +7294,7 @@
     "latex_text": null
   },
   {
+    "id": "det:HC4N:ism-csm:2004",
     "note": null,
     "molecule": "mol:HC4N",
     "sources": [
@@ -6976,6 +7317,7 @@
     "latex_text": null
   },
   {
+    "id": "det:c-H2C3O:ism-csm:2006",
     "note": null,
     "molecule": "mol:c-H2C3O",
     "sources": [
@@ -6998,6 +7340,7 @@
     "latex_text": null
   },
   {
+    "id": "det:CH2CNH:ism-csm:2006",
     "note": null,
     "molecule": "mol:CH2CNH",
     "sources": [
@@ -7020,6 +7363,7 @@
     "latex_text": null
   },
   {
+    "id": "det:C5N-:ism-csm:2008",
     "note": null,
     "molecule": "mol:C5N-",
     "sources": [
@@ -7042,6 +7386,7 @@
     "latex_text": null
   },
   {
+    "id": "det:HNCHCN:ism-csm:2013",
     "note": null,
     "molecule": "mol:HNCHCN",
     "sources": [
@@ -7064,6 +7409,7 @@
     "latex_text": null
   },
   {
+    "id": "det:SiH3CN:ism-csm:2014",
     "note": null,
     "molecule": "mol:SiH3CN",
     "sources": [
@@ -7086,6 +7432,7 @@
     "latex_text": null
   },
   {
+    "id": "det:MgC4H:ism-csm:2019",
     "note": null,
     "molecule": "mol:MgC4H",
     "sources": [
@@ -7110,6 +7457,7 @@
     "latex_text": null
   },
   {
+    "id": "det:CH3CO+:ism-csm:2021",
     "note": null,
     "molecule": "mol:CH3CO+",
     "sources": [
@@ -7137,6 +7485,7 @@
     "latex_text": null
   },
   {
+    "id": "det:H2CCCS:ism-csm:2021",
     "note": null,
     "molecule": "mol:H2CCCS",
     "sources": [
@@ -7159,6 +7508,7 @@
     "latex_text": null
   },
   {
+    "id": "det:CH2CCH:ism-csm:2021",
     "note": null,
     "molecule": "mol:CH2CCH",
     "sources": [
@@ -7181,6 +7531,7 @@
     "latex_text": null
   },
   {
+    "id": "det:HCSCCH:ism-csm:2021",
     "note": null,
     "molecule": "mol:HCSCCH",
     "sources": [
@@ -7203,6 +7554,7 @@
     "latex_text": null
   },
   {
+    "id": "det:C5O:ism-csm:2021",
     "note": null,
     "molecule": "mol:C5O",
     "sources": [
@@ -7225,6 +7577,7 @@
     "latex_text": null
   },
   {
+    "id": "det:HCCNCH+:ism-csm:2022",
     "note": null,
     "molecule": "mol:HCCNCH+",
     "sources": [
@@ -7247,6 +7600,7 @@
     "latex_text": null
   },
   {
+    "id": "det:C5H+:ism-csm:2022",
     "note": null,
     "molecule": "mol:C5H+",
     "sources": [
@@ -7269,6 +7623,7 @@
     "latex_text": null
   },
   {
+    "id": "det:c-C5H:ism-csm:2022",
     "note": null,
     "molecule": "mol:c-C5H",
     "sources": [
@@ -7291,6 +7646,7 @@
     "latex_text": null
   },
   {
+    "id": "det:HC4S:ism-csm:2022",
     "note": null,
     "molecule": "mol:HC4S",
     "sources": [
@@ -7313,6 +7669,7 @@
     "latex_text": null
   },
   {
+    "id": "det:HMgCCCN:ism-csm:2023",
     "note": null,
     "molecule": "mol:HMgCCCN",
     "sources": [
@@ -7335,6 +7692,7 @@
     "latex_text": null
   },
   {
+    "id": "det:MgC4H+:ism-csm:2023",
     "note": null,
     "molecule": "mol:MgC4H+",
     "sources": [
@@ -7359,6 +7717,7 @@
     "latex_text": null
   },
   {
+    "id": "det:H2C3H+:ism-csm:2023",
     "note": null,
     "molecule": "mol:H2C3H+",
     "sources": [
@@ -7383,6 +7742,7 @@
     "latex_text": null
   },
   {
+    "id": "det:HOCOOH:ism-csm:2023",
     "note": null,
     "molecule": "mol:HOCOOH",
     "sources": [
@@ -7407,6 +7767,7 @@
     "latex_text": null
   },
   {
+    "id": "det:H2C3N:ism-csm:2023",
     "note": null,
     "molecule": "mol:H2C3N",
     "sources": [
@@ -7429,6 +7790,7 @@
     "latex_text": null
   },
   {
+    "id": "det:H2CNCN:ism-csm:2024",
     "note": null,
     "molecule": "mol:H2CNCN",
     "sources": [
@@ -7453,6 +7815,7 @@
     "latex_text": null
   },
   {
+    "id": "det:CH3CHO:ism-csm:1973",
     "note": null,
     "molecule": "mol:CH3CHO",
     "sources": [
@@ -7477,6 +7840,7 @@
     "latex_text": null
   },
   {
+    "id": "det:CH3CHO:ice:2024",
     "note": null,
     "molecule": "mol:CH3CHO",
     "sources": [],
@@ -7493,6 +7857,7 @@
     "latex_text": null
   },
   {
+    "id": "det:CH3CHO:exgal:2011",
     "note": null,
     "molecule": "mol:CH3CHO",
     "sources": [
@@ -7511,6 +7876,7 @@
     "latex_text": null
   },
   {
+    "id": "det:CHD2CHO:ism-csm:2023",
     "note": null,
     "molecule": "mol:CHD2CHO",
     "sources": [],
@@ -7527,6 +7893,7 @@
     "latex_text": null
   },
   {
+    "id": "det:CH3CCH:ism-csm:1973",
     "note": null,
     "molecule": "mol:CH3CCH",
     "sources": [
@@ -7549,6 +7916,7 @@
     "latex_text": null
   },
   {
+    "id": "det:CH3CCH:exgal:1991",
     "note": null,
     "molecule": "mol:CH3CCH",
     "sources": [
@@ -7568,6 +7936,7 @@
     "latex_text": null
   },
   {
+    "id": "det:CH3NH2:ism-csm:1974",
     "note": null,
     "molecule": "mol:CH3NH2",
     "sources": [
@@ -7595,6 +7964,7 @@
     "latex_text": null
   },
   {
+    "id": "det:CH3NH2:exgal:2011",
     "note": null,
     "molecule": "mol:CH3NH2",
     "sources": [
@@ -7613,6 +7983,7 @@
     "latex_text": null
   },
   {
+    "id": "det:CH2CHCN:ism-csm:1975",
     "note": null,
     "molecule": "mol:CH2CHCN",
     "sources": [
@@ -7635,6 +8006,7 @@
     "latex_text": null
   },
   {
+    "id": "det:CH2CHCN:exgal:2020",
     "note": null,
     "molecule": "mol:CH2CHCN",
     "sources": [
@@ -7653,6 +8025,7 @@
     "latex_text": null
   },
   {
+    "id": "det:HC5N:ism-csm:1976",
     "note": null,
     "molecule": "mol:HC5N",
     "sources": [
@@ -7676,6 +8049,7 @@
     "latex_text": null
   },
   {
+    "id": "det:HC5N:exgal:2015",
     "note": "Legacy detection flag: Tentative",
     "molecule": "mol:HC5N",
     "sources": [
@@ -7694,6 +8068,7 @@
     "latex_text": null
   },
   {
+    "id": "det:C6H:ism-csm:1986",
     "note": null,
     "molecule": "mol:C6H",
     "sources": [
@@ -7716,6 +8091,7 @@
     "latex_text": null
   },
   {
+    "id": "det:c-C2H4O:ism-csm:1997",
     "note": null,
     "molecule": "mol:c-C2H4O",
     "sources": [
@@ -7741,6 +8117,7 @@
     "latex_text": null
   },
   {
+    "id": "det:c-C2H4O:ppd:2024",
     "note": null,
     "molecule": "mol:c-C2H4O",
     "sources": [],
@@ -7757,6 +8134,7 @@
     "latex_text": null
   },
   {
+    "id": "det:C2H3DO:ism-csm:2023",
     "note": null,
     "molecule": "mol:C2H3DO",
     "sources": [],
@@ -7773,6 +8151,7 @@
     "latex_text": null
   },
   {
+    "id": "det:CH2CHOH:ism-csm:2001",
     "note": null,
     "molecule": "mol:CH2CHOH",
     "sources": [
@@ -7795,6 +8174,7 @@
     "latex_text": null
   },
   {
+    "id": "det:C6H-:ism-csm:2006",
     "note": null,
     "molecule": "mol:C6H-",
     "sources": [
@@ -7818,6 +8198,7 @@
     "latex_text": null
   },
   {
+    "id": "det:CH3NCO:ism-csm:2015",
     "note": null,
     "molecule": "mol:CH3NCO",
     "sources": [
@@ -7842,6 +8223,7 @@
     "latex_text": null
   },
   {
+    "id": "det:HC5O:ism-csm:2017",
     "note": null,
     "molecule": "mol:HC5O",
     "sources": [
@@ -7864,6 +8246,7 @@
     "latex_text": null
   },
   {
+    "id": "det:HOCH2CN:ism-csm:2019",
     "note": null,
     "molecule": "mol:HOCH2CN",
     "sources": [
@@ -7886,6 +8269,7 @@
     "latex_text": null
   },
   {
+    "id": "det:HC4NC:ism-csm:2020",
     "note": null,
     "molecule": "mol:HC4NC",
     "sources": [
@@ -7910,6 +8294,7 @@
     "latex_text": null
   },
   {
+    "id": "det:HC3HNH:ism-csm:2020",
     "note": null,
     "molecule": "mol:HC3HNH",
     "sources": [
@@ -7932,6 +8317,7 @@
     "latex_text": null
   },
   {
+    "id": "det:C3HCCH:ism-csm:2021",
     "note": null,
     "molecule": "mol:C3HCCH",
     "sources": [
@@ -7954,6 +8340,7 @@
     "latex_text": null
   },
   {
+    "id": "det:MgC5N:ism-csm:2021",
     "note": null,
     "molecule": "mol:MgC5N",
     "sources": [
@@ -7976,6 +8363,7 @@
     "latex_text": null
   },
   {
+    "id": "det:CH2C3N:ism-csm:2021",
     "note": null,
     "molecule": "mol:CH2C3N",
     "sources": [
@@ -7998,6 +8386,7 @@
     "latex_text": null
   },
   {
+    "id": "det:l-H2C5:ism-csm:2021",
     "note": null,
     "molecule": "mol:l-H2C5",
     "sources": [
@@ -8020,6 +8409,7 @@
     "latex_text": null
   },
   {
+    "id": "det:NC4NH+:ism-csm:2023",
     "note": null,
     "molecule": "mol:NC4NH+",
     "sources": [
@@ -8042,6 +8432,7 @@
     "latex_text": null
   },
   {
+    "id": "det:MgC5N+:ism-csm:2023",
     "note": null,
     "molecule": "mol:MgC5N+",
     "sources": [
@@ -8064,6 +8455,7 @@
     "latex_text": null
   },
   {
+    "id": "det:HC5N+:ism-csm:2024",
     "note": null,
     "molecule": "mol:HC5N+",
     "sources": [
@@ -8086,6 +8478,7 @@
     "latex_text": null
   },
   {
+    "id": "det:HNC5:ism-csm:2024",
     "note": null,
     "molecule": "mol:HNC5",
     "sources": [
@@ -8108,6 +8501,7 @@
     "latex_text": null
   },
   {
+    "id": "det:CH2CNCN:ism-csm:2024",
     "note": null,
     "molecule": "mol:CH2CNCN",
     "sources": [
@@ -8130,6 +8524,7 @@
     "latex_text": null
   },
   {
+    "id": "det:HCOOCH3:ism-csm:1975",
     "note": null,
     "molecule": "mol:HCOOCH3",
     "sources": [
@@ -8154,6 +8549,7 @@
     "latex_text": null
   },
   {
+    "id": "det:HCOOCH3:ice:2024",
     "note": null,
     "molecule": "mol:HCOOCH3",
     "sources": [],
@@ -8170,6 +8566,7 @@
     "latex_text": null
   },
   {
+    "id": "det:HCOOCH3:exgal:2018",
     "note": null,
     "molecule": "mol:HCOOCH3",
     "sources": [
@@ -8188,6 +8585,7 @@
     "latex_text": null
   },
   {
+    "id": "det:CH3C3N:ism-csm:1984",
     "note": null,
     "molecule": "mol:CH3C3N",
     "sources": [
@@ -8210,6 +8608,7 @@
     "latex_text": null
   },
   {
+    "id": "det:C7H:ism-csm:1997",
     "note": null,
     "molecule": "mol:C7H",
     "sources": [
@@ -8232,6 +8631,7 @@
     "latex_text": null
   },
   {
+    "id": "det:CH3COOH:ism-csm:1997",
     "note": null,
     "molecule": "mol:CH3COOH",
     "sources": [
@@ -8255,6 +8655,7 @@
     "latex_text": null
   },
   {
+    "id": "det:H2C6:ism-csm:1997",
     "note": null,
     "molecule": "mol:H2C6",
     "sources": [
@@ -8277,6 +8678,7 @@
     "latex_text": null
   },
   {
+    "id": "det:CH2OHCHO:ism-csm:2000",
     "note": null,
     "molecule": "mol:CH2OHCHO",
     "sources": [
@@ -8299,6 +8701,7 @@
     "latex_text": null
   },
   {
+    "id": "det:HC6H:ism-csm:2001",
     "note": null,
     "molecule": "mol:HC6H",
     "sources": [
@@ -8321,6 +8724,7 @@
     "latex_text": null
   },
   {
+    "id": "det:HC6H:exgal:2006",
     "note": null,
     "molecule": "mol:HC6H",
     "sources": [
@@ -8339,6 +8743,7 @@
     "latex_text": null
   },
   {
+    "id": "det:CH2CHCHO:ism-csm:2004",
     "note": null,
     "molecule": "mol:CH2CHCHO",
     "sources": [
@@ -8363,6 +8768,7 @@
     "latex_text": null
   },
   {
+    "id": "det:CH2CCHCN:ism-csm:2006",
     "note": null,
     "molecule": "mol:CH2CCHCN",
     "sources": [
@@ -8385,6 +8791,7 @@
     "latex_text": null
   },
   {
+    "id": "det:NH2CH2CN:ism-csm:2008",
     "note": null,
     "molecule": "mol:NH2CH2CN",
     "sources": [
@@ -8409,6 +8816,7 @@
     "latex_text": null
   },
   {
+    "id": "det:CH3CHNH:ism-csm:2013",
     "note": null,
     "molecule": "mol:CH3CHNH",
     "sources": [
@@ -8431,6 +8839,7 @@
     "latex_text": null
   },
   {
+    "id": "det:CH3SiH3:ism-csm:2017",
     "note": null,
     "molecule": "mol:CH3SiH3",
     "sources": [
@@ -8453,6 +8862,7 @@
     "latex_text": null
   },
   {
+    "id": "det:NH2CONH2:ism-csm:2019",
     "note": null,
     "molecule": "mol:NH2CONH2",
     "sources": [
@@ -8475,6 +8885,7 @@
     "latex_text": null
   },
   {
+    "id": "det:HCCCH2CN:ism-csm:2020",
     "note": null,
     "molecule": "mol:HCCCH2CN",
     "sources": [
@@ -8497,6 +8908,7 @@
     "latex_text": null
   },
   {
+    "id": "det:CH2CHCCH:ism-csm:2021",
     "note": null,
     "molecule": "mol:CH2CHCCH",
     "sources": [
@@ -8519,6 +8931,7 @@
     "latex_text": null
   },
   {
+    "id": "det:MgC6H:ism-csm:2021",
     "note": null,
     "molecule": "mol:MgC6H",
     "sources": [
@@ -8541,6 +8954,7 @@
     "latex_text": null
   },
   {
+    "id": "det:C2H3NH2:ism-csm:2021",
     "note": null,
     "molecule": "mol:C2H3NH2",
     "sources": [
@@ -8565,6 +8979,7 @@
     "latex_text": null
   },
   {
+    "id": "det:HOCHCHOH:ism-csm:2022",
     "note": null,
     "molecule": "mol:HOCHCHOH",
     "sources": [
@@ -8589,6 +9004,7 @@
     "latex_text": null
   },
   {
+    "id": "det:HCCCHCCC:ism-csm:2022",
     "note": null,
     "molecule": "mol:HCCCHCCC",
     "sources": [
@@ -8611,6 +9027,7 @@
     "latex_text": null
   },
   {
+    "id": "det:C7N-:ism-csm:2023",
     "note": null,
     "molecule": "mol:C7N-",
     "sources": [
@@ -8634,6 +9051,7 @@
     "latex_text": null
   },
   {
+    "id": "det:CH3CHCO:ism-csm:2023",
     "note": null,
     "molecule": "mol:CH3CHCO",
     "sources": [
@@ -8656,6 +9074,7 @@
     "latex_text": null
   },
   {
+    "id": "det:MgC6H+:ism-csm:2023",
     "note": null,
     "molecule": "mol:MgC6H+",
     "sources": [
@@ -8678,6 +9097,7 @@
     "latex_text": null
   },
   {
+    "id": "det:NCCHCHCN:ism-csm:2024",
     "note": null,
     "molecule": "mol:NCCHCHCN",
     "sources": [
@@ -8700,6 +9120,7 @@
     "latex_text": null
   },
   {
+    "id": "det:CH3OCH3:ism-csm:1974",
     "note": null,
     "molecule": "mol:CH3OCH3",
     "sources": [
@@ -8724,6 +9145,7 @@
     "latex_text": null
   },
   {
+    "id": "det:CH3OCH3:ice:2024",
     "note": null,
     "molecule": "mol:CH3OCH3",
     "sources": [],
@@ -8740,6 +9162,7 @@
     "latex_text": null
   },
   {
+    "id": "det:CH3OCH3:ppd:2022",
     "note": null,
     "molecule": "mol:CH3OCH3",
     "sources": [],
@@ -8756,6 +9179,7 @@
     "latex_text": null
   },
   {
+    "id": "det:CH3OCH3:exgal:2018",
     "note": null,
     "molecule": "mol:CH3OCH3",
     "sources": [
@@ -8776,6 +9200,7 @@
     "latex_text": null
   },
   {
+    "id": "det:CH3CH2OH:ism-csm:1975",
     "note": null,
     "molecule": "mol:CH3CH2OH",
     "sources": [
@@ -8798,6 +9223,7 @@
     "latex_text": null
   },
   {
+    "id": "det:CH3CH2OH:ice:2024",
     "note": null,
     "molecule": "mol:CH3CH2OH",
     "sources": [],
@@ -8814,6 +9240,7 @@
     "latex_text": null
   },
   {
+    "id": "det:CH3CH2OH:exgal:2021",
     "note": null,
     "molecule": "mol:CH3CH2OH",
     "sources": [
@@ -8832,6 +9259,7 @@
     "latex_text": null
   },
   {
+    "id": "det:CH3CH2CN:ism-csm:1977",
     "note": null,
     "molecule": "mol:CH3CH2CN",
     "sources": [
@@ -8855,6 +9283,7 @@
     "latex_text": null
   },
   {
+    "id": "det:HC7N:ism-csm:1977",
     "note": null,
     "molecule": "mol:HC7N",
     "sources": [
@@ -8879,6 +9308,7 @@
     "latex_text": null
   },
   {
+    "id": "det:CH3C4H:ism-csm:1984",
     "note": null,
     "molecule": "mol:CH3C4H",
     "sources": [
@@ -8903,6 +9333,7 @@
     "latex_text": null
   },
   {
+    "id": "det:C8H:ism-csm:1996",
     "note": null,
     "molecule": "mol:C8H",
     "sources": [
@@ -8926,6 +9357,7 @@
     "latex_text": null
   },
   {
+    "id": "det:CH3CONH2:ism-csm:2006",
     "note": null,
     "molecule": "mol:CH3CONH2",
     "sources": [
@@ -8948,6 +9380,7 @@
     "latex_text": null
   },
   {
+    "id": "det:C8H-:ism-csm:2007",
     "note": null,
     "molecule": "mol:C8H-",
     "sources": [
@@ -8972,6 +9405,7 @@
     "latex_text": null
   },
   {
+    "id": "det:CH2CHCH3:ism-csm:2007",
     "note": null,
     "molecule": "mol:CH2CHCH3",
     "sources": [
@@ -8994,6 +9428,7 @@
     "latex_text": null
   },
   {
+    "id": "det:CH3CH2SH:ism-csm:2014",
     "note": null,
     "molecule": "mol:CH3CH2SH",
     "sources": [
@@ -9016,6 +9451,7 @@
     "latex_text": null
   },
   {
+    "id": "det:HC7O:ism-csm:2017",
     "note": null,
     "molecule": "mol:HC7O",
     "sources": [
@@ -9038,6 +9474,7 @@
     "latex_text": null
   },
   {
+    "id": "det:CH3NHCHO:ism-csm:2021",
     "note": null,
     "molecule": "mol:CH3NHCHO",
     "sources": [
@@ -9060,6 +9497,7 @@
     "latex_text": null
   },
   {
+    "id": "det:H2CCCHCCH:ism-csm:2021",
     "note": null,
     "molecule": "mol:H2CCCHCCH",
     "sources": [
@@ -9082,6 +9520,7 @@
     "latex_text": null
   },
   {
+    "id": "det:HCCCHCHCN:ism-csm:2021",
     "note": null,
     "molecule": "mol:HCCCHCHCN",
     "sources": [
@@ -9104,6 +9543,7 @@
     "latex_text": null
   },
   {
+    "id": "det:H2CCHC3N:ism-csm:2021",
     "note": null,
     "molecule": "mol:H2CCHC3N",
     "sources": [
@@ -9126,6 +9566,7 @@
     "latex_text": null
   },
   {
+    "id": "det:HOCHCHCHO:ism-csm:2024",
     "note": null,
     "molecule": "mol:HOCHCHCHO",
     "sources": [
@@ -9148,6 +9589,7 @@
     "latex_text": null
   },
   {
+    "id": "det:HC7N+:ism-csm:2024",
     "note": null,
     "molecule": "mol:HC7N+",
     "sources": [
@@ -9170,6 +9612,7 @@
     "latex_text": null
   },
   {
+    "id": "det:HCCCH2CCH:ism-csm:2024",
     "note": null,
     "molecule": "mol:HCCCH2CCH",
     "sources": [
@@ -9192,6 +9635,7 @@
     "latex_text": null
   },
   {
+    "id": "det:CH3COCH3:ism-csm:1987",
     "note": null,
     "molecule": "mol:CH3COCH3",
     "sources": [
@@ -9217,6 +9661,7 @@
     "latex_text": null
   },
   {
+    "id": "det:CH3COCH3:ice:2024",
     "note": null,
     "molecule": "mol:CH3COCH3",
     "sources": [],
@@ -9233,6 +9678,7 @@
     "latex_text": null
   },
   {
+    "id": "det:HOCH2CH2OH:ism-csm:2002",
     "note": null,
     "molecule": "mol:HOCH2CH2OH",
     "sources": [
@@ -9255,6 +9701,7 @@
     "latex_text": null
   },
   {
+    "id": "det:CH3CH2CHO:ism-csm:2004",
     "note": null,
     "molecule": "mol:CH3CH2CHO",
     "sources": [
@@ -9277,6 +9724,7 @@
     "latex_text": null
   },
   {
+    "id": "det:CH3C5N:ism-csm:2006",
     "note": null,
     "molecule": "mol:CH3C5N",
     "sources": [
@@ -9299,6 +9747,7 @@
     "latex_text": null
   },
   {
+    "id": "det:CH3CHCH2O:ism-csm:2016",
     "note": null,
     "molecule": "mol:CH3CHCH2O",
     "sources": [
@@ -9321,6 +9770,7 @@
     "latex_text": null
   },
   {
+    "id": "det:CH3OCH2OH:ism-csm:2017",
     "note": null,
     "molecule": "mol:CH3OCH2OH",
     "sources": [
@@ -9343,6 +9793,7 @@
     "latex_text": null
   },
   {
+    "id": "det:H2CCCHC3N:ism-csm:2021",
     "note": null,
     "molecule": "mol:H2CCCHC3N",
     "sources": [
@@ -9365,6 +9816,7 @@
     "latex_text": null
   },
   {
+    "id": "det:C6H4:ism-csm:2021",
     "note": null,
     "molecule": "mol:C6H4",
     "sources": [
@@ -9388,6 +9840,7 @@
     "latex_text": null
   },
   {
+    "id": "det:C2H5NCO:ism-csm:2021",
     "note": null,
     "molecule": "mol:C2H5NCO",
     "sources": [
@@ -9411,6 +9864,7 @@
     "latex_text": null
   },
   {
+    "id": "det:HC7NH+:ism-csm:2022",
     "note": null,
     "molecule": "mol:HC7NH+",
     "sources": [
@@ -9433,6 +9887,7 @@
     "latex_text": null
   },
   {
+    "id": "det:CH3CHCHCN:ism-csm:2022",
     "note": null,
     "molecule": "mol:CH3CHCHCN",
     "sources": [
@@ -9455,6 +9910,7 @@
     "latex_text": null
   },
   {
+    "id": "det:CH2CCH3CN:ism-csm:2022",
     "note": null,
     "molecule": "mol:CH2CCH3CN",
     "sources": [
@@ -9477,6 +9933,7 @@
     "latex_text": null
   },
   {
+    "id": "det:CH2CHCH2CN:ism-csm:2022",
     "note": null,
     "molecule": "mol:CH2CHCH2CN",
     "sources": [
@@ -9499,6 +9956,7 @@
     "latex_text": null
   },
   {
+    "id": "det:NH2COCH2OH:ism-csm:2023",
     "note": null,
     "molecule": "mol:NH2COCH2OH",
     "sources": [
@@ -9523,6 +9981,7 @@
     "latex_text": null
   },
   {
+    "id": "det:CH3CH2CCH:ism-csm:2024",
     "note": null,
     "molecule": "mol:CH3CH2CCH",
     "sources": [
@@ -9545,6 +10004,7 @@
     "latex_text": null
   },
   {
+    "id": "det:HC9N:ism-csm:1978",
     "note": null,
     "molecule": "mol:HC9N",
     "sources": [
@@ -9568,6 +10028,7 @@
     "latex_text": null
   },
   {
+    "id": "det:CH3C6H:ism-csm:2006",
     "note": null,
     "molecule": "mol:CH3C6H",
     "sources": [
@@ -9590,6 +10051,7 @@
     "latex_text": null
   },
   {
+    "id": "det:C2H5OCHO:ism-csm:2009",
     "note": null,
     "molecule": "mol:C2H5OCHO",
     "sources": [
@@ -9612,6 +10074,7 @@
     "latex_text": null
   },
   {
+    "id": "det:CH3COOCH3:ism-csm:2013",
     "note": null,
     "molecule": "mol:CH3COOCH3",
     "sources": [
@@ -9634,6 +10097,7 @@
     "latex_text": null
   },
   {
+    "id": "det:CH3COCH2OH:ism-csm:2020",
     "note": null,
     "molecule": "mol:CH3COCH2OH",
     "sources": [
@@ -9656,6 +10120,7 @@
     "latex_text": null
   },
   {
+    "id": "det:C5H6:ism-csm:2021",
     "note": null,
     "molecule": "mol:C5H6",
     "sources": [
@@ -9678,6 +10143,7 @@
     "latex_text": null
   },
   {
+    "id": "det:NH2CH2CH2OH:ism-csm:2021",
     "note": null,
     "molecule": "mol:NH2CH2CH2OH",
     "sources": [
@@ -9702,6 +10168,7 @@
     "latex_text": null
   },
   {
+    "id": "det:CH2CCHC4H:ism-csm:2022",
     "note": null,
     "molecule": "mol:CH2CCHC4H",
     "sources": [
@@ -9724,6 +10191,7 @@
     "latex_text": null
   },
   {
+    "id": "det:C10H-:ism-csm:2023",
     "note": null,
     "molecule": "mol:C10H-",
     "sources": [
@@ -9746,6 +10214,7 @@
     "latex_text": null
   },
   {
+    "id": "det:C4H5CN:ism-csm:2023",
     "note": null,
     "molecule": "mol:C4H5CN",
     "sources": [
@@ -9768,6 +10237,7 @@
     "latex_text": null
   },
   {
+    "id": "det:C6H6:ism-csm:2001",
     "note": null,
     "molecule": "mol:C6H6",
     "sources": [
@@ -9790,6 +10260,7 @@
     "latex_text": null
   },
   {
+    "id": "det:C6H6:ppd:2023",
     "note": null,
     "molecule": "mol:C6H6",
     "sources": [],
@@ -9806,6 +10277,7 @@
     "latex_text": null
   },
   {
+    "id": "det:C6H6:exgal:2006",
     "note": null,
     "molecule": "mol:C6H6",
     "sources": [
@@ -9824,6 +10296,7 @@
     "latex_text": null
   },
   {
+    "id": "det:n-C3H7CN:ism-csm:2009",
     "note": null,
     "molecule": "mol:n-C3H7CN",
     "sources": [
@@ -9846,6 +10319,7 @@
     "latex_text": null
   },
   {
+    "id": "det:i-C3H7CN:ism-csm:2014",
     "note": null,
     "molecule": "mol:i-C3H7CN",
     "sources": [
@@ -9868,6 +10342,7 @@
     "latex_text": null
   },
   {
+    "id": "det:C2H5OCH3:ism-csm:2018",
     "note": null,
     "molecule": "mol:C2H5OCH3",
     "sources": [
@@ -9890,6 +10365,7 @@
     "latex_text": null
   },
   {
+    "id": "det:1-C5H5CN:ism-csm:2021",
     "note": null,
     "molecule": "mol:1-C5H5CN",
     "sources": [
@@ -9912,6 +10388,7 @@
     "latex_text": null
   },
   {
+    "id": "det:2-C5H5CN:ism-csm:2021",
     "note": null,
     "molecule": "mol:2-C5H5CN",
     "sources": [
@@ -9934,6 +10411,7 @@
     "latex_text": null
   },
   {
+    "id": "det:n-CH3CH2CH2OH:ism-csm:2022",
     "note": null,
     "molecule": "mol:n-CH3CH2CH2OH",
     "sources": [
@@ -9958,6 +10436,7 @@
     "latex_text": null
   },
   {
+    "id": "det:i-CH3CH2CH2OH:ism-csm:2022",
     "note": null,
     "molecule": "mol:i-CH3CH2CH2OH",
     "sources": [
@@ -9980,6 +10459,7 @@
     "latex_text": null
   },
   {
+    "id": "det:i-C4H8:ism-csm:2023",
     "note": null,
     "molecule": "mol:i-C4H8",
     "sources": [
@@ -10004,6 +10484,7 @@
     "latex_text": null
   },
   {
+    "id": "det:C6H5CN:ism-csm:2018",
     "note": null,
     "molecule": "mol:C6H5CN",
     "sources": [
@@ -10026,6 +10507,7 @@
     "latex_text": null
   },
   {
+    "id": "det:HC11N:ism-csm:2021",
     "note": null,
     "molecule": "mol:HC11N",
     "sources": [
@@ -10048,6 +10530,7 @@
     "latex_text": null
   },
   {
+    "id": "det:1-C5H5CCH:ism-csm:2021",
     "note": null,
     "molecule": "mol:1-C5H5CCH",
     "sources": [
@@ -10070,6 +10553,7 @@
     "latex_text": null
   },
   {
+    "id": "det:2-C5H5CCH:ism-csm:2021",
     "note": null,
     "molecule": "mol:2-C5H5CCH",
     "sources": [
@@ -10092,6 +10576,7 @@
     "latex_text": null
   },
   {
+    "id": "det:c-C5H4CCH2:ism-csm:2022",
     "note": null,
     "molecule": "mol:c-C5H4CCH2",
     "sources": [
@@ -10114,6 +10599,7 @@
     "latex_text": null
   },
   {
+    "id": "det:CH3OCH2CH2OH:ism-csm:2024",
     "note": null,
     "molecule": "mol:CH3OCH2CH2OH",
     "sources": [
@@ -10136,6 +10622,7 @@
     "latex_text": null
   },
   {
+    "id": "det:c-C6H5CCH:ism-csm:2023",
     "note": null,
     "molecule": "mol:c-C6H5CCH",
     "sources": [
@@ -10158,6 +10645,7 @@
     "latex_text": null
   },
   {
+    "id": "det:1-C10H7CN:ism-csm:2021",
     "note": null,
     "molecule": "mol:1-C10H7CN",
     "sources": [
@@ -10180,6 +10668,7 @@
     "latex_text": null
   },
   {
+    "id": "det:2-C10H7CN:ism-csm:2021",
     "note": null,
     "molecule": "mol:2-C10H7CN",
     "sources": [
@@ -10202,6 +10691,7 @@
     "latex_text": null
   },
   {
+    "id": "det:C9H8:ism-csm:2021",
     "note": null,
     "molecule": "mol:C9H8",
     "sources": [
@@ -10226,6 +10716,7 @@
     "latex_text": null
   },
   {
+    "id": "det:2-C9H7CN:ism-csm:2022",
     "note": null,
     "molecule": "mol:2-C9H7CN",
     "sources": [
@@ -10248,6 +10739,7 @@
     "latex_text": null
   },
   {
+    "id": "det:1-C12H7CN:ism-csm:2024",
     "note": null,
     "molecule": "mol:1-C12H7CN",
     "sources": [
@@ -10270,6 +10762,7 @@
     "latex_text": null
   },
   {
+    "id": "det:5-C12H7CN:ism-csm:2024",
     "note": null,
     "molecule": "mol:5-C12H7CN",
     "sources": [
@@ -10292,6 +10785,7 @@
     "latex_text": null
   },
   {
+    "id": "det:1-C16H9CN:ism-csm:2024",
     "note": null,
     "molecule": "mol:1-C16H9CN",
     "sources": [
@@ -10314,6 +10808,7 @@
     "latex_text": null
   },
   {
+    "id": "det:2-C16H9CN:ism-csm:2024",
     "note": null,
     "molecule": "mol:2-C16H9CN",
     "sources": [
@@ -10336,6 +10831,7 @@
     "latex_text": null
   },
   {
+    "id": "det:4-C16H9CN:ism-csm:2024",
     "note": null,
     "molecule": "mol:4-C16H9CN",
     "sources": [
@@ -10358,6 +10854,7 @@
     "latex_text": null
   },
   {
+    "id": "det:C60:ism-csm:2010",
     "note": null,
     "molecule": "mol:C60",
     "sources": [
@@ -10381,6 +10878,7 @@
     "latex_text": null
   },
   {
+    "id": "det:C60+:ism-csm:2013",
     "note": null,
     "molecule": "mol:C60+",
     "sources": [
@@ -10403,6 +10901,7 @@
     "latex_text": null
   },
   {
+    "id": "det:C70:ism-csm:2010",
     "note": null,
     "molecule": "mol:C70",
     "sources": [
@@ -10425,6 +10924,7 @@
     "latex_text": null
   },
   {
+    "id": "det:c-C2H4NH:ism-csm:2001",
     "note": "Tentative detection of the 226 GHz 5(5,0)-4(4,1) transition reported toward Sgr B2, G34.3+0.2, G10.47+0.03, and G327.3-0.6.",
     "molecule": "mol:c-C2H4NH",
     "sources": [

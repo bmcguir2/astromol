@@ -5,6 +5,7 @@ from .models import (
     Ref, Telescope, Source,
     RotationalConstants, DipoleMoment, Molecule, Detection,
     RecordHistory,
+    DETECTION_RELATION_FIELDS,
 )
 
 # Path to the data directory, relative to this file
@@ -96,6 +97,7 @@ class Database:
         self.molecules_by_formula = {}  # formula -> list[Molecule]
         self.molecules_by_name = {}     # name -> list[Molecule]
         self.detections = []     # list of Detection objects
+        self.detections_by_id = {}  # stable detection ID -> Detection
 
         self._load()
 
@@ -411,7 +413,23 @@ class Database:
                     )
 
                 det = Detection(**entry)
+                if det.id in self.detections_by_id:
+                    raise ValueError(f"Duplicate detection id in detections.json: {det.id}")
                 self.detections.append(det)
+                self.detections_by_id[det.id] = det
+
+        self._validate_detection_relationships()
+
+    def _validate_detection_relationships(self):
+        """Ensure detection relationship IDs point to known detections."""
+        for det in self.detections:
+            for field_name in DETECTION_RELATION_FIELDS:
+                for detection_id in getattr(det, field_name):
+                    if detection_id not in self.detections_by_id:
+                        raise KeyError(
+                            f"Detection '{det.id}' has unknown "
+                            f"{field_name} target: {detection_id}"
+                        )
 
     def _normalize_history(self, entry):
         """Convert a nested history payload into a RecordHistory object."""

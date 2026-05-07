@@ -81,6 +81,15 @@ DETECTION_STATUSES = [
     "disputed",
 ]
 
+DETECTION_RELATION_FIELDS = [
+    "confirms",
+    "confirmed_by",
+    "disputes",
+    "disputed_by",
+    "supersedes",
+    "superseded_by",
+]
+
 HISTORY_EVENT_KINDS = [
     "added",
     "updated",
@@ -700,6 +709,7 @@ class Detection:
     """A specific detection event of a molecule in an astronomical source."""
 
     # === Required fields ===
+    id: str                   # stable detection ID, e.g. "det:CH:ism-csm:1937"
     molecule: str             # molecule label, e.g. "mol:CH"
                               # resolved to Molecule object during loading
     sources: list             # list of source nicks, e.g. ["SgrB2", "TMC1"]
@@ -708,7 +718,7 @@ class Detection:
                               # resolved to Telescope objects during loading
     wavelengths: list         # list from WAVELENGTHS, e.g. ["cm", "mm"]
     year: int                 # year of detection, e.g. 1937
-    type: str                 # one of DETECTION_TYPES, e.g. "first"
+    type: str                 # one of DETECTION_TYPES, e.g. "ISM/CSM"
     note: str = None
     status: str = "secure"    # one of DETECTION_STATUSES
     status_note: str = None   # explanation for tentative/disputed status
@@ -727,6 +737,16 @@ class Detection:
     # Resolved to lists of Ref objects during loading.
     refs: dict = None
 
+    # === Relationships to other detection records ===
+    # Values are stable detection IDs. These are not bibliographic references;
+    # they connect database detection records to each other.
+    confirms: list = field(default_factory=list)
+    confirmed_by: list = field(default_factory=list)
+    disputes: list = field(default_factory=list)
+    disputed_by: list = field(default_factory=list)
+    supersedes: list = field(default_factory=list)
+    superseded_by: list = field(default_factory=list)
+
     # === LaTeX generation ===
     latex_text: str = None    # sentence fragment for paper generation
                               # may contain {placeholder} syntax for dynamic resolution
@@ -734,6 +754,11 @@ class Detection:
 
     def __post_init__(self):
         """Validates types, wavelengths, ref roles, and sets defaults."""
+        if not isinstance(self.id, str) or not self.id.startswith("det:"):
+            raise ValueError(
+                f"Detection of '{self.molecule}': "
+                f"invalid id '{self.id}'. Detection IDs must start with 'det:'."
+            )
 
         # Validate detection type
         if self.type not in DETECTION_TYPES:
@@ -772,6 +797,24 @@ class Detection:
                     f"unknown ref role '{role}'. "
                     f"Must be one of: {DETECTION_REF_ROLES}"
                 )
+
+        for field_name in DETECTION_RELATION_FIELDS:
+            value = getattr(self, field_name)
+            if value is None:
+                setattr(self, field_name, [])
+                continue
+            if not isinstance(value, list):
+                raise ValueError(
+                    f"Detection '{self.id}': relationship field "
+                    f"'{field_name}' must be a list of detection IDs."
+                )
+            for detection_id in value:
+                if not isinstance(detection_id, str) or not detection_id.startswith("det:"):
+                    raise ValueError(
+                        f"Detection '{self.id}': relationship field "
+                        f"'{field_name}' contains invalid detection ID "
+                        f"'{detection_id}'."
+                    )
 
     @property
     def sortdate(self):

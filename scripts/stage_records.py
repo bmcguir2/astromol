@@ -31,6 +31,7 @@ from astromol.models import (  # noqa: E402
     Molecule,
     Source,
     Telescope,
+    DETECTION_RELATION_FIELDS,
     DETECTION_REF_ROLES,
     MOLECULE_REF_ROLES,
 )
@@ -72,6 +73,7 @@ FIELDS = {
         "history",
     ],
     "detection": [
+        "id",
         "note",
         "molecule",
         "sources",
@@ -85,6 +87,12 @@ FIELDS = {
         "month",
         "day",
         "refs",
+        "confirms",
+        "confirmed_by",
+        "disputes",
+        "disputed_by",
+        "supersedes",
+        "superseded_by",
         "latex_text",
         "history",
     ],
@@ -152,6 +160,12 @@ DEFAULTS = {
         "month": None,
         "day": None,
         "refs": {},
+        "confirms": [],
+        "confirmed_by": [],
+        "disputes": [],
+        "disputed_by": [],
+        "supersedes": [],
+        "superseded_by": [],
         "latex_text": None,
         "history": None,
     },
@@ -177,7 +191,7 @@ DEFAULTS = {
 
 REQUIRED = {
     "molecule": ["name", "formula", "label"],
-    "detection": ["molecule", "year", "type"],
+    "detection": ["id", "molecule", "year", "type"],
     "source": ["name", "nick", "type"],
     "telescope": ["name", "nick", "shortname", "type", "wavelength"],
 }
@@ -390,6 +404,9 @@ def validate_record(
             errors.append(f"telescope nick already exists: {nick}")
 
     if kind == "detection":
+        detection_id = payload.get("id")
+        if detection_id in existing["detection"]:
+            errors.append(f"detection id already exists: {detection_id}")
         molecule = payload.get("molecule")
         if molecule not in existing["molecule"] and molecule not in staged["molecule"]:
             errors.append(f"unknown molecule: {molecule}")
@@ -399,6 +416,16 @@ def validate_record(
         for telescope in payload.get("telescopes") or []:
             if telescope not in existing["telescope"] and telescope not in staged["telescope"]:
                 errors.append(f"unknown telescope: {telescope}")
+        for field_name in DETECTION_RELATION_FIELDS:
+            for detection_id in payload.get(field_name) or []:
+                if (
+                    detection_id not in existing["detection"]
+                    and detection_id not in staged["detection"]
+                ):
+                    errors.append(
+                        f"unknown detection relationship target in "
+                        f"`{field_name}`: {detection_id}"
+                    )
 
     if kind in REF_ROLE_FIELDS:
         refs = payload.get("refs") or {}
@@ -418,7 +445,7 @@ def identity(kind: str, payload: dict) -> str:
     if kind in {"source", "telescope"}:
         return payload.get("nick")
     if kind == "detection":
-        return f"{payload.get('molecule')}:{payload.get('year')}:{payload.get('status')}"
+        return payload.get("id")
     return "unknown"
 
 
@@ -486,6 +513,13 @@ def make_report(
             lines.append(f"- sources: `{', '.join(record.get('sources') or [])}`")
             lines.append(f"- telescopes: `{', '.join(record.get('telescopes') or [])}`")
             lines.append(f"- refs: `{record.get('refs')}`")
+            relationships = {
+                field: record.get(field)
+                for field in DETECTION_RELATION_FIELDS
+                if record.get(field)
+            }
+            if relationships:
+                lines.append(f"- relationships: `{relationships}`")
         elif row["kind"] == "molecule":
             record = row["record"]
             lines.append(f"- formula: `{record.get('formula')}`")
@@ -555,7 +589,7 @@ def main() -> None:
         "source": {record["nick"] for record in production["source"]},
         "telescope": {record["nick"] for record in production["telescope"]},
     }
-    existing["detection"] = set()
+    existing["detection"] = {record["id"] for record in production["detection"]}
 
     staged = defaultdict(set)
     ref_keys = load_reference_keys()
@@ -587,7 +621,7 @@ def main() -> None:
         record = merge_defaults(kind, raw)
         record["history"] = normalize_history(kind, record.get("history"), run_date)
         row_id = identity(kind, record)
-        if kind in {"molecule", "source", "telescope"} and row_id:
+        if kind in {"molecule", "source", "telescope", "detection"} and row_id:
             staged[kind].add(row_id)
 
         rows.append(
@@ -604,7 +638,7 @@ def main() -> None:
 
     staged_id_counts = defaultdict(Counter)
     for row in rows:
-        if row["kind"] in {"molecule", "source", "telescope"}:
+        if row["kind"] in {"molecule", "source", "telescope", "detection"}:
             staged_id_counts[row["kind"]][row["id"]] += 1
 
     for row in rows:
@@ -613,7 +647,10 @@ def main() -> None:
             continue
         location = f"{row['file']} record {row['index']}"
         row_errors = validate_record(kind, row["record"], existing, staged, ref_keys)
-        if kind in {"molecule", "source", "telescope"} and staged_id_counts[kind][row["id"]] > 1:
+        if (
+            kind in {"molecule", "source", "telescope", "detection"}
+            and staged_id_counts[kind][row["id"]] > 1
+        ):
             row_errors.append(f"duplicate staged {kind} identity: {row['id']}")
         row["errors"] = row_errors
         if row_errors:

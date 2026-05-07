@@ -1,9 +1,10 @@
 # Copy this block into curation/staging/<name>.yaml and fill it in.
-# Required fields: kind, molecule, year, type.
+# Required fields: kind, id, molecule, year, type.
 # Optional fields can be left blank; stage_records.py prunes empty template
 # sections and fills production defaults.
 
 - kind: detection  # REQUIRED
+  id: det:EXAMPLE:ism-csm:2026  # REQUIRED; stable unique detection ID
   molecule: mol:EXAMPLE  # REQUIRED
   sources: []
   telescopes: []
@@ -21,6 +22,12 @@
     confirmation: []
     dispute: []
     correction: []
+  confirms: []
+  confirmed_by: []
+  disputes: []
+  disputed_by: []
+  supersedes: []
+  superseded_by: []
   latex_text:
 
   # Staging-only fields. These are reported but not written to JSON.

@@ -308,6 +308,7 @@ Loader compatibility:
 Specific molecule detection event.
 
 Required fields:
+- `id`: stable detection identifier
 - `molecule`: molecule label, resolved to a `Molecule`
 - `sources`: source nicks, resolved to `Source` objects
 - `telescopes`: telescope nicks, resolved to `Telescope` objects
@@ -323,11 +324,34 @@ Optional fields:
 - `month`
 - `day`
 - `refs`: role-keyed dict using roles from `DETECTION_REF_ROLES`
+- `confirms`: detection IDs this record confirms
+- `confirmed_by`: detection IDs that confirm this record
+- `disputes`: detection IDs this record disputes
+- `disputed_by`: detection IDs that dispute this record
+- `supersedes`: detection IDs this record supersedes
+- `superseded_by`: detection IDs that supersede this record
 - `latex_text`
 - `history`: optional `RecordHistory`
 
 Computed:
 - `sortdate`
+
+Detection IDs are stable database identifiers. The default format is:
+
+```text
+det:<molecule-label-without-mol-prefix>:<context>:<year>[:qualifier]
+```
+
+Examples:
+- `det:CH:ism-csm:1937`
+- `det:CH3CH2CCH:ism-csm:2021`
+- `det:CH3CH2CCH:ism-csm:2024`
+- `det:OCN-:ice:2005`
+
+Use an additional qualifier only when molecule, context, and year would not be
+unique. Detection IDs should not include mutable status terms such as
+`tentative`, because a detection claim may later be confirmed without becoming a
+different database record.
 
 Detection status is independent of detection type. `type` records the
 astrophysical context, such as `ISM/CSM`, `ice`, or `exgal`; `status` records
@@ -335,6 +359,17 @@ whether the claim is `secure`, `tentative`, or `disputed`. Molecule inclusion
 does not imply a secure astronomical detection. Tentative and disputed records
 should normally keep `first: false` unless a deliberate curation decision says
 otherwise.
+
+`first: true` means the first accepted/secure detection in that context, not
+necessarily the first chronological claim. Earlier tentative or disputed claims
+should be represented as separate detection records and linked to later secure
+detections with `confirmed_by`/`confirms` where appropriate.
+
+Relationship fields store detection IDs, not BibTeX keys. Use `refs` for papers
+and relationship fields for links between detection records. For example, an
+earlier tentative butyne detection can use
+`confirmed_by: [det:CH3CH2CCH:ism-csm:2024]`, while the confirming paper remains
+under `refs.confirmation` or the secure detection's `refs.observation`.
 
 Current `DETECTION_TYPES`:
 - `ISM/CSM`
@@ -355,6 +390,14 @@ Current `DETECTION_REF_ROLES`:
 - `confirmation`: paper confirming an earlier tentative detection
 - `dispute`: paper challenging a detection claim
 - `correction`: paper correcting detection metadata or interpretation
+
+Current detection relationship fields:
+- `confirms`
+- `confirmed_by`
+- `disputes`
+- `disputed_by`
+- `supersedes`
+- `superseded_by`
 
 ## Reference Loading
 

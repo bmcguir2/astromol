@@ -2,264 +2,357 @@
   label: mol:C2H5N
   name: aziridine
   formula: C2H5N
-  synonyms: [ethylenimine]
+  synonyms:
+  - ethylenimine
   refs:
-    lab: [Thorwirth:2000:116]
+    lab:
+    - Thorwirth:2000:116
     computation: []
-  latex_body: "\\citet{Dickens:2001:643} reported the tentative detection of the $J_{K_a,K_c} = 5_{5,0}\\rightarrow4_{4,1}$ transition of \\ce{C2H5N}, also known as ethylenimine, at 226~GHz toward Sgr B2, G34.3+.2, G10.47+0.03, and G327.3-0.6 in observations made with the SEST 15-m, NRAO 12-m, and NASA Deep Space Network 70-m telescopes.  The laboratory data were reported by \\citet{Thorwirth:2000:116}."
-
+  latex_body: \citet{Dickens:2001:643} reported the tentative detection of the $J_{K_a,K_c} = 5_{5,0}\rightarrow4_{4,1}$ transition of \ce{C2H5N}, also known as ethylenimine, at 226~GHz toward Sgr B2, G34.3+.2, G10.47+0.03, and G327.3-0.6 in observations made with the SEST 15-m, NRAO 12-m, and NASA Deep Space Network 70-m telescopes.  The laboratory data were reported by \citet{Thorwirth:2000:116}.
 - kind: detection
+  id: det:C2H5N:ism-csm:2001
   molecule: mol:C2H5N
-  sources: [SgrB2, G327306LOS]
-  telescopes: [SEST15, NRAOARO12, Goldstone70]
-  wavelengths: [mm]
+  sources:
+  - SgrB2
+  - G327306LOS
+  telescopes:
+  - SEST15
+  - NRAOARO12
+  - Goldstone70
+  wavelengths:
+  - mm
   year: 2001
   type: ISM/CSM
   status: tentative
   status_note: Listed in the 2021 census Tentative Detections section.
   first: false
   refs:
-    observation: [Dickens:2001:643]
-  _raw_sources_not_mapped: [G34.3+0.2, G10.47+0.03]
-
+    observation:
+    - Dickens:2001:643
+  _raw_sources_not_mapped:
+  - G34.3+0.2
+  - G10.47+0.03
 - kind: molecule
   label: mol:SiH
   name: silicon hydride
   formula: SiH
   refs:
-    lab: [Brown:1985:188]
+    lab:
+    - Brown:1985:188
     computation: []
-  latex_body: "\\citet{Schilke:2001:281} reported the tentative detection of two features in a CSO line survey of Orion that were coincident with transitions of SiH.  Two groups of hyperfine transitions in the $^2\\Pi _{1/2}$ state at 625 and 628~GHz fell within range of the observations.  The lower set is significantly blended with other emitting species, whereas the higher-frequency set appears unblended, and may show partially resolved hyperfine structure.  The laboratory frequencies were from \\citet{Brown:1985:188}."
-
+  latex_body: \citet{Schilke:2001:281} reported the tentative detection of two features in a CSO line survey of Orion that were coincident with transitions of SiH.  Two groups of hyperfine transitions in the $^2\Pi _{1/2}$ state at 625 and 628~GHz fell within range of the observations.  The lower set is significantly blended with other emitting species, whereas the higher-frequency set appears unblended, and may show partially resolved hyperfine structure.  The laboratory frequencies were from \citet{Brown:1985:188}.
 - kind: detection
+  id: det:SiH:ism-csm:2001
   molecule: mol:SiH
-  sources: [OrionKL]
-  telescopes: [CSO]
-  wavelengths: [sub-mm]
+  sources:
+  - OrionKL
+  telescopes:
+  - CSO
+  wavelengths:
+  - sub-mm
   year: 2001
   type: ISM/CSM
   status: tentative
   status_note: Listed in the 2021 census Tentative Detections section.
   first: false
   refs:
-    observation: [Schilke:2001:281]
-
+    observation:
+    - Schilke:2001:281
 - kind: molecule
   label: mol:FeO
   name: iron monoxide
   formula: FeO
   refs:
-    lab: [Allen:1996:130]
+    lab:
+    - Allen:1996:130
     computation: []
-  latex_body: "\\citet{Walmsley:2002:L109} identified an absorption feature in IRAM 30-m observations of Sgr B2 at 153~GHz that they tentatively assign to the $J = 5\\rightarrow4$, $\\Omega = 4$ transition of FeO, based on the laboratory work of \\citet{Allen:1996:130}.  Later, \\citet{Furuya:2003:L21} used the Nobeyama Millimeter Array to confirm the detection of this line, but no additional transitions were observed.  Most recently, \\citet{Decin:2018:113} reported a tentative detection of the $11\\rightarrow10$, $\\Omega = 4$ transition in ALMA observations of R Dor at 337~GHz."
-
+  latex_body: \citet{Walmsley:2002:L109} identified an absorption feature in IRAM 30-m observations of Sgr B2 at 153~GHz that they tentatively assign to the $J = 5\rightarrow4$, $\Omega = 4$ transition of FeO, based on the laboratory work of \citet{Allen:1996:130}.  Later, \citet{Furuya:2003:L21} used the Nobeyama Millimeter Array to confirm the detection of this line, but no additional transitions were observed.  Most recently, \citet{Decin:2018:113} reported a tentative detection of the $11\rightarrow10$, $\Omega = 4$ transition in ALMA observations of R Dor at 337~GHz.
 - kind: detection
+  id: det:FeO:ism-csm:2002
   molecule: mol:FeO
-  sources: [SgrB2]
-  telescopes: [IRAM30, Nobeyama45, ALMA]
-  wavelengths: [mm, sub-mm]
+  sources:
+  - SgrB2
+  telescopes:
+  - IRAM30
+  - Nobeyama45
+  - ALMA
+  wavelengths:
+  - mm
+  - sub-mm
   year: 2002
   type: ISM/CSM
   status: tentative
   status_note: Listed in the 2021 census Tentative Detections section; follow-up papers are retained as observation/context references.
   first: false
   refs:
-    observation: [Walmsley:2002:L109, Furuya:2003:L21, Decin:2018:113]
-  _raw_sources_not_mapped: [R Dor]
-
+    observation:
+    - Walmsley:2002:L109
+    - Furuya:2003:L21
+    - Decin:2018:113
+  _raw_sources_not_mapped:
+  - R Dor
 - kind: molecule
   label: mol:OCN-
   name: cyanate anion
   formula: OCN-
   refs:
-    lab: [Schutte:1997:L43]
+    lab:
+    - Schutte:1997:L43
     computation: []
-  latex_body: "There is a long history of attempts to identify the carrier of the ``XCN\" feature in astrophyiscal ice observations near 2167~cm$^{-1}$.  On the basis of extensive laboratory work (see, e.g., \\citealt{Schutte:1997:L43}), \\citet{vanBroekhuizen:2005:249} claim an identification of \\ce{OCN-} in ices along numerous sightlines to low-mass YSO's using the Very Large Telescope (VLT).  Only a single absorption feature could be ascribed to \\ce{OCN-}.  As this is a single feature detection, and no gas-phase detection has been claimed, \\ce{OCN-} has been listed as a tentative interstellar species in this census."
-
+  latex_body: There is a long history of attempts to identify the carrier of the ``XCN" feature in astrophyiscal ice observations near 2167~cm$^{-1}$.  On the basis of extensive laboratory work (see, e.g., \citealt{Schutte:1997:L43}), \citet{vanBroekhuizen:2005:249} claim an identification of \ce{OCN-} in ices along numerous sightlines to low-mass YSO's using the Very Large Telescope (VLT).  Only a single absorption feature could be ascribed to \ce{OCN-}.  As this is a single feature detection, and no gas-phase detection has been claimed, \ce{OCN-} has been listed as a tentative interstellar species in this census.
 - kind: detection
+  id: det:OCN-:ice:2005
   molecule: mol:OCN-
   sources: []
   telescopes: []
-  wavelengths: [IR]
+  wavelengths:
+  - IR
   year: 2005
   type: ice
   status: tentative
   status_note: Listed in the 2021 census Tentative Detections section as a single-feature ice identification.
   first: false
   refs:
-    observation: [vanBroekhuizen:2005:249]
-  _raw_sources_not_mapped: [numerous low-mass YSO sightlines]
-  _raw_telescopes_not_mapped: [VLT]
-
+    observation:
+    - vanBroekhuizen:2005:249
+  _raw_sources_not_mapped:
+  - numerous low-mass YSO sightlines
+  _raw_telescopes_not_mapped:
+  - VLT
 - kind: molecule
   label: mol:C2H-
   name: ethynylide anion
   formula: C2H-
   refs:
-    lab: [Brunken:2007:L33]
-    computation: [Amano:2008:244305]
-  latex_body: "\\citet{Cernicharo:2008:L83} suggest that an unidentified line at 83.278\\,GHz, classified as U83278, in IRAM 30-m observations of IRC+10216 may be due to the $J = 1\\rightarrow0$ transition of \\ce{C2H-}.  Although they list no source for their line frequency, it presumably is derived from the work of \\citet{Brunken:2007:L33} and \\citet{Amano:2008:244305}."
-
+    lab:
+    - Brunken:2007:L33
+    computation:
+    - Amano:2008:244305
+  latex_body: \citet{Cernicharo:2008:L83} suggest that an unidentified line at 83.278\,GHz, classified as U83278, in IRAM 30-m observations of IRC+10216 may be due to the $J = 1\rightarrow0$ transition of \ce{C2H-}.  Although they list no source for their line frequency, it presumably is derived from the work of \citet{Brunken:2007:L33} and \citet{Amano:2008:244305}.
 - kind: detection
+  id: det:C2H-:ism-csm:2008
   molecule: mol:C2H-
-  sources: [IRC10216]
-  telescopes: [IRAM30]
-  wavelengths: [mm]
+  sources:
+  - IRC10216
+  telescopes:
+  - IRAM30
+  wavelengths:
+  - mm
   year: 2008
   type: ISM/CSM
   status: tentative
   status_note: Listed in the 2021 census Tentative Detections section.
   first: false
   refs:
-    observation: [Cernicharo:2008:L83]
-
+    observation:
+    - Cernicharo:2008:L83
 - kind: molecule
   label: mol:C6H5OH
   name: phenol
   formula: C6H5OH
   refs:
-    lab: [Kolesnikova:2013:13]
+    lab:
+    - Kolesnikova:2013:13
     computation: []
-  latex_body: "\\citet{Kolesnikova:2013:13} reported the laboratory rotational spectroscopy of \\ce{C6H5OH}, and identified a number of coincidences between transitions of \\ce{C6H5OH} and unassigned lines in IRAM 30-m observations of Orion between 80--280~GHz \\citep{Tercero:2012:A119}."
-
+  latex_body: \citet{Kolesnikova:2013:13} reported the laboratory rotational spectroscopy of \ce{C6H5OH}, and identified a number of coincidences between transitions of \ce{C6H5OH} and unassigned lines in IRAM 30-m observations of Orion between 80--280~GHz \citep{Tercero:2012:A119}.
 - kind: detection
+  id: det:C6H5OH:ism-csm:2013
   molecule: mol:C6H5OH
-  sources: [OrionKL]
-  telescopes: [IRAM30]
-  wavelengths: [mm]
+  sources:
+  - OrionKL
+  telescopes:
+  - IRAM30
+  wavelengths:
+  - mm
   year: 2013
   type: ISM/CSM
   status: tentative
   status_note: Listed in the 2021 census Tentative Detections section.
   first: false
   refs:
-    observation: [Kolesnikova:2013:13, Tercero:2012:A119]
-
+    observation:
+    - Kolesnikova:2013:13
+    - Tercero:2012:A119
 - kind: molecule
   label: mol:NO+
   name: nitrosylium cation
   formula: NO+
   refs:
-    lab: [Cernicharo:2014:40]
+    lab:
+    - Cernicharo:2014:40
     computation: []
-  latex_body: "\\citet{Cernicharo:2014:40} reported the tentative detection of a single line ($J = 2\\rightarrow1$) of \\ce{NO+} at 238~GHz toward B1-b using the IRAM 30-m telescope.  The assignment was made based on laboratory rotational spectroscopy described in the same paper."
-
+  latex_body: \citet{Cernicharo:2014:40} reported the tentative detection of a single line ($J = 2\rightarrow1$) of \ce{NO+} at 238~GHz toward B1-b using the IRAM 30-m telescope.  The assignment was made based on laboratory rotational spectroscopy described in the same paper.
 - kind: detection
+  id: det:NO+:ism-csm:2014
   molecule: mol:NO+
-  sources: [B1b]
-  telescopes: [IRAM30]
-  wavelengths: [mm]
+  sources:
+  - B1b
+  telescopes:
+  - IRAM30
+  wavelengths:
+  - mm
   year: 2014
   type: ISM/CSM
   status: tentative
   status_note: Listed in the 2021 census Tentative Detections section.
   first: false
   refs:
-    observation: [Cernicharo:2014:40]
-
+    observation:
+    - Cernicharo:2014:40
 - kind: molecule
   label: mol:NCCP
   name: cyanophosphaethyne
   formula: NCCP
   refs:
-    lab: [Bizzocchi:2001:110]
+    lab:
+    - Bizzocchi:2001:110
     computation: []
-  latex_body: "\\citet{Agundez:2014:A45} reported the tentative detection of \\ce{NCCP} in IRAM 30-m observations of IRC+10216.  They identified and tentatively assigned three signals in their spectra to the $J = 15\\rightarrow14$, $16\\rightarrow15$, and $18\\rightarrow17$ transitions of \\ce{NCCP} at 81, 87, and 97~GHz, respectively, based on the laboratory work of \\citet{Bizzocchi:2001:110}."
-
+  latex_body: \citet{Agundez:2014:A45} reported the tentative detection of \ce{NCCP} in IRAM 30-m observations of IRC+10216.  They identified and tentatively assigned three signals in their spectra to the $J = 15\rightarrow14$, $16\rightarrow15$, and $18\rightarrow17$ transitions of \ce{NCCP} at 81, 87, and 97~GHz, respectively, based on the laboratory work of \citet{Bizzocchi:2001:110}.
 - kind: detection
+  id: det:NCCP:ism-csm:2014
   molecule: mol:NCCP
-  sources: [IRC10216]
-  telescopes: [IRAM30]
-  wavelengths: [mm]
+  sources:
+  - IRC10216
+  telescopes:
+  - IRAM30
+  wavelengths:
+  - mm
   year: 2014
   type: ISM/CSM
   status: tentative
   status_note: Listed in the 2021 census Tentative Detections section.
   first: false
   refs:
-    observation: [Agundez:2014:A45]
-
+    observation:
+    - Agundez:2014:A45
 - kind: detection
+  id: det:C2H5OCH3:ism-csm:2001
   molecule: mol:C2H5OCH3
-  sources: [OrionKL, SgrB2, W51]
-  telescopes: [NRAOARO12, BIMA, IRAM30, SEST15, GBT, ALMA]
-  wavelengths: [mm]
+  sources:
+  - OrionKL
+  - SgrB2
+  - W51
+  telescopes:
+  - NRAOARO12
+  - BIMA
+  - IRAM30
+  - SEST15
+  - GBT
+  - ALMA
+  wavelengths:
+  - mm
   year: 2001
   type: ISM/CSM
   status: tentative
   status_note: Listed in the 2021 census Tentative Detections section; a later challenge is retained under refs.dispute.
   first: false
   refs:
-    observation: [Charnley:2001:685, Fuchs:2005:521, Tercero:2015:L1]
-    dispute: [Carroll:2015:15]
-
+    observation:
+    - Charnley:2001:685
+    - Fuchs:2005:521
+    - Tercero:2015:L1
+    dispute:
+    - Carroll:2015:15
+  confirmed_by:
+  - det:C2H5OCH3:ism-csm:2018
 - kind: detection
+  id: det:CH3NHCHO:ism-csm:2017
   molecule: mol:CH3NHCHO
-  sources: [SgrB2]
-  telescopes: [ALMA]
-  wavelengths: [mm]
+  sources:
+  - SgrB2
+  telescopes:
+  - ALMA
+  wavelengths:
+  - mm
   year: 2017
   type: ISM/CSM
   status: tentative
   status_note: Listed in the 2021 census Tentative Detections section.
   first: false
   refs:
-    observation: [Belloche:2017:A49]
-
+    observation:
+    - Belloche:2017:A49
+  confirmed_by:
+  - det:CH3NHCHO:ism-csm:2021
 - kind: molecule
   label: mol:HC5NH+
   name: protonated cyanodiacetylene cation
   formula: HC5NH+
   refs:
     lab: []
-    computation: [Marcelino:2020:L6]
-  latex_body: "\\citet{Marcelino:2020:L6} report a tentative detection of \\ce{HC5NH+} in Yebes 40-m observations of TMC-1.  They identify a series of eight harmonically spaced lines in the data corresponding to a rotational constant $B$ = 1295.8158\\,MHz.  Based on quantum chemical calculations, they suggest either \\ce{HC5NH+} or \\ce{NC4NH+} as the potential carrier, eventually proposing \\ce{HC5NH+} as the more likely.  The lack of laboratory frequencies for confirmation is the remaining hinderance."
-
+    computation:
+    - Marcelino:2020:L6
+  latex_body: \citet{Marcelino:2020:L6} report a tentative detection of \ce{HC5NH+} in Yebes 40-m observations of TMC-1.  They identify a series of eight harmonically spaced lines in the data corresponding to a rotational constant $B$ = 1295.8158\,MHz.  Based on quantum chemical calculations, they suggest either \ce{HC5NH+} or \ce{NC4NH+} as the potential carrier, eventually proposing \ce{HC5NH+} as the more likely.  The lack of laboratory frequencies for confirmation is the remaining hinderance.
 - kind: detection
+  id: det:HC5NH+:ism-csm:2020
   molecule: mol:HC5NH+
-  sources: [TMC1]
-  telescopes: [Yebes40]
-  wavelengths: [cm]
+  sources:
+  - TMC1
+  telescopes:
+  - Yebes40
+  wavelengths:
+  - cm
   year: 2020
   type: ISM/CSM
   status: tentative
   status_note: Listed in the 2021 census Tentative Detections section; no laboratory frequencies were available for confirmation.
   first: false
   refs:
-    observation: [Marcelino:2020:L6]
-
+    observation:
+    - Marcelino:2020:L6
 - kind: detection
+  id: det:CH3CH2CCH:ism-csm:2021
   molecule: mol:CH3CH2CCH
-  sources: [TMC1]
-  telescopes: [Yebes40]
-  wavelengths: [cm]
+  sources:
+  - TMC1
+  telescopes:
+  - Yebes40
+  wavelengths:
+  - cm
   year: 2021
   type: ISM/CSM
   status: tentative
   status_note: Listed in the 2021 census Tentative Detections section.
   first: false
   refs:
-    observation: [Cernicharo:2021:L2]
-
+    observation:
+    - Cernicharo:2021:L2
+  confirmed_by:
+  - det:CH3CH2CCH:ism-csm:2024
 - kind: molecule
   label: mol:NH2CH2COOH
   name: glycine
   formula: NH2CH2COOH
   refs:
-    lab: [Suenram:1980:7180, Lovas:1995:L201, Ilyushin:2005:15]
+    lab:
+    - Suenram:1980:7180
+    - Lovas:1995:L201
+    - Ilyushin:2005:15
     computation: []
-  latex_body: "\\citet{Kuan:2003:848} reported a detection of 27 lines of \\ce{NH2CH2COOH} in observations toward Orion, Sgr B2, and W51 using the NRAO 12-m telescope.  Each source contained 13--16 of the 27 features; three features were seen in common between the sources.  The frequencies were obtained from the rotational constants measured and reported in \\citet{Suenram:1980:7180} and \\citet{Lovas:1995:L201}.  The detection was later disputed by \\citet{Snyder:2005:914}, who claimed to have identified a number of issues with the analysis.  Notably, \\citet{Snyder:2005:914} argue that the frequency predictions used by \\citet{Kuan:2003:848} were extrapolated too far above the measured laboratory transitions.  \\citet{Snyder:2005:914} used laboratory frequencies from \\citet{Ilyushin:2005:15} that covered the observed frequency range, and examined archival NRAO 12-m and SEST 15-m observations of Orion, Sgr B2, and W51.  They report a number of ``missing'' transitions of \\ce{NH2CH2COOH} that they predicted should have been strongly detected, if the detection of \\citet{Kuan:2003:848} held.  Subsequent searches by \\citet{Jones:2007:579}, \\citet{Cunningham:2007:1201}, and \\citet{Belloche:2008:179} using both interferometers and single-dish facilities failed to detect \\ce{NH2CH2COOH}, and set upper limits to the column density lower than that claimed in the detection of \\citet{Kuan:2003:848} (see \\citealt{Belloche:2008:179} \\S4.4 for a detailed discussion)."
-
+  latex_body: \citet{Kuan:2003:848} reported a detection of 27 lines of \ce{NH2CH2COOH} in observations toward Orion, Sgr B2, and W51 using the NRAO 12-m telescope.  Each source contained 13--16 of the 27 features; three features were seen in common between the sources.  The frequencies were obtained from the rotational constants measured and reported in \citet{Suenram:1980:7180} and \citet{Lovas:1995:L201}.  The detection was later disputed by \citet{Snyder:2005:914}, who claimed to have identified a number of issues with the analysis.  Notably, \citet{Snyder:2005:914} argue that the frequency predictions used by \citet{Kuan:2003:848} were extrapolated too far above the measured laboratory transitions.  \citet{Snyder:2005:914} used laboratory frequencies from \citet{Ilyushin:2005:15} that covered the observed frequency range, and examined archival NRAO 12-m and SEST 15-m observations of Orion, Sgr B2, and W51.  They report a number of ``missing'' transitions of \ce{NH2CH2COOH} that they
+    predicted should have been strongly detected, if the detection of \citet{Kuan:2003:848} held.  Subsequent searches by \citet{Jones:2007:579}, \citet{Cunningham:2007:1201}, and \citet{Belloche:2008:179} using both interferometers and single-dish facilities failed to detect \ce{NH2CH2COOH}, and set upper limits to the column density lower than that claimed in the detection of \citet{Kuan:2003:848} (see \citealt{Belloche:2008:179} \S4.4 for a detailed discussion).
 - kind: detection
+  id: det:NH2CH2COOH:ism-csm:2003
   molecule: mol:NH2CH2COOH
-  sources: [OrionKL, SgrB2, W51]
-  telescopes: [NRAOARO12, SEST15]
-  wavelengths: [mm]
+  sources:
+  - OrionKL
+  - SgrB2
+  - W51
+  telescopes:
+  - NRAOARO12
+  - SEST15
+  wavelengths:
+  - mm
   year: 2003
   type: ISM/CSM
   status: disputed
   status_note: Listed in the 2021 census Disputed Detections section.
   first: false
   refs:
-    observation: [Kuan:2003:848]
-    dispute: [Snyder:2005:914, Jones:2007:579, Cunningham:2007:1201, Belloche:2008:179]
+    observation:
+    - Kuan:2003:848
+    dispute:
+    - Snyder:2005:914
+    - Jones:2007:579
+    - Cunningham:2007:1201
+    - Belloche:2008:179
