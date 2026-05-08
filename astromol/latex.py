@@ -18,6 +18,26 @@ RADIO_WAVELENGTHS = {"cm", "mm", "sub-mm"}
 MOLREF_COMMAND = r"\providecommand{\molref}[2]{\hyperref[#1]{\ce{#2}}}"
 BALANCED_ISM_MAX_COLUMNS = 7
 BALANCED_ISM_MAX_ROWS = 23
+EXGAL_FIRST_TABLE_MAX_PAIRS = 4
+EXGAL_TABLE_MAX_PAIRS = 5
+PPD_FIRST_TABLE_MAX_PAIRS = 5
+PPD_TABLE_MAX_PAIRS = 5
+RATE_BY_ATOMS_ONSET_YEARS = {
+    2: 1968,
+    3: 1968,
+    4: 1968,
+    5: 1971,
+    6: 1970,
+    7: 1973,
+    8: 1975,
+    9: 1974,
+    10: 2001,
+    11: 2004,
+    12: 2001,
+    "13+": 2018,
+    "PAHs": 2021,
+    "Fullerenes": 2010,
+}
 
 
 ISM_TABLE_TWO_SEVEN_SPEC = (
@@ -43,6 +63,17 @@ class TableColumn:
     molecules: list[Molecule]
 
 
+@dataclass(frozen=True)
+class DetectionRateFit:
+    """Linear detection-rate fit for one molecule-size category."""
+
+    label: str
+    onset_year: int
+    slope: float
+    r_value: float
+    r_squared: float
+
+
 def endinput(value: object) -> str:
     """Return a LaTeX input fragment terminated with ``\\endinput``."""
     return f"{value}\\endinput"
@@ -59,6 +90,14 @@ def write_fragments(fragments: dict[str, str], output_dir: str | Path = ".") -> 
 def molecule_link(molecule: Molecule) -> str:
     """Return a hyperlinked mhchem formula for a molecule."""
     return rf"\molref{{{molecule.label}}}{{{molecule.table_formula}}}"
+
+
+def detection_molecule_link(detection: Detection) -> str:
+    """Return a linked molecule formula with a tentative marker if needed."""
+    link = molecule_link(detection.molecule)
+    if detection.status == "tentative":
+        return link + r"$^{\dagger}$"
+    return link
 
 
 def linked_header(anchor: str, text: str) -> str:
@@ -162,10 +201,32 @@ def table_column_header(columns: list[TableColumn]) -> str:
     return " & ".join(cells) + r" \\"
 
 
+def atom_reference_table_header(atom_counts: Iterable[int]) -> list[str]:
+    """Return grouped atom-count and species/reference table headers."""
+    atom_counts = list(atom_counts)
+    grouped = " & ".join(
+        rf"\multicolumn{{2}}{{c}}{{{linked_header(f'{natoms}atoms', f'{natoms} Atoms')}}}"
+        for natoms in atom_counts
+    )
+    labels = " & ".join(["Species & Ref."] * len(atom_counts))
+    return [grouped + r" \\", labels + r" \\"]
+
+
 def tabular_spec(ncols: int) -> str:
     """Return a flexible full-width tabular specification."""
     cols = " ".join(["l"] * ncols)
     return rf"\begin{{tabular*}}{{\textwidth}}{{@{{\extracolsep{{\fill}}}} {cols} @{{}}}}"
+
+
+def species_reference_tabular_spec(npairs: int) -> str:
+    """Return a full-width tabular spec for species/reference column pairs."""
+    cols = " ".join(["l l"] * npairs)
+    return rf"\begin{{tabular*}}{{\textwidth}}{{@{{\extracolsep{{\fill}}}} {cols} @{{}}}}"
+
+
+def single_reference_tabular_spec(width: str = r"\columnwidth") -> str:
+    """Return a tabular spec for one species/reference column pair."""
+    return rf"\begin{{tabular*}}{{{width}}}{{@{{\extracolsep{{\fill}}}} l l @{{}}}}"
 
 
 def latex_table_fragment(
@@ -451,6 +512,303 @@ def write_scalar_fragments(
     return fragments
 
 
+def rate_fit_end_year(view: CensusView, detections: Iterable[Detection]) -> int:
+    """Return the final year to use for rate-table fits."""
+    if view.is_current:
+        return date.today().year
+    return view.census_year or max(detection.year for detection in detections)
+
+
+def category_detection_years(
+    detections: Iterable[Detection],
+    category: int | str,
+) -> list[int]:
+    """Return first-detection years for one atom-count rate category."""
+    years = []
+    for detection in detections:
+        molecule = detection.molecule
+        if isinstance(category, int) and molecule.natoms == category:
+            years.append(detection.year)
+        elif (
+            category == "13+"
+            and molecule.natoms >= 13
+            and not molecule.pah
+            and not molecule.fullerene
+        ):
+            years.append(detection.year)
+        elif category == "PAHs" and molecule.pah:
+            years.append(detection.year)
+        elif category == "Fullerenes" and molecule.fullerene:
+            years.append(detection.year)
+    return years
+
+
+def cumulative_counts_by_year(
+    detection_years: Iterable[int],
+    *,
+    onset_year: int,
+    end_year: int,
+) -> tuple[np.ndarray, np.ndarray]:
+    """Return years and cumulative detection counts since the onset year."""
+    years = np.arange(onset_year, end_year + 1)
+    detection_years = list(detection_years)
+    counts = np.array(
+        [
+            sum(onset_year <= detection_year <= year for detection_year in detection_years)
+            for year in years
+        ]
+    )
+    return years, counts
+
+
+def linear_rate_fit(
+    detection_years: Iterable[int],
+    *,
+    onset_year: int,
+    end_year: int,
+) -> tuple[float, float, float] | None:
+    """Return slope, Pearson R, and R^2 for cumulative detections since onset."""
+    detection_years = list(detection_years)
+    if not detection_years:
+        return None
+    years, counts = cumulative_counts_by_year(
+        detection_years,
+        onset_year=onset_year,
+        end_year=end_year,
+    )
+    if len(years) < 2:
+        return None
+
+    slope, intercept = np.polyfit(years, counts, 1)
+    if float(np.sum((counts - np.mean(counts)) ** 2)) == 0.0:
+        r_value = 0.0
+    else:
+        r_value = float(np.corrcoef(years, counts)[0, 1])
+    return float(slope), r_value, r_value**2
+
+
+def rate_by_atoms_fits(view: CensusView) -> list[DetectionRateFit]:
+    """Return detection-rate fits by atom-count category for ISM/CSM molecules."""
+    first_detections = list(
+        first_context_detection_by_molecule(view.ism_detections()).values()
+    )
+    end_year = rate_fit_end_year(view, first_detections)
+    fits = []
+    for category, onset_year in RATE_BY_ATOMS_ONSET_YEARS.items():
+        fit = linear_rate_fit(
+            category_detection_years(first_detections, category),
+            onset_year=onset_year,
+            end_year=end_year,
+        )
+        if fit is None:
+            continue
+        slope, r_value, r_squared = fit
+        fits.append(
+            DetectionRateFit(
+                label=str(category),
+                onset_year=onset_year,
+                slope=slope,
+                r_value=r_value,
+                r_squared=r_squared,
+            )
+        )
+    return fits
+
+
+def rate_by_atoms_table_fragment(view: CensusView) -> str:
+    """Return the detection-rate-by-atoms table as a LaTeX fragment."""
+    lines = [
+        r"\begin{table}[htb!]",
+        r"\centering",
+        (
+            r"\caption{Rates (\emph{m}) of detection of new molecules per "
+            r"year, sorted by number of atoms per molecule derived from "
+            r"linear fits to the data shown in Figure~\ref{cumulative_by_atoms} "
+            r"as well as the $R^2$ values of the fits. The start year was "
+            r"chosen by the visual onset of a steady detection rate, and is "
+            r"given for each fit. Rates and $R^2$ values are obtained from "
+            r"least-squares linear fits using NumPy.}"
+        ),
+        (
+            r"\begin{tabular*}{\columnwidth}{c @{\extracolsep{\fill}} "
+            r"c @{\extracolsep{\fill}} c @{\extracolsep{\fill}} c }"
+        ),
+        r"\hline\hline",
+        r"\# Atoms    &   \emph{m} (yr$^{-1}$)    &   $R^2$       &   Onset Year      \\",
+        r"\hline",
+    ]
+    for fit in rate_by_atoms_fits(view):
+        lines.append(
+            f"{fit.label}\t&\t{fit.slope:.2f}\t&\t{fit.r_squared:.2f}"
+            f"\t&\t{fit.onset_year}" + r"\\"
+        )
+    lines.extend(
+        [
+            r"\hline",
+            r"\end{tabular*}",
+            r"\label{rates_by_atoms_table}",
+            r"\end{table}\endinput",
+        ]
+    )
+    return "\n".join(lines)
+
+
+def rate_by_atoms_table_fragments(
+    view: CensusView,
+    filename: str = "rates_by_atoms_table.tex",
+) -> dict[str, str]:
+    """Return the detection-rate-by-atoms table fragment."""
+    return {filename: rate_by_atoms_table_fragment(view)}
+
+
+def write_rate_by_atoms_table(
+    view: CensusView,
+    output_dir: str | Path = ".",
+    filename: str = "rates_by_atoms_table.tex",
+) -> dict[str, str]:
+    """Write the detection-rate-by-atoms table and return content."""
+    fragments = rate_by_atoms_table_fragments(view, filename)
+    write_fragments(fragments, output_dir)
+    return fragments
+
+
+def sorted_count_entries(counts: dict[str, int]) -> list[tuple[str, int]]:
+    """Return count entries sorted descending by count, then by label."""
+    return sorted(counts.items(), key=lambda item: (-item[1], item[0]))
+
+
+def paired_count_table_rows(entries: list[tuple[str, int]]) -> list[str]:
+    """Render count entries into two side-by-side table-column pairs."""
+    nrows = ceil(len(entries) / 2)
+    rows = []
+    for index in range(nrows):
+        left_label, left_count = entries[index]
+        if index + nrows < len(entries):
+            right_label, right_count = entries[index + nrows]
+            rows.append(
+                f"{left_label}\t&\t{left_count}\t&\t{right_label}"
+                f"\t&\t{right_count}\t" + r"\\"
+            )
+        else:
+            rows.append(
+                f"{left_label}\t&\t{left_count}\t&\t\t&\t\t" + r"\\"
+            )
+    return rows
+
+
+def paired_count_table_fragment(
+    *,
+    caption: str,
+    label: str,
+    item_header: str,
+    count_header: str,
+    entries: list[tuple[str, int]],
+) -> str:
+    """Return a two-column-pair LaTeX count table fragment."""
+    lines = [
+        r"\begin{table}[htb!]",
+        r"\centering",
+        rf"\caption{{{caption}}}",
+        (
+            r"\begin{tabular*}{\columnwidth}{l @{\extracolsep{\fill}} "
+            r"c @{\extracolsep{\fill}} l @{\extracolsep{\fill}} c }"
+        ),
+        r"\hline\hline",
+        rf"{item_header}	&	{count_header} 	&	{item_header}	&	{count_header} \\",
+        r"\hline",
+        *paired_count_table_rows(entries),
+        r"\hline",
+        r"\end{tabular*}",
+        rf"\label{{{label}}}",
+        r"\end{table}\endinput",
+    ]
+    return "\n".join(lines)
+
+
+def facility_table_entries(view: CensusView) -> list[tuple[str, int]]:
+    """Return observing-facility contribution counts for the facility table."""
+    return sorted_count_entries(view.facility_counts(key="latex_name"))
+
+
+def facility_table_fragment(view: CensusView) -> str:
+    """Return the observing-facility count table as a LaTeX fragment."""
+    return paired_count_table_fragment(
+        caption=r"Total number of detections for each facility listed in \S\ref{known}.",
+        label="detects_by_scope",
+        item_header="Facility",
+        count_header=r"\#",
+        entries=facility_table_entries(view),
+    )
+
+
+def facility_table_fragments(
+    view: CensusView,
+    filename: str = "facilities_table.tex",
+) -> dict[str, str]:
+    """Return the observing-facility count table fragment."""
+    return {filename: facility_table_fragment(view)}
+
+
+def write_facility_table(
+    view: CensusView,
+    output_dir: str | Path = ".",
+    filename: str = "facilities_table.tex",
+) -> dict[str, str]:
+    """Write the observing-facility count table and return content."""
+    fragments = facility_table_fragments(view, filename)
+    write_fragments(fragments, output_dir)
+    return fragments
+
+
+def source_table_entries(view: CensusView) -> list[tuple[str, int]]:
+    """Return source contribution counts for the source table."""
+    return sorted_count_entries(
+        view.source_counts(
+            key="latex_name",
+            group_diffuse_cloud=True,
+            diffuse_cloud_label="Diffuse Cloud",
+        )
+    )
+
+
+def source_table_fragment(view: CensusView) -> str:
+    """Return the source contribution count table as a LaTeX fragment."""
+    return paired_count_table_fragment(
+        caption=(
+            r"Total number of detections that each source contributed to for "
+            r"the molecules listed in \S\ref{known}. Detections made in "
+            r"diffuse clouds along the line of sight to a background source "
+            r"have been consolidated into `Diffuse Cloud,' and detections in "
+            r"closely located regions have been grouped together as well "
+            r"(e.g. Sgr B2(OH), Sgr B2(N), Sgr B2(S), and Sgr B2(M) are all "
+            r"considered Sgr B2)."
+        ),
+        label="detects_by_source",
+        item_header="Source",
+        count_header=r"\#",
+        entries=source_table_entries(view),
+    )
+
+
+def source_table_fragments(
+    view: CensusView,
+    filename: str = "source_table.tex",
+) -> dict[str, str]:
+    """Return the source contribution count table fragment."""
+    return {filename: source_table_fragment(view)}
+
+
+def write_source_table(
+    view: CensusView,
+    output_dir: str | Path = ".",
+    filename: str = "source_table.tex",
+) -> dict[str, str]:
+    """Write the source contribution count table and return content."""
+    fragments = source_table_fragments(view, filename)
+    write_fragments(fragments, output_dir)
+    return fragments
+
+
 def ism_table_molecules(view: CensusView) -> list[Molecule]:
     """Return non-isotopologue ISM/CSM molecules for the main molecule table."""
     return [
@@ -727,6 +1085,596 @@ def write_ism_tables(
         layout=layout,
         max_rows=max_rows,
         max_columns=max_columns,
+    )
+    write_fragments(fragments, output_dir)
+    return fragments
+
+
+def first_context_detection_by_molecule(
+    detections: Iterable[Detection],
+) -> dict[str, Detection]:
+    """Return the first secure detection per molecule, falling back to tentative."""
+    grouped = molecule_detections_by_label(detections)
+    selected = {}
+    for label, molecule_detections in grouped.items():
+        secure = [
+            detection
+            for detection in molecule_detections
+            if detection.status == "secure"
+        ]
+        candidates = secure or molecule_detections
+        selected[label] = min(
+            candidates,
+            key=lambda detection: (
+                detection.sortdate,
+                detection.id,
+            ),
+        )
+    return selected
+
+
+def exgal_table_detections(view: CensusView) -> list[Detection]:
+    """Return non-isotopologue exgal detections for the molecule table.
+
+    Secure detections are included by accepted census membership. Tentative
+    detections are included by introduced census membership and rendered with a
+    dagger marker.
+    """
+    detections_by_label = first_context_detection_by_molecule(
+        view.exgal_detections(include_tentative=True)
+    )
+    return [
+        detections_by_label[molecule.label]
+        for molecule in view.db.molecules.values()
+        if molecule.label in detections_by_label
+        and molecule.isotopologue_of is None
+    ]
+
+
+def chunked_atom_groups(
+    atom_counts: list[int],
+    *,
+    first_group_size: int,
+    group_size: int,
+) -> list[tuple[int, ...]]:
+    """Split atom-count labels into first-page and continuation groups."""
+    if not atom_counts:
+        return []
+
+    groups = [tuple(atom_counts[:first_group_size])]
+    remaining = atom_counts[first_group_size:]
+    groups.extend(
+        tuple(remaining[index : index + group_size])
+        for index in range(0, len(remaining), group_size)
+    )
+    return [group for group in groups if group]
+
+
+def exgal_table_atom_groups(view: CensusView) -> list[tuple[int, ...]]:
+    """Return non-empty atom-count groups for the exgal molecule table."""
+    atom_counts = sorted(
+        {
+            detection.molecule.natoms
+            for detection in exgal_table_detections(view)
+        }
+    )
+    return chunked_atom_groups(
+        atom_counts,
+        first_group_size=EXGAL_FIRST_TABLE_MAX_PAIRS,
+        group_size=EXGAL_TABLE_MAX_PAIRS,
+    )
+
+
+def exgal_table_columns(
+    view: CensusView,
+    atom_groups: Iterable[Iterable[int]] | None = None,
+) -> list[list[list[Detection]]]:
+    """Return exgal table columns split by configured atom-count groups."""
+    detections = exgal_table_detections(view)
+    if atom_groups is None:
+        atom_groups = exgal_table_atom_groups(view)
+    return [
+        [
+            [
+                detection
+                for detection in detections
+                if detection.molecule.natoms == natoms
+            ]
+            for natoms in atom_group
+        ]
+        for atom_group in atom_groups
+    ]
+
+
+def observation_ref_bibcodes(detection: Detection) -> list[str]:
+    """Return observation-reference BibTeX keys for a detection."""
+    return [ref.bibcode for ref in detection.refs.get("observation", [])]
+
+
+def reference_numbers(
+    bibcodes: Iterable[str],
+    references: dict[str, int],
+) -> str:
+    """Assign and render stable numeric reference labels for BibTeX keys."""
+    values = []
+    for bibcode in bibcodes:
+        if bibcode not in references:
+            references[bibcode] = len(references) + 1
+        values.append(str(references[bibcode]))
+    return ", ".join(values)
+
+
+def detection_reference_table_rows(
+    columns: list[list[Detection]],
+    references: dict[str, int],
+) -> list[str]:
+    """Render rows for molecule/reference table columns."""
+    nlines = max(len(column) for column in columns)
+    rows = []
+    for index in range(nlines):
+        row = []
+        for column in columns:
+            if index < len(column):
+                detection = column[index]
+                row.extend(
+                    [
+                        detection_molecule_link(detection),
+                        reference_numbers(
+                            observation_ref_bibcodes(detection),
+                            references,
+                        ),
+                    ]
+                )
+            else:
+                row.extend(["", ""])
+        rows.append("\t&\t".join(row) + r"\\")
+    return rows
+
+
+def single_detection_reference_table_rows(
+    detections: Iterable[Detection],
+    references: dict[str, int],
+) -> list[str]:
+    """Render rows for a one-column species/reference table."""
+    rows = []
+    for detection in detections:
+        rows.append(
+            "\t&\t".join(
+                [
+                    detection_molecule_link(detection),
+                    reference_numbers(
+                        observation_ref_bibcodes(detection),
+                        references,
+                    ),
+                ]
+            )
+            + r"\\"
+        )
+    return rows
+
+
+def numbered_reference_notes(references: dict[str, int]) -> str:
+    """Render numbered citation notes from BibTeX key to index mapping."""
+    entries = sorted(references.items(), key=lambda item: item[1])
+    refs = " ".join(
+        rf"[{index}] \citet{{{bibcode}}}"
+        for bibcode, index in entries
+    )
+    return rf"\textbf{{References:}} {refs}\\"
+
+
+def exgal_table_fragment(view: CensusView) -> str:
+    """Return the external-galaxy molecule table as a LaTeX fragment."""
+    references: dict[str, int] = {}
+    atom_groups = exgal_table_atom_groups(view)
+    table_groups = exgal_table_columns(view, atom_groups)
+    lines = [
+        MOLREF_COMMAND,
+        r"\begin{table*}",
+        r"\centering",
+        (
+            r"\caption{List of molecules detected in external galaxies with "
+            r"references to the first detections.  Tentative detections are "
+            r"indicated, and some extra references are occasionally provided "
+            r"for context.}"
+        ),
+    ]
+
+    for group_index, (atom_counts, columns) in enumerate(
+        zip(atom_groups, table_groups)
+    ):
+        if group_index > 0:
+            lines.extend([r"\hline\hline", r"\end{tabular*}"])
+        lines.append(species_reference_tabular_spec(len(atom_counts)))
+        if group_index == 0:
+            lines.append(r"\hline\hline")
+        lines.extend(atom_reference_table_header(atom_counts))
+        lines.append(r"\hline")
+        lines.extend(detection_reference_table_rows(columns, references))
+
+    lines.extend(
+        [
+            r"\hline",
+            r"\end{tabular*}",
+            r"\justify",
+            r"$^{\dagger}$Tentative detection\\",
+            numbered_reference_notes(references),
+            r"\label{exgal_mols}",
+            r"\end{table*}\endinput",
+        ]
+    )
+    return "\n".join(lines)
+
+
+def exgal_table_fragments(
+    view: CensusView,
+    filename: str = "exgal_table.tex",
+) -> dict[str, str]:
+    """Return the external-galaxy molecule table fragment."""
+    return {filename: exgal_table_fragment(view)}
+
+
+def write_exgal_table(
+    view: CensusView,
+    output_dir: str | Path = ".",
+    filename: str = "exgal_table.tex",
+) -> dict[str, str]:
+    """Write the external-galaxy molecule table and return generated content."""
+    fragments = exgal_table_fragments(view, filename)
+    write_fragments(fragments, output_dir)
+    return fragments
+
+
+def ppd_table_detections(view: CensusView) -> list[Detection]:
+    """Return PPD detections for the molecule table, including isotopologues.
+
+    The PPD table intentionally includes isotope records. Ordering is
+    parent-first: each parent molecule is followed by any detected PPD
+    isotopologues that point to it.
+    """
+    detections_by_label = first_context_detection_by_molecule(
+        view.ppd_detections(include_isotopologues=True)
+    )
+    isotopologues_by_parent: dict[str, list[Detection]] = {}
+    for molecule in view.db.molecules.values():
+        if (
+            molecule.isotopologue_of is not None
+            and molecule.label in detections_by_label
+        ):
+            isotopologues_by_parent.setdefault(
+                molecule.isotopologue_of,
+                [],
+            ).append(detections_by_label[molecule.label])
+
+    ordered = []
+    added = set()
+    for molecule in view.db.molecules.values():
+        if molecule.isotopologue_of is not None:
+            continue
+        if molecule.label in detections_by_label:
+            ordered.append(detections_by_label[molecule.label])
+            added.add(molecule.label)
+        for detection in isotopologues_by_parent.get(molecule.label, []):
+            ordered.append(detection)
+            added.add(detection.molecule.label)
+
+    # Keep orphaned isotope records visible instead of silently dropping them.
+    for molecule in view.db.molecules.values():
+        if molecule.label in detections_by_label and molecule.label not in added:
+            ordered.append(detections_by_label[molecule.label])
+
+    return ordered
+
+
+def ppd_table_atom_groups(view: CensusView) -> list[tuple[int, ...]]:
+    """Return non-empty atom-count groups for the PPD molecule table."""
+    atom_counts = sorted(
+        {
+            detection.molecule.natoms
+            for detection in ppd_table_detections(view)
+        }
+    )
+    return chunked_atom_groups(
+        atom_counts,
+        first_group_size=PPD_FIRST_TABLE_MAX_PAIRS,
+        group_size=PPD_TABLE_MAX_PAIRS,
+    )
+
+
+def ppd_table_columns(
+    view: CensusView,
+    atom_groups: Iterable[Iterable[int]] | None = None,
+) -> list[list[list[Detection]]]:
+    """Return PPD table columns split by configured atom-count groups."""
+    detections = ppd_table_detections(view)
+    if atom_groups is None:
+        atom_groups = ppd_table_atom_groups(view)
+    return [
+        [
+            [
+                detection
+                for detection in detections
+                if detection.molecule.natoms == natoms
+            ]
+            for natoms in atom_group
+        ]
+        for atom_group in atom_groups
+    ]
+
+
+def ppd_table_fragment(view: CensusView) -> str:
+    """Return the protoplanetary-disk molecule table as a LaTeX fragment."""
+    references: dict[str, int] = {}
+    atom_groups = ppd_table_atom_groups(view)
+    table_groups = ppd_table_columns(view, atom_groups)
+    lines = [
+        MOLREF_COMMAND,
+        r"\begin{table*}",
+        r"\centering",
+        (
+            r"\caption{List of molecules, including rare isotopic species, "
+            r"detected in protoplanetary disks, with references to "
+            r"representative detections.  The earliest reported detection of a "
+            r"species in the literature is provided on a best-effort basis.  "
+            r"Tentative and disputed detections are not included (see text).}"
+        ),
+    ]
+
+    for group_index, (atom_counts, columns) in enumerate(
+        zip(atom_groups, table_groups)
+    ):
+        if group_index > 0:
+            lines.extend([r"\hline\hline", r"\end{tabular*}"])
+        lines.append(species_reference_tabular_spec(len(atom_counts)))
+        if group_index == 0:
+            lines.append(r"\hline\hline")
+        lines.extend(atom_reference_table_header(atom_counts))
+        lines.append(r"\hline")
+        lines.extend(detection_reference_table_rows(columns, references))
+
+    lines.extend(
+        [
+            r"\hline",
+            r"\end{tabular*}",
+            r"\justify",
+            numbered_reference_notes(references),
+            r"\label{ppd_mols}",
+            r"\end{table*}\endinput",
+        ]
+    )
+    return "\n".join(lines)
+
+
+def ppd_table_fragments(
+    view: CensusView,
+    filename: str = "ppd_table.tex",
+) -> dict[str, str]:
+    """Return the protoplanetary-disk molecule table fragment."""
+    return {filename: ppd_table_fragment(view)}
+
+
+def write_ppd_table(
+    view: CensusView,
+    output_dir: str | Path = ".",
+    filename: str = "ppd_table.tex",
+) -> dict[str, str]:
+    """Write the protoplanetary-disk molecule table and return content."""
+    fragments = ppd_table_fragments(view, filename)
+    write_fragments(fragments, output_dir)
+    return fragments
+
+
+def parent_first_context_detections(
+    db,
+    detections: Iterable[Detection],
+    *,
+    include_isotopologues: bool,
+) -> list[Detection]:
+    """Order context detections in database order, parent before isotopologues."""
+    detections_by_label = first_context_detection_by_molecule(detections)
+    isotopologues_by_parent: dict[str, list[Detection]] = {}
+    for molecule in db.molecules.values():
+        if (
+            molecule.isotopologue_of is not None
+            and molecule.label in detections_by_label
+        ):
+            isotopologues_by_parent.setdefault(
+                molecule.isotopologue_of,
+                [],
+            ).append(detections_by_label[molecule.label])
+
+    ordered = []
+    added = set()
+    for molecule in db.molecules.values():
+        if molecule.isotopologue_of is not None:
+            continue
+        if molecule.label in detections_by_label:
+            ordered.append(detections_by_label[molecule.label])
+            added.add(molecule.label)
+        if include_isotopologues:
+            for detection in isotopologues_by_parent.get(molecule.label, []):
+                ordered.append(detection)
+                added.add(detection.molecule.label)
+
+    if include_isotopologues:
+        for molecule in db.molecules.values():
+            if molecule.label in detections_by_label and molecule.label not in added:
+                ordered.append(detections_by_label[molecule.label])
+
+    return ordered
+
+
+def exoplanet_table_detections(
+    view: CensusView,
+    *,
+    include_isotopologues: bool = False,
+) -> list[Detection]:
+    """Return exoplanet detections for the molecule table."""
+    return parent_first_context_detections(
+        view.db,
+        view.exoplanet_detections(include_isotopologues=include_isotopologues),
+        include_isotopologues=include_isotopologues,
+    )
+
+
+def exoplanet_table_fragment(
+    view: CensusView,
+    *,
+    include_isotopologues: bool = False,
+) -> str:
+    """Return the exoplanet-atmosphere molecule table as a LaTeX fragment."""
+    references: dict[str, int] = {}
+    detections = exoplanet_table_detections(
+        view,
+        include_isotopologues=include_isotopologues,
+    )
+    lines = [
+        MOLREF_COMMAND,
+        r"\begin{table}",
+        r"\centering",
+        (
+            r"\caption{List of molecules detected in exoplanetary atmospheres, "
+            r"with references to representative detections.  Tentative and "
+            r"disputed detections are not included.}"
+        ),
+        single_reference_tabular_spec(),
+        r"\hline\hline",
+        r"Species & References\\",
+        r"\hline",
+        *single_detection_reference_table_rows(detections, references),
+        r"\hline",
+        r"\end{tabular*}",
+        r"\justify",
+        numbered_reference_notes(references),
+        r"\label{exoplanet_mols}",
+        r"\end{table}\endinput",
+    ]
+    return "\n".join(lines)
+
+
+def exoplanet_table_fragments(
+    view: CensusView,
+    filename: str = "exo_table.tex",
+    *,
+    include_isotopologues: bool = False,
+) -> dict[str, str]:
+    """Return the exoplanet-atmosphere molecule table fragment."""
+    return {
+        filename: exoplanet_table_fragment(
+            view,
+            include_isotopologues=include_isotopologues,
+        )
+    }
+
+
+def write_exoplanet_table(
+    view: CensusView,
+    output_dir: str | Path = ".",
+    filename: str = "exo_table.tex",
+    *,
+    include_isotopologues: bool = False,
+) -> dict[str, str]:
+    """Write the exoplanet-atmosphere table and return content."""
+    fragments = exoplanet_table_fragments(
+        view,
+        filename,
+        include_isotopologues=include_isotopologues,
+    )
+    write_fragments(fragments, output_dir)
+    return fragments
+
+
+def ice_table_detections(
+    view: CensusView,
+    *,
+    include_tentative: bool = True,
+    include_isotopologues: bool = False,
+) -> list[Detection]:
+    """Return ice detections for the molecule table."""
+    return parent_first_context_detections(
+        view.db,
+        view.ice_detections(
+            include_tentative=include_tentative,
+            include_isotopologues=include_isotopologues,
+        ),
+        include_isotopologues=include_isotopologues,
+    )
+
+
+def ice_table_fragment(
+    view: CensusView,
+    *,
+    include_tentative: bool = True,
+    include_isotopologues: bool = False,
+) -> str:
+    """Return the interstellar-ice molecule table as a LaTeX fragment."""
+    references: dict[str, int] = {}
+    detections = ice_table_detections(
+        view,
+        include_tentative=include_tentative,
+        include_isotopologues=include_isotopologues,
+    )
+    tentative_note = (
+        [r"$^{\dagger}$Tentative detection\\"]
+        if any(detection.status == "tentative" for detection in detections)
+        else []
+    )
+    lines = [
+        MOLREF_COMMAND,
+        r"\begin{table}",
+        r"\centering",
+        (
+            r"\caption{List of molecules detected in interstellar ices, with "
+            r"references to representative detections. Tentative detections "
+            r"are indicated.}"
+        ),
+        single_reference_tabular_spec(),
+        r"\hline\hline",
+        r"Species & References\\",
+        r"\hline",
+        *single_detection_reference_table_rows(detections, references),
+        r"\hline",
+            r"\end{tabular*}",
+            r"\justify",
+            *tentative_note,
+            numbered_reference_notes(references),
+            r"\label{ice_mols}",
+            r"\end{table}\endinput",
+    ]
+    return "\n".join(lines)
+
+
+def ice_table_fragments(
+    view: CensusView,
+    filename: str = "ice_table.tex",
+    *,
+    include_tentative: bool = True,
+    include_isotopologues: bool = False,
+) -> dict[str, str]:
+    """Return the interstellar-ice molecule table fragment."""
+    return {
+        filename: ice_table_fragment(
+            view,
+            include_tentative=include_tentative,
+            include_isotopologues=include_isotopologues,
+        )
+    }
+
+
+def write_ice_table(
+    view: CensusView,
+    output_dir: str | Path = ".",
+    filename: str = "ice_table.tex",
+    *,
+    include_tentative: bool = True,
+    include_isotopologues: bool = False,
+) -> dict[str, str]:
+    """Write the interstellar-ice table and return content."""
+    fragments = ice_table_fragments(
+        view,
+        filename,
+        include_tentative=include_tentative,
+        include_isotopologues=include_isotopologues,
     )
     write_fragments(fragments, output_dir)
     return fragments

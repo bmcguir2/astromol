@@ -133,6 +133,56 @@ Production ISM tables use a `13+ Atoms` terminal atom-count category before
 PAHs and fullerenes, and should keep visual density constant or decreasing
 across successive table fragments.
 
+External-galaxy molecule tables are generated with `exgal_table_fragments` and
+`write_exgal_table`. These tables include secure extragalactic detections and
+introduced tentative extragalactic detections, mark tentative rows with a
+dagger, number observation references by first appearance, and intentionally
+exclude isotopologue records. Extragalactic atom-count table groups are derived
+from non-empty bins rather than hard-coded to the current census inventory.
+
+Protoplanetary-disk molecule tables are generated with `ppd_table_fragments`
+and `write_ppd_table`. These tables intentionally include secure isotopologue
+detections, exclude tentative/disputed detections, and order rows parent-first
+so detected isotopologues are listed immediately after their parent molecule
+where possible. PPD atom-count table groups are derived from non-empty bins.
+
+Exoplanet-atmosphere molecule tables are generated with
+`exoplanet_table_fragments` and `write_exoplanet_table`. The standard
+exoplanet table excludes isotopologue records, excludes tentative/disputed
+detections, and numbers observation references by first appearance. Pass
+`include_isotopologues=True` only for an explicitly isotope-expanded exoplanet
+output.
+
+Interstellar-ice molecule tables are generated with `ice_table_fragments` and
+`write_ice_table`. The standard ice table includes secure and tentative
+detections, excludes isotopologue records, and marks tentative rows such as the
+OCN- ice claim with a dagger. Pass `include_tentative=False` only for an
+explicit secure-only output.
+
+Detection-rate-by-atoms tables are generated with
+`rate_by_atoms_table_fragments` and `write_rate_by_atoms_table`. They use
+secure, non-isotopologue ISM/CSM first-detection years from the supplied
+`CensusView`. The terminal normal-molecule size bin is a real `13+` category
+that excludes PAHs and fullerenes, which are fit separately. Rates and `R^2`
+values are computed from least-squares linear fits with NumPy.
+
+Facility-count tables are generated with `facility_table_fragments` and
+`write_facility_table`. They count observing-facility contributions from
+secure, non-isotopologue ISM/CSM detections in the supplied `CensusView`.
+Facilities with no detections in the view are omitted. Rows are sorted by
+descending count with alphabetical tie-breaking and rendered as two side-by-side
+facility/count column pairs.
+
+Source-count tables are generated with `source_table_fragments` and
+`write_source_table`. They count source contributions from secure,
+non-isotopologue ISM/CSM detections in the supplied `CensusView`. Sources with
+no detections in the view are omitted. Diffuse-cloud line-of-sight sources are
+consolidated into a single `Diffuse Cloud` row for manuscript-table
+reproduction, while closely related source-region grouping is inherited from
+the curated `Source` records. Rows are sorted by descending count with
+alphabetical tie-breaking and rendered as two side-by-side source/count column
+pairs.
+
 ## Data Model
 
 ### Ref

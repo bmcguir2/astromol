@@ -15,6 +15,8 @@ developed before this branch replaces `main`.
 - Bibliographic metadata lives in `astromol/data/references.bib`.
 - `references.bib` is exported from Zotero and should not be hand-edited.
 - `SPEC.md` is the source of truth for the current schema and architecture.
+- `MANUSCRIPT_NOTES_2026.md` collects writing-time reminders for the 2026
+  census paper.
 - New records should be staged through YAML files in `curation/staging/` before
   being applied to production JSON.
 
@@ -88,6 +90,7 @@ Add lowercase suffixes only when needed to disambiguate duplicate keys.
 ## Important Files
 
 - `SPEC.md`: architecture and schema specification
+- `MANUSCRIPT_NOTES_2026.md`: 2026 manuscript reminders and explanatory notes
 - `astromol/models.py`: dataclasses and allowed values
 - `astromol/database.py`: JSON/BibTeX loader and cross-reference resolver
 - `astromol/data/`: production data files

@@ -20834,7 +20834,8 @@
     "history": {
       "introduced": {
         "date": "2026-05-07",
-        "context": "tentative"
+        "context": "tentative",
+        "census": "2021"
       },
       "accepted": null,
       "last_modified": "2026-05-07",
