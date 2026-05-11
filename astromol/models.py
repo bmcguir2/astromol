@@ -736,10 +736,13 @@ class Molecule:
         """
         Ray's asymmetry parameter.
         Ranges from -1 (prolate) to +1 (oblate).
-        Only computable if all three rotational constants are known.
+        Linear rotors are treated as the perfectly prolate limit, kappa = -1.
+        Nonlinear rotors require all three rotational constants.
         """
         if self.rotcon is None:
             return None
+        if self.is_linear is True:
+            return -1.0
         A = self.rotcon.A
         B = self.rotcon.B
         C = self.rotcon.C

@@ -38,6 +38,38 @@ print(len(db.molecules), len(db.detections))
 `Database()` loads references, telescopes, sources, molecules, and detections;
 it also resolves cross-references and validates stable detection IDs.
 
+## Census Views And Output Generation
+
+Tables, scalar manuscript fragments, and figures should be generated through a
+`CensusView`, which applies the accepted census boundary and the standard
+isotopologue/tentative/disputed filtering rules consistently:
+
+```python
+from pathlib import Path
+
+from astromol.census import CensusView
+from astromol.database import Database
+from astromol.figures import (
+    cumulative_detection_data,
+    write_cumulative_detections_plot,
+)
+
+db = Database()
+view = CensusView.for_census(db, "2026")
+data = cumulative_detection_data(view)
+write_cumulative_detections_plot(data, Path("cumulative_detections.pdf"))
+```
+
+Use `CensusView.for_census(db, "2021")` for historical reproduction and
+`CensusView.current(db)` for the live database. Until the 2026 census cutoff is
+frozen, the 2026 and current views are expected to match.
+
+Figure helpers live in `astromol.figures`. Each migrated figure has a data
+builder, plotting function, and writer function so the scientific selection can
+be tested separately from the visual rendering. See `SPEC.md` for the complete
+list of table and figure helpers, and `GENERATION_MIGRATION.md` for the
+verification/audit trail against the 2021 census.
+
 ## Curation Workflow
 
 Copy a template from `curation/templates/` into `curation/staging/`, fill in the
@@ -91,8 +123,10 @@ Add lowercase suffixes only when needed to disambiguate duplicate keys.
 
 - `SPEC.md`: architecture and schema specification
 - `MANUSCRIPT_NOTES_2026.md`: 2026 manuscript reminders and explanatory notes
+- `GENERATION_MIGRATION.md`: output-generation migration and verification log
 - `astromol/models.py`: dataclasses and allowed values
 - `astromol/database.py`: JSON/BibTeX loader and cross-reference resolver
+- `astromol/figures.py`: figure data builders and plotting helpers
 - `astromol/data/`: production data files
 - `curation/templates/`: curator-facing YAML templates
 - `scripts/stage_records.py`: staging, validation, preview, and apply workflow
@@ -101,3 +135,22 @@ Add lowercase suffixes only when needed to disambiguate duplicate keys.
 
 The long-term goal is to make `astromol` installable from PyPI. Packaging files
 and final user-facing API documentation have not yet been added on this branch.
+
+## Verification Scripts
+
+This refactor branch currently uses small script-style regression checks rather
+than a packaged test runner. The main smoke check is:
+
+```bash
+python test_load.py
+```
+
+Output-generation migration checks are named by product family, for example:
+
+```bash
+python test_figures_cumulative_detections.py
+python test_figures_kappas.py
+```
+
+These scripts verify census-view membership, figure/table data builders, and
+selected rendering properties against the audited 2021 and current/2026 views.
