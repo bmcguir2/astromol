@@ -106,7 +106,7 @@ are excluded from accepted tables unless explicitly requested.
 | 2 | Port scalar LaTeX generators. | Complete |
 | 3 | Port LaTeX table generators. | Complete |
 | 4 | Port figure data builders and plots. | Complete |
-| 5 | Port PowerPoint slide generation for ISM molecules and PPD detections. | In progress |
+| 5 | Port PowerPoint slide generation for ISM molecules and PPD detections. | Complete |
 | 6 | Add full-output orchestration and PDF-generation workflow. | Pending |
 
 ## Legacy Function Inventory
@@ -166,8 +166,8 @@ are excluded from accepted tables unless explicitly requested.
 | `make_sat_percent` | 5056-5085 | LaTeX scalar | `astromol.latex` | Complete | Reproduce `satpercent.tex` value |
 | `make_sfr_rad_percent` | 5087-5113 | LaTeX scalar | `astromol.latex` | Complete | Reproduce `sfr_rad_percent.tex` value |
 | `make_dark_rad_percent` | 5115-5141 | LaTeX scalar | `astromol.latex` | Complete | Reproduce `dark_rad_percent.tex` value |
-| `make_mols_slide` | 5147-5561 | PowerPoint slide | `astromol.slides` | In progress | Visual comparison to legacy slide |
-| PPD detections slide | New | PowerPoint slide | `astromol.slides` | Pending | New product for PPD detection summary |
+| `make_mols_slide` | 5147-5561 | PowerPoint slide | `astromol.slides` | Complete | Visual comparison to legacy slide |
+| PPD detections slide | New | PowerPoint slide | `astromol.slides` | Complete | New product for PPD detection summary |
 
 ## Dependency Notes
 
@@ -214,8 +214,9 @@ the database figure migration. They can be reused as static assets or dropped
 from the 2026 manuscript independently. The unused legacy `waves_pie_chart`
 helper was also skipped because it was not included in the 2021 manuscript.
 
-The next output-generation phase is slide generation, especially the legacy
-ISM molecule slide and the new PPD detections slide.
+The next output-generation phase is full-output orchestration. That is a
+late-stage task after the remaining manuscript-product brainstorming and API
+stabilization work.
 
 ## Completed View Verification
 
@@ -1222,16 +1223,18 @@ asymmetric to oblate with arrowheads anchored at `kappa = -1` and `kappa = +1`.
 `test_figures_kappas.py` verifies the 2021 and 2026 kappa counts, histogram
 counts, linear-rotor handling, guide labels, boxed axes, and file writing.
 
-## Molecule Slide Migration Started
+## Molecule Slide Migration Complete
 
-`astromol.slides` now provides the first database-backed PowerPoint slide
-helpers for the legacy ISM/CSM molecule slide:
+`astromol.slides` now provides database-backed PowerPoint slide helpers for
+the legacy ISM/CSM molecule slide and the PPD molecule/isotopologue slide:
 
 - `selected_molecule_slide_entries`
 - `build_molecule_slide_layout`
 - `molecule_slide_report`
 - `write_molecule_slide_report`
 - `write_molecule_slide`
+- `build_ppd_detection_slide_layout`
+- `write_ppd_detection_slide`
 
 The slide generator follows the same architecture as the table and figure
 ports: `CensusView` performs the scientific selection, a layout-plan object is
@@ -1286,6 +1289,17 @@ changes are present. The count/date block reports the latest curated-record
 modification date from the selected census view and formats it for display
 as `D Month YYYY`.
 
+The PPD slide is a new product rather than a 2021 reproduction target.
+`write_ppd_detection_slide` selects secure PPD records with
+`include_isotopologues=True` by default. It uses the `profile="compact"` layout,
+which renders only occupied atom-count bins and spreads them across the same
+widescreen canvas. The 2026/current PPD slide contains 57 molecule entries,
+including isotopologues, grouped as 20 two-atom entries, 20 three-atom entries,
+6 four-atom entries, 5 five-atom entries, 3 six-atom entries, and one entry
+each at 7, 9, and 12 atoms. The compact layout uses 26 pt molecule text and
+currently produces no layout-capacity warnings.
+
 `test_slides_molecule_slide.py` verifies 2021 membership, atom-bin counts,
-layout bounds, layout-report output, formula-token formatting, and binary
-PowerPoint writing/re-opening through `python-pptx`.
+layout bounds, layout-report output, formula-token formatting, the balanced
+ISM/CSM slide, the compact PPD slide, and binary PowerPoint writing/re-opening
+through `python-pptx`.

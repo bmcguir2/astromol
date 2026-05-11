@@ -20,6 +20,7 @@ from .models import Detection, Molecule
 
 
 DEFAULT_DETECTION_TYPE = "ISM/CSM"
+PPD_DETECTION_TYPE = "ppd"
 LEGACY_SLIDE_WIDTH_PT = 1920
 LEGACY_SLIDE_HEIGHT_PT = 1080
 LEGACY_SLIDE_WIDTH_IN = LEGACY_SLIDE_WIDTH_PT / 72
@@ -27,9 +28,11 @@ LEGACY_SLIDE_HEIGHT_IN = LEGACY_SLIDE_HEIGHT_PT / 72
 LEGACY_MOLECULE_FONT_PT = 22
 LEGACY_ROW_SPACING = 1.05
 LEGACY_TITLE = "Known Interstellar Molecules"
+PPD_TITLE = "Protoplanetary Disk Molecules"
 LEGACY_URL = "bmcguir2.github.io/astromol"
 LEGACY_CITATION = "McGuire 2022 ApJS 259, 30"
 BALANCED_MOLECULE_FONT_CANDIDATES = (22, 21, 20, 19, 18)
+COMPACT_MOLECULE_FONT_CANDIDATES = (26, 25, 24, 23, 22)
 BALANCED_CONTENT_LEFT = 0.35
 BALANCED_CONTENT_RIGHT = 26.62
 BALANCED_LABEL_TOP = 1.55
@@ -46,6 +49,13 @@ BALANCED_GROUP_GAP = 0.08
 BALANCED_COLUMN_GAP = 0.08
 BALANCED_MAX_GROUP_GAP = 0.46
 BALANCED_FORMULA_WIDTH_FACTOR = 0.010
+COMPACT_CONTENT_LEFT = 0.8
+COMPACT_CONTENT_RIGHT = 25.9
+COMPACT_LABEL_TOP = 2.0
+COMPACT_COLUMN_TOP = 2.6
+COMPACT_COLUMN_BOTTOM = 11.2
+COMPACT_GROUP_GAP = 0.16
+COMPACT_MAX_GROUP_GAP = 1.2
 BALANCED_TOP_NATOMS = tuple(range(2, 11))
 BALANCED_BOTTOM_NATOMS = (11, 12, 13)
 BALANCED_TOP_MIN_COLUMNS = {
@@ -310,6 +320,117 @@ def balanced_molecule_slide_specs(
     return _balanced_zoned_specs_for_font(entries, font_pt), font_pt
 
 
+def compact_molecule_slide_specs(
+    entries: list[SlideMoleculeEntry],
+) -> tuple[tuple[SlideGroupSpec, ...], float]:
+    """Return compact slide specs for sparse molecule inventories."""
+    for font_pt in COMPACT_MOLECULE_FONT_CANDIDATES:
+        specs = _compact_specs_for_font(entries, font_pt)
+        if _compact_specs_fit(specs):
+            return specs, font_pt
+
+    font_pt = COMPACT_MOLECULE_FONT_CANDIDATES[-1]
+    return _compact_specs_for_font(entries, font_pt), font_pt
+
+
+def _compact_specs_for_font(
+    entries: list[SlideMoleculeEntry],
+    font_pt: float,
+) -> tuple[SlideGroupSpec, ...]:
+    """Return specs for occupied atom-count bins in a single compact band."""
+    groups = _entries_by_atom_group(entries)
+    occupied_natoms = tuple(
+        natoms
+        for natoms in sorted(groups)
+        if groups[natoms]
+    )
+    specs = _left_packed_compact_specs(
+        groups,
+        occupied_natoms=occupied_natoms,
+        font_pt=font_pt,
+    )
+    return _spread_compact_specs(specs)
+
+
+def _left_packed_compact_specs(
+    groups: dict[int, list[SlideMoleculeEntry]],
+    *,
+    occupied_natoms: tuple[int, ...],
+    font_pt: float,
+) -> tuple[SlideGroupSpec, ...]:
+    """Return left-packed compact specs for occupied atom-count bins."""
+    column_height = COMPACT_COLUMN_BOTTOM - COMPACT_COLUMN_TOP
+    capacity = max(
+        1,
+        estimated_column_capacity(
+            SlideBox(0, 0, 1, column_height),
+            font_pt=font_pt,
+        ),
+    )
+
+    specs = []
+    cursor = COMPACT_CONTENT_LEFT
+    for natoms in occupied_natoms:
+        label = f"{natoms} Atoms" if natoms < 13 else "13+ Atoms"
+        group_entries = groups[natoms]
+        ncols = max(1, ceil(len(group_entries) / capacity))
+        column_chunks = _split_entries_for_columns(group_entries, ncols)
+        column_widths = [
+            balanced_column_width(chunk, font_pt)
+            for chunk in column_chunks
+        ]
+        columns_width = sum(column_widths) + max(0, ncols - 1) * BALANCED_COLUMN_GAP
+        group_width = max(columns_width, compact_label_width(label))
+        offset = (group_width - columns_width) / 2
+        column_left = cursor + offset
+        column_boxes = []
+        for width in column_widths:
+            column_boxes.append(
+                SlideBox(
+                    column_left,
+                    COMPACT_COLUMN_TOP,
+                    width,
+                    column_height,
+                )
+            )
+            column_left += width + BALANCED_COLUMN_GAP
+        specs.append(
+            SlideGroupSpec(
+                label=label,
+                natoms=natoms,
+                ncols=ncols,
+                label_box=SlideBox(cursor, COMPACT_LABEL_TOP, group_width, 0.5),
+                column_boxes=tuple(column_boxes),
+                natoms_greater=natoms == 13,
+            )
+        )
+        cursor += group_width + COMPACT_GROUP_GAP
+    return tuple(specs)
+
+
+def _spread_compact_specs(
+    specs: tuple[SlideGroupSpec, ...],
+) -> tuple[SlideGroupSpec, ...]:
+    """Distribute compact groups across the slide without creating large gaps."""
+    return _spread_zone_specs(
+        specs,
+        left=COMPACT_CONTENT_LEFT,
+        right=COMPACT_CONTENT_RIGHT,
+        base_gap=COMPACT_GROUP_GAP,
+        max_gap=COMPACT_MAX_GROUP_GAP,
+    )
+
+
+def _compact_specs_fit(specs: tuple[SlideGroupSpec, ...]) -> bool:
+    """Return whether compact specs fit inside the compact slide band."""
+    if not specs:
+        return True
+    return (
+        min(spec.label_box.left for spec in specs) >= COMPACT_CONTENT_LEFT
+        and max(spec.label_box.right for spec in specs) <= COMPACT_CONTENT_RIGHT
+    )
+
+
 def _balanced_zoned_specs_for_font(
     entries: list[SlideMoleculeEntry],
     font_pt: float,
@@ -512,15 +633,32 @@ def balanced_total_box(specs: tuple[SlideGroupSpec, ...]) -> SlideBox:
     return SlideBox(center - box_width / 2, 10.75, box_width, 1.28)
 
 
+def compact_total_box(specs: tuple[SlideGroupSpec, ...]) -> SlideBox:
+    """Return a centered count box for a compact slide layout."""
+    box_width = 5.9
+    if not specs:
+        return SlideBox((LEGACY_SLIDE_WIDTH_IN - box_width) / 2, 12.05, box_width, 1.28)
+
+    left = min(column.left for spec in specs for column in spec.column_boxes)
+    right = max(column.right for spec in specs for column in spec.column_boxes)
+    center = (left + right) / 2
+    return SlideBox(center - box_width / 2, 12.05, box_width, 1.28)
+
+
 def rendered_group_label_box(group: SlideGroupPlan, profile: str) -> SlideBox:
     """Return the textbox used for rendering a group label."""
-    if profile != "balanced":
+    if profile not in {"balanced", "compact"}:
         return group.spec.label_box
 
     left = min(column.box.left for column in group.columns)
     right = max(column.box.right for column in group.columns)
+    label_width = (
+        compact_label_width(group.spec.label)
+        if profile == "compact"
+        else balanced_label_width(group.spec.label)
+    )
     if len(group.columns) == 1:
-        width = max(right - left, balanced_label_width(group.spec.label))
+        width = max(right - left, label_width)
         return SlideBox(
             left,
             group.spec.label_box.top,
@@ -538,9 +676,9 @@ def rendered_group_label_box(group: SlideGroupPlan, profile: str) -> SlideBox:
 
 def group_label_alignment(group: SlideGroupPlan, profile: str, PP_ALIGN):
     """Return label alignment for a group header."""
-    if profile == "balanced" and len(group.columns) == 1:
+    if profile in {"balanced", "compact"} and len(group.columns) == 1:
         return PP_ALIGN.LEFT
-    if profile == "balanced" and len(group.columns) > 1:
+    if profile in {"balanced", "compact"} and len(group.columns) > 1:
         return PP_ALIGN.CENTER
     return None
 
@@ -564,6 +702,8 @@ def _spread_zone_specs(
     *,
     left: float,
     right: float,
+    base_gap: float = BALANCED_GROUP_GAP,
+    max_gap: float = BALANCED_MAX_GROUP_GAP,
 ) -> tuple[SlideGroupSpec, ...]:
     """Distribute extra horizontal space within a layout zone."""
     if not specs:
@@ -580,7 +720,7 @@ def _spread_zone_specs(
     extra = available - used
     extra_per_gap = min(
         extra / (len(specs) - 1),
-        BALANCED_MAX_GROUP_GAP - BALANCED_GROUP_GAP,
+        max_gap - base_gap,
     )
     leftover = extra - extra_per_gap * (len(specs) - 1)
     cursor = left + leftover / 2
@@ -588,7 +728,7 @@ def _spread_zone_specs(
     for spec in specs:
         dx = cursor - spec.label_box.left
         spread.append(_move_group_spec(spec, dx))
-        cursor += spec.label_box.width + BALANCED_GROUP_GAP + extra_per_gap
+        cursor += spec.label_box.width + base_gap + extra_per_gap
     return tuple(spread)
 
 
@@ -764,6 +904,11 @@ def balanced_label_width(label: str) -> float:
     return max(1.45, len(label) * 22 * 0.0075)
 
 
+def compact_label_width(label: str) -> float:
+    """Return a minimum compact-profile group width for one-line labels."""
+    return max(1.85, len(label) * 24 * 0.010)
+
+
 def selected_molecule_slide_entries(
     view: CensusView,
     *,
@@ -871,8 +1016,25 @@ def build_molecule_slide_layout(
         total_font_pt = 43
         footer_font_pt = 25
         total_line_width_pt = 5
+    elif profile == "compact":
+        specs, molecule_font_pt = compact_molecule_slide_specs(entries)
+        title_box = SlideBox(0.35, 0.22, 18.33, 1.18)
+        credit_box = SlideBox(22.15, 0.22, 300 / 72, 90 / 72)
+        total_box = compact_total_box(specs)
+        footer_box = SlideBox(
+            total_box.left,
+            total_box.bottom + 0.08,
+            total_box.width,
+            0.5,
+        )
+        group_label_font_pt = 24
+        total_font_pt = 43
+        footer_font_pt = 25
+        total_line_width_pt = 5
     else:
-        raise ValueError("Molecule slide profile must be 'legacy' or 'balanced'.")
+        raise ValueError(
+            "Molecule slide profile must be 'legacy', 'balanced', or 'compact'."
+        )
 
     groups = tuple(
         _group_plan(spec, entries, font_pt=molecule_font_pt)
@@ -1077,6 +1239,57 @@ def write_molecule_slide(
     layout = build_molecule_slide_layout(
         view,
         detection_type=detection_type,
+        include_tentative=include_tentative,
+        include_disputed=include_disputed,
+        include_isotopologues=include_isotopologues,
+        profile=profile,
+        title=title,
+        last_updated=last_updated,
+    )
+    presentation = render_molecule_slide(layout)
+    path = Path(output_path)
+    path.parent.mkdir(parents=True, exist_ok=True)
+    presentation.save(path)
+    return path
+
+
+def build_ppd_detection_slide_layout(
+    view: CensusView,
+    *,
+    include_tentative: bool = False,
+    include_disputed: bool = False,
+    include_isotopologues: bool = True,
+    profile: str = "compact",
+    title: str = PPD_TITLE,
+    last_updated: str | None = None,
+) -> MoleculeSlideLayout:
+    """Build the PPD molecule/isotopologue slide layout plan."""
+    return build_molecule_slide_layout(
+        view,
+        detection_type=PPD_DETECTION_TYPE,
+        include_tentative=include_tentative,
+        include_disputed=include_disputed,
+        include_isotopologues=include_isotopologues,
+        profile=profile,
+        title=title,
+        last_updated=last_updated,
+    )
+
+
+def write_ppd_detection_slide(
+    view: CensusView,
+    output_path: str | Path = "ppd_molecules.pptx",
+    *,
+    include_tentative: bool = False,
+    include_disputed: bool = False,
+    include_isotopologues: bool = True,
+    profile: str = "compact",
+    title: str = PPD_TITLE,
+    last_updated: str | None = None,
+) -> Path:
+    """Write a PPD molecule/isotopologue PowerPoint slide."""
+    layout = build_ppd_detection_slide_layout(
+        view,
         include_tentative=include_tentative,
         include_disputed=include_disputed,
         include_isotopologues=include_isotopologues,

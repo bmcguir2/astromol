@@ -411,6 +411,15 @@ and a dirty marker if the checkout has uncommitted changes. The molecule-count
 footer reports the latest curated-record modification date from the selected
 view and is not a package version.
 
+`write_ppd_detection_slide` is the PPD-focused slide product. It uses the same
+selection/layout/rendering machinery as the ISM/CSM molecule slide but selects
+secure PPD records and includes detected isotopologues by default. Its default
+`profile="compact"` renders only occupied atom-count groups, which avoids empty
+ISM-style bins on sparse PPD inventories. The compact profile chooses a larger
+readable molecule font, spreads occupied groups across the slide, and exposes
+the same layout warnings if a future PPD inventory outgrows the available
+geometry.
+
 ## Data Model
 
 ### Ref

@@ -53,13 +53,14 @@ from astromol.figures import (
     cumulative_detection_data,
     write_cumulative_detections_plot,
 )
-from astromol.slides import write_molecule_slide
+from astromol.slides import write_molecule_slide, write_ppd_detection_slide
 
 db = Database()
 view = CensusView.for_census(db, "2026")
 data = cumulative_detection_data(view)
 write_cumulative_detections_plot(data, Path("cumulative_detections.pdf"))
 write_molecule_slide(view, Path("astro_molecules.pptx"), profile="balanced")
+write_ppd_detection_slide(view, Path("ppd_molecules.pptx"))
 ```
 
 Use `CensusView.for_census(db, "2021")` for historical reproduction and
@@ -74,6 +75,7 @@ legacy 2021 layout profile and a balanced dynamic profile with layout
 diagnostics. See `SPEC.md` for the complete list of table, figure, and slide
 helpers, and `GENERATION_MIGRATION.md` for the verification/audit trail against
 the 2021 census.
+The PPD slide helper includes detected isotopologues by default.
 
 Generated slides distinguish the software version from the database freshness
 date. The top-right credit line reports the installed package version when

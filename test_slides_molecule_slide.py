@@ -8,12 +8,15 @@ from astromol.database import Database
 from astromol.slides import (
     LEGACY_SLIDE_HEIGHT_IN,
     LEGACY_SLIDE_WIDTH_IN,
+    PPD_TITLE,
+    build_ppd_detection_slide_layout,
     build_molecule_slide_layout,
     molecule_slide_report,
     powerpoint_formula_runs,
     selected_molecule_slide_entries,
     slide_version_label,
     write_molecule_slide,
+    write_ppd_detection_slide,
     write_molecule_slide_report,
 )
 
@@ -149,6 +152,36 @@ assert slide_version_label("development") == "development"
 assert slide_version_label("development (git abc123)") == "development (git abc123)"
 assert slide_version_label("2026.0.0") == "v2026.0.0"
 
+ppd_2026 = build_ppd_detection_slide_layout(view_2026)
+assert ppd_2026.title == PPD_TITLE
+assert ppd_2026.total == 57
+assert ppd_2026.profile == "compact"
+assert ppd_2026.detection_type == "ppd"
+assert ppd_2026.include_isotopologues is True
+assert ppd_2026.molecule_font_pt == 26
+assert ppd_2026.warnings == ()
+assert [group.spec.label for group in ppd_2026.groups] == [
+    "2 Atoms",
+    "3 Atoms",
+    "4 Atoms",
+    "5 Atoms",
+    "6 Atoms",
+    "7 Atoms",
+    "9 Atoms",
+    "12 Atoms",
+]
+assert [len(group.molecules) for group in ppd_2026.groups] == [
+    20,
+    20,
+    6,
+    5,
+    3,
+    1,
+    1,
+    1,
+]
+assert any(entry.molecule.isotopologue_of for entry in ppd_2026.molecules)
+
 with TemporaryDirectory() as tmp:
     output_dir = Path(tmp)
     pptx_path = write_molecule_slide(
@@ -202,5 +235,22 @@ with TemporaryDirectory() as tmp:
     assert "Known Interstellar Molecules" in balanced_text
     assert "325 Molecules" in balanced_text
     assert "Last Updated: 11 May 2026" in balanced_text
+
+    ppd_path = write_ppd_detection_slide(
+        view_2026,
+        output_dir / "ppd_molecules_2026.pptx",
+        last_updated="2026-05-11",
+    )
+    ppd_presentation = Presentation(ppd_path)
+    assert len(ppd_presentation.slides) == 1
+    ppd_text = "\n".join(
+        shape.text
+        for shape in ppd_presentation.slides[0].shapes
+        if hasattr(shape, "text")
+    )
+    assert PPD_TITLE in ppd_text
+    assert "57 Molecules" in ppd_text
+    assert "Last Updated: 11 May 2026" in ppd_text
+    assert "13CO" in ppd_text
 
 print("Molecule slide generation verification passed")
