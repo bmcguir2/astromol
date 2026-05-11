@@ -8,14 +8,18 @@ remain the JSON files under `astromol/data/`.
 ## Reference Inputs
 
 - `astromol/functions_legacy.py`: legacy 2021 output-generation code.
-- `astromol/arxiv/2021_census_arxiv.tex`: 2021 manuscript source used as a
-  reference for generated inputs and manuscript integration during the figure
-  migration audit.
+- Commit `6c5c89f`: figure-migration audit checkpoint preserving the temporary
+  2021 arXiv source/assets under `astromol/arxiv/` and
+  `astromol/data/molecules_legacy.py`.
 
 The legacy module is treated as a behavioral specification, not as runnable
 production code. It imports removed legacy modules (`astromol.molecules`,
 `astromol.sources`, `astromol.telescopes`) and contains many embedded LaTeX
 strings that emit Python syntax warnings under modern parsing.
+
+The temporary arXiv bundle and legacy molecule module were removed after the
+audit checkpoint; recover them from commit `6c5c89f` if a future verification
+pass needs the exact staged reference inputs.
 
 ## Decisions
 

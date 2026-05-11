@@ -52,6 +52,13 @@ temporary table inputs and verification report used to validate accepted census
 membership and detection-history boundaries. The table audit artifacts are not
 part of the working data model.
 
+Database-backed census-summary figure generation was migrated and verified in
+commit `6c5c89f`. That checkpoint preserves the temporary 2021 arXiv reference
+bundle, legacy molecule module, migrated `astromol.figures` implementation,
+figure regression scripts, and migration documentation used for the audit
+trail. The arXiv/legacy reference inputs were removed after that checkpoint and
+are not part of the working data model.
+
 OpenAI Codex is used as a coding assistant for software implementation,
 refactoring, validation scripts, documentation drafts, and workflow support.
 Scientific database content is not AI-generated. Molecule records, detection
