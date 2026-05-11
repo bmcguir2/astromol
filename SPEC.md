@@ -382,6 +382,35 @@ The preferred 2026 production view is
 horizontal stacked bars from the same wavelength-credit counts and labels the
 wavelength-credit denominator for each source category.
 
+PowerPoint slide generation lives in `astromol.slides`. Slide generators should
+follow the same selection/layout/rendering separation used by tables and
+figures: `CensusView` supplies the scientifically selected records, a layout
+plan records atom-bin membership and geometry, and `python-pptx` renders the
+final binary slide. The first implemented slide product is the ISM/CSM
+molecule summary slide. `selected_molecule_slide_entries` returns secure,
+non-isotopologue ISM/CSM molecules by default, ordered by first accepted
+detection represented in the view. `build_molecule_slide_layout` builds an
+auditable layout object with group/column counts and warnings, while
+`write_molecule_slide` writes the PowerPoint file. The `profile="legacy"`
+layout preserves the hand-tuned 2021 `make_mols_slide` geometry for audit and
+reproduction. The `profile="balanced"` layout derives column counts and group
+spacing from the selected inventory and should be used for current-census
+production review. The balanced layout uses an upper molecule band for 2-10
+atom groups and a lower-right band for 11, 12, and 13+ atom groups. Groups 2-6
+have a two-column minimum, and the shorter lower band has stricter
+row-capacity behavior so large-molecule groups move into multiple columns
+before they overflow. Slide generation must not silently clip or overlap
+molecules when an inventory outgrows a layout; it should expose warnings or
+fail clearly so the layout can be retuned.
+
+Slide metadata separates software traceability from data currency. The
+top-right credit block reports the installed `astromol` package version when
+package metadata are available. When the package is run directly from a
+development checkout, it reports `development` plus the current git short hash
+and a dirty marker if the checkout has uncommitted changes. The molecule-count
+footer reports the latest curated-record modification date from the selected
+view and is not a package version.
+
 ## Data Model
 
 ### Ref

@@ -53,11 +53,13 @@ from astromol.figures import (
     cumulative_detection_data,
     write_cumulative_detections_plot,
 )
+from astromol.slides import write_molecule_slide
 
 db = Database()
 view = CensusView.for_census(db, "2026")
 data = cumulative_detection_data(view)
 write_cumulative_detections_plot(data, Path("cumulative_detections.pdf"))
+write_molecule_slide(view, Path("astro_molecules.pptx"), profile="balanced")
 ```
 
 Use `CensusView.for_census(db, "2021")` for historical reproduction and
@@ -66,9 +68,18 @@ frozen, the 2026 and current views are expected to match.
 
 Figure helpers live in `astromol.figures`. Each migrated figure has a data
 builder, plotting function, and writer function so the scientific selection can
-be tested separately from the visual rendering. See `SPEC.md` for the complete
-list of table and figure helpers, and `GENERATION_MIGRATION.md` for the
-verification/audit trail against the 2021 census.
+be tested separately from the visual rendering. PowerPoint helpers live in
+`astromol.slides`; the current molecule-slide implementation includes both the
+legacy 2021 layout profile and a balanced dynamic profile with layout
+diagnostics. See `SPEC.md` for the complete list of table, figure, and slide
+helpers, and `GENERATION_MIGRATION.md` for the verification/audit trail against
+the 2021 census.
+
+Generated slides distinguish the software version from the database freshness
+date. The top-right credit line reports the installed package version when
+available, or a traceable development git hash when run from the refactor
+checkout. The lower count/date block reports the latest modification date from
+the selected curated records.
 
 ## Curation Workflow
 
@@ -127,6 +138,7 @@ Add lowercase suffixes only when needed to disambiguate duplicate keys.
 - `astromol/models.py`: dataclasses and allowed values
 - `astromol/database.py`: JSON/BibTeX loader and cross-reference resolver
 - `astromol/figures.py`: figure data builders and plotting helpers
+- `astromol/slides.py`: PowerPoint slide builders and layout diagnostics
 - `astromol/data/`: production data files
 - `curation/templates/`: curator-facing YAML templates
 - `scripts/stage_records.py`: staging, validation, preview, and apply workflow
@@ -150,6 +162,7 @@ Output-generation migration checks are named by product family, for example:
 ```bash
 python test_figures_cumulative_detections.py
 python test_figures_kappas.py
+python test_slides_molecule_slide.py
 ```
 
 These scripts verify census-view membership, figure/table data builders, and

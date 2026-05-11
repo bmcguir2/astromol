@@ -106,7 +106,7 @@ are excluded from accepted tables unless explicitly requested.
 | 2 | Port scalar LaTeX generators. | Complete |
 | 3 | Port LaTeX table generators. | Complete |
 | 4 | Port figure data builders and plots. | Complete |
-| 5 | Port PowerPoint slide generation for ISM molecules and PPD detections. | Pending |
+| 5 | Port PowerPoint slide generation for ISM molecules and PPD detections. | In progress |
 | 6 | Add full-output orchestration and PDF-generation workflow. | Pending |
 
 ## Legacy Function Inventory
@@ -166,7 +166,7 @@ are excluded from accepted tables unless explicitly requested.
 | `make_sat_percent` | 5056-5085 | LaTeX scalar | `astromol.latex` | Complete | Reproduce `satpercent.tex` value |
 | `make_sfr_rad_percent` | 5087-5113 | LaTeX scalar | `astromol.latex` | Complete | Reproduce `sfr_rad_percent.tex` value |
 | `make_dark_rad_percent` | 5115-5141 | LaTeX scalar | `astromol.latex` | Complete | Reproduce `dark_rad_percent.tex` value |
-| `make_mols_slide` | 5147-5561 | PowerPoint slide | `astromol.slides` | Pending | Visual comparison to legacy slide |
+| `make_mols_slide` | 5147-5561 | PowerPoint slide | `astromol.slides` | In progress | Visual comparison to legacy slide |
 | PPD detections slide | New | PowerPoint slide | `astromol.slides` | Pending | New product for PPD detection summary |
 
 ## Dependency Notes
@@ -1221,3 +1221,71 @@ asymmetric to oblate with arrowheads anchored at `kappa = -1` and `kappa = +1`.
 
 `test_figures_kappas.py` verifies the 2021 and 2026 kappa counts, histogram
 counts, linear-rotor handling, guide labels, boxed axes, and file writing.
+
+## Molecule Slide Migration Started
+
+`astromol.slides` now provides the first database-backed PowerPoint slide
+helpers for the legacy ISM/CSM molecule slide:
+
+- `selected_molecule_slide_entries`
+- `build_molecule_slide_layout`
+- `molecule_slide_report`
+- `write_molecule_slide_report`
+- `write_molecule_slide`
+
+The slide generator follows the same architecture as the table and figure
+ports: `CensusView` performs the scientific selection, a layout-plan object is
+built and tested separately from rendering, and `python-pptx` is used only at
+the final rendering step. The default selection is secure, non-isotopologue
+ISM/CSM molecules, ordered by first accepted detection represented in the
+view.
+
+The first implemented profile is `profile="legacy"`, a direct port of the
+hand-tuned 2021 slide coordinates from `make_mols_slide`. It preserves the
+historical 1920 x 1080 pt widescreen canvas, atom-count bins from `2 Atoms`
+through `13+ Atoms`, manually placed group labels/columns, the molecule-count
+box, and the last-updated footer. Formula rendering has been moved into a
+small PowerPoint-tokenizer helper so table-style formulas can be displayed
+with subscripts, terminal charge superscripts, isotope superscripts, and
+italic leading conformer/isomer prefixes.
+
+The dynamic profile is `profile="balanced"`. It keeps the same widescreen
+canvas but moves the count/date block into the title band and uses a single
+adaptive molecule band below it. For each selected inventory, the planner
+chooses a readable molecule font from 22, 21, 20, 19, and 18 pt, computes row
+capacity from the available band height, chooses atom-bin column counts from
+that capacity, estimates formula-column widths from displayed formula strings,
+and distributes leftover horizontal space between atom-count groups. This
+keeps the layout deterministic while allowing the slide to grow with the
+database.
+
+The balanced profile is zoned rather than a single full-width row. Atom-count
+groups 2-10 occupy the main upper molecule band, while 11, 12, and 13+ use a
+second row in the lower right. Groups 2-6 have a minimum of two columns because
+those inventories are already too large for a stable single-column slide
+layout and will not shrink in future census releases. The bottom row has
+shorter columns, so it uses stricter row-capacity rules and can push large
+groups such as 13+ into multiple columns sooner than the upper row.
+
+The 2021 census view produces 240 molecule entries and no layout-capacity
+warnings under the legacy profile. The current 2026 view produces 325 molecule
+entries and emits capacity warnings for several legacy boxes, confirming that
+the historical static coordinates should be treated as an audit/reproduction
+profile rather than the final current-census production layout. The balanced
+profile fits both the 2021 and 2026 views with no capacity warnings. The 2021
+balanced preview uses 21 pt molecule text, while the 2026 balanced preview
+uses 20 pt molecule text to keep formula columns wide enough to avoid
+PowerPoint line wrapping. The 2026 balanced preview uses 2 columns for 2-6
+atoms, 1 column for 7-12 atoms, and 2 columns for 13+ atoms.
+
+Slide metadata now separates the software version from the database freshness
+date. The upper-right credit line reports the installed package version when
+`astromol` is installed as a package; during checkout-based development it
+falls back to `development (git <short-hash>)`, with `+dirty` when uncommitted
+changes are present. The count/date block reports the latest curated-record
+modification date from the selected census view and formats it for display
+as `D Month YYYY`.
+
+`test_slides_molecule_slide.py` verifies 2021 membership, atom-bin counts,
+layout bounds, layout-report output, formula-token formatting, and binary
+PowerPoint writing/re-opening through `python-pptx`.
