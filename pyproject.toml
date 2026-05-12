@@ -51,6 +51,9 @@ dev = [
 Homepage = "https://github.com/bmcguir2/astromol"
 Repository = "https://github.com/bmcguir2/astromol"
 
+[project.scripts]
+astromol-validate = "astromol.validation:main"
+
 [tool.setuptools]
 include-package-data = true
 
@@ -65,4 +68,4 @@ astromol = [
 
 [tool.pytest.ini_options]
 python_files = ["test_*.py"]
-testpaths = ["."]
+testpaths = ["tests"]

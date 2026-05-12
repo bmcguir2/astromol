@@ -169,20 +169,25 @@ version.
 
 ## Verification Scripts
 
-This refactor branch currently uses small script-style regression checks rather
-than a packaged test runner. The main smoke check is:
+Run the production-data validator before committing data changes:
 
 ```bash
-python test_load.py
+astromol-validate
 ```
 
-Output-generation migration checks are named by product family, for example:
+or, from a source checkout without installing entry points:
 
 ```bash
-python test_figures_cumulative_detections.py
-python test_figures_kappas.py
-python test_slides_molecule_slide.py
+python -m astromol.validation
 ```
 
-These scripts verify census-view membership, figure/table data builders, and
-selected rendering properties against the audited 2021 and current/2026 views.
+Run the regression suite with:
+
+```bash
+python -m pytest
+```
+
+The tests live under `tests/` and verify database loading, census-view
+membership, figure/table data builders, slide layout/rendering properties, and
+selected 2021/current output regressions. The current validator reports known
+legacy `*` dipole placeholders as warnings until those values are reconciled.

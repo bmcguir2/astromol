@@ -441,6 +441,34 @@ boundaries and curated-record modification dates. `astromol.__version__`
 resolves installed package metadata when available and falls back to the
 development version string in source checkouts.
 
+## Validation And Tests
+
+`astromol.validation` contains semantic production-data checks that go beyond
+basic `Database()` loading. It validates identifier namespaces, detection
+relationship reciprocals, record-history ordering, spectroscopy numeric fields,
+and `first` detection flag consistency. The installed command-line entry point
+is:
+
+```bash
+astromol-validate
+```
+
+Source checkouts can run the same validator with:
+
+```bash
+python -m astromol.validation
+```
+
+Validation warnings are allowed for known unresolved curation follow-ups, such
+as inherited legacy `*` dipole placeholders. Validation errors should block
+release and data-update commits.
+
+Regression tests live under `tests/` and are run with:
+
+```bash
+python -m pytest
+```
+
 ## Data Model
 
 ### Ref
