@@ -49,3 +49,6 @@ view = CensusView.for_census(db, "2026")
 write_molecule_slide(view, Path("astro_molecules_2026.pptx"), profile="balanced")
 write_ppd_detection_slide(view, Path("ppd_molecules_2026.pptx"))
 ```
+
+For detailed, copy-pasteable recipes covering every migrated census table,
+figure, and slide product, see [](census-outputs.md).

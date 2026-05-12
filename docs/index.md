@@ -19,6 +19,7 @@ quickstart
 data-model
 curation
 generation
+census-outputs
 validation
 ```
 

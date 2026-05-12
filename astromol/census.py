@@ -9,7 +9,7 @@ from __future__ import annotations
 
 from collections import Counter
 from dataclasses import dataclass
-from typing import Iterable
+from typing import Callable, Iterable
 
 from .models import DETECTION_TYPES, Detection, Molecule, RecordHistory
 
@@ -327,6 +327,275 @@ class CensusView:
         key: str = "nick",
     ) -> Counter:
         """Count telescope/facility contributions for detections in this view."""
+        if key not in {"nick", "shortname", "name", "latex_name"}:
+            raise ValueError(
+                "facility_counts key must be 'nick', 'shortname', 'name', or 'latex_name'."
+            )
+
+        counts = Counter()
+        for detection in self.context_detections(
+            detection_type,
+            include_tentative=include_tentative,
+            include_disputed=include_disputed,
+            include_isotopologues=include_isotopologues,
+        ):
+            for telescope in detection.telescopes:
+                if key == "latex_name":
+                    counts[telescope.latex_name or telescope.shortname or telescope.name] += 1
+                else:
+                    counts[getattr(telescope, key)] += 1
+        return counts
+
+    def molecule_labels(self, molecules: Iterable[Molecule]) -> set[str]:
+        """Return molecule labels from a molecule iterable."""
+        return {molecule.label for molecule in molecules}
+
+    def filtered(
+        self,
+        *,
+        molecule_filter: Callable[[Molecule], bool] | None = None,
+        detection_filter: Callable[[Detection], bool] | None = None,
+    ) -> "FilteredCensusView":
+        """Return a custom view that filters records from this view.
+
+        Use this when a standard census/current view is the correct historical
+        boundary, but an analysis should be restricted to a special subset such
+        as carbon-bearing molecules, detections from one source type, or
+        detections observed with one wavelength family.
+        """
+        return FilteredCensusView(
+            base=self,
+            molecule_filter=molecule_filter,
+            detection_filter=detection_filter,
+        )
+
+
+@dataclass(frozen=True)
+class FilteredCensusView:
+    """View wrapper that applies custom filters to an existing census view."""
+
+    base: CensusView
+    molecule_filter: Callable[[Molecule], bool] | None = None
+    detection_filter: Callable[[Detection], bool] | None = None
+
+    @property
+    def db(self):
+        """The underlying database."""
+        return self.base.db
+
+    @property
+    def scope(self) -> str:
+        """The wrapped view scope."""
+        return self.base.scope
+
+    @property
+    def census(self) -> str | None:
+        """The wrapped census boundary, or ``None`` for current views."""
+        return self.base.census
+
+    @property
+    def is_current(self) -> bool:
+        """Whether this view represents live database contents."""
+        return self.base.is_current
+
+    @property
+    def census_year(self) -> int | None:
+        """The integer census boundary, or ``None`` for current views."""
+        return self.base.census_year
+
+    def accepted_record(self, record) -> bool:
+        """Return whether a record is accepted in the wrapped view."""
+        return self.base.accepted_record(record)
+
+    def introduced_record(self, record) -> bool:
+        """Return whether a record had entered tracking by the wrapped view."""
+        return self.base.introduced_record(record)
+
+    @staticmethod
+    def is_secure(detection: Detection) -> bool:
+        """Return whether a detection is treated as secure."""
+        return CensusView.is_secure(detection)
+
+    def detection_in_scope(
+        self,
+        detection: Detection,
+        *,
+        include_tentative: bool = False,
+        include_disputed: bool = False,
+    ) -> bool:
+        """Return whether a detection belongs in the wrapped view."""
+        return self.base.detection_in_scope(
+            detection,
+            include_tentative=include_tentative,
+            include_disputed=include_disputed,
+        )
+
+    def _passes_molecule_filter(self, molecule: Molecule) -> bool:
+        """Return whether a molecule passes the custom molecule filter."""
+        return self.molecule_filter is None or self.molecule_filter(molecule)
+
+    def _passes_detection_filter(self, detection: Detection) -> bool:
+        """Return whether a detection passes the custom detection filter."""
+        return self.detection_filter is None or self.detection_filter(detection)
+
+    def detections(
+        self,
+        detection_type: str | None = None,
+        *,
+        include_tentative: bool = False,
+        include_disputed: bool = False,
+        include_isotopologues: bool = False,
+    ) -> list[Detection]:
+        """Return filtered detections from the wrapped view."""
+        return [
+            detection
+            for detection in self.base.detections(
+                detection_type,
+                include_tentative=include_tentative,
+                include_disputed=include_disputed,
+                include_isotopologues=include_isotopologues,
+            )
+            if self._passes_molecule_filter(detection.molecule)
+            and self._passes_detection_filter(detection)
+        ]
+
+    def context_detections(
+        self,
+        detection_type: str,
+        *,
+        include_tentative: bool = False,
+        include_disputed: bool = False,
+        include_isotopologues: bool = False,
+    ) -> list[Detection]:
+        """Return filtered detections for one context."""
+        return self.detections(
+            detection_type,
+            include_tentative=include_tentative,
+            include_disputed=include_disputed,
+            include_isotopologues=include_isotopologues,
+        )
+
+    def context_molecules(
+        self,
+        detection_type: str,
+        *,
+        include_tentative: bool = False,
+        include_disputed: bool = False,
+        include_isotopologues: bool = False,
+    ) -> list[Molecule]:
+        """Return unique filtered molecules detected in one context."""
+        molecules = {
+            detection.molecule.label: detection.molecule
+            for detection in self.context_detections(
+                detection_type,
+                include_tentative=include_tentative,
+                include_disputed=include_disputed,
+                include_isotopologues=include_isotopologues,
+            )
+        }
+        return sorted(
+            molecules.values(),
+            key=lambda molecule: (
+                molecule.natoms,
+                molecule.label,
+            ),
+        )
+
+    def accepted_molecules(
+        self,
+        *,
+        include_isotopologues: bool = False,
+    ) -> list[Molecule]:
+        """Return filtered molecule records accepted in the wrapped view."""
+        return [
+            molecule
+            for molecule in self.base.accepted_molecules(
+                include_isotopologues=include_isotopologues,
+            )
+            if self._passes_molecule_filter(molecule)
+        ]
+
+    def ism_detections(self, **kwargs) -> list[Detection]:
+        """Return filtered ISM/CSM detections."""
+        return self.context_detections("ISM/CSM", **kwargs)
+
+    def ism_molecules(self, **kwargs) -> list[Molecule]:
+        """Return filtered ISM/CSM molecules."""
+        return self.context_molecules("ISM/CSM", **kwargs)
+
+    def ppd_detections(self, **kwargs) -> list[Detection]:
+        """Return filtered protoplanetary-disk detections."""
+        return self.context_detections("ppd", **kwargs)
+
+    def ppd_molecules(self, **kwargs) -> list[Molecule]:
+        """Return filtered protoplanetary-disk molecules."""
+        return self.context_molecules("ppd", **kwargs)
+
+    def ice_detections(self, **kwargs) -> list[Detection]:
+        """Return filtered ice detections."""
+        return self.context_detections("ice", **kwargs)
+
+    def ice_molecules(self, **kwargs) -> list[Molecule]:
+        """Return filtered ice molecules."""
+        return self.context_molecules("ice", **kwargs)
+
+    def exgal_detections(self, **kwargs) -> list[Detection]:
+        """Return filtered extragalactic detections."""
+        return self.context_detections("exgal", **kwargs)
+
+    def exgal_molecules(self, **kwargs) -> list[Molecule]:
+        """Return filtered extragalactic molecules."""
+        return self.context_molecules("exgal", **kwargs)
+
+    def exoplanet_detections(self, **kwargs) -> list[Detection]:
+        """Return filtered exoplanet-atmosphere detections."""
+        return self.context_detections("exo", **kwargs)
+
+    def exoplanet_molecules(self, **kwargs) -> list[Molecule]:
+        """Return filtered exoplanet-atmosphere molecules."""
+        return self.context_molecules("exo", **kwargs)
+
+    def source_counts(
+        self,
+        detection_type: str = "ISM/CSM",
+        *,
+        include_tentative: bool = False,
+        include_disputed: bool = False,
+        include_isotopologues: bool = False,
+        key: str = "nick",
+        group_diffuse_cloud: bool = False,
+        diffuse_cloud_label: str = "DiffuseCloud",
+    ) -> Counter:
+        """Count filtered source contributions for detections in this view."""
+        if key not in {"nick", "name", "latex_name"}:
+            raise ValueError("source_counts key must be 'nick', 'name', or 'latex_name'.")
+
+        counts = Counter()
+        for detection in self.context_detections(
+            detection_type,
+            include_tentative=include_tentative,
+            include_disputed=include_disputed,
+            include_isotopologues=include_isotopologues,
+        ):
+            for source in detection.sources:
+                if group_diffuse_cloud and source.type == "Diffuse Cloud":
+                    counts[diffuse_cloud_label] += 1
+                elif key == "latex_name":
+                    counts[source.latex_name or source.name] += 1
+                else:
+                    counts[getattr(source, key)] += 1
+        return counts
+
+    def facility_counts(
+        self,
+        detection_type: str = "ISM/CSM",
+        *,
+        include_tentative: bool = False,
+        include_disputed: bool = False,
+        include_isotopologues: bool = False,
+        key: str = "nick",
+    ) -> Counter:
+        """Count filtered telescope/facility contributions."""
         if key not in {"nick", "shortname", "name", "latex_name"}:
             raise ValueError(
                 "facility_counts key must be 'nick', 'shortname', 'name', or 'latex_name'."
