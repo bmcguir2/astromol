@@ -1,0 +1,68 @@
+[build-system]
+requires = ["setuptools>=69", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "astromol"
+version = "0.1.0.dev0"
+description = "Curated database and output-generation tools for astronomical molecule detections."
+readme = "README.md"
+requires-python = ">=3.11"
+authors = [
+  { name = "Brett A. McGuire" },
+]
+keywords = [
+  "astrochemistry",
+  "astronomy",
+  "molecules",
+  "census",
+  "spectroscopy",
+]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Intended Audience :: Science/Research",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Topic :: Scientific/Engineering :: Astronomy",
+]
+dependencies = [
+  "bibtexparser>=1.4",
+  "matplotlib>=3.8",
+  "molmass>=2024.5.24",
+  "numpy>=1.26",
+  "python-pptx>=0.6.23",
+  "PyYAML>=6.0",
+  "scipy>=1.11",
+]
+
+[project.optional-dependencies]
+docs = [
+  "myst-parser>=2.0",
+  "nbsphinx>=0.9",
+  "sphinx>=7.2",
+  "sphinx-rtd-theme>=2.0",
+]
+dev = [
+  "pytest>=8.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/bmcguir2/astromol"
+Repository = "https://github.com/bmcguir2/astromol"
+
+[tool.setuptools]
+include-package-data = true
+
+[tool.setuptools.packages.find]
+include = ["astromol*"]
+
+[tool.setuptools.package-data]
+astromol = [
+  "data/*.bib",
+  "data/*.json",
+]
+
+[tool.pytest.ini_options]
+python_files = ["test_*.py"]
+testpaths = ["."]

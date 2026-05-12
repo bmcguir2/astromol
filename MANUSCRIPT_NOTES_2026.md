@@ -11,6 +11,14 @@ output-generation migration. Keep implementation details in `SPEC.md` and
   line-of-sight material more directly, while still allowing the source table to
   consolidate these sight lines into a single `Diffuse Cloud` row.
 
+## Data Curation Follow-Ups
+
+- Resolve legacy `*` dipole-moment placeholders before any final dipole-based
+  analysis or manuscript statement. Current inherited placeholders are `AlCl`,
+  `CP`, `SO+`, and `MgCN` in `mu_a`, and `HNCS` in `mu_b`. Decide whether to
+  replace them with numeric literature values or convert them to explicit
+  unresolved/null values with notes.
+
 ## Tables And Counts
 
 - The standard ISM/CSM and external-galaxy molecule tables are

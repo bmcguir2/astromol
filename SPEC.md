@@ -17,12 +17,16 @@ astromol/
 │   ├── sources.json
 │   ├── telescopes.json
 │   └── references.bib
+├── __init__.py
 ├── models.py
 └── database.py
 ```
 
 `test_load.py` is a local smoke script. The data files may be incomplete during
 curation, but loaded cross-references must resolve for `Database()` to succeed.
+
+`pyproject.toml` defines the installable package metadata, core dependencies,
+optional dependency groups, package data, and test discovery configuration.
 
 ## Data Provenance
 
@@ -419,6 +423,23 @@ ISM-style bins on sparse PPD inventories. The compact profile chooses a larger
 readable molecule font, spreads occupied groups across the slide, and exposes
 the same layout warnings if a future PPD inventory outgrows the available
 geometry.
+
+## Packaging
+
+`pyproject.toml` is the source of truth for package metadata and Python
+dependencies. The base install includes the database loader, census views,
+models, LaTeX/table helpers, figure generation, PowerPoint slide generation,
+YAML curation support, and bundled production data files. Output generation and
+curation are core package capabilities, so their dependencies are installed by
+default. Optional extras are limited to contributor-oriented tooling:
+
+- `docs`: Sphinx/Read the Docs build dependencies
+- `dev`: test-runner dependencies
+
+The package version is the software/API version and is separate from census
+boundaries and curated-record modification dates. `astromol.__version__`
+resolves installed package metadata when available and falls back to the
+development version string in source checkouts.
 
 ## Data Model
 

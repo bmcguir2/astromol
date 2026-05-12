@@ -113,7 +113,7 @@ are excluded from accepted tables unless explicitly requested.
 
 | Legacy function | Lines | Kind | Proposed destination | Migration status | Verification target |
 | --- | ---: | --- | --- | --- | --- |
-| `version` | 34-35 | Metadata helper | `astromol.__init__` or package metadata | Pending | Package version source |
+| `version` | 34-35 | Metadata helper | `astromol.__init__` and package metadata | Complete | Package version source |
 | `updated` | 37-38 | Metadata helper | `astromol.census` or release metadata | Pending | Current database/release metadata |
 | `make_all_plots` | 48-74 | Orchestrator | `astromol.manuscript` | Pending | Calls all modern plot products |
 | `make_all_latex` | 77-112 | Orchestrator | `astromol.manuscript` | Pending | Calls all modern LaTeX products |

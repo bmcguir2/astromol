@@ -147,8 +147,25 @@ Add lowercase suffixes only when needed to disambiguate duplicate keys.
 
 ## Packaging
 
-The long-term goal is to make `astromol` installable from PyPI. Packaging files
-and final user-facing API documentation have not yet been added on this branch.
+This branch now includes initial Python packaging metadata in `pyproject.toml`.
+For local development, install the package in editable mode with the optional
+dependencies you need:
+
+```bash
+python -m pip install -e ".[dev]"
+```
+
+The base install includes the database loader, census/table helpers, figure
+generation, PowerPoint slide generation, and YAML curation workflow. Optional
+dependency groups are limited to contributor-oriented tooling:
+
+- `docs`: Sphinx/Read the Docs documentation build dependencies
+- `dev`: test-runner dependencies
+
+The package version is currently `0.1.0.dev0` while the refactor branch is still
+pre-release. Census boundaries and database freshness are tracked separately in
+the record history metadata; the Python package version is the software/API
+version.
 
 ## Verification Scripts
 
