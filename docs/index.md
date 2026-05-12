@@ -20,6 +20,7 @@ data-model
 curation
 generation
 census-outputs
+notebooks
 validation
 ```
 

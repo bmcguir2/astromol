@@ -39,7 +39,6 @@ dependencies = [
 [project.optional-dependencies]
 docs = [
   "myst-parser>=2.0",
-  "nbsphinx>=0.9",
   "sphinx>=7.2",
   "sphinx-rtd-theme>=2.0",
 ]

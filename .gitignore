@@ -2,3 +2,8 @@
 **/.DS_Store
 .vscode/
 docs/_build/
+__pycache__/
+**/__pycache__/
+*.py[cod]
+.pytest_cache/
+*.egg-info/

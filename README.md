@@ -185,6 +185,12 @@ python -m sphinx -b html docs docs/_build/html
 
 The generated local entry point is `docs/_build/html/index.html`.
 
+Example notebooks live under `docs/notebooks/` and are linked from the docs.
+They include Google Colab badges so users can run quickstart, figure, custom
+view, table, and slide examples directly from GitHub. During the refactor they
+install from the `refactor` branch; after PyPI release, their setup cells should
+be updated to install `astromol` from PyPI.
+
 ## Verification Scripts
 
 Run the production-data validator before committing data changes:
@@ -216,3 +222,11 @@ public API, documentation examples, and CI workflow stabilize, those checks
 should be incrementally converted into a more conventional unit/integration
 test suite with fixtures, smaller focused assertions, and explicit slow-test
 markers for figure and slide generation.
+
+## Continuous Integration
+
+GitHub Actions is configured in `.github/workflows/ci.yml`. On pushes, pull
+requests, and manual workflow dispatches, CI installs the package with
+development and documentation dependencies, runs `astromol-validate`, runs the
+pytest suite, and builds the Sphinx documentation with warnings treated as
+errors.
