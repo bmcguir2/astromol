@@ -1,0 +1,34 @@
+# Curation Workflow
+
+New records should be staged through YAML before they are applied to production
+JSON.
+
+1. Copy one or more templates from `curation/templates/`.
+2. Fill in a staging file under `curation/staging/`.
+3. Generate a preview and review the report.
+4. Apply the staged records after human approval.
+5. Remove the staging YAML after the production update is committed.
+
+Generate a preview:
+
+```bash
+python scripts/stage_records.py --staging curation/staging/example.yaml
+```
+
+Apply approved staged records:
+
+```bash
+python scripts/stage_records.py --staging curation/staging/example.yaml --apply
+```
+
+The staging templates intentionally expose the full available field set,
+including optional fields, so curators do not need to remember schema details
+from memory.
+
+References are maintained in Zotero and exported to
+`astromol/data/references.bib`. Do not hand-edit the BibTeX file; export the
+updated collection and commit the resulting file with the relevant data change.
+
+Scientific data are human curated and human verified. LLM assistance may be used
+for code, staging support, or mechanical transformations, but production data
+are not accepted without curator review.

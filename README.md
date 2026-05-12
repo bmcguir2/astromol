@@ -143,6 +143,7 @@ Add lowercase suffixes only when needed to disambiguate duplicate keys.
 - `astromol/slides.py`: PowerPoint slide builders and layout diagnostics
 - `astromol/data/`: production data files
 - `curation/templates/`: curator-facing YAML templates
+- `docs/`: Sphinx/Read the Docs documentation source
 - `scripts/stage_records.py`: staging, validation, preview, and apply workflow
 
 ## Packaging
@@ -166,6 +167,23 @@ The package version is currently `0.1.0.dev0` while the refactor branch is still
 pre-release. Census boundaries and database freshness are tracked separately in
 the record history metadata; the Python package version is the software/API
 version.
+
+## Documentation
+
+Documentation source files live under `docs/` and are configured for Sphinx and
+Read the Docs. Install the documentation dependencies with:
+
+```bash
+python -m pip install -e ".[docs]"
+```
+
+Build the HTML docs locally with:
+
+```bash
+python -m sphinx -b html docs docs/_build/html
+```
+
+The generated local entry point is `docs/_build/html/index.html`.
 
 ## Verification Scripts
 
