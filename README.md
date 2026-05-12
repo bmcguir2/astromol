@@ -191,6 +191,43 @@ view, table, and slide examples directly from GitHub. During the refactor they
 install from the `refactor` branch; after PyPI release, their setup cells should
 be updated to install `astromol` from PyPI.
 
+## FAQ
+
+These links open the draft refactor-branch notebooks directly in Google Colab.
+Set `VIEW_CHOICE = "current"` in the notebook configuration cells when you want
+the live database rather than a historical census view.
+
+### How Do I Get The Latest ISM/CSM Cumulative Detections Figure?
+
+Open the
+[Reproduce figures notebook](https://colab.research.google.com/github/bmcguir2/astromol/blob/refactor/docs/notebooks/02_reproduce_figures.ipynb),
+run the setup and configuration cells, set `VIEW_CHOICE = "current"`, then run
+the **Cumulative ISM/CSM detections** cell. The final notebook cell can download
+the generated PNG/PDF outputs.
+
+### How Do I Get The Latest ISM/CSM Detections Slide?
+
+Open the
+[Tables and slides notebook](https://colab.research.google.com/github/bmcguir2/astromol/blob/refactor/docs/notebooks/04_tables_and_slides.ipynb),
+run the setup and configuration cells, set `VIEW_CHOICE = "current"`, then run
+the PowerPoint slide cell. It writes `astro_molecules_current.pptx` using the
+production balanced layout.
+
+### How Do I Get The Latest Protoplanetary Disk Detections Slide?
+
+Use the same
+[Tables and slides notebook](https://colab.research.google.com/github/bmcguir2/astromol/blob/refactor/docs/notebooks/04_tables_and_slides.ipynb)
+with `VIEW_CHOICE = "current"`, then run the PowerPoint slide cell. It writes
+`ppd_molecules_current.pptx`; detected isotopologues are included by default.
+
+### How Do I Get Any Of The Other Figures?
+
+Open the
+[Reproduce figures notebook](https://colab.research.google.com/github/bmcguir2/astromol/blob/refactor/docs/notebooks/02_reproduce_figures.ipynb),
+run the setup/configuration cells, then run the specific figure cells you want.
+For custom subsets, start from the
+[Custom filtered views notebook](https://colab.research.google.com/github/bmcguir2/astromol/blob/refactor/docs/notebooks/03_custom_views.ipynb).
+
 ## Verification Scripts
 
 Run the production-data validator before committing data changes:

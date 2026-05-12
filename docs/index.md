@@ -16,6 +16,7 @@ still pre-release.
 
 installation
 quickstart
+faq
 data-model
 curation
 generation

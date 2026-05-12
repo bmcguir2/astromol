@@ -20,6 +20,8 @@ https://colab.research.google.com/github/bmcguir2/astromol/blob/refactor/docs/no
 ```
 
 In Colab, run the setup cell first, then run the remaining cells in order.
+For the most common tasks, including the latest cumulative detections figure
+and molecule slides, see [](faq.md).
 
 ## Notebook Index
 
