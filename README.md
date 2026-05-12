@@ -191,3 +191,10 @@ The tests live under `tests/` and verify database loading, census-view
 membership, figure/table data builders, slide layout/rendering properties, and
 selected 2021/current output regressions. The current validator reports known
 legacy `*` dipole placeholders as warnings until those values are reconciled.
+
+The current pytest suite intentionally includes a wrapped regression-script
+harness that preserves the migration checks used during the refactor. Once the
+public API, documentation examples, and CI workflow stabilize, those checks
+should be incrementally converted into a more conventional unit/integration
+test suite with fixtures, smaller focused assertions, and explicit slow-test
+markers for figure and slide generation.

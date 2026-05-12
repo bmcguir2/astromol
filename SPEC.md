@@ -469,6 +469,13 @@ Regression tests live under `tests/` and are run with:
 python -m pytest
 ```
 
+The current pytest suite uses a wrapped regression-script harness to preserve
+the audited migration checks while making them visible to pytest. This is a
+bridge, not the final testing architecture. After the public API, documentation
+examples, and CI workflow settle, convert the highest-value regression scripts
+incrementally into conventional unit and integration tests with fixtures,
+focused assertions, and slow-test markers for figure and slide generation.
+
 ## Data Model
 
 ### Ref
