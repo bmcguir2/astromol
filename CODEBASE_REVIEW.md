@@ -242,6 +242,9 @@ remove noise before release.
    re-exports.
 2. Add an output registry that powers docs, notebooks, and future CLI commands.
 3. Introduce a first-pass public CLI for standard figures, tables, and slides.
+4. Polish the generated-output GitHub Pages landing page. The current page is
+   functional and exposes the right products, but it should eventually get a
+   cleaner layout, clearer visual hierarchy, and more polished project branding.
 
 ## Verification During This Review
 
@@ -249,4 +252,3 @@ remove noise before release.
 - `python -m astromol.validation` passes with 0 errors and the 5 known
   dipole-placeholder warnings.
 - Working tree was clean before this review artifact was added.
-
