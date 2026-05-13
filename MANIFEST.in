@@ -1,0 +1,9 @@
+recursive-include curation *.md *.yaml
+recursive-include docs *.md *.py *.ipynb
+recursive-include tests *.py
+include scripts/stage_records.py
+global-exclude .DS_Store
+global-exclude *.py[cod]
+global-exclude __pycache__
+prune docs/_build
+prune .pytest_cache

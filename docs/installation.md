@@ -9,10 +9,11 @@ python -m pip install -e .
 ```
 
 The base package includes the database loader, census views, validation command,
-curation staging workflow, LaTeX/table helpers, figure generation, and
-PowerPoint slide generation.
+LaTeX/table helpers, figure generation, PowerPoint slide generation, and
+bundled production data.
 
-For development and verification work, install the test runner too:
+For development, curation staging from a source checkout, packaging checks, and
+verification work, install the contributor tools too:
 
 ```bash
 python -m pip install -e ".[dev]"

@@ -429,17 +429,22 @@ geometry.
 `pyproject.toml` is the source of truth for package metadata and Python
 dependencies. The base install includes the database loader, census views,
 models, LaTeX/table helpers, figure generation, PowerPoint slide generation,
-YAML curation support, and bundled production data files. Output generation and
-curation are core package capabilities, so their dependencies are installed by
-default. Optional extras are limited to contributor-oriented tooling:
+and bundled production data files. Output generation is a core package
+capability, so its dependencies are installed by default. YAML curation
+templates and staging scripts are contributor-facing source-checkout tools until
+they are promoted into a packaged CLI. Optional extras are limited to
+contributor-oriented tooling:
 
 - `docs`: Sphinx/Read the Docs build dependencies
-- `dev`: test-runner dependencies
+- `dev`: test, build, and package-check dependencies
 
 The package version is the software/API version and is separate from census
 boundaries and curated-record modification dates. `astromol.__version__`
 resolves installed package metadata when available and falls back to the
-development version string in source checkouts.
+development version string in source checkouts. The refactor development
+version is `2026.0.0.dev0` so future releases sort after the legacy `astromol`
+PyPI package (`2021.7`); this ordering constraint does not make package version
+metadata the authoritative census-boundary record.
 
 ## Validation And Tests
 

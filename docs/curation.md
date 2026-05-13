@@ -3,6 +3,14 @@
 New records should be staged through YAML before they are applied to production
 JSON.
 
+The current curation workflow is a source-checkout workflow rather than an
+installed package command. From the repository root, install the contributor
+dependencies first:
+
+```bash
+python -m pip install -e ".[dev]"
+```
+
 1. Copy one or more templates from `curation/templates/`.
 2. Fill in a staging file under `curation/staging/`.
 3. Generate a preview and review the report.

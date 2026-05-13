@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "astromol"
-version = "0.1.0.dev0"
+version = "2026.0.0.dev0"
 description = "Curated database and output-generation tools for astronomical molecule detections."
 readme = "README.md"
 requires-python = ">=3.11"
@@ -32,7 +32,6 @@ dependencies = [
   "molmass>=2024.5.24",
   "numpy>=1.26",
   "python-pptx>=0.6.23",
-  "PyYAML>=6.0",
   "scipy>=1.11",
 ]
 
@@ -43,12 +42,17 @@ docs = [
   "sphinx-rtd-theme>=2.0",
 ]
 dev = [
+  "build>=1.2",
   "pytest>=8.0",
+  "PyYAML>=6.0",
+  "twine>=5.0",
 ]
 
 [project.urls]
 Homepage = "https://github.com/bmcguir2/astromol"
 Repository = "https://github.com/bmcguir2/astromol"
+Documentation = "https://astromol.readthedocs.io/"
+Issues = "https://github.com/bmcguir2/astromol/issues"
 
 [project.scripts]
 astromol-validate = "astromol.validation:main"
