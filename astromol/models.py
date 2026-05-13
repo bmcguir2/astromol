@@ -1,6 +1,7 @@
 from dataclasses import dataclass, field
 from datetime import date
 from functools import cached_property
+import numbers
 import re
 from molmass import ELECTRON, ELEMENTS, Formula, FormulaError
 
@@ -315,6 +316,11 @@ class DipoleMoment:
         """Total dipole moment magnitude in Debye."""
         components = [x for x in [self.a, self.b, self.c] if x is not None]
         if not components:
+            return None
+        if any(
+            not isinstance(component, numbers.Real) or isinstance(component, bool)
+            for component in components
+        ):
             return None
         return sum(x**2 for x in components) ** 0.5
 

@@ -28,6 +28,19 @@ passed.
 Until the 2026 cutoff is frozen, the 2026 and current views are expected to
 select the same records.
 
+## Latest Standard Output Bundle
+
+The project publishes automatically generated standard figures and slides at
+<https://bmcguir2.github.io/astromol/>. The same bundle can be generated locally
+with:
+
+```bash
+astromol-generate-outputs --output-dir build/astromol_outputs --view current --formats png pdf
+```
+
+The command writes figures, PowerPoint slides, LaTeX table fragments, a static
+`index.html`, and `astromol_latest_outputs.zip`.
+
 ## Standard View Options
 
 Most table, figure, and slide data builders use the same filtering options:

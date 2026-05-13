@@ -7,7 +7,7 @@
   name: Example Telescope  # REQUIRED; string
   nick: ExampleTelescope  # REQUIRED; unique string key used by detections
   shortname: Example Telescope  # REQUIRED; short human-readable name
-  type: Single Dish  # REQUIRED; telescope type from TELESCOPE_TYPES
+  type: Single Dish  # REQUIRED; telescope type, e.g. Single Dish, Interferometer, Space
   wavelength: []  # REQUIRED; list of wavelength regimes
   diameter:  # number in meters
   latitude:  # number in decimal degrees, not sexagesimal
@@ -16,3 +16,12 @@
   decommissioned:  # integer year, blank if active
   note:  # string
   latex_name:  # string used for generated LaTeX
+  # Optional. Leave blank to let stage_records.py populate a standard
+  # telescope-record history using the staging run date.
+  history:
+    introduced:
+      date:
+      census:
+      context:
+    last_modified:
+    events: []

@@ -10,6 +10,18 @@ This documentation describes the active refactor branch. The data model,
 curation workflow, and output-generation tools are usable, but the public API is
 still pre-release.
 
+## Latest Generated Products
+
+The latest standard figures and PowerPoint slides are generated automatically
+from the current database and published at:
+
+<https://bmcguir2.github.io/astromol/>
+
+Use that page for the latest ISM/CSM cumulative detections figure, the ISM/CSM
+molecule slide, the PPD molecule/isotopologue slide, and the complete generated
+output bundle. Use the Colab notebooks when you want to customize the view or
+regenerate selected outputs interactively.
+
 ```{toctree}
 :maxdepth: 2
 :caption: User Guide

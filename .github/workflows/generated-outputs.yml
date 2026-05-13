@@ -1,0 +1,78 @@
+name: Generated Outputs
+
+on:
+  push:
+    branches:
+      - "**"
+  pull_request:
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  generate:
+    name: Generate figures, slides, and tables
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    env:
+      MPLBACKEND: Agg
+      MPLCONFIGDIR: /tmp/matplotlib
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Install package
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -e .
+
+      - name: Prepare Matplotlib cache
+        run: mkdir -p "$MPLCONFIGDIR"
+
+      - name: Generate standard outputs
+        run: |
+          python scripts/generate_outputs.py \
+            --output-dir build/astromol_outputs \
+            --view current \
+            --formats png pdf
+
+      - name: Upload generated outputs artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: astromol-latest-generated-outputs
+          path: build/astromol_outputs
+          retention-days: 30
+
+      - name: Upload GitHub Pages artifact
+        if: github.event_name == 'push' && (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/refactor')
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: build/astromol_outputs
+
+  deploy-pages:
+    name: Deploy latest outputs to GitHub Pages
+    needs: generate
+    runs-on: ubuntu-latest
+    if: github.event_name == 'push' && (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/refactor')
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

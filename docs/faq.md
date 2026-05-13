@@ -6,11 +6,18 @@ environment. During the refactor, the notebooks install `astromol` from the
 `refactor` branch. After the package is released on PyPI, the setup cells will
 be updated to install the released package.
 
+The latest standard outputs are also generated automatically and published at
+<https://bmcguir2.github.io/astromol/>. Use that page when you just want the
+current standard figure or slide without customization.
+
 ## How Do I Get The Latest ISM/CSM Cumulative Detections Figure?
 
 Open the
 [Reproduce figures notebook](https://colab.research.google.com/github/bmcguir2/astromol/blob/refactor/docs/notebooks/02_reproduce_figures.ipynb)
 in Colab.
+
+For the standard current output, download it directly from
+<https://bmcguir2.github.io/astromol/figures/png/cumulative_detections.png>.
 
 1. Run the setup and import cells.
 2. In the configuration cell, set `VIEW_CHOICE = "current"`.
@@ -41,6 +48,9 @@ Open the
 [Tables and slides notebook](https://colab.research.google.com/github/bmcguir2/astromol/blob/refactor/docs/notebooks/04_tables_and_slides.ipynb)
 in Colab.
 
+For the standard current slide, download it directly from
+<https://bmcguir2.github.io/astromol/slides/astro_molecules_current.pptx>.
+
 1. Run the setup and import cells.
 2. In the configuration cell, set `VIEW_CHOICE = "current"`.
 3. Run the slide layout report cell if you want to inspect the planned layout.
@@ -69,6 +79,9 @@ write_molecule_slide(view, Path("astro_molecules_current.pptx"), profile="balanc
 Open the
 [Tables and slides notebook](https://colab.research.google.com/github/bmcguir2/astromol/blob/refactor/docs/notebooks/04_tables_and_slides.ipynb)
 in Colab.
+
+For the standard current slide, download it directly from
+<https://bmcguir2.github.io/astromol/slides/ppd_molecules_current.pptx>.
 
 1. Run the setup and import cells.
 2. In the configuration cell, set `VIEW_CHOICE = "current"`.

@@ -12,3 +12,12 @@
   simbad_url:  # string URL
   latex_name:  # string used for generated LaTeX
   note:  # string
+  # Optional. Leave blank to let stage_records.py populate a standard
+  # source-record history using the staging run date.
+  history:
+    introduced:
+      date:
+      census:
+      context:
+    last_modified:
+    events: []

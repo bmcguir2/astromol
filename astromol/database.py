@@ -211,6 +211,8 @@ class Database:
                 entry = {k: v for k, v in entry.items() if not k.startswith("_")}
                 self._normalize_history(entry)
                 tel = Telescope(**entry)
+                if tel.nick in self.telescopes:
+                    raise ValueError(f"Duplicate telescope nick: {tel.nick}")
                 self.telescopes[tel.nick] = tel
 
     def _load_sources(self):
@@ -220,6 +222,8 @@ class Database:
                 entry = {k: v for k, v in entry.items() if not k.startswith("_")}
                 self._normalize_history(entry)
                 src = Source(**entry)
+                if src.nick in self.sources:
+                    raise ValueError(f"Duplicate source nick: {src.nick}")
                 self.sources[src.nick] = src
 
     def _load_molecules(self):

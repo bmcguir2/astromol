@@ -2944,6 +2944,16 @@ def _style_manuscript_axes(
     ax.xaxis.set_ticks_position("both")
 
 
+def _horizontal_boxplot(ax, values, **kwargs):
+    """Draw a horizontal boxplot across supported Matplotlib versions."""
+    try:
+        return ax.boxplot(values, orientation="horizontal", **kwargs)
+    except TypeError as exc:
+        if "orientation" not in str(exc):
+            raise
+        return ax.boxplot(values, vert=False, **kwargs)
+
+
 def _finalize_manuscript_figure(figure, ax) -> None:
     """Use a fixed axes rectangle so paired figures align visually."""
     ax.set_position(FIGURE_AXES_BOUNDS)
@@ -5729,10 +5739,10 @@ def plot_mass_by_wavelength_boxplot(
     y_positions = np.arange(len(series), 0, -1)
     mass_lists = [np.array(item.masses, dtype=float) for item in series]
 
-    boxplot = ax.boxplot(
+    boxplot = _horizontal_boxplot(
+        ax,
         mass_lists,
         positions=y_positions,
-        vert=False,
         widths=0.42,
         patch_artist=True,
         showfliers=False,
@@ -5901,10 +5911,10 @@ def plot_du_by_source_type_boxplot(
 
     y_positions = np.arange(len(categories_with_values), 0, -1)
 
-    boxplot = ax.boxplot(
+    boxplot = _horizontal_boxplot(
+        ax,
         value_lists,
         positions=y_positions,
-        vert=False,
         widths=0.42,
         patch_artist=True,
         showfliers=False,
@@ -6089,10 +6099,10 @@ def plot_relative_du_by_source_type_boxplot(
         raise ValueError("No relative-DU values are available for the plot.")
 
     y_positions = np.arange(len(categories_with_values), 0, -1)
-    boxplot = ax.boxplot(
+    boxplot = _horizontal_boxplot(
+        ax,
         value_lists,
         positions=y_positions,
-        vert=False,
         widths=0.42,
         patch_artist=True,
         showfliers=False,
@@ -6275,10 +6285,10 @@ def plot_mass_by_source_type_boxplot(
         raise ValueError("No molecular masses are available for the requested plot.")
 
     y_positions = np.arange(len(categories_with_values), 0, -1)
-    boxplot = ax.boxplot(
+    boxplot = _horizontal_boxplot(
+        ax,
         mass_lists,
         positions=y_positions,
-        vert=False,
         widths=0.42,
         patch_artist=True,
         showfliers=False,

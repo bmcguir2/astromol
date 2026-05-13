@@ -5,6 +5,27 @@ molecule detections. It stores molecule, detection, source, telescope, and
 reference metadata in version-controlled data files, then loads and resolves
 those records through a small Python API.
 
+## Latest Figures And Slides
+
+The latest standard figures and PowerPoint slides are generated automatically
+from the current database by GitHub Actions and published to GitHub Pages:
+
+<https://bmcguir2.github.io/astromol/>
+
+Most users should start there. The most commonly requested products are linked
+directly below:
+
+- [latest ISM/CSM cumulative detections figure](https://bmcguir2.github.io/astromol/figures/png/cumulative_detections.png)
+- [latest ISM/CSM detections slide](https://bmcguir2.github.io/astromol/slides/astro_molecules_current.pptx)
+- [latest protoplanetary disk detections slide](https://bmcguir2.github.io/astromol/slides/ppd_molecules_current.pptx)
+- [complete latest output bundle](https://bmcguir2.github.io/astromol/astromol_latest_outputs.zip)
+
+For custom views, alternate formats, or interactive regeneration, use the
+Google Colab notebooks linked in the documentation. For pull requests and
+branch builds, generated products are also available as downloadable artifacts
+from the
+[Generated Outputs workflow](https://github.com/bmcguir2/astromol/actions/workflows/generated-outputs.yml).
+
 This README describes the active refactor branch. The data model and curation
 workflow are usable, but the public package/API documentation is still being
 developed before this branch replaces `main`.
@@ -23,7 +44,7 @@ developed before this branch replaces `main`.
 ## Quick Load Check
 
 ```bash
-python test_load.py
+python -m pytest tests/test_load.py
 ```
 
 Or from Python:
@@ -82,6 +103,12 @@ date. The top-right credit line reports the installed package version when
 available, or a traceable development git hash when run from the refactor
 checkout. The lower count/date block reports the latest modification date from
 the selected curated records.
+
+The standard latest output bundle can be regenerated locally with:
+
+```bash
+astromol-generate-outputs --output-dir build/astromol_outputs --view current --formats png pdf
+```
 
 ## Curation Workflow
 
