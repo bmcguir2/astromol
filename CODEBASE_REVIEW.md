@@ -222,7 +222,10 @@ remove noise before release.
 
 ### Before Heavy 2026 Data Expansion
 
-1. Add template/schema consistency tests.
+1. Add template/schema consistency tests. **Done:** `tests/test_curation_templates.py`
+   now checks that each curator template exposes the same production field set
+   known to `scripts/stage_records.py`, while allowing staging-only `_...`
+   metadata fields.
 2. Add focused unit tests for model properties and census-view boundaries.
 3. Add staging-script tests using small temporary YAML inputs.
 4. Decide whether schema definitions should become generated templates.
