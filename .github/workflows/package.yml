@@ -1,0 +1,72 @@
+name: Package
+
+on:
+  push:
+    branches:
+      - "**"
+  pull_request:
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build-install-check:
+    name: Build and install package
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    env:
+      MPLBACKEND: Agg
+      MPLCONFIGDIR: /tmp/matplotlib
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Install packaging tools
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install build twine
+
+      - name: Build source distribution and wheel
+        run: python -m build --sdist --wheel --outdir dist
+
+      - name: Check package metadata
+        run: python -m twine check dist/*
+
+      - name: Create clean wheel-test environment
+        run: |
+          python -m venv /tmp/astromol-wheel-check
+          /tmp/astromol-wheel-check/bin/python -m pip install --upgrade pip
+          /tmp/astromol-wheel-check/bin/python -m pip install dist/*.whl
+
+      - name: Smoke-test installed wheel outside source tree
+        run: |
+          cd /tmp
+          mkdir -p "$MPLCONFIGDIR"
+          /tmp/astromol-wheel-check/bin/python - <<'PY'
+          import astromol
+          from astromol.database import Database
+
+          db = Database()
+          assert db.molecules
+          assert db.detections
+          assert db.refs
+          print(f"Loaded {len(db.molecules)} molecules and {len(db.detections)} detections from installed wheel.")
+          PY
+          /tmp/astromol-wheel-check/bin/astromol-validate
+          /tmp/astromol-wheel-check/bin/astromol-generate-outputs \
+            --output-dir /tmp/astromol-package-output-smoke \
+            --view current \
+            --formats png \
+            --skip-slides \
+            --skip-tables
+

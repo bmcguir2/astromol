@@ -227,17 +227,40 @@ remove noise before release.
    known to `scripts/stage_records.py`, while allowing staging-only `_...`
    metadata fields.
 2. Add focused unit tests for model properties and census-view boundaries.
-3. Add staging-script tests using small temporary YAML inputs.
+   **Done:** `tests/test_models.py` now covers isotope mass fallback,
+   charge/radical inference, DU limits, and kappa behavior;
+   `tests/test_census_view_boundaries.py` covers accepted-vs-introduced
+   census selection, tentative/disputed inclusion, isotopologue filtering, and
+   context molecule selection.
+3. Add staging-script tests using small temporary YAML inputs. **Done:**
+   `tests/test_stage_records.py` exercises preview-only staging, `--apply`,
+   default/history normalization, staging-only metadata reporting, and bad
+   reference rejection without touching production JSON.
 4. Decide whether schema definitions should become generated templates.
+   **Decided/deferred:** keep hand-written curator templates for now, protected
+   by consistency tests. Revisit generated templates after the 2026 data model
+   is less fluid, so the generator does not harden a schema that is still
+   actively changing.
 
 ### Before Public PyPI Release
 
-1. Resolve PyPI ownership/name access.
-2. Add license metadata and a repository license file.
-3. Add CI package build/install verification.
+1. Resolve PyPI ownership/name access. **Done:** project ownership for the
+   `astromol` PyPI package has been transferred to Brett.
+2. Add license metadata and a repository license file. **Done:** the project
+   now declares the MIT License in `pyproject.toml` and includes a repository
+   `LICENSE` file.
+3. Add CI package build/install verification. **Done:** `.github/workflows/package.yml`
+   builds the sdist and wheel, runs `twine check`, installs the wheel into a
+   clean environment outside the source tree, loads `Database()`, runs
+   `astromol-validate`, and smoke-tests `astromol-generate-outputs`.
 4. Update Colab install cells from `refactor` branch installs to PyPI installs.
+   **Deferred until release:** keep branch-based installs while the refactor
+   branch remains the live test target; update to PyPI installs immediately
+   after the new package release is published.
 5. Confirm README/Read the Docs no longer describe the branch as pre-release
-   unless that is still intentional.
+   unless that is still intentional. **Deferred until release/default-branch
+   transition:** current pre-release language is accurate until the refactor is
+   published and promoted.
 
 ### After API Stabilization
 
