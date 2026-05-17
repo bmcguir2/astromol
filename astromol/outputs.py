@@ -33,12 +33,10 @@ DEFAULT_OUTPUT_DIR = Path("build") / "astromol_outputs"
 DEFAULT_FORMATS = ("png", "pdf")
 
 SECTION_TITLES = {
-    "reports": "Layout Reports",
     "other": "Other Files",
 }
 
 SECTION_DESCRIPTIONS = {
-    "reports": "Plain-text slide-layout diagnostics written alongside the decks.",
     "other": "Files that do not fit one of the main page sections.",
 }
 
@@ -75,13 +73,9 @@ def _product_section(relative_path: Path) -> str:
     if relative_path.parts and relative_path.parts[0] == "figures":
         return "hidden"
     if relative_path.parts and relative_path.parts[0] == "slides":
-        return "reports" if relative_path.suffix == ".md" else "hidden"
+        return "hidden"
     if relative_path.parts and relative_path.parts[0] == "tables":
         return "hidden"
-    if relative_path.parts and relative_path.parts[0] == "slides" and relative_path.suffix == ".md":
-        return "reports"
-    if relative_path.suffix == ".md":
-        return "reports"
     return "other"
 
 
@@ -94,6 +88,8 @@ def _featured_product_key(relative_path: Path) -> str | None:
         return "ism_slide"
     if path_text.startswith("slides/ppd_molecules_") and relative_path.suffix == ".pptx":
         return "ppd_slide"
+    if path_text == "figures/png/cumulative_detections.png":
+        return "cumulative_figure"
     return None
 
 
@@ -146,7 +142,7 @@ def _group_figure_products(
 
 def _link_attributes(relative_path: Path) -> str:
     """Return extra anchor attributes for one generated product link."""
-    if relative_path.suffix.lower() in {".png", ".jpg", ".jpeg", ".gif", ".svg", ".webp"}:
+    if relative_path.suffix.lower() in {".png", ".jpg", ".jpeg", ".gif", ".svg", ".webp", ".pdf"}:
         return ' target="_blank" rel="noopener noreferrer"'
     return ""
 
@@ -186,12 +182,12 @@ def _render_figure_card(output_dir: Path, group: FigureProductGroup) -> list[str
     if group.png_product is not None:
         lines.append(
             "            "
-            + _render_link(output_dir, group.png_product, "PNG preview", css_class="figure-link")
+            + _render_link(output_dir, group.png_product, "PNG Preview", css_class="figure-link")
         )
     if group.pdf_product is not None:
         lines.append(
             "            "
-            + _render_link(output_dir, group.pdf_product, "PDF file", css_class="figure-link")
+            + _render_link(output_dir, group.pdf_product, "PDF File", css_class="figure-link")
         )
     lines.extend(
         [
@@ -386,7 +382,7 @@ def _write_index(
     generated = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M UTC")
     featured_products = _featured_products(output_dir, products)
     figure_groups = _group_figure_products(output_dir, products)
-    section_order = ("reports", "other")
+    section_order = ("other",)
     section_products = {
         key: sorted(
             [
@@ -404,11 +400,6 @@ def _write_index(
             1
             for product in products
             if _featured_product_key(_relative_product_path(output_dir, product)) in {"ism_slide", "ppd_slide"}
-        ),
-        "reports": sum(
-            1
-            for product in products
-            if _product_section(_relative_product_path(output_dir, product)) == "reports"
         ),
     }
 
@@ -454,13 +445,13 @@ def _write_index(
         "    .featured-card h3 { margin-bottom: 10px; }",
         "    .featured-card p { margin: 0 0 10px; color: var(--muted); }",
         "    .featured-card .file { display: block; color: var(--muted); font-size: 0.88rem; word-break: break-word; }",
-        "    .primary-grid { display: grid; gap: 16px; grid-template-columns: minmax(220px, 1fr) minmax(0, 2fr); }",
-        "    .bundle-card, .slides-card, .figure-card, .inventory-card { background: var(--panel-strong); border: 1px solid var(--line); border-radius: 22px; box-shadow: var(--shadow); }",
-        "    .bundle-card, .slides-card { padding: 18px 18px 16px; }",
-        "    .slides-grid { display: grid; gap: 14px; grid-template-columns: repeat(2, minmax(0, 1fr)); }",
+        "    .primary-grid { display: grid; gap: 16px; grid-template-columns: repeat(3, minmax(0, 1fr)); align-items: stretch; }",
+        "    .bundle-card, .slides-card, .feature-card, .figure-card, .inventory-card { background: var(--panel-strong); border: 1px solid var(--line); border-radius: 22px; box-shadow: var(--shadow); }",
+        "    .bundle-card, .slides-card, .feature-card { padding: 18px 18px 16px; }",
+        "    .slides-grid { display: grid; gap: 14px; grid-template-columns: 1fr; }",
         "    .slide-card { border: 1px solid rgba(17, 36, 58, 0.09); border-radius: 16px; padding: 14px; background: rgba(255, 255, 255, 0.55); }",
-        "    .slide-card h3, .bundle-card h3 { margin-bottom: 8px; }",
-        "    .slide-card p, .bundle-card p { margin: 0 0 10px; color: var(--muted); }",
+        "    .slide-card h3, .bundle-card h3, .feature-card h3 { margin-bottom: 8px; }",
+        "    .slide-card p, .bundle-card p, .feature-card p { margin: 0 0 10px; color: var(--muted); }",
         "    .primary-link, .figure-link { display: inline-flex; align-items: center; justify-content: center; border-radius: 999px; padding: 9px 14px; border: 1px solid rgba(17, 36, 58, 0.12); background: rgba(24, 116, 208, 0.08); font-weight: 600; }",
         "    .primary-link:hover, .figure-link:hover { text-decoration: none; background: rgba(24, 116, 208, 0.14); }",
         "    .figure-grid { display: grid; gap: 16px; grid-template-columns: repeat(3, minmax(0, 1fr)); }",
@@ -493,7 +484,6 @@ def _write_index(
         f"        <span class=\"stat\">View <code>{escape(view_choice)}</code></span>",
         f"        <span class=\"stat\">{product_counts['figures']} figures</span>",
         f"        <span class=\"stat\">{product_counts['slides']} slide deck(s)</span>",
-        f"        <span class=\"stat\">{product_counts['reports']} report(s)</span>",
         "      </div>",
         "      <div class=\"hero-grid\">",
         "        <section class=\"hero-panel\">",
@@ -515,12 +505,14 @@ def _write_index(
     bundle_product = featured_products.get("bundle")
     ism_slide = featured_products.get("ism_slide")
     ppd_slide = featured_products.get("ppd_slide")
-    if bundle_product or ism_slide or ppd_slide:
+    cumulative_figure = next((group for group in figure_groups if group.name == "cumulative_detections"), None)
+    public_figure_groups = [group for group in figure_groups if group.name != "cumulative_detections"]
+    if bundle_product or cumulative_figure or ism_slide or ppd_slide:
         lines.extend(
             [
                 "    <section class=\"section\">",
                 "      <h2>Primary Downloads</h2>",
-                "      <p class=\"section-copy\">Start with the full bundle or jump straight to the two standard slide decks.</p>",
+                "      <p class=\"section-copy\">Start with the full bundle, the standard cumulative figure, or the two standard slide decks.</p>",
                 "      <div class=\"primary-grid\">",
             ]
         )
@@ -534,6 +526,32 @@ def _write_index(
                     "          "
                     + _render_link(output_dir, bundle_product, "Download bundle", css_class="primary-link"),
                     f"          <span class=\"file\">{escape(_relative_product_path(output_dir, bundle_product).as_posix())}</span>",
+                    "        </article>",
+                ]
+            )
+        if cumulative_figure is not None:
+            lines.extend(
+                [
+                    "        <article class=\"feature-card\">",
+                    "          <span class=\"tag\">Figure</span>",
+                    f"          <h3>{escape(cumulative_figure.label)}</h3>",
+                    f"          <p>{escape(cumulative_figure.description)}</p>",
+                    "          <div class=\"figure-links\">",
+                ]
+            )
+            if cumulative_figure.png_product is not None:
+                lines.append(
+                    "            "
+                    + _render_link(output_dir, cumulative_figure.png_product, "PNG Preview", css_class="figure-link")
+                )
+            if cumulative_figure.pdf_product is not None:
+                lines.append(
+                    "            "
+                    + _render_link(output_dir, cumulative_figure.pdf_product, "PDF File", css_class="figure-link")
+                )
+            lines.extend(
+                [
+                    "          </div>",
                     "        </article>",
                 ]
             )
@@ -568,16 +586,16 @@ def _write_index(
             ]
         )
 
-    if figure_groups:
+    if public_figure_groups:
         lines.extend(
             [
                 "    <section class=\"section\">",
                 "      <h2>Figures</h2>",
-                "      <p class=\"section-copy\">Each figure card includes a PNG preview link and, when available, a PDF version of the same plot.</p>",
+                "      <p class=\"section-copy\">Each figure card includes a PNG Preview link and, when available, a PDF File version of the same plot.</p>",
                 "      <div class=\"figure-grid\">",
             ]
         )
-        for group in figure_groups:
+        for group in public_figure_groups:
             lines.extend(_render_figure_card(output_dir, group))
         lines.extend(
             [
