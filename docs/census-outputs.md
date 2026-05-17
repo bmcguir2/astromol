@@ -129,6 +129,23 @@ write_cumulative_detections_plot(data, out / "cumulative_detections.pdf")
 The writer infers the output format from the file suffix. Use `.pdf` for
 manuscript graphics and `.png` for quick previews or slides.
 
+For standard production outputs, `astromol.registry.FIGURE_OUTPUTS` is the
+canonical list. This is the same registry used by `astromol-generate-outputs`:
+
+```python
+from astromol.registry import FIGURE_OUTPUTS, OutputContext
+
+context = OutputContext(
+    view=view,
+    view_choice="2026",
+    baseline_view=CensusView.for_census(db, "2021"),
+)
+
+for spec in FIGURE_OUTPUTS:
+    print(spec.name, "-", spec.label)
+    spec.write(context, figure_dir / f"{spec.name}.pdf")
+```
+
 ### Figure Recipe List
 
 ```python

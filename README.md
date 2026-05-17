@@ -166,7 +166,9 @@ Add lowercase suffixes only when needed to disambiguate duplicate keys.
 - `GENERATION_MIGRATION.md`: output-generation migration and verification log
 - `astromol/models.py`: dataclasses and allowed values
 - `astromol/database.py`: JSON/BibTeX loader and cross-reference resolver
-- `astromol/figures.py`: figure data builders and plotting helpers
+- `astromol/figures/`: figure data builders and plotting helpers
+- `astromol/registry.py`: canonical registry of standard figures, tables, and slides
+- `astromol/outputs.py`: standard generated-output bundle writer
 - `astromol/slides.py`: PowerPoint slide builders and layout diagnostics
 - `astromol/data/`: production data files
 - `curation/templates/`: curator-facing YAML templates

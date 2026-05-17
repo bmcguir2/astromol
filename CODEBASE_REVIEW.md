@@ -265,8 +265,17 @@ remove noise before release.
 ### After API Stabilization
 
 1. Split `astromol.figures` into focused implementation modules with stable
-   re-exports.
+   re-exports. **Started:** `astromol.figures` is now a package that preserves
+   the public import path through `astromol.figures.__init__`, with the existing
+   implementation isolated in `astromol.figures._core` and shared visual style
+   constants moved to `astromol.figures.style`. Future passes can move figure
+   families out of `_core` incrementally without changing user imports.
 2. Add an output registry that powers docs, notebooks, and future CLI commands.
+   **Done:** `astromol.registry` now exposes canonical figure, table, and slide
+   specs with stable names, labels, descriptions, and generation callables.
+   `astromol.outputs` consumes the registry for standard GitHub Pages bundles,
+   and docs/notebooks now point users/developers to the registry as the
+   standard-output inventory.
 3. Introduce a first-pass public CLI for standard figures, tables, and slides.
 4. Polish the generated-output GitHub Pages landing page. The current page is
    functional and exposes the right products, but it should eventually get a
@@ -277,4 +286,31 @@ remove noise before release.
 - Checkpoint commit `6783be5` was pushed before the review began.
 - `python -m astromol.validation` passes with 0 errors and the 5 known
   dipole-placeholder warnings.
+- Figure package split verification:
+  - `from astromol.figures import ...` smoke test passed.
+  - `python -m pytest tests/test_regression_scripts.py` passed
+    (29 tests in 143.94 s).
+  - `python -m pytest tests/test_load.py tests/test_validation.py` passed.
+  - `python -m pytest` passed (52 tests in 152.99 s).
+  - `python -m sphinx -W -b html docs /private/tmp/astromol_docs_figures_pkg_check`
+    passed.
+  - Clean `python -m build --sdist --wheel` passed, and the wheel contains the
+    new `astromol/figures/` package without the stale `astromol/figures.py`
+    module.
+- Output registry verification:
+  - registry import smoke test reports 22 figure specs, 9 table specs, and
+    2 slide specs.
+  - `python -m pytest tests/test_registry.py` passed.
+  - `tests/test_outputs.py` now adds a direct `generate_standard_outputs()`
+    integration check with fake registry specs, covering registry-driven figure,
+    table, slide, report, zip, and `index.html` generation without depending on
+    the full scientific rendering stack.
+  - `python -m astromol.outputs --output-dir /private/tmp/astromol_registry_full_outputs_check --view 2026 --formats png`
+    passed and generated 55 products through the registry.
+  - `python -m pytest` passed after the registry change (56 tests in 166.58 s).
+  - `python -m sphinx -W -b html docs /private/tmp/astromol_docs_registry_check`
+    passed.
+  - Clean `python -m build --sdist --wheel` passed; the wheel includes
+    `astromol/registry.py` and the new `astromol/figures/` package, with no
+    stale `astromol/figures.py` module.
 - Working tree was clean before this review artifact was added.

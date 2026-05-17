@@ -1,0 +1,14 @@
+"""Shared visual style constants for astromol figures."""
+
+FIGURE_SIZE = (10, 8)
+FIGURE_AXES_BOUNDS = (0.14, 0.13, 0.82, 0.82)
+FIGURE_TEXT_SIZE = 24
+FIGURE_LEGEND_TEXT_SIZE = 16
+FIGURE_TICK_LENGTH = 15
+FIGURE_TICK_WIDTH = 1
+
+ASTROMOL_BLUE = "dodgerblue"
+MIT_RED = "#750014"
+NRAO_BLUE = "#0A1589"
+MIT_GRAY = "#8B959E"
+

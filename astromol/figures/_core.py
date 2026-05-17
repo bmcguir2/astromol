@@ -10,21 +10,20 @@ from pathlib import Path
 import numpy as np
 from molmass import ELEMENTS
 
-from .census import CensusView
-from .models import Detection
-
-
-FIGURE_SIZE = (10, 8)
-FIGURE_AXES_BOUNDS = (0.14, 0.13, 0.82, 0.82)
-FIGURE_TEXT_SIZE = 24
-FIGURE_LEGEND_TEXT_SIZE = 16
-FIGURE_TICK_LENGTH = 15
-FIGURE_TICK_WIDTH = 1
-
-ASTROMOL_BLUE = "dodgerblue"
-MIT_RED = "#750014"
-NRAO_BLUE = "#0A1589"
-MIT_GRAY = "#8B959E"
+from ..census import CensusView
+from ..models import Detection
+from .style import (
+    ASTROMOL_BLUE,
+    FIGURE_AXES_BOUNDS,
+    FIGURE_LEGEND_TEXT_SIZE,
+    FIGURE_SIZE,
+    FIGURE_TEXT_SIZE,
+    FIGURE_TICK_LENGTH,
+    FIGURE_TICK_WIDTH,
+    MIT_GRAY,
+    MIT_RED,
+    NRAO_BLUE,
+)
 
 DU_HISTOGRAM_ALLOWED_ELEMENTS = frozenset({"H", "D", "N", "C", "Cl", "F", "S", "O"})
 DU_HISTOGRAM_BINS = tuple(np.arange(-0.25, 12.5, 0.5))

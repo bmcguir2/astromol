@@ -22,6 +22,17 @@ The current production style uses readable manuscript-scale typography,
 color-blind friendlier palettes when multiple categories are shown, and project
 brand colors only when they serve a clear visual purpose.
 
+The standard output inventory lives in `astromol.registry`. The registry is the
+canonical list used by the generated-output bundle and should be the first place
+to look when adding a new production figure, table, or slide:
+
+```python
+from astromol.registry import FIGURE_OUTPUTS, SLIDE_OUTPUTS, TABLE_OUTPUTS
+
+for spec in FIGURE_OUTPUTS:
+    print(spec.name, "-", spec.label)
+```
+
 ## Slides
 
 PowerPoint helpers live in `astromol.slides`.

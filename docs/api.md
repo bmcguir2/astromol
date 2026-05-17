@@ -22,6 +22,9 @@
 .. automodule:: astromol.slides
    :members:
 
+.. automodule:: astromol.registry
+   :members:
+
 .. automodule:: astromol.outputs
    :members:
 ```
