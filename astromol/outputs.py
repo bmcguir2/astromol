@@ -441,11 +441,11 @@ def _write_index(
         "    .featured-grid { display: grid; gap: 16px; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }",
         "    .featured-card, .inventory-card { background: var(--panel-strong); border: 1px solid var(--line); border-radius: 22px; box-shadow: var(--shadow); }",
         "    .featured-card { padding: 18px 18px 16px; }",
-        "    .featured-card .tag, .bundle-card .tag, .slides-card .tag { display: inline-block; margin-bottom: 10px; border-radius: 999px; padding: 5px 10px; background: rgba(24, 116, 208, 0.10); color: var(--blue-dark); font-size: 0.78rem; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; }",
+        "    .featured-card .tag, .bundle-card .tag, .slides-card .tag, .feature-card .tag { display: inline-block; margin-bottom: 10px; border-radius: 999px; padding: 5px 10px; background: rgba(24, 116, 208, 0.10); color: var(--blue-dark); font-size: 0.78rem; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; }",
         "    .featured-card h3 { margin-bottom: 10px; }",
         "    .featured-card p { margin: 0 0 10px; color: var(--muted); }",
         "    .featured-card .file { display: block; color: var(--muted); font-size: 0.88rem; word-break: break-word; }",
-        "    .primary-grid { display: grid; gap: 16px; grid-template-columns: repeat(3, minmax(0, 1fr)); align-items: stretch; }",
+        "    .primary-grid { display: grid; gap: 16px; grid-template-columns: repeat(3, minmax(0, 1fr)); align-items: start; }",
         "    .bundle-card, .slides-card, .feature-card, .figure-card, .inventory-card { background: var(--panel-strong); border: 1px solid var(--line); border-radius: 22px; box-shadow: var(--shadow); }",
         "    .bundle-card, .slides-card, .feature-card { padding: 18px 18px 16px; }",
         "    .slides-grid { display: grid; gap: 14px; grid-template-columns: 1fr; }",
@@ -525,7 +525,6 @@ def _write_index(
                     f"          <p>{escape(bundle_product.description)}</p>",
                     "          "
                     + _render_link(output_dir, bundle_product, "Download bundle", css_class="primary-link"),
-                    f"          <span class=\"file\">{escape(_relative_product_path(output_dir, bundle_product).as_posix())}</span>",
                     "        </article>",
                 ]
             )
@@ -573,7 +572,6 @@ def _write_index(
                     f"              <p>{escape(product.description)}</p>",
                     "              "
                     + _render_link(output_dir, product, "Open slide deck", css_class="primary-link"),
-                    f"              <span class=\"file\">{escape(_relative_product_path(output_dir, product).as_posix())}</span>",
                     "            </article>",
                 ]
             )

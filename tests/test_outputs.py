@@ -156,6 +156,7 @@ def test_generate_standard_outputs_uses_registry_specs(monkeypatch, tmp_path: Pa
     assert "Demo PPD slide" in index_html
     assert "Demo figure" in index_html
     assert "Complete output bundle" in index_html
+    assert '<span class="file">' not in index_html
     assert 'href="figures/png/demo_figure.png"' in index_html
     assert 'href="figures/pdf/demo_figure.pdf"' in index_html
     assert 'target="_blank"' in index_html
