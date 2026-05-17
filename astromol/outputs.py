@@ -33,23 +33,13 @@ DEFAULT_OUTPUT_DIR = Path("build") / "astromol_outputs"
 DEFAULT_FORMATS = ("png", "pdf")
 
 SECTION_TITLES = {
-    "bundle": "Bundle",
-    "slides": "Slide Decks",
-    "figures_png": "PNG Figures",
-    "figures_pdf": "PDF Figures",
-    "tables": "LaTeX Tables",
     "reports": "Layout Reports",
-    "other": "Other Outputs",
+    "other": "Other Files",
 }
 
 SECTION_DESCRIPTIONS = {
-    "bundle": "One archive containing the complete standard-output set.",
-    "slides": "PowerPoint decks for the current standard presentation products.",
-    "figures_png": "Quick-look raster figures for browsing and slide reuse.",
-    "figures_pdf": "Publication-friendly vector figure files.",
-    "tables": "Generated LaTeX fragments for manuscript tables and scalar inputs.",
     "reports": "Plain-text slide-layout diagnostics written alongside the decks.",
-    "other": "Files that do not fit one of the main output groups.",
+    "other": "Files that do not fit one of the main page sections.",
 }
 
 
@@ -62,6 +52,17 @@ class GeneratedProduct:
     description: str
 
 
+@dataclass(frozen=True)
+class FigureProductGroup:
+    """One figure with its available download formats."""
+
+    name: str
+    label: str
+    description: str
+    png_product: GeneratedProduct | None = None
+    pdf_product: GeneratedProduct | None = None
+
+
 def _relative_product_path(output_dir: Path, product: GeneratedProduct) -> Path:
     """Return a product path relative to the bundle root."""
     return product.path.relative_to(output_dir)
@@ -70,63 +71,135 @@ def _relative_product_path(output_dir: Path, product: GeneratedProduct) -> Path:
 def _product_section(relative_path: Path) -> str:
     """Return the inventory section key for one generated product."""
     if relative_path.name == "astromol_latest_outputs.zip":
-        return "bundle"
-    if relative_path.parts and relative_path.parts[0] == "slides":
-        return "reports" if relative_path.suffix == ".md" else "slides"
+        return "hidden"
     if relative_path.parts and relative_path.parts[0] == "figures":
-        return "figures_png" if relative_path.suffix == ".png" else "figures_pdf"
+        return "hidden"
+    if relative_path.parts and relative_path.parts[0] == "slides":
+        return "reports" if relative_path.suffix == ".md" else "hidden"
     if relative_path.parts and relative_path.parts[0] == "tables":
-        return "tables"
+        return "hidden"
+    if relative_path.parts and relative_path.parts[0] == "slides" and relative_path.suffix == ".md":
+        return "reports"
     if relative_path.suffix == ".md":
         return "reports"
     return "other"
 
 
-def _featured_product_key(relative_path: Path) -> tuple[str, int] | None:
-    """Return the featured-product key and preference rank for one path."""
+def _featured_product_key(relative_path: Path) -> str | None:
+    """Return the featured-product key for one path."""
     path_text = relative_path.as_posix()
     if relative_path.name == "astromol_latest_outputs.zip":
-        return ("bundle", 0)
+        return "bundle"
     if path_text.startswith("slides/astro_molecules_") and relative_path.suffix == ".pptx":
-        return ("ism_slide", 0)
+        return "ism_slide"
     if path_text.startswith("slides/ppd_molecules_") and relative_path.suffix == ".pptx":
-        return ("ppd_slide", 0)
-    if path_text == "figures/png/cumulative_detections.png":
-        return ("cumulative_figure", 0)
-    if path_text == "figures/pdf/cumulative_detections.pdf":
-        return ("cumulative_figure", 1)
+        return "ppd_slide"
     return None
 
 
 def _featured_products(
     output_dir: Path,
     products: list[GeneratedProduct],
-) -> list[GeneratedProduct]:
+) -> dict[str, GeneratedProduct]:
     """Return the preferred top-of-page downloads when available."""
-    selected: dict[str, tuple[int, GeneratedProduct]] = {}
+    selected: dict[str, GeneratedProduct] = {}
     for product in products:
-        feature = _featured_product_key(_relative_product_path(output_dir, product))
-        if feature is None:
-            continue
-        key, rank = feature
-        current = selected.get(key)
-        if current is None or rank < current[0]:
-            selected[key] = (rank, product)
+        key = _featured_product_key(_relative_product_path(output_dir, product))
+        if key is not None:
+            selected[key] = product
+    return selected
 
-    order = ("bundle", "cumulative_figure", "ism_slide", "ppd_slide")
-    return [selected[key][1] for key in order if key in selected]
+
+def _group_figure_products(
+    output_dir: Path,
+    products: list[GeneratedProduct],
+) -> list[FigureProductGroup]:
+    """Return figure downloads grouped by figure name across formats."""
+    grouped: dict[str, dict[str, GeneratedProduct]] = {}
+    for product in products:
+        relative_path = _relative_product_path(output_dir, product)
+        if not (relative_path.parts and relative_path.parts[0] == "figures"):
+            continue
+        group = grouped.setdefault(relative_path.stem, {})
+        group[relative_path.suffix.lower()] = product
+
+    figure_groups: list[FigureProductGroup] = []
+    for name in sorted(grouped):
+        formats = grouped[name]
+        png_product = formats.get(".png")
+        pdf_product = formats.get(".pdf")
+        display_product = png_product or pdf_product
+        if display_product is None:
+            continue
+        label = display_product.label.removesuffix(" (PNG)").removesuffix(" (PDF)")
+        figure_groups.append(
+            FigureProductGroup(
+                name=name,
+                label=label,
+                description=display_product.description,
+                png_product=png_product,
+                pdf_product=pdf_product,
+            )
+        )
+    return figure_groups
+
+
+def _link_attributes(relative_path: Path) -> str:
+    """Return extra anchor attributes for one generated product link."""
+    if relative_path.suffix.lower() in {".png", ".jpg", ".jpeg", ".gif", ".svg", ".webp"}:
+        return ' target="_blank" rel="noopener noreferrer"'
+    return ""
+
+
+def _render_link(output_dir: Path, product: GeneratedProduct, text: str, *, css_class: str = "") -> str:
+    """Render one anchor element for a generated product."""
+    relative_path = _relative_product_path(output_dir, product)
+    class_attr = f' class="{css_class}"' if css_class else ""
+    return (
+        f'<a href="{escape(relative_path.as_posix())}"{class_attr}{_link_attributes(relative_path)}>'
+        f"{escape(text)}</a>"
+    )
 
 
 def _render_product_item(output_dir: Path, product: GeneratedProduct) -> str:
     """Render one generated product as an HTML list item."""
-    href = _relative_product_path(output_dir, product).as_posix()
+    relative_path = _relative_product_path(output_dir, product)
+    href = relative_path.as_posix()
+    link_attrs = _link_attributes(relative_path)
     return (
         "        <li class=\"product-item\">"
-        f"<a href=\"{escape(href)}\">{escape(product.label)}</a>"
+        f"<a href=\"{escape(href)}\"{link_attrs}>{escape(product.label)}</a>"
         f"<span class=\"product-desc\">{escape(product.description)}</span>"
         f"<span class=\"product-path\">{escape(href)}</span>"
         "</li>"
     )
+
+
+def _render_figure_card(output_dir: Path, group: FigureProductGroup) -> list[str]:
+    """Render one figure card with PNG/PDF links."""
+    lines = [
+        "        <article class=\"figure-card\">",
+        f"          <h3>{escape(group.label)}</h3>",
+        f"          <p>{escape(group.description)}</p>",
+        "          <div class=\"figure-links\">",
+    ]
+    if group.png_product is not None:
+        lines.append(
+            "            "
+            + _render_link(output_dir, group.png_product, "PNG preview", css_class="figure-link")
+        )
+    if group.pdf_product is not None:
+        lines.append(
+            "            "
+            + _render_link(output_dir, group.pdf_product, "PDF file", css_class="figure-link")
+        )
+    lines.extend(
+        [
+            "          </div>",
+            "        </article>",
+        ]
+    )
+    return lines
 
 
 def _render_inventory_section(
@@ -312,15 +385,8 @@ def _write_index(
     """Write the static GitHub Pages landing page for generated outputs."""
     generated = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M UTC")
     featured_products = _featured_products(output_dir, products)
-    section_order = (
-        "bundle",
-        "slides",
-        "figures_png",
-        "figures_pdf",
-        "tables",
-        "reports",
-        "other",
-    )
+    figure_groups = _group_figure_products(output_dir, products)
+    section_order = ("reports", "other")
     section_products = {
         key: sorted(
             [
@@ -333,21 +399,11 @@ def _write_index(
         for key in section_order
     }
     product_counts = {
-        "figures": sum(
-            1
-            for product in products
-            if _product_section(_relative_product_path(output_dir, product))
-            in {"figures_png", "figures_pdf"}
-        ),
+        "figures": len(figure_groups),
         "slides": sum(
             1
             for product in products
-            if _product_section(_relative_product_path(output_dir, product)) == "slides"
-        ),
-        "tables": sum(
-            1
-            for product in products
-            if _product_section(_relative_product_path(output_dir, product)) == "tables"
+            if _featured_product_key(_relative_product_path(output_dir, product)) in {"ism_slide", "ppd_slide"}
         ),
         "reports": sum(
             1
@@ -394,10 +450,24 @@ def _write_index(
         "    .featured-grid { display: grid; gap: 16px; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }",
         "    .featured-card, .inventory-card { background: var(--panel-strong); border: 1px solid var(--line); border-radius: 22px; box-shadow: var(--shadow); }",
         "    .featured-card { padding: 18px 18px 16px; }",
-        "    .featured-card .tag { display: inline-block; margin-bottom: 10px; border-radius: 999px; padding: 5px 10px; background: rgba(24, 116, 208, 0.10); color: var(--blue-dark); font-size: 0.78rem; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; }",
+        "    .featured-card .tag, .bundle-card .tag, .slides-card .tag { display: inline-block; margin-bottom: 10px; border-radius: 999px; padding: 5px 10px; background: rgba(24, 116, 208, 0.10); color: var(--blue-dark); font-size: 0.78rem; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; }",
         "    .featured-card h3 { margin-bottom: 10px; }",
         "    .featured-card p { margin: 0 0 10px; color: var(--muted); }",
         "    .featured-card .file { display: block; color: var(--muted); font-size: 0.88rem; word-break: break-word; }",
+        "    .primary-grid { display: grid; gap: 16px; grid-template-columns: minmax(220px, 1fr) minmax(0, 2fr); }",
+        "    .bundle-card, .slides-card, .figure-card, .inventory-card { background: var(--panel-strong); border: 1px solid var(--line); border-radius: 22px; box-shadow: var(--shadow); }",
+        "    .bundle-card, .slides-card { padding: 18px 18px 16px; }",
+        "    .slides-grid { display: grid; gap: 14px; grid-template-columns: repeat(2, minmax(0, 1fr)); }",
+        "    .slide-card { border: 1px solid rgba(17, 36, 58, 0.09); border-radius: 16px; padding: 14px; background: rgba(255, 255, 255, 0.55); }",
+        "    .slide-card h3, .bundle-card h3 { margin-bottom: 8px; }",
+        "    .slide-card p, .bundle-card p { margin: 0 0 10px; color: var(--muted); }",
+        "    .primary-link, .figure-link { display: inline-flex; align-items: center; justify-content: center; border-radius: 999px; padding: 9px 14px; border: 1px solid rgba(17, 36, 58, 0.12); background: rgba(24, 116, 208, 0.08); font-weight: 600; }",
+        "    .primary-link:hover, .figure-link:hover { text-decoration: none; background: rgba(24, 116, 208, 0.14); }",
+        "    .figure-grid { display: grid; gap: 16px; grid-template-columns: repeat(3, minmax(0, 1fr)); }",
+        "    .figure-card { padding: 18px 18px 16px; }",
+        "    .figure-card h3 { margin-bottom: 8px; }",
+        "    .figure-card p { margin: 0 0 12px; color: var(--muted); }",
+        "    .figure-links { display: flex; flex-wrap: wrap; gap: 10px; }",
         "    .inventory-grid { display: grid; gap: 16px; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); align-items: start; }",
         "    .inventory-card { padding: 18px 18px 16px; }",
         "    .inventory-card p { margin: 0 0 12px; color: var(--muted); }",
@@ -408,7 +478,8 @@ def _write_index(
         "    .product-desc, .product-path { display: block; }",
         "    .product-desc { margin-top: 4px; color: var(--muted); }",
         "    .product-path { margin-top: 5px; font-size: 0.85rem; color: var(--muted); word-break: break-word; }",
-        "    @media (max-width: 760px) { .page { padding: 22px 14px 38px; } .hero { padding: 22px 20px 20px; border-radius: 22px; } .hero-grid { grid-template-columns: 1fr; } }",
+        "    @media (max-width: 960px) { .figure-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }",
+        "    @media (max-width: 760px) { .page { padding: 22px 14px 38px; } .hero { padding: 22px 20px 20px; border-radius: 22px; } .hero-grid, .primary-grid, .slides-grid, .figure-grid { grid-template-columns: 1fr; } }",
         "  </style>",
         "</head>",
         "<body>",
@@ -416,19 +487,18 @@ def _write_index(
         "    <header class=\"hero\">",
         "      <p class=\"eyebrow\">astromol generated outputs</p>",
         "      <h1>Latest standard figures, tables, and slides</h1>",
-        "      <p class=\"lede\">Registry-driven standard bundle for the selected census view. Start with the primary downloads below, then use the full inventory for alternate formats and manuscript fragments.</p>",
+        "      <p class=\"lede\">The latest set of standard downloads generated from the selected census view. Start with the main files below, then browse the full inventory if you need another format or manuscript fragment.</p>",
         "      <div class=\"stat-row\">",
         f"        <span class=\"stat\">Generated <strong>{escape(generated)}</strong></span>",
         f"        <span class=\"stat\">View <code>{escape(view_choice)}</code></span>",
-        f"        <span class=\"stat\">{product_counts['figures']} figure files</span>",
+        f"        <span class=\"stat\">{product_counts['figures']} figures</span>",
         f"        <span class=\"stat\">{product_counts['slides']} slide deck(s)</span>",
-        f"        <span class=\"stat\">{product_counts['tables']} table fragment(s)</span>",
         f"        <span class=\"stat\">{product_counts['reports']} report(s)</span>",
         "      </div>",
         "      <div class=\"hero-grid\">",
         "        <section class=\"hero-panel\">",
         "          <h2>How To Use This Page</h2>",
-        "          <p>Download the bundle for everything at once, open the slide decks for presentation-ready summaries, and browse the PNG/PDF figure sections when you need one product in a specific format. Use the notebooks for custom views or selective regeneration.</p>",
+        "          <p>Download the bundle if you want everything at once, open the slide decks for ready-to-use summaries, and browse the PNG or PDF sections when you only need a specific figure. Use the notebooks for custom views or selective regeneration.</p>",
         "        </section>",
         "        <section class=\"hero-panel\">",
         "          <h2>Data Snapshot</h2>",
@@ -442,27 +512,73 @@ def _write_index(
         "      </div>",
         "    </header>",
     ]
-    if featured_products:
+    bundle_product = featured_products.get("bundle")
+    ism_slide = featured_products.get("ism_slide")
+    ppd_slide = featured_products.get("ppd_slide")
+    if bundle_product or ism_slide or ppd_slide:
         lines.extend(
             [
                 "    <section class=\"section\">",
                 "      <h2>Primary Downloads</h2>",
-                "      <p class=\"section-copy\">The standard bundle and the most commonly requested presentation products are linked here first for quick access.</p>",
-                "      <div class=\"featured-grid\">",
+                "      <p class=\"section-copy\">Start with the full bundle or jump straight to the two standard slide decks.</p>",
+                "      <div class=\"primary-grid\">",
             ]
         )
-        for product in featured_products:
-            href = _relative_product_path(output_dir, product).as_posix()
+        if bundle_product is not None:
             lines.extend(
                 [
-                    "        <article class=\"featured-card\">",
+                    "        <article class=\"bundle-card\">",
                     "          <span class=\"tag\">Featured</span>",
-                    f"          <h3><a href=\"{escape(href)}\">{escape(product.label)}</a></h3>",
-                    f"          <p>{escape(product.description)}</p>",
-                    f"          <span class=\"file\">{escape(href)}</span>",
+                    f"          <h3>{escape(bundle_product.label)}</h3>",
+                    f"          <p>{escape(bundle_product.description)}</p>",
+                    "          "
+                    + _render_link(output_dir, bundle_product, "Download bundle", css_class="primary-link"),
+                    f"          <span class=\"file\">{escape(_relative_product_path(output_dir, bundle_product).as_posix())}</span>",
                     "        </article>",
                 ]
             )
+        lines.extend(
+            [
+                "        <section class=\"slides-card\">",
+                "          <span class=\"tag\">Slides</span>",
+                "          <h3>Presentation Decks</h3>",
+                "          <div class=\"slides-grid\">",
+            ]
+        )
+        for product in (ism_slide, ppd_slide):
+            if product is None:
+                continue
+            lines.extend(
+                [
+                    "            <article class=\"slide-card\">",
+                    f"              <h3>{escape(product.label)}</h3>",
+                    f"              <p>{escape(product.description)}</p>",
+                    "              "
+                    + _render_link(output_dir, product, "Open slide deck", css_class="primary-link"),
+                    f"              <span class=\"file\">{escape(_relative_product_path(output_dir, product).as_posix())}</span>",
+                    "            </article>",
+                ]
+            )
+        lines.extend(
+            [
+                "          </div>",
+                "        </section>",
+                "      </div>",
+                "    </section>",
+            ]
+        )
+
+    if figure_groups:
+        lines.extend(
+            [
+                "    <section class=\"section\">",
+                "      <h2>Figures</h2>",
+                "      <p class=\"section-copy\">Each figure card includes a PNG preview link and, when available, a PDF version of the same plot.</p>",
+                "      <div class=\"figure-grid\">",
+            ]
+        )
+        for group in figure_groups:
+            lines.extend(_render_figure_card(output_dir, group))
         lines.extend(
             [
                 "      </div>",
@@ -470,20 +586,25 @@ def _write_index(
             ]
         )
 
+    if any(section_products[section_key] for section_key in section_order):
+        lines.extend(
+            [
+                "    <section class=\"section\">",
+                "      <h2>Additional Files</h2>",
+                "      <p class=\"section-copy\">Layout diagnostics and any uncategorized files are listed here.</p>",
+                "      <div class=\"inventory-grid\">",
+            ]
+        )
+        for section_key in section_order:
+            lines.extend(_render_inventory_section(output_dir, section_key, section_products[section_key]))
+        lines.extend(
+            [
+                "      </div>",
+                "    </section>",
+            ]
+        )
     lines.extend(
         [
-            "    <section class=\"section\">",
-            "      <h2>Full Inventory</h2>",
-            "      <p class=\"section-copy\">Every file in the registry-driven bundle is grouped below by product type so alternate formats, manuscript fragments, and slide diagnostics are easy to find.</p>",
-            "      <div class=\"inventory-grid\">",
-        ]
-    )
-    for section_key in section_order:
-        lines.extend(_render_inventory_section(output_dir, section_key, section_products[section_key]))
-    lines.extend(
-        [
-            "      </div>",
-            "    </section>",
             "  </main>",
             "</body>",
             "</html>",

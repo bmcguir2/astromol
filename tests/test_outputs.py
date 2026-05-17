@@ -46,28 +46,28 @@ class _FakeTableSpec:
 
 
 class _FakeSlideSpec:
-    name = "demo_slide"
-    label = "Demo slide"
     description = "Synthetic registry slide for output-bundle tests."
+    report_label = "Demo slide layout report"
+    report_description = "Synthetic layout report for output-bundle tests."
 
-    def __init__(self) -> None:
+    def __init__(self, name: str, label: str, stem: str) -> None:
+        self.name = name
+        self.label = label
+        self.stem = stem
         self.slide_calls: list[str] = []
         self.report_calls: list[str] = []
 
     def write_slide(self, context, output_dir: str | Path) -> Path:
         self.slide_calls.append(context.view_choice)
-        output_path = Path(output_dir) / f"demo_{context.view_choice}.pptx"
+        output_path = Path(output_dir) / f"{self.stem}_{context.view_choice}.pptx"
         output_path.write_text("slide\n", encoding="utf-8")
         return output_path
 
     def write_report(self, context, output_dir: str | Path) -> Path:
         self.report_calls.append(context.view_choice)
-        output_path = Path(output_dir) / f"demo_{context.view_choice}_layout.md"
+        output_path = Path(output_dir) / f"{self.stem}_{context.view_choice}_layout.md"
         output_path.write_text("report\n", encoding="utf-8")
         return output_path
-
-    report_label = "Demo slide layout report"
-    report_description = "Synthetic layout report for output-bundle tests."
 
 
 def test_generate_standard_outputs_uses_registry_specs(monkeypatch, tmp_path: Path) -> None:
@@ -76,14 +76,15 @@ def test_generate_standard_outputs_uses_registry_specs(monkeypatch, tmp_path: Pa
     baseline_view = _FakeView("baseline")
     figure_spec = _FakeFigureSpec()
     table_spec = _FakeTableSpec()
-    slide_spec = _FakeSlideSpec()
+    ism_slide_spec = _FakeSlideSpec("ism_molecule_slide", "Demo ISM slide", "astro_molecules")
+    ppd_slide_spec = _FakeSlideSpec("ppd_detection_slide", "Demo PPD slide", "ppd_molecules")
 
     monkeypatch.setattr(outputs, "Database", lambda: _FakeDb())
     monkeypatch.setattr(outputs, "view_from_choice", lambda db, choice: selected_view)
     monkeypatch.setattr(outputs.CensusView, "for_census", lambda db, choice: baseline_view)
     monkeypatch.setattr(outputs, "FIGURE_OUTPUTS", (figure_spec,))
     monkeypatch.setattr(outputs, "TABLE_OUTPUTS", (table_spec,))
-    monkeypatch.setattr(outputs, "SLIDE_OUTPUTS", (slide_spec,))
+    monkeypatch.setattr(outputs, "SLIDE_OUTPUTS", (ism_slide_spec, ppd_slide_spec))
 
     products = outputs.generate_standard_outputs(
         output_dir=tmp_path,
@@ -93,31 +94,57 @@ def test_generate_standard_outputs_uses_registry_specs(monkeypatch, tmp_path: Pa
 
     figure_paths = [tmp_path / "figures" / suffix / f"demo_figure.{suffix}" for suffix in ("png", "pdf")]
     table_path = tmp_path / "tables" / "selected_demo_table.tex"
-    slide_path = tmp_path / "slides" / "demo_2026.pptx"
-    report_path = tmp_path / "slides" / "demo_2026_layout.md"
+    slide_paths = [
+        tmp_path / "slides" / "astro_molecules_2026.pptx",
+        tmp_path / "slides" / "ppd_molecules_2026.pptx",
+    ]
+    report_paths = [
+        tmp_path / "slides" / "astro_molecules_2026_layout.md",
+        tmp_path / "slides" / "ppd_molecules_2026_layout.md",
+    ]
     zip_path = tmp_path / "astromol_latest_outputs.zip"
     index_path = tmp_path / "index.html"
 
-    for path in (*figure_paths, table_path, slide_path, report_path, zip_path, index_path):
+    for path in (*figure_paths, table_path, *slide_paths, *report_paths, zip_path, index_path):
         assert path.exists()
 
     assert figure_spec.calls == [("2026", figure_paths[0]), ("2026", figure_paths[1])]
-    assert slide_spec.slide_calls == ["2026"]
-    assert slide_spec.report_calls == ["2026"]
+    assert ism_slide_spec.slide_calls == ["2026"]
+    assert ism_slide_spec.report_calls == ["2026"]
+    assert ppd_slide_spec.slide_calls == ["2026"]
+    assert ppd_slide_spec.report_calls == ["2026"]
 
     product_paths = {product.path for product in products}
-    assert product_paths == {figure_paths[0], figure_paths[1], table_path, slide_path, report_path, zip_path}
+    assert product_paths == {
+        figure_paths[0],
+        figure_paths[1],
+        table_path,
+        slide_paths[0],
+        slide_paths[1],
+        report_paths[0],
+        report_paths[1],
+        zip_path,
+    }
 
     index_html = index_path.read_text(encoding="utf-8")
     assert "Primary Downloads" in index_html
-    assert "Full Inventory" in index_html
-    assert "Slide Decks" in index_html
-    assert "PNG Figures" in index_html
-    assert "LaTeX Tables" in index_html
+    assert "Presentation Decks" in index_html
+    assert "Figures" in index_html
+    assert "PNG preview" in index_html
+    assert "PDF file" in index_html
+    assert "LaTeX Tables" not in index_html
+    assert "Demo table" not in index_html
+    assert "tables/selected_demo_table.tex" not in index_html
+    assert "The latest set of standard downloads generated from the selected census view." in index_html
+    assert "registry-driven" not in index_html
     assert "Demo figure" in index_html
-    assert "Demo slide" in index_html
-    assert "Demo table" in index_html
+    assert "Demo ISM slide" in index_html
+    assert "Demo PPD slide" in index_html
     assert "Complete output bundle" in index_html
+    assert 'href="figures/png/demo_figure.png"' in index_html
+    assert 'target="_blank"' in index_html
+    assert 'rel="noopener noreferrer"' in index_html
     assert "figures/png/demo_figure.png" in index_html
-    assert "slides/demo_2026.pptx" in index_html
-    assert "tables/selected_demo_table.tex" in index_html
+    assert 'href="slides/astro_molecules_2026.pptx" target="_blank"' not in index_html
+    assert "slides/astro_molecules_2026.pptx" in index_html
+    assert "slides/ppd_molecules_2026.pptx" in index_html
