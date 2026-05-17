@@ -39,7 +39,9 @@ astromol-generate-outputs --output-dir build/astromol_outputs --view current --f
 ```
 
 The command writes figures, PowerPoint slides, LaTeX table fragments, a static
-`index.html`, and `astromol_latest_outputs.zip`.
+`index.html`, and `astromol_latest_outputs.zip`. The landing page highlights the
+bundle and the most commonly requested standard downloads first, then groups the
+full inventory into slide, figure, table, and report sections.
 
 ## Standard View Options
 

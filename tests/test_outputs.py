@@ -109,7 +109,15 @@ def test_generate_standard_outputs_uses_registry_specs(monkeypatch, tmp_path: Pa
     assert product_paths == {figure_paths[0], figure_paths[1], table_path, slide_path, report_path, zip_path}
 
     index_html = index_path.read_text(encoding="utf-8")
+    assert "Primary Downloads" in index_html
+    assert "Full Inventory" in index_html
+    assert "Slide Decks" in index_html
+    assert "PNG Figures" in index_html
+    assert "LaTeX Tables" in index_html
     assert "Demo figure" in index_html
     assert "Demo slide" in index_html
     assert "Demo table" in index_html
     assert "Complete output bundle" in index_html
+    assert "figures/png/demo_figure.png" in index_html
+    assert "slides/demo_2026.pptx" in index_html
+    assert "tables/selected_demo_table.tex" in index_html

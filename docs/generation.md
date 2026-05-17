@@ -33,6 +33,11 @@ for spec in FIGURE_OUTPUTS:
     print(spec.name, "-", spec.label)
 ```
 
+`astromol-generate-outputs` also writes a static `index.html` landing page for
+GitHub Pages. The page surfaces the standard bundle and key slide/figure
+downloads first, then groups the full registry-driven inventory into slide,
+figure, table, and report sections.
+
 ## Slides
 
 PowerPoint helpers live in `astromol.slides`.

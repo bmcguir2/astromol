@@ -32,6 +32,26 @@ from .registry import (
 DEFAULT_OUTPUT_DIR = Path("build") / "astromol_outputs"
 DEFAULT_FORMATS = ("png", "pdf")
 
+SECTION_TITLES = {
+    "bundle": "Bundle",
+    "slides": "Slide Decks",
+    "figures_png": "PNG Figures",
+    "figures_pdf": "PDF Figures",
+    "tables": "LaTeX Tables",
+    "reports": "Layout Reports",
+    "other": "Other Outputs",
+}
+
+SECTION_DESCRIPTIONS = {
+    "bundle": "One archive containing the complete standard-output set.",
+    "slides": "PowerPoint decks for the current standard presentation products.",
+    "figures_png": "Quick-look raster figures for browsing and slide reuse.",
+    "figures_pdf": "Publication-friendly vector figure files.",
+    "tables": "Generated LaTeX fragments for manuscript tables and scalar inputs.",
+    "reports": "Plain-text slide-layout diagnostics written alongside the decks.",
+    "other": "Files that do not fit one of the main output groups.",
+}
+
 
 @dataclass(frozen=True)
 class GeneratedProduct:
@@ -40,6 +60,97 @@ class GeneratedProduct:
     label: str
     path: Path
     description: str
+
+
+def _relative_product_path(output_dir: Path, product: GeneratedProduct) -> Path:
+    """Return a product path relative to the bundle root."""
+    return product.path.relative_to(output_dir)
+
+
+def _product_section(relative_path: Path) -> str:
+    """Return the inventory section key for one generated product."""
+    if relative_path.name == "astromol_latest_outputs.zip":
+        return "bundle"
+    if relative_path.parts and relative_path.parts[0] == "slides":
+        return "reports" if relative_path.suffix == ".md" else "slides"
+    if relative_path.parts and relative_path.parts[0] == "figures":
+        return "figures_png" if relative_path.suffix == ".png" else "figures_pdf"
+    if relative_path.parts and relative_path.parts[0] == "tables":
+        return "tables"
+    if relative_path.suffix == ".md":
+        return "reports"
+    return "other"
+
+
+def _featured_product_key(relative_path: Path) -> tuple[str, int] | None:
+    """Return the featured-product key and preference rank for one path."""
+    path_text = relative_path.as_posix()
+    if relative_path.name == "astromol_latest_outputs.zip":
+        return ("bundle", 0)
+    if path_text.startswith("slides/astro_molecules_") and relative_path.suffix == ".pptx":
+        return ("ism_slide", 0)
+    if path_text.startswith("slides/ppd_molecules_") and relative_path.suffix == ".pptx":
+        return ("ppd_slide", 0)
+    if path_text == "figures/png/cumulative_detections.png":
+        return ("cumulative_figure", 0)
+    if path_text == "figures/pdf/cumulative_detections.pdf":
+        return ("cumulative_figure", 1)
+    return None
+
+
+def _featured_products(
+    output_dir: Path,
+    products: list[GeneratedProduct],
+) -> list[GeneratedProduct]:
+    """Return the preferred top-of-page downloads when available."""
+    selected: dict[str, tuple[int, GeneratedProduct]] = {}
+    for product in products:
+        feature = _featured_product_key(_relative_product_path(output_dir, product))
+        if feature is None:
+            continue
+        key, rank = feature
+        current = selected.get(key)
+        if current is None or rank < current[0]:
+            selected[key] = (rank, product)
+
+    order = ("bundle", "cumulative_figure", "ism_slide", "ppd_slide")
+    return [selected[key][1] for key in order if key in selected]
+
+
+def _render_product_item(output_dir: Path, product: GeneratedProduct) -> str:
+    """Render one generated product as an HTML list item."""
+    href = _relative_product_path(output_dir, product).as_posix()
+    return (
+        "        <li class=\"product-item\">"
+        f"<a href=\"{escape(href)}\">{escape(product.label)}</a>"
+        f"<span class=\"product-desc\">{escape(product.description)}</span>"
+        f"<span class=\"product-path\">{escape(href)}</span>"
+        "</li>"
+    )
+
+
+def _render_inventory_section(
+    output_dir: Path,
+    section_key: str,
+    products: list[GeneratedProduct],
+) -> list[str]:
+    """Render one inventory section card."""
+    if not products:
+        return []
+    lines = [
+        "      <section class=\"inventory-card\">",
+        f"        <h3>{escape(SECTION_TITLES[section_key])}</h3>",
+        f"        <p>{escape(SECTION_DESCRIPTIONS[section_key])}</p>",
+        "        <ul class=\"product-list\">",
+    ]
+    lines.extend(_render_product_item(output_dir, product) for product in products)
+    lines.extend(
+        [
+            "        </ul>",
+            "      </section>",
+        ]
+    )
+    return lines
 
 
 def view_from_choice(db: Database, choice: str) -> CensusView:
@@ -198,14 +309,52 @@ def _write_index(
     view_choice: str,
     db: Database,
 ) -> Path:
-    """Write a simple static HTML index for GitHub Pages."""
+    """Write the static GitHub Pages landing page for generated outputs."""
     generated = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M UTC")
-    groups = [
-        ("Key Products", lambda path: path.suffix in {".zip", ".pptx"}),
-        ("Figures", lambda path: "figures" in path.parts),
-        ("Tables", lambda path: "tables" in path.parts),
-        ("Reports", lambda path: path.suffix == ".md"),
-    ]
+    featured_products = _featured_products(output_dir, products)
+    section_order = (
+        "bundle",
+        "slides",
+        "figures_png",
+        "figures_pdf",
+        "tables",
+        "reports",
+        "other",
+    )
+    section_products = {
+        key: sorted(
+            [
+                product
+                for product in products
+                if _product_section(_relative_product_path(output_dir, product)) == key
+            ],
+            key=lambda item: str(_relative_product_path(output_dir, item)),
+        )
+        for key in section_order
+    }
+    product_counts = {
+        "figures": sum(
+            1
+            for product in products
+            if _product_section(_relative_product_path(output_dir, product))
+            in {"figures_png", "figures_pdf"}
+        ),
+        "slides": sum(
+            1
+            for product in products
+            if _product_section(_relative_product_path(output_dir, product)) == "slides"
+        ),
+        "tables": sum(
+            1
+            for product in products
+            if _product_section(_relative_product_path(output_dir, product)) == "tables"
+        ),
+        "reports": sum(
+            1
+            for product in products
+            if _product_section(_relative_product_path(output_dir, product)) == "reports"
+        ),
+    }
 
     lines = [
         "<!doctype html>",
@@ -215,57 +364,131 @@ def _write_index(
         '  <meta name="viewport" content="width=device-width, initial-scale=1">',
         "  <title>astromol latest outputs</title>",
         "  <style>",
-        "    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; margin: 2rem auto; max-width: 980px; padding: 0 1rem; line-height: 1.45; }",
-        "    h1, h2 { line-height: 1.15; }",
-        "    .meta { color: #555; }",
-        "    li { margin: 0.35rem 0; }",
-        "    a { color: #005bbb; }",
+        "    :root { color-scheme: light; --bg: #f4f0e8; --panel: rgba(255, 253, 248, 0.92); --panel-strong: rgba(255, 252, 246, 0.98); --ink: #11243a; --muted: #53606d; --line: rgba(17, 36, 58, 0.14); --blue: #1874d0; --blue-dark: #0e4a85; --accent: #8f2d2d; --shadow: 0 18px 46px rgba(17, 36, 58, 0.10); }",
+        "    * { box-sizing: border-box; }",
+        "    body { margin: 0; background: radial-gradient(circle at top left, rgba(24, 116, 208, 0.14), transparent 34%), linear-gradient(180deg, #f8f4ed 0%, #f1ece3 48%, #ebe6dc 100%); color: var(--ink); font-family: 'Avenir Next', 'Segoe UI', sans-serif; line-height: 1.55; }",
+        "    a { color: var(--blue-dark); text-decoration: none; }",
+        "    a:hover { text-decoration: underline; }",
+        "    code { font-family: 'SFMono-Regular', Consolas, monospace; font-size: 0.96em; }",
+        "    .page { max-width: 1120px; margin: 0 auto; padding: 32px 18px 48px; }",
+        "    .hero { background: linear-gradient(140deg, rgba(255, 252, 246, 0.97), rgba(246, 248, 252, 0.92)); border: 1px solid var(--line); border-radius: 28px; box-shadow: var(--shadow); padding: 28px 30px 24px; }",
+        "    .eyebrow { margin: 0 0 10px; color: var(--accent); font-size: 0.82rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; }",
+        "    h1, h2, h3 { font-family: Georgia, 'Iowan Old Style', serif; line-height: 1.08; letter-spacing: -0.01em; }",
+        "    h1 { margin: 0; font-size: clamp(2.2rem, 4vw, 3.35rem); max-width: 13ch; }",
+        "    h2 { margin: 0 0 10px; font-size: 1.55rem; }",
+        "    h3 { margin: 0 0 8px; font-size: 1.18rem; }",
+        "    .lede { max-width: 70ch; margin: 14px 0 0; color: var(--muted); font-size: 1.03rem; }",
+        "    .hero-grid { display: grid; gap: 18px; grid-template-columns: minmax(0, 1.6fr) minmax(280px, 1fr); margin-top: 22px; }",
+        "    .hero-panel { background: var(--panel); border: 1px solid var(--line); border-radius: 20px; padding: 18px 20px; }",
+        "    .hero-panel h2 { font-size: 1.1rem; margin-bottom: 8px; }",
+        "    .hero-panel p { margin: 0; color: var(--muted); }",
+        "    .fact-list { display: grid; gap: 10px; margin: 0; }",
+        "    .fact { display: flex; justify-content: space-between; gap: 12px; border-bottom: 1px solid rgba(17, 36, 58, 0.08); padding-bottom: 10px; }",
+        "    .fact:last-child { border-bottom: none; padding-bottom: 0; }",
+        "    .fact span:first-child { color: var(--muted); }",
+        "    .fact strong { font-weight: 600; text-align: right; }",
+        "    .stat-row { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 18px; }",
+        "    .stat { border: 1px solid var(--line); border-radius: 999px; background: rgba(255, 255, 255, 0.74); padding: 8px 12px; font-size: 0.94rem; }",
+        "    .section { margin-top: 28px; }",
+        "    .section-copy { max-width: 74ch; margin: 0 0 16px; color: var(--muted); }",
+        "    .featured-grid { display: grid; gap: 16px; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }",
+        "    .featured-card, .inventory-card { background: var(--panel-strong); border: 1px solid var(--line); border-radius: 22px; box-shadow: var(--shadow); }",
+        "    .featured-card { padding: 18px 18px 16px; }",
+        "    .featured-card .tag { display: inline-block; margin-bottom: 10px; border-radius: 999px; padding: 5px 10px; background: rgba(24, 116, 208, 0.10); color: var(--blue-dark); font-size: 0.78rem; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; }",
+        "    .featured-card h3 { margin-bottom: 10px; }",
+        "    .featured-card p { margin: 0 0 10px; color: var(--muted); }",
+        "    .featured-card .file { display: block; color: var(--muted); font-size: 0.88rem; word-break: break-word; }",
+        "    .inventory-grid { display: grid; gap: 16px; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); align-items: start; }",
+        "    .inventory-card { padding: 18px 18px 16px; }",
+        "    .inventory-card p { margin: 0 0 12px; color: var(--muted); }",
+        "    .product-list { list-style: none; margin: 0; padding: 0; }",
+        "    .product-item { padding: 10px 0; border-top: 1px solid rgba(17, 36, 58, 0.09); }",
+        "    .product-item:first-child { border-top: none; padding-top: 0; }",
+        "    .product-item a { font-weight: 600; }",
+        "    .product-desc, .product-path { display: block; }",
+        "    .product-desc { margin-top: 4px; color: var(--muted); }",
+        "    .product-path { margin-top: 5px; font-size: 0.85rem; color: var(--muted); word-break: break-word; }",
+        "    @media (max-width: 760px) { .page { padding: 22px 14px 38px; } .hero { padding: 22px 20px 20px; border-radius: 22px; } .hero-grid { grid-template-columns: 1fr; } }",
         "  </style>",
         "</head>",
         "<body>",
-        "  <h1>astromol latest generated outputs</h1>",
-        f"  <p class=\"meta\">Generated {escape(generated)} from view <code>{escape(view_choice)}</code>.</p>",
-        f"  <p class=\"meta\">Database loaded {len(db.molecules)} molecules, {len(db.detections)} detections, {len(db.sources)} sources, and {len(db.telescopes)} telescopes.</p>",
-        "  <p>Use these files for the latest standard figures and slides. Use the Colab notebooks when you want custom views, alternate formats, or interactive regeneration.</p>",
+        "  <main class=\"page\">",
+        "    <header class=\"hero\">",
+        "      <p class=\"eyebrow\">astromol generated outputs</p>",
+        "      <h1>Latest standard figures, tables, and slides</h1>",
+        "      <p class=\"lede\">Registry-driven standard bundle for the selected census view. Start with the primary downloads below, then use the full inventory for alternate formats and manuscript fragments.</p>",
+        "      <div class=\"stat-row\">",
+        f"        <span class=\"stat\">Generated <strong>{escape(generated)}</strong></span>",
+        f"        <span class=\"stat\">View <code>{escape(view_choice)}</code></span>",
+        f"        <span class=\"stat\">{product_counts['figures']} figure files</span>",
+        f"        <span class=\"stat\">{product_counts['slides']} slide deck(s)</span>",
+        f"        <span class=\"stat\">{product_counts['tables']} table fragment(s)</span>",
+        f"        <span class=\"stat\">{product_counts['reports']} report(s)</span>",
+        "      </div>",
+        "      <div class=\"hero-grid\">",
+        "        <section class=\"hero-panel\">",
+        "          <h2>How To Use This Page</h2>",
+        "          <p>Download the bundle for everything at once, open the slide decks for presentation-ready summaries, and browse the PNG/PDF figure sections when you need one product in a specific format. Use the notebooks for custom views or selective regeneration.</p>",
+        "        </section>",
+        "        <section class=\"hero-panel\">",
+        "          <h2>Data Snapshot</h2>",
+        "          <div class=\"fact-list\">",
+        f"            <div class=\"fact\"><span>Molecules</span><strong>{len(db.molecules)}</strong></div>",
+        f"            <div class=\"fact\"><span>Detections</span><strong>{len(db.detections)}</strong></div>",
+        f"            <div class=\"fact\"><span>Sources</span><strong>{len(db.sources)}</strong></div>",
+        f"            <div class=\"fact\"><span>Telescopes</span><strong>{len(db.telescopes)}</strong></div>",
+        "          </div>",
+        "        </section>",
+        "      </div>",
+        "    </header>",
     ]
+    if featured_products:
+        lines.extend(
+            [
+                "    <section class=\"section\">",
+                "      <h2>Primary Downloads</h2>",
+                "      <p class=\"section-copy\">The standard bundle and the most commonly requested presentation products are linked here first for quick access.</p>",
+                "      <div class=\"featured-grid\">",
+            ]
+        )
+        for product in featured_products:
+            href = _relative_product_path(output_dir, product).as_posix()
+            lines.extend(
+                [
+                    "        <article class=\"featured-card\">",
+                    "          <span class=\"tag\">Featured</span>",
+                    f"          <h3><a href=\"{escape(href)}\">{escape(product.label)}</a></h3>",
+                    f"          <p>{escape(product.description)}</p>",
+                    f"          <span class=\"file\">{escape(href)}</span>",
+                    "        </article>",
+                ]
+            )
+        lines.extend(
+            [
+                "      </div>",
+                "    </section>",
+            ]
+        )
 
-    seen: set[Path] = set()
-    for title, predicate in groups:
-        selected = [
-            product
-            for product in products
-            if product.path not in seen and predicate(product.path.relative_to(output_dir))
+    lines.extend(
+        [
+            "    <section class=\"section\">",
+            "      <h2>Full Inventory</h2>",
+            "      <p class=\"section-copy\">Every file in the registry-driven bundle is grouped below by product type so alternate formats, manuscript fragments, and slide diagnostics are easy to find.</p>",
+            "      <div class=\"inventory-grid\">",
         ]
-        if not selected:
-            continue
-        lines.append(f"  <h2>{escape(title)}</h2>")
-        lines.append("  <ul>")
-        for product in sorted(selected, key=lambda item: str(item.path)):
-            seen.add(product.path)
-            href = product.path.relative_to(output_dir).as_posix()
-            lines.append(
-                "    <li>"
-                f"<a href=\"{escape(href)}\">{escape(product.label)}</a>"
-                f" - {escape(product.description)}"
-                "</li>"
-            )
-        lines.append("  </ul>")
-
-    remaining = [product for product in products if product.path not in seen]
-    if remaining:
-        lines.append("  <h2>Other Outputs</h2>")
-        lines.append("  <ul>")
-        for product in sorted(remaining, key=lambda item: str(item.path)):
-            href = product.path.relative_to(output_dir).as_posix()
-            lines.append(
-                "    <li>"
-                f"<a href=\"{escape(href)}\">{escape(product.label)}</a>"
-                f" - {escape(product.description)}"
-                "</li>"
-            )
-        lines.append("  </ul>")
-
-    lines.extend(["</body>", "</html>"])
+    )
+    for section_key in section_order:
+        lines.extend(_render_inventory_section(output_dir, section_key, section_products[section_key]))
+    lines.extend(
+        [
+            "      </div>",
+            "    </section>",
+            "  </main>",
+            "</body>",
+            "</html>",
+        ]
+    )
     index_path = output_dir / "index.html"
     index_path.write_text("\n".join(lines) + "\n")
     return index_path

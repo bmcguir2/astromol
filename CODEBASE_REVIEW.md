@@ -280,6 +280,10 @@ remove noise before release.
 4. Polish the generated-output GitHub Pages landing page. The current page is
    functional and exposes the right products, but it should eventually get a
    cleaner layout, clearer visual hierarchy, and more polished project branding.
+   **Done:** the generated `index.html` now presents a structured landing page
+   with a hero summary, featured primary downloads, grouped registry-driven
+   inventory sections, and explicit file-path labels for alternate formats and
+   manuscript fragments.
 
 ## Verification During This Review
 
@@ -305,6 +309,9 @@ remove noise before release.
     integration check with fake registry specs, covering registry-driven figure,
     table, slide, report, zip, and `index.html` generation without depending on
     the full scientific rendering stack.
+  - the generated-output landing page now exposes featured downloads plus
+    grouped bundle/slide/PNG/PDF/table/report sections, with the new structure
+    covered by `tests/test_outputs.py`.
   - `python -m astromol.outputs --output-dir /private/tmp/astromol_registry_full_outputs_check --view 2026 --formats png`
     passed and generated 55 products through the registry.
   - `python -m pytest` passed after the registry change (56 tests in 166.58 s).
