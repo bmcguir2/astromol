@@ -79,7 +79,10 @@ Why:
 - `astromol/outputs.py`:
   - `astromol-generate-outputs` CLI for standard bundle generation
   - Uses `astromol.registry` as source of truth
-  - Writes figures/tables/slides, zip bundle, and GitHub Pages `index.html`
+  - Writes figures/tables/slides, zip bundle, and public-facing GitHub Pages `index.html`
+- `astromol/cli.py`:
+  - Public `astromol` CLI for listing and selectively generating standard outputs
+  - Delegates complete bundle generation to `astromol.outputs`
 
 ### Curation + Docs + Tests
 
@@ -97,7 +100,7 @@ Why:
 
 1. **Stable public API and CLI**
    - Keep module imports stable for users
-   - Add first-pass public CLI for standard figure/table/slide generation
+   - Keep first-pass public CLI aligned with the registry as output products evolve
 
 2. **Output inventory is single-source**
    - `astromol.registry` remains canonical for docs/notebooks/CLI/workflows
@@ -148,6 +151,11 @@ Why:
   - shared typography/sizing conventions
   - black axes/full box unless figure-specific reason says otherwise
   - brand anchors: `ASTROMOL_BLUE` default; `MIT_RED` emphasis only
+- Generated-output landing page conventions:
+  - keep language user-facing rather than implementation-facing
+  - surface bundle, key figure, and standard slide decks first
+  - internal diagnostics and LaTeX fragments do not need to be public-facing
+  - direct image/PDF figure links may open in a new tab/window for convenience
 
 ### Testing/Verification
 
@@ -188,7 +196,7 @@ Why:
 
 ## Where We Are In The Refactor Right Now
 
-As of this file creation:
+Current refactor status:
 
 - Figure API split is **in progress**:
   - `astromol.figures` moved from single file to package re-export
@@ -199,21 +207,28 @@ As of this file creation:
   - `astromol.registry` added
   - `astromol.outputs` now consumes registry specs
   - docs + notebooks now reference registry inventories
-  - new tests: `tests/test_registry.py`
+  - new tests: `tests/test_registry.py`, `tests/test_outputs.py`
 
-- Remaining high-priority “After API Stabilization” items:
-  1. first-pass public CLI for standard figures/tables/slides
-  2. generated-output GitHub Pages landing-page polish
+- Generated-output GitHub Pages landing page is **implemented/polished**:
+  - `astromol.outputs` now writes a public-facing `index.html` with:
+    - a primary-download row for the bundle, cumulative detections figure, and
+      the two standard slide decks
+    - a multi-column figure-card section below with grouped PNG/PDF links
+    - no public-facing LaTeX table links or slide-layout report links
+  - PNG and PDF figure links open in a new tab/window
+  - page copy was simplified to avoid internal implementation terminology
+
+- First-pass public CLI for standard figures/tables/slides is **implemented**:
+  - installed `astromol` command lists registry outputs
+  - `astromol figure`, `astromol table`, and `astromol slide` generate selected outputs by stable name
+  - `astromol outputs` delegates to the full standard bundle generator
 
 - Known scientific-data warning backlog:
   - five dipole placeholder values (`*`) still exist and are intentionally
     tracked as warnings, not errors, until curated replacements are added.
 
-- Working tree currently has uncommitted changes related to:
-  - figure package split
-  - registry integration
-  - docs/notebook updates
-  - review log updates
+- Working tree was clean after the figure package split, output-registry
+  integration, and GitHub Pages landing-page polish were committed and pushed.
 
 Refer to [CODEBASE_REVIEW.md](/Users/brett/Dropbox/Programs/census_scripts/astromol/CODEBASE_REVIEW.md) for detailed audit status and verification history.
 
@@ -239,6 +254,11 @@ At the start of each session, read in this order:
 3. Keep public import paths stable; prefer internal reorganization behind re-exports.
 4. Add/adjust tests with every nontrivial refactor, especially for census boundaries and output generation.
 5. Keep docs/notebooks in sync when adding/removing standard outputs.
+
+### Response Rules
+
+1. When suggesting a next step for any project task, include the reasoning level
+   using exactly: `Recommended Reasoning: X`.
 
 ### Curation Rules
 

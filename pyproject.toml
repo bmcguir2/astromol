@@ -57,6 +57,7 @@ Documentation = "https://astromol.readthedocs.io/"
 Issues = "https://github.com/bmcguir2/astromol/issues"
 
 [project.scripts]
+astromol = "astromol.cli:main"
 astromol-validate = "astromol.validation:main"
 astromol-generate-outputs = "astromol.outputs:main"
 

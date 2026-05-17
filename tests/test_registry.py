@@ -7,6 +7,7 @@ from astromol.registry import (
     SLIDE_OUTPUTS,
     TABLE_OUTPUTS,
     OutputContext,
+    TableOutputSpec,
     figure_output_names,
     slide_output_names,
     table_output_names,
@@ -59,3 +60,24 @@ def test_slide_registry_filenames_use_view_choice() -> None:
     assert filenames["ppd_detection_slide"] == "ppd_molecules_2026.pptx"
     assert report_filenames["ism_molecule_slide"] == "astro_molecules_2026_layout.md"
     assert report_filenames["ppd_detection_slide"] == "ppd_molecules_2026_layout.md"
+
+
+def test_table_registry_returns_generated_paths_on_rerun(tmp_path) -> None:
+    """Table specs report generated files even when overwriting existing output."""
+
+    def write_demo_table(_view, output_dir):
+        output_path = output_dir / "demo_table.tex"
+        output_path.write_text("demo\n", encoding="utf-8")
+        return {"demo_table.tex": "demo\n"}
+
+    spec = TableOutputSpec(
+        "demo_table",
+        "Demo table",
+        "Synthetic table for registry path tests.",
+        write_demo_table,
+    )
+    db = Database()
+    view = CensusView.for_census(db, "2021")
+
+    assert spec.write(view, tmp_path) == [tmp_path / "demo_table.tex"]
+    assert spec.write(view, tmp_path) == [tmp_path / "demo_table.tex"]

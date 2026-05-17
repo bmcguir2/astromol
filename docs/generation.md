@@ -35,8 +35,18 @@ for spec in FIGURE_OUTPUTS:
 
 `astromol-generate-outputs` also writes a static `index.html` landing page for
 GitHub Pages. The page surfaces the standard bundle and key slide/figure
-downloads first, then groups the full registry-driven inventory into slide,
-figure, table, and report sections.
+downloads first, then presents public-facing figure download cards. LaTeX
+fragments and layout diagnostics remain available in the complete bundle.
+
+The public `astromol` command can list and generate individual registry
+products:
+
+```bash
+astromol list all
+astromol figure cumulative_detections --view current --output cumulative_detections.pdf
+astromol table ism_tables --view 2026 --output-dir build/tables
+astromol slide ppd_detection_slide --view current --output-dir build/slides
+```
 
 ## Slides
 

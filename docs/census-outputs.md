@@ -40,8 +40,25 @@ astromol-generate-outputs --output-dir build/astromol_outputs --view current --f
 
 The command writes figures, PowerPoint slides, LaTeX table fragments, a static
 `index.html`, and `astromol_latest_outputs.zip`. The landing page highlights the
-bundle and the most commonly requested standard downloads first, then groups the
-full inventory into slide, figure, table, and report sections.
+bundle and the most commonly requested standard downloads first, then presents
+public-facing figure download cards. LaTeX fragments and layout reports remain
+available in the complete bundle.
+
+For selective generation, use the public `astromol` command with the same
+registry names:
+
+```bash
+astromol list figures
+astromol figure cumulative_detections --view current --output cumulative_detections.pdf
+astromol table ism_tables --view 2026 --output-dir build/tables
+astromol slide ism_molecule_slide --view current --output-dir build/slides --report
+```
+
+The `outputs` subcommand is equivalent to the full-bundle workflow:
+
+```bash
+astromol outputs --output-dir build/astromol_outputs --view current --formats png pdf
+```
 
 ## Standard View Options
 

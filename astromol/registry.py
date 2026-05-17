@@ -142,10 +142,14 @@ class TableOutputSpec:
     writer: TableWriter
 
     def write(self, view: CensusView, output_dir: str | Path) -> list[Path]:
-        """Write this table group and return newly created ``.tex`` paths."""
+        """Write this table group and return generated ``.tex`` paths."""
         output_dir = Path(output_dir)
         before = set(output_dir.glob("*.tex"))
-        self.writer(view, output_dir)
+        result = self.writer(view, output_dir)
+        if isinstance(result, Mapping):
+            return sorted(output_dir / filename for filename in result)
+        if result is not None:
+            return sorted(Path(path) for path in result)
         after = set(output_dir.glob("*.tex"))
         return sorted(after - before)
 

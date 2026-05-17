@@ -110,6 +110,17 @@ The standard latest output bundle can be regenerated locally with:
 astromol-generate-outputs --output-dir build/astromol_outputs --view current --formats png pdf
 ```
 
+The public `astromol` command also supports selective generation from the
+standard registry:
+
+```bash
+astromol list figures
+astromol figure cumulative_detections --view current --output cumulative_detections.pdf
+astromol table ism_tables --view 2026 --output-dir build/tables
+astromol slide ism_molecule_slide --view current --output-dir build/slides --report
+astromol outputs --output-dir build/astromol_outputs --view current --formats png pdf
+```
+
 ## Curation Workflow
 
 Copy a template from `curation/templates/` into `curation/staging/`, fill in the
@@ -164,6 +175,7 @@ Add lowercase suffixes only when needed to disambiguate duplicate keys.
 - `SPEC.md`: architecture and schema specification
 - `MANUSCRIPT_NOTES_2026.md`: 2026 manuscript reminders and explanatory notes
 - `GENERATION_MIGRATION.md`: output-generation migration and verification log
+- `astromol/cli.py`: public command-line interface for standard outputs
 - `astromol/models.py`: dataclasses and allowed values
 - `astromol/database.py`: JSON/BibTeX loader and cross-reference resolver
 - `astromol/figures/`: figure data builders and plotting helpers

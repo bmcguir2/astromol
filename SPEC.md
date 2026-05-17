@@ -424,6 +424,13 @@ readable molecule font, spreads occupied groups across the slide, and exposes
 the same layout warnings if a future PPD inventory outgrows the available
 geometry.
 
+`astromol.cli` provides the first-pass public command-line interface for
+standard outputs. The installed `astromol` command lists registry names and
+generates individual standard figures, table groups, and slide decks from
+`astromol.registry`. The `astromol outputs` subcommand delegates to the standard
+bundle generator used by `astromol-generate-outputs`, preserving the existing
+automation entry point while exposing a shorter public command.
+
 ## Packaging
 
 `pyproject.toml` is the source of truth for package metadata and Python

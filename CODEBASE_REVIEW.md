@@ -170,22 +170,24 @@ public package release, CI should also:
 That mirrors the manual package audit already performed and protects against
 missing package data or import-only-from-source mistakes.
 
-### 8. Public CLI Is Minimal
+### 8. Public CLI Has A First-Pass Output Surface
 
-The package currently exposes `astromol-validate`. That is enough for the
-current refactor, especially with Colab notebooks, but public users will likely
-expect command-line entry points for common outputs.
+The package now exposes both the existing focused commands and a public
+`astromol` command for standard output generation. The first-pass CLI lists
+registry names, generates individual standard figures, table groups, and slide
+decks by stable name, and delegates complete bundle generation through
+`astromol outputs`.
 
-Recommended future CLI:
+Current commands:
 
-- `astromol validate`
-- `astromol figure cumulative --view current --format pdf`
-- `astromol slide ism --view current`
-- `astromol slide ppd --view current`
-- `astromol table ism --view 2026`
+- `astromol list`
+- `astromol figure cumulative_detections --view current --output cumulative_detections.pdf`
+- `astromol table ism_tables --view 2026 --output-dir build/tables`
+- `astromol slide ism_molecule_slide --view current --output-dir build/slides`
+- `astromol outputs --output-dir build/astromol_outputs --view current --formats png pdf`
 
-This should wait until the function registry and figure/table/slide naming are
-stable.
+Future CLI polish can add shorter aliases and a validation subcommand, but the
+core standard-output generation path is no longer blocked.
 
 ### 9. Small Documentation Bugs Remain
 
@@ -277,6 +279,9 @@ remove noise before release.
    and docs/notebooks now point users/developers to the registry as the
    standard-output inventory.
 3. Introduce a first-pass public CLI for standard figures, tables, and slides.
+   **Done:** `astromol.cli` installs an `astromol` command with registry-backed
+   `list`, `figure`, `table`, `slide`, and `outputs` subcommands. Focused tests
+   in `tests/test_cli.py` cover selective generation with fake registry specs.
 4. Polish the generated-output GitHub Pages landing page. The current page is
    functional and exposes the right products, but it should eventually get a
    cleaner layout, clearer visual hierarchy, and more polished project branding.
