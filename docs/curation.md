@@ -37,6 +37,19 @@ References are maintained in Zotero and exported to
 `astromol/data/references.bib`. Do not hand-edit the BibTeX file; export the
 updated collection and commit the resulting file with the relevant data change.
 
+## Project-Computed Values
+
+Some curated values may be calculated as part of this work when no suitable
+literature value is available. Keep the supporting notebook under
+`docs/calculations/` and commit it with the data update. Do not commit local
+`.ipynb_checkpoints/` directories.
+
+Structured molecule reference fields resolve to BibTeX citekeys, so use those
+fields for the software, method, basis-set, or literature references that
+support the calculation. Record the local notebook path in the relevant note or
+history entry. If the calculation is later described in a citable publication,
+add that citekey through the normal Zotero export workflow.
+
 Scientific data are human curated and human verified. LLM assistance may be used
 for code, staging support, or mechanical transformations, but production data
 are not accepted without curator review.

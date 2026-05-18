@@ -1734,11 +1734,11 @@
       "note": null
     },
     "dipole": {
-      "a": "*",
+      "a": 1.63,
       "b": null,
       "c": null,
       "refs": [
-        "Lovas:1974:609"
+        "Yousefi:2018:8"
       ],
       "note": null
     },
@@ -1746,7 +1746,9 @@
       "lab": [
         "Lovas:1974:609"
       ],
-      "computation": []
+      "computation": [
+        "Yousefi:2018:8"
+      ]
     },
     "isotopologue_of": null,
     "latex_section_override": null,
@@ -1763,7 +1765,7 @@
         "census": "2018",
         "context": "confirmed_ism_csm"
       },
-      "last_modified": null,
+      "last_modified": "2026-05-18",
       "events": [
         {
           "date": null,
@@ -1772,6 +1774,15 @@
           "fields": [],
           "summary": "Initial entry",
           "legacy_version": "2018.0.0"
+        },
+        {
+          "date": "2026-05-18",
+          "kind": "corrected",
+          "fields": [
+            "dipole",
+            "refs"
+          ],
+          "summary": "Replaced placeholder dipole moment with the computed AlCl mu_a value from Yousefi:2018:8."
         }
       ]
     }
@@ -2148,23 +2159,39 @@
       "note": null
     },
     "dipole": {
-      "a": "*",
+      "a": 0.88,
       "b": null,
       "c": null,
       "refs": [
-        "Saito:1989:1114"
+        "Sun:2018:e1340",
+        "Sun:2020:024109",
+        "Hermann:2020:1940",
+        "Zhao:2008:215",
+        "Krishnan:1980:650",
+        "McLean:1980:5639",
+        "Clark:1983:294",
+        "Frisch:1984:3265"
       ],
-      "note": null
+      "note": "Computed as part of this work; calculation notebook: docs/calculations/cp_dipole_calculations.ipynb."
     },
     "refs": {
       "lab": [
         "Saito:1989:1114"
       ],
-      "computation": []
+      "computation": [
+        "Sun:2018:e1340",
+        "Sun:2020:024109",
+        "Hermann:2020:1940",
+        "Zhao:2008:215",
+        "Krishnan:1980:650",
+        "McLean:1980:5639",
+        "Clark:1983:294",
+        "Frisch:1984:3265"
+      ]
     },
     "isotopologue_of": null,
     "latex_section_override": null,
-    "latex_body": "\\citet{Saito:1989:1114} measured the rotational spectrum of CP in the laboratory and conducted an astronomical search for the $N = 1\\rightarrow0$ and $2\\rightarrow1$ transitions at 48 and 96~GHz, respectively, using the Nobeyama 45-m telescope across several sources, resulting in non-detections.  \\citet{Guelin:1990:L9} subsequently reported the successful detection of the $2\\rightarrow1$ and $5\\rightarrow4$ (239~GHz) transitions toward IRC+10216 using the IRAM 30-m telescope.",
+    "latex_body": "\\citet{Saito:1989:1114} measured the rotational spectrum of CP in the laboratory and conducted an astronomical search for the $N = 1\\rightarrow0$ and $2\\rightarrow1$ transitions at 48 and 96~GHz, respectively, using the Nobeyama 45-m telescope across several sources, resulting in non-detections.  \\citet{Guelin:1990:L9} subsequently reported the successful detection of the $2\\rightarrow1$ and $5\\rightarrow4$ (239~GHz) transitions toward IRC+10216 using the IRAM 30-m telescope.  The dipole moment of $\\mu_a = 0.88$\\,D was calculated as part of this work using the PySCF \\citep{Sun:2018:e1340, Sun:2020:024109} and pyberny \\citep{Hermann:2020:1940} packages at the M06-2x/6-311++G(d,p) level of theory \\citep{Zhao:2008:215} and basis set \\citep{Krishnan:1980:650, McLean:1980:5639, Clark:1983:294, Frisch:1984:3265}.",
     "history": {
       "introduced": {
         "date": null,
@@ -2177,7 +2204,7 @@
         "census": "2018",
         "context": "confirmed_ism_csm"
       },
-      "last_modified": null,
+      "last_modified": "2026-05-18",
       "events": [
         {
           "date": null,
@@ -2186,6 +2213,16 @@
           "fields": [],
           "summary": "Initial entry",
           "legacy_version": "2018.0.0"
+        },
+        {
+          "date": "2026-05-18",
+          "kind": "corrected",
+          "fields": [
+            "dipole",
+            "refs",
+            "latex_body"
+          ],
+          "summary": "Replaced placeholder dipole moment with this-work computed CP mu_a value and documented the calculation provenance."
         }
       ]
     }

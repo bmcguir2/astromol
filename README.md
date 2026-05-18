@@ -40,6 +40,12 @@ developed before this branch replaces `main`.
   census paper.
 - New records should be staged through YAML files in `curation/staging/` before
   being applied to production JSON.
+- The project is currently focused on 2026 database curation rather than broad
+  refactor work. The next data tasks are resolving known dipole-moment
+  placeholders and staging new molecule/detection updates for maintainer review.
+- Calculation notebooks that support project-computed database values are
+  tracked under `docs/calculations/`; local `.ipynb_checkpoints/` directories
+  are ignored.
 
 ## Quick Load Check
 
@@ -140,6 +146,15 @@ python scripts/stage_records.py --staging curation/staging/example.yaml --apply
 See `curation/README.md` for template notes, YAML quoting rules, and schema
 maintenance expectations.
 
+For assisted curation, draft staging YAML from curator-provided source data,
+review the generated preview, then apply only after the scientific fields,
+history semantics, and references have been checked by the maintainer.
+
+When a database value is calculated as part of this project, keep the
+calculation notebook under `docs/calculations/`, cite the relevant software,
+method, and basis-set references in the molecule metadata and manuscript prose,
+and record the notebook path in a note or history entry for provenance.
+
 ## AI Assistance and Data Curation
 
 This project uses OpenAI Codex as a coding assistant for software
@@ -185,6 +200,7 @@ Add lowercase suffixes only when needed to disambiguate duplicate keys.
 - `astromol/data/`: production data files
 - `curation/templates/`: curator-facing YAML templates
 - `docs/`: Sphinx/Read the Docs documentation source
+- `docs/calculations/`: tracked notebooks for project-computed scientific values
 - `scripts/stage_records.py`: staging, validation, preview, and apply workflow
 
 ## Packaging

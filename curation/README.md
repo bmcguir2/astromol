@@ -42,6 +42,15 @@ Each staged record has a `kind`:
 Fields beginning with `_` are staging-only notes. They are allowed in YAML and
 reported when useful, but they are not written into production JSON.
 
+## Project-Computed Values
+
+When a database value is calculated as part of this project, keep the
+supporting notebook under `docs/calculations/` and commit it with the data
+change. The structured `refs` fields should continue to contain BibTeX citekeys
+for software, methods, basis sets, or literature sources that support the
+calculation. Record the local notebook path in an appropriate note or history
+summary. Do not track local `.ipynb_checkpoints/` directories.
+
 ## Generated Staging Files
 
 When Codex or another helper generates staging YAML for curator review, it

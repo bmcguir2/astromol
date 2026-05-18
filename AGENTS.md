@@ -91,6 +91,8 @@ Why:
 - `curation/README.md`: staging instructions and quoting rules
 - `docs/`: Sphinx + Read the Docs sources
 - `docs/notebooks/*.ipynb`: Colab workflows (quickstart, figures, custom views, tables/slides)
+- `docs/calculations/*.ipynb`: tracked calculation notebooks used to document
+  project-computed scientific values
 - `tests/`: regression scripts + focused unit/integration tests
 - `.github/workflows/`: CI, package checks, generated-output publishing
 
@@ -198,6 +200,17 @@ Why:
 
 Current refactor status:
 
+- Large-scale code changes are **paused for now**:
+  - the current priority is scientific database population and cleanup for the
+    2026 census rather than further broad architecture work
+  - known scientific-data warnings should be addressed first, starting with
+    the remaining inherited dipole-moment placeholders
+  - new molecules, detections, source updates, and telescope updates should be
+    staged through the existing YAML workflow before production JSON is edited
+  - it is acceptable for the maintainer to provide curated data in chat for
+    Codex to draft staging YAML, but the maintainer must review and approve the
+    staged records before they are applied
+
 - Figure API split is **in progress**:
   - `astromol.figures` moved from single file to package re-export
   - implementation currently in `figures/_core.py`
@@ -243,7 +256,7 @@ Current refactor status:
     `python -W error::DeprecationWarning`
 
 - Known scientific-data warning backlog:
-  - five dipole placeholder values (`*`) still exist and are intentionally
+  - three dipole placeholder values (`*`) still exist and are intentionally
     tracked as warnings, not errors, until curated replacements are added.
 
 - Working tree was clean after the public CLI work was committed and pushed.
@@ -287,6 +300,15 @@ At the start of each session, read in this order:
 3. Ensure `history` and status semantics are explicit and correct.
 4. For molecule promotion changes, prefer one coherent commit per molecule theme.
 5. After a staged molecule is promoted and verified, remove obsolete staging YAML unless explicitly preserved for audit.
+6. For chat-assisted curation, draft staging YAML only from information the
+   maintainer supplies or from explicitly requested source lookups; do not
+   invent scientific values, classifications, references, or interpretations.
+7. Treat maintainer review as required before running `stage_records.py --apply`
+   on newly drafted scientific data.
+8. When a database value is computed as part of this work, keep the supporting
+   notebook under `docs/calculations/`, cite the software/method references in
+   structured `refs` fields, and record the notebook path in a note or history
+   summary. Do not track `.ipynb_checkpoints/`.
 
 ### Git/Workflow Rules
 

@@ -3,6 +3,12 @@
 Date: 2026-05-13
 Baseline commit: `6783be5` (`Polish package release metadata`)
 
+Update: large-scale refactor and release-polish work is paused for now. The
+active project phase is 2026 scientific database curation: first resolving the
+remaining dipole-moment placeholders, then staging new molecules and/or
+detections through the existing YAML workflow before applying them to
+production JSON.
+
 This review is a fresh pass over the refactor branch after the data model,
 curation workflow, table/figure/slide generation, packaging metadata,
 documentation, Read the Docs, Colab notebooks, and CI were brought online.
@@ -17,11 +23,11 @@ database is loadable from an installed wheel, semantic validation passes, and
 the output-generation regression suite is broad enough to catch many accidental
 behavior changes.
 
-The main remaining risk is not that the package is conceptually wrong. It is
-that several working systems have grown quickly and now encode the same schema,
-visual style, or output list in more than one place. That creates drift risk as
-the database expands for the 2026 census and as the public API becomes more
-stable.
+The main remaining risk for the next phase is curation drift: new database
+updates must keep model schema, staging templates, validation, references, and
+history semantics aligned. The current codebase is good enough for the next
+round of data population, so broad architecture work should wait unless a
+curation task exposes a concrete blocker.
 
 ## What Works Well
 
@@ -40,7 +46,7 @@ stable.
 - **Documentation and examples are no longer afterthoughts.** Read the Docs,
   Colab notebooks, FAQ, and local recipes are in place.
 - **The current validation/test baseline is meaningful.** `astromol-validate`
-  reports 0 errors and 5 known dipole-placeholder warnings; the pytest
+  reports 0 errors and 3 known dipole-placeholder warnings; the pytest
   regression harness exercises table, figure, and slide outputs.
 
 ## Priority Findings
@@ -64,14 +70,12 @@ Previously observed source/telescope template drift has been corrected:
 - `tests/test_curation_templates.py` checks template keys against
   `stage_records.py` `FIELDS`, `DEFAULTS`, and `REQUIRED`.
 
-Recommended direction: introduce a single schema source for curator-facing
-fields, defaults, required markers, and allowed values. It does not need to be
-heavyweight. A small `astromol/schema.py` or `curation/schema.py` that generates
-templates and feeds `stage_records.py` would remove most of this drift.
-
-Short-term corrective action: continue avoiding new schema drift by updating
-templates, staging defaults, validation, specs, and focused template tests in
-the same change whenever curator-facing fields change.
+Recommended direction for the current curation phase: keep the hand-written
+templates and existing consistency tests. Do not introduce generated templates
+or a new schema-abstraction layer unless repeated curation work exposes a
+specific blocker. Avoid schema drift by updating templates, staging defaults,
+validation, specs, and focused template tests in the same change whenever
+curator-facing fields change.
 
 ### 2. Source And Telescope Duplicate Keys Are Checked
 
@@ -85,21 +89,24 @@ telescope nick rejection against a minimal temporary data directory.
 
 ### 3. Known Dipole Placeholders Are Warnings And API-Safe
 
-The validator correctly reports the five inherited `*` dipole placeholders as
+The validator correctly reports the remaining inherited `*` dipole placeholders as
 warnings. `DipoleMoment.total` now returns `None` when any populated component
 is nonnumeric, so these warning records no longer raise a raw `TypeError` when
 users access the total dipole moment.
 
 Current warning records:
 
-- `mol:AlCl`
-- `mol:CP`
 - `mol:SO+`
 - `mol:MgCN`
 - `mol:HNCS`
 
 Recommended action: keep the manuscript-note reminder to resolve the values
 before final dipole-based analysis or manuscript claims.
+
+For values computed as part of this work, keep the supporting notebooks under
+`docs/calculations/`, cite method/software references in structured molecule
+reference fields, and record the local notebook path in the dipole note or
+history summary. `docs/calculations/.ipynb_checkpoints/` should not be tracked.
 
 ### 4. `astromol.figures` Is Working But Too Large To Scale Comfortably
 
@@ -204,6 +211,18 @@ from the production box/strip figures.
 
 ## Suggested Order Of Attack
 
+### Current Curation Phase
+
+1. Resolve the remaining inherited `*` dipole-moment placeholders, preserving
+   explicit references and notes for any unresolved/null replacements.
+2. Stage new molecule and detection updates through YAML templates in
+   `curation/staging/`. Codex may draft YAML from maintainer-provided data, but
+   the maintainer should review the staged record before `--apply`.
+3. Run focused validation after each applied curation batch:
+   `python -m astromol.validation` and the relevant staging/database tests.
+4. Keep broad code changes out of the curation path unless the existing
+   workflow blocks a real data update.
+
 ### Immediate Cleanup
 
 No immediate cleanup items remain from this review pass.
@@ -237,10 +256,10 @@ No immediate cleanup items remain from this review pass.
    default/history normalization, staging-only metadata reporting, and bad
    reference rejection without touching production JSON.
 4. Decide whether schema definitions should become generated templates.
-   **Decided/deferred:** keep hand-written curator templates for now, protected
-   by consistency tests. Revisit generated templates after the 2026 data model
-   is less fluid, so the generator does not harden a schema that is still
-   actively changing.
+   **Decided/deferred:** do not pursue generated templates during the current
+   curation phase. Keep hand-written curator templates protected by
+   consistency tests, and revisit only if repeated data-entry work reveals a
+   concrete maintenance problem.
 
 ### Before Public PyPI Release
 
@@ -291,7 +310,7 @@ No immediate cleanup items remain from this review pass.
 ## Verification During This Review
 
 - Checkpoint commit `6783be5` was pushed before the review began.
-- `python -m astromol.validation` passes with 0 errors and the 5 known
+- `python -m astromol.validation` passes with 0 errors and the 3 known
   dipole-placeholder warnings.
 - Figure package split verification:
   - `from astromol.figures import ...` smoke test passed.

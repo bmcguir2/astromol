@@ -31,6 +31,7 @@ quickstart
 faq
 data-model
 curation
+calculations/README
 generation
 census-outputs
 notebooks

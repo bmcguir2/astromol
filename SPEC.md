@@ -72,6 +72,13 @@ bibliography exports, legacy census materials, and human curator review. AI
 assistance may be used to stage or transform records for review, but no staged
 scientific data are accepted into production without human verification.
 
+When a database value is calculated as part of this project, the supporting
+notebook should be committed under `docs/calculations/`. Structured reference
+fields still contain BibTeX citekeys, so they should cite the software, method,
+basis-set, and/or literature sources that support the calculation. The local
+notebook path should be recorded in a note or history summary for provenance.
+Local `.ipynb_checkpoints/` directories are not tracked.
+
 ## Curation Workflow
 
 Production data lives in the JSON files under `astromol/data/`. New records
@@ -709,6 +716,11 @@ References and relationships:
   - `lab` includes laboratory characterization references for the molecule.
     Legacy context-specific lab references, such as ice laboratory spectra, are
     normalized here rather than attached to detections.
+  - `computation` includes computational-method, software, basis-set, or
+    literature references supporting calculated molecular properties. If a value
+    is computed as part of this project, record the calculation notebook path in
+    the relevant property note or history entry because local notebooks are not
+    BibTeX citekeys.
 - `isotopologue_of`: parent molecule label or null
 
 LaTeX fields:
