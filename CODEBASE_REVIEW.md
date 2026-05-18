@@ -218,9 +218,14 @@ from the production box/strip figures.
 2. Stage new molecule and detection updates through YAML templates in
    `curation/staging/`. Codex may draft YAML from maintainer-provided data, but
    the maintainer should review the staged record before `--apply`.
-3. Run focused validation after each applied curation batch:
-   `python -m astromol.validation` and the relevant staging/database tests.
-4. Keep broad code changes out of the curation path unless the existing
+3. Refresh the committed production data baseline after each accepted curation
+   batch with `python scripts/update_data_baseline.py`, then inspect
+   `tests/baselines/production_data.json` so count and warning changes are
+   explicit.
+4. Run focused validation after each applied curation batch:
+   `python -m astromol.validation` and
+   `python -m pytest tests/test_load.py tests/test_validation.py`.
+5. Keep broad code changes out of the curation path unless the existing
    workflow blocks a real data update.
 
 ### Immediate Cleanup

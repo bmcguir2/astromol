@@ -30,6 +30,19 @@ After reviewing the preview report, apply with:
 python scripts/stage_records.py --staging curation/staging/example.yaml --apply
 ```
 
+After any approved production data change, refresh the committed data baseline
+and review the resulting diff:
+
+```bash
+python -m astromol.validation
+python scripts/update_data_baseline.py
+python -m pytest tests/test_load.py tests/test_validation.py
+```
+
+`tests/baselines/production_data.json` records the expected production
+inventory counts and known validation warnings. It should change only when the
+underlying curated data or accepted warning backlog changes.
+
 ## Record Kinds
 
 Each staged record has a `kind`:

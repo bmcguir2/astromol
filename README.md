@@ -143,6 +143,15 @@ apply the staged records:
 python scripts/stage_records.py --staging curation/staging/example.yaml --apply
 ```
 
+After an approved production data change, refresh the committed data baseline
+and inspect the diff before committing:
+
+```bash
+python -m astromol.validation
+python scripts/update_data_baseline.py
+python -m pytest tests/test_load.py tests/test_validation.py
+```
+
 See `curation/README.md` for template notes, YAML quoting rules, and schema
 maintenance expectations.
 
@@ -202,6 +211,10 @@ Add lowercase suffixes only when needed to disambiguate duplicate keys.
 - `docs/`: Sphinx/Read the Docs documentation source
 - `docs/calculations/`: tracked notebooks for project-computed scientific values
 - `scripts/stage_records.py`: staging, validation, preview, and apply workflow
+- `scripts/update_data_baseline.py`: refreshes committed production data counts
+  and known validation-warning baseline
+- `tests/baselines/production_data.json`: expected production inventory and
+  warning snapshot used by data baseline tests
 
 ## Packaging
 

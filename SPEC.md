@@ -93,6 +93,12 @@ secure detection records also default to a current-census `history.accepted`
 block; set `history.accepted: null` for records that are tracked but not yet
 accepted as confirmed.
 
+Production inventory counts and accepted validation warnings are tracked in the
+committed baseline `tests/baselines/production_data.json`. After an approved
+data update is applied, run `python scripts/update_data_baseline.py` and inspect
+the baseline diff before committing. Tests read this file so stale baselines
+fail locally and in CI.
+
 When the schema for `Molecule`, `Detection`, `Source`, or `Telescope` changes,
 the corresponding curation template, `scripts/stage_records.py`, and this
 specification must be updated in the same change.

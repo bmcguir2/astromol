@@ -309,6 +309,10 @@ At the start of each session, read in this order:
    notebook under `docs/calculations/`, cite the software/method references in
    structured `refs` fields, and record the notebook path in a note or history
    summary. Do not track `.ipynb_checkpoints/`.
+9. After any accepted production data change, run
+   `python scripts/update_data_baseline.py`, inspect
+   `tests/baselines/production_data.json`, and include the intentional baseline
+   diff with the curation change.
 
 ### Git/Workflow Rules
 
@@ -323,9 +327,12 @@ At the start of each session, read in this order:
 Before declaring substantial work done:
 
 1. Run focused tests for touched area.
-2. Run full `pytest` for broad refactors.
-3. Run docs build (`sphinx -W`) when docs/API surface changes.
-4. Run clean package build when module/package structure changes.
+2. For production data changes, run
+   `python -m pytest tests/test_load.py tests/test_validation.py` after
+   refreshing the committed data baseline.
+3. Run full `pytest` for broad refactors.
+4. Run docs build (`sphinx -W`) when docs/API surface changes.
+5. Run clean package build when module/package structure changes.
 
 ---
 
@@ -352,4 +359,5 @@ python -m sphinx -W -b html docs docs/_build/html
 # Curation staging
 python scripts/stage_records.py --staging curation/staging/example.yaml
 python scripts/stage_records.py --staging curation/staging/example.yaml --apply
+python scripts/update_data_baseline.py
 ```

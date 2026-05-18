@@ -33,6 +33,19 @@ The staging templates intentionally expose the full available field set,
 including optional fields, so curators do not need to remember schema details
 from memory.
 
+After an approved production data change, refresh the committed data baseline
+and inspect the diff:
+
+```bash
+python -m astromol.validation
+python scripts/update_data_baseline.py
+python -m pytest tests/test_load.py tests/test_validation.py
+```
+
+`tests/baselines/production_data.json` stores expected production inventory
+counts and known validation warnings. Regenerate it only after the data change
+has been reviewed and accepted.
+
 References are maintained in Zotero and exported to
 `astromol/data/references.bib`. Do not hand-edit the BibTeX file; export the
 updated collection and commit the resulting file with the relevant data change.

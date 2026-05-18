@@ -44,6 +44,8 @@ html_title = "astromol"
 html_static_path: list[str] = []
 exclude_patterns = [
     "_build",
+    "**/.ipynb_checkpoints",
+    "**/.ipynb_checkpoints/*",
     "Thumbs.db",
     ".DS_Store",
 ]
