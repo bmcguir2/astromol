@@ -369,6 +369,9 @@ write_scopes_by_year_plot(
 
 ### Figure Defaults And Common Options
 
+Standard figure writers save PNG output, and rasterized artists embedded in PDF
+output, at 300 DPI.
+
 | Figure | Default interpretation | Useful options |
 | --- | --- | --- |
 | Cumulative detections | Secure, non-isotopologue ISM/CSM first detections through the view boundary. | `detection_type`, `start_year`, `end_year`, tentative/disputed/isotopologue flags. |

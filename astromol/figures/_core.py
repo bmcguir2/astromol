@@ -15,6 +15,7 @@ from ..models import Detection
 from .style import (
     ASTROMOL_BLUE,
     FIGURE_AXES_BOUNDS,
+    FIGURE_DPI,
     FIGURE_LEGEND_TEXT_SIZE,
     FIGURE_SIZE,
     FIGURE_TEXT_SIZE,
@@ -2958,6 +2959,22 @@ def _finalize_manuscript_figure(figure, ax) -> None:
     ax.set_position(FIGURE_AXES_BOUNDS)
 
 
+def _save_figure(
+    figure,
+    output_path: Path,
+    *,
+    file_format: str,
+    **savefig_kwargs,
+) -> None:
+    """Save figures at publication raster resolution."""
+    figure.savefig(
+        output_path,
+        format=file_format,
+        dpi=FIGURE_DPI,
+        **savefig_kwargs,
+    )
+
+
 def _padded_count_axis_limit(max_count: int, padding_fraction: float = 0.12) -> int:
     """Return a rounded y-axis limit with room above a cumulative curve."""
     if max_count < 1:
@@ -3067,9 +3084,10 @@ def write_cumulative_detections_plot(
         file_format = output_path.suffix.lstrip(".") or "pdf"
 
     figure, _ = plot_cumulative_detections(data)
-    figure.savefig(
+    _save_figure(
+        figure,
         output_path,
-        format=file_format,
+        file_format=file_format,
         transparent=True,
     )
     _pyplot().close(figure)
@@ -3170,9 +3188,10 @@ def write_cumulative_by_atoms_plot(
         file_format = output_path.suffix.lstrip(".") or "pdf"
 
     figure, _ = plot_cumulative_by_atoms(data)
-    figure.savefig(
+    _save_figure(
+        figure,
         output_path,
-        format=file_format,
+        file_format=file_format,
         transparent=True,
     )
     _pyplot().close(figure)
@@ -3254,9 +3273,10 @@ def write_stacked_cumulative_by_atoms_plot(
         file_format = output_path.suffix.lstrip(".") or "pdf"
 
     figure, _ = plot_stacked_cumulative_by_atoms(data)
-    figure.savefig(
+    _save_figure(
+        figure,
         output_path,
-        format=file_format,
+        file_format=file_format,
         transparent=True,
     )
     _pyplot().close(figure)
@@ -3388,9 +3408,10 @@ def write_periodic_heatmap(
         file_format = output_path.suffix.lstrip(".") or "pdf"
 
     figure, _ = plot_periodic_heatmap(data)
-    figure.savefig(
+    _save_figure(
+        figure,
         output_path,
-        format=file_format,
+        file_format=file_format,
         transparent=True,
         bbox_inches="tight",
         pad_inches=0,
@@ -3526,9 +3547,10 @@ def write_du_histogram(
         file_format = output_path.suffix.lstrip(".") or "pdf"
 
     figure, _ = plot_du_histogram(data)
-    figure.savefig(
+    _save_figure(
+        figure,
         output_path,
-        format=file_format,
+        file_format=file_format,
         transparent=True,
         bbox_inches="tight",
     )
@@ -3663,9 +3685,10 @@ def write_kappa_histogram(
         file_format = output_path.suffix.lstrip(".") or "pdf"
 
     figure, _ = plot_kappa_histogram(data, bins=bins)
-    figure.savefig(
+    _save_figure(
+        figure,
         output_path,
-        format=file_format,
+        file_format=file_format,
         transparent=True,
         bbox_inches="tight",
         pad_inches=0,
@@ -3809,9 +3832,10 @@ def write_du_bar_chart(
         file_format = output_path.suffix.lstrip(".") or "pdf"
 
     figure, _ = plot_du_bar_chart(data)
-    figure.savefig(
+    _save_figure(
+        figure,
         output_path,
-        format=file_format,
+        file_format=file_format,
         transparent=True,
         bbox_inches="tight",
     )
@@ -3934,9 +3958,10 @@ def write_type_pie_chart(
         file_format = output_path.suffix.lstrip(".") or "pdf"
 
     figure, _ = plot_type_pie_chart(data, order=order)
-    figure.savefig(
+    _save_figure(
+        figure,
         output_path,
-        format=file_format,
+        file_format=file_format,
         transparent=True,
         bbox_inches="tight",
     )
@@ -4038,9 +4063,10 @@ def write_source_pie_chart(
         diffuse_cloud_label=diffuse_cloud_label,
         order=order,
     )
-    figure.savefig(
+    _save_figure(
+        figure,
         output_path,
-        format=file_format,
+        file_format=file_format,
         transparent=True,
         bbox_inches="tight",
         pad_inches=pad_inches,
@@ -4135,9 +4161,10 @@ def write_individual_source_pie_chart(
         data,
         order=order,
     )
-    figure.savefig(
+    _save_figure(
+        figure,
         output_path,
-        format=file_format,
+        file_format=file_format,
         transparent=True,
         bbox_inches="tight",
         pad_inches=pad_inches,
@@ -4251,9 +4278,10 @@ def write_molecule_type_by_source_type(
         data,
         source_label_overrides=source_label_overrides,
     )
-    figure.savefig(
+    _save_figure(
+        figure,
         output_path,
-        format=file_format,
+        file_format=file_format,
         transparent=True,
         bbox_inches="tight",
     )
@@ -4458,9 +4486,10 @@ def write_molecule_type_by_source_enrichment_matrix(
         data,
         source_label_overrides=source_label_overrides,
     )
-    figure.savefig(
+    _save_figure(
+        figure,
         output_path,
-        format=file_format,
+        file_format=file_format,
         transparent=True,
         bbox_inches="tight",
     )
@@ -4784,9 +4813,10 @@ def write_du_by_source_type(
         count_label_overrides=count_label_overrides,
         ylabel=ylabel,
     )
-    figure.savefig(
+    _save_figure(
+        figure,
         output_path,
-        format=file_format,
+        file_format=file_format,
         transparent=True,
         bbox_inches="tight",
         pad_inches=0,
@@ -4894,9 +4924,10 @@ def write_relative_du_by_source_type(
         bandwidth=bandwidth,
         source_label_overrides=source_label_overrides,
     )
-    figure.savefig(
+    _save_figure(
+        figure,
         output_path,
-        format=file_format,
+        file_format=file_format,
         transparent=True,
         bbox_inches="tight",
     )
@@ -5013,9 +5044,10 @@ def write_mass_by_source_type(
         bandwidth=bandwidth,
         source_label_overrides=source_label_overrides,
     )
-    figure.savefig(
+    _save_figure(
+        figure,
         output_path,
-        format=file_format,
+        file_format=file_format,
         transparent=True,
         bbox_inches="tight",
         pad_inches=0,
@@ -5155,9 +5187,10 @@ def write_wavelength_by_source_type(
         data,
         source_label_overrides=source_label_overrides,
     )
-    figure.savefig(
+    _save_figure(
+        figure,
         output_path,
-        format=file_format,
+        file_format=file_format,
         transparent=True,
         bbox_inches="tight",
     )
@@ -5318,9 +5351,10 @@ def write_wavelength_by_source_type_stacked_bar(
         data,
         source_label_overrides=source_label_overrides,
     )
-    figure.savefig(
+    _save_figure(
+        figure,
         output_path,
-        format=file_format,
+        file_format=file_format,
         transparent=True,
         bbox_inches="tight",
     )
@@ -5680,9 +5714,10 @@ def write_mass_by_wavelength_plot(
         label_mode=label_mode,
         label_overrides=label_overrides,
     )
-    figure.savefig(
+    _save_figure(
+        figure,
         output_path,
-        format=file_format,
+        file_format=file_format,
         transparent=True,
         bbox_inches="tight",
     )
@@ -5844,9 +5879,10 @@ def write_mass_by_wavelength_boxplot(
         file_format = output_path.suffix.lstrip(".") or "pdf"
 
     figure, _ = plot_mass_by_wavelength_boxplot(data)
-    figure.savefig(
+    _save_figure(
+        figure,
         output_path,
-        format=file_format,
+        file_format=file_format,
         transparent=True,
         bbox_inches="tight",
     )
@@ -6033,9 +6069,10 @@ def write_du_by_source_type_boxplot(
         include_negative_du=include_negative_du,
         source_label_overrides=source_label_overrides,
     )
-    figure.savefig(
+    _save_figure(
+        figure,
         output_path,
-        format=file_format,
+        file_format=file_format,
         transparent=True,
         bbox_inches="tight",
     )
@@ -6225,9 +6262,10 @@ def write_relative_du_by_source_type_boxplot(
         include_negative_du=include_negative_du,
         source_label_overrides=source_label_overrides,
     )
-    figure.savefig(
+    _save_figure(
+        figure,
         output_path,
-        format=file_format,
+        file_format=file_format,
         transparent=True,
         bbox_inches="tight",
     )
@@ -6403,9 +6441,10 @@ def write_mass_by_source_type_boxplot(
         data,
         source_label_overrides=source_label_overrides,
     )
-    figure.savefig(
+    _save_figure(
+        figure,
         output_path,
-        format=file_format,
+        file_format=file_format,
         transparent=True,
         bbox_inches="tight",
     )
@@ -6512,9 +6551,10 @@ def write_molecules_by_wavelength_atoms_plot(
         data,
         bandwidth=bandwidth,
     )
-    figure.savefig(
+    _save_figure(
+        figure,
         output_path,
-        format=file_format,
+        file_format=file_format,
         transparent=True,
         bbox_inches="tight",
         pad_inches=0,
@@ -6663,9 +6703,10 @@ def write_molecules_by_wavelength_atoms_bubble_heatmap(
         data,
         value_mode=value_mode,
     )
-    figure.savefig(
+    _save_figure(
+        figure,
         output_path,
-        format=file_format,
+        file_format=file_format,
         transparent=True,
         bbox_inches="tight",
     )
@@ -6770,9 +6811,10 @@ def write_rolling_rate_by_atoms_heatmap(
         file_format = output_path.suffix.lstrip(".") or "pdf"
 
     figure, _ = plot_rolling_rate_by_atoms_heatmap(data)
-    figure.savefig(
+    _save_figure(
+        figure,
         output_path,
-        format=file_format,
+        file_format=file_format,
         transparent=True,
     )
     _pyplot().close(figure)
@@ -6918,9 +6960,10 @@ def write_detection_rate_by_atoms_plot(
         file_format = output_path.suffix.lstrip(".") or "pdf"
 
     figure, _ = plot_detection_rate_by_atoms(data)
-    figure.savefig(
+    _save_figure(
+        figure,
         output_path,
-        format=file_format,
+        file_format=file_format,
         transparent=True,
         bbox_inches="tight",
     )
@@ -7077,9 +7120,10 @@ def write_detection_rate_by_atoms_comparison_plot(
         current_label=current_label,
         baseline_label=baseline_label,
     )
-    figure.savefig(
+    _save_figure(
+        figure,
         output_path,
-        format=file_format,
+        file_format=file_format,
         transparent=True,
     )
     _pyplot().close(figure)
@@ -7213,9 +7257,10 @@ def write_facility_shares_plot(
         file_format = output_path.suffix.lstrip(".") or "pdf"
 
     figure, _ = plot_facility_shares(data)
-    figure.savefig(
+    _save_figure(
+        figure,
         output_path,
-        format=file_format,
+        file_format=file_format,
         transparent=True,
         bbox_inches="tight",
     )
@@ -7369,9 +7414,10 @@ def write_facility_share_bars_plot(
         file_format = output_path.suffix.lstrip(".") or "pdf"
 
     figure, _ = plot_facility_share_bars(data)
-    figure.savefig(
+    _save_figure(
+        figure,
         output_path,
-        format=file_format,
+        file_format=file_format,
         transparent=True,
     )
     _pyplot().close(figure)
@@ -7562,9 +7608,10 @@ def write_scopes_by_year_plot(
         file_format = output_path.suffix.lstrip(".") or "pdf"
 
     figure, _ = plot_scopes_by_year(data, style=style)
-    figure.savefig(
+    _save_figure(
+        figure,
         output_path,
-        format=file_format,
+        file_format=file_format,
         transparent=True,
     )
     _pyplot().close(figure)

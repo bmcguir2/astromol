@@ -20,7 +20,8 @@ Figure helpers live in `astromol.figures`. Migrated figures generally provide:
 
 The current production style uses readable manuscript-scale typography,
 color-blind friendlier palettes when multiple categories are shown, and project
-brand colors only when they serve a clear visual purpose.
+brand colors only when they serve a clear visual purpose. Figure writers save
+PNG output, and any rasterized artists embedded in PDF output, at 300 DPI.
 
 The standard output inventory lives in `astromol.registry`. The registry is the
 canonical list used by the generated-output bundle and should be the first place

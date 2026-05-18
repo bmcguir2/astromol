@@ -1,7 +1,10 @@
 from __future__ import annotations
 
+import matplotlib.image as mpimg
+
 from astromol.census import CensusView
 from astromol.database import Database
+from astromol.figures.style import FIGURE_DPI, FIGURE_SIZE
 from astromol.registry import (
     FIGURE_OUTPUTS,
     SLIDE_OUTPUTS,
@@ -46,6 +49,25 @@ def test_registry_figure_spec_writes_output(tmp_path) -> None:
     assert written_path == output_path
     assert output_path.exists()
     assert output_path.stat().st_size > 0
+
+
+def test_registry_figure_png_uses_publication_dpi(tmp_path) -> None:
+    """Registry PNG figures are written at the shared publication DPI."""
+    db = Database()
+    context = OutputContext(
+        view=CensusView.for_census(db, "2021"),
+        view_choice="2021",
+        baseline_view=CensusView.for_census(db, "2021"),
+    )
+    spec = next(item for item in FIGURE_OUTPUTS if item.name == "cumulative_detections")
+    output_path = tmp_path / "cumulative_detections.png"
+
+    spec.write(context, output_path)
+
+    image = mpimg.imread(output_path)
+    expected_width = int(FIGURE_SIZE[0] * FIGURE_DPI)
+    expected_height = int(FIGURE_SIZE[1] * FIGURE_DPI)
+    assert image.shape[:2] == (expected_height, expected_width)
 
 
 def test_slide_registry_filenames_use_view_choice() -> None:

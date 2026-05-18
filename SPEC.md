@@ -205,7 +205,8 @@ figures should use the package's color-blind-friendly palette by default;
 legacy 2018/2021 reproduction views may preserve original colors when visual
 parity is the goal. Plot axes and spines should be black by default, with a
 full box around the plot area unless a specific figure design requires a
-documented exception.
+documented exception. Figure writers save raster output at 300 DPI, including
+PNG files and any rasterized artists embedded in vector formats such as PDF.
 The current figure API covers the database-generated census-summary figures
 used in the 2021 manuscript body. Static appendix/conceptual graphics from the
 2021 arXiv bundle are outside the database-output API unless they are rebuilt
