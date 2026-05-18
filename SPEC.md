@@ -77,6 +77,17 @@ notebook should be committed under `docs/calculations/`. Structured reference
 fields still contain BibTeX citekeys, so they should cite the software, method,
 basis-set, and/or literature sources that support the calculation. The local
 notebook path should be recorded in a note or history summary for provenance.
+For project-computed dipole moments, keep the detailed method/package/basis-set
+description in the manuscript's `\ref{sec:dipole}` section rather than
+repeating it in each molecule note. The molecule `latex_body` should end with
+this short sentence:
+
+```text
+The dipole moment was calculated as part of this work (\ref{sec:dipole}).
+```
+
+The `dipole.refs`, `refs.computation`, and `dipole.note` fields retain the
+citekeys and notebook path that support the value.
 Local `.ipynb_checkpoints/` directories are not tracked.
 
 ## Curation Workflow
@@ -726,7 +737,10 @@ References and relationships:
     literature references supporting calculated molecular properties. If a value
     is computed as part of this project, record the calculation notebook path in
     the relevant property note or history entry because local notebooks are not
-    BibTeX citekeys.
+    BibTeX citekeys. For project-computed dipole moments, also add the
+    supporting citekeys to `dipole.refs` and use the short
+    `\ref{sec:dipole}` sentence in `latex_body` instead of repeating the full
+    computational-method text for each molecule.
 - `isotopologue_of`: parent molecule label or null
 
 LaTeX fields:

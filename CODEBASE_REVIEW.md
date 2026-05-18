@@ -4,10 +4,10 @@ Date: 2026-05-13
 Baseline commit: `6783be5` (`Polish package release metadata`)
 
 Update: large-scale refactor and release-polish work is paused for now. The
-active project phase is 2026 scientific database curation: first resolving the
-remaining dipole-moment placeholders, then staging new molecules and/or
-detections through the existing YAML workflow before applying them to
-production JSON.
+active project phase is 2026 scientific database curation. The inherited
+dipole-moment placeholders have been resolved locally; next curation work
+should stage new molecules and/or detections through the existing YAML workflow
+before applying them to production JSON.
 
 This review is a fresh pass over the refactor branch after the data model,
 curation workflow, table/figure/slide generation, packaging metadata,
@@ -46,8 +46,8 @@ curation task exposes a concrete blocker.
 - **Documentation and examples are no longer afterthoughts.** Read the Docs,
   Colab notebooks, FAQ, and local recipes are in place.
 - **The current validation/test baseline is meaningful.** `astromol-validate`
-  reports 0 errors and 3 known dipole-placeholder warnings; the pytest
-  regression harness exercises table, figure, and slide outputs.
+  reports 0 errors and 0 warnings; the pytest regression harness exercises
+  table, figure, and slide outputs.
 
 ## Priority Findings
 
@@ -87,21 +87,14 @@ raise `ValueError` during `Database()` load.
 Focused coverage: `tests/test_database.py` exercises duplicate source and
 telescope nick rejection against a minimal temporary data directory.
 
-### 3. Known Dipole Placeholders Are Warnings And API-Safe
+### 3. Known Dipole Placeholders Were Resolved
 
-The validator correctly reports the remaining inherited `*` dipole placeholders as
-warnings. `DipoleMoment.total` now returns `None` when any populated component
-is nonnumeric, so these warning records no longer raise a raw `TypeError` when
-users access the total dipole moment.
+The inherited `*` dipole placeholders have been replaced with curated values.
+`DipoleMoment.total` still returns `None` when any populated component is
+nonnumeric, so future unresolved placeholder records remain API-safe and can be
+tracked as validation warnings rather than raw `TypeError` failures.
 
-Current warning records:
-
-- `mol:SO+`
-- `mol:MgCN`
-- `mol:HNCS`
-
-Recommended action: keep the manuscript-note reminder to resolve the values
-before final dipole-based analysis or manuscript claims.
+Current warning records: none.
 
 For values computed as part of this work, keep the supporting notebooks under
 `docs/calculations/`, cite method/software references in structured molecule
@@ -213,19 +206,17 @@ from the production box/strip figures.
 
 ### Current Curation Phase
 
-1. Resolve the remaining inherited `*` dipole-moment placeholders, preserving
-   explicit references and notes for any unresolved/null replacements.
-2. Stage new molecule and detection updates through YAML templates in
+1. Stage new molecule and detection updates through YAML templates in
    `curation/staging/`. Codex may draft YAML from maintainer-provided data, but
    the maintainer should review the staged record before `--apply`.
-3. Refresh the committed production data baseline after each accepted curation
+2. Refresh the committed production data baseline after each accepted curation
    batch with `python scripts/update_data_baseline.py`, then inspect
    `tests/baselines/production_data.json` so count and warning changes are
    explicit.
-4. Run focused validation after each applied curation batch:
+3. Run focused validation after each applied curation batch:
    `python -m astromol.validation` and
    `python -m pytest tests/test_load.py tests/test_validation.py`.
-5. Keep broad code changes out of the curation path unless the existing
+4. Keep broad code changes out of the curation path unless the existing
    workflow blocks a real data update.
 
 ### Immediate Cleanup

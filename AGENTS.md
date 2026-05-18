@@ -203,8 +203,9 @@ Current refactor status:
 - Large-scale code changes are **paused for now**:
   - the current priority is scientific database population and cleanup for the
     2026 census rather than further broad architecture work
-  - known scientific-data warnings should be addressed first, starting with
-    the remaining inherited dipole-moment placeholders
+  - inherited dipole-moment placeholders have been resolved; new curation
+    should continue preserving explicit provenance for computed and literature
+    values
   - new molecules, detections, source updates, and telescope updates should be
     staged through the existing YAML workflow before production JSON is edited
   - it is acceptable for the maintainer to provide curated data in chat for
@@ -256,8 +257,9 @@ Current refactor status:
     `python -W error::DeprecationWarning`
 
 - Known scientific-data warning backlog:
-  - three dipole placeholder values (`*`) still exist and are intentionally
-    tracked as warnings, not errors, until curated replacements are added.
+  - inherited dipole placeholder values (`*`) have been resolved locally;
+    validation should report zero warnings unless new curation follow-ups are
+    intentionally accepted.
 
 - Working tree was clean after the public CLI work was committed and pushed.
   Current local edits after cleanup are intentionally uncommitted unless the
@@ -309,7 +311,13 @@ At the start of each session, read in this order:
    notebook under `docs/calculations/`, cite the software/method references in
    structured `refs` fields, and record the notebook path in a note or history
    summary. Do not track `.ipynb_checkpoints/`.
-9. After any accepted production data change, run
+9. For project-computed dipole moments, add the supporting citekeys to both
+   `dipole.refs` and `refs.computation`, record the notebook path in
+   `dipole.note`, and use this exact short manuscript sentence in `latex_body`:
+   `The dipole moment was calculated as part of this work (\ref{sec:dipole}).`
+   Do not repeat the full method/package/basis-set sentence in every molecule;
+   that detail belongs in the manuscript dipole section.
+10. After any accepted production data change, run
    `python scripts/update_data_baseline.py`, inspect
    `tests/baselines/production_data.json`, and include the intentional baseline
    diff with the curation change.

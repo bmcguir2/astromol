@@ -17,15 +17,17 @@ output-generation migration. Keep implementation details in `SPEC.md` and
   curation for the 2026 census. Prioritize resolving known data warnings, then
   stage new molecule and detection records through the YAML workflow for
   maintainer review before applying them to production JSON.
-- Resolve legacy `*` dipole-moment placeholders before any final dipole-based
-  analysis or manuscript statement. Current inherited placeholders are `SO+`
-  and `MgCN` in `mu_a`, and `HNCS` in `mu_b`. Decide whether to
-  replace them with numeric literature values or convert them to explicit
-  unresolved/null values with notes.
+- Legacy `*` dipole-moment placeholders have been resolved locally for SO+,
+  MgCN, and HNCS. Re-check the validation baseline before final dipole-based
+  analysis or manuscript statements.
 - Project-computed values should be reproducible from tracked notebooks under
-  `docs/calculations/`. For example, the CP dipole-moment calculation is kept
-  in `docs/calculations/cp_dipole_calculations.ipynb` and the manuscript text
-  cites the software, method, and basis-set references used for the calculation.
+  `docs/calculations/`. For example, the CP and SO+ dipole-moment calculations
+  are kept in `docs/calculations/cp_dipole_calculations.ipynb` and
+  `docs/calculations/sop_dipole_calculations.ipynb`.
+- Add a short manuscript section labeled `sec:dipole` that describes the
+  project-computed dipole workflow, including PySCF, pyberny, M06-2x, and the
+  6-311++G(d,p) basis-set references. Individual molecule notes should point
+  to that section rather than repeating the full computational-method sentence.
 
 ## Tables And Counts
 

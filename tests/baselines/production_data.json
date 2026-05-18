@@ -2,29 +2,10 @@
   "counts": {
     "detections": 515,
     "molecules": 369,
-    "references": 1043,
+    "references": 1044,
     "sources": 92,
     "telescopes": 49
   },
   "schema_version": 1,
-  "validation_warnings": [
-    {
-      "code": "dipole-nonnumeric",
-      "message": "dipole.b should be numeric or null; found '*'.",
-      "record": "mol:HNCS",
-      "severity": "warning"
-    },
-    {
-      "code": "dipole-nonnumeric",
-      "message": "dipole.a should be numeric or null; found '*'.",
-      "record": "mol:MgCN",
-      "severity": "warning"
-    },
-    {
-      "code": "dipole-nonnumeric",
-      "message": "dipole.a should be numeric or null; found '*'.",
-      "record": "mol:SO+",
-      "severity": "warning"
-    }
-  ]
+  "validation_warnings": []
 }

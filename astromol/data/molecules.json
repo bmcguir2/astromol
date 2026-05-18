@@ -2191,7 +2191,7 @@
     },
     "isotopologue_of": null,
     "latex_section_override": null,
-    "latex_body": "\\citet{Saito:1989:1114} measured the rotational spectrum of CP in the laboratory and conducted an astronomical search for the $N = 1\\rightarrow0$ and $2\\rightarrow1$ transitions at 48 and 96~GHz, respectively, using the Nobeyama 45-m telescope across several sources, resulting in non-detections.  \\citet{Guelin:1990:L9} subsequently reported the successful detection of the $2\\rightarrow1$ and $5\\rightarrow4$ (239~GHz) transitions toward IRC+10216 using the IRAM 30-m telescope.  The dipole moment of $\\mu_a = 0.88$\\,D was calculated as part of this work using the PySCF \\citep{Sun:2018:e1340, Sun:2020:024109} and pyberny \\citep{Hermann:2020:1940} packages at the M06-2x/6-311++G(d,p) level of theory \\citep{Zhao:2008:215} and basis set \\citep{Krishnan:1980:650, McLean:1980:5639, Clark:1983:294, Frisch:1984:3265}.",
+    "latex_body": "\\citet{Saito:1989:1114} measured the rotational spectrum of CP in the laboratory and conducted an astronomical search for the $N = 1\\rightarrow0$ and $2\\rightarrow1$ transitions at 48 and 96~GHz, respectively, using the Nobeyama 45-m telescope across several sources, resulting in non-detections.  \\citet{Guelin:1990:L9} subsequently reported the successful detection of the $2\\rightarrow1$ and $5\\rightarrow4$ (239~GHz) transitions toward IRC+10216 using the IRAM 30-m telescope.  The dipole moment was calculated as part of this work (\\ref{sec:dipole}).",
     "history": {
       "introduced": {
         "date": null,
@@ -2222,7 +2222,7 @@
             "refs",
             "latex_body"
           ],
-          "summary": "Replaced placeholder dipole moment with this-work computed CP mu_a value and documented the calculation provenance."
+          "summary": "Replaced placeholder dipole moment with this-work computed CP mu_a value and documented the calculation provenance with a manuscript cross-reference."
         }
       ]
     }
@@ -2401,23 +2401,39 @@
       "note": null
     },
     "dipole": {
-      "a": "*",
+      "a": 0.2,
       "b": null,
       "c": null,
       "refs": [
-        "Amano:1991:519"
+        "Sun:2018:e1340",
+        "Sun:2020:024109",
+        "Hermann:2020:1940",
+        "Zhao:2008:215",
+        "Krishnan:1980:650",
+        "McLean:1980:5639",
+        "Clark:1983:294",
+        "Frisch:1984:3265"
       ],
-      "note": null
+      "note": "Computed as part of this work; calculation notebook: docs/calculations/sop_dipole_calculations.ipynb."
     },
     "refs": {
       "lab": [
         "Amano:1991:519"
       ],
-      "computation": []
+      "computation": [
+        "Sun:2018:e1340",
+        "Sun:2020:024109",
+        "Hermann:2020:1940",
+        "Zhao:2008:215",
+        "Krishnan:1980:650",
+        "McLean:1980:5639",
+        "Clark:1983:294",
+        "Frisch:1984:3265"
+      ]
     },
     "isotopologue_of": null,
     "latex_section_override": null,
-    "latex_body": "The detection of \\ce{SO^+} was reported by \\citet{Turner:1992:L107} toward IC 443G using the NRAO 12-m telescope.  The $\\Lambda$-doubled $^2\\Pi_{1/2}$, $J = 5/2\\rightarrow3/2$ and $9/2\\rightarrow7/2$ transitions at 116 and 209~GHz, respectively, were observed.  The frequencies of the $5/2\\rightarrow3/2$ transitions were measured by \\citet{Amano:1991:519}, while those of the $9/2\\rightarrow7/2$ transitions were calculated from the constants given therein.",
+    "latex_body": "The detection of \\ce{SO^+} was reported by \\citet{Turner:1992:L107} toward IC 443G using the NRAO 12-m telescope.  The $\\Lambda$-doubled $^2\\Pi_{1/2}$, $J = 5/2\\rightarrow3/2$ and $9/2\\rightarrow7/2$ transitions at 116 and 209~GHz, respectively, were observed.  The frequencies of the $5/2\\rightarrow3/2$ transitions were measured by \\citet{Amano:1991:519}, while those of the $9/2\\rightarrow7/2$ transitions were calculated from the constants given therein.  The dipole moment was calculated as part of this work (\\ref{sec:dipole}).",
     "history": {
       "introduced": {
         "date": null,
@@ -2430,7 +2446,7 @@
         "census": "2018",
         "context": "confirmed_ism_csm"
       },
-      "last_modified": null,
+      "last_modified": "2026-05-18",
       "events": [
         {
           "date": null,
@@ -2439,6 +2455,16 @@
           "fields": [],
           "summary": "Initial entry",
           "legacy_version": "2018.0.0"
+        },
+        {
+          "date": "2026-05-18",
+          "kind": "corrected",
+          "fields": [
+            "dipole",
+            "refs",
+            "latex_body"
+          ],
+          "summary": "Replaced placeholder dipole moment with this-work computed SO+ mu_a value and documented the calculation provenance with a manuscript cross-reference."
         }
       ]
     }
@@ -6496,19 +6522,21 @@
       "note": null
     },
     "dipole": {
-      "a": "*",
+      "a": 5.3,
       "b": null,
       "c": null,
       "refs": [
-        "Anderson:1994:L41"
+        "Ziurys:1995:L47"
       ],
-      "note": null
+      "note": "Ziurys:1995:L47 indicates that the dipole moment comes from a private communication from P. Valiron and was calculated at the UMP2F-6311+63 df level."
     },
     "refs": {
       "lab": [
         "Anderson:1994:L41"
       ],
-      "computation": []
+      "computation": [
+        "Ziurys:1995:L47"
+      ]
     },
     "isotopologue_of": null,
     "latex_section_override": null,
@@ -6525,7 +6553,7 @@
         "census": "2018",
         "context": "confirmed_ism_csm"
       },
-      "last_modified": null,
+      "last_modified": "2026-05-18",
       "events": [
         {
           "date": null,
@@ -6544,6 +6572,15 @@
           ],
           "summary": "Functional group tag",
           "legacy_version": "2021.10.1"
+        },
+        {
+          "date": "2026-05-18",
+          "kind": "corrected",
+          "fields": [
+            "dipole",
+            "refs"
+          ],
+          "summary": "Replaced placeholder dipole moment with Ziurys et al. 1995 private-communication computed MgCN mu_a value."
         }
       ]
     }
@@ -9011,17 +9048,18 @@
       "note": null
     },
     "dipole": {
-      "a": 1.6,
-      "b": "*",
+      "a": 1.64,
+      "b": 1.0,
       "c": null,
       "refs": [
-        "Kewley:1963:418"
+        "Szalanski:1978:1297"
       ],
-      "note": null
+      "note": "Szalanski:1978:1297 reports mu_a = 1.64 D and mu_b = 1.0 D for HNCS."
     },
     "refs": {
       "lab": [
-        "Kewley:1963:418"
+        "Kewley:1963:418",
+        "Szalanski:1978:1297"
       ],
       "computation": []
     },
@@ -9040,7 +9078,7 @@
         "census": "2018",
         "context": "confirmed_ism_csm"
       },
-      "last_modified": null,
+      "last_modified": "2026-05-18",
       "events": [
         {
           "date": null,
@@ -9059,6 +9097,15 @@
           ],
           "summary": "Functional group tag",
           "legacy_version": "2021.10.1"
+        },
+        {
+          "date": "2026-05-18",
+          "kind": "corrected",
+          "fields": [
+            "dipole",
+            "refs"
+          ],
+          "summary": "Replaced placeholder dipole component with Szalanski et al. 1978 HNCS mu_a and mu_b values."
         }
       ]
     }

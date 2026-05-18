@@ -41,8 +41,8 @@ developed before this branch replaces `main`.
 - New records should be staged through YAML files in `curation/staging/` before
   being applied to production JSON.
 - The project is currently focused on 2026 database curation rather than broad
-  refactor work. The next data tasks are resolving known dipole-moment
-  placeholders and staging new molecule/detection updates for maintainer review.
+  refactor work. The next data tasks are staging new molecule/detection updates
+  for maintainer review.
 - Calculation notebooks that support project-computed database values are
   tracked under `docs/calculations/`; local `.ipynb_checkpoints/` directories
   are ignored.
@@ -161,8 +161,12 @@ history semantics, and references have been checked by the maintainer.
 
 When a database value is calculated as part of this project, keep the
 calculation notebook under `docs/calculations/`, cite the relevant software,
-method, and basis-set references in the molecule metadata and manuscript prose,
-and record the notebook path in a note or history entry for provenance.
+method, and basis-set references in the molecule metadata, and record the
+notebook path in a note or history entry for provenance. For project-computed
+dipole moments, molecule prose should use the short manuscript note
+`The dipole moment was calculated as part of this work (\ref{sec:dipole}).`
+The detailed method, package, and basis-set description belongs in the
+manuscript dipole-methods section.
 
 ## AI Assistance and Data Curation
 
@@ -322,8 +326,8 @@ python -m pytest
 
 The tests live under `tests/` and verify database loading, census-view
 membership, figure/table data builders, slide layout/rendering properties, and
-selected 2021/current output regressions. The current validator reports known
-legacy `*` dipole placeholders as warnings until those values are reconciled.
+selected 2021/current output regressions. The current validator reports no
+accepted production-data warnings.
 
 The current pytest suite intentionally includes a wrapped regression-script
 harness that preserves the migration checks used during the refactor. Once the
