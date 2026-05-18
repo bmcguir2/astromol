@@ -55,42 +55,40 @@ The curation schema is currently repeated in several places:
 - prose schema in `SPEC.md` and docs
 - validation in `astromol/validation.py`
 
-There is already mild drift:
+Previously observed source/telescope template drift has been corrected:
 
-- `scripts/stage_records.py` includes `history` for source and telescope
-  records, but `curation/templates/source.yaml` and
-  `curation/templates/telescope.yaml` do not expose a history block.
-- `curation/templates/telescope.yaml` refers to `TELESCOPE_TYPES`, but no such
-  constant exists in `astromol.models`.
+- `curation/templates/source.yaml` and `curation/templates/telescope.yaml`
+  expose `history` blocks that match `scripts/stage_records.py`.
+- `curation/templates/telescope.yaml` no longer refers to a nonexistent
+  `TELESCOPE_TYPES` constant.
+- `tests/test_curation_templates.py` checks template keys against
+  `stage_records.py` `FIELDS`, `DEFAULTS`, and `REQUIRED`.
 
 Recommended direction: introduce a single schema source for curator-facing
 fields, defaults, required markers, and allowed values. It does not need to be
 heavyweight. A small `astromol/schema.py` or `curation/schema.py` that generates
 templates and feeds `stage_records.py` would remove most of this drift.
 
-Short-term corrective action:
+Short-term corrective action: continue avoiding new schema drift by updating
+templates, staging defaults, validation, specs, and focused template tests in
+the same change whenever curator-facing fields change.
 
-- add source/telescope `history` blocks to the templates or deliberately remove
-  them from the exposed template policy;
-- fix the `TELESCOPE_TYPES` wording;
-- add a small test that checks template keys against `stage_records.py`
-  `FIELDS`.
+### 2. Source And Telescope Duplicate Keys Are Checked
 
-### 2. Source And Telescope Duplicate Keys Can Be Silently Overwritten
+`Database._load_molecules`, `_load_detections`, `_load_sources`, and
+`_load_telescopes` now reject duplicate primary keys before assigning records
+into lookup dictionaries. Duplicate `source.nick` and `telescope.nick` values
+raise `ValueError` during `Database()` load.
 
-`Database._load_molecules` and `_load_detections` reject duplicate primary
-keys, but `_load_sources` and `_load_telescopes` currently assign directly into
-dictionaries without a duplicate check. A duplicate `nick` in JSON would keep
-only the later record in the loaded database.
+Focused coverage: `tests/test_database.py` exercises duplicate source and
+telescope nick rejection against a minimal temporary data directory.
 
-Recommended action: add duplicate checks for source and telescope nicks during
-load, matching the molecule/detection behavior, and add validation tests.
-
-### 3. Known Dipole Placeholders Are Warnings But Can Still Break API Calls
+### 3. Known Dipole Placeholders Are Warnings And API-Safe
 
 The validator correctly reports the five inherited `*` dipole placeholders as
-warnings, but `DipoleMoment.total` attempts numeric exponentiation and raises a
-`TypeError` if a user accesses it for those records.
+warnings. `DipoleMoment.total` now returns `None` when any populated component
+is nonnumeric, so these warning records no longer raise a raw `TypeError` when
+users access the total dipole moment.
 
 Current warning records:
 
@@ -100,10 +98,8 @@ Current warning records:
 - `mol:MgCN`
 - `mol:HNCS`
 
-Recommended action: keep the manuscript-note reminder to resolve the values,
-but also harden `DipoleMoment.total` so nonnumeric placeholders return `None`
-or raise a clearer domain-specific error. Since these are currently allowed as
-known warnings, the public API should not crash with a raw `TypeError`.
+Recommended action: keep the manuscript-note reminder to resolve the values
+before final dipole-based analysis or manuscript claims.
 
 ### 4. `astromol.figures` Is Working But Too Large To Scale Comfortably
 
@@ -189,46 +185,48 @@ Current commands:
 Future CLI polish can add shorter aliases and a validation subcommand, but the
 core standard-output generation path is no longer blocked.
 
-### 9. Small Documentation Bugs Remain
+### 9. Small Documentation Bugs Were Fixed
 
-The README quick-load command says:
-
-```bash
-python test_load.py
-```
-
-There is no root-level `test_load.py`; the test lives at `tests/test_load.py`.
-Replace this with either:
+The README quick-load command now points at the real test path:
 
 ```bash
 python -m pytest tests/test_load.py
 ```
 
-or a direct `python -c` load snippet. This is low risk but user-facing.
+It also includes a direct `Database()` load snippet for users who want a quick
+interactive check.
 
-### 10. Matplotlib Deprecation Warnings Are Known
+### 10. Matplotlib Deprecation Warnings Were Cleaned Up
 
-The pytest suite currently passes with Matplotlib deprecation warnings from
-`boxplot(vert=False)`. Updating those calls to `orientation="horizontal"` will
-remove noise before release.
+The horizontal boxplot helper now uses `orientation="horizontal"` instead of
+the deprecated `vert=False` argument. This removes Matplotlib deprecation noise
+from the production box/strip figures.
 
 ## Suggested Order Of Attack
 
 ### Immediate Cleanup
 
-1. Fix the README quick-load command.
-2. Fix source/telescope template drift and the `TELESCOPE_TYPES` comment.
-3. Add duplicate source/telescope nick checks in `Database`.
-4. Harden `DipoleMoment.total` around nonnumeric placeholders.
-5. Replace `boxplot(vert=False)` with `orientation="horizontal"`.
+No immediate cleanup items remain from this review pass.
 
 ### Before Heavy 2026 Data Expansion
 
-1. Add template/schema consistency tests. **Done:** `tests/test_curation_templates.py`
+1. Fix source/telescope template drift and add template/schema consistency
+   tests. **Done:** `curation/templates/source.yaml` and
+   `curation/templates/telescope.yaml` now expose history consistently, and
+   `tests/test_curation_templates.py`
    now checks that each curator template exposes the same production field set
    known to `scripts/stage_records.py`, while allowing staging-only `_...`
    metadata fields.
-2. Add focused unit tests for model properties and census-view boundaries.
+2. Add duplicate source/telescope nick checks in `Database`. **Done:**
+   `Database()` now rejects duplicate source and telescope nicks, and
+   `tests/test_database.py` covers both cases.
+3. Harden `DipoleMoment.total` around nonnumeric placeholders. **Done:**
+   nonnumeric populated components now make `.total` return `None`, with
+   coverage in `tests/test_models.py`.
+4. Replace `boxplot(vert=False)` with `orientation="horizontal"`.
+   **Done:** the shared horizontal boxplot helper now uses the non-deprecated
+   Matplotlib argument.
+5. Add focused unit tests for model properties and census-view boundaries.
    **Done:** `tests/test_models.py` now covers isotope mass fallback,
    charge/radical inference, DU limits, and kappa behavior;
    `tests/test_census_view_boundaries.py` covers accepted-vs-introduced

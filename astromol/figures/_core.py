@@ -2945,13 +2945,8 @@ def _style_manuscript_axes(
 
 
 def _horizontal_boxplot(ax, values, **kwargs):
-    """Draw a horizontal boxplot across supported Matplotlib versions."""
-    try:
-        return ax.boxplot(values, orientation="horizontal", **kwargs)
-    except TypeError as exc:
-        if "orientation" not in str(exc):
-            raise
-        return ax.boxplot(values, vert=False, **kwargs)
+    """Draw a horizontal boxplot."""
+    return ax.boxplot(values, orientation="horizontal", **kwargs)
 
 
 def _finalize_manuscript_figure(figure, ax) -> None:

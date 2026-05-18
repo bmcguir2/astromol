@@ -222,13 +222,33 @@ Current refactor status:
   - installed `astromol` command lists registry outputs
   - `astromol figure`, `astromol table`, and `astromol slide` generate selected outputs by stable name
   - `astromol outputs` delegates to the full standard bundle generator
+  - committed and pushed as `94cc87e` (`Add public registry-backed CLI`)
+  - GitHub Actions for that push completed successfully:
+    - `CI`
+    - `Package`
+    - `Generated Outputs`
+
+- Immediate cleanup items from `CODEBASE_REVIEW.md` are **cleared locally**:
+  - source/telescope templates expose `history` and are covered by
+    `tests/test_curation_templates.py`
+  - `Database()` rejects duplicate source and telescope nicks, covered by
+    `tests/test_database.py`
+  - `DipoleMoment.total` returns `None` for nonnumeric placeholder components,
+    covered by `tests/test_models.py`
+  - horizontal boxplots now use Matplotlib `orientation="horizontal"` instead
+    of deprecated `vert=False`
+  - focused verification passed:
+    `python -m pytest tests/test_models.py tests/test_database.py tests/test_curation_templates.py`
+  - boxplot regression scripts passed with
+    `python -W error::DeprecationWarning`
 
 - Known scientific-data warning backlog:
   - five dipole placeholder values (`*`) still exist and are intentionally
     tracked as warnings, not errors, until curated replacements are added.
 
-- Working tree was clean after the figure package split, output-registry
-  integration, and GitHub Pages landing-page polish were committed and pushed.
+- Working tree was clean after the public CLI work was committed and pushed.
+  Current local edits after cleanup are intentionally uncommitted unless the
+  user explicitly requests a commit/push.
 
 Refer to [CODEBASE_REVIEW.md](/Users/brett/Dropbox/Programs/census_scripts/astromol/CODEBASE_REVIEW.md) for detailed audit status and verification history.
 
@@ -296,6 +316,13 @@ python -m astromol.validation
 
 # Standard output bundle
 astromol-generate-outputs --output-dir build/astromol_outputs --view current --formats png pdf
+astromol outputs --output-dir build/astromol_outputs --view current --formats png pdf
+
+# Selective standard outputs
+astromol list figures
+astromol figure cumulative_detections --view current --output cumulative_detections.pdf
+astromol table ism_tables --view 2026 --output-dir build/tables
+astromol slide ism_molecule_slide --view current --output-dir build/slides --report
 
 # Docs
 python -m sphinx -W -b html docs docs/_build/html
