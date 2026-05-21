@@ -30,6 +30,34 @@ After reviewing the preview report, apply with:
 python scripts/stage_records.py --staging curation/staging/example.yaml --apply
 ```
 
+Successful staging runs also write a manifest under `astromol/data/`, for
+example `astromol/data/example_stage_manifest.json`. Use that manifest with the
+cleanup helper after the curation batch is finished:
+
+```bash
+python scripts/cleanup_stage.py --name example
+```
+
+This removes the staged YAML input, preview JSON artifacts, stage report, and
+the manifest itself. When committing, the helper also auto-stages the most
+common curation sidecar files if they are modified:
+
+- `astromol/data/references.bib`
+- `tests/baselines/production_data.json`
+
+For additional files beyond those defaults, use `--include`. To create a
+commit and push it:
+
+```bash
+python scripts/cleanup_stage.py \
+  --name example \
+  --commit-message "Add Example curation batch" \
+  --push
+```
+
+`--push` is intentionally separate from `--commit-message` so remote updates
+remain an explicit choice.
+
 After any approved production data change, refresh the committed data baseline
 and review the resulting diff:
 

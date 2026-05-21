@@ -203,6 +203,9 @@ Current refactor status:
 - Large-scale code changes are **paused for now**:
   - the current priority is scientific database population and cleanup for the
     2026 census rather than further broad architecture work
+  - we are actively beginning a new round of 2026 database population, so
+    new molecule, detection, source, and telescope records should be staged
+    for maintainer review before any ingestion/apply step
   - inherited dipole-moment placeholders have been resolved; new curation
     should continue preserving explicit provenance for computed and literature
     values
@@ -321,6 +324,12 @@ At the start of each session, read in this order:
    `python scripts/update_data_baseline.py`, inspect
    `tests/baselines/production_data.json`, and include the intentional baseline
    diff with the curation change.
+11. After a staging batch is finished, use
+    `python scripts/cleanup_stage.py --name <stage-name>` to remove the staging
+    YAML, preview JSON, stage report, and manifest. When `--commit-message` is
+    used, the cleanup helper also stages the touched production JSON files plus
+    modified `astromol/data/references.bib` and
+    `tests/baselines/production_data.json` by default.
 
 ### Git/Workflow Rules
 
@@ -368,4 +377,6 @@ python -m sphinx -W -b html docs docs/_build/html
 python scripts/stage_records.py --staging curation/staging/example.yaml
 python scripts/stage_records.py --staging curation/staging/example.yaml --apply
 python scripts/update_data_baseline.py
+python scripts/cleanup_stage.py --name example
+python scripts/cleanup_stage.py --name example --commit-message "Add example curation batch"
 ```

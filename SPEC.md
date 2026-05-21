@@ -103,6 +103,14 @@ initial `added` event dated with the staging run date. New molecule records and
 secure detection records also default to a current-census `history.accepted`
 block; set `history.accepted: null` for records that are tracked but not yet
 accepted as confirmed.
+Successful staging runs also write
+`astromol/data/<name>_stage_manifest.json`, which records the staging YAML
+inputs, preview/report artifacts, and production JSON targets for that curation
+batch. Use `python scripts/cleanup_stage.py --name <name>` after the batch is
+finished to delete the staging YAML, preview JSON, report, and manifest. When
+used with `--commit-message`, the cleanup helper stages the manifest-touched
+production JSON files plus modified `astromol/data/references.bib` and
+`tests/baselines/production_data.json` by default before committing.
 
 Production inventory counts and accepted validation warnings are tracked in the
 committed baseline `tests/baselines/production_data.json`. After an approved

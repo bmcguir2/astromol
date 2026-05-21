@@ -3,17 +3,31 @@ from __future__ import annotations
 import importlib.util
 import json
 from pathlib import Path
+import subprocess
 import sys
 
 
 ROOT = Path(__file__).resolve().parents[1]
 STAGE_RECORDS_PATH = ROOT / "scripts" / "stage_records.py"
+CLEANUP_STAGE_PATH = ROOT / "scripts" / "cleanup_stage.py"
 
 
 def load_stage_records_module():
     spec = importlib.util.spec_from_file_location(
         "stage_records_for_tests",
         STAGE_RECORDS_PATH,
+    )
+    assert spec is not None
+    assert spec.loader is not None
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+    return module
+
+
+def load_cleanup_stage_module():
+    spec = importlib.util.spec_from_file_location(
+        "cleanup_stage_for_tests",
+        CLEANUP_STAGE_PATH,
     )
     assert spec is not None
     assert spec.loader is not None
@@ -151,6 +165,13 @@ def test_stage_records_writes_preview_without_modifying_production(
     assert "Validation errors: 0" in report
     assert "Applied to production JSON: `false`" in report
 
+    manifest = json.loads((data / "example_stage_manifest.json").read_text())
+    assert manifest["name"] == "example"
+    assert manifest["applied"] is False
+    assert manifest["staging_files"] == ["example.yaml"]
+    assert "astromol/data/example_stage_report.md" in manifest["preview_artifacts"]
+    assert manifest["production_files"] == []
+
 
 def test_stage_records_apply_writes_valid_records_to_production(
     monkeypatch,
@@ -169,6 +190,15 @@ def test_stage_records_apply_writes_valid_records_to_production(
 
     report = (data / "example_stage_report.md").read_text()
     assert "Applied to production JSON: `true`" in report
+
+    manifest = json.loads((data / "example_stage_manifest.json").read_text())
+    assert manifest["applied"] is True
+    assert sorted(manifest["production_files"]) == [
+        "astromol/data/detections.json",
+        "astromol/data/molecules.json",
+        "astromol/data/sources.json",
+        "astromol/data/telescopes.json",
+    ]
 
 
 def test_stage_records_rejects_unknown_references(monkeypatch, tmp_path):
@@ -209,4 +239,200 @@ def test_stage_records_rejects_unknown_references(monkeypatch, tmp_path):
     assert json.loads((data / "molecules.json").read_text()) == []
     report = (data / "badref_stage_report.md").read_text()
     assert "unknown reference key: Missing:2026:1" in report
+    assert not (data / "badref_stage_manifest.json").exists()
 
+
+def init_git_repo(path: Path) -> None:
+    subprocess.run(["git", "init"], cwd=path, check=True, capture_output=True, text=True)
+    subprocess.run(
+        ["git", "config", "user.name", "Test User"],
+        cwd=path,
+        check=True,
+        capture_output=True,
+        text=True,
+    )
+    subprocess.run(
+        ["git", "config", "user.email", "test@example.com"],
+        cwd=path,
+        check=True,
+        capture_output=True,
+        text=True,
+    )
+
+
+def test_cleanup_stage_removes_manifest_listed_files(monkeypatch, tmp_path):
+    data = run_stage_records(monkeypatch, tmp_path, valid_staging_yaml())
+    cleanup_stage = load_cleanup_stage_module()
+
+    manifest_path = data / "example_stage_manifest.json"
+    staging_file = tmp_path / "example.yaml"
+    assert manifest_path.exists()
+    assert staging_file.exists()
+    assert (data / "molecules.example.preview.json").exists()
+    assert (data / "example_stage_report.md").exists()
+
+    monkeypatch.setattr(cleanup_stage, "ROOT", tmp_path)
+    monkeypatch.setattr(cleanup_stage, "DATA", data)
+    monkeypatch.setattr(
+        sys,
+        "argv",
+        [
+            "cleanup_stage.py",
+            "--name",
+            "example",
+        ],
+    )
+
+    cleanup_stage.main()
+
+    assert not manifest_path.exists()
+    assert not staging_file.exists()
+    assert not (data / "molecules.example.preview.json").exists()
+    assert not (data / "detections.example.preview.json").exists()
+    assert not (data / "sources.example.preview.json").exists()
+    assert not (data / "telescopes.example.preview.json").exists()
+    assert not (data / "example_stage.preview.json").exists()
+    assert not (data / "example_stage_report.md").exists()
+
+
+def test_cleanup_stage_can_commit_deleted_and_curated_files(monkeypatch, tmp_path):
+    data = run_stage_records(monkeypatch, tmp_path, valid_staging_yaml(), "--apply")
+    cleanup_stage = load_cleanup_stage_module()
+    init_git_repo(tmp_path)
+
+    tracked_paths = [
+        "astromol/data/molecules.json",
+        "astromol/data/detections.json",
+        "astromol/data/sources.json",
+        "astromol/data/telescopes.json",
+        "astromol/data/references.bib",
+        "example.yaml",
+        "astromol/data/molecules.example.preview.json",
+        "astromol/data/detections.example.preview.json",
+        "astromol/data/sources.example.preview.json",
+        "astromol/data/telescopes.example.preview.json",
+        "astromol/data/example_stage.preview.json",
+        "astromol/data/example_stage_report.md",
+        "astromol/data/example_stage_manifest.json",
+    ]
+    subprocess.run(
+        ["git", "add", "--", *tracked_paths],
+        cwd=tmp_path,
+        check=True,
+        capture_output=True,
+        text=True,
+    )
+    subprocess.run(
+        ["git", "commit", "-m", "baseline"],
+        cwd=tmp_path,
+        check=True,
+        capture_output=True,
+        text=True,
+    )
+
+    (data / "references.bib").write_text(
+        (data / "references.bib").read_text() + "\n@article{Second:2026:2,\n  author = {Second, B.}\n}\n"
+    )
+
+    monkeypatch.setattr(cleanup_stage, "ROOT", tmp_path)
+    monkeypatch.setattr(cleanup_stage, "DATA", data)
+    monkeypatch.setattr(
+        sys,
+        "argv",
+        [
+            "cleanup_stage.py",
+            "--name",
+            "example",
+            "--commit-message",
+            "Clean staged example curation files",
+        ],
+    )
+
+    cleanup_stage.main()
+
+    log = subprocess.run(
+        ["git", "log", "-1", "--pretty=%s"],
+        cwd=tmp_path,
+        check=True,
+        capture_output=True,
+        text=True,
+    )
+    assert log.stdout.strip() == "Clean staged example curation files"
+
+    status = subprocess.run(
+        ["git", "status", "--short"],
+        cwd=tmp_path,
+        check=True,
+        capture_output=True,
+        text=True,
+    )
+    assert status.stdout.strip() == ""
+
+
+def test_cleanup_stage_auto_stages_baseline_when_modified(monkeypatch, tmp_path):
+    data = run_stage_records(monkeypatch, tmp_path, valid_staging_yaml(), "--apply")
+    cleanup_stage = load_cleanup_stage_module()
+    init_git_repo(tmp_path)
+
+    baseline_dir = tmp_path / "tests" / "baselines"
+    baseline_dir.mkdir(parents=True)
+    baseline_path = baseline_dir / "production_data.json"
+    baseline_path.write_text('{"counts": 1}\n')
+
+    tracked_paths = [
+        "astromol/data/molecules.json",
+        "astromol/data/detections.json",
+        "astromol/data/sources.json",
+        "astromol/data/telescopes.json",
+        "astromol/data/references.bib",
+        "tests/baselines/production_data.json",
+        "example.yaml",
+        "astromol/data/molecules.example.preview.json",
+        "astromol/data/detections.example.preview.json",
+        "astromol/data/sources.example.preview.json",
+        "astromol/data/telescopes.example.preview.json",
+        "astromol/data/example_stage.preview.json",
+        "astromol/data/example_stage_report.md",
+        "astromol/data/example_stage_manifest.json",
+    ]
+    subprocess.run(
+        ["git", "add", "--", *tracked_paths],
+        cwd=tmp_path,
+        check=True,
+        capture_output=True,
+        text=True,
+    )
+    subprocess.run(
+        ["git", "commit", "-m", "baseline"],
+        cwd=tmp_path,
+        check=True,
+        capture_output=True,
+        text=True,
+    )
+
+    baseline_path.write_text('{"counts": 2}\n')
+
+    monkeypatch.setattr(cleanup_stage, "ROOT", tmp_path)
+    monkeypatch.setattr(cleanup_stage, "DATA", data)
+    monkeypatch.setattr(
+        sys,
+        "argv",
+        [
+            "cleanup_stage.py",
+            "--name",
+            "example",
+            "--commit-message",
+            "Clean staged example curation files",
+        ],
+    )
+
+    cleanup_stage.main()
+
+    show = subprocess.run(
+        ["git", "show", "--stat", "--oneline", "-1"],
+        cwd=tmp_path,
+        check=True,
+        capture_output=True,
+        text=True,
+    )
+    assert "tests/baselines/production_data.json" in show.stdout

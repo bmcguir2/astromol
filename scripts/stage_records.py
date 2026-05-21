@@ -220,6 +220,13 @@ def write_json(path: Path, data: list[dict]) -> None:
     path.write_text(json.dumps(data, indent=2) + "\n")
 
 
+def relative_path_text(path: Path) -> str:
+    try:
+        return str(path.relative_to(ROOT))
+    except ValueError:
+        return str(path)
+
+
 def load_reference_keys() -> set[str]:
     text = (DATA / "references.bib").read_text()
     return set(re.findall(r"@\w+\{([^,\n]+)", text))
@@ -641,6 +648,25 @@ def make_report(
     return "\n".join(lines).rstrip() + "\n"
 
 
+def build_manifest(
+    name: str,
+    *,
+    staging_files: list[Path],
+    preview_paths: list[Path],
+    production_paths: list[Path],
+    applied: bool,
+    run_date: str,
+) -> dict:
+    return {
+        "name": name,
+        "generated_on": run_date,
+        "applied": applied,
+        "staging_files": [relative_path_text(path) for path in staging_files],
+        "preview_artifacts": [relative_path_text(path) for path in preview_paths],
+        "production_files": [relative_path_text(path) for path in production_paths],
+    }
+
+
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser()
     parser.add_argument(
@@ -761,6 +787,7 @@ def main() -> None:
     }
     detail_path = DATA / f"{name}_stage.preview.json"
     report_path = DATA / f"{name}_stage_report.md"
+    manifest_path = DATA / f"{name}_stage_manifest.json"
 
     write_json(output_paths["molecules"], preview["molecule"])
     write_json(output_paths["detections"], preview["detection"])
@@ -776,18 +803,38 @@ def main() -> None:
         print(f"Wrote {report_path.relative_to(ROOT)} with {len(errors)} validation errors.")
         raise SystemExit(1)
 
+    staged_kinds = {
+        row["kind"]
+        for row in rows
+        if row["kind"] in KIND_TO_FILE and not row["errors"]
+    }
+    production_paths = [
+        DATA / KIND_TO_FILE[kind]
+        for kind in sorted(staged_kinds)
+        if args.apply
+    ]
+    manifest = build_manifest(
+        name,
+        staging_files=args.staging,
+        preview_paths=[*output_paths.values(), detail_path, report_path],
+        production_paths=production_paths,
+        applied=args.apply,
+        run_date=run_date,
+    )
+    manifest_path.write_text(json.dumps(manifest, indent=2) + "\n")
+
     if args.apply:
-        staged_kinds = {
-            row["kind"]
-            for row in rows
-            if row["kind"] in KIND_TO_FILE and not row["errors"]
-        }
         for kind in staged_kinds:
             write_json(DATA / KIND_TO_FILE[kind], preview[kind])
 
     print(f"Wrote {report_path.relative_to(ROOT)}")
-    for path in [*output_paths.values(), detail_path]:
+    for path in [*output_paths.values(), detail_path, manifest_path]:
         print(f"Wrote {path.relative_to(ROOT)}")
+    print(
+        "Cleanup with "
+        f"`python scripts/cleanup_stage.py --name {name}` "
+        "when this staging batch is finished."
+    )
     if args.apply:
         print("Applied staged records to production JSON.")
 
