@@ -28562,5 +28562,74 @@
         "context": "confirmed"
       }
     }
+  },
+  {
+    "name": "1-cyano propargyl radical",
+    "formula": "HCCCHCN",
+    "table_formula": "HCCCHCN",
+    "label": "mol:HCCCHCN",
+    "note": null,
+    "iupac_name": null,
+    "selfies": null,
+    "synonyms": [],
+    "smiles": "C#C[CH]C#N",
+    "canonical_smiles": null,
+    "inchi": "InChI=1S/C4H2N/c1-2-3-4-5/h1,3H",
+    "inchikey": "GIRHPZZNIQAQQY-UHFFFAOYSA-N",
+    "radical_override": true,
+    "fullerene": false,
+    "pah": false,
+    "n_rings": 0,
+    "cyclic": false,
+    "tags": {
+      "functional_groups": [
+        "CN"
+      ]
+    },
+    "rotcon": {
+      "A": 29173,
+      "B": 2808,
+      "C": 2557,
+      "refs": [
+        "Cabezas:2022:A24"
+      ]
+    },
+    "dipole": {
+      "a": 3.7,
+      "b": 1.77,
+      "refs": [
+        "Cabezas:2022:A24"
+      ]
+    },
+    "refs": {
+      "lab": [
+        "Cabezas:2022:A24"
+      ],
+      "computation": []
+    },
+    "isotopologue_of": null,
+    "latex_section_override": null,
+    "latex_body": "\\citet{Cabezas:2025:L14} reported the detection of HCCCHCN in Yebes 40m observations of TMC-1.  They identify and assign seven rotational transitions, some with resolved hyperfine components, between 31--44 GHz based on laboratory data presented in \\citet{Cabezas:2022:A24}.",
+    "history": {
+      "introduced": {
+        "date": "2025-01-01",
+        "census": "2026",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": "2025-01-01",
+        "census": "2026",
+        "context": "confirmed"
+      },
+      "last_modified": "2025-01-01",
+      "events": [
+        {
+          "kind": "added",
+          "summary": "Initial entry.",
+          "date": "2025-01-01",
+          "census": "2026"
+        }
+      ]
+    }
   }
 ]

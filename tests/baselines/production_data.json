@@ -1,7 +1,7 @@
 {
   "counts": {
-    "detections": 516,
-    "molecules": 370,
+    "detections": 517,
+    "molecules": 371,
     "sources": 93,
     "telescopes": 50
   },
@@ -9,8 +9,8 @@
     "census_view_2026": {
       "exoplanet_molecules": 12,
       "exoplanet_molecules_with_isotopologues": 14,
-      "ism_molecules": 325,
-      "ism_molecules_with_isotopologues": 335,
+      "ism_molecules": 326,
+      "ism_molecules_with_isotopologues": 336,
       "ppd_molecules": 34,
       "ppd_molecules_with_isotopologues": 57
     },

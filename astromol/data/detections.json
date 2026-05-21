@@ -20999,5 +20999,59 @@
         "context": "confirmed_exo"
       }
     }
+  },
+  {
+    "id": "det:HCCCHCN:ism-csm:2025",
+    "note": null,
+    "molecule": "mol:HCCCHCN",
+    "sources": [
+      "TMC1"
+    ],
+    "telescopes": [
+      "Yebes40"
+    ],
+    "wavelengths": [
+      "cm"
+    ],
+    "year": 2025,
+    "type": "ISM/CSM",
+    "status": "secure",
+    "status_note": null,
+    "first": true,
+    "month": 1,
+    "day": 1,
+    "refs": {
+      "observation": [
+        "Cabezas:2025:L14"
+      ]
+    },
+    "confirms": [],
+    "confirmed_by": [],
+    "disputes": [],
+    "disputed_by": [],
+    "supersedes": [],
+    "superseded_by": [],
+    "latex_text": null,
+    "history": {
+      "introduced": {
+        "date": "2025-01-01",
+        "census": "2026",
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": "2025-01-01",
+        "census": "2026",
+        "context": "confirmed_ism_csm"
+      },
+      "last_modified": "2025-01-01",
+      "events": [
+        {
+          "kind": "added",
+          "summary": "Initial entry.",
+          "date": "2025-01-01",
+          "census": "2026"
+        }
+      ]
+    }
   }
 ]
