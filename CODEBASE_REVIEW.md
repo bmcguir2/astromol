@@ -202,6 +202,19 @@ The horizontal boxplot helper now uses `orientation="horizontal"` instead of
 the deprecated `vert=False` argument. This removes Matplotlib deprecation noise
 from the production box/strip figures.
 
+### 11. Production Load Regression No Longer Pins Total Reference Count
+
+`tests/test_load.py` no longer treats the total number of entries in
+`astromol/data/references.bib` as a fixed regression invariant. During the
+current curation phase, Zotero exports may add uncommitted bibliography entries
+before the corresponding curated records are staged or applied, and those extra
+entries should not fail local verification.
+
+The important invariant remains one-way: every citekey referenced by the
+production JSON must exist in `references.bib`. That is already enforced during
+`Database()` load, where unknown reference keys raise immediately while unused
+extra bibliography entries remain harmless.
+
 ## Suggested Order Of Attack
 
 ### Current Curation Phase

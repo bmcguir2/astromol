@@ -2,10 +2,25 @@
   "counts": {
     "detections": 516,
     "molecules": 370,
-    "references": 1049,
     "sources": 93,
     "telescopes": 50
   },
-  "schema_version": 1,
+  "regression_counts": {
+    "census_view_2026": {
+      "exoplanet_molecules": 12,
+      "exoplanet_molecules_with_isotopologues": 14,
+      "ism_molecules": 325,
+      "ism_molecules_with_isotopologues": 335,
+      "ppd_molecules": 34,
+      "ppd_molecules_with_isotopologues": 57
+    },
+    "latex_exoplanet_table_2026": {
+      "detections": 12,
+      "detections_with_isotopologues": 14,
+      "isotopologue_detections": 2,
+      "linked_labels": 12
+    }
+  },
+  "schema_version": 2,
   "validation_warnings": []
 }
