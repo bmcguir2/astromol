@@ -88,7 +88,9 @@ class Database:
     Central container for all astromol data.
     Loads JSON files, resolves cross-references, and exposes simple lookups.
     """
-    def __init__(self):
+    def __init__(self, data_dir: str | Path | None = None):
+        self.data_dir = Path(data_dir) if data_dir is not None else DATA_DIR
+
         # Storage — these get populated by _load()
         self.refs = {}           # BibTeX citation key -> Ref
         self.telescopes = {}     # nick -> Telescope
@@ -122,7 +124,7 @@ class Database:
                 "Loading references.bib requires the 'bibtexparser' package."
             ) from exc
 
-        with open(DATA_DIR / "references.bib") as f:
+        with open(self.data_dir / "references.bib") as f:
             bib_database = bibtexparser.load(f)
 
         seen = set()
@@ -206,7 +208,7 @@ class Database:
 
     def _load_telescopes(self):
         """Load telescopes.json into self.telescopes."""
-        with open(DATA_DIR / "telescopes.json") as f:
+        with open(self.data_dir / "telescopes.json") as f:
             for entry in json.load(f):
                 entry = {k: v for k, v in entry.items() if not k.startswith("_")}
                 self._normalize_history(entry)
@@ -217,7 +219,7 @@ class Database:
 
     def _load_sources(self):
         """Load sources.json into self.sources."""
-        with open(DATA_DIR / "sources.json") as f:
+        with open(self.data_dir / "sources.json") as f:
             for entry in json.load(f):
                 entry = {k: v for k, v in entry.items() if not k.startswith("_")}
                 self._normalize_history(entry)
@@ -228,7 +230,7 @@ class Database:
 
     def _load_molecules(self):
         """Load molecules.json into label-keyed storage and secondary indexes."""
-        with open(DATA_DIR / "molecules.json") as f:
+        with open(self.data_dir / "molecules.json") as f:
             data = json.load(f)
             if isinstance(data, dict):
                 data = [data]
@@ -390,7 +392,7 @@ class Database:
 
     def _load_detections(self):
         """Load detections.json into self.detections."""
-        with open(DATA_DIR / "detections.json") as f:
+        with open(self.data_dir / "detections.json") as f:
             for entry in json.load(f):
                 entry = {k: v for k, v in entry.items() if not k.startswith("_")}
                 self._normalize_history(entry)

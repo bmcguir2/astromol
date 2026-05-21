@@ -320,10 +320,12 @@ At the start of each session, read in this order:
    `The dipole moment was calculated as part of this work (\ref{sec:dipole}).`
    Do not repeat the full method/package/basis-set sentence in every molecule;
    that detail belongs in the manuscript dipole section.
-10. After any accepted production data change, run
-   `python scripts/update_data_baseline.py`, inspect
-   `tests/baselines/production_data.json`, and include the intentional baseline
-   diff with the curation change.
+10. Do not manually edit generated count expectations. `stage_records.py`
+   reports proposed generated count updates in the preview report and refreshes
+   `tests/baselines/production_data.json` automatically on `--apply`. Inspect
+   that baseline diff and include it with the curation change. Use
+   `python scripts/update_data_baseline.py` only to manually refresh the same
+   generated baseline outside the staging workflow.
 11. After a staging batch is finished, use
     `python scripts/cleanup_stage.py --name <stage-name>` to remove the staging
     YAML, preview JSON, stage report, and manifest. When `--commit-message` is
@@ -346,7 +348,7 @@ Before declaring substantial work done:
 1. Run focused tests for touched area.
 2. For production data changes, run
    `python -m pytest tests/test_load.py tests/test_validation.py` after
-   refreshing the committed data baseline.
+   applying the staged records and inspecting the generated baseline diff.
 3. Run full `pytest` for broad refactors.
 4. Run docs build (`sphinx -W`) when docs/API surface changes.
 5. Run clean package build when module/package structure changes.
@@ -376,7 +378,7 @@ python -m sphinx -W -b html docs docs/_build/html
 # Curation staging
 python scripts/stage_records.py --staging curation/staging/example.yaml
 python scripts/stage_records.py --staging curation/staging/example.yaml --apply
-python scripts/update_data_baseline.py
+python scripts/update_data_baseline.py  # manual refresh outside staging
 python scripts/cleanup_stage.py --name example
 python scripts/cleanup_stage.py --name example --commit-message "Add example curation batch"
 ```

@@ -2,7 +2,7 @@ import json
 
 import pytest
 
-import astromol.database as database_module
+from astromol.database import Database
 
 
 def write_minimal_data_dir(path, *, telescopes=None, sources=None):
@@ -14,7 +14,7 @@ def write_minimal_data_dir(path, *, telescopes=None, sources=None):
     (path / "detections.json").write_text("[]")
 
 
-def test_database_rejects_duplicate_telescope_nicks(tmp_path, monkeypatch):
+def test_database_rejects_duplicate_telescope_nicks(tmp_path):
     write_minimal_data_dir(
         tmp_path,
         telescopes=[
@@ -34,13 +34,11 @@ def test_database_rejects_duplicate_telescope_nicks(tmp_path, monkeypatch):
             },
         ],
     )
-    monkeypatch.setattr(database_module, "DATA_DIR", tmp_path)
-
     with pytest.raises(ValueError, match="Duplicate telescope nick: Example"):
-        database_module.Database()
+        Database(data_dir=tmp_path)
 
 
-def test_database_rejects_duplicate_source_nicks(tmp_path, monkeypatch):
+def test_database_rejects_duplicate_source_nicks(tmp_path):
     write_minimal_data_dir(
         tmp_path,
         sources=[
@@ -56,7 +54,5 @@ def test_database_rejects_duplicate_source_nicks(tmp_path, monkeypatch):
             },
         ],
     )
-    monkeypatch.setattr(database_module, "DATA_DIR", tmp_path)
-
     with pytest.raises(ValueError, match="Duplicate source nick: ExampleSource"):
-        database_module.Database()
+        Database(data_dir=tmp_path)

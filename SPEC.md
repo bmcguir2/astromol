@@ -103,6 +103,11 @@ initial `added` event dated with the staging run date. New molecule records and
 secure detection records also default to a current-census `history.accepted`
 block; set `history.accepted: null` for records that are tracked but not yet
 accepted as confirmed.
+The preview report includes a `Generated Count Updates` section that compares
+current production inventory and regression-count baselines against the staged
+preview. Applying staged records refreshes
+`tests/baselines/production_data.json` automatically. Generated count
+expectations should not be edited by hand.
 Successful staging runs also write
 `astromol/data/<name>_stage_manifest.json`, which records the staging YAML
 inputs, preview/report artifacts, and production JSON targets for that curation
@@ -112,11 +117,11 @@ used with `--commit-message`, the cleanup helper stages the manifest-touched
 production JSON files plus modified `astromol/data/references.bib` and
 `tests/baselines/production_data.json` by default before committing.
 
-Production inventory counts and accepted validation warnings are tracked in the
-committed baseline `tests/baselines/production_data.json`. After an approved
-data update is applied, run `python scripts/update_data_baseline.py` and inspect
-the baseline diff before committing. Tests read this file so stale baselines
-fail locally and in CI.
+Production inventory counts, curation-sensitive regression counts, and accepted
+validation warnings are tracked in the committed baseline
+`tests/baselines/production_data.json`. After an approved data update is
+applied, inspect the generated baseline diff before committing. Tests read this
+file so stale baselines fail locally and in CI.
 
 When the schema for `Molecule`, `Detection`, `Source`, or `Telescope` changes,
 the corresponding curation template, `scripts/stage_records.py`, and this

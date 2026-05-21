@@ -13,7 +13,9 @@ from datetime import date
 import json
 from pathlib import Path
 import re
+import shutil
 import sys
+from tempfile import TemporaryDirectory
 
 try:
     import yaml
@@ -26,6 +28,7 @@ DATA = ROOT / "astromol" / "data"
 CURRENT_CENSUS = "2026"
 
 sys.path.insert(0, str(ROOT))
+sys.path.insert(0, str(ROOT / "scripts"))
 
 from astromol.models import (  # noqa: E402
     Detection,
@@ -35,6 +38,11 @@ from astromol.models import (  # noqa: E402
     DETECTION_RELATION_FIELDS,
     DETECTION_REF_ROLES,
     MOLECULE_REF_ROLES,
+)
+from astromol.database import Database  # noqa: E402
+from update_data_baseline import (  # noqa: E402
+    build_baseline,
+    write_baseline,
 )
 
 
@@ -220,11 +228,60 @@ def write_json(path: Path, data: list[dict]) -> None:
     path.write_text(json.dumps(data, indent=2) + "\n")
 
 
+def preview_database(preview: dict[str, list[dict]]) -> Database:
+    """Load a Database from in-memory preview records."""
+    with TemporaryDirectory(prefix="astromol_stage_preview_") as tmp:
+        data_dir = Path(tmp)
+        shutil.copyfile(DATA / "references.bib", data_dir / "references.bib")
+        for kind, filename in KIND_TO_FILE.items():
+            write_json(data_dir / filename, preview[kind])
+        return Database(data_dir=data_dir)
+
+
+def flatten_count_values(payload: dict, prefix: tuple[str, ...] = ()) -> dict[str, int]:
+    values = {}
+    for key, value in payload.items():
+        path = (*prefix, key)
+        if isinstance(value, bool):
+            continue
+        if isinstance(value, int):
+            values[".".join(path)] = value
+        elif isinstance(value, dict):
+            values.update(flatten_count_values(value, path))
+    return values
+
+
+def count_changes(current: dict[str, object], previewed: dict[str, object]) -> list[dict]:
+    current_values = flatten_count_values(
+        {
+            "counts": current.get("counts", {}),
+            "regression_counts": current.get("regression_counts", {}),
+        }
+    )
+    preview_values = flatten_count_values(
+        {
+            "counts": previewed.get("counts", {}),
+            "regression_counts": previewed.get("regression_counts", {}),
+        }
+    )
+    changes = []
+    for key in sorted(set(current_values) | set(preview_values)):
+        before = current_values.get(key)
+        after = preview_values.get(key)
+        if before != after:
+            changes.append({"name": key, "before": before, "after": after})
+    return changes
+
+
 def relative_path_text(path: Path) -> str:
     try:
         return str(path.relative_to(ROOT))
     except ValueError:
         return str(path)
+
+
+def production_baseline_path() -> Path:
+    return ROOT / "tests" / "baselines" / "production_data.json"
 
 
 def load_reference_keys() -> set[str]:
@@ -551,6 +608,7 @@ def make_report(
     errors: list[str],
     output_paths: dict[str, Path],
     applied: bool,
+    generated_count_changes: list[dict],
 ) -> str:
     counts = Counter(row["kind"] for row in rows)
     status_counts = Counter(
@@ -575,10 +633,31 @@ def make_report(
     if status_counts:
         lines.append(
             "- Detection statuses: "
-            + ", ".join(f"`{status}`={count}" for status, count in sorted(status_counts.items()))
+            + ", ".join(
+                f"`{status}`={count}"
+                for status, count in sorted(status_counts.items())
+            )
         )
     lines.append(f"- Validation errors: {len(errors)}")
+    lines.append(f"- Generated count updates: {len(generated_count_changes)}")
     lines.append("")
+
+    lines.append("## Generated Count Updates")
+    lines.append("")
+    lines.append(
+        "These generated counts are written to "
+        "`tests/baselines/production_data.json` on apply."
+    )
+    lines.append("")
+    if not generated_count_changes:
+        lines.append("No generated count changes.")
+    else:
+        for change in generated_count_changes:
+            lines.append(
+                f"- `{change['name']}`: `{change['before']}` -> `{change['after']}`"
+            )
+    lines.append("")
+
     lines.append("Preview artifacts:")
     for kind, path in output_paths.items():
         lines.append(f"- `{path.relative_to(ROOT)}`")
@@ -795,9 +874,22 @@ def main() -> None:
     write_json(output_paths["telescopes"], preview["telescope"])
     write_json(detail_path, rows)
 
+    current_baseline = build_baseline(Database(data_dir=DATA))
+    preview_baseline = build_baseline(preview_database(preview))
+    generated_count_changes = count_changes(current_baseline, preview_baseline)
+
     report_paths = dict(output_paths)
     report_paths["details"] = detail_path
-    report_path.write_text(make_report(name, rows, errors, report_paths, applied=args.apply))
+    report_path.write_text(
+        make_report(
+            name,
+            rows,
+            errors,
+            report_paths,
+            applied=args.apply,
+            generated_count_changes=generated_count_changes,
+        )
+    )
 
     if errors:
         print(f"Wrote {report_path.relative_to(ROOT)} with {len(errors)} validation errors.")
@@ -813,6 +905,8 @@ def main() -> None:
         for kind in sorted(staged_kinds)
         if args.apply
     ]
+    if args.apply:
+        production_paths.append(production_baseline_path())
     manifest = build_manifest(
         name,
         staging_files=args.staging,
@@ -826,6 +920,10 @@ def main() -> None:
     if args.apply:
         for kind in staged_kinds:
             write_json(DATA / KIND_TO_FILE[kind], preview[kind])
+        write_baseline(
+            build_baseline(Database(data_dir=DATA)),
+            production_baseline_path(),
+        )
 
     print(f"Wrote {report_path.relative_to(ROOT)}")
     for path in [*output_paths.values(), detail_path, manifest_path]:

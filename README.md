@@ -136,12 +136,19 @@ fields you know, then generate a preview:
 python scripts/stage_records.py --staging curation/staging/example.yaml
 ```
 
-After reviewing the generated report and preview JSON under `astromol/data/`,
-apply the staged records:
+The generated report includes a `Generated Count Updates` section showing any
+production inventory or regression-count baseline values that would change if
+the staged records are applied. After reviewing the report and preview JSON
+under `astromol/data/`, apply the staged records:
 
 ```bash
 python scripts/stage_records.py --staging curation/staging/example.yaml --apply
 ```
+
+Applying staged records refreshes
+`tests/baselines/production_data.json` automatically. Do not manually edit
+generated count expectations in regression scripts; update the curated data and
+let the staging workflow regenerate the baseline.
 
 Successful staging runs also write
 `astromol/data/<name>_stage_manifest.json`. After the curation batch is
@@ -161,12 +168,11 @@ stages the production JSON files touched by the manifest plus modified
 python scripts/cleanup_stage.py --name example --commit-message "Add Example curation batch"
 ```
 
-After an approved production data change, refresh the committed data baseline
-and inspect the diff before committing:
+After an approved production data change, inspect the generated baseline diff
+before committing:
 
 ```bash
 python -m astromol.validation
-python scripts/update_data_baseline.py
 python -m pytest tests/test_load.py tests/test_validation.py
 ```
 
@@ -233,10 +239,10 @@ Add lowercase suffixes only when needed to disambiguate duplicate keys.
 - `docs/`: Sphinx/Read the Docs documentation source
 - `docs/calculations/`: tracked notebooks for project-computed scientific values
 - `scripts/stage_records.py`: staging, validation, preview, and apply workflow
-- `scripts/update_data_baseline.py`: refreshes committed production data counts
-  and known validation-warning baseline
+- `scripts/update_data_baseline.py`: manually refreshes the generated
+  production-data, regression-count, and validation-warning baseline
 - `tests/baselines/production_data.json`: expected production inventory and
-  warning snapshot used by data baseline tests
+  curation-sensitive regression-count snapshot used by tests
 
 ## Packaging
 

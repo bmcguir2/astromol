@@ -1,5 +1,6 @@
 from astromol.census import CensusView
 from astromol.database import Database
+from baseline import load_production_baseline
 
 
 def labels(records):
@@ -7,6 +8,7 @@ def labels(records):
 
 
 db = Database()
+regression_counts = load_production_baseline()["regression_counts"]
 
 view_2018 = CensusView.for_census(db, "2018")
 assert len(view_2018.ism_molecules()) == 204
@@ -41,12 +43,22 @@ assert facility_counts["IRAM 30-m"] == 64
 assert facility_counts["NRAO 36-ft"] == 33
 
 view_2026 = CensusView.for_census(db, "2026")
-assert len(view_2026.ism_molecules()) == 325
-assert len(view_2026.ism_molecules(include_isotopologues=True)) == 335
-assert len(view_2026.exoplanet_molecules()) == 11
-assert len(view_2026.exoplanet_molecules(include_isotopologues=True)) == 13
-assert len(view_2026.ppd_molecules()) == 34
-assert len(view_2026.ppd_molecules(include_isotopologues=True)) == 57
+counts_2026 = regression_counts["census_view_2026"]
+assert len(view_2026.ism_molecules()) == counts_2026["ism_molecules"]
+assert (
+    len(view_2026.ism_molecules(include_isotopologues=True))
+    == counts_2026["ism_molecules_with_isotopologues"]
+)
+assert len(view_2026.exoplanet_molecules()) == counts_2026["exoplanet_molecules"]
+assert (
+    len(view_2026.exoplanet_molecules(include_isotopologues=True))
+    == counts_2026["exoplanet_molecules_with_isotopologues"]
+)
+assert len(view_2026.ppd_molecules()) == counts_2026["ppd_molecules"]
+assert (
+    len(view_2026.ppd_molecules(include_isotopologues=True))
+    == counts_2026["ppd_molecules_with_isotopologues"]
+)
 current = CensusView.current(db)
 for detection_type in ["ISM/CSM", "exgal", "exo", "ppd", "ice"]:
     assert {

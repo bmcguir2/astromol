@@ -164,6 +164,9 @@ def test_stage_records_writes_preview_without_modifying_production(
     report = (data / "example_stage_report.md").read_text()
     assert "Validation errors: 0" in report
     assert "Applied to production JSON: `false`" in report
+    assert "## Generated Count Updates" in report
+    assert "`counts.molecules`: `0` -> `1`" in report
+    assert "`regression_counts.census_view_2026.ism_molecules`: `0` -> `1`" in report
 
     manifest = json.loads((data / "example_stage_manifest.json").read_text())
     assert manifest["name"] == "example"
@@ -198,7 +201,14 @@ def test_stage_records_apply_writes_valid_records_to_production(
         "astromol/data/molecules.json",
         "astromol/data/sources.json",
         "astromol/data/telescopes.json",
+        "tests/baselines/production_data.json",
     ]
+
+    baseline = json.loads(
+        (tmp_path / "tests" / "baselines" / "production_data.json").read_text()
+    )
+    assert baseline["counts"]["molecules"] == 1
+    assert baseline["regression_counts"]["census_view_2026"]["ism_molecules"] == 1
 
 
 def test_stage_records_rejects_unknown_references(monkeypatch, tmp_path):
@@ -375,7 +385,7 @@ def test_cleanup_stage_auto_stages_baseline_when_modified(monkeypatch, tmp_path)
     init_git_repo(tmp_path)
 
     baseline_dir = tmp_path / "tests" / "baselines"
-    baseline_dir.mkdir(parents=True)
+    baseline_dir.mkdir(parents=True, exist_ok=True)
     baseline_path = baseline_dir / "production_data.json"
     baseline_path.write_text('{"counts": 1}\n')
 

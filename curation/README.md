@@ -24,11 +24,18 @@ not automatically process every YAML file in `curation/staging/`. Use
 `curation/staging/` for active records you are currently testing, and
 `curation/todo/` for backlog notes or generated to-do lists.
 
-After reviewing the preview report, apply with:
+The preview report includes a `Generated Count Updates` section showing any
+production inventory or regression-count baseline values that would change if
+the staged records are applied. After reviewing the preview report, apply with:
 
 ```bash
 python scripts/stage_records.py --staging curation/staging/example.yaml --apply
 ```
+
+Applying staged records refreshes
+`tests/baselines/production_data.json` automatically. Do not manually edit
+generated count expectations in regression scripts; update the curated data and
+let the staging workflow regenerate the baseline.
 
 Successful staging runs also write a manifest under `astromol/data/`, for
 example `astromol/data/example_stage_manifest.json`. Use that manifest with the
@@ -58,18 +65,18 @@ python scripts/cleanup_stage.py \
 `--push` is intentionally separate from `--commit-message` so remote updates
 remain an explicit choice.
 
-After any approved production data change, refresh the committed data baseline
-and review the resulting diff:
+After any approved production data change, review the generated baseline diff:
 
 ```bash
 python -m astromol.validation
-python scripts/update_data_baseline.py
 python -m pytest tests/test_load.py tests/test_validation.py
 ```
 
 `tests/baselines/production_data.json` records the expected production
-inventory counts and known validation warnings. It should change only when the
-underlying curated data or accepted warning backlog changes.
+inventory counts, curation-sensitive regression counts, and known validation
+warnings. It should change only when the underlying curated data or accepted
+warning backlog changes. `python scripts/update_data_baseline.py` remains
+available for manual baseline refreshes outside the staging workflow.
 
 ## Record Kinds
 
