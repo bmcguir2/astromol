@@ -1,6 +1,8 @@
 from pathlib import Path
 from tempfile import TemporaryDirectory
 
+from baseline import load_production_baseline
+
 from astromol.census import CensusView
 from astromol.database import Database
 from astromol.figures import (
@@ -11,6 +13,9 @@ from astromol.figures import (
 
 
 db = Database()
+counts_2026 = load_production_baseline()["regression_counts"][
+    "figures_molecule_type_2026"
+]
 view_2021 = CensusView.for_census(db, "2021")
 data_2021 = molecule_type_data(view_2021)
 
@@ -39,16 +44,8 @@ assert {
 
 view_2026 = CensusView.for_census(db, "2026")
 data_2026 = molecule_type_data(view_2026)
-assert data_2026.molecule_count == 325
-assert data_2026.counts == {
-    "neutral": 270,
-    "radical": 71,
-    "cation": 47,
-    "cyclic": 31,
-    "anion": 8,
-    "fullerene": 3,
-    "pah": 9,
-}
+assert data_2026.molecule_count == counts_2026["molecule_count"]
+assert data_2026.counts == counts_2026["counts"]
 
 with TemporaryDirectory() as tmp:
     output_dir = Path(tmp)
@@ -81,24 +78,7 @@ with TemporaryDirectory() as tmp:
         for text in plt_ax.texts
         if text.get_text()
     ]
-    assert displayed_2026[:7] == [
-        "Neutrals",
-        "Radicals",
-        "Cations",
-        "Cyclics",
-        "PAHs",
-        "Anions",
-        "Fullerenes",
-    ]
-    assert displayed_2026[7:] == [
-        "83.1%",
-        "21.8%",
-        "14.5%",
-        "9.5%",
-        "2.8%",
-        "2.5%",
-        "0.9%",
-    ]
+    assert displayed_2026 == counts_2026["ring_text"]
 
     output_path = write_type_pie_chart(
         data_2021,

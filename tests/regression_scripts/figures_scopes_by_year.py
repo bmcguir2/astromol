@@ -1,6 +1,8 @@
 from pathlib import Path
 from tempfile import TemporaryDirectory
 
+from baseline import load_production_baseline
+
 from astromol.census import CensusView
 from astromol.database import Database
 from astromol.figures import (
@@ -17,6 +19,9 @@ def rows_by_label(data):
 
 
 db = Database()
+counts_2026 = load_production_baseline()["regression_counts"][
+    "figures_scopes_by_year_2026"
+]
 view_2021 = CensusView.for_census(db, "2021")
 view_2026 = CensusView.for_census(db, "2026")
 
@@ -48,8 +53,8 @@ assert rows_2021["NRAO 140-ft"].fit_stop_year == 1993
 data_2026 = scopes_by_year_data(view_2026)
 rows_2026 = rows_by_label(data_2026)
 assert data_2026.end_year == 2026
-assert rows_2026["Yebes 40-m"].final_count == 86
-assert round(rows_2026["Yebes 40-m"].rate, 1) == 4.6
+assert rows_2026["Yebes 40-m"].final_count == counts_2026["yebes_final_count"]
+assert round(rows_2026["Yebes 40-m"].rate, 1) == counts_2026["yebes_rate_rounded"]
 assert "ALMA" in rows_2026
 
 with TemporaryDirectory() as tmp:

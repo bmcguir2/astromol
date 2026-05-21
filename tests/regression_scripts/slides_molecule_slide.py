@@ -3,6 +3,8 @@ from tempfile import TemporaryDirectory
 
 from pptx import Presentation
 
+from baseline import load_production_baseline
+
 from astromol.census import CensusView
 from astromol.database import Database
 from astromol.slides import (
@@ -36,6 +38,9 @@ def baselines(runs):
 
 
 db = Database()
+counts_2026 = load_production_baseline()["regression_counts"][
+    "slides_molecule_slide_2026"
+]
 view_2021 = CensusView.for_census(db, "2021")
 view_2026 = CensusView.for_census(db, "2026")
 
@@ -81,42 +86,20 @@ assert "- 13+ Atoms: 8 molecule(s); columns = 4, 4" in report_2021
 assert "- none" in report_2021
 
 layout_2026 = build_molecule_slide_layout(view_2026)
-assert layout_2026.total == 325
-assert len(layout_2026.warnings) == 6
+assert layout_2026.total == counts_2026["total"]
+assert len(layout_2026.warnings) == counts_2026["legacy_warning_count"]
 assert any("13+ Atoms" in warning for warning in layout_2026.warnings)
 
 balanced_2026 = build_molecule_slide_layout(view_2026, profile="balanced")
-assert balanced_2026.total == 325
+assert balanced_2026.total == counts_2026["total"]
 assert balanced_2026.profile == "balanced"
 assert balanced_2026.molecule_font_pt == 20
 assert balanced_2026.warnings == ()
-assert [len(group.molecules) for group in balanced_2026.groups] == [
-    46,
-    48,
-    38,
-    41,
-    35,
-    23,
-    23,
-    18,
-    15,
-    10,
-    9,
-    19,
+assert [len(group.molecules) for group in balanced_2026.groups] == counts_2026[
+    "balanced_group_molecule_counts"
 ]
-assert [len(group.columns) for group in balanced_2026.groups] == [
-    2,
-    2,
-    2,
-    2,
-    2,
-    1,
-    1,
-    1,
-    1,
-    1,
-    1,
-    2,
+assert [len(group.columns) for group in balanced_2026.groups] == counts_2026[
+    "balanced_group_column_counts"
 ]
 assert len(balanced_2026.molecules) == balanced_2026.total
 
@@ -233,7 +216,7 @@ with TemporaryDirectory() as tmp:
         if hasattr(shape, "text")
     )
     assert "Known Interstellar Molecules" in balanced_text
-    assert "325 Molecules" in balanced_text
+    assert counts_2026["count_text"] in balanced_text
     assert "Last Updated: 11 May 2026" in balanced_text
 
     ppd_path = write_ppd_detection_slide(

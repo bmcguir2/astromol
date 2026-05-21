@@ -1,6 +1,8 @@
 from pathlib import Path
 from tempfile import TemporaryDirectory
 
+from baseline import load_production_baseline
+
 from astromol.census import CensusView
 from astromol.database import Database
 from astromol.figures import (
@@ -13,6 +15,9 @@ from astromol.figures import (
 
 
 db = Database()
+counts_2026 = load_production_baseline()["regression_counts"][
+    "figures_wavelength_by_source_type_2026"
+]
 view_2021 = CensusView.for_census(db, "2021")
 data_2021 = wavelength_by_source_type_data(view_2021)
 
@@ -26,13 +31,8 @@ assert data_2021.counts == {
 
 view_2026 = CensusView.for_census(db, "2026")
 data_2026 = wavelength_by_source_type_data(view_2026)
-assert data_2026.molecule_count == 284
-assert data_2026.counts == {
-    "carbon_star": {"cm": 22, "mm": 51, "sub-mm": 3, "IR": 8, "UV": 0, "Vis": 0},
-    "dark_cloud": {"cm": 102, "mm": 29, "sub-mm": 0, "IR": 0, "UV": 0, "Vis": 0},
-    "diffuse_cloud": {"cm": 4, "mm": 2, "sub-mm": 6, "IR": 6, "UV": 6, "Vis": 2},
-    "sfr": {"cm": 31, "mm": 64, "sub-mm": 6, "IR": 0, "UV": 0, "Vis": 0},
-}
+assert data_2026.molecule_count == counts_2026["molecule_count"]
+assert data_2026.counts == counts_2026["counts"]
 
 with TemporaryDirectory() as tmp:
     output_dir = Path(tmp)
@@ -89,12 +89,7 @@ with TemporaryDirectory() as tmp:
         text.get_text()
         for text in stacked_ax.texts
         if text.get_text().startswith("n=")
-    ] == [
-        "n=131",
-        "n=84",
-        "n=101",
-        "n=26",
-    ]
+    ] == counts_2026["stacked_n_labels"]
     stacked_output_path = write_wavelength_by_source_type_stacked_bar(
         data_2026,
         output_dir / "waves_by_source_type_stacked_bar.pdf",

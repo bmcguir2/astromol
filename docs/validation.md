@@ -16,14 +16,21 @@ Validation errors should block release and data-update commits. Validation
 warnings are allowed for known unresolved curation follow-ups, such as inherited
 legacy `*` dipole placeholders.
 
-Production inventory counts and known validation warnings are also checked
-against the committed baseline at `tests/baselines/production_data.json`.
-Refresh that file only after a reviewed data update:
+Production inventory counts, known validation warnings, and curation-sensitive
+2026 regression expectations are also checked against the committed baseline at
+`tests/baselines/production_data.json`. Refresh that file only after a reviewed
+data update:
 
 ```bash
 python scripts/update_data_baseline.py
-python -m pytest tests/test_load.py tests/test_validation.py
+python -m pytest tests/test_load.py tests/test_validation.py tests/test_regression_scripts.py
 ```
+
+Do not repair curation-driven assertion failures by editing scattered numeric
+literals in regression scripts. Add the generated expectation to
+`scripts/update_data_baseline.py`, regenerate
+`tests/baselines/production_data.json`, and inspect the baseline diff with the
+curation change.
 
 Run the regression suite with:
 

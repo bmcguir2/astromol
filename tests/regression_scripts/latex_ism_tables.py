@@ -2,6 +2,8 @@ import re
 from pathlib import Path
 from tempfile import TemporaryDirectory
 
+from baseline import load_production_baseline
+
 from astromol.census import CensusView
 from astromol.database import Database
 from astromol.latex import (
@@ -16,6 +18,9 @@ from astromol.latex import (
 
 
 db = Database()
+counts_2026 = load_production_baseline()["regression_counts"][
+    "latex_ism_tables_2026"
+]
 view_2021 = CensusView.for_census(db, "2021")
 view_2026 = CensusView.for_census(db, "2026")
 
@@ -101,7 +106,9 @@ with TemporaryDirectory() as tmp:
 
 balanced_groups = balanced_ism_table_columns(view_2026)
 assert len(balanced_groups) == 3
-assert [len(group) for group in balanced_groups] == [7, 7, 6]
+assert [len(group) for group in balanced_groups] == counts_2026[
+    "balanced_group_column_counts"
+]
 assert all(len(group) <= BALANCED_ISM_MAX_COLUMNS for group in balanced_groups)
 assert all(
     len(left) >= len(right)
@@ -142,7 +149,9 @@ expected_2026_molecules = ism_table_molecules(view_2026)
 assert all(molecule.isotopologue_of is None for molecule in expected_2026_molecules)
 expected_2026_labels = {molecule.label for molecule in expected_2026_molecules}
 assert set(balanced_labels) == expected_2026_labels
-assert len(balanced_labels) == len(expected_2026_labels) == 325
+assert len(balanced_labels) == len(expected_2026_labels) == counts_2026[
+    "linked_labels"
+]
 assert len(balanced_labels) == len(set(balanced_labels))
 
 with TemporaryDirectory() as tmp:

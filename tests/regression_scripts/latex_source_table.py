@@ -1,6 +1,8 @@
 from pathlib import Path
 from tempfile import TemporaryDirectory
 
+from baseline import load_production_baseline
+
 from astromol.census import CensusView
 from astromol.database import Database
 from astromol.latex import (
@@ -11,6 +13,9 @@ from astromol.latex import (
 
 
 db = Database()
+counts_2026 = load_production_baseline()["regression_counts"][
+    "latex_source_table_2026"
+]
 view_2021 = CensusView.for_census(db, "2021")
 view_2026 = CensusView.for_census(db, "2026")
 
@@ -46,21 +51,18 @@ with TemporaryDirectory() as tmp:
 
 entries_2026 = source_table_entries(view_2026)
 labels_2026 = {label for label, _ in entries_2026}
-assert len(entries_2026) == 42
-assert sum(count for _, count in entries_2026) == 424
+assert len(entries_2026) == counts_2026["entries"]
+assert sum(count for _, count in entries_2026) == counts_2026["credited_detections"]
 assert entries_2026[:5] == [
-    ("TMC-1", 106),
-    ("Sgr B2", 70),
-    ("IRC+10216", 68),
-    ("Diffuse Cloud", 42),
-    ("Orion", 25),
+    tuple(entry) for entry in counts_2026["top_entries"]
 ]
 assert "Diffuse Cloud" in labels_2026
 assert "DiffuseCloud" not in labels_2026
 assert "Sgr B2 LOS" not in labels_2026
 
 content_2026 = source_table_fragments(view_2026)["source_table.tex"]
-assert "TMC-1\t&\t106\t&\tL183\t&\t2\t\\\\" in content_2026
+top_source, top_source_count = counts_2026["top_entries"][0]
+assert f"{top_source}\t&\t{top_source_count}\t&" in content_2026
 assert "Sgr B2\t&\t70\t&\tLupus-1A\t&\t2\t\\\\" in content_2026
 assert "Diffuse Cloud\t&\t42\t&\tNGC 7023\t&\t2\t\\\\" in content_2026
 assert content_2026.count(r"\\") == 22

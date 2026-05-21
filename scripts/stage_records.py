@@ -874,8 +874,14 @@ def main() -> None:
     write_json(output_paths["telescopes"], preview["telescope"])
     write_json(detail_path, rows)
 
-    current_baseline = build_baseline(Database(data_dir=DATA))
-    preview_baseline = build_baseline(preview_database(preview))
+    current_baseline = build_baseline(
+        Database(data_dir=DATA),
+        include_output_regressions=False,
+    )
+    preview_baseline = build_baseline(
+        preview_database(preview),
+        include_output_regressions=False,
+    )
     generated_count_changes = count_changes(current_baseline, preview_baseline)
 
     report_paths = dict(output_paths)

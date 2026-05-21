@@ -1,6 +1,8 @@
 from pathlib import Path
 from tempfile import TemporaryDirectory
 
+from baseline import load_production_baseline
+
 from astromol.census import CensusView
 from astromol.database import Database
 from astromol.figures import (
@@ -13,6 +15,9 @@ from astromol.figures import (
 
 
 db = Database()
+counts_2026 = load_production_baseline()["regression_counts"][
+    "figures_mass_by_source_type_2026"
+]
 view_2021 = CensusView.for_census(db, "2021")
 data_2021 = mass_by_source_type_data(view_2021)
 
@@ -27,13 +32,8 @@ assert tuple(round(value, 3) for value in data_2021.mass_range) == (2.016, 153.0
 
 view_2026 = CensusView.for_census(db, "2026")
 data_2026 = mass_by_source_type_data(view_2026)
-assert data_2026.molecule_count == 284
-assert data_2026.counts == {
-    "carbon_star": 71,
-    "dark_cloud": 117,
-    "diffuse_cloud": 24,
-    "sfr": 92,
-}
+assert data_2026.molecule_count == counts_2026["molecule_count"]
+assert data_2026.counts == counts_2026["counts"]
 assert tuple(round(value, 3) for value in data_2026.mass_range) == (2.016, 227.073)
 
 with TemporaryDirectory() as tmp:
@@ -81,12 +81,7 @@ with TemporaryDirectory() as tmp:
         text.get_text()
         for text in box_ax.texts
         if text.get_text()
-    ] == [
-        "n=117",
-        "n=71",
-        "n=92",
-        "n=24",
-    ]
+    ] == counts_2026["boxplot_n_labels"]
 
     box_output_path = write_mass_by_source_type_boxplot(
         data_2026,

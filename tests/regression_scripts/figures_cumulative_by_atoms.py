@@ -4,6 +4,8 @@ from tempfile import TemporaryDirectory
 
 import numpy as np
 
+from baseline import load_production_baseline
+
 from astromol.census import CensusView
 from astromol.database import Database
 from astromol.figures import (
@@ -36,6 +38,9 @@ def colors_by_label(data):
 
 
 db = Database()
+counts_2026 = load_production_baseline()["regression_counts"][
+    "figures_cumulative_by_atoms_2026"
+]
 view_2021 = CensusView.for_census(db, "2021")
 view_2026 = CensusView.for_census(db, "2026")
 view_current = CensusView.current(db)
@@ -68,15 +73,21 @@ assert colors_by_label(data_2021) == {
 data_2026 = cumulative_by_atoms_data(view_2026)
 assert data_2026.start_year == 1937
 assert data_2026.end_year == 2026
-assert data_2026.total == 325
-assert final_counts_by_label(data_2026)["13+ atoms"] == 7
+assert data_2026.total == counts_2026["total"]
+assert final_counts_by_label(data_2026)["13+ atoms"] == counts_2026[
+    "final_counts"
+]["13+ atoms"]
 assert "mol:c-C6H5CCH" in next(
     series.first_detection_years
     for series in data_2026.series
     if series.label == "13+ atoms"
 )
-assert final_counts_by_label(data_2026)["PAHs"] == 9
-assert final_counts_by_label(data_2026)["Fullerenes"] == 3
+assert final_counts_by_label(data_2026)["PAHs"] == counts_2026["final_counts"][
+    "PAHs"
+]
+assert final_counts_by_label(data_2026)["Fullerenes"] == counts_2026[
+    "final_counts"
+]["Fullerenes"]
 assert colors_by_label(data_2026) == {
     spec["label"]: spec["color"]
     for spec in COLORBLIND_CUMULATIVE_BY_ATOMS_SERIES
@@ -107,22 +118,7 @@ assert heatmap_2026.window == 10
 assert heatmap_2026.vmax == 2.0
 assert np.allclose(
     heatmap_2026.matrix[:, -1],
-    [
-        0.8,
-        0.9,
-        1.1,
-        1.8,
-        1.6,
-        1.3,
-        1.2,
-        0.8,
-        1.0,
-        0.6,
-        0.6,
-        0.7,
-        0.0,
-        0.9,
-    ],
+    counts_2026["rolling_rate_last_column"],
 )
 
 with TemporaryDirectory() as tmp:

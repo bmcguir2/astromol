@@ -1,6 +1,8 @@
 from pathlib import Path
 from tempfile import TemporaryDirectory
 
+from baseline import load_production_baseline
+
 from astromol.census import CensusView
 from astromol.database import Database
 from astromol.figures import (
@@ -13,6 +15,9 @@ from astromol.figures import (
 
 
 db = Database()
+counts_2026 = load_production_baseline()["regression_counts"][
+    "figures_molecule_type_by_source_type_2026"
+]
 view_2021 = CensusView.for_census(db, "2021")
 data_2021 = molecule_type_by_source_type_data(view_2021)
 
@@ -63,50 +68,10 @@ assert data_2021.overall_type_counts == {
 
 view_2026 = CensusView.for_census(db, "2026")
 data_2026 = molecule_type_by_source_type_data(view_2026)
-assert data_2026.molecule_count == 325
-assert data_2026.counts == {
-    "carbon_star": {
-        "anion": 7,
-        "cation": 4,
-        "cyclic": 3,
-        "neutral": 60,
-        "radical": 22,
-    },
-    "dark_cloud": {
-        "anion": 4,
-        "cation": 18,
-        "cyclic": 22,
-        "neutral": 95,
-        "radical": 29,
-    },
-    "diffuse_cloud": {
-        "anion": 0,
-        "cation": 6,
-        "cyclic": 0,
-        "neutral": 18,
-        "radical": 9,
-    },
-    "sfr": {
-        "anion": 0,
-        "cation": 13,
-        "cyclic": 4,
-        "neutral": 79,
-        "radical": 7,
-    },
-}
-assert data_2026.source_counts == {
-    "carbon_star": 71,
-    "dark_cloud": 117,
-    "diffuse_cloud": 24,
-    "sfr": 92,
-}
-assert data_2026.overall_type_counts == {
-    "anion": 8,
-    "cation": 47,
-    "cyclic": 31,
-    "neutral": 270,
-    "radical": 71,
-}
+assert data_2026.molecule_count == counts_2026["molecule_count"]
+assert data_2026.counts == counts_2026["counts"]
+assert data_2026.source_counts == counts_2026["source_counts"]
+assert data_2026.overall_type_counts == counts_2026["overall_type_counts"]
 
 with TemporaryDirectory() as tmp:
     output_dir = Path(tmp)

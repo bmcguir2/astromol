@@ -1,6 +1,8 @@
 from pathlib import Path
 from tempfile import TemporaryDirectory
 
+from baseline import load_production_baseline
+
 from astromol.census import CensusView
 from astromol.database import Database
 from astromol.figures import (
@@ -11,6 +13,9 @@ from astromol.figures import (
 
 
 db = Database()
+counts_2026 = load_production_baseline()["regression_counts"][
+    "figures_source_type_2026"
+]
 view_2021 = CensusView.for_census(db, "2021")
 data_2021 = source_type_data(view_2021)
 
@@ -35,14 +40,8 @@ assert {
 
 view_2026 = CensusView.for_census(db, "2026")
 data_2026 = source_type_data(view_2026)
-assert data_2026.molecule_count == 325
-assert data_2026.counts == {
-    "sfr": 92,
-    "dark_cloud": 117,
-    "carbon_star": 71,
-    "other": 50,
-    "diffuse_cloud": 24,
-}
+assert data_2026.molecule_count == counts_2026["molecule_count"]
+assert data_2026.counts == counts_2026["counts"]
 
 with TemporaryDirectory() as tmp:
     output_dir = Path(tmp)
@@ -70,18 +69,7 @@ with TemporaryDirectory() as tmp:
         for text in production_ax.texts
         if text.get_text()
     ]
-    assert displayed_2026 == [
-        "Dark Cloud",
-        "36.0%",
-        "SFR",
-        "28.3%",
-        "Carbon Star",
-        "21.8%",
-        "Other",
-        "15.4%",
-        "Diffuse Cloud",
-        "7.4%",
-    ]
+    assert displayed_2026 == counts_2026["ring_text"]
 
     output_path = write_source_pie_chart(
         data_2021,

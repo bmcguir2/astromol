@@ -1,6 +1,8 @@
 from pathlib import Path
 from tempfile import TemporaryDirectory
 
+from baseline import load_production_baseline
+
 from astromol.census import CensusView
 from astromol.database import Database
 from astromol.figures import (
@@ -11,6 +13,9 @@ from astromol.figures import (
 
 
 db = Database()
+counts_2026 = load_production_baseline()["regression_counts"][
+    "figures_kappas_2026"
+]
 view_2021 = CensusView.for_census(db, "2021")
 data_2021 = kappa_histogram_data(view_2021)
 
@@ -33,10 +38,10 @@ assert data_2021.histogram_counts()[:10].tolist() == [
 
 view_2026 = CensusView.for_census(db, "2026")
 data_2026 = kappa_histogram_data(view_2026)
-assert data_2026.molecule_count == 305
+assert data_2026.molecule_count == counts_2026["molecule_count"]
 assert data_2026.min_kappa == -1.0
 assert data_2026.max_kappa == 1.0
-assert data_2026.histogram_counts().max() == 210
+assert data_2026.histogram_counts().max() == counts_2026["histogram_max"]
 
 with TemporaryDirectory() as tmp:
     output_dir = Path(tmp)
