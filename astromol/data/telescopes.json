@@ -1,12 +1,14 @@
 [
-
   {
     "_break": "==========================================",
     "name": "Green Bank Telescope",
     "nick": "GBT",
     "shortname": "GBT 100-m",
     "type": "Single Dish",
-    "wavelength": ["cm", "mm"],
+    "wavelength": [
+      "cm",
+      "mm"
+    ],
     "diameter": 100.0,
     "latitude": 38.433056,
     "longitude": -79.839722,
@@ -15,14 +17,16 @@
     "latex_name": "GBT 100-m",
     "note": null
   },
-
   {
     "_break": "==========================================",
     "name": "IRAM 30-m",
     "nick": "IRAM30",
     "shortname": "IRAM 30-m",
     "type": "Single Dish",
-    "wavelength": ["mm", "sub-mm"],
+    "wavelength": [
+      "mm",
+      "sub-mm"
+    ],
     "diameter": 30.0,
     "latitude": 37.066161,
     "longitude": -3.392719,
@@ -31,14 +35,15 @@
     "latex_name": "IRAM 30-m",
     "note": null
   },
-
   {
     "_break": "==========================================",
     "name": "Spitzer",
     "nick": "Spitzer",
     "shortname": "Spitzer",
     "type": "Space",
-    "wavelength": ["IR"],
+    "wavelength": [
+      "IR"
+    ],
     "diameter": 0.85,
     "latitude": null,
     "longitude": null,
@@ -47,14 +52,17 @@
     "latex_name": "Spitzer",
     "note": null
   },
-
   {
     "_break": "==========================================",
     "name": "Hubble Space Telescope",
     "nick": "Hubble",
     "shortname": "Hubble",
     "type": "Space",
-    "wavelength": ["IR", "Vis", "UV"],
+    "wavelength": [
+      "IR",
+      "Vis",
+      "UV"
+    ],
     "diameter": 2.4,
     "latitude": null,
     "longitude": null,
@@ -63,14 +71,16 @@
     "latex_name": "Hubble",
     "note": null
   },
-
   {
     "_break": "==========================================",
     "name": "Atacama Large Millimeter/sub-millimeter Array",
     "nick": "ALMA",
     "shortname": "ALMA",
     "type": "Interferometer",
-    "wavelength": ["mm", "sub-mm"],
+    "wavelength": [
+      "mm",
+      "sub-mm"
+    ],
     "diameter": null,
     "latitude": -23.0193,
     "longitude": -67.7532,
@@ -79,14 +89,15 @@
     "latex_name": "ALMA",
     "note": null
   },
-
   {
     "_break": "==========================================",
     "name": "Infrared Space Observatory",
     "nick": "ISO",
     "shortname": "ISO",
     "type": "Space",
-    "wavelength": ["IR"],
+    "wavelength": [
+      "IR"
+    ],
     "diameter": 0.6,
     "latitude": null,
     "longitude": null,
@@ -95,14 +106,15 @@
     "latex_name": "ISO",
     "note": null
   },
-
   {
     "_break": "==========================================",
     "name": "JWST",
     "nick": "JWST",
     "shortname": "JWST",
     "type": "Space",
-    "wavelength": ["IR"],
+    "wavelength": [
+      "IR"
+    ],
     "diameter": 6.5,
     "latitude": null,
     "longitude": null,
@@ -111,14 +123,15 @@
     "latex_name": "JWST",
     "note": null
   },
-
   {
     "_break": "==========================================",
     "name": "NRAO 140-ft",
     "nick": "NRAO140",
     "shortname": "NRAO 140-ft",
     "type": "Single Dish",
-    "wavelength": ["cm"],
+    "wavelength": [
+      "cm"
+    ],
     "diameter": 43.0,
     "latitude": 38.433056,
     "longitude": -79.839722,
@@ -127,14 +140,16 @@
     "latex_name": "NRAO 140-ft",
     "note": "Technically started operations again in 2014, but not for PI science."
   },
-
   {
     "_break": "==========================================",
     "name": "Algonquin 46-m Telescope",
     "nick": "Algonquin46",
     "shortname": "Algonquin 46-m",
     "type": "Single Dish",
-    "wavelength": ["cm", "mm"],
+    "wavelength": [
+      "cm",
+      "mm"
+    ],
     "diameter": 46.0,
     "latitude": 45.955503,
     "longitude": -78.073042,
@@ -143,14 +158,15 @@
     "latex_name": "Algonquin 46-m",
     "note": "Technically in operation much longer, but seems to have ceased PI science in 1987."
   },
-
   {
     "_break": "==========================================",
     "name": "NRAO/ARO 12-m Telescope",
     "nick": "NRAOARO12",
     "shortname": "NRAO/ARO 12-m",
     "type": "Single Dish",
-    "wavelength": ["mm"],
+    "wavelength": [
+      "mm"
+    ],
     "diameter": 12.0,
     "latitude": 31.9533,
     "longitude": -111.615,
@@ -159,14 +175,15 @@
     "latex_name": "NRAO/ARO 12-m",
     "note": "Originally the NRAO 36-ft (11 m) telescope until 1984, when the dish was replaced (these are counted as separate facilities). The observatory was handed over to the ARO in 2000 and renamed. In 2013, the antenna was replaced with a 12-m ALMA prototype antenna."
   },
-
   {
     "_break": "==========================================",
     "name": "NRAO 36-ft Telescope",
     "nick": "NRAO36",
     "shortname": "NRAO 36-ft",
     "type": "Single Dish",
-    "wavelength": ["mm"],
+    "wavelength": [
+      "mm"
+    ],
     "diameter": 11.0,
     "latitude": 31.9533,
     "longitude": -111.615,
@@ -175,14 +192,16 @@
     "latex_name": "NRAO 36-ft",
     "note": "Became the NRAO/ARO 12-m telescope in 1984."
   },
-
   {
     "_break": "==========================================",
     "name": "Nobeyama 45-m Telescope",
     "nick": "Nobeyama45",
     "shortname": "Nobeyama 45-m",
     "type": "Single Dish",
-    "wavelength": ["cm", "mm"],
+    "wavelength": [
+      "cm",
+      "mm"
+    ],
     "diameter": 45.0,
     "latitude": 35.9417,
     "longitude": 138.4758,
@@ -191,14 +210,15 @@
     "latex_name": "Nobeyama 45-m",
     "note": null
   },
-
   {
     "_break": "==========================================",
     "name": "Effelsberg 100-m Telescope",
     "nick": "Effelsberg100",
     "shortname": "Effelsberg 100-m",
     "type": "Single Dish",
-    "wavelength": ["cm"],
+    "wavelength": [
+      "cm"
+    ],
     "diameter": 100.0,
     "latitude": 50.5247,
     "longitude": -6.8828,
@@ -207,14 +227,16 @@
     "latex_name": "Effelsberg 100-m",
     "note": null
   },
-
   {
     "_break": "==========================================",
     "name": "Haystack 37-m Telescope",
     "nick": "Haystack37",
     "shortname": "Haystack",
     "type": "Single Dish",
-    "wavelength": ["cm", "mm"],
+    "wavelength": [
+      "cm",
+      "mm"
+    ],
     "diameter": 37.0,
     "latitude": 42.6233,
     "longitude": -71.4882,
@@ -223,14 +245,15 @@
     "latex_name": "Haystack",
     "note": null
   },
-
   {
     "_break": "==========================================",
     "name": "Plateu de Bure Interferometer",
     "nick": "PdBI",
     "shortname": "PdBI",
     "type": "Interferometer",
-    "wavelength": ["mm"],
+    "wavelength": [
+      "mm"
+    ],
     "diameter": null,
     "latitude": 44.63389,
     "longitude": 5.90792,
@@ -239,14 +262,15 @@
     "latex_name": "PdBI",
     "note": null
   },
-
   {
     "_break": "==========================================",
     "name": "Berkeley-Illinois-Maryland Array",
     "nick": "BIMA",
     "shortname": "BIMA",
     "type": "Interferometer",
-    "wavelength": ["mm"],
+    "wavelength": [
+      "mm"
+    ],
     "diameter": null,
     "latitude": 40.8178,
     "longitude": -121.473,
@@ -255,14 +279,15 @@
     "latex_name": "BIMA",
     "note": "Became part of CARMA."
   },
-
   {
     "_break": "==========================================",
     "name": "Caltech Owens Valley Radio Observatory Millimeter Array",
     "nick": "OVRO",
     "shortname": "OVRO",
     "type": "Interferometer",
-    "wavelength": ["mm"],
+    "wavelength": [
+      "mm"
+    ],
     "diameter": null,
     "latitude": 37.2339,
     "longitude": -118.282,
@@ -271,14 +296,16 @@
     "latex_name": "OVRO",
     "note": "Became part of CARMA."
   },
-
   {
     "_break": "==========================================",
     "name": "Yebes RT40-m Telescope",
     "nick": "Yebes40",
     "shortname": "Yebes 40-m",
     "type": "Single Dish",
-    "wavelength": ["cm", "mm"],
+    "wavelength": [
+      "cm",
+      "mm"
+    ],
     "diameter": null,
     "latitude": 40.525208,
     "longitude": -3.088725,
@@ -287,14 +314,15 @@
     "latex_name": "Yebes 40-m",
     "note": null
   },
-
   {
     "_break": "==========================================",
     "name": "Maryland Point Observatory Naval Research Lab 85-foot Telescope",
     "nick": "NRL85",
     "shortname": "NRL 85-ft",
     "type": "Single Dish",
-    "wavelength": ["cm"],
+    "wavelength": [
+      "cm"
+    ],
     "diameter": 26.0,
     "latitude": 38.3741667,
     "longitude": -77.230833,
@@ -303,14 +331,15 @@
     "latex_name": "NRL 85-ft",
     "note": "Primarily used for VLBI for much of its later years."
   },
-
   {
     "_break": "==========================================",
     "name": "Australia Telescope Compact Array",
     "nick": "ATCA",
     "shortname": "ATCA",
     "type": "Interferometer",
-    "wavelength": ["cm"],
+    "wavelength": [
+      "cm"
+    ],
     "diameter": null,
     "latitude": -30.312778,
     "longitude": 149.550278,
@@ -319,14 +348,15 @@
     "latex_name": "ATCA",
     "note": null
   },
-
   {
     "_break": "==========================================",
     "name": "Parkes 64-m Telescope",
     "nick": "Parkes64",
     "shortname": "Parkes",
     "type": "Single Dish",
-    "wavelength": ["cm"],
+    "wavelength": [
+      "cm"
+    ],
     "diameter": 64.0,
     "latitude": -32.99778,
     "longitude": 148.26292,
@@ -335,14 +365,16 @@
     "latex_name": "Parkes",
     "note": null
   },
-
   {
     "_break": "==========================================",
     "name": "ARO 10-m Submillimeter Telescope",
     "nick": "SMT10",
     "shortname": "SMT",
     "type": "Single Dish",
-    "wavelength": ["mm", "sub-mm"],
+    "wavelength": [
+      "mm",
+      "sub-mm"
+    ],
     "diameter": 10.0,
     "latitude": 32.701658,
     "longitude": -109.871391,
@@ -351,14 +383,16 @@
     "latex_name": "SMT",
     "note": null
   },
-
   {
     "_break": "==========================================",
     "name": "Swedish-ESO 15-m Submillimetre Telescope",
     "nick": "SEST15",
     "shortname": "SEST",
     "type": "Single Dish",
-    "wavelength": ["mm", "sub-mm"],
+    "wavelength": [
+      "mm",
+      "sub-mm"
+    ],
     "diameter": 15.0,
     "latitude": -29.26,
     "longitude": -70.73,
@@ -367,14 +401,15 @@
     "latex_name": "SEST",
     "note": null
   },
-
   {
     "_break": "==========================================",
     "name": "Goldstone 72-m (DSS-14; \"Mars\")",
     "nick": "Goldstone70",
     "shortname": "Goldstone",
     "type": "Single Dish",
-    "wavelength": ["cm"],
+    "wavelength": [
+      "cm"
+    ],
     "diameter": 70.0,
     "latitude": 35.426667,
     "longitude": -116.89,
@@ -383,14 +418,15 @@
     "latex_name": "Goldstone",
     "note": "Originally a 64-m dish; become 70-m in 1988. Conceivably still PI Science Capable?"
   },
-
   {
     "_break": "==========================================",
     "name": "Tokyo Astronomical Observatory Mitaka 6-m",
     "nick": "Mitaka6",
     "shortname": "Mitaka 6-m",
     "type": "Single Dish",
-    "wavelength": ["mm"],
+    "wavelength": [
+      "mm"
+    ],
     "diameter": 6.0,
     "latitude": 35.675217,
     "longitude": 139.538083,
@@ -399,14 +435,17 @@
     "latex_name": "Mitaka 6-m",
     "note": "Moved around quite a bit within Japan until returning (and retiring) in 2018."
   },
-
   {
     "_break": "==========================================",
     "name": "McMath-Pierce Solar Telescope",
     "nick": "McMath",
     "shortname": "McMath Solar Telescope",
     "type": "Optical",
-    "wavelength": ["IR", "Vis", "UV"],
+    "wavelength": [
+      "IR",
+      "Vis",
+      "UV"
+    ],
     "diameter": 1.6,
     "latitude": 31.9584,
     "longitude": -111.595,
@@ -415,14 +454,15 @@
     "latex_name": "McMath Solar Telescope",
     "note": null
   },
-
   {
     "_break": "==========================================",
     "name": "AT&T Bell Laboratories 7-m Telescope",
     "nick": "Bell7m",
     "shortname": "Bell 7-m",
     "type": "Single Dish",
-    "wavelength": ["cm"],
+    "wavelength": [
+      "cm"
+    ],
     "diameter": 7.0,
     "latitude": null,
     "longitude": null,
@@ -431,14 +471,15 @@
     "latex_name": "Bell 7-m",
     "note": null
   },
-
   {
     "_break": "==========================================",
     "name": "NASA Infrared Telescope Facility",
     "nick": "IRTF",
     "shortname": "IRTF",
     "type": "Optical",
-    "wavelength": ["IR"],
+    "wavelength": [
+      "IR"
+    ],
     "diameter": 3.0,
     "latitude": 19.8263,
     "longitude": -155.473,
@@ -447,14 +488,15 @@
     "latex_name": "IRTF",
     "note": null
   },
-
   {
     "_break": "==========================================",
     "name": "Mayall 4-m Telescope",
     "nick": "KPNO4m",
     "shortname": "KPNO 4-m",
     "type": "Optical",
-    "wavelength": ["IR"],
+    "wavelength": [
+      "IR"
+    ],
     "diameter": 4.0,
     "latitude": 31.9583,
     "longitude": -111.5967,
@@ -463,14 +505,16 @@
     "latex_name": "KPNO 4-m",
     "note": null
   },
-
   {
     "_break": "==========================================",
     "name": "Onsala 20-m Telescope",
     "nick": "Onsala20m",
     "shortname": "Onsala 20-m",
     "type": "Single Dish",
-    "wavelength": ["cm", "mm"],
+    "wavelength": [
+      "cm",
+      "mm"
+    ],
     "diameter": 20.0,
     "latitude": 57.393056,
     "longitude": 11.917778,
@@ -479,14 +523,16 @@
     "latex_name": "Onsala 20-m",
     "note": null
   },
-
   {
     "_break": "==========================================",
     "name": "Five College Radio Observatory 14-m Telescope",
     "nick": "FCRAO14m",
     "shortname": "FCRAO 14-m",
     "type": "Single Dish",
-    "wavelength": ["cm", "mm"],
+    "wavelength": [
+      "cm",
+      "mm"
+    ],
     "diameter": null,
     "latitude": 42.391925,
     "longitude": -72.344097,
@@ -495,14 +541,16 @@
     "latex_name": "FCRAO 14-m",
     "note": null
   },
-
   {
     "_break": "==========================================",
     "name": "Atacama Pathfinder Experiment",
     "nick": "APEX",
     "shortname": "APEX",
     "type": "Single Dish",
-    "wavelength": ["mm", "sub-mm"],
+    "wavelength": [
+      "mm",
+      "sub-mm"
+    ],
     "diameter": 12.0,
     "latitude": -23.0058,
     "longitude": -67.7592,
@@ -511,14 +559,16 @@
     "latex_name": "APEX",
     "note": null
   },
-
   {
     "_break": "==========================================",
     "name": "Caltech Submillimeter Observatory",
     "nick": "CSO",
     "shortname": "CSO",
     "type": "Single Dish",
-    "wavelength": ["mm", "sub-mm"],
+    "wavelength": [
+      "mm",
+      "sub-mm"
+    ],
     "diameter": 10.4,
     "latitude": 19.8225,
     "longitude": -155.70694,
@@ -527,14 +577,15 @@
     "latex_name": "CSO",
     "note": null
   },
-
   {
     "_break": "==========================================",
     "name": "University of Texas Millimeter Wave Observatory 4.9-m Telescope",
     "nick": "MWO4m",
     "shortname": "MWO 4.9-m",
     "type": "Single Dish",
-    "wavelength": ["mm"],
+    "wavelength": [
+      "mm"
+    ],
     "diameter": null,
     "latitude": 30.3866,
     "longitude": -97.7269,
@@ -543,14 +594,16 @@
     "latex_name": "MWO 4.9-m",
     "note": null
   },
-
   {
     "_break": "==========================================",
     "name": "Hat Creek Station 20-ft Telescope",
     "nick": "HatCreek",
     "shortname": "Hat Creek 20-ft",
     "type": "Single Dish",
-    "wavelength": ["cm", "mm"],
+    "wavelength": [
+      "cm",
+      "mm"
+    ],
     "diameter": null,
     "latitude": 40.8178,
     "longitude": -121.473,
@@ -559,14 +612,15 @@
     "latex_name": "Hat Creek 20-ft",
     "note": "Best build date found was \"mid 1960s\", so 1965 is an estimate. It appears to have either been subsummed into BIMA or decommissioned when BIMA came online. The decommissioning date is an estimate."
   },
-
   {
     "_break": "==========================================",
     "name": "Submillimeter Array",
     "nick": "SMA",
     "shortname": "SMA",
     "type": "Interferometer",
-    "wavelength": ["mm"],
+    "wavelength": [
+      "mm"
+    ],
     "diameter": null,
     "latitude": 19.8225,
     "longitude": -155.70694,
@@ -575,14 +629,16 @@
     "latex_name": "SMA",
     "note": null
   },
-
   {
     "_break": "==========================================",
     "name": "Herschel Space Telescope",
     "nick": "Herschel",
     "shortname": "Herschel",
     "type": "Space",
-    "wavelength": ["sub-mm", "IR"],
+    "wavelength": [
+      "sub-mm",
+      "IR"
+    ],
     "diameter": null,
     "latitude": null,
     "longitude": null,
@@ -591,14 +647,15 @@
     "latex_name": "Herschel",
     "note": null
   },
-
   {
     "_break": "==========================================",
     "name": "United Kingdom Infrared Telescope",
     "nick": "UKIRT",
     "shortname": "UKIRT",
     "type": "Optical",
-    "wavelength": ["IR"],
+    "wavelength": [
+      "IR"
+    ],
     "diameter": 3.8,
     "latitude": 19.8225,
     "longitude": -155.70694,
@@ -607,14 +664,16 @@
     "latex_name": "UKIRT",
     "note": null
   },
-
   {
     "_break": "==========================================",
     "name": "Stratospheric Observatory for Infrared Astronomy",
     "nick": "SOFIA",
     "shortname": "SOFIA",
     "type": "Airborne",
-    "wavelength": ["sub-mm", "IR"],
+    "wavelength": [
+      "sub-mm",
+      "IR"
+    ],
     "diameter": 2.5,
     "latitude": null,
     "longitude": null,
@@ -623,14 +682,15 @@
     "latex_name": "SOFIA",
     "note": null
   },
-
   {
     "_break": "==========================================",
     "name": "Odin",
     "nick": "Odin",
     "shortname": "Odin",
     "type": "Space",
-    "wavelength": ["sub-mm"],
+    "wavelength": [
+      "sub-mm"
+    ],
     "diameter": 1.1,
     "latitude": null,
     "longitude": null,
@@ -639,14 +699,15 @@
     "latex_name": "Odin",
     "note": null
   },
-
   {
     "_break": "==========================================",
     "name": "Far Ultraviolet Spectroscopic Explorer",
     "nick": "FUSE",
     "shortname": "FUSE",
     "type": "Space",
-    "wavelength": ["UV"],
+    "wavelength": [
+      "UV"
+    ],
     "diameter": null,
     "latitude": null,
     "longitude": null,
@@ -655,14 +716,16 @@
     "latex_name": "FUSE",
     "note": null
   },
-
   {
     "_break": "==========================================",
     "name": "Kuiper Airborne Observatory",
     "nick": "Kuiper",
     "shortname": "KAO",
     "type": "Airborne",
-    "wavelength": ["sub-mm", "IR"],
+    "wavelength": [
+      "sub-mm",
+      "IR"
+    ],
     "diameter": null,
     "latitude": null,
     "longitude": null,
@@ -671,14 +734,15 @@
     "latex_name": "KAO",
     "note": null
   },
-
   {
     "_break": "==========================================",
     "name": "Tillinghast 60 inch",
     "nick": "MtHopkins",
     "shortname": "Mt. Hopkins 60-in",
     "type": "Optical",
-    "wavelength": ["IR"],
+    "wavelength": [
+      "IR"
+    ],
     "diameter": 1.5,
     "latitude": 31.6811,
     "longitude": -110.878,
@@ -687,14 +751,15 @@
     "latex_name": "Mt. Hopkins 60-in",
     "note": null
   },
-
   {
     "_break": "==========================================",
     "name": "Aerobee-150 Rocket",
     "nick": "Aerobee",
     "shortname": "Aerobee-150 Rocket",
     "type": "Airborne",
-    "wavelength": ["UV"],
+    "wavelength": [
+      "UV"
+    ],
     "diameter": null,
     "latitude": null,
     "longitude": null,
@@ -703,14 +768,15 @@
     "latex_name": "Aerobee-150 Rocket",
     "note": "They literally put a spectrometer on a rocket and shot it into the sky, then used the same spectrometer to measure H2 in the laboratory."
   },
-
   {
     "_break": "==========================================",
     "name": "Lincoln Laboratory Millstone Hill Observatory 84-ft",
     "nick": "Millstone",
     "shortname": "Millstone Hill 84-ft",
     "type": "Single Dish",
-    "wavelength": ["cm"],
+    "wavelength": [
+      "cm"
+    ],
     "diameter": 26.0,
     "latitude": 42.6233,
     "longitude": -71.4882,
@@ -719,14 +785,16 @@
     "latex_name": "Millstone Hill 84-ft",
     "note": "Originally the Ballistic Missile Early Warning System radar antenna. Decommissioning date is a best guess based on the installation of larger telescopes to the site at that time."
   },
-
   {
     "_break": "==========================================",
     "name": "Mount Wilson 100-in",
     "nick": "MtWilson",
     "shortname": "Mt. Wilson",
     "type": "Optical",
-    "wavelength": ["UV", "Vis"],
+    "wavelength": [
+      "UV",
+      "Vis"
+    ],
     "diameter": 2.54,
     "latitude": null,
     "longitude": null,
@@ -735,15 +803,16 @@
     "latex_name": "Mt. Wilson",
     "note": "Now known as the Hooker Telescope."
   },
-
   {
     "_break": "==========================================",
     "name": "Infrared Astronomical Satellite",
     "nick": "IRAS",
     "shortname": "IRAS",
     "type": "Space",
-    "wavelength": ["IR"],
-    "diameter": 0.60,
+    "wavelength": [
+      "IR"
+    ],
+    "diameter": 0.6,
     "latitude": null,
     "longitude": null,
     "built": 1983,
@@ -751,14 +820,15 @@
     "latex_name": "IRAS",
     "note": null
   },
-
   {
     "_break": "==========================================",
     "name": "Nobeyama Millimeter Array",
     "nick": "NMA",
     "shortname": "NMA",
     "type": "Interferometer",
-    "wavelength": ["mm"],
+    "wavelength": [
+      "mm"
+    ],
     "diameter": null,
     "latitude": 35.9417,
     "longitude": 138.4758,
@@ -781,14 +851,16 @@
       ]
     }
   },
-
   {
     "_break": "==========================================",
     "name": "Very Large Telescope",
     "nick": "VLT",
     "shortname": "VLT",
     "type": "Optical/IR",
-    "wavelength": ["IR", "Vis"],
+    "wavelength": [
+      "IR",
+      "Vis"
+    ],
     "diameter": 8.2,
     "latitude": -24.6272,
     "longitude": -70.4042,
@@ -810,6 +882,35 @@
         }
       ]
     }
+  },
+  {
+    "name": "Gemini North",
+    "nick": "GeminiNorth",
+    "shortname": "Gemini North",
+    "type": "Optical/IR",
+    "wavelength": [
+      "IR"
+    ],
+    "diameter": null,
+    "latitude": 19.82396,
+    "longitude": 155.46984,
+    "built": 2000,
+    "decommissioned": null,
+    "note": null,
+    "latex_name": "Gemini North",
+    "history": {
+      "introduced": {
+        "date": "2026-05-21"
+      },
+      "last_modified": "2026-05-21",
+      "events": [
+        {
+          "kind": "added",
+          "summary": "Added telescope record.",
+          "date": "2026-05-21",
+          "fields": []
+        }
+      ]
+    }
   }
-
 ]

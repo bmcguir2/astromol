@@ -1,10 +1,10 @@
 {
   "counts": {
-    "detections": 515,
-    "molecules": 369,
-    "references": 1044,
-    "sources": 92,
-    "telescopes": 49
+    "detections": 516,
+    "molecules": 370,
+    "references": 1049,
+    "sources": 93,
+    "telescopes": 50
   },
   "schema_version": 1,
   "validation_warnings": []

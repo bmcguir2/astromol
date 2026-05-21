@@ -2559,5 +2559,29 @@
         }
       ]
     }
+  },
+  {
+    "name": "WASP-31b",
+    "nick": "WASP31b",
+    "type": "Exoplanet",
+    "ra": "11:17:45.36",
+    "dec": "-19:03:17.22",
+    "simbad_url": "https://simbad.u-strasbg.fr/simbad/sim-basic?Ident=wasp-31b",
+    "latex_name": "WASP-31b",
+    "note": "Exoplanet source staged from maintainer-provided detection target name.",
+    "history": {
+      "introduced": {
+        "date": "2026-05-21"
+      },
+      "last_modified": "2026-05-21",
+      "events": [
+        {
+          "kind": "added",
+          "summary": "Added source record.",
+          "date": "2026-05-21",
+          "fields": []
+        }
+      ]
+    }
   }
 ]

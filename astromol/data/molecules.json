@@ -28497,5 +28497,70 @@
         }
       ]
     }
+  },
+  {
+    "name": "chromium hydride",
+    "formula": "CrH",
+    "table_formula": "CrH",
+    "label": "mol:CrH",
+    "note": null,
+    "iupac_name": null,
+    "selfies": null,
+    "synonyms": [],
+    "smiles": null,
+    "canonical_smiles": null,
+    "inchi": null,
+    "inchikey": null,
+    "radical_override": null,
+    "fullerene": false,
+    "pah": false,
+    "n_rings": 0,
+    "cyclic": false,
+    "tags": {},
+    "rotcon": {
+      "B": 183825,
+      "refs": [
+        "Corkery:1991:257",
+        "Harrison:2006:1143",
+        "Halfen:2016:89"
+      ]
+    },
+    "dipole": {
+      "a": 3.87,
+      "refs": [
+        "Dai:1993:455"
+      ]
+    },
+    "refs": {
+      "lab": [
+        "Corkery:1991:257",
+        "Harrison:2006:1143",
+        "Halfen:2016:89"
+      ],
+      "computation": []
+    },
+    "isotopologue_of": null,
+    "latex_section_override": null,
+    "latex_body": null,
+    "history": {
+      "introduced": {
+        "date": "2026-05-21",
+        "context": "confirmed"
+      },
+      "last_modified": "2026-05-21",
+      "events": [
+        {
+          "kind": "added",
+          "summary": "Added molecule record.",
+          "date": "2026-05-21",
+          "fields": []
+        }
+      ],
+      "accepted": {
+        "date": "2026-05-21",
+        "census": "2026",
+        "context": "confirmed"
+      }
+    }
   }
 ]
