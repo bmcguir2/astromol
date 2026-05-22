@@ -310,23 +310,28 @@ At the start of each session, read in this order:
    invent scientific values, classifications, references, or interpretations.
 7. Treat maintainer review as required before running `stage_records.py --apply`
    on newly drafted scientific data.
-8. When a database value is computed as part of this work, keep the supporting
+8. In staging YAML, quote ISO date strings such as `"2025-01-07"` for
+   `history.*.date`, `last_modified`, and any other string-valued date fields.
+   Do not leave bare `YYYY-MM-DD` values in YAML, because the parser may
+   coerce them to native dates and break JSON serialization in the staging
+   workflow.
+9. When a database value is computed as part of this work, keep the supporting
    notebook under `docs/calculations/`, cite the software/method references in
    structured `refs` fields, and record the notebook path in a note or history
    summary. Do not track `.ipynb_checkpoints/`.
-9. For project-computed dipole moments, add the supporting citekeys to both
+10. For project-computed dipole moments, add the supporting citekeys to both
    `dipole.refs` and `refs.computation`, record the notebook path in
    `dipole.note`, and use this exact short manuscript sentence in `latex_body`:
    `The dipole moment was calculated as part of this work (\ref{sec:dipole}).`
    Do not repeat the full method/package/basis-set sentence in every molecule;
    that detail belongs in the manuscript dipole section.
-10. Do not manually edit generated count expectations. `stage_records.py`
+11. Do not manually edit generated count expectations. `stage_records.py`
    reports proposed generated count updates in the preview report and refreshes
    `tests/baselines/production_data.json` automatically on `--apply`. Inspect
    that baseline diff and include it with the curation change. Use
    `python scripts/update_data_baseline.py` only to manually refresh the same
    generated baseline outside the staging workflow.
-11. After a staging batch is finished, use
+12. After a staging batch is finished, use
     `python scripts/cleanup_stage.py --name <stage-name>` to remove the staging
     YAML, preview JSON, stage report, and manifest. When `--commit-message` is
     used, the cleanup helper also stages the touched production JSON files plus

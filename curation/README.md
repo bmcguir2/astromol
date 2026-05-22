@@ -137,6 +137,18 @@ YAML will sometimes reinterpret unquoted values. Quote values that must remain
 strings when they contain colon-delimited coordinates, leading signs, or other
 special syntax.
 
+Quote ISO date strings in staging YAML:
+
+```yaml
+date: "2025-01-07"
+last_modified: "2025-01-07"
+```
+
+Do not leave bare `YYYY-MM-DD` values unquoted in fields such as
+`history.introduced.date`, `history.accepted.date`, or `history.last_modified`.
+YAML may parse them as native dates, and `stage_records.py` writes JSON
+previews that expect ordinary strings.
+
 Use quoted strings for source coordinates:
 
 ```yaml
