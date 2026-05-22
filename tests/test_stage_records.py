@@ -6,6 +6,8 @@ from pathlib import Path
 import subprocess
 import sys
 
+import pytest
+
 
 ROOT = Path(__file__).resolve().parents[1]
 STAGE_RECORDS_PATH = ROOT / "scripts" / "stage_records.py"
@@ -268,6 +270,92 @@ def init_git_repo(path: Path) -> None:
         capture_output=True,
         text=True,
     )
+
+
+def test_cleanup_stage_parses_github_remote_urls():
+    cleanup_stage = load_cleanup_stage_module()
+
+    assert (
+        cleanup_stage.github_repo_from_remote_url(
+            "https://github.com/bmcguir2/astromol.git"
+        )
+        == "bmcguir2/astromol"
+    )
+    assert (
+        cleanup_stage.github_repo_from_remote_url(
+            "git@github.com:bmcguir2/astromol.git"
+        )
+        == "bmcguir2/astromol"
+    )
+    assert (
+        cleanup_stage.github_repo_from_remote_url(
+            "ssh://git@github.com/bmcguir2/astromol.git"
+        )
+        == "bmcguir2/astromol"
+    )
+
+
+def test_cleanup_stage_close_issue_requires_push(monkeypatch):
+    cleanup_stage = load_cleanup_stage_module()
+    monkeypatch.setattr(
+        sys,
+        "argv",
+        [
+            "cleanup_stage.py",
+            "--name",
+            "example",
+            "--close-issue",
+            "123",
+        ],
+    )
+
+    with pytest.raises(SystemExit):
+        cleanup_stage.parse_args()
+
+
+def test_cleanup_stage_closes_github_issue_with_commit_link(monkeypatch, tmp_path):
+    cleanup_stage = load_cleanup_stage_module()
+    commands = []
+
+    def fake_run(args, **kwargs):
+        commands.append(args)
+        return subprocess.CompletedProcess(args, 0, stdout="", stderr="")
+
+    monkeypatch.setattr(cleanup_stage, "ROOT", tmp_path)
+    monkeypatch.setattr(
+        cleanup_stage,
+        "git_output",
+        lambda args: "https://github.com/bmcguir2/astromol.git",
+    )
+    monkeypatch.setattr(cleanup_stage.shutil, "which", lambda name: "/usr/bin/gh")
+    monkeypatch.setattr(cleanup_stage.subprocess, "run", fake_run)
+
+    cleanup_stage.close_github_issues(
+        [123],
+        "2026_thioacetaldehyde_tmc1",
+        "abcdef1234567890",
+    )
+
+    assert commands == [
+        [
+            "gh",
+            "issue",
+            "close",
+            "123",
+            "--repo",
+            "bmcguir2/astromol",
+            "--reason",
+            "completed",
+            "--comment",
+            (
+                "Applied the `2026_thioacetaldehyde_tmc1` curation batch in commit "
+                "[`abcdef1`](https://github.com/bmcguir2/astromol/commit/"
+                "abcdef1234567890).\n\n"
+                "The staged records were applied, committed, and pushed with the "
+                "refreshed production-data baseline."
+            ),
+        ]
+    ]
 
 
 def test_cleanup_stage_removes_manifest_listed_files(monkeypatch, tmp_path):

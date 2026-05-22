@@ -59,11 +59,14 @@ commit and push it:
 python scripts/cleanup_stage.py \
   --name example \
   --commit-message "Add Example curation batch" \
-  --push
+  --push \
+  --close-issue 123
 ```
 
 `--push` is intentionally separate from `--commit-message` so remote updates
-remain an explicit choice.
+remain an explicit choice. `--close-issue` may be passed more than once and
+runs only after a successful push; it uses the GitHub CLI to close each issue
+with a comment linking to the commit.
 
 After any approved production data change, review the generated baseline diff:
 

@@ -168,6 +168,18 @@ stages the production JSON files touched by the manifest plus modified
 python scripts/cleanup_stage.py --name example --commit-message "Add Example curation batch"
 ```
 
+If the curation batch resolves one or more tracked GitHub issues, pass
+`--close-issue` with `--push`. The helper closes each issue after the push
+succeeds and comments with a link to the new commit:
+
+```bash
+python scripts/cleanup_stage.py \
+  --name example \
+  --commit-message "Add Example curation batch" \
+  --push \
+  --close-issue 123
+```
+
 After an approved production data change, inspect the generated baseline diff
 before committing:
 

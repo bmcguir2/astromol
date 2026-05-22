@@ -11,7 +11,9 @@ from __future__ import annotations
 import argparse
 import json
 from pathlib import Path
+import shutil
 import subprocess
+from urllib.parse import urlparse
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -51,9 +53,22 @@ def parse_args() -> argparse.Namespace:
         action="store_true",
         help="Push after a successful commit. Requires --commit-message.",
     )
+    parser.add_argument(
+        "--close-issue",
+        action="append",
+        type=int,
+        default=[],
+        metavar="NUMBER",
+        help=(
+            "Close a GitHub issue after a successful push. May be passed more "
+            "than once. Requires --push."
+        ),
+    )
     args = parser.parse_args()
     if args.push and not args.commit_message:
         parser.error("--push requires --commit-message")
+    if args.close_issue and not args.push:
+        parser.error("--close-issue requires --push")
     return args
 
 
@@ -107,6 +122,91 @@ def git_add_paths(paths: list[Path]) -> list[Path]:
     return staged
 
 
+def git_output(args: list[str]) -> str:
+    result = subprocess.run(
+        ["git", *args],
+        cwd=ROOT,
+        check=True,
+        capture_output=True,
+        text=True,
+    )
+    return result.stdout.strip()
+
+
+def stage_name_from_args(args: argparse.Namespace, manifest_path: Path) -> str:
+    if args.name:
+        return args.name
+    stem = manifest_path.name
+    suffix = "_stage_manifest.json"
+    if stem.endswith(suffix):
+        return stem[: -len(suffix)]
+    return manifest_path.stem
+
+
+def github_repo_from_remote_url(remote_url: str) -> str:
+    remote_url = remote_url.strip()
+    path = ""
+    if remote_url.startswith("git@github.com:"):
+        path = remote_url.split(":", 1)[1]
+    elif remote_url.startswith("ssh://git@github.com/"):
+        path = urlparse(remote_url).path.lstrip("/")
+    else:
+        parsed = urlparse(remote_url)
+        if parsed.netloc.lower() == "github.com":
+            path = parsed.path.lstrip("/")
+
+    if path.endswith(".git"):
+        path = path[:-4]
+
+    parts = [part for part in path.split("/") if part]
+    if len(parts) != 2:
+        raise ValueError(
+            f"cannot determine GitHub repository from origin URL: {remote_url}"
+        )
+    return "/".join(parts)
+
+
+def issue_close_comment(stage_name: str, commit_sha: str, commit_url: str) -> str:
+    short_sha = commit_sha[:7]
+    return (
+        f"Applied the `{stage_name}` curation batch in commit "
+        f"[`{short_sha}`]({commit_url}).\n\n"
+        "The staged records were applied, committed, and pushed with the "
+        "refreshed production-data baseline."
+    )
+
+
+def close_github_issues(
+    issue_numbers: list[int], stage_name: str, commit_sha: str
+) -> None:
+    if shutil.which("gh") is None:
+        raise SystemExit(
+            "GitHub issue closure requires the GitHub CLI (`gh`) on PATH."
+        )
+
+    repo = github_repo_from_remote_url(git_output(["remote", "get-url", "origin"]))
+    commit_url = f"https://github.com/{repo}/commit/{commit_sha}"
+    comment = issue_close_comment(stage_name, commit_sha, commit_url)
+    for issue_number in issue_numbers:
+        subprocess.run(
+            [
+                "gh",
+                "issue",
+                "close",
+                str(issue_number),
+                "--repo",
+                repo,
+                "--reason",
+                "completed",
+                "--comment",
+                comment,
+            ],
+            cwd=ROOT,
+            check=True,
+        )
+        print(f"Closed GitHub issue #{issue_number}.")
+
+
 def main() -> None:
     args = parse_args()
     manifest_path = manifest_path_from_args(args).resolve()
@@ -156,6 +256,7 @@ def main() -> None:
         check=True,
     )
     print(f"Created commit: {args.commit_message}")
+    commit_sha = git_output(["rev-parse", "HEAD"])
 
     if args.push:
         subprocess.run(
@@ -164,6 +265,13 @@ def main() -> None:
             check=True,
         )
         print("Pushed current branch.")
+
+    if args.close_issue:
+        close_github_issues(
+            args.close_issue,
+            stage_name_from_args(args, manifest_path),
+            commit_sha,
+        )
 
 
 if __name__ == "__main__":

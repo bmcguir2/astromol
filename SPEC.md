@@ -115,7 +115,9 @@ batch. Use `python scripts/cleanup_stage.py --name <name>` after the batch is
 finished to delete the staging YAML, preview JSON, report, and manifest. When
 used with `--commit-message`, the cleanup helper stages the manifest-touched
 production JSON files plus modified `astromol/data/references.bib` and
-`tests/baselines/production_data.json` by default before committing.
+`tests/baselines/production_data.json` by default before committing. When
+`--push --close-issue <number>` is also provided, the helper closes the tracked
+GitHub issue after a successful push with a commit-link comment.
 
 Production inventory counts, curation-sensitive regression counts, and accepted
 validation warnings are tracked in the committed baseline
