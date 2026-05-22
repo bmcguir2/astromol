@@ -28788,5 +28788,75 @@
         "context": "confirmed"
       }
     }
+  },
+  {
+    "name": "cyanocoronene",
+    "formula": "C24H11CN",
+    "table_formula": "C24H11CN",
+    "label": "mol:C24H11CN",
+    "note": null,
+    "iupac_name": null,
+    "selfies": null,
+    "synonyms": [],
+    "smiles": "N#CC1=C(C2=C3C4=C5C6=C27)C=CC3=CC=C4C=CC5=CC=C6C=CC7=C1",
+    "canonical_smiles": null,
+    "inchi": "1S/C25H11N/c26-12-18-11-17-8-7-15-4-2-13-1-3-14-5-6-16-9-10-19(18)25-23(16)21(14)20(13)22(15)24(17)25/h1-11H",
+    "inchikey": "YRYLJHCWIMOTQN-UHFFFAOYSA-N",
+    "radical_override": null,
+    "fullerene": false,
+    "pah": true,
+    "n_rings": 7,
+    "cyclic": true,
+    "tags": {
+      "functional_groups": [
+        "CN"
+      ]
+    },
+    "rotcon": {
+      "A": 334,
+      "B": 221,
+      "C": 133,
+      "refs": [
+        "Wenzel:2025:L36"
+      ]
+    },
+    "dipole": {
+      "a": 5.67,
+      "b": 0.59,
+      "refs": [
+        "Wenzel:2025:L36"
+      ]
+    },
+    "refs": {
+      "lab": [
+        "Wenzel:2025:L36"
+      ],
+      "computation": [
+        "Loomis:2021:188a"
+      ]
+    },
+    "isotopologue_of": null,
+    "latex_section_override": null,
+    "latex_body": "\\citet{Wenzel:2025:L36} reported the detection of cyanocoronene in GBT observations of TMC-1.  Ten individual transitions are identified at $\\geq$3$\\sigma$, and a spectral stacking and matched filter analysis \\citep{Loomis:2021:188a} yielded an overall detection significance of 17.3$\\sigma$.  The identification was based on laboratory measurements presented in the same work.",
+    "history": {
+      "introduced": {
+        "date": "2026-05-22",
+        "context": "confirmed"
+      },
+      "last_modified": "2026-05-22",
+      "events": [
+        {
+          "kind": "added",
+          "summary": "Added molecule record.",
+          "date": "2026-05-22",
+          "fields": []
+        }
+      ],
+      "accepted": {
+        "date": "2026-05-22",
+        "census": "2026",
+        "context": "confirmed"
+      }
+    }
   }
 ]

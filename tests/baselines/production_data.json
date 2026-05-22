@@ -1,7 +1,7 @@
 {
   "counts": {
-    "detections": 519,
-    "molecules": 373,
+    "detections": 520,
+    "molecules": 374,
     "sources": 93,
     "telescopes": 50
   },
@@ -9,8 +9,8 @@
     "census_view_2026": {
       "exoplanet_molecules": 12,
       "exoplanet_molecules_with_isotopologues": 14,
-      "ism_molecules": 328,
-      "ism_molecules_with_isotopologues": 338,
+      "ism_molecules": 329,
+      "ism_molecules_with_isotopologues": 339,
       "ppd_molecules": 34,
       "ppd_molecules_with_isotopologues": 57
     },
@@ -29,7 +29,7 @@
         "8 atoms": 23,
         "9 atoms": 19,
         "Fullerenes": 3,
-        "PAHs": 9
+        "PAHs": 10
       },
       "rolling_rate_last_column": [
         0.8,
@@ -45,9 +45,9 @@
         0.6,
         0.7,
         0.0,
-        0.9
+        1.0
       ],
-      "total": 328
+      "total": 329
     },
     "figures_cumulative_detections_2026": {
       "counts_by_year": {
@@ -55,30 +55,30 @@
         "2020": 220,
         "2021": 259,
         "2024": 325,
-        "2026": 328
+        "2026": 329
       },
-      "first_detection_years": 328,
-      "total": 328,
+      "first_detection_years": 329,
+      "total": 329,
       "trend_slopes": {
         "1968-2005": 3.4569427727322477,
         "2005-2021": 6.394607843137257,
-        "2021-2026": 14.914285714285771
+        "2021-2026": 15.142857142857162
       }
     },
     "figures_du_by_source_type_2026": {
       "boxplot_n_labels": [
-        "n=117",
+        "n=118",
         "n=28",
         "n=87",
         "n=22"
       ],
       "counts": {
         "carbon_star": 28,
-        "dark_cloud": 118,
+        "dark_cloud": 119,
         "diffuse_cloud": 24,
         "sfr": 90
       },
-      "molecule_count": 241
+      "molecule_count": 242
     },
     "figures_individual_source_2026": {
       "counts": {
@@ -86,14 +86,14 @@
         "orion": 25,
         "other": 156,
         "sgr_b2": 70,
-        "tmc1": 108
+        "tmc1": 109
       },
-      "molecule_count": 328,
+      "molecule_count": 329,
       "ring_text": [
         "Other",
-        "47.6%",
+        "47.4%",
         "TMC-1",
-        "32.9%",
+        "33.1%",
         "Sgr B2",
         "21.3%",
         "IRC+10216",
@@ -104,34 +104,34 @@
     },
     "figures_kappas_2026": {
       "histogram_max": 211,
-      "molecule_count": 308
+      "molecule_count": 309
     },
     "figures_mass_by_source_type_2026": {
       "boxplot_n_labels": [
-        "n=119",
+        "n=120",
         "n=71",
         "n=92",
         "n=24"
       ],
       "counts": {
         "carbon_star": 71,
-        "dark_cloud": 119,
+        "dark_cloud": 120,
         "diffuse_cloud": 24,
         "sfr": 92
       },
-      "molecule_count": 286
+      "molecule_count": 287
     },
     "figures_molecule_type_2026": {
       "counts": {
         "anion": 8,
         "cation": 47,
-        "cyclic": 31,
+        "cyclic": 32,
         "fullerene": 3,
-        "neutral": 273,
-        "pah": 9,
+        "neutral": 274,
+        "pah": 10,
         "radical": 72
       },
-      "molecule_count": 328,
+      "molecule_count": 329,
       "ring_text": [
         "Neutrals",
         "Radicals",
@@ -140,11 +140,11 @@
         "PAHs",
         "Anions",
         "Fullerenes",
-        "83.2%",
-        "22.0%",
+        "83.3%",
+        "21.9%",
         "14.3%",
-        "9.5%",
-        "2.7%",
+        "9.7%",
+        "3.0%",
         "2.4%",
         "0.9%"
       ]
@@ -161,8 +161,8 @@
         "dark_cloud": {
           "anion": 4,
           "cation": 18,
-          "cyclic": 22,
-          "neutral": 97,
+          "cyclic": 23,
+          "neutral": 98,
           "radical": 30
         },
         "diffuse_cloud": {
@@ -180,35 +180,35 @@
           "radical": 7
         }
       },
-      "molecule_count": 328,
+      "molecule_count": 329,
       "overall_type_counts": {
         "anion": 8,
         "cation": 47,
-        "cyclic": 31,
-        "neutral": 273,
+        "cyclic": 32,
+        "neutral": 274,
         "radical": 72
       },
       "source_counts": {
         "carbon_star": 71,
-        "dark_cloud": 119,
+        "dark_cloud": 120,
         "diffuse_cloud": 24,
         "sfr": 92
       }
     },
     "figures_relative_du_by_source_type_2026": {
       "boxplot_n_labels": [
-        "n=117",
+        "n=118",
         "n=28",
         "n=87",
         "n=22"
       ],
       "counts": {
         "carbon_star": 28,
-        "dark_cloud": 118,
+        "dark_cloud": 119,
         "diffuse_cloud": 24,
         "sfr": 90
       },
-      "molecule_count": 241
+      "molecule_count": 242
     },
     "figures_scopes_by_year_2026": {
       "yebes_final_count": 89,
@@ -217,15 +217,15 @@
     "figures_source_type_2026": {
       "counts": {
         "carbon_star": 71,
-        "dark_cloud": 119,
+        "dark_cloud": 120,
         "diffuse_cloud": 24,
         "other": 51,
         "sfr": 92
       },
-      "molecule_count": 328,
+      "molecule_count": 329,
       "ring_text": [
         "Dark Cloud",
-        "36.3%",
+        "36.5%",
         "SFR",
         "28.0%",
         "Carbon Star",
@@ -250,7 +250,7 @@
           "IR": 0,
           "UV": 0,
           "Vis": 0,
-          "cm": 104,
+          "cm": 105,
           "mm": 29,
           "sub-mm": 0
         },
@@ -271,9 +271,9 @@
           "sub-mm": 6
         }
       },
-      "molecule_count": 286,
+      "molecule_count": 287,
       "stacked_n_labels": [
-        "n=133",
+        "n=134",
         "n=84",
         "n=101",
         "n=26"
@@ -286,7 +286,7 @@
       "linked_labels": 12
     },
     "latex_facility_table_2026": {
-      "credited_detections": 419,
+      "credited_detections": 420,
       "entries": 47,
       "top_entries": [
         [
@@ -299,7 +299,7 @@
         ],
         [
           "GBT 100-m",
-          36
+          37
         ],
         [
           "NRAO 36-ft",
@@ -317,15 +317,15 @@
         7,
         7
       ],
-      "linked_labels": 328
+      "linked_labels": 329
     },
     "latex_source_table_2026": {
-      "credited_detections": 427,
+      "credited_detections": 428,
       "entries": 42,
       "top_entries": [
         [
           "TMC-1",
-          108
+          109
         ],
         [
           "Sgr B2",
@@ -372,11 +372,11 @@
         15,
         10,
         9,
-        19
+        20
       ],
-      "count_text": "328 Molecules",
+      "count_text": "329 Molecules",
       "legacy_warning_count": 6,
-      "total": 328
+      "total": 329
     }
   },
   "schema_version": 2,
