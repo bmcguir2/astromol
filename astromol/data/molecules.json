@@ -28631,5 +28631,81 @@
         }
       ]
     }
+  },
+  {
+    "name": "thioacetaldehyde",
+    "formula": "CH3CHS",
+    "table_formula": "CH3CHS",
+    "label": "mol:CH3CHS",
+    "note": null,
+    "iupac_name": "ethanethial",
+    "selfies": null,
+    "synonyms": [
+      "ethanethial"
+    ],
+    "smiles": "CC=S",
+    "canonical_smiles": null,
+    "inchi": "InChI=1S/C2H4S/c1-2-3/h2H,1H3",
+    "inchikey": "QJFUMFCCMJJLIE-UHFFFAOYSA-N",
+    "radical_override": null,
+    "fullerene": false,
+    "pah": false,
+    "n_rings": 0,
+    "cyclic": false,
+    "tags": {
+      "functional_groups": [
+        "CH3",
+        "=S"
+      ]
+    },
+    "rotcon": {
+      "A": 48574,
+      "B": 5751,
+      "C": 5308,
+      "refs": [
+        "Margules:2020:111304",
+        "Kroto:1976:346",
+        "Kroto:1974:265"
+      ]
+    },
+    "dipole": {
+      "a": 2.26,
+      "b": 0.56,
+      "refs": [
+        "Kroto:1976:346"
+      ]
+    },
+    "refs": {
+      "lab": [
+        "Margules:2020:111304",
+        "Kroto:1976:346",
+        "Kroto:1974:265"
+      ],
+      "computation": []
+    },
+    "isotopologue_of": null,
+    "latex_section_override": null,
+    "latex_body": "The detection of \\ce{CH3CHS} was reported toward TMC-1 by \\citet{Agundez:2025:L20} in Yebes 40m observations.  They detect seven total transitions, including resolved A/E splitting from the methyl internal rotor, based on laboratory work by \\citet{Margules:2020:111304}, \\citet{Kroto:1976:346}, and \\citet{Kroto:1974:265}.",
+    "history": {
+      "introduced": {
+        "date": "2025-01-07",
+        "census": 2026,
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": "2025-01-07",
+        "census": 2026,
+        "context": "confirmed"
+      },
+      "last_modified": "2025-01-07",
+      "events": [
+        {
+          "kind": "added",
+          "summary": "Initial entry.",
+          "date": "2025-01-07",
+          "census": 2026
+        }
+      ]
+    }
   }
 ]

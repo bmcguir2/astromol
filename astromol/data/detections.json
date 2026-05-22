@@ -21053,5 +21053,59 @@
         }
       ]
     }
+  },
+  {
+    "id": "det:CH3CHS:ism-csm:2025",
+    "note": null,
+    "molecule": "mol:CH3CHS",
+    "sources": [
+      "TMC1"
+    ],
+    "telescopes": [
+      "Yebes40"
+    ],
+    "wavelengths": [
+      "cm"
+    ],
+    "year": 2025,
+    "type": "ISM/CSM",
+    "status": "secure",
+    "status_note": null,
+    "first": true,
+    "month": 1,
+    "day": 7,
+    "refs": {
+      "observation": [
+        "Agundez:2025:L20"
+      ]
+    },
+    "confirms": [],
+    "confirmed_by": [],
+    "disputes": [],
+    "disputed_by": [],
+    "supersedes": [],
+    "superseded_by": [],
+    "latex_text": null,
+    "history": {
+      "introduced": {
+        "date": "2025-01-07",
+        "census": 2026,
+        "context": "confirmed"
+      },
+      "accepted": {
+        "date": "2025-01-07",
+        "census": 2026,
+        "context": "confirmed_ism_csm"
+      },
+      "last_modified": "2025-01-07",
+      "events": [
+        {
+          "kind": "added",
+          "summary": "Initial entry.",
+          "date": "2025-01-07",
+          "census": 2026
+        }
+      ]
+    }
   }
 ]
