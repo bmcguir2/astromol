@@ -28707,5 +28707,86 @@
         }
       ]
     }
+  },
+  {
+    "name": "dimethyl sulfide",
+    "formula": "CH3SCH3",
+    "table_formula": "CH3SCH3",
+    "label": "mol:CH3SCH3",
+    "note": null,
+    "iupac_name": "(methylsulfanyl)methane",
+    "selfies": null,
+    "synonyms": [
+      "(methylsulfanyl)methane"
+    ],
+    "smiles": "CSC",
+    "canonical_smiles": "CSC",
+    "inchi": "InChI=1S/C2H6S/c1-3-2/h1-2H3",
+    "inchikey": "QMMFVYPAHWMCMS-UHFFFAOYAH",
+    "radical_override": null,
+    "fullerene": false,
+    "pah": false,
+    "n_rings": 0,
+    "cyclic": false,
+    "tags": {
+      "functional_groups": [
+        "CH3"
+      ]
+    },
+    "rotcon": {
+      "A": 17810,
+      "B": 7622,
+      "C": 5717,
+      "refs": [
+        "Ilyushin:2020:127114",
+        "Rudolph:1960:742",
+        "Dreizler:1962:712",
+        "Demaison:1980:391",
+        "Jabri:2016:A127",
+        "Niide:2004:152",
+        "Pierce:1961:479"
+      ]
+    },
+    "dipole": {
+      "b": 1.5,
+      "refs": [
+        "Pierce:1961:479"
+      ]
+    },
+    "refs": {
+      "lab": [
+        "Ilyushin:2020:127114",
+        "Rudolph:1960:742",
+        "Dreizler:1962:712",
+        "Demaison:1980:391",
+        "Jabri:2016:A127",
+        "Niide:2004:152",
+        "Pierce:1961:479"
+      ],
+      "computation": []
+    },
+    "isotopologue_of": null,
+    "latex_section_override": null,
+    "latex_body": "\\citet{Sanz-Novo:2025:L37} reported the detection of \\ce{CH3SCH3} in Yebes 40 m and IRAM 30m observations toward G+0.693-0.027.  They report the detection of 10 clean transitions between 42 and 171 GHz based on spectroscopic data presented in \\citet{Ilyushin:2020:127114} which builds on an extensive history of laboratory investigations (e.g., \\citealt{Rudolph:1960:742, Dreizler:1962:712, Demaison:1980:391, Jabri:2016:A127, Niide:2004:152, Pierce:1961:479}).",
+    "history": {
+      "introduced": {
+        "date": "2026-05-22",
+        "context": "confirmed"
+      },
+      "last_modified": "2026-05-22",
+      "events": [
+        {
+          "kind": "added",
+          "summary": "Added molecule record.",
+          "date": "2026-05-22",
+          "fields": []
+        }
+      ],
+      "accepted": {
+        "date": "2026-05-22",
+        "census": "2026",
+        "context": "confirmed"
+      }
+    }
   }
 ]
