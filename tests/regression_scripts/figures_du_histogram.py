@@ -1,6 +1,8 @@
 from pathlib import Path
 from tempfile import TemporaryDirectory
 
+from baseline import load_production_baseline
+
 from astromol.census import CensusView
 from astromol.database import Database
 from astromol.figures import (
@@ -13,6 +15,9 @@ from astromol.figures import (
 
 
 db = Database()
+counts_2026 = load_production_baseline()["regression_counts"][
+    "figures_du_histogram_2026"
+]
 view_2021 = CensusView.for_census(db, "2021")
 
 data_2021 = du_histogram_data(view_2021)
@@ -52,17 +57,13 @@ assert data_2021.counts_by_value[1.0] == 31
 
 view_2026 = CensusView.for_census(db, "2026")
 data_2026 = du_histogram_data(view_2026)
-assert data_2026.max_du == 14.0
-du_14_labels = [
+assert data_2026.max_du == counts_2026["max_du"]
+max_du_labels = [
     label
     for label, value in zip(data_2026.molecule_labels, data_2026.values)
-    if value == 14.0
+    if value == data_2026.max_du
 ]
-assert du_14_labels == [
-    "mol:1-C16H9CN",
-    "mol:2-C16H9CN",
-    "mol:4-C16H9CN",
-]
+assert max_du_labels == counts_2026["max_du_labels"]
 
 with TemporaryDirectory() as tmp:
     output_dir = Path(tmp)
@@ -77,21 +78,16 @@ with TemporaryDirectory() as tmp:
     ]
 
     figure_2026, ax_2026 = plot_du_histogram(data_2026)
-    assert any(
-        text.get_text() == "1-/2-/4-C$_{16}$H$_{9}$CN"
-        for text in ax_2026.texts
-    )
+    assert [text.get_text() for text in ax_2026.texts] == counts_2026[
+        "histogram_text"
+    ]
 
     bar_figure, bar_ax = plot_du_bar_chart(data_2026)
     assert bar_ax.get_title() == ""
     assert bar_ax.get_xlabel() == "Degree of Unsaturation"
     assert bar_ax.get_ylabel() == "# of Detected Molecules"
     assert not any(text.get_text().isdigit() for text in bar_ax.texts)
-    assert [text.get_text() for text in bar_ax.texts] == [
-        "CH$_4$, CH$_3$OH, CH$_3$Cl, ...",
-        "HC$_{11}$N",
-        "1-/2-/4-C$_{16}$H$_{9}$CN",
-    ]
+    assert [text.get_text() for text in bar_ax.texts] == counts_2026["bar_text"]
     assert min(patch.get_x() for patch in bar_ax.patches) >= -0.2
 
     output_path = write_du_histogram(

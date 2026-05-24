@@ -107,18 +107,7 @@ with TemporaryDirectory() as tmp:
         for text in matrix_ax.texts
         if text.get_text()
     ]
-    assert matrix_text[:10] == [
-        "1.0x",
-        "n=60",
-        "1.4x",
-        "n=22",
-        "0.4x",
-        "n=4",
-        "4.0x",
-        "n=7",
-        "0.4x",
-        "n=3",
-    ]
+    assert matrix_text[:10] == counts_2026["enrichment_matrix_text_prefix"]
     assert [
         label.get_text()
         for label in matrix_ax.get_xticklabels()

@@ -1,6 +1,8 @@
 from pathlib import Path
 from tempfile import TemporaryDirectory
 
+from baseline import load_production_baseline
+
 from astromol.census import CensusView
 from astromol.database import Database
 from astromol.latex import (
@@ -11,6 +13,9 @@ from astromol.latex import (
 
 
 db = Database()
+counts_2026 = load_production_baseline()["regression_counts"][
+    "latex_rate_by_atoms_table_2026"
+]
 view_2021 = CensusView.for_census(db, "2021")
 view_2026 = CensusView.for_census(db, "2026")
 
@@ -65,12 +70,13 @@ values_2026 = {
     fit.label: (round(fit.slope, 2), round(fit.r_squared, 2), fit.onset_year)
     for fit in fits_2026
 }
-assert values_2026["13+"] == (0.93, 0.90, 2018)
-assert values_2026["PAHs"] == (1.43, 0.82, 2021)
-assert values_2026["Fullerenes"] == (0.05, 0.44, 2010)
+assert values_2026 == {
+    label: tuple(values)
+    for label, values in counts_2026["fit_values"].items()
+}
 
 content_2026 = rate_by_atoms_table_fragments(view_2026)["rates_by_atoms_table.tex"]
-assert "13+\t&\t0.93\t&\t0.90\t&\t2018" + r"\\" in content_2026
-assert "PAHs\t&\t1.43\t&\t0.82\t&\t2021" + r"\\" in content_2026
+for row in counts_2026["table_rows"]:
+    assert row in content_2026
 
 print("LaTeX rate-by-atoms table verification passed")

@@ -34,7 +34,9 @@ view_2026 = CensusView.for_census(db, "2026")
 data_2026 = mass_by_source_type_data(view_2026)
 assert data_2026.molecule_count == counts_2026["molecule_count"]
 assert data_2026.counts == counts_2026["counts"]
-assert tuple(round(value, 3) for value in data_2026.mass_range) == (2.016, 227.073)
+assert [
+    round(value, 3) for value in data_2026.mass_range
+] == counts_2026["mass_range"]
 
 with TemporaryDirectory() as tmp:
     output_dir = Path(tmp)

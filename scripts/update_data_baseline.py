@@ -16,12 +16,17 @@ from astromol.figures import (  # noqa: E402
     DU_BY_SOURCE_TYPE_BOXPLOT_ORDER,
     cumulative_by_atoms_data,
     cumulative_detection_data,
+    detection_rate_by_atoms_data,
     du_by_source_type_data,
+    du_histogram_data,
     individual_source_data,
     kappa_histogram_data,
     mass_by_source_type_data,
     molecule_type_by_source_type_data,
     molecule_type_data,
+    plot_du_bar_chart,
+    plot_du_histogram,
+    plot_molecule_type_by_source_enrichment_matrix,
     relative_du_by_source_type_data,
     rolling_rate_by_atoms_heatmap_data,
     scopes_by_year_data,
@@ -32,6 +37,8 @@ from astromol.latex import (  # noqa: E402
     balanced_ism_table_columns,
     exoplanet_table_detections,
     facility_table_entries,
+    rate_by_atoms_fits,
+    rate_by_atoms_table_fragments,
     source_table_entries,
 )
 from astromol.slides import build_molecule_slide_layout  # noqa: E402
@@ -122,6 +129,46 @@ def _wavelength_stacked_n_labels(data: object) -> list[str]:
     return labels
 
 
+def _detection_rate_points(data: object) -> dict[str, dict[str, float | int]]:
+    return {
+        point.label: {
+            "count": int(point.count),
+            "first_year": int(point.first_year),
+            "rate": float(point.rate),
+        }
+        for point in data.points
+    }
+
+
+def _rate_fit_values(fits: object) -> dict[str, list[float | int]]:
+    return {
+        fit.label: [round(fit.slope, 2), round(fit.r_squared, 2), fit.onset_year]
+        for fit in fits
+    }
+
+
+def _du_max_labels(data: object) -> list[str]:
+    return [
+        label
+        for label, value in zip(data.molecule_labels, data.values)
+        if value == data.max_du
+    ]
+
+
+def _axis_texts(figure: object, axes: object) -> list[str]:
+    try:
+        return [text.get_text() for text in axes.texts if text.get_text()]
+    finally:
+        import matplotlib.pyplot as plt
+
+        plt.close(figure)
+
+
+def _enrichment_matrix_text_prefix(data: object, count: int = 10) -> list[str]:
+    figure, axes = plot_molecule_type_by_source_enrichment_matrix(data)
+    return _axis_texts(figure, axes)[:count]
+
+
 def build_regression_counts(
     db: Database,
     *,
@@ -166,6 +213,10 @@ def build_regression_counts(
 
     cumulative_detections = cumulative_detection_data(view_2026)
     cumulative_by_atoms = cumulative_by_atoms_data(view_2026)
+    detection_rate_by_atoms = detection_rate_by_atoms_data(view_2026)
+    rate_fits = rate_by_atoms_fits(view_2026)
+    rate_fragments = rate_by_atoms_table_fragments(view_2026)
+    du_histogram = du_histogram_data(view_2026)
     source_type = source_type_data(view_2026)
     molecule_type = molecule_type_data(view_2026)
     individual_source = individual_source_data(view_2026)
@@ -204,6 +255,19 @@ def build_regression_counts(
                 for value in rolling_rate_by_atoms_heatmap_data(view_2026).matrix[:, -1]
             ],
         },
+        "figures_detection_rate_by_atoms_2026": {
+            "points": _detection_rate_points(detection_rate_by_atoms),
+        },
+        "figures_du_histogram_2026": {
+            "max_du": float(du_histogram.max_du),
+            "max_du_labels": _du_max_labels(du_histogram),
+            "histogram_text": _axis_texts(
+                *plot_du_histogram(du_histogram),
+            ),
+            "bar_text": _axis_texts(
+                *plot_du_bar_chart(du_histogram),
+            ),
+        },
         "figures_source_type_2026": {
             "molecule_count": int(source_type.molecule_count),
             "counts": source_type.counts,
@@ -222,6 +286,9 @@ def build_regression_counts(
         "figures_mass_by_source_type_2026": {
             "molecule_count": int(mass_by_source.molecule_count),
             "counts": mass_by_source.counts,
+            "mass_range": [
+                round(value, 3) for value in mass_by_source.mass_range
+            ],
             "boxplot_n_labels": _source_boxplot_n_labels(
                 mass_by_source,
                 "masses",
@@ -254,6 +321,9 @@ def build_regression_counts(
             "counts": molecule_type_by_source.counts,
             "source_counts": molecule_type_by_source.source_counts,
             "overall_type_counts": molecule_type_by_source.overall_type_counts,
+            "enrichment_matrix_text_prefix": _enrichment_matrix_text_prefix(
+                molecule_type_by_source,
+            ),
         },
         "figures_wavelength_by_source_type_2026": {
             "molecule_count": int(wavelength_by_source.molecule_count),
@@ -273,6 +343,14 @@ def build_regression_counts(
             "entries": len(source_entries),
             "credited_detections": sum(count for _, count in source_entries),
             "top_entries": source_entries[:5],
+        },
+        "latex_rate_by_atoms_table_2026": {
+            "fit_values": _rate_fit_values(rate_fits),
+            "table_rows": [
+                line
+                for line in rate_fragments["rates_by_atoms_table.tex"].splitlines()
+                if "\t&\t" in line
+            ],
         },
         "latex_ism_tables_2026": {
             "balanced_group_column_counts": [

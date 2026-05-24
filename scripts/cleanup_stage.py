@@ -11,6 +11,7 @@ from __future__ import annotations
 import argparse
 import json
 from pathlib import Path
+import shlex
 import shutil
 import subprocess
 from urllib.parse import urlparse
@@ -188,22 +189,40 @@ def close_github_issues(
     commit_url = f"https://github.com/{repo}/commit/{commit_sha}"
     comment = issue_close_comment(stage_name, commit_sha, commit_url)
     for issue_number in issue_numbers:
-        subprocess.run(
-            [
-                "gh",
-                "issue",
-                "close",
-                str(issue_number),
-                "--repo",
-                repo,
-                "--reason",
-                "completed",
-                "--comment",
-                comment,
-            ],
-            cwd=ROOT,
-            check=True,
-        )
+        command = [
+            "gh",
+            "issue",
+            "close",
+            str(issue_number),
+            "--repo",
+            repo,
+            "--reason",
+            "completed",
+            "--comment",
+            comment,
+        ]
+        try:
+            subprocess.run(
+                command,
+                cwd=ROOT,
+                check=True,
+                capture_output=True,
+                text=True,
+            )
+        except subprocess.CalledProcessError as exc:
+            output = (exc.stderr or exc.stdout or "").strip()
+            if not output:
+                output = (
+                    f"`gh issue close` exited with status {exc.returncode} "
+                    "without additional output."
+                )
+            raise SystemExit(
+                "Commit/push already completed, but closing "
+                f"GitHub issue #{issue_number} failed.\n"
+                "Retry manually after resolving the GitHub CLI error:\n"
+                f"  {shlex.join(command)}\n\n"
+                f"GitHub CLI output:\n{output}"
+            ) from exc
         print(f"Closed GitHub issue #{issue_number}.")
 
 

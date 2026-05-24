@@ -3,6 +3,8 @@ from tempfile import TemporaryDirectory
 
 import numpy as np
 
+from baseline import load_production_baseline
+
 from astromol.census import CensusView
 from astromol.database import Database
 from astromol.figures import (
@@ -27,6 +29,9 @@ def values_by_label(data):
 
 
 db = Database()
+counts_2026 = load_production_baseline()["regression_counts"][
+    "figures_detection_rate_by_atoms_2026"
+]
 view_2021 = CensusView.for_census(db, "2021")
 view_2026 = CensusView.for_census(db, "2026")
 
@@ -49,10 +54,9 @@ assert visible_labels == [str(natoms) for natoms in range(2, 13)]
 data_2026 = detection_rate_by_atoms_data(view_2026)
 values_2026 = values_by_label(data_2026)
 assert data_2026.end_year == 2026
-assert values_2026["13+"][:2] == (7, 2018)
-assert np.isclose(values_2026["13+"][2], 7 / (2026 - 2018 + 1))
-assert values_2026["PAHs"][:2] == (9, 2021)
-assert np.isclose(values_2026["PAHs"][2], 9 / (2026 - 2021 + 1))
+for label, expected in counts_2026["points"].items():
+    assert values_2026[label][:2] == (expected["count"], expected["first_year"])
+    assert np.isclose(values_2026[label][2], expected["rate"])
 
 with TemporaryDirectory() as tmp:
     output_dir = Path(tmp)
