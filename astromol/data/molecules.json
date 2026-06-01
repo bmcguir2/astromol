@@ -28944,5 +28944,70 @@
         "context": "confirmed"
       }
     }
+  },
+  {
+    "name": "propadienediylidenesilylene",
+    "formula": "SiC3",
+    "table_formula": "l-SiC3",
+    "label": "mol:l-SiC3",
+    "note": null,
+    "iupac_name": null,
+    "selfies": null,
+    "synonyms": [
+      "silatetratrienediylidene"
+    ],
+    "smiles": null,
+    "canonical_smiles": null,
+    "inchi": null,
+    "inchikey": null,
+    "radical_override": true,
+    "fullerene": false,
+    "pah": false,
+    "n_rings": 0,
+    "cyclic": false,
+    "tags": {},
+    "rotcon": {
+      "B": 2748,
+      "refs": [
+        "McCarthy:2000:766"
+      ]
+    },
+    "dipole": {
+      "a": 4.8,
+      "refs": [
+        "Alberts:1990:5046"
+      ]
+    },
+    "refs": {
+      "lab": [
+        "McCarthy:2000:766"
+      ],
+      "computation": [
+        "Alberts:1990:5046"
+      ]
+    },
+    "isotopologue_of": null,
+    "latex_section_override": null,
+    "latex_body": "\\ce{l-SiC3} was detected in IRC+10216 by \\citet{Cabezas:2025:L24} using Yebes 40 m observations. Eleven lines between 32--50\\,GHz were identified and assigned based on laboratory work presented in \\citet{McCarthy:2000:766}.",
+    "history": {
+      "introduced": {
+        "date": "2026-06-01",
+        "context": "confirmed"
+      },
+      "last_modified": "2026-06-01",
+      "events": [
+        {
+          "kind": "added",
+          "summary": "Added molecule record.",
+          "date": "2026-06-01",
+          "fields": []
+        }
+      ],
+      "accepted": {
+        "date": "2026-06-01",
+        "census": "2026",
+        "context": "confirmed"
+      }
+    }
   }
 ]
