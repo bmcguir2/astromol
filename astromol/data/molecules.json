@@ -2159,7 +2159,7 @@
       "note": null
     },
     "dipole": {
-      "a": 0.88,
+      "a": 0.90,
       "b": null,
       "c": null,
       "refs": [
@@ -2172,7 +2172,7 @@
         "Clark:1983:294",
         "Frisch:1984:3265"
       ],
-      "note": "Computed as part of this work; calculation notebook: docs/calculations/cp_dipole_calculations.ipynb."
+      "note": "Computed as part of this work at m06-2x/aug-cc-pVTZ; calculation notebook: docs/calculations/cp_dipole_calculations.ipynb."
     },
     "refs": {
       "lab": [
@@ -2401,7 +2401,7 @@
       "note": null
     },
     "dipole": {
-      "a": 0.2,
+      "a": 0.1,
       "b": null,
       "c": null,
       "refs": [
@@ -2414,7 +2414,7 @@
         "Clark:1983:294",
         "Frisch:1984:3265"
       ],
-      "note": "Computed as part of this work; calculation notebook: docs/calculations/sop_dipole_calculations.ipynb."
+      "note": "Computed as part of this work at m06-2x/aug-cc-pVTZ; calculation notebook: docs/calculations/sop_dipole_calculations.ipynb."
     },
     "refs": {
       "lab": [
