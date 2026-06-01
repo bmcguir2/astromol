@@ -21330,5 +21330,58 @@
         "context": "confirmed_ism_csm"
       }
     }
+  },
+  {
+    "id": "det:l-SiC5:ism-csm:2025",
+    "note": null,
+    "molecule": "mol:l-SiC5",
+    "sources": [
+      "IRC10216"
+    ],
+    "telescopes": [
+      "Yebes40"
+    ],
+    "wavelengths": [
+      "cm"
+    ],
+    "year": 2025,
+    "type": "ISM/CSM",
+    "status": "secure",
+    "status_note": null,
+    "first": true,
+    "month": null,
+    "day": null,
+    "refs": {
+      "observation": [
+        "Cabezas:2025:L24"
+      ]
+    },
+    "confirms": [],
+    "confirmed_by": [],
+    "disputes": [],
+    "disputed_by": [],
+    "supersedes": [],
+    "superseded_by": [],
+    "latex_text": null,
+    "history": {
+      "introduced": {
+        "date": "2026-06-01",
+        "context": "confirmed"
+      },
+      "last_modified": "2026-06-01",
+      "events": [
+        {
+          "kind": "added",
+          "summary": "Added detection record.",
+          "date": "2026-06-01",
+          "fields": []
+        }
+      ],
+      "accepted": {
+        "date": "2026-06-01",
+        "census": "2026",
+        "context": "confirmed_ism_csm"
+      }
+    }
   }
 ]

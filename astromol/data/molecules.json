@@ -2159,7 +2159,7 @@
       "note": null
     },
     "dipole": {
-      "a": 0.90,
+      "a": 0.9,
       "b": null,
       "c": null,
       "refs": [
@@ -28989,6 +28989,70 @@
     "isotopologue_of": null,
     "latex_section_override": null,
     "latex_body": "\\ce{l-SiC3} was detected in IRC+10216 by \\citet{Cabezas:2025:L24} using Yebes 40 m observations. Eleven lines between 32--50\\,GHz were identified and assigned based on laboratory work presented in \\citet{McCarthy:2000:766}.",
+    "history": {
+      "introduced": {
+        "date": "2026-06-01",
+        "context": "confirmed"
+      },
+      "last_modified": "2026-06-01",
+      "events": [
+        {
+          "kind": "added",
+          "summary": "Added molecule record.",
+          "date": "2026-06-01",
+          "fields": []
+        }
+      ],
+      "accepted": {
+        "date": "2026-06-01",
+        "census": "2026",
+        "context": "confirmed"
+      }
+    }
+  },
+  {
+    "name": "pentatetraenediylidenesilylene",
+    "formula": "SiC5",
+    "table_formula": "l-SiC5",
+    "label": "mol:l-SiC5",
+    "note": null,
+    "iupac_name": null,
+    "selfies": null,
+    "synonyms": [
+      "silahexapentaenediylidene"
+    ],
+    "smiles": null,
+    "canonical_smiles": null,
+    "inchi": null,
+    "inchikey": null,
+    "radical_override": true,
+    "fullerene": false,
+    "pah": false,
+    "n_rings": 0,
+    "cyclic": false,
+    "tags": {},
+    "rotcon": {
+      "B": 921,
+      "refs": [
+        "McCarthy:2000:766"
+      ]
+    },
+    "dipole": {
+      "a": 6.6,
+      "refs": [
+        "Muller:2005:215"
+      ],
+      "note": "The dipole moment is cited as coming from Muller et al. 2005, which is simply a reference to the CDMS database. According to the CDMS website, the dipole moment is an estimate. As part of this work, it was computed at m06-2x/aug-cc-pVTZ; calculation notebook: docs/calculations/sic5_dipole_calculations.ipynb. The same value (6.6 D) was determined."
+    },
+    "refs": {
+      "lab": [
+        "McCarthy:2000:766"
+      ],
+      "computation": []
+    },
+    "isotopologue_of": null,
+    "latex_section_override": null,
+    "latex_body": "\\ce{l-SiC5} was detected in IRC+10216 by \\citet{Cabezas:2025:L24} using Yebes 40 m observations.  22 lines between 31--48\\,GHz were identified and assigned based on laboratory work presented in \\citet{McCarthy:2000:766}. The dipole moment was calculated as part of this work (\\ref{sec:dipole}).",
     "history": {
       "introduced": {
         "date": "2026-06-01",
