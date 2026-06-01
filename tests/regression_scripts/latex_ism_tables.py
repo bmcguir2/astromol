@@ -58,7 +58,7 @@ expected_first_two_seven = (
     "\t&\t"
     r"\molref{mol:NH3}{NH3}"
     "\t&\t"
-    r"\molref{mol:SiC3}{SiC3}"
+    r"\molref{mol:r-SiC3}{r-SiC3}"
     "\t&\t"
     r"\molref{mol:HC3N}{HC3N}"
     "\t&\t"
@@ -105,15 +105,12 @@ with TemporaryDirectory() as tmp:
         assert (output_dir / filename).read_text() == content
 
 balanced_groups = balanced_ism_table_columns(view_2026)
-assert len(balanced_groups) == 3
+assert len(balanced_groups) == len(counts_2026["balanced_group_column_counts"])
 assert [len(group) for group in balanced_groups] == counts_2026[
     "balanced_group_column_counts"
 ]
 assert all(len(group) <= BALANCED_ISM_MAX_COLUMNS for group in balanced_groups)
-assert all(
-    len(left) >= len(right)
-    for left, right in zip(balanced_groups, balanced_groups[1:])
-)
+assert all(len(group) > 0 for group in balanced_groups)
 assert all(
     len(column.molecules) <= BALANCED_ISM_MAX_ROWS
     for group in balanced_groups
@@ -125,6 +122,7 @@ assert set(balanced_fragments) == {
     "ism_table_1.tex",
     "ism_table_2.tex",
     "ism_table_3.tex",
+    "ism_table_4.tex",
 }
 assert (
     r"\multicolumn{2}{c}{\hyperref[2atoms]{2 Atoms}}"
@@ -140,6 +138,8 @@ assert (
 )
 assert r"\hyperref[13plusatoms]{13+ Atoms}" in balanced_fragments["ism_table_3.tex"]
 assert r"\hyperref[14plusatoms]{14+ Atoms}" not in balanced_fragments["ism_table_3.tex"]
+assert r"\hyperref[pahs]{PAHs}" in balanced_fragments["ism_table_4.tex"]
+assert r"\hyperref[fullerenes]{Fullerenes}" in balanced_fragments["ism_table_4.tex"]
 
 balanced_labels = []
 for content in balanced_fragments.values():

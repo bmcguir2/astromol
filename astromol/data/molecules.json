@@ -9821,10 +9821,10 @@
     }
   },
   {
-    "name": "silicon tricarbide",
+    "name": "rhomboidal silicon tricarbide",
     "formula": "SiC3",
-    "table_formula": "SiC3",
-    "label": "mol:SiC3",
+    "table_formula": "r-SiC3",
+    "label": "mol:r-SiC3",
     "note": null,
     "iupac_name": null,
     "selfies": null,
@@ -9868,7 +9868,7 @@
     },
     "isotopologue_of": null,
     "latex_section_override": null,
-    "latex_body": "\\citet{Apponi:1999:L103} reported the detection of \\ce{SiC3} in NRAO 12-m observations of IRC+10216.  Nine transitions of \\ce{SiC3} between 81--103~GHz were observed and assigned based on laboratory work by the same group, published shortly thereafter in \\citet{McCarthy:1999:10645} and \\citet{Apponi:1999:3911}.",
+    "latex_body": "\\citet{Apponi:1999:L103} reported the detection of \\ce{r-SiC3} in NRAO 12-m observations of IRC+10216.  Nine transitions of \\ce{r-SiC3} between 81--103~GHz were observed and assigned based on laboratory work by the same group, published shortly thereafter in \\citet{McCarthy:1999:10645} and \\citet{Apponi:1999:3911}.",
     "history": {
       "introduced": {
         "date": null,
@@ -9881,7 +9881,7 @@
         "census": "2018",
         "context": "confirmed_ism_csm"
       },
-      "last_modified": null,
+      "last_modified": "2026-06-01",
       "events": [
         {
           "date": null,
@@ -9890,6 +9890,18 @@
           "fields": [],
           "summary": "Initial entry",
           "legacy_version": "2018.0.0"
+        },
+        {
+          "date": "2026-06-01",
+          "census": "2026",
+          "kind": "updated",
+          "fields": [
+            "label",
+            "name",
+            "table_formula",
+            "latex_body"
+          ],
+          "summary": "Disambiguated SiC3 as the rhomboidal isomer ahead of the linear SiC3 entry."
         }
       ]
     }

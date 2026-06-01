@@ -9520,7 +9520,7 @@
   {
     "id": "det:SiC3:ism-csm:1999",
     "note": null,
-    "molecule": "mol:SiC3",
+    "molecule": "mol:r-SiC3",
     "sources": [
       "IRC10216"
     ],
@@ -9548,7 +9548,7 @@
         "census": "2018",
         "context": "confirmed_ism_csm"
       },
-      "last_modified": "2026-05-07",
+      "last_modified": "2026-06-01",
       "events": [
         {
           "kind": "corrected",
@@ -9557,6 +9557,15 @@
           "census": "2026",
           "fields": [
             "history.accepted"
+          ]
+        },
+        {
+          "kind": "updated",
+          "summary": "Updated the linked molecule label to mol:r-SiC3 for rhomboidal SiC3 disambiguation.",
+          "date": "2026-06-01",
+          "census": "2026",
+          "fields": [
+            "molecule"
           ]
         }
       ]
