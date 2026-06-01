@@ -28858,5 +28858,79 @@
         "context": "confirmed"
       }
     }
+  },
+  {
+    "name": "propenethial",
+    "formula": "CH2CHCHS",
+    "table_formula": "CH2CHCHS",
+    "label": "mol:CH2CHCHS",
+    "note": null,
+    "iupac_name": "2-propenthial",
+    "selfies": null,
+    "synonyms": [
+      "thioacrolein"
+    ],
+    "smiles": "C=CC=S",
+    "canonical_smiles": "C=CC=S",
+    "inchi": "InChI=1S/C3H4S/c1-2-3-4/h2-3H,1H2",
+    "inchikey": "GPRPXLGCWOJFQZ-UHFFFAOYSA-N",
+    "radical_override": null,
+    "fullerene": false,
+    "pah": false,
+    "n_rings": 0,
+    "cyclic": false,
+    "tags": {
+      "functional_groups": [
+        "=S"
+      ]
+    },
+    "rotcon": {
+      "A": 45777,
+      "B": 2796,
+      "C": 2635,
+      "refs": [
+        "Cabezas:2025:L24",
+        "Georgiou:1980:94"
+      ]
+    },
+    "dipole": {
+      "a": 2.58,
+      "b": 0.36,
+      "refs": [
+        "Georgiou:1980:94"
+      ]
+    },
+    "refs": {
+      "lab": [
+        "Cabezas:2025:L24",
+        "Georgiou:1980:94"
+      ],
+      "computation": [
+        "Georgiou:1980:94"
+      ]
+    },
+    "isotopologue_of": null,
+    "latex_section_override": null,
+    "latex_body": "\\citet{Cabezas:2025:L24} reported the detection of \\ce{CH2CHCHS} in Yebes 40m observations of TMC-1.  Nine individual transitions were identifed between 31-50\\,GHz and assigned based on laboratory work from \\citet{Georgiou:1980:94} which was extended to higher frequencies in the work presenting the detection.",
+    "history": {
+      "introduced": {
+        "date": "2026-06-01",
+        "context": "confirmed"
+      },
+      "last_modified": "2026-06-01",
+      "events": [
+        {
+          "kind": "added",
+          "summary": "Added molecule record.",
+          "date": "2026-06-01",
+          "fields": []
+        }
+      ],
+      "accepted": {
+        "date": "2026-06-01",
+        "census": "2026",
+        "context": "confirmed"
+      }
+    }
   }
 ]
