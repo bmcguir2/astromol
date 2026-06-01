@@ -63,8 +63,17 @@ assert "Sgr B2 LOS" not in labels_2026
 content_2026 = source_table_fragments(view_2026)["source_table.tex"]
 top_source, top_source_count = counts_2026["top_entries"][0]
 assert f"{top_source}\t&\t{top_source_count}\t&" in content_2026
-assert "Sgr B2\t&\t70\t&\tLupus-1A\t&\t2\t\\\\" in content_2026
-assert "Diffuse Cloud\t&\t42\t&\tNGC 7023\t&\t2\t\\\\" in content_2026
-assert content_2026.count(r"\\") == 22
+split_at = (len(entries_2026) + 1) // 2
+left_entries = entries_2026[:split_at]
+right_entries = entries_2026[split_at:]
+for (left_label, left_count), (right_label, right_count) in zip(
+    left_entries[:5],
+    right_entries[:5],
+):
+    assert (
+        f"{left_label}\t&\t{left_count}\t&\t"
+        f"{right_label}\t&\t{right_count}\t\\\\"
+    ) in content_2026
+assert content_2026.count(r"\\") == split_at + 1
 
 print("LaTeX source table verification passed")
