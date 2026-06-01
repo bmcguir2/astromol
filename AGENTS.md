@@ -352,8 +352,9 @@ Before declaring substantial work done:
 
 1. Run focused tests for touched area.
 2. For production data changes, run
-   `python -m pytest tests/test_load.py tests/test_validation.py` after
-   applying the staged records and inspecting the generated baseline diff.
+   `python scripts/check_curation.py` after applying the staged records and
+   inspecting the generated baseline diff. This includes validation plus the
+   curation-sensitive output regression scripts.
 3. Run full `pytest` for broad refactors.
 4. Run docs build (`sphinx -W`) when docs/API surface changes.
 5. Run clean package build when module/package structure changes.

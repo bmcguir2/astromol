@@ -23,7 +23,7 @@ data update:
 
 ```bash
 python scripts/update_data_baseline.py
-python -m pytest tests/test_load.py tests/test_validation.py tests/test_regression_scripts.py
+python scripts/check_curation.py
 ```
 
 Do not repair curation-driven assertion failures by editing scattered numeric
@@ -31,6 +31,10 @@ literals in regression scripts. Add the generated expectation to
 `scripts/update_data_baseline.py`, regenerate
 `tests/baselines/production_data.json`, and inspect the baseline diff with the
 curation change.
+
+`scripts/check_curation.py` expands to production-data validation plus the
+load, validation-baseline, and output regression tests. Use it after applying
+new molecule or detection records.
 
 Run the regression suite with:
 

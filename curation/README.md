@@ -68,18 +68,21 @@ remain an explicit choice. `--close-issue` may be passed more than once and
 runs only after a successful push; it uses the GitHub CLI to close each issue
 with a comment linking to the commit.
 
-After any approved production data change, review the generated baseline diff:
+After any approved production data change, review the generated baseline diff
+and run the local curation verification check:
 
 ```bash
-python -m astromol.validation
-python -m pytest tests/test_load.py tests/test_validation.py
+python scripts/check_curation.py
 ```
 
 `tests/baselines/production_data.json` records the expected production
 inventory counts, curation-sensitive regression counts, and known validation
 warnings. It should change only when the underlying curated data or accepted
-warning backlog changes. `python scripts/update_data_baseline.py` remains
-available for manual baseline refreshes outside the staging workflow.
+warning backlog changes. The curation check runs production-data validation
+plus the load, validation-baseline, and output regression tests that catch
+2026 table, figure, and slide expectation drift. The
+`python scripts/update_data_baseline.py` command remains available for manual
+baseline refreshes outside the staging workflow.
 
 ## Record Kinds
 

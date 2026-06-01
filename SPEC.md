@@ -521,6 +521,17 @@ Regression tests live under `tests/` and are run with:
 python -m pytest
 ```
 
+For production curation changes, run the local curation verification command
+after applying staged records and inspecting the generated baseline diff:
+
+```bash
+python scripts/check_curation.py
+```
+
+This runs production-data validation plus the load, validation-baseline, and
+output regression tests that catch curation-driven 2026 table, figure, and
+slide expectation changes before CI.
+
 The current pytest suite uses a wrapped regression-script harness to preserve
 the audited migration checks while making them visible to pytest. This is a
 bridge, not the final testing architecture. After the public API, documentation

@@ -37,9 +37,8 @@ After an approved production data change, refresh the committed data baseline
 and inspect the diff:
 
 ```bash
-python -m astromol.validation
 python scripts/update_data_baseline.py
-python -m pytest tests/test_load.py tests/test_validation.py tests/test_regression_scripts.py
+python scripts/check_curation.py
 ```
 
 `tests/baselines/production_data.json` stores expected production inventory
@@ -48,6 +47,10 @@ expectations. Regenerate it only after the data change has been reviewed and
 accepted. If a new curation batch changes a 2026 table, figure, or slide
 assertion, add that generated expectation to `scripts/update_data_baseline.py`
 instead of pinning a new literal directly in the regression script.
+
+`scripts/check_curation.py` runs production-data validation plus the load,
+validation-baseline, and output regression tests that are sensitive to new
+secure molecules and detections.
 
 References are maintained in Zotero and exported to
 `astromol/data/references.bib`. Do not hand-edit the BibTeX file; export the

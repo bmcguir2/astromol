@@ -181,12 +181,16 @@ python scripts/cleanup_stage.py \
 ```
 
 After an approved production data change, inspect the generated baseline diff
-before committing:
+before committing, then run the local curation verification check:
 
 ```bash
-python -m astromol.validation
-python -m pytest tests/test_load.py tests/test_validation.py
+python scripts/check_curation.py
 ```
+
+This runs production-data validation plus the curation-sensitive load,
+validation-baseline, and output regression tests. The output regression step is
+needed because new secure molecules/detections can legitimately change 2026
+table, figure, and slide layout expectations.
 
 See `curation/README.md` for template notes, YAML quoting rules, and schema
 maintenance expectations.
@@ -354,7 +358,13 @@ or, from a source checkout without installing entry points:
 python -m astromol.validation
 ```
 
-Run the regression suite with:
+For production curation changes, run the local curation verification check:
+
+```bash
+python scripts/check_curation.py
+```
+
+Run the full regression suite with:
 
 ```bash
 python -m pytest
