@@ -1,0 +1,103 @@
+- kind: molecule
+  label: mol:l-SiC3
+  name: propadienediylidenesilylene
+  formula: SiC3
+  table_formula: l-SiC3
+  note:
+  iupac_name:
+  selfies:
+  synonyms:
+    - silatetratrienediylidene
+  smiles:
+  canonical_smiles:
+  inchi:
+  inchikey:
+  radical_override: true
+  fullerene: false
+  pah: false
+  n_rings: 0
+  cyclic: false
+  tags:
+    functional_groups: []
+  rotcon:
+    A:
+    B: 2748
+    C:
+    refs:
+      - McCarthy:2000:766
+    note:
+  dipole:
+    a: 4.8
+    b:
+    c:
+    refs:
+      - Alberts:1990:5046
+    note:
+  refs:
+    lab:
+      - McCarthy:2000:766
+    computation:
+      - Alberts:1990:5046
+  isotopologue_of:
+  latex_section_override:
+  latex_body: >-
+    \ce{l-SiC3} was detected in IRC+10216 by \citet{Cabezas:2025:L24} using
+    Yebes 40 m observations. Eleven lines between 32--50\,GHz were identified
+    and assigned based on laboratory work presented in
+    \citet{McCarthy:2000:766}.
+  history:
+    introduced:
+      date:
+      census:
+      context:
+    accepted:
+      date:
+      census:
+      context:
+    last_modified:
+    events: []
+
+- kind: detection
+  id: det:l-SiC3:ism-csm:2025
+  molecule: mol:l-SiC3
+  sources:
+    - IRC10216
+  telescopes:
+    - Yebes40
+  wavelengths:
+    - cm
+  year: 2025
+  type: ISM/CSM
+  status: secure
+  status_note:
+  note:
+  first: true
+  month:
+  day:
+  refs:
+    observation:
+      - Cabezas:2025:L24
+    confirmation: []
+    dispute: []
+    correction: []
+  confirms: []
+  confirmed_by: []
+  disputes: []
+  disputed_by: []
+  supersedes: []
+  superseded_by: []
+  latex_text:
+  history:
+    introduced:
+      date:
+      census:
+      context:
+    accepted:
+      date:
+      census:
+      context:
+    last_modified:
+    events: []
+  _raw_sources_not_mapped: []
+  _raw_telescopes_not_mapped: []
+  _curation_note:

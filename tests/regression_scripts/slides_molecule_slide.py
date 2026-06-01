@@ -93,7 +93,7 @@ assert any("13+ Atoms" in warning for warning in layout_2026.warnings)
 balanced_2026 = build_molecule_slide_layout(view_2026, profile="balanced")
 assert balanced_2026.total == counts_2026["total"]
 assert balanced_2026.profile == "balanced"
-assert balanced_2026.molecule_font_pt == 20
+assert balanced_2026.molecule_font_pt == counts_2026["balanced_molecule_font_pt"]
 assert balanced_2026.warnings == ()
 assert [len(group.molecules) for group in balanced_2026.groups] == counts_2026[
     "balanced_group_molecule_counts"

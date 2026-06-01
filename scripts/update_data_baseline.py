@@ -362,6 +362,7 @@ def build_regression_counts(
             "total": int(legacy_slide.total),
             "count_text": f"{legacy_slide.total} Molecules",
             "legacy_warning_count": len(legacy_slide.warnings),
+            "balanced_molecule_font_pt": balanced_slide.molecule_font_pt,
             "balanced_group_molecule_counts": [
                 len(group.molecules) for group in balanced_slide.groups
             ],
