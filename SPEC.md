@@ -372,10 +372,12 @@ denominator is the number of first-detected molecules. G+0.693-0.027 is
 displayed as `G+0.693` with a black ring and label. As a result, percentages
 can sum to more than 100% when one first detection lists multiple sources.
 Production rendering sorts rings by descending category count while keeping
-stable category colors; pass `order="legacy"` for historical visual
-reproduction. Current/2026 regression counts and ring labels for this figure
-are generated through `scripts/update_data_baseline.py`, not pinned in the
-individual regression script.
+stable category colors. Label and percent annotations are positioned by this
+rendered ring order, not by the source-category declaration order, so labels
+remain aligned when curation changes the source ranking; pass `order="legacy"`
+for historical visual reproduction. Current/2026 regression counts and ring
+labels for this figure are generated through `scripts/update_data_baseline.py`,
+not pinned in the individual regression script.
 `molecule_type_by_source_type_data` and
 `write_molecule_type_by_source_type` generate the four-panel pie-grid view of
 molecule-type composition within generalized first-detection source categories.

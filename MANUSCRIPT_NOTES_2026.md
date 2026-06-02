@@ -170,9 +170,12 @@ output-generation migration. Keep implementation details in `SPEC.md` and
   stable category colors. For the 2026/current source-type chart, Dark Cloud
   has overtaken SFR and should appear as the outer ring. If comparing directly
   to 2021, note that ring order now reflects the current category ranking
-  rather than a fixed historical order. The individual-source chart counts
-  first-detection source contributions, not unique molecules per source, so its
-  percentages can sum to more than 100%.
+  rather than a fixed historical order. The individual-source chart includes
+  G+0.693-0.027 as `G+0.693` with a black inner ring and label; its labels are
+  placed by rendered ring order so they stay aligned with the dynamically
+  sorted rings. The individual-source chart counts first-detection source
+  contributions, not unique molecules per source, so its percentages can sum
+  to more than 100%.
 - Replace the 2021 molecule-type-by-source pie grid with the enrichment-factor
   matrix in the 2026 manuscript. The matrix makes the same point more directly:
   source categories differ in which molecule classes are fractionally enriched
