@@ -172,16 +172,17 @@
     },
     "figures_individual_source_2026": {
       "counts": {
+        "g0693": 19,
         "irc10216": 70,
         "orion": 25,
-        "other": 156,
+        "other": 137,
         "sgr_b2": 70,
         "tmc1": 110
       },
       "molecule_count": 332,
       "ring_text": [
         "Other",
-        "47.0%",
+        "41.3%",
         "TMC-1",
         "33.1%",
         "Sgr B2",
@@ -189,7 +190,9 @@
         "IRC+10216",
         "21.1%",
         "Orion",
-        "7.5%"
+        "7.5%",
+        "G+0.693",
+        "5.7%"
       ]
     },
     "figures_kappas_2026": {

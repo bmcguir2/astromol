@@ -367,11 +367,15 @@ descending category count while keeping stable category colors; pass
 individual first-detection source ring chart. The standard view uses secure,
 non-isotopologue ISM/CSM first detections. This figure counts listed source
 contributions rather than unique molecules per named source: Sgr B2, TMC-1,
-IRC+10216, Orion, and Other are credited independently, and the denominator is
-the number of first-detected molecules. As a result, percentages can sum to
-more than 100% when one first detection lists multiple sources. Production
-rendering sorts rings by descending category count while keeping stable
-category colors; pass `order="legacy"` for historical visual reproduction.
+IRC+10216, Orion, G+0.693-0.027, and Other are credited independently, and the
+denominator is the number of first-detected molecules. G+0.693-0.027 is
+displayed as `G+0.693` with a black ring and label. As a result, percentages
+can sum to more than 100% when one first detection lists multiple sources.
+Production rendering sorts rings by descending category count while keeping
+stable category colors; pass `order="legacy"` for historical visual
+reproduction. Current/2026 regression counts and ring labels for this figure
+are generated through `scripts/update_data_baseline.py`, not pinned in the
+individual regression script.
 `molecule_type_by_source_type_data` and
 `write_molecule_type_by_source_type` generate the four-panel pie-grid view of
 molecule-type composition within generalized first-detection source categories.
