@@ -12,6 +12,10 @@ from astromol.figures import (
 )
 
 
+LABEL_Y_POSITIONS = (0.110, 0.160, 0.205, 0.255, 0.305, 0.355)
+PERCENT_Y_POSITIONS = (0.870, 0.825, 0.775, 0.725, 0.680, 0.635)
+
+
 def ring_text(data):
     categories = tuple(
         category
@@ -27,6 +31,22 @@ def ring_text(data):
     for category in categories:
         text.extend([category.label, f"{category.percent:.1f}%"])
     return text
+
+
+def assert_ring_text_positions(ax, expected_text):
+    label_text = expected_text[::2]
+    percent_text = expected_text[1::2]
+    labels = [text for text in ax.texts if text.get_text() in label_text]
+    percentages = [text for text in ax.texts if text.get_text() in percent_text]
+
+    assert [text.get_text() for text in labels] == label_text
+    assert [round(text.get_position()[1], 3) for text in labels] == list(
+        LABEL_Y_POSITIONS
+    )
+    assert [text.get_text() for text in percentages] == percent_text
+    assert [round(text.get_position()[1], 3) for text in percentages] == list(
+        PERCENT_Y_POSITIONS
+    )
 
 
 db = Database()
@@ -60,7 +80,9 @@ with TemporaryDirectory() as tmp:
     output_dir = Path(tmp)
     figure, ax = plot_individual_source_pie_chart(data_2021)
     displayed_text = [text.get_text() for text in ax.texts if text.get_text()]
-    assert displayed_text == ring_text(data_2021)
+    expected_2021_text = ring_text(data_2021)
+    assert displayed_text == expected_2021_text
+    assert_ring_text_positions(ax, expected_2021_text)
     g0693_label = next(text for text in ax.texts if text.get_text() == "G+0.693")
     assert g0693_label.get_color() == "black"
     assert ax.axison is False
@@ -72,6 +94,7 @@ with TemporaryDirectory() as tmp:
         if text.get_text()
     ]
     assert displayed_2026 == counts_2026["ring_text"]
+    assert_ring_text_positions(production_ax, counts_2026["ring_text"])
     production_g0693_label = next(
         text for text in production_ax.texts if text.get_text() == "G+0.693"
     )

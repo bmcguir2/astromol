@@ -139,49 +139,53 @@ INDIVIDUAL_SOURCE_PIE_SPECS = (
         "label": "Other",
         "source_nicks": (),
         "color": ASTROMOL_BLUE,
-        "label_y": 0.110,
-        "percent_y": 0.870,
     },
     {
         "key": "sgr_b2",
         "label": "Sgr B2",
         "source_nicks": ("SgrB2",),
         "color": "darkorange",
-        "label_y": 0.160,
-        "percent_y": 0.825,
     },
     {
         "key": "tmc1",
         "label": "TMC-1",
         "source_nicks": ("TMC1",),
         "color": "violet",
-        "label_y": 0.205,
-        "percent_y": 0.775,
     },
     {
         "key": "irc10216",
         "label": "IRC+10216",
         "source_nicks": ("IRC10216",),
         "color": "forestgreen",
-        "label_y": 0.255,
-        "percent_y": 0.725,
     },
     {
         "key": "orion",
         "label": "Orion",
         "source_nicks": ("OrionKL",),
         "color": "red",
-        "label_y": 0.305,
-        "percent_y": 0.680,
     },
     {
         "key": "g0693",
         "label": "G+0.693",
         "source_nicks": ("G0693",),
         "color": "black",
-        "label_y": 0.355,
-        "percent_y": 0.635,
     },
+)
+INDIVIDUAL_SOURCE_LABEL_Y_POSITIONS = (
+    0.110,
+    0.160,
+    0.205,
+    0.255,
+    0.305,
+    0.355,
+)
+INDIVIDUAL_SOURCE_PERCENT_Y_POSITIONS = (
+    0.870,
+    0.825,
+    0.775,
+    0.725,
+    0.680,
+    0.635,
 )
 INDIVIDUAL_SOURCE_NICK_TO_KEY = {
     source_nick: spec["key"]
@@ -1978,8 +1982,8 @@ def individual_source_data(
                 color=spec["color"],
                 count=count,
                 fraction=count / molecule_count,
-                label_y=spec["label_y"],
-                percent_y=spec["percent_y"],
+                label_y=0.0,
+                percent_y=0.0,
             )
         )
 
@@ -4125,10 +4129,14 @@ def plot_individual_source_pie_chart(
             },
         )
 
-    for category in categories:
+    for category, label_y, percent_y in zip(
+        categories,
+        INDIVIDUAL_SOURCE_LABEL_Y_POSITIONS,
+        INDIVIDUAL_SOURCE_PERCENT_Y_POSITIONS,
+    ):
         ax.annotate(
             category.label,
-            xy=(0.5, category.label_y),
+            xy=(0.5, label_y),
             xycoords="axes fraction",
             color=category.color,
             ha="center",
@@ -4137,7 +4145,7 @@ def plot_individual_source_pie_chart(
         )
         ax.annotate(
             f"{category.percent:.1f}%",
-            xy=(0.51, category.percent_y),
+            xy=(0.51, percent_y),
             xycoords="axes fraction",
             color="white",
             ha="center",
