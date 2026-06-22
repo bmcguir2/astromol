@@ -3021,6 +3021,7 @@ def plot_cumulative_detections(
         figure, ax = plt.subplots(
             num="Cumulative Detections",
             figsize=FIGURE_SIZE,
+            clear=True,
         )
     else:
         figure = ax.figure
@@ -3152,6 +3153,7 @@ def plot_cumulative_by_atoms(
         figure, ax = plt.subplots(
             num="Cumulative Detections By Atoms",
             figsize=FIGURE_SIZE,
+            clear=True,
         )
     else:
         figure = ax.figure
@@ -3233,6 +3235,7 @@ def plot_stacked_cumulative_by_atoms(
         figure, ax = plt.subplots(
             num="Stacked Cumulative Detections By Atoms",
             figsize=FIGURE_SIZE,
+            clear=True,
         )
     else:
         figure = ax.figure
@@ -3336,7 +3339,7 @@ def plot_periodic_heatmap(
     import matplotlib.patches as patches
 
     if ax is None:
-        figure = plt.figure(num="Periodic Heatmap", figsize=figure_size)
+        figure = plt.figure(num="Periodic Heatmap", figsize=figure_size, clear=True)
         ax = figure.add_axes([0, 0, 1, 1])
     else:
         figure = ax.figure
@@ -3457,6 +3460,7 @@ def plot_du_histogram(
         figure, ax = plt.subplots(
             num="Degree of Unsaturation Histogram",
             figsize=FIGURE_SIZE,
+            clear=True,
         )
     else:
         figure = ax.figure
@@ -3591,7 +3595,7 @@ def plot_kappa_histogram(
     plt = _pyplot()
 
     if ax is None:
-        figure = plt.figure(num="Kappas", figsize=figure_size)
+        figure = plt.figure(num="Kappas", figsize=figure_size, clear=True)
         ax = figure.add_subplot(111)
     else:
         figure = ax.figure
@@ -3759,6 +3763,7 @@ def plot_du_bar_chart(
         figure, ax = plt.subplots(
             num="Degree of Unsaturation Exact Counts",
             figsize=FIGURE_SIZE,
+            clear=True,
         )
     else:
         figure = ax.figure
@@ -3900,7 +3905,7 @@ def plot_type_pie_chart(
     plt = _pyplot()
 
     if ax is None:
-        figure = plt.figure(num="Type Pie Chart", figsize=figure_size)
+        figure = plt.figure(num="Type Pie Chart", figsize=figure_size, clear=True)
         ax = figure.add_subplot(111)
     else:
         figure = ax.figure
@@ -4003,7 +4008,7 @@ def plot_source_pie_chart(
     plt = _pyplot()
 
     if ax is None:
-        figure = plt.figure(num="Source Pie Chart", figsize=figure_size)
+        figure = plt.figure(num="Source Pie Chart", figsize=figure_size, clear=True)
         ax = figure.add_subplot(111)
     else:
         figure = ax.figure
@@ -4108,7 +4113,11 @@ def plot_individual_source_pie_chart(
     plt = _pyplot()
 
     if ax is None:
-        figure = plt.figure(num="Individual Source Pie Chart", figsize=figure_size)
+        figure = plt.figure(
+            num="Individual Source Pie Chart",
+            figsize=figure_size,
+            clear=True,
+        )
         ax = figure.add_subplot(111)
     else:
         figure = ax.figure
@@ -4208,6 +4217,7 @@ def plot_molecule_type_by_source_type(
         2,
         num="Molecule Type by Source Type",
         figsize=figure_size,
+        clear=True,
     )
 
     for ax, source_category in zip(axes.flat, data.categories):
@@ -4412,6 +4422,7 @@ def plot_molecule_type_by_source_enrichment_matrix(
     figure = plt.figure(
         num="Molecule Type by Source Enrichment Matrix",
         figsize=figure_size,
+        clear=True,
     )
     ax = figure.add_axes(axes_bounds)
     colorbar_ax = figure.add_axes(colorbar_bounds)
@@ -4703,7 +4714,7 @@ def plot_du_by_source_type(
     source_label_overrides = source_label_overrides or {}
 
     if ax is None:
-        figure = plt.figure(num="DU by Source Type", figsize=figure_size)
+        figure = plt.figure(num="DU by Source Type", figsize=figure_size, clear=True)
         ax = figure.add_subplot(111)
     else:
         figure = ax.figure
@@ -4860,6 +4871,7 @@ def plot_relative_du_by_source_type(
             2,
             num="Relative DU by Source Type",
             figsize=figure_size,
+            clear=True,
         )
         axes_list = tuple(axes_array.flat)
     else:
@@ -4964,7 +4976,7 @@ def plot_mass_by_source_type(
     source_label_overrides = source_label_overrides or {}
 
     if ax is None:
-        figure = plt.figure(num="Mass by Source Type", figsize=figure_size)
+        figure = plt.figure(num="Mass by Source Type", figsize=figure_size, clear=True)
         ax = figure.add_subplot(111)
     else:
         figure = ax.figure
@@ -5108,6 +5120,7 @@ def plot_wavelength_by_source_type(
             2,
             num="Wavelength by Source Type",
             figsize=figure_size,
+            clear=True,
         )
         axes_list = tuple(axes_array.flat)
     else:
@@ -5232,6 +5245,7 @@ def plot_wavelength_by_source_type_stacked_bar(
         figure = plt.figure(
             num="Wavelength Shares by Source Type",
             figsize=figure_size,
+            clear=True,
         )
         ax = figure.add_subplot(111)
     else:
@@ -5607,7 +5621,11 @@ def plot_mass_by_wavelength(
 
     created_axes = ax is None
     if ax is None:
-        figure = plt.figure(num="Detections at Wavelengths by Mass", figsize=figure_size)
+        figure = plt.figure(
+            num="Detections at Wavelengths by Mass",
+            figsize=figure_size,
+            clear=True,
+        )
         ax = figure.add_subplot(111)
     else:
         figure = ax.figure
@@ -5779,6 +5797,7 @@ def plot_mass_by_wavelength_boxplot(
         figure = plt.figure(
             num="Mass Distributions by Detection Wavelength",
             figsize=figure_size,
+            clear=True,
         )
         ax = figure.add_subplot(111)
     else:
@@ -5926,6 +5945,7 @@ def plot_du_by_source_type_boxplot(
         figure = plt.figure(
             num="DU Distributions by Source Type",
             figsize=figure_size,
+            clear=True,
         )
         ax = figure.add_subplot(111)
     else:
@@ -6116,6 +6136,7 @@ def plot_relative_du_by_source_type_boxplot(
         figure = plt.figure(
             num="Relative DU Distributions by Source Type",
             figsize=figure_size,
+            clear=True,
         )
         ax = figure.add_subplot(111)
     else:
@@ -6308,6 +6329,7 @@ def plot_mass_by_source_type_boxplot(
         figure = plt.figure(
             num="Mass Distributions by Source Type",
             figsize=figure_size,
+            clear=True,
         )
         ax = figure.add_subplot(111)
     else:
@@ -6486,6 +6508,7 @@ def plot_molecules_by_wavelength_atoms(
             3,
             num="Molecules Detected in Each Wavelength by Number of Atoms",
             figsize=figure_size,
+            clear=True,
         )
         axes_list = tuple(axes_array.flat)
     else:
@@ -6603,6 +6626,7 @@ def plot_molecules_by_wavelength_atoms_bubble_heatmap(
         figure = plt.figure(
             num="Molecules by Wavelength and Atom Count",
             figsize=figure_size,
+            clear=True,
         )
         ax = figure.add_axes((0.13, 0.16, 0.76, 0.78))
     else:
@@ -6745,6 +6769,7 @@ def plot_rolling_rate_by_atoms_heatmap(
         figure = plt.figure(
             num="Rolling Detection Rate By Atoms",
             figsize=ROLLING_RATE_HEATMAP_SIZE,
+            clear=True,
         )
         ax = figure.add_axes(ROLLING_RATE_HEATMAP_AXES_BOUNDS)
     else:
@@ -6901,6 +6926,7 @@ def plot_detection_rate_by_atoms(
         figure, ax = plt.subplots(
             num="Detects Per Year Per Atom",
             figsize=FIGURE_SIZE,
+            clear=True,
         )
     else:
         figure = ax.figure
@@ -7013,6 +7039,7 @@ def plot_detection_rate_by_atoms_comparison(
         figure, ax = plt.subplots(
             num="Detection Rate By Atoms Comparison",
             figsize=FIGURE_SIZE,
+            clear=True,
         )
     else:
         figure = ax.figure
@@ -7169,6 +7196,7 @@ def plot_facility_shares(
             3,
             num="Facility Shares",
             figsize=figure_size,
+            clear=True,
         )
     else:
         figure = axes.flat[0].figure
@@ -7306,7 +7334,7 @@ def plot_facility_share_bars(
     plt = _pyplot()
 
     if ax is None:
-        figure = plt.figure(num="Facility Share Bars", figsize=figure_size)
+        figure = plt.figure(num="Facility Share Bars", figsize=figure_size, clear=True)
         ax = figure.add_axes(axes_bounds)
     else:
         figure = ax.figure
@@ -7529,7 +7557,11 @@ def plot_scopes_by_year(
     plt = _pyplot()
 
     if ax is None:
-        figure = plt.figure(num="Detections Per Facility Over Time", figsize=figure_size)
+        figure = plt.figure(
+            num="Detections Per Facility Over Time",
+            figsize=figure_size,
+            clear=True,
+        )
         ax = figure.add_axes(axes_bounds)
     else:
         figure = ax.figure

@@ -284,6 +284,7 @@ At the start of each session, read in this order:
 4. `SPEC.md` for schema/output semantics
 5. `MANUSCRIPT_NOTES_2026.md` for manuscript-impact reminders
 6. `git status --short` for in-progress local state
+7. Treat commit/push as disallowed unless the user explicitly requests it in the current session.
 
 ### Implementation Rules
 

@@ -246,6 +246,10 @@ parity is the goal. Plot axes and spines should be black by default, with a
 full box around the plot area unless a specific figure design requires a
 documented exception. Figure writers save raster output at 300 DPI, including
 PNG files and any rasterized artists embedded in vector formats such as PDF.
+Plot helpers may use stable Matplotlib figure names for interactive debugging,
+but named `plt.figure` and `plt.subplots` calls should pass `clear=True` so
+repeated plot/writer calls in one Python process are deterministic under
+Matplotlib versions that reject reusing an existing figure name by default.
 The current figure API covers the database-generated census-summary figures
 used in the 2021 manuscript body. Static appendix/conceptual graphics from the
 2021 arXiv bundle are outside the database-output API unless they are rebuilt
