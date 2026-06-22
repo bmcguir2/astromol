@@ -21383,5 +21383,58 @@
         "context": "confirmed_ism_csm"
       }
     }
+  },
+  {
+    "id": "det:l-SiC6:ism-csm:2025",
+    "note": null,
+    "molecule": "mol:l-SiC6",
+    "sources": [
+      "IRC10216"
+    ],
+    "telescopes": [
+      "Yebes40"
+    ],
+    "wavelengths": [
+      "cm"
+    ],
+    "year": 2025,
+    "type": "ISM/CSM",
+    "status": "secure",
+    "status_note": null,
+    "first": true,
+    "month": 7,
+    "day": 14,
+    "refs": {
+      "observation": [
+        "Pardo:2025:L6"
+      ]
+    },
+    "confirms": [],
+    "confirmed_by": [],
+    "disputes": [],
+    "disputed_by": [],
+    "supersedes": [],
+    "superseded_by": [],
+    "latex_text": null,
+    "history": {
+      "introduced": {
+        "date": "2026-06-22",
+        "context": "confirmed"
+      },
+      "last_modified": "2026-06-22",
+      "events": [
+        {
+          "kind": "added",
+          "summary": "Added detection record.",
+          "date": "2026-06-22",
+          "fields": []
+        }
+      ],
+      "accepted": {
+        "date": "2026-06-22",
+        "census": "2026",
+        "context": "confirmed_ism_csm"
+      }
+    }
   }
 ]

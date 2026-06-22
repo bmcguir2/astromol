@@ -29073,5 +29073,69 @@
         "context": "confirmed"
       }
     }
+  },
+  {
+    "name": "hexapentaenediylidenesilylene",
+    "formula": "SiC6",
+    "table_formula": "l-SiC6",
+    "label": "mol:l-SiC6",
+    "note": null,
+    "iupac_name": null,
+    "selfies": null,
+    "synonyms": [
+      "silaheptahexaenediylidene"
+    ],
+    "smiles": null,
+    "canonical_smiles": null,
+    "inchi": null,
+    "inchikey": null,
+    "radical_override": true,
+    "fullerene": false,
+    "pah": false,
+    "n_rings": 0,
+    "cyclic": false,
+    "tags": {},
+    "rotcon": {
+      "B": 611,
+      "refs": [
+        "McCarthy:2000:766"
+      ]
+    },
+    "dipole": {
+      "a": 8.25,
+      "refs": [
+        "Pardo:2025:L6"
+      ],
+      "note": "Pardo et al. state \"Laboratory spectroscopy for SiC6 is available from McCarthy et al. (2000). The molecule was implemented in MADEX adopting a dipole moment of 8.25 D as derived from ab initio calculations by the same authors.\" However, 8.25 does not appear to be given in McCarthy et al. Perhaps Pardo et al. meant that they performed these calculations, but it is not clear from the text."
+    },
+    "refs": {
+      "lab": [
+        "McCarthy:2000:766"
+      ],
+      "computation": []
+    },
+    "isotopologue_of": null,
+    "latex_section_override": null,
+    "latex_body": "\\ce{l-SiC6} was detected in IRC+10216 by \\citet{Pardo:2025:L6} using Yebes 40 m observations.  13 lines between 31--49\\,GHz were identified and assigned based on laboratory work presented in \\citet{McCarthy:2000:766}.",
+    "history": {
+      "introduced": {
+        "date": "2026-06-22",
+        "context": "confirmed"
+      },
+      "last_modified": "2026-06-22",
+      "events": [
+        {
+          "kind": "added",
+          "summary": "Added molecule record.",
+          "date": "2026-06-22",
+          "fields": []
+        }
+      ],
+      "accepted": {
+        "date": "2026-06-22",
+        "census": "2026",
+        "context": "confirmed"
+      }
+    }
   }
 ]
