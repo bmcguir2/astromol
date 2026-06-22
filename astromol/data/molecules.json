@@ -29221,5 +29221,76 @@
         "context": "confirmed"
       }
     }
+  },
+  {
+    "name": "cis-N-methylformamide",
+    "formula": "CH3NHCHO",
+    "table_formula": "cis-CH3NHCHO",
+    "label": "mol:cis-CH3NHCHO",
+    "note": null,
+    "iupac_name": "N-methylformamide",
+    "selfies": null,
+    "synonyms": [],
+    "smiles": "CNC=O",
+    "canonical_smiles": null,
+    "inchi": "1S/C2H5NO/c1-3-2-4/h2H,1H3,(H,3,4)",
+    "inchikey": "ATHHXGZTWNVVOU-UHFFFAOYSA-N",
+    "radical_override": null,
+    "fullerene": false,
+    "pah": false,
+    "n_rings": 0,
+    "cyclic": false,
+    "tags": {
+      "functional_groups": [
+        "NH",
+        "CH3",
+        "=O"
+      ]
+    },
+    "rotcon": {
+      "A": 17150,
+      "B": 8604,
+      "C": 4902,
+      "refs": [
+        "Kawashima:2010:11"
+      ],
+      "note": "Rotational constants are for the A-state only."
+    },
+    "dipole": {
+      "a": 4.45,
+      "b": 0.45,
+      "refs": [
+        "Kawashima:2010:11"
+      ]
+    },
+    "refs": {
+      "lab": [
+        "Kawashima:2010:11"
+      ],
+      "computation": []
+    },
+    "isotopologue_of": null,
+    "latex_section_override": null,
+    "latex_body": "The detection of cis-N-methylformamide was reported by \\citet{Zeng:2025:A73} in Yebes 40m and IRAM 30m observations of G+0.693-0.027.  They claim the detection of 55 unblended or slightly blended lines between 33-111 GHz based on the laboratory work of \\citet{Kawashima:2010:11}.",
+    "history": {
+      "introduced": {
+        "date": "2026-06-22",
+        "context": "confirmed"
+      },
+      "last_modified": "2026-06-22",
+      "events": [
+        {
+          "kind": "added",
+          "summary": "Added molecule record.",
+          "date": "2026-06-22",
+          "fields": []
+        }
+      ],
+      "accepted": {
+        "date": "2026-06-22",
+        "census": "2026",
+        "context": "confirmed"
+      }
+    }
   }
 ]

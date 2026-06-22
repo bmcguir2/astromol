@@ -21489,5 +21489,60 @@
         "context": "confirmed_ism_csm"
       }
     }
+  },
+  {
+    "id": "det:cis-CH3NHCHO:ism-csm:2025",
+    "note": "Higher energy conformer of trans-N-methylformamide which was previously detected.",
+    "molecule": "mol:cis-CH3NHCHO",
+    "sources": [
+      "G0693"
+    ],
+    "telescopes": [
+      "Yebes40",
+      "IRAM30"
+    ],
+    "wavelengths": [
+      "cm",
+      "mm"
+    ],
+    "year": 2025,
+    "type": "ISM/CSM",
+    "status": "secure",
+    "status_note": null,
+    "first": true,
+    "month": 9,
+    "day": 14,
+    "refs": {
+      "observation": [
+        "Zeng:2025:A73"
+      ]
+    },
+    "confirms": [],
+    "confirmed_by": [],
+    "disputes": [],
+    "disputed_by": [],
+    "supersedes": [],
+    "superseded_by": [],
+    "latex_text": null,
+    "history": {
+      "introduced": {
+        "date": "2026-06-22",
+        "context": "confirmed"
+      },
+      "last_modified": "2026-06-22",
+      "events": [
+        {
+          "kind": "added",
+          "summary": "Added detection record.",
+          "date": "2026-06-22",
+          "fields": []
+        }
+      ],
+      "accepted": {
+        "date": "2026-06-22",
+        "census": "2026",
+        "context": "confirmed_ism_csm"
+      }
+    }
   }
 ]
