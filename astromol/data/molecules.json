@@ -22852,14 +22852,18 @@
     }
   },
   {
-    "name": "n-methyl formamide",
+    "name": "trans-N-methylformamide",
     "formula": "CH3NHCHO",
-    "table_formula": "CH3NHCHO",
+    "table_formula": "trans-CH3NHCHO",
     "label": "mol:CH3NHCHO",
-    "note": "Tentatively detected in Belloche et al. 2017 A&A 601, A49.  Rotational constants are for the A-state using an asymmetric top Hamiltonian.  See Kawashima et al. 2010 JMS 263, 11 for a more complete discussion.  Dipole moment is from Fontoni & Caminati 1996 J Chem Soc Faraday Trans 92, 343 who use an opposite naming convention than the others for cis/trans.",
+    "note": "This record tracks the trans conformer of N-methylformamide; the stable label is retained as mol:CH3NHCHO for existing cross-references. Tentatively detected in Belloche et al. 2017 A&A 601, A49 and confirmed in Belloche et al. 2019 A&A 628, A10. Rotational constants are for the A-state using an asymmetric top Hamiltonian. See Kawashima et al. 2010 JMS 263, 11 for a more complete discussion. Dipole moment is from Fontoni & Caminati 1996 J Chem Soc Faraday Trans 92, 343 who use an opposite naming convention than the others for cis/trans.",
     "iupac_name": null,
     "selfies": null,
-    "synonyms": [],
+    "synonyms": [
+      "N-methylformamide",
+      "n-methyl formamide",
+      "trans-n-methyl formamide"
+    ],
     "smiles": null,
     "canonical_smiles": null,
     "inchi": null,
@@ -22902,7 +22906,7 @@
     },
     "isotopologue_of": null,
     "latex_section_override": null,
-    "latex_body": "A tentative detection of \\ce{CH3NHCHO} was reported toward Sgr B2(N2) by \\citet{Belloche:2017:A49} using ALMA observations in the range 84 -- 114~GHz.  The laboratory rotational spectroscopy are provided in the same reference.",
+    "latex_body": "A tentative detection of \\emph{trans}-\\ce{CH3NHCHO} was reported toward Sgr B2(N2) by \\citet{Belloche:2017:A49} using ALMA observations in the range 84 -- 114~GHz.  The laboratory rotational spectroscopy are provided in the same reference.  The \\emph{trans} conformer was later confirmed toward Sgr B2(N1S) by \\citet{Belloche:2019:A10}.",
     "history": {
       "introduced": {
         "date": null,
@@ -22915,7 +22919,7 @@
         "census": "2026",
         "context": "confirmed_ism_csm"
       },
-      "last_modified": "2026-05-07",
+      "last_modified": "2026-06-22",
       "events": [
         {
           "date": null,
@@ -22942,6 +22946,20 @@
           "census": "2026",
           "fields": [
             "history.accepted"
+          ]
+        },
+        {
+          "kind": "updated",
+          "summary": "Clarified existing N-methylformamide record as the trans conformer ahead of adding a separate cis conformer record.",
+          "date": "2026-06-22",
+          "census": "2026",
+          "fields": [
+            "name",
+            "table_formula",
+            "note",
+            "synonyms",
+            "latex_body",
+            "history.last_modified"
           ]
         }
       ]
