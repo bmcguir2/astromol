@@ -29137,5 +29137,71 @@
         "context": "confirmed"
       }
     }
+  },
+  {
+    "name": "phenalene",
+    "formula": "C13H10",
+    "table_formula": "c-C13H10",
+    "label": "mol:c-C13H10",
+    "note": null,
+    "iupac_name": "1H-phenalene",
+    "selfies": null,
+    "synonyms": [
+      "1H-phenalene"
+    ],
+    "smiles": "C12=C3C(CC=C2)=CC=CC3=CC=C1",
+    "canonical_smiles": null,
+    "inchi": "1S/C13H10/c1-4-10-6-2-8-12-9-3-7-11(5-1)13(10)12/h1-8H,9H2",
+    "inchikey": "XDJOIMJURHQYDW-UHFFFAOYSA-N",
+    "radical_override": null,
+    "fullerene": false,
+    "pah": true,
+    "n_rings": 3,
+    "cyclic": true,
+    "tags": {},
+    "rotcon": {
+      "A": 1108,
+      "B": 1068,
+      "C": 546,
+      "refs": [
+        "Cabezas:2025:L8"
+      ]
+    },
+    "dipole": {
+      "a": 0.67,
+      "b": 0.36,
+      "refs": [
+        "Cabezas:2025:L8"
+      ]
+    },
+    "refs": {
+      "lab": [
+        "Cabezas:2025:L8"
+      ],
+      "computation": []
+    },
+    "isotopologue_of": null,
+    "latex_section_override": null,
+    "latex_body": "Phenalene was detected in TMC-1 by \\citet{Cabezas:2025:L8} using Yebes 40 m observations.  267 transitions between 31--49\\,GHz were identified and assigned based on laboratory work presented in the same paper.  The authors note that many of these transitions are essentially degenerate, resulting in 71 unique spectral lines.",
+    "history": {
+      "introduced": {
+        "date": "2026-06-22",
+        "context": "confirmed"
+      },
+      "last_modified": "2026-06-22",
+      "events": [
+        {
+          "kind": "added",
+          "summary": "Added molecule record.",
+          "date": "2026-06-22",
+          "fields": []
+        }
+      ],
+      "accepted": {
+        "date": "2026-06-22",
+        "census": "2026",
+        "context": "confirmed"
+      }
+    }
   }
 ]
