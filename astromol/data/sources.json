@@ -2583,5 +2583,29 @@
         }
       ]
     }
+  },
+  {
+    "name": "G351.77-0.54-mm1",
+    "nick": "G35177054mm1",
+    "type": "YSO",
+    "ra": "17:26:42.5330",
+    "dec": "-36:09:17.345",
+    "simbad_url": "https://simbad.cds.unistra.fr/simbad/sim-id?Ident=%402363707",
+    "latex_name": "G351.77-0.54-mm1",
+    "note": "Also known as IRAS 17233-3606.",
+    "history": {
+      "introduced": {
+        "date": "2026-06-23"
+      },
+      "last_modified": "2026-06-23",
+      "events": [
+        {
+          "kind": "added",
+          "summary": "Added source record.",
+          "date": "2026-06-23",
+          "fields": []
+        }
+      ]
+    }
   }
 ]

@@ -29292,5 +29292,68 @@
         "context": "confirmed"
       }
     }
+  },
+  {
+    "name": "calcium sulfide",
+    "formula": "CaS",
+    "table_formula": "CaS",
+    "label": "mol:CaS",
+    "note": null,
+    "iupac_name": "calcium sulfide",
+    "selfies": null,
+    "synonyms": [
+      "calcium monosulfide"
+    ],
+    "smiles": "[Ca]=S",
+    "canonical_smiles": null,
+    "inchi": "1/Ca.S/rCaS/c1-2",
+    "inchikey": "JGIATAMCQXIDNZ-WSLZQIQFAE",
+    "radical_override": null,
+    "fullerene": false,
+    "pah": false,
+    "n_rings": 0,
+    "cyclic": false,
+    "tags": {},
+    "rotcon": {
+      "B": 5284,
+      "refs": [
+        "Takano:1989:563",
+        "Andersson:2001:446"
+      ]
+    },
+    "dipole": {
+      "a": 11.1,
+      "note": "CDMS reports a dipole moment of 10.47 based on unpublished work from K.A. Peterson, 2010. It has been recomputed as part of this work at the M06-2x/def2-QZVPPD level of theory and basis set; calculation notebook: docs/calculations/cas_dipole_calculations.ipynb."
+    },
+    "refs": {
+      "lab": [
+        "Takano:1989:563",
+        "Andersson:2001:446"
+      ],
+      "computation": []
+    },
+    "isotopologue_of": null,
+    "latex_section_override": null,
+    "latex_body": "The detection of CaS was reported toward the disk of G351.77-mm1 by \\citet{Tasa-Chaveli:2025:L42} using ALMA observations.  They claim a clean detection of the $J=19-18$ transition at 201 GHz, and three additional blended transitions between  189-200 GHz.  The detection is based on the laboratory work of \\citet{Takano:1989:563} and \\citet{Andersson:2001:446}. The latter is not referenced in \\citet{Tasa-Chaveli:2025:L42}, but the authors cite CDMS as the source of the data, and CDMS cites \\citet{Andersson:2001:446}. The dipole moment was calculated as part of this work (\\ref{sec:dipole}).",
+    "history": {
+      "introduced": {
+        "date": "2026-06-23",
+        "context": "confirmed"
+      },
+      "last_modified": "2026-06-23",
+      "events": [
+        {
+          "kind": "added",
+          "summary": "Added molecule record.",
+          "date": "2026-06-23",
+          "fields": []
+        }
+      ],
+      "accepted": {
+        "date": "2026-06-23",
+        "census": "2026",
+        "context": "confirmed"
+      }
+    }
   }
 ]

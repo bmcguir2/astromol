@@ -13,6 +13,7 @@ from astromol.latex import (
     ism_table_columns,
     ism_table_fragments,
     ism_table_molecules,
+    table_column_header,
     write_ism_tables,
 )
 
@@ -124,22 +125,16 @@ assert set(balanced_fragments) == {
     "ism_table_3.tex",
     "ism_table_4.tex",
 }
-assert (
-    r"\multicolumn{2}{c}{\hyperref[2atoms]{2 Atoms}}"
-    in balanced_fragments["ism_table_1.tex"]
-)
-assert (
-    r"\multicolumn{3}{c}{\hyperref[3atoms]{3 Atoms}}"
-    in balanced_fragments["ism_table_1.tex"]
-)
-assert (
-    r"\multicolumn{2}{c}{\hyperref[5atoms]{5 Atoms}}"
-    in balanced_fragments["ism_table_2.tex"]
-)
-assert r"\hyperref[13plusatoms]{13+ Atoms}" in balanced_fragments["ism_table_3.tex"]
-assert r"\hyperref[14plusatoms]{14+ Atoms}" not in balanced_fragments["ism_table_3.tex"]
-assert r"\hyperref[pahs]{PAHs}" in balanced_fragments["ism_table_4.tex"]
-assert r"\hyperref[fullerenes]{Fullerenes}" in balanced_fragments["ism_table_4.tex"]
+for index, group in enumerate(balanced_groups, start=1):
+    assert table_column_header(group) in balanced_fragments[f"ism_table_{index}.tex"]
+
+balanced_content = "\n".join(balanced_fragments.values())
+assert r"\hyperref[2atoms]{2 Atoms}" in balanced_content
+assert r"\hyperref[3atoms]{3 Atoms}" in balanced_content
+assert r"\hyperref[13plusatoms]{13+ Atoms}" in balanced_content
+assert r"\hyperref[14plusatoms]{14+ Atoms}" not in balanced_content
+assert r"\hyperref[pahs]{PAHs}" in balanced_content
+assert r"\hyperref[fullerenes]{Fullerenes}" in balanced_content
 
 balanced_labels = []
 for content in balanced_fragments.values():
