@@ -29355,5 +29355,60 @@
         "context": "confirmed"
       }
     }
+  },
+  {
+    "name": "potassium sulfide radical",
+    "formula": "KS",
+    "table_formula": "KS",
+    "label": "mol:KS",
+    "note": null,
+    "iupac_name": null,
+    "selfies": null,
+    "synonyms": [],
+    "smiles": null,
+    "canonical_smiles": null,
+    "inchi": null,
+    "inchikey": null,
+    "radical_override": true,
+    "fullerene": false,
+    "pah": false,
+    "n_rings": 0,
+    "cyclic": false,
+    "tags": {},
+    "rotcon": {
+      "B": 3626,
+      "refs": [
+        "Xin:1998:L119"
+      ]
+    },
+    "dipole": {
+      "a": 11.3,
+      "note": "CDMS reports a dipole moment of 11.3 based on unpublished calculations by H.S.P. M\u00fcller. It has been recomputed as part of this work at the M06-2x/def2-QZVPPD level of theory and basis set."
+    },
+    "refs": {
+      "lab": [
+        "Xin:1998:L119"
+      ],
+      "computation": []
+    },
+    "isotopologue_of": null,
+    "latex_section_override": null,
+    "latex_body": "A tentative detection of \\ce{KS} was reported toward the disk of G351.77-mm1 by \\citet{Tasa-Chaveli:2025:L42} using ALMA observations. They claim a tentative detection based on three transitions: a blended pair near 199\\,GHz and a single line near 201\\,GHz. Neither signal is cleanly isolated. The detection is based on the laboratory work of \\citet{Xin:1998:L119}. The dipole moment was calculated as part of this work (\\ref{sec:dipole}).",
+    "history": {
+      "introduced": {
+        "context": "tentative",
+        "date": "2026-06-24"
+      },
+      "accepted": null,
+      "last_modified": "2026-06-24",
+      "events": [
+        {
+          "kind": "added",
+          "summary": "Added molecule record.",
+          "date": "2026-06-24",
+          "fields": []
+        }
+      ]
+    }
   }
 ]

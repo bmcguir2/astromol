@@ -21597,5 +21597,54 @@
         "context": "confirmed_ism_csm"
       }
     }
+  },
+  {
+    "id": "det:KS:ism-csm:2025",
+    "note": null,
+    "molecule": "mol:KS",
+    "sources": [
+      "G35177054mm1"
+    ],
+    "telescopes": [
+      "ALMA"
+    ],
+    "wavelengths": [
+      "mm"
+    ],
+    "year": 2025,
+    "type": "ISM/CSM",
+    "status": "tentative",
+    "status_note": "Tentative detection based on three transitions; the blended pair near 199 GHz and the single line near 201 GHz are not cleanly isolated.",
+    "first": false,
+    "month": 11,
+    "day": 3,
+    "refs": {
+      "observation": [
+        "Tasa-Chaveli:2025:L42"
+      ]
+    },
+    "confirms": [],
+    "confirmed_by": [],
+    "disputes": [],
+    "disputed_by": [],
+    "supersedes": [],
+    "superseded_by": [],
+    "latex_text": null,
+    "history": {
+      "introduced": {
+        "context": "tentative",
+        "date": "2026-06-24"
+      },
+      "accepted": null,
+      "last_modified": "2026-06-24",
+      "events": [
+        {
+          "kind": "added",
+          "summary": "Added detection record.",
+          "date": "2026-06-24",
+          "fields": []
+        }
+      ]
+    }
   }
 ]
