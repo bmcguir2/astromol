@@ -29474,7 +29474,7 @@
     "table_formula": "l-H2CCCO",
     "label": "mol:l-H2C3O",
     "note": null,
-    "iupac_name": "1,2-Propadien-1-one",
+    "iupac_name": "1,2-propadien-1-one",
     "selfies": null,
     "synonyms": [
       "methylene ketene"
@@ -29515,6 +29515,73 @@
     "isotopologue_of": null,
     "latex_section_override": null,
     "latex_body": "\\citet{Esplugues:2026:A206} reported the detection of \\ce{l-H2CCCO} in Yebes 40m observations of TMC-1.  Based on the laboratory work of \\citet{Brown:1981:5711} and \\citet{Brown:1987:93}, they identify and assign the $4_{0,4}-3_{0,3}$ and $5_{0,5}-4_{0,4}$ transitions near 34.6 and 43.2\\,GHz, respectively.\n",
+    "history": {
+      "introduced": {
+        "date": "2026-06-24",
+        "context": "confirmed"
+      },
+      "last_modified": "2026-06-24",
+      "events": [
+        {
+          "kind": "added",
+          "summary": "Added molecule record.",
+          "date": "2026-06-24",
+          "fields": []
+        }
+      ],
+      "accepted": {
+        "date": "2026-06-24",
+        "census": "2026",
+        "context": "confirmed"
+      }
+    }
+  },
+  {
+    "name": "2,5-cyclohexadien-1-thione",
+    "formula": "C6H6S",
+    "table_formula": "c-C6H6S",
+    "label": "mol:c-C6H6S",
+    "note": null,
+    "iupac_name": "cyclohexa-2,5-diene-1-thione",
+    "selfies": null,
+    "synonyms": [],
+    "smiles": "C1C=CC(=S)C=C1",
+    "canonical_smiles": null,
+    "inchi": "1S/C6H6S/c7-6-4-2-1-3-5-6/h2-5H,1H2",
+    "inchikey": "VWAVZSSQFDIHAR-UHFFFAOYSA-N",
+    "radical_override": null,
+    "fullerene": false,
+    "pah": false,
+    "n_rings": 1,
+    "cyclic": true,
+    "tags": {
+      "functional_groups": [
+        "=S"
+      ]
+    },
+    "rotcon": {
+      "A": 5310,
+      "B": 1618,
+      "C": 1250,
+      "refs": [
+        "Araki:2026:401"
+      ]
+    },
+    "dipole": {
+      "a": 4.73,
+      "refs": [
+        "Araki:2026:401"
+      ]
+    },
+    "refs": {
+      "lab": [
+        "Araki:2026:401"
+      ],
+      "computation": []
+    },
+    "isotopologue_of": null,
+    "latex_section_override": null,
+    "latex_body": "\\citet{Araki:2026:401} reported the detection of \\ce{c-C6H6S} in Yebes 40m observations of G+0.693-0.027.  Based on the laboratory data presented in the same work, they identify and assign numerous transitions between 31--48\\,GHz.",
     "history": {
       "introduced": {
         "date": "2026-06-24",
