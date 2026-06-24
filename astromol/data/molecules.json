@@ -29467,5 +29467,73 @@
         }
       ]
     }
+  },
+  {
+    "name": "propadienone",
+    "formula": "H2C3O",
+    "table_formula": "l-H2CCCO",
+    "label": "mol:l-H2C3O",
+    "note": null,
+    "iupac_name": "1,2-Propadien-1-one",
+    "selfies": null,
+    "synonyms": [
+      "methylene ketene"
+    ],
+    "smiles": "C=C=C=O",
+    "canonical_smiles": "C=C=C=O",
+    "inchi": "1S/C3H2O/c1-2-3-4/h1H2",
+    "inchikey": "TURAMGVWNUTQKH-UHFFFAOYSA-N",
+    "radical_override": null,
+    "fullerene": false,
+    "pah": false,
+    "n_rings": 0,
+    "cyclic": false,
+    "tags": {},
+    "rotcon": {
+      "A": 153431,
+      "B": 4387,
+      "C": 4258,
+      "refs": [
+        "Brown:1981:5711",
+        "Brown:1987:93"
+      ]
+    },
+    "dipole": {
+      "a": 2.156,
+      "b": 0.7914,
+      "refs": [
+        "Brown:1981:5711"
+      ]
+    },
+    "refs": {
+      "lab": [
+        "Brown:1981:5711",
+        "Brown:1987:93"
+      ],
+      "computation": []
+    },
+    "isotopologue_of": null,
+    "latex_section_override": null,
+    "latex_body": "\\citet{Esplugues:2026:A206} reported the detection of \\ce{l-H2CCCO} in Yebes 40m observations of TMC-1.  Based on the laboratory work of \\citet{Brown:1981:5711} and \\citet{Brown:1987:93}, they identify and assign the $4_{0,4}-3_{0,3}$ and $5_{0,5}-4_{0,4}$ transitions near 34.6 and 43.2\\,GHz, respectively.\n",
+    "history": {
+      "introduced": {
+        "date": "2026-06-24",
+        "context": "confirmed"
+      },
+      "last_modified": "2026-06-24",
+      "events": [
+        {
+          "kind": "added",
+          "summary": "Added molecule record.",
+          "date": "2026-06-24",
+          "fields": []
+        }
+      ],
+      "accepted": {
+        "date": "2026-06-24",
+        "census": "2026",
+        "context": "confirmed"
+      }
+    }
   }
 ]
