@@ -29365,7 +29365,7 @@
     "iupac_name": null,
     "selfies": null,
     "synonyms": [],
-    "smiles": null,
+    "smiles": "[K+][S-]",
     "canonical_smiles": null,
     "inchi": null,
     "inchikey": null,
@@ -29383,7 +29383,7 @@
     },
     "dipole": {
       "a": 11.3,
-      "note": "CDMS reports a dipole moment of 11.3 based on unpublished calculations by H.S.P. M\u00fcller. It has been recomputed as part of this work at the M06-2x/def2-QZVPPD level of theory and basis set."
+      "note": "CDMS reports a dipole moment of 11.3 based on unpublished calculations by H.S.P. M\u00fcller. "
     },
     "refs": {
       "lab": [
@@ -29407,6 +29407,63 @@
           "summary": "Added molecule record.",
           "date": "2026-06-24",
           "fields": []
+        }
+      ]
+    }
+  },
+  {
+    "name": "potassium hydrosulfide",
+    "formula": "KSH",
+    "table_formula": "KSH",
+    "label": "mol:KSH",
+    "note": null,
+    "iupac_name": null,
+    "selfies": null,
+    "synonyms": [],
+    "smiles": "[K][S]",
+    "canonical_smiles": null,
+    "inchi": null,
+    "inchikey": null,
+    "radical_override": null,
+    "fullerene": false,
+    "pah": false,
+    "n_rings": 0,
+    "cyclic": false,
+    "tags": {},
+    "rotcon": {
+      "A": 298133,
+      "B": 3585,
+      "C": 3535,
+      "refs": [
+        "Bucchino:2013:214307"
+      ]
+    },
+    "dipole": {
+      "a": 11.1,
+      "b": 0.4,
+      "note": "CDMS reports a dipole moment of 11.1 and 0.40 based on unpublished calculations by H.S.P. M\u00fcller."
+    },
+    "refs": {
+      "lab": [
+        "Bucchino:2013:214307"
+      ],
+      "computation": []
+    },
+    "isotopologue_of": null,
+    "latex_section_override": null,
+    "latex_body": "A tentative detection of KSH was reported toward the disk of G351.77-mm1 by \\citet{Tasa-Chaveli:2025:L42} using ALMA observations.  They claim a tentative detection based on two heavily blended and obscured transitions near 199\\,GHz.  The detection is based on the laboratory work of \\citet{Bucchino:2013:214307}.",
+    "history": {
+      "introduced": {
+        "date": "2026-06-24",
+        "context": "tentative"
+      },
+      "accepted": null,
+      "last_modified": "2026-06-24",
+      "events": [
+        {
+          "kind": "added",
+          "summary": "Added molecule record.",
+          "date": "2026-06-24"
         }
       ]
     }
