@@ -29906,5 +29906,73 @@
         "context": "confirmed"
       }
     }
+  },
+  {
+    "name": "3-cyanoacenaphthylene",
+    "formula": "C12H7CN",
+    "table_formula": "3-C12H7CN",
+    "label": "mol:3-C12H7CN",
+    "note": null,
+    "iupac_name": null,
+    "selfies": null,
+    "synonyms": [],
+    "smiles": "N#CC(C=C1)=C2C=CC3=CC=CC1=C32",
+    "canonical_smiles": null,
+    "inchi": "InChI=1S/C13H7N/c14-8-11-5-4-9-2-1-3-10-6-7-12(11)13(9)10/h1-7H",
+    "inchikey": "UFVXIFUHOCIVSI-UHFFFAOYSA-N",
+    "radical_override": null,
+    "fullerene": false,
+    "pah": true,
+    "n_rings": 3,
+    "cyclic": true,
+    "tags": {
+      "functional_groups": [
+        "CN"
+      ]
+    },
+    "rotcon": {
+      "A": 1474,
+      "B": 609,
+      "C": 431,
+      "refs": [
+        "Cernicharo:2026:L7"
+      ]
+    },
+    "dipole": {
+      "a": 5.1,
+      "b": 1.1,
+      "refs": [
+        "Cernicharo:2026:L7"
+      ]
+    },
+    "refs": {
+      "lab": [
+        "Cernicharo:2026:L7"
+      ],
+      "computation": []
+    },
+    "isotopologue_of": null,
+    "latex_section_override": null,
+    "latex_body": "\\citet{Cernicharo:2026:L7} reported the detection of 3-cyanoacenaphthylene in Yebes 40 m observations of TMC-1.  The initial assignment and identification was based on comparisons of observational data between 18--50\\,GHz to computational predictions performed in the same work.  A fit was performed to 194 rotational transitions, which was then verified by laboratory work conducted by the same authors.",
+    "history": {
+      "introduced": {
+        "date": "2026-06-26",
+        "context": "confirmed"
+      },
+      "last_modified": "2026-06-26",
+      "events": [
+        {
+          "kind": "added",
+          "summary": "Added molecule record.",
+          "date": "2026-06-26",
+          "fields": []
+        }
+      ],
+      "accepted": {
+        "date": "2026-06-26",
+        "census": "2026",
+        "context": "confirmed"
+      }
+    }
   }
 ]
