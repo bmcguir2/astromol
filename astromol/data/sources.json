@@ -2607,5 +2607,29 @@
         }
       ]
     }
+  },
+  {
+    "name": "G358.93-0.03",
+    "nick": "G35893003",
+    "type": "SFR",
+    "ra": "17:43:10.02",
+    "dec": "-29:51:45.8",
+    "simbad_url": "https://simbad.u-strasbg.fr/simbad/sim-id?Ident=G358.93-0.03",
+    "latex_name": "G358.93-0.03",
+    "note": null,
+    "history": {
+      "introduced": {
+        "date": "2026-06-26"
+      },
+      "last_modified": "2026-06-26",
+      "events": [
+        {
+          "kind": "added",
+          "summary": "Added source record.",
+          "date": "2026-06-26",
+          "fields": []
+        }
+      ]
+    }
   }
 ]

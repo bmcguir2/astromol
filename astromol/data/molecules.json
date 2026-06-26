@@ -29831,5 +29831,80 @@
         "context": "confirmed"
       }
     }
+  },
+  {
+    "name": "methyl carbamate",
+    "formula": "CH3OCONH2",
+    "table_formula": "CH3OCONH2",
+    "label": "mol:CH3OCONH2",
+    "note": null,
+    "iupac_name": "methyl carbamate",
+    "selfies": null,
+    "synonyms": [],
+    "smiles": "O=C(OC)N",
+    "canonical_smiles": null,
+    "inchi": "1S/C2H5NO2/c1-5-2(3)4/h1H3,(H2,3,4)",
+    "inchikey": "GTCAXTIRRLKXRU-UHFFFAOYSA-N",
+    "radical_override": null,
+    "fullerene": false,
+    "pah": false,
+    "n_rings": 0,
+    "cyclic": false,
+    "tags": {
+      "functional_groups": [
+        "CH3",
+        "-O-",
+        "=O",
+        "NH2"
+      ]
+    },
+    "rotcon": {
+      "A": 9964,
+      "B": 5162,
+      "C": 3185,
+      "refs": [
+        "Marstokk:1999:79",
+        "Bakri:2002:312",
+        "Ilyushin:2006:127"
+      ]
+    },
+    "dipole": {
+      "a": 0.163,
+      "b": 2.294,
+      "refs": [
+        "Marstokk:1999:79"
+      ]
+    },
+    "refs": {
+      "lab": [
+        "Marstokk:1999:79",
+        "Bakri:2002:312",
+        "Ilyushin:2006:127"
+      ],
+      "computation": []
+    },
+    "isotopologue_of": null,
+    "latex_section_override": null,
+    "latex_body": "The detection of CH3OC(O)NH2 was reported by \\citet{Duan:2026:L6} in archival ALMA observations of the hot molecular core G358.93-0.03.  On the basis of laboratory work from \\citet{Marstokk:1999:79}, \\citet{Bakri:2002:312}, and \\citet{Ilyushin:2006:127}, they claim the identification of 10 unblended transitions between 291--306\\,GHz.",
+    "history": {
+      "introduced": {
+        "date": "2026-06-26",
+        "context": "confirmed"
+      },
+      "last_modified": "2026-06-26",
+      "events": [
+        {
+          "kind": "added",
+          "summary": "Added molecule record.",
+          "date": "2026-06-26",
+          "fields": []
+        }
+      ],
+      "accepted": {
+        "date": "2026-06-26",
+        "census": "2026",
+        "context": "confirmed"
+      }
+    }
   }
 ]
