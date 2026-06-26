@@ -29693,5 +29693,79 @@
         }
       ]
     }
+  },
+  {
+    "name": "methoxyacetaldehyde",
+    "formula": "CH3OCH2CHO",
+    "table_formula": "CH3OCH2CHO",
+    "label": "mol:CH3OCH2CHO",
+    "note": null,
+    "iupac_name": "2-methoxyacetaldehyde",
+    "selfies": null,
+    "synonyms": [
+      "methoxyethanal"
+    ],
+    "smiles": "COCC=O",
+    "canonical_smiles": null,
+    "inchi": "1S/C3H6O2/c1-5-3-2-4/h2H,3H2,1H3",
+    "inchikey": "YSEFYOVWKJXNCH-UHFFFAOYSA-N",
+    "radical_override": null,
+    "fullerene": false,
+    "pah": false,
+    "n_rings": 0,
+    "cyclic": false,
+    "tags": {
+      "functional_groups": [
+        "CH3",
+        "-O-",
+        "=O"
+      ]
+    },
+    "rotcon": {
+      "A": 28476,
+      "B": 2296,
+      "C": 2188,
+      "refs": [
+        "Kolesnikova:2018:A67",
+        "Hirono:1987:359"
+      ]
+    },
+    "dipole": {
+      "a": 2.8,
+      "b": 0.5,
+      "refs": [
+        "Hirono:1987:359"
+      ]
+    },
+    "refs": {
+      "lab": [
+        "Kolesnikova:2018:A67",
+        "Hirono:1987:359"
+      ],
+      "computation": []
+    },
+    "isotopologue_of": null,
+    "latex_section_override": null,
+    "latex_body": "\\citet{Sanz-Novo:2026:A316} reported the detection of \\ce{CH3OCH2C(O)H} in Yebes 40m and IRAM 30 m observations of G+0.693-0.027.  Based on the laboratory work of \\citet{Kolesnikova:2018:A67} and \\citet{Hirono:1987:359}, they identified and assigned eleven unblended and partially blended transitions between 35--49\\,GHz.",
+    "history": {
+      "introduced": {
+        "date": "2026-06-26",
+        "context": "confirmed"
+      },
+      "last_modified": "2026-06-26",
+      "events": [
+        {
+          "kind": "added",
+          "summary": "Added molecule record.",
+          "date": "2026-06-26",
+          "fields": []
+        }
+      ],
+      "accepted": {
+        "date": "2026-06-26",
+        "census": "2026",
+        "context": "confirmed"
+      }
+    }
   }
 ]
