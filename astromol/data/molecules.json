@@ -18486,7 +18486,11 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": true,
-    "tags": {},
+    "tags": {
+      "functional_groups": [
+        "-O-"
+      ]
+    },
     "rotcon": {
       "A": 25484,
       "B": 22121,
@@ -18567,7 +18571,11 @@
     "pah": false,
     "n_rings": 0,
     "cyclic": true,
-    "tags": {},
+    "tags": {
+      "functional_groups": [
+        "-O-"
+      ]
+    },
     "rotcon": null,
     "dipole": null,
     "refs": {
@@ -19994,7 +20002,8 @@
     "tags": {
       "functional_groups": [
         "=O",
-        "CH3"
+        "CH3",
+        "-O-"
       ]
     },
     "rotcon": {
@@ -21901,7 +21910,8 @@
     "cyclic": false,
     "tags": {
       "functional_groups": [
-        "CH3"
+        "CH3",
+        "-O-"
       ]
     },
     "rotcon": {
@@ -23847,7 +23857,8 @@
     "cyclic": true,
     "tags": {
       "functional_groups": [
-        "CH3"
+        "CH3",
+        "-O-"
       ]
     },
     "rotcon": {
@@ -23933,7 +23944,8 @@
     "tags": {
       "functional_groups": [
         "CH3",
-        "OH"
+        "OH",
+        "-O-"
       ]
     },
     "rotcon": {
@@ -24966,7 +24978,8 @@
     "tags": {
       "functional_groups": [
         "CH3",
-        "=O"
+        "=O",
+        "-O-"
       ]
     },
     "rotcon": {
@@ -25052,7 +25065,8 @@
     "tags": {
       "functional_groups": [
         "CH3",
-        "=O"
+        "=O",
+        "-O-"
       ]
     },
     "rotcon": {
@@ -25877,7 +25891,8 @@
     "cyclic": false,
     "tags": {
       "functional_groups": [
-        "CH3"
+        "CH3",
+        "-O-"
       ]
     },
     "rotcon": {
@@ -26821,7 +26836,8 @@
     "tags": {
       "functional_groups": [
         "CH3",
-        "OH"
+        "OH",
+        "-O-"
       ]
     },
     "rotcon": {
@@ -28760,7 +28776,8 @@
     "cyclic": false,
     "tags": {
       "functional_groups": [
-        "CH3"
+        "CH3",
+        "-S-"
       ]
     },
     "rotcon": {

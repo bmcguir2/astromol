@@ -752,6 +752,12 @@ Functional-group tag definitions:
 - `=S`: Thiocarbonyl/sulfur multiple-bond motif, broadly the sulfur analogue
   of `=O`, including thioaldehydes, thioketones, thioketenes,
   isothiocyanates, and S-terminated carbon-chain analogues.
+- `-O-`: Ether-like bridging oxygen motif, including ethers, acetals,
+  peroxides, and other manually classified species where oxygen serves as a
+  single-bond linker between heavier atoms.
+- `-S-`: Thioether-like bridging sulfur motif, including sulfides, thioethers,
+  and other manually classified species where sulfur serves as a single-bond
+  linker between heavier atoms.
 - `OH`: Hydroxyl group, including alcohols, hydroxy-substituted species,
   carboxylic acids, and metal hydroxides.
 - `SH`: Thiol/mercapto group, including sulfur analogues of hydroxyl-bearing
