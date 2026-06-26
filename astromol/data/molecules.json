@@ -29767,5 +29767,69 @@
         "context": "confirmed"
       }
     }
+  },
+  {
+    "name": "cyclopentindene",
+    "formula": "C11H8",
+    "table_formula": "c-C11H8",
+    "label": "mol:c-C11H8",
+    "note": "Detection is based on calculations.",
+    "iupac_name": "1H-cyclopent[cd]indene",
+    "selfies": null,
+    "synonyms": [],
+    "smiles": "C12=CCC3=C1C(C=C2)=CC=C3",
+    "canonical_smiles": null,
+    "inchi": "InChI=1S/C11H8/c1-2-8-4-6-10-7-5-9(3-1)11(8)10/h1-4,6-7H,5H2",
+    "inchikey": "ARJAVXFVSSDOEG-UHFFFAOYSA-N",
+    "radical_override": null,
+    "fullerene": false,
+    "pah": true,
+    "n_rings": 3,
+    "cyclic": true,
+    "tags": {},
+    "rotcon": {
+      "A": 1805,
+      "B": 1491,
+      "C": 821,
+      "refs": [
+        "Fuentetaja:2026:L10"
+      ]
+    },
+    "dipole": {
+      "a": 0.6,
+      "b": 0.8,
+      "refs": [
+        "Fuentetaja:2026:L10"
+      ]
+    },
+    "refs": {
+      "lab": [],
+      "computation": [
+        "Fuentetaja:2026:L10"
+      ]
+    },
+    "isotopologue_of": null,
+    "latex_section_override": null,
+    "latex_body": "The discovery of cyclopentindene (1H-cyclopent[cd]indene) in TMC-1 using Yebes 40m observations was reported by \\citet{Fuentetaja:2026:L10}.  No laboratory data were available; the detection was made on the basis of computational work performed in the same paper followed by the assignment and fitting of 22 lines (corresponding to 88 transitions) in the observations between 35--49\\\\,GHz.",
+    "history": {
+      "introduced": {
+        "date": "2026-06-26",
+        "context": "confirmed"
+      },
+      "last_modified": "2026-06-26",
+      "events": [
+        {
+          "kind": "added",
+          "summary": "Added molecule record.",
+          "date": "2026-06-26",
+          "fields": []
+        }
+      ],
+      "accepted": {
+        "date": "2026-06-26",
+        "census": "2026",
+        "context": "confirmed"
+      }
+    }
   }
 ]

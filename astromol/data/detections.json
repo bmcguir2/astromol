@@ -21910,5 +21910,58 @@
         "context": "confirmed_ism_csm"
       }
     }
+  },
+  {
+    "id": "det:c-C11H8:ism-csm:2026",
+    "note": null,
+    "molecule": "mol:c-C11H8",
+    "sources": [
+      "TMC1"
+    ],
+    "telescopes": [
+      "Yebes40"
+    ],
+    "wavelengths": [
+      "cm"
+    ],
+    "year": 2026,
+    "type": "ISM/CSM",
+    "status": "secure",
+    "status_note": null,
+    "first": true,
+    "month": 2,
+    "day": 6,
+    "refs": {
+      "observation": [
+        "Fuentetaja:2026:L10"
+      ]
+    },
+    "confirms": [],
+    "confirmed_by": [],
+    "disputes": [],
+    "disputed_by": [],
+    "supersedes": [],
+    "superseded_by": [],
+    "latex_text": null,
+    "history": {
+      "introduced": {
+        "date": "2026-06-26",
+        "context": "confirmed"
+      },
+      "last_modified": "2026-06-26",
+      "events": [
+        {
+          "kind": "added",
+          "summary": "Added detection record.",
+          "date": "2026-06-26",
+          "fields": []
+        }
+      ],
+      "accepted": {
+        "date": "2026-06-26",
+        "census": "2026",
+        "context": "confirmed_ism_csm"
+      }
+    }
   }
 ]
