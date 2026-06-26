@@ -21800,5 +21800,61 @@
         "context": "confirmed_ism_csm"
       }
     }
+  },
+  {
+    "id": "det:CH3CHOHCHO:ism-csm:2026",
+    "note": null,
+    "molecule": "mol:CH3CHOHCHO",
+    "sources": [
+      "G0693"
+    ],
+    "telescopes": [
+      "Yebes40",
+      "IRAM30"
+    ],
+    "wavelengths": [
+      "cm",
+      "mm"
+    ],
+    "year": 2026,
+    "type": "ISM/CSM",
+    "status": "secure",
+    "status_note": null,
+    "first": true,
+    "month": 2,
+    "day": 23,
+    "refs": {
+      "observation": [
+        "Sanz-Novo:2026:A316"
+      ]
+    },
+    "confirms": [],
+    "confirmed_by": [],
+    "disputes": [],
+    "disputed_by": [],
+    "supersedes": [],
+    "superseded_by": [],
+    "latex_text": null,
+    "history": {
+      "introduced": {
+        "census": "2026",
+        "context": "confirmed",
+        "date": "2026-06-26"
+      },
+      "accepted": {
+        "census": "2026",
+        "context": "confirmed_ism_csm",
+        "date": "2026-06-26"
+      },
+      "last_modified": "2026-06-26",
+      "events": [
+        {
+          "kind": "added",
+          "summary": "Added detection record.",
+          "date": "2026-06-26",
+          "fields": []
+        }
+      ]
+    }
   }
 ]

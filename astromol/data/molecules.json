@@ -29602,5 +29602,79 @@
         "context": "confirmed"
       }
     }
+  },
+  {
+    "name": "lactaldehyde",
+    "formula": "CH3CHOHCHO",
+    "table_formula": "CH3CHOHCHO",
+    "label": "mol:CH3CHOHCHO",
+    "note": null,
+    "iupac_name": "2-hydroxypropanal",
+    "selfies": null,
+    "synonyms": [
+      "hydroxypropionaldehyde"
+    ],
+    "smiles": "O=CC(O)C",
+    "canonical_smiles": null,
+    "inchi": "1S/C3H6O2/c1-3(5)2-4/h2-3,5H,1H3",
+    "inchikey": "BSABBBMNWQWLLU-UHFFFAOYSA-N",
+    "radical_override": null,
+    "fullerene": false,
+    "pah": false,
+    "n_rings": 0,
+    "cyclic": false,
+    "tags": {
+      "functional_groups": [
+        "CH3",
+        "OH",
+        "=O"
+      ]
+    },
+    "rotcon": {
+      "A": 8433,
+      "B": 4237,
+      "C": 3145,
+      "refs": [
+        "Alonso:2019:18"
+      ]
+    },
+    "dipole": {
+      "a": 0.9,
+      "b": 2.2,
+      "c": 1.0,
+      "refs": [
+        "Alonso:2019:18"
+      ]
+    },
+    "refs": {
+      "lab": [
+        "Alonso:2019:18"
+      ],
+      "computation": []
+    },
+    "isotopologue_of": null,
+    "latex_section_override": null,
+    "latex_body": "\\citet{Sanz-Novo:2026:A316} reported the detection of \\ce{CH3CH(OH)C(O)H} in Yebes 40m and IRAM 30 m observations of G+0.693-0.027.  Based on the laboratory work of \\citet{Alonso:2019:18}, they identified and assigned several unblended and partially blended transitions between 32--138\\,GHz.",
+    "history": {
+      "introduced": {
+        "census": "2026",
+        "context": "confirmed",
+        "date": "2026-06-26"
+      },
+      "accepted": {
+        "census": "2026",
+        "context": "confirmed",
+        "date": "2026-06-26"
+      },
+      "last_modified": "2026-06-26",
+      "events": [
+        {
+          "kind": "added",
+          "summary": "Added molecule record.",
+          "date": "2026-06-26",
+          "fields": []
+        }
+      ]
+    }
   }
 ]
