@@ -14278,7 +14278,9 @@
     "note": "Dipole from Cooksy et al. 1995 J Phys Chem 99, 11095",
     "iupac_name": null,
     "selfies": null,
-    "synonyms": [],
+    "synonyms": [
+      "propynonyl"
+    ],
     "smiles": null,
     "canonical_smiles": null,
     "inchi": null,
@@ -30038,6 +30040,73 @@
       ],
       "accepted": {
         "date": "2026-06-26",
+        "census": "2026",
+        "context": "confirmed"
+      }
+    }
+  },
+  {
+    "name": "cyclopropenethione",
+    "formula": "C3H2S",
+    "table_formula": "c-C3H2S",
+    "label": "mol:c-C3H2S",
+    "note": null,
+    "iupac_name": "cycloprop-2-ene-1-thione",
+    "selfies": null,
+    "synonyms": [],
+    "smiles": "S=C1C=C1",
+    "canonical_smiles": "S=C1C=C1",
+    "inchi": "InChI=1S/C3H2S/c4-3-1-2-3/h1-2H",
+    "inchikey": "UMPNALWFXVNZFB-UHFFFAOYSA-N",
+    "radical_override": null,
+    "fullerene": false,
+    "pah": false,
+    "n_rings": 1,
+    "cyclic": true,
+    "tags": {
+      "functional_groups": [
+        "=S"
+      ]
+    },
+    "rotcon": {
+      "A": 32121,
+      "B": 4080,
+      "C": 3617,
+      "refs": [
+        "Remijan:2025:191"
+      ]
+    },
+    "dipole": {
+      "a": 4.572,
+      "refs": [
+        "Remijan:2025:191"
+      ]
+    },
+    "refs": {
+      "lab": [
+        "Remijan:2025:191"
+      ],
+      "computation": []
+    },
+    "isotopologue_of": null,
+    "latex_section_override": null,
+    "latex_body": "The detection of \\ce{c-C3H2S} was reported by \\citet{Remijan:2025:191} in GBT 100 m observations of TMC-1. Based on laboratory work described in the same paper, they use a spectral stacking analysis to arrive at a 5.4$\\sigma$ detection significance.",
+    "history": {
+      "introduced": {
+        "date": "2026-06-27",
+        "context": "confirmed"
+      },
+      "last_modified": "2026-06-27",
+      "events": [
+        {
+          "kind": "added",
+          "summary": "Added molecule record.",
+          "date": "2026-06-27",
+          "fields": []
+        }
+      ],
+      "accepted": {
+        "date": "2026-06-27",
         "census": "2026",
         "context": "confirmed"
       }
