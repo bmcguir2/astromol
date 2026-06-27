@@ -14612,9 +14612,9 @@
   },
   {
     "name": "cyanothioketene",
-    "formula": "NCCHS",
-    "table_formula": "NCCHS",
-    "label": "mol:NCCHS",
+    "formula": "NCCHCS",
+    "table_formula": "NCCHCS",
+    "label": "mol:NCCHCS",
     "note": null,
     "iupac_name": null,
     "selfies": null,
