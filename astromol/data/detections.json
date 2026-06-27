@@ -12789,9 +12789,9 @@
     }
   },
   {
-    "id": "det:NCCHS:ism-csm:2024",
+    "id": "det:NCCHCS:ism-csm:2024",
     "note": null,
-    "molecule": "mol:NCCHS",
+    "molecule": "mol:NCCHCS",
     "sources": [
       "TMC1"
     ],
