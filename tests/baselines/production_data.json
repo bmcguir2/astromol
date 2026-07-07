@@ -1,8 +1,8 @@
 {
   "counts": {
-    "detections": 538,
-    "molecules": 392,
-    "sources": 95,
+    "detections": 539,
+    "molecules": 393,
+    "sources": 96,
     "telescopes": 50
   },
   "regression_counts": {

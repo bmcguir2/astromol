@@ -2631,5 +2631,30 @@
         }
       ]
     }
+  },
+  {
+    "name": "IC 348",
+    "nick": "IC348",
+    "type": "SFR",
+    "ra": "03 44 31.7",
+    "dec": "+32 09 32",
+    "simbad_url": "https://simbad.u-strasbg.fr/simbad/sim-basic?Ident=IC+348",
+    "latex_name": "IC 348",
+    "note": null,
+    "history": {
+      "introduced": {
+        "date": "2026-07-07",
+        "census": "2026",
+        "context": "source"
+      },
+      "last_modified": "2026-07-07",
+      "events": [
+        {
+          "kind": "added",
+          "summary": "Added source record for the disputed tryptophan detection.",
+          "date": "2026-07-07"
+        }
+      ]
+    }
   }
 ]

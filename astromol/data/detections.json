@@ -22175,5 +22175,57 @@
         "context": "confirmed_ism_csm"
       }
     }
+  },
+  {
+    "id": "det:C11H12N2O2:ism-csm:2023",
+    "note": "Claimed in archival Spitzer observations toward IC 348 and later disputed by Dhariwal et al. 2024.",
+    "molecule": "mol:C11H12N2O2",
+    "sources": [
+      "IC348"
+    ],
+    "telescopes": [
+      "Spitzer"
+    ],
+    "wavelengths": [
+      "IR"
+    ],
+    "year": 2023,
+    "type": "ISM/CSM",
+    "status": "disputed",
+    "status_note": "Dhariwal et al. 2024 found no evidence for tryptophan in deeper JWST observations and assigned several Spitzer features to instrumental artifacts.",
+    "first": false,
+    "month": null,
+    "day": null,
+    "refs": {
+      "observation": [
+        "Iglesias-Groth:2023:2876"
+      ],
+      "dispute": [
+        "Dhariwal:2024:L9"
+      ]
+    },
+    "confirms": [],
+    "confirmed_by": [],
+    "disputes": [],
+    "disputed_by": [],
+    "supersedes": [],
+    "superseded_by": [],
+    "latex_text": null,
+    "history": {
+      "introduced": {
+        "date": "2026-07-07",
+        "census": "2026",
+        "context": "disputed"
+      },
+      "accepted": null,
+      "last_modified": "2026-07-07",
+      "events": [
+        {
+          "kind": "added",
+          "summary": "Added disputed detection record for tryptophan toward IC 348.",
+          "date": "2026-07-07"
+        }
+      ]
+    }
   }
 ]
