@@ -41,6 +41,9 @@ db = Database()
 counts_2026 = load_production_baseline()["regression_counts"][
     "slides_molecule_slide_2026"
 ]
+ppd_counts_2026 = load_production_baseline()["regression_counts"][
+    "slides_ppd_detection_slide_2026"
+]
 view_2021 = CensusView.for_census(db, "2021")
 view_2026 = CensusView.for_census(db, "2026")
 
@@ -137,31 +140,15 @@ assert slide_version_label("2026.0.0") == "v2026.0.0"
 
 ppd_2026 = build_ppd_detection_slide_layout(view_2026)
 assert ppd_2026.title == PPD_TITLE
-assert ppd_2026.total == 57
+assert ppd_2026.total == ppd_counts_2026["total"]
 assert ppd_2026.profile == "compact"
 assert ppd_2026.detection_type == "ppd"
 assert ppd_2026.include_isotopologues is True
-assert ppd_2026.molecule_font_pt == 26
+assert ppd_2026.molecule_font_pt == ppd_counts_2026["molecule_font_pt"]
 assert ppd_2026.warnings == ()
-assert [group.spec.label for group in ppd_2026.groups] == [
-    "2 Atoms",
-    "3 Atoms",
-    "4 Atoms",
-    "5 Atoms",
-    "6 Atoms",
-    "7 Atoms",
-    "9 Atoms",
-    "12 Atoms",
-]
-assert [len(group.molecules) for group in ppd_2026.groups] == [
-    20,
-    20,
-    6,
-    5,
-    3,
-    1,
-    1,
-    1,
+assert [group.spec.label for group in ppd_2026.groups] == ppd_counts_2026["group_labels"]
+assert [len(group.molecules) for group in ppd_2026.groups] == ppd_counts_2026[
+    "group_molecule_counts"
 ]
 assert any(entry.molecule.isotopologue_of for entry in ppd_2026.molecules)
 
@@ -232,7 +219,7 @@ with TemporaryDirectory() as tmp:
         if hasattr(shape, "text")
     )
     assert PPD_TITLE in ppd_text
-    assert "57 Molecules" in ppd_text
+    assert ppd_counts_2026["count_text"] in ppd_text
     assert "Last Updated: 11 May 2026" in ppd_text
     assert "13CO" in ppd_text
 

@@ -2,6 +2,8 @@ import re
 from pathlib import Path
 from tempfile import TemporaryDirectory
 
+from baseline import load_production_baseline
+
 from astromol.census import CensusView
 from astromol.database import Database
 from astromol.latex import (
@@ -14,6 +16,7 @@ from astromol.latex import (
 
 
 db = Database()
+counts_2026 = load_production_baseline()["regression_counts"]["latex_ppd_table_2026"]
 view_2021 = CensusView.for_census(db, "2021")
 view_2026 = CensusView.for_census(db, "2026")
 
@@ -67,19 +70,22 @@ with TemporaryDirectory() as tmp:
 assert ppd_table_atom_groups(view_2026) == [(2, 3, 4, 5, 6), (7, 9, 12)]
 
 detections_2026 = ppd_table_detections(view_2026)
-assert len(detections_2026) == 57
-assert sum(detection.molecule.isotopologue_of is not None for detection in detections_2026) == 23
+assert len(detections_2026) == counts_2026["detections"]
+assert (
+    sum(detection.molecule.isotopologue_of is not None for detection in detections_2026)
+    == counts_2026["isotopologue_detections"]
+)
 assert all(detection.status == "secure" for detection in detections_2026)
 
 content_2026 = ppd_table_fragments(view_2026)["ppd_table.tex"]
 linked_labels_2026 = re.findall(r"\\molref\{(mol:[^}]+)\}", content_2026)
-assert len(linked_labels_2026) == 57
+assert len(linked_labels_2026) == counts_2026["linked_labels"]
 assert len(linked_labels_2026) == len(set(linked_labels_2026))
 assert set(linked_labels_2026) == {
     detection.molecule.label
     for detection in detections_2026
 }
-assert {"mol:34SO", "mol:33SO", "mol:H213CO", "mol:c-C2H4O"}.issubset(
+assert {"mol:34SO", "mol:33SO", "mol:H213CO", "mol:c-C2H4O", "mol:HC5N"}.issubset(
     linked_labels_2026
 )
 

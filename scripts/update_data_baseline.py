@@ -37,11 +37,15 @@ from astromol.latex import (  # noqa: E402
     balanced_ism_table_columns,
     exoplanet_table_detections,
     facility_table_entries,
+    ppd_table_detections,
     rate_by_atoms_fits,
     rate_by_atoms_table_fragments,
     source_table_entries,
 )
-from astromol.slides import build_molecule_slide_layout  # noqa: E402
+from astromol.slides import (  # noqa: E402
+    build_molecule_slide_layout,
+    build_ppd_detection_slide_layout,
+)
 from astromol.validation import validate_database  # noqa: E402
 
 
@@ -181,6 +185,7 @@ def build_regression_counts(
         view_2026,
         include_isotopologues=True,
     )
+    ppd_detections = ppd_table_detections(view_2026)
     counts = {
         "census_view_2026": {
             "ism_molecules": len(view_2026.ism_molecules()),
@@ -205,6 +210,16 @@ def build_regression_counts(
             "isotopologue_detections": sum(
                 detection.molecule.isotopologue_of is not None
                 for detection in expanded_exoplanet_detections
+            ),
+        },
+        "latex_ppd_table_2026": {
+            "detections": len(ppd_detections),
+            "linked_labels": len(
+                {detection.molecule.label for detection in ppd_detections}
+            ),
+            "isotopologue_detections": sum(
+                detection.molecule.isotopologue_of is not None
+                for detection in ppd_detections
             ),
         },
     }
@@ -233,6 +248,7 @@ def build_regression_counts(
     balanced_ism_groups = balanced_ism_table_columns(view_2026)
     legacy_slide = build_molecule_slide_layout(view_2026)
     balanced_slide = build_molecule_slide_layout(view_2026, profile="balanced")
+    ppd_slide = build_ppd_detection_slide_layout(view_2026)
 
     counts.update({
         "figures_cumulative_detections_2026": {
@@ -368,6 +384,15 @@ def build_regression_counts(
             ],
             "balanced_group_column_counts": [
                 len(group.columns) for group in balanced_slide.groups
+            ],
+        },
+        "slides_ppd_detection_slide_2026": {
+            "total": int(ppd_slide.total),
+            "count_text": f"{ppd_slide.total} Molecules",
+            "molecule_font_pt": ppd_slide.molecule_font_pt,
+            "group_labels": [group.spec.label for group in ppd_slide.groups],
+            "group_molecule_counts": [
+                len(group.molecules) for group in ppd_slide.groups
             ],
         },
     })
