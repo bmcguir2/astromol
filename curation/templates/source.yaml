@@ -6,7 +6,7 @@
 - kind: source  # REQUIRED
   name: Example Source  # REQUIRED; string
   nick: ExampleSource  # REQUIRED; unique string key used by detections
-  type: Other  # REQUIRED; source type from SOURCE_TYPES
+  type: Protoplanetary Disk  # REQUIRED; source type from SOURCE_TYPES
   ra:  # string; quote sexagesimal values, e.g. "18:53:18.5"
   dec:  # string; quote signed sexagesimal values, e.g. "+01:14:59"
   simbad_url:  # string URL

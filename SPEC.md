@@ -629,6 +629,7 @@ Current `SOURCE_TYPES`:
 - `Supernova Remnant`
 - `Sgr A`
 - `External Galaxy`
+- `Protoplanetary Disk`
 - `YSO`
 - `Exoplanet`
 - `Other`

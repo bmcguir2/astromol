@@ -1,6 +1,6 @@
 import pytest
 
-from astromol.models import DipoleMoment, Molecule, RotationalConstants
+from astromol.models import DipoleMoment, Molecule, RotationalConstants, Source
 
 
 def test_dipole_total_returns_none_for_unknown_placeholder():
@@ -88,3 +88,13 @@ def test_kappa_properties():
     )
     assert not asymmetric_top.is_linear
     assert asymmetric_top.kappa == pytest.approx(-0.25)
+
+
+def test_source_accepts_protoplanetary_disk_type():
+    source = Source(
+        name="TW Hya",
+        nick="TWHya",
+        type="Protoplanetary Disk",
+    )
+
+    assert source.type == "Protoplanetary Disk"
