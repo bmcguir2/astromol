@@ -22227,5 +22227,58 @@
         }
       ]
     }
+  },
+  {
+    "id": "det:HC5N:ppd:2026",
+    "note": null,
+    "molecule": "mol:HC5N",
+    "sources": [
+      "TWHya"
+    ],
+    "telescopes": [
+      "ALMA"
+    ],
+    "wavelengths": [
+      "mm"
+    ],
+    "year": 2026,
+    "type": "ppd",
+    "status": "secure",
+    "status_note": null,
+    "first": true,
+    "month": null,
+    "day": null,
+    "refs": {
+      "observation": [
+        "Wampler:2026:L30"
+      ]
+    },
+    "confirms": [],
+    "confirmed_by": [],
+    "disputes": [],
+    "disputed_by": [],
+    "supersedes": [],
+    "superseded_by": [],
+    "latex_text": null,
+    "history": {
+      "introduced": {
+        "date": "2026-07-07",
+        "context": "confirmed"
+      },
+      "last_modified": "2026-07-07",
+      "events": [
+        {
+          "kind": "added",
+          "summary": "Added detection record.",
+          "date": "2026-07-07",
+          "fields": []
+        }
+      ],
+      "accepted": {
+        "date": "2026-07-07",
+        "census": "2026",
+        "context": "confirmed_ppd"
+      }
+    }
   }
 ]

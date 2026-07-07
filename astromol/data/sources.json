@@ -2656,5 +2656,29 @@
         }
       ]
     }
+  },
+  {
+    "name": "TW Hya",
+    "nick": "TWHya",
+    "type": "Protoplanetary Disk",
+    "ra": "11:01:51.90",
+    "dec": "-34:26:07.3",
+    "simbad_url": "https://simbad.u-strasbg.fr/simbad/sim-basic?Ident=TW+Hya",
+    "latex_name": "TW Hya",
+    "note": null,
+    "history": {
+      "introduced": {
+        "date": "2026-07-07"
+      },
+      "last_modified": "2026-07-07",
+      "events": [
+        {
+          "kind": "added",
+          "summary": "Added source record.",
+          "date": "2026-07-07",
+          "fields": []
+        }
+      ]
+    }
   }
 ]

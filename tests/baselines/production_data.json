@@ -1,8 +1,8 @@
 {
   "counts": {
-    "detections": 539,
+    "detections": 540,
     "molecules": 393,
-    "sources": 96,
+    "sources": 97,
     "telescopes": 50
   },
   "regression_counts": {
@@ -11,8 +11,8 @@
       "exoplanet_molecules_with_isotopologues": 14,
       "ism_molecules": 345,
       "ism_molecules_with_isotopologues": 355,
-      "ppd_molecules": 34,
-      "ppd_molecules_with_isotopologues": 57
+      "ppd_molecules": 35,
+      "ppd_molecules_with_isotopologues": 58
     },
     "figures_cumulative_by_atoms_2026": {
       "final_counts": {
@@ -429,6 +429,11 @@
       ],
       "linked_labels": 345
     },
+    "latex_ppd_table_2026": {
+      "detections": 58,
+      "isotopologue_detections": 23,
+      "linked_labels": 58
+    },
     "latex_rate_by_atoms_table_2026": {
       "fit_values": {
         "10": [
@@ -578,6 +583,31 @@
       "count_text": "345 Molecules",
       "legacy_warning_count": 6,
       "total": 345
+    },
+    "slides_ppd_detection_slide_2026": {
+      "count_text": "58 Molecules",
+      "group_labels": [
+        "2 Atoms",
+        "3 Atoms",
+        "4 Atoms",
+        "5 Atoms",
+        "6 Atoms",
+        "7 Atoms",
+        "9 Atoms",
+        "12 Atoms"
+      ],
+      "group_molecule_counts": [
+        20,
+        20,
+        6,
+        5,
+        3,
+        2,
+        1,
+        1
+      ],
+      "molecule_font_pt": 26,
+      "total": 58
     }
   },
   "schema_version": 2,
