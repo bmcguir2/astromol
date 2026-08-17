@@ -20834,7 +20834,9 @@
       ]
     },
     "confirms": [],
-    "confirmed_by": [],
+    "confirmed_by": [
+      "det:OCN-:ice:2024"
+    ],
     "disputes": [],
     "disputed_by": [],
     "supersedes": [],
@@ -20847,13 +20849,21 @@
         "census": "2021"
       },
       "accepted": null,
-      "last_modified": "2026-05-07",
+      "last_modified": "2026-08-17",
       "events": [
         {
           "kind": "added",
           "summary": "Added detection record.",
           "date": "2026-05-07",
           "fields": []
+        },
+        {
+          "kind": "updated",
+          "summary": "Linked the secure 2024 OCN- ice detection as confirmation of this tentative claim.",
+          "date": "2026-08-17",
+          "fields": [
+            "confirmed_by"
+          ]
         }
       ]
     }
@@ -22278,6 +22288,59 @@
         "date": "2026-07-07",
         "census": "2026",
         "context": "confirmed_ppd"
+      }
+    }
+  },
+  {
+    "id": "det:OCN-:ice:2024",
+    "note": "Secure OCN- ice detection in JWST observations of B1-c, confirming the prior tentative ice detection.",
+    "molecule": "mol:OCN-",
+    "sources": [],
+    "telescopes": [
+      "JWST"
+    ],
+    "wavelengths": [
+      "IR"
+    ],
+    "year": 2024,
+    "type": "ice",
+    "status": "secure",
+    "status_note": null,
+    "first": true,
+    "month": null,
+    "day": null,
+    "refs": {
+      "observation": [
+        "Chen:2024:A205"
+      ]
+    },
+    "confirms": [
+      "det:OCN-:ice:2005"
+    ],
+    "confirmed_by": [],
+    "disputes": [],
+    "disputed_by": [],
+    "supersedes": [],
+    "superseded_by": [],
+    "latex_text": null,
+    "history": {
+      "introduced": {
+        "date": "2026-08-17",
+        "context": "confirmed"
+      },
+      "last_modified": "2026-08-17",
+      "events": [
+        {
+          "kind": "added",
+          "summary": "Added detection record.",
+          "date": "2026-08-17",
+          "fields": []
+        }
+      ],
+      "accepted": {
+        "date": "2026-08-17",
+        "census": "2026",
+        "context": "confirmed_ice"
       }
     }
   }

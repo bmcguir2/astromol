@@ -1,6 +1,6 @@
 {
   "counts": {
-    "detections": 540,
+    "detections": 541,
     "molecules": 393,
     "sources": 97,
     "telescopes": 50
@@ -388,6 +388,13 @@
         "n=26"
       ]
     },
+    "latex_exgal_table_2026": {
+      "detections": 80,
+      "linked_labels": 80,
+      "observation_references": 55,
+      "secure_detections": 78,
+      "tentative_detections": 2
+    },
     "latex_exoplanet_table_2026": {
       "detections": 12,
       "detections_with_isotopologues": 14,
@@ -419,6 +426,14 @@
           29
         ]
       ]
+    },
+    "latex_ice_table_2026": {
+      "detections": 15,
+      "linked_labels": 15,
+      "observation_references": 11,
+      "secure_detections": 15,
+      "secure_only_detections": 15,
+      "tentative_detections": 0
     },
     "latex_ism_tables_2026": {
       "balanced_group_column_counts": [
