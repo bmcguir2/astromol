@@ -93,7 +93,7 @@ Local `.ipynb_checkpoints/` directories are not tracked.
 ## Curation Workflow
 
 Production data lives in the JSON files under `astromol/data/`. New records
-should normally be staged first using copy/paste YAML templates from
+and changes to existing records should be staged using full-field YAML templates from
 `curation/templates/`, with working staging files kept under `curation/staging/`.
 Run `python scripts/stage_records.py --staging <file.yaml>` to generate preview
 JSON and a review report. Use `--apply` only after the preview is accepted.
@@ -103,6 +103,19 @@ initial `added` event dated with the staging run date. New molecule records and
 secure detection records also default to a current-census `history.accepted`
 block; set `history.accepted: null` for records that are tracked but not yet
 accepted as confirmed.
+Staging records use `operation: add` by default. Existing records use
+`operation: update` and must be generated with `stage_records.py
+--prepare-update <kind> <identity> --output <path>`. Generated update templates
+contain the full production record and a staging-only `_base_digest`.
+Updates require `_update_summary`; the staging workflow derives changed field
+paths, refreshes `history.last_modified`, and appends the corresponding history
+event. Scientific promotions remain explicit update-template changes.
+
+Detection relationship reciprocals are derived mechanical updates. A staged
+`confirms`, `disputes`, or `supersedes` change automatically updates the target
+record's reciprocal field in the merged preview and records that change in the
+report. The complete preview is loaded and passed through semantic database
+validation before apply; semantic errors block production writes.
 The preview report includes a `Generated Count Updates` section that compares
 current production inventory and regression-count baselines against the staged
 preview. Applying staged records refreshes
@@ -118,6 +131,10 @@ production JSON files plus modified `astromol/data/references.bib` and
 `tests/baselines/production_data.json` by default before committing. When
 `--push --close-issue <number>` is also provided, the helper closes the tracked
 GitHub issue after a successful push with a commit-link comment.
+Applied manifests store hashes for every touched production file. Cleanup
+rejects post-apply drift and, when committing, runs the curation check before
+deleting review artifacts. `--skip-verification` is a recovery-only escape
+hatch and does not bypass manifest hash verification.
 
 Production inventory counts, curation-sensitive regression counts, and accepted
 validation warnings are tracked in the committed baseline

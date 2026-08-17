@@ -35,8 +35,10 @@ from astromol.figures import (  # noqa: E402
 )
 from astromol.latex import (  # noqa: E402
     balanced_ism_table_columns,
+    exgal_table_detections,
     exoplanet_table_detections,
     facility_table_entries,
+    ice_table_detections,
     ppd_table_detections,
     rate_by_atoms_fits,
     rate_by_atoms_table_fragments,
@@ -180,10 +182,16 @@ def build_regression_counts(
 ) -> dict[str, object]:
     """Return generated count expectations used by curation-sensitive tests."""
     view_2026 = CensusView.for_census(db, "2026")
+    exgal_detections = exgal_table_detections(view_2026)
     exoplanet_detections = exoplanet_table_detections(view_2026)
     expanded_exoplanet_detections = exoplanet_table_detections(
         view_2026,
         include_isotopologues=True,
+    )
+    ice_detections = ice_table_detections(view_2026)
+    secure_only_ice_detections = ice_table_detections(
+        view_2026,
+        include_tentative=False,
     )
     ppd_detections = ppd_table_detections(view_2026)
     counts = {
@@ -201,6 +209,25 @@ def build_regression_counts(
                 view_2026.ppd_molecules(include_isotopologues=True)
             ),
         },
+        "latex_exgal_table_2026": {
+            "detections": len(exgal_detections),
+            "linked_labels": len(
+                {detection.molecule.label for detection in exgal_detections}
+            ),
+            "secure_detections": sum(
+                detection.status == "secure" for detection in exgal_detections
+            ),
+            "tentative_detections": sum(
+                detection.status == "tentative" for detection in exgal_detections
+            ),
+            "observation_references": len(
+                {
+                    ref.bibcode
+                    for detection in exgal_detections
+                    for ref in detection.refs.get("observation", [])
+                }
+            ),
+        },
         "latex_exoplanet_table_2026": {
             "detections": len(exoplanet_detections),
             "linked_labels": len(
@@ -210,6 +237,26 @@ def build_regression_counts(
             "isotopologue_detections": sum(
                 detection.molecule.isotopologue_of is not None
                 for detection in expanded_exoplanet_detections
+            ),
+        },
+        "latex_ice_table_2026": {
+            "detections": len(ice_detections),
+            "linked_labels": len(
+                {detection.molecule.label for detection in ice_detections}
+            ),
+            "secure_detections": sum(
+                detection.status == "secure" for detection in ice_detections
+            ),
+            "tentative_detections": sum(
+                detection.status == "tentative" for detection in ice_detections
+            ),
+            "secure_only_detections": len(secure_only_ice_detections),
+            "observation_references": len(
+                {
+                    ref.bibcode
+                    for detection in ice_detections
+                    for ref in detection.refs.get("observation", [])
+                }
             ),
         },
         "latex_ppd_table_2026": {
@@ -406,6 +453,7 @@ def build_baseline(
 ) -> dict[str, object]:
     db = db or Database()
     report = validate_database(db)
+    report.raise_for_errors()
 
     warnings = [
         {

@@ -2,6 +2,8 @@ import re
 from pathlib import Path
 from tempfile import TemporaryDirectory
 
+from baseline import load_production_baseline
+
 from astromol.census import CensusView
 from astromol.database import Database
 from astromol.latex import (
@@ -15,6 +17,43 @@ db = Database()
 view_2021 = CensusView.for_census(db, "2021")
 view_2026 = CensusView.for_census(db, "2026")
 current_view = CensusView.current(db)
+counts_2026 = load_production_baseline()["regression_counts"][
+    "latex_ice_table_2026"
+]
+
+
+def observation_bibcodes(detections):
+    return {
+        ref.bibcode
+        for detection in detections
+        for ref in detection.refs.get("observation", [])
+    }
+
+
+def assert_current_table_invariants(content, detections, expected_counts):
+    linked_labels = re.findall(r"\\molref\{(mol:[^}]+)\}", content)
+    assert len(detections) == expected_counts["detections"]
+    assert len(linked_labels) == expected_counts["linked_labels"]
+    assert len(linked_labels) == len(set(linked_labels))
+    assert set(linked_labels) == {
+        detection.molecule.label
+        for detection in detections
+    }
+
+    secure_count = sum(detection.status == "secure" for detection in detections)
+    tentative_count = sum(
+        detection.status == "tentative" for detection in detections
+    )
+    assert secure_count == expected_counts["secure_detections"]
+    assert tentative_count == expected_counts["tentative_detections"]
+    assert all(detection.refs.get("observation") for detection in detections)
+    assert len(observation_bibcodes(detections)) == expected_counts[
+        "observation_references"
+    ]
+    assert content.count(r"\citet{") == expected_counts["observation_references"]
+
+    expected_dagger_markers = tentative_count + bool(tentative_count)
+    assert content.count(r"$^{\dagger}$") == expected_dagger_markers
 
 detections_2021 = ice_table_detections(view_2021)
 assert len(detections_2021) == 10
@@ -55,37 +94,40 @@ with TemporaryDirectory() as tmp:
     assert (output_dir / "ice_table.tex").read_text() == content_2021
 
 detections_2026 = ice_table_detections(view_2026)
-assert len(detections_2026) == 15
 assert all(detection.molecule.isotopologue_of is None for detection in detections_2026)
-assert sum(detection.status == "tentative" for detection in detections_2026) == 1
 
 content_2026 = ice_table_fragments(view_2026)["ice_table.tex"]
-linked_labels_2026 = re.findall(r"\\molref\{(mol:[^}]+)\}", content_2026)
-assert len(linked_labels_2026) == 15
-assert len(linked_labels_2026) == len(set(linked_labels_2026))
-assert set(linked_labels_2026) == {
-    detection.molecule.label
-    for detection in detections_2026
-}
-assert "mol:OCN-" in linked_labels_2026
-assert r"\molref{mol:OCN-}{OCN-}$^{\dagger}$" in content_2026
-assert content_2026.count(r"\citet{") == 12
+assert_current_table_invariants(content_2026, detections_2026, counts_2026)
 
-tentative_current = ice_table_detections(current_view)
-assert len(tentative_current) == 15
-assert tentative_current[-1].molecule.label == "mol:OCN-"
-assert tentative_current[-1].status == "tentative"
-tentative_content = ice_table_fragments(current_view)["ice_table.tex"]
-assert r"\molref{mol:OCN-}{OCN-}$^{\dagger}$" in tentative_content
+ocn_2026 = next(
+    detection
+    for detection in detections_2026
+    if detection.molecule.label == "mol:OCN-"
+)
+assert ocn_2026.id == "det:OCN-:ice:2024"
+assert ocn_2026.status == "secure"
+assert ocn_2026.confirms == ["det:OCN-:ice:2005"]
+assert r"\molref{mol:OCN-}{OCN-}" in content_2026
+assert r"\molref{mol:OCN-}{OCN-}$^{\dagger}$" not in content_2026
+
+detections_current = ice_table_detections(current_view)
+assert [detection.id for detection in detections_current] == [
+    detection.id for detection in detections_2026
+]
+current_content = ice_table_fragments(current_view)["ice_table.tex"]
+assert_current_table_invariants(current_content, detections_current, counts_2026)
 
 secure_only_current = ice_table_detections(current_view, include_tentative=False)
-assert len(secure_only_current) == 14
+assert len(secure_only_current) == counts_2026["secure_only_detections"]
 assert all(detection.status == "secure" for detection in secure_only_current)
 secure_only_content = ice_table_fragments(
     current_view,
     include_tentative=False,
 )["ice_table.tex"]
-assert "mol:OCN-" not in secure_only_content
+assert "mol:OCN-" in secure_only_content
 assert r"$^{\dagger}$" not in secure_only_content
+if counts_2026["tentative_detections"] == 0:
+    assert secure_only_current == detections_current
+    assert secure_only_content == current_content
 
 print("LaTeX ice table verification passed")

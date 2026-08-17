@@ -4,6 +4,7 @@
 # sections and fills production defaults.
 
 - kind: telescope  # REQUIRED
+  operation: add  # staging-only; use update for a generated existing-record template
   name: Example Telescope  # REQUIRED; string
   nick: ExampleTelescope  # REQUIRED; unique string key used by detections
   shortname: Example Telescope  # REQUIRED; short human-readable name

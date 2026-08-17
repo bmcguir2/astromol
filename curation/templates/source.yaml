@@ -4,6 +4,7 @@
 # sections and fills production defaults.
 
 - kind: source  # REQUIRED
+  operation: add  # staging-only; use update for a generated existing-record template
   name: Example Source  # REQUIRED; string
   nick: ExampleSource  # REQUIRED; unique string key used by detections
   type: Protoplanetary Disk  # REQUIRED; source type from SOURCE_TYPES

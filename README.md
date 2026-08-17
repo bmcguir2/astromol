@@ -150,6 +150,20 @@ Applying staged records refreshes
 generated count expectations in regression scripts; update the curated data and
 let the staging workflow regenerate the baseline.
 
+To update an existing record, first generate its full-field, digest-locked
+template:
+
+```bash
+python scripts/stage_records.py \
+  --prepare-update molecule mol:EXAMPLE \
+  --output curation/staging/example_update.yaml
+```
+
+Additions and updates may share one staging batch. Reciprocal detection
+relationships are derived and shown in the preview, while scientific promotion
+fields remain explicit curator-reviewed updates. Apply is blocked unless the
+complete merged preview passes semantic validation.
+
 Successful staging runs also write
 `astromol/data/<name>_stage_manifest.json`. After the curation batch is
 finished, use the cleanup helper to remove the staging YAML, preview JSON,
@@ -167,6 +181,10 @@ stages the production JSON files touched by the manifest plus modified
 ```bash
 python scripts/cleanup_stage.py --name example --commit-message "Add Example curation batch"
 ```
+
+Commit-mode cleanup verifies the applied manifest hashes and runs
+`python scripts/check_curation.py` before deleting review artifacts or
+committing.
 
 If the curation batch resolves one or more tracked GitHub issues, pass
 `--close-issue` with `--push`. The helper closes each issue after the push

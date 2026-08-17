@@ -1,8 +1,8 @@
-"""Stage compact YAML curation records into preview JSON.
+"""Stage full-field YAML curation additions and updates into preview JSON.
 
-The production data remains JSON. This script lets curators write small YAML
-records, validates them against the current model, and writes preview artifacts.
-Use --apply only after reviewing the generated report.
+The production data remains JSON. This script validates curator-reviewed YAML
+change sets, derives reciprocal detection relationships, and writes preview
+artifacts. Use --apply only after reviewing the generated report.
 """
 
 from __future__ import annotations
@@ -10,6 +10,7 @@ from __future__ import annotations
 import argparse
 from collections import Counter, defaultdict
 from datetime import date
+import hashlib
 import json
 from pathlib import Path
 import re
@@ -32,6 +33,7 @@ sys.path.insert(0, str(ROOT / "scripts"))
 
 from astromol.models import (  # noqa: E402
     Detection,
+    HISTORY_EVENT_KINDS,
     Molecule,
     Source,
     Telescope,
@@ -40,6 +42,10 @@ from astromol.models import (  # noqa: E402
     MOLECULE_REF_ROLES,
 )
 from astromol.database import Database  # noqa: E402
+from astromol.validation import (  # noqa: E402
+    RELATION_RECIPROCALS,
+    validate_database,
+)
 from update_data_baseline import (  # noqa: E402
     build_baseline,
     write_baseline,
@@ -218,6 +224,8 @@ REF_ROLE_FIELDS = {
 }
 
 MISSING = object()
+STAGING_OPERATIONS = {"add", "update"}
+STAGING_CONTROL_FIELDS = {"kind", "operation"}
 
 
 def load_json(name: str) -> list[dict]:
@@ -226,6 +234,22 @@ def load_json(name: str) -> list[dict]:
 
 def write_json(path: Path, data: list[dict]) -> None:
     path.write_text(json.dumps(data, indent=2) + "\n")
+
+
+def record_digest(record: dict) -> str:
+    """Return a stable digest for optimistic update locking."""
+    encoded = json.dumps(
+        record,
+        sort_keys=True,
+        separators=(",", ":"),
+        ensure_ascii=False,
+    ).encode("utf-8")
+    return hashlib.sha256(encoded).hexdigest()
+
+
+def file_digest(path: Path) -> str:
+    """Return a SHA-256 digest for a manifest-tracked file."""
+    return hashlib.sha256(path.read_bytes()).hexdigest()
 
 
 def preview_database(preview: dict[str, list[dict]]) -> Database:
@@ -477,10 +501,76 @@ def normalize_history(
     return history
 
 
+def changed_field_paths(
+    before,
+    after,
+    prefix: tuple[str, ...] = (),
+) -> list[str]:
+    """Return stable dotted paths for curator-visible record changes."""
+    if before == after:
+        return []
+    if isinstance(before, dict) and isinstance(after, dict):
+        paths = []
+        for key in sorted(set(before) | set(after)):
+            path = (*prefix, key)
+            if path in {("history", "events"), ("history", "last_modified")}:
+                continue
+            paths.extend(
+                changed_field_paths(before.get(key), after.get(key), path)
+            )
+        return paths
+    return [".".join(prefix)] if prefix else []
+
+
+def normalize_update_history(
+    kind: str,
+    before: dict,
+    after: dict,
+    *,
+    run_date: str,
+    summary: str,
+    event_kind: str,
+) -> tuple[dict, list[str]]:
+    """Append one generated history event for a full-record update."""
+    changed_fields = changed_field_paths(before, after)
+    history = json.loads(json.dumps(after.get("history") or before.get("history") or {}))
+    history["last_modified"] = run_date
+    events = list(history.get("events") or [])
+    if changed_fields:
+        events.append(
+            {
+                "kind": event_kind,
+                "summary": summary,
+                "date": run_date,
+                "fields": changed_fields,
+            }
+        )
+    history["events"] = events
+    after["history"] = history
+    return after, changed_fields
+
+
+def record_index(records: list[dict], kind: str) -> dict[str, int]:
+    """Map stable record identities to positions in one production list."""
+    return {identity(kind, record): index for index, record in enumerate(records)}
+
+
+def production_record(
+    production: dict[str, list[dict]],
+    kind: str,
+    row_id: str,
+) -> dict | None:
+    """Return one production record by stable identity."""
+    for record in production[kind]:
+        if identity(kind, record) == row_id:
+            return record
+    return None
+
+
 def merge_defaults(kind: str, payload: dict) -> dict:
     merged = json.loads(json.dumps(DEFAULTS.get(kind, {})))
     for key, value in payload.items():
-        if key == "kind" or key.startswith("_"):
+        if key in STAGING_CONTROL_FIELDS or key.startswith("_"):
             continue
         value = clean_payload_value(key, value)
         if value is MISSING:
@@ -514,11 +604,41 @@ def ref_keys_from(payload: dict) -> list[str]:
 def validate_record(
     kind: str,
     payload: dict,
+    raw_payload: dict,
+    operation: str,
     existing: dict[str, set[str]],
     staged: dict[str, set[str]],
     ref_keys: set[str],
+    before: dict | None,
 ) -> list[str]:
     errors = []
+
+    if operation not in STAGING_OPERATIONS:
+        errors.append(
+            f"unknown operation `{operation}`; must be one of: "
+            + ", ".join(sorted(STAGING_OPERATIONS))
+        )
+
+    if operation == "update":
+        missing_fields = [field for field in FIELDS[kind] if field not in raw_payload]
+        if missing_fields:
+            errors.append(
+                "update records must include the full template field set; missing: "
+                + ", ".join(missing_fields)
+            )
+        base_digest = raw_payload.get("_base_digest")
+        if not base_digest:
+            errors.append("update records require `_base_digest`")
+        elif before is not None and base_digest != record_digest(before):
+            errors.append("stale `_base_digest`; regenerate the update template")
+        if not raw_payload.get("_update_summary"):
+            errors.append("update records require `_update_summary`")
+        event_kind = raw_payload.get("_event_kind", "updated")
+        if event_kind not in HISTORY_EVENT_KINDS:
+            errors.append(
+                f"unknown `_event_kind` `{event_kind}`; must be one of: "
+                + ", ".join(HISTORY_EVENT_KINDS)
+            )
 
     for field in REQUIRED[kind]:
         value = payload.get(field)
@@ -540,26 +660,34 @@ def validate_record(
 
     if kind == "molecule":
         label = payload.get("label")
-        if label in existing["molecule"]:
+        if operation == "add" and label in existing["molecule"]:
             errors.append(f"molecule label already exists: {label}")
+        if operation == "update" and label not in existing["molecule"]:
+            errors.append(f"molecule label does not exist for update: {label}")
         parent = payload.get("isotopologue_of")
         if parent and parent not in existing["molecule"] and parent not in staged["molecule"]:
             errors.append(f"unknown isotopologue parent: {parent}")
 
     if kind == "source":
         nick = payload.get("nick")
-        if nick in existing["source"]:
+        if operation == "add" and nick in existing["source"]:
             errors.append(f"source nick already exists: {nick}")
+        if operation == "update" and nick not in existing["source"]:
+            errors.append(f"source nick does not exist for update: {nick}")
 
     if kind == "telescope":
         nick = payload.get("nick")
-        if nick in existing["telescope"]:
+        if operation == "add" and nick in existing["telescope"]:
             errors.append(f"telescope nick already exists: {nick}")
+        if operation == "update" and nick not in existing["telescope"]:
+            errors.append(f"telescope nick does not exist for update: {nick}")
 
     if kind == "detection":
         detection_id = payload.get("id")
-        if detection_id in existing["detection"]:
+        if operation == "add" and detection_id in existing["detection"]:
             errors.append(f"detection id already exists: {detection_id}")
+        if operation == "update" and detection_id not in existing["detection"]:
+            errors.append(f"detection id does not exist for update: {detection_id}")
         molecule = payload.get("molecule")
         if molecule not in existing["molecule"] and molecule not in staged["molecule"]:
             errors.append(f"unknown molecule: {molecule}")
@@ -602,6 +730,117 @@ def identity(kind: str, payload: dict) -> str:
     return "unknown"
 
 
+def apply_derived_reciprocals(
+    preview: dict[str, list[dict]],
+    rows: list[dict],
+    production: dict[str, list[dict]],
+    run_date: str,
+) -> list[dict]:
+    """Synchronize reciprocal detection relationships in the merged preview."""
+    detections = {record["id"]: record for record in preview["detection"]}
+    existing_detection_ids = {
+        record["id"] for record in production["detection"]
+    }
+    derived = []
+    history_fields: dict[str, set[str]] = defaultdict(set)
+    seen = set()
+
+    for row in rows:
+        if row["kind"] != "detection" or row["errors"]:
+            continue
+        before = row.get("before") or {}
+        after = row["record"]
+        source_id = after["id"]
+        for field_name in DETECTION_RELATION_FIELDS:
+            reciprocal_name = RELATION_RECIPROCALS[field_name]
+            before_targets = set(before.get(field_name) or [])
+            after_targets = set(after.get(field_name) or [])
+            for action, targets in (
+                ("add", after_targets - before_targets),
+                ("remove", before_targets - after_targets),
+            ):
+                for target_id in sorted(targets):
+                    target = detections.get(target_id)
+                    if target is None:
+                        continue
+                    reciprocal_values = list(target.get(reciprocal_name) or [])
+                    changed = False
+                    if action == "add" and source_id not in reciprocal_values:
+                        reciprocal_values.append(source_id)
+                        changed = True
+                    elif action == "remove" and source_id in reciprocal_values:
+                        reciprocal_values.remove(source_id)
+                        changed = True
+                    if not changed:
+                        continue
+                    target[reciprocal_name] = reciprocal_values
+                    key = (target_id, reciprocal_name, action, source_id)
+                    if key not in seen:
+                        seen.add(key)
+                        derived.append(
+                            {
+                                "record": target_id,
+                                "field": reciprocal_name,
+                                "action": action,
+                                "related_record": source_id,
+                            }
+                        )
+                    if target_id in existing_detection_ids:
+                        history_fields[target_id].add(reciprocal_name)
+
+    for target_id, fields in history_fields.items():
+        target = detections[target_id]
+        history = json.loads(json.dumps(target.get("history") or {}))
+        history["last_modified"] = run_date
+        events = list(history.get("events") or [])
+        events.append(
+            {
+                "kind": "updated",
+                "summary": "Synchronized reciprocal detection relationships.",
+                "date": run_date,
+                "fields": sorted(fields),
+            }
+        )
+        history["events"] = events
+        target["history"] = history
+
+    return derived
+
+
+def prepare_update_template(kind: str, row_id: str, output: Path) -> None:
+    """Write a full-field update template from one production record."""
+    if kind not in KIND_TO_FILE:
+        raise SystemExit(
+            f"Unknown record kind `{kind}`; choose from: "
+            + ", ".join(sorted(KIND_TO_FILE))
+        )
+    record = production_record(
+        {kind: load_json(KIND_TO_FILE[kind])},
+        kind,
+        row_id,
+    )
+    if record is None:
+        raise SystemExit(f"No {kind} record found with identity `{row_id}`.")
+    payload = {
+        "kind": kind,
+        "operation": "update",
+        "_base_digest": record_digest(record),
+        "_event_kind": "updated",
+        "_update_summary": "",
+    }
+    payload.update({field: record.get(field) for field in FIELDS[kind]})
+    output.parent.mkdir(parents=True, exist_ok=True)
+    output.write_text(
+        yaml.safe_dump(
+            [payload],
+            sort_keys=False,
+            allow_unicode=True,
+            width=100,
+        )
+    )
+    print(f"Wrote {relative_path_text(output)}")
+
+
 def make_report(
     name: str,
     rows: list[dict],
@@ -609,6 +848,7 @@ def make_report(
     output_paths: dict[str, Path],
     applied: bool,
     generated_count_changes: list[dict],
+    derived_updates: list[dict],
 ) -> str:
     counts = Counter(row["kind"] for row in rows)
     status_counts = Counter(
@@ -640,6 +880,19 @@ def make_report(
         )
     lines.append(f"- Validation errors: {len(errors)}")
     lines.append(f"- Generated count updates: {len(generated_count_changes)}")
+    lines.append(f"- Derived reciprocal updates: {len(derived_updates)}")
+    lines.append("")
+
+    lines.append("## Derived Reciprocal Updates")
+    lines.append("")
+    if not derived_updates:
+        lines.append("No reciprocal relationship updates were derived.")
+    else:
+        for update in derived_updates:
+            lines.append(
+                f"- `{update['record']}.{update['field']}`: "
+                f"`{update['action']}` `{update['related_record']}`"
+            )
     lines.append("")
 
     lines.append("## Generated Count Updates")
@@ -679,6 +932,13 @@ def make_report(
         lines.append("")
         lines.append(f"- file: `{row['file']}`")
         lines.append(f"- record index: `{row['index']}`")
+        lines.append(f"- operation: `{row['operation']}`")
+        if row.get("changed_fields"):
+            lines.append(
+                "- changed fields: `"
+                + ", ".join(row["changed_fields"])
+                + "`"
+            )
         if row["kind"] == "detection":
             record = row["record"]
             lines.append(f"- molecule: `{record.get('molecule')}`")
@@ -736,6 +996,11 @@ def build_manifest(
     applied: bool,
     run_date: str,
 ) -> dict:
+    production_hashes = {
+        relative_path_text(path): file_digest(path)
+        for path in production_paths
+        if applied and path.exists()
+    }
     return {
         "name": name,
         "generated_on": run_date,
@@ -743,17 +1008,29 @@ def build_manifest(
         "staging_files": [relative_path_text(path) for path in staging_files],
         "preview_artifacts": [relative_path_text(path) for path in preview_paths],
         "production_files": [relative_path_text(path) for path in production_paths],
+        "production_hashes": production_hashes,
     }
 
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser()
-    parser.add_argument(
+    mode = parser.add_mutually_exclusive_group(required=True)
+    mode.add_argument(
         "--staging",
         nargs="+",
         type=Path,
-        required=True,
         help="YAML staging file(s) to process.",
+    )
+    mode.add_argument(
+        "--prepare-update",
+        nargs=2,
+        metavar=("KIND", "IDENTITY"),
+        help="Write a full-field update template for one existing record.",
+    )
+    parser.add_argument(
+        "--output",
+        type=Path,
+        help="Output YAML path used with --prepare-update.",
     )
     parser.add_argument(
         "--name",
@@ -765,11 +1042,23 @@ def parse_args() -> argparse.Namespace:
         action="store_true",
         help="Write validated staged records into production JSON files.",
     )
-    return parser.parse_args()
+    args = parser.parse_args()
+    if args.prepare_update and args.output is None:
+        parser.error("--prepare-update requires --output")
+    if args.prepare_update and args.apply:
+        parser.error("--prepare-update cannot be combined with --apply")
+    if args.staging and args.output is not None:
+        parser.error("--output is only valid with --prepare-update")
+    return args
 
 
 def main() -> None:
     args = parse_args()
+    if args.prepare_update:
+        kind, row_id = args.prepare_update
+        prepare_update_template(kind, row_id, args.output)
+        return
+
     name = args.name or args.staging[0].stem
 
     production = {
@@ -795,6 +1084,7 @@ def main() -> None:
 
     for raw in raw_records:
         kind = raw.get("kind")
+        operation = raw.get("operation", "add")
         location = f"{raw.get('_staging_file')} record {raw.get('_staging_index')}"
         if kind not in KIND_TO_FILE:
             message = f"{location}: unknown kind `{kind}`"
@@ -805,6 +1095,10 @@ def main() -> None:
                     "id": "unknown",
                     "file": raw.get("_staging_file"),
                     "index": raw.get("_staging_index"),
+                    "operation": operation,
+                    "raw": raw,
+                    "before": None,
+                    "changed_fields": [],
                     "record": {},
                     "meta": staging_meta(raw),
                     "errors": [message],
@@ -813,14 +1107,16 @@ def main() -> None:
             continue
 
         record = merge_defaults(kind, raw)
-        record["history"] = normalize_history(
-            kind,
-            record.get("history"),
-            run_date,
-            status=record.get("status", "secure"),
-            detection_type=record.get("type"),
-        )
         row_id = identity(kind, record)
+        before = production_record(production, kind, row_id)
+        if operation != "update":
+            record["history"] = normalize_history(
+                kind,
+                record.get("history"),
+                run_date,
+                status=record.get("status", "secure"),
+                detection_type=record.get("type"),
+            )
         if kind in {"molecule", "source", "telescope", "detection"} and row_id:
             staged[kind].add(row_id)
 
@@ -830,6 +1126,10 @@ def main() -> None:
                 "id": row_id,
                 "file": raw.get("_staging_file"),
                 "index": raw.get("_staging_index"),
+                "operation": operation,
+                "raw": raw,
+                "before": before,
+                "changed_fields": [],
                 "record": record,
                 "meta": staging_meta(raw),
                 "errors": [],
@@ -846,17 +1146,62 @@ def main() -> None:
         if kind not in KIND_TO_FILE:
             continue
         location = f"{row['file']} record {row['index']}"
-        row_errors = validate_record(kind, row["record"], existing, staged, ref_keys)
+        row_errors = validate_record(
+            kind,
+            row["record"],
+            row["raw"],
+            row["operation"],
+            existing,
+            staged,
+            ref_keys,
+            row["before"],
+        )
         if (
             kind in {"molecule", "source", "telescope", "detection"}
             and staged_id_counts[kind][row["id"]] > 1
         ):
             row_errors.append(f"duplicate staged {kind} identity: {row['id']}")
         row["errors"] = row_errors
+        if not row_errors and row["operation"] == "update":
+            row["record"], row["changed_fields"] = normalize_update_history(
+                kind,
+                row["before"],
+                row["record"],
+                run_date=run_date,
+                summary=row["raw"]["_update_summary"],
+                event_kind=row["raw"].get("_event_kind", "updated"),
+            )
+            if not row["changed_fields"]:
+                row_errors.append("update does not change any production fields")
+
         if row_errors:
             errors.extend(f"{location} `{row['id']}`: {error}" for error in row_errors)
-        else:
+        elif row["operation"] == "add":
             preview[kind].append(row["record"])
+        else:
+            index = record_index(preview[kind], kind)[row["id"]]
+            preview[kind][index] = row["record"]
+
+    derived_updates = apply_derived_reciprocals(
+        preview,
+        rows,
+        production,
+        run_date,
+    )
+
+    preview_db = None
+    if not errors:
+        try:
+            preview_db = preview_database(preview)
+        except Exception as exc:  # noqa: BLE001 - report complete preview failure
+            errors.append(f"preview database load failed: {exc}")
+        else:
+            semantic_report = validate_database(preview_db)
+            errors.extend(
+                f"semantic validation `{issue.code}` on `{issue.record}`: "
+                f"{issue.message}"
+                for issue in semantic_report.errors
+            )
 
     output_paths = {
         "molecules": DATA / f"molecules.{name}.preview.json",
@@ -874,15 +1219,17 @@ def main() -> None:
     write_json(output_paths["telescopes"], preview["telescope"])
     write_json(detail_path, rows)
 
-    current_baseline = build_baseline(
-        Database(data_dir=DATA),
-        include_output_regressions=False,
-    )
-    preview_baseline = build_baseline(
-        preview_database(preview),
-        include_output_regressions=False,
-    )
-    generated_count_changes = count_changes(current_baseline, preview_baseline)
+    generated_count_changes = []
+    if not errors and preview_db is not None:
+        current_baseline = build_baseline(
+            Database(data_dir=DATA),
+            include_output_regressions=False,
+        )
+        preview_baseline = build_baseline(
+            preview_db,
+            include_output_regressions=False,
+        )
+        generated_count_changes = count_changes(current_baseline, preview_baseline)
 
     report_paths = dict(output_paths)
     report_paths["details"] = detail_path
@@ -894,6 +1241,7 @@ def main() -> None:
             report_paths,
             applied=args.apply,
             generated_count_changes=generated_count_changes,
+            derived_updates=derived_updates,
         )
     )
 
@@ -901,18 +1249,27 @@ def main() -> None:
         print(f"Wrote {report_path.relative_to(ROOT)} with {len(errors)} validation errors.")
         raise SystemExit(1)
 
-    staged_kinds = {
-        row["kind"]
-        for row in rows
-        if row["kind"] in KIND_TO_FILE and not row["errors"]
+    changed_kinds = {
+        kind
+        for kind in KIND_TO_FILE
+        if preview[kind] != production[kind]
     }
     production_paths = [
         DATA / KIND_TO_FILE[kind]
-        for kind in sorted(staged_kinds)
+        for kind in sorted(changed_kinds)
         if args.apply
     ]
     if args.apply:
         production_paths.append(production_baseline_path())
+
+    if args.apply:
+        for kind in changed_kinds:
+            write_json(DATA / KIND_TO_FILE[kind], preview[kind])
+        write_baseline(
+            build_baseline(preview_db),
+            production_baseline_path(),
+        )
+
     manifest = build_manifest(
         name,
         staging_files=args.staging,
@@ -922,14 +1279,6 @@ def main() -> None:
         run_date=run_date,
     )
     manifest_path.write_text(json.dumps(manifest, indent=2) + "\n")
-
-    if args.apply:
-        for kind in staged_kinds:
-            write_json(DATA / KIND_TO_FILE[kind], preview[kind])
-        write_baseline(
-            build_baseline(Database(data_dir=DATA)),
-            production_baseline_path(),
-        )
 
     print(f"Wrote {report_path.relative_to(ROOT)}")
     for path in [*output_paths.values(), detail_path, manifest_path]:

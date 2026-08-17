@@ -1,7 +1,7 @@
 # astromol Curation Workflow
 
-This directory contains curator-facing templates for staging new database
-records without hand-editing the production JSON files directly.
+This directory contains curator-facing templates for staging database
+additions and updates without hand-editing production JSON directly.
 
 ## Basic Workflow
 
@@ -37,6 +37,32 @@ Applying staged records refreshes
 generated count expectations in regression scripts; update the curated data and
 let the staging workflow regenerate the baseline.
 
+### Updating Existing Records
+
+Each staging record has an `operation` field. `operation: add` is the default
+and remains backward compatible with older staging YAML. Generate a full-field
+template before using `operation: update`:
+
+```bash
+python scripts/stage_records.py \
+  --prepare-update molecule mol:EXAMPLE \
+  --output curation/staging/example_molecule_update.yaml
+```
+
+The generated block includes the current production record and a staging-only
+`_base_digest`. Fill in `_update_summary`, make the intended changes, and leave
+the other full-template fields visible and unchanged. Staging fails if the
+production record has changed since the template was generated. The workflow
+derives changed field paths, refreshes `history.last_modified`, and appends an
+update event. Use `_event_kind: corrected` for corrections.
+
+Additions and updates may share one batch. Detection relationship reciprocals
+are mechanical: declaring `confirms`, `disputes`, or `supersedes` derives and
+reports the target record's reciprocal update in the merged preview. Scientific
+changes such as molecule promotion remain explicit `operation: update`
+records. The complete merged preview must load and pass semantic validation
+before `--apply` writes any production file.
+
 Successful staging runs also write a manifest under `astromol/data/`, for
 example `astromol/data/example_stage_manifest.json`. Use that manifest with the
 cleanup helper after the curation batch is finished:
@@ -51,6 +77,12 @@ common curation sidecar files if they are modified:
 
 - `astromol/data/references.bib`
 - `tests/baselines/production_data.json`
+
+Applied manifests contain hashes for every touched production file. Cleanup
+rejects post-apply drift. When `--commit-message` is used, cleanup also runs
+`python scripts/check_curation.py` before deleting review artifacts or
+committing. `--skip-verification` is an explicit recovery-only escape hatch;
+it does not bypass manifest hash verification.
 
 For additional files beyond those defaults, use `--include`. To create a
 commit and push it:

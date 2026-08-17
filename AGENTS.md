@@ -301,7 +301,10 @@ At the start of each session, read in this order:
 
 ### Curation Rules
 
-1. Stage all new records through YAML templates before applying.
+1. Stage all new records and existing-record updates through YAML templates
+   before applying. Generate full-field update templates with
+   `stage_records.py --prepare-update`; do not make post-apply production JSON
+   edits to complete a staged batch.
 2. Use full templates (all fields visible) for curator ergonomics.
 3. Ensure `history` and status semantics are explicit and correct.
 4. For molecule promotion changes, prefer one coherent commit per molecule theme.
@@ -338,6 +341,13 @@ At the start of each session, read in this order:
     used, the cleanup helper also stages the touched production JSON files plus
     modified `astromol/data/references.bib` and
     `tests/baselines/production_data.json` by default.
+13. Declare the scientifically meaningful side of detection relationships in
+    staging YAML and review the reciprocal updates derived by
+    `stage_records.py`. Do not add reciprocal fields manually after apply.
+14. Commit-mode cleanup verifies applied manifest hashes and runs
+    `scripts/check_curation.py` before deleting artifacts or committing. Treat
+    `--skip-verification` as recovery-only and never use it to bypass a known
+    curation failure.
 
 ### Git/Workflow Rules
 
@@ -383,6 +393,7 @@ astromol slide ism_molecule_slide --view current --output-dir build/slides --rep
 python -m sphinx -W -b html docs docs/_build/html
 
 # Curation staging
+python scripts/stage_records.py --prepare-update molecule mol:EXAMPLE --output curation/staging/example_update.yaml
 python scripts/stage_records.py --staging curation/staging/example.yaml
 python scripts/stage_records.py --staging curation/staging/example.yaml --apply
 python scripts/update_data_baseline.py  # manual refresh outside staging

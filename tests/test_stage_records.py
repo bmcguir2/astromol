@@ -7,6 +7,7 @@ import subprocess
 import sys
 
 import pytest
+import yaml
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -60,9 +61,15 @@ def make_temp_data_dir(tmp_path: Path) -> Path:
     return data
 
 
-def run_stage_records(monkeypatch, tmp_path: Path, yaml_text: str, *args: str):
+def run_stage_records(
+    monkeypatch,
+    tmp_path: Path,
+    yaml_text: str,
+    *args: str,
+    data: Path | None = None,
+):
     stage_records = load_stage_records_module()
-    data = make_temp_data_dir(tmp_path)
+    data = data or make_temp_data_dir(tmp_path)
     staging_file = tmp_path / "example.yaml"
     staging_file.write_text(yaml_text)
 
@@ -205,6 +212,7 @@ def test_stage_records_apply_writes_valid_records_to_production(
         "astromol/data/telescopes.json",
         "tests/baselines/production_data.json",
     ]
+    assert set(manifest["production_hashes"]) == set(manifest["production_files"])
 
     baseline = json.loads(
         (tmp_path / "tests" / "baselines" / "production_data.json").read_text()
@@ -252,6 +260,348 @@ def test_stage_records_rejects_unknown_references(monkeypatch, tmp_path):
     report = (data / "badref_stage_report.md").read_text()
     assert "unknown reference key: Missing:2026:1" in report
     assert not (data / "badref_stage_manifest.json").exists()
+
+
+def test_prepare_update_writes_full_locked_template(monkeypatch, tmp_path):
+    data = run_stage_records(
+        monkeypatch,
+        tmp_path,
+        valid_staging_yaml(),
+        "--apply",
+    )
+    stage_records = load_stage_records_module()
+    monkeypatch.setattr(stage_records, "ROOT", tmp_path)
+    monkeypatch.setattr(stage_records, "DATA", data)
+    output = tmp_path / "molecule_update.yaml"
+
+    stage_records.prepare_update_template("molecule", "mol:EXAMPLE", output)
+
+    [record] = yaml.safe_load(output.read_text())
+    production_record = json.loads((data / "molecules.json").read_text())[0]
+    assert record["kind"] == "molecule"
+    assert record["operation"] == "update"
+    assert record["_base_digest"] == stage_records.record_digest(production_record)
+    assert record["_event_kind"] == "updated"
+    assert record["_update_summary"] == ""
+    assert set(stage_records.FIELDS["molecule"]).issubset(record)
+
+
+def test_stage_records_updates_existing_full_record(monkeypatch, tmp_path):
+    data = run_stage_records(
+        monkeypatch,
+        tmp_path,
+        valid_staging_yaml(),
+        "--apply",
+    )
+    stage_records = load_stage_records_module()
+    molecule = json.loads((data / "molecules.json").read_text())[0]
+    update = {
+        "kind": "molecule",
+        "operation": "update",
+        "_base_digest": stage_records.record_digest(molecule),
+        "_event_kind": "updated",
+        "_update_summary": "Add curator note.",
+        **molecule,
+    }
+    update["note"] = "Updated through the staging workflow."
+    yaml_text = yaml.safe_dump([update], sort_keys=False)
+
+    run_stage_records(monkeypatch, tmp_path, yaml_text, data=data)
+
+    assert json.loads((data / "molecules.json").read_text())[0]["note"] is None
+    preview = json.loads((data / "molecules.example.preview.json").read_text())[0]
+    assert preview["note"] == "Updated through the staging workflow."
+    assert preview["history"]["events"][-1] == {
+        "kind": "updated",
+        "summary": "Add curator note.",
+        "date": "2026-08-17",
+        "fields": ["note"],
+    }
+    report = (data / "example_stage_report.md").read_text()
+    assert "operation: `update`" in report
+    assert "changed fields: `note`" in report
+
+    run_stage_records(monkeypatch, tmp_path, yaml_text, "--apply", data=data)
+    applied = json.loads((data / "molecules.json").read_text())[0]
+    assert applied["note"] == "Updated through the staging workflow."
+    manifest = json.loads((data / "example_stage_manifest.json").read_text())
+    assert "astromol/data/molecules.json" in manifest["production_hashes"]
+
+
+def test_stage_records_rejects_stale_update_digest(monkeypatch, tmp_path):
+    data = run_stage_records(
+        monkeypatch,
+        tmp_path,
+        valid_staging_yaml(),
+        "--apply",
+    )
+    molecule = json.loads((data / "molecules.json").read_text())[0]
+    update = {
+        "kind": "molecule",
+        "operation": "update",
+        "_base_digest": "stale",
+        "_event_kind": "updated",
+        "_update_summary": "Stale update.",
+        **molecule,
+    }
+    update["note"] = "This must not apply."
+
+    with pytest.raises(SystemExit):
+        run_stage_records(
+            monkeypatch,
+            tmp_path,
+            yaml.safe_dump([update], sort_keys=False),
+            "--apply",
+            data=data,
+        )
+
+    assert json.loads((data / "molecules.json").read_text())[0]["note"] is None
+    report = (data / "example_stage_report.md").read_text()
+    assert "stale `_base_digest`" in report
+
+
+def test_stage_records_promotes_existing_molecule_explicitly(monkeypatch, tmp_path):
+    initial_yaml = """
+- kind: molecule
+  label: mol:EXAMPLE
+  name: example molecule
+  formula: CH
+  history:
+    introduced:
+      context: tentative
+    accepted: null
+"""
+    data = run_stage_records(monkeypatch, tmp_path, initial_yaml, "--apply")
+    stage_records = load_stage_records_module()
+    molecule = json.loads((data / "molecules.json").read_text())[0]
+    update = {
+        "kind": "molecule",
+        "operation": "update",
+        "_base_digest": stage_records.record_digest(molecule),
+        "_event_kind": "updated",
+        "_update_summary": "Promote molecule after secure ice detection.",
+        **molecule,
+    }
+    update["history"] = json.loads(json.dumps(molecule["history"]))
+    update["history"]["accepted"] = {
+        "date": "2026-08-17",
+        "census": "2026",
+        "context": "confirmed_ice",
+    }
+
+    run_stage_records(
+        monkeypatch,
+        tmp_path,
+        yaml.safe_dump([update], sort_keys=False),
+        "--apply",
+        data=data,
+    )
+
+    promoted = json.loads((data / "molecules.json").read_text())[0]
+    assert promoted["history"]["accepted"]["context"] == "confirmed_ice"
+    assert promoted["history"]["events"][-1]["fields"] == [
+        "history.accepted"
+    ]
+
+
+def test_stage_records_derives_reciprocal_confirmation(monkeypatch, tmp_path):
+    initial_yaml = """
+- kind: molecule
+  label: mol:EXAMPLE
+  name: example molecule
+  formula: CH
+
+- kind: detection
+  id: det:EXAMPLE:ice:2005
+  molecule: mol:EXAMPLE
+  year: 2005
+  type: ice
+  status: tentative
+  refs:
+    observation: [Example:2026:1]
+"""
+    data = run_stage_records(monkeypatch, tmp_path, initial_yaml, "--apply")
+    confirmation_yaml = """
+- kind: detection
+  id: det:EXAMPLE:ice:2024
+  molecule: mol:EXAMPLE
+  year: 2024
+  type: ice
+  status: secure
+  first: true
+  refs:
+    observation: [Example:2026:1]
+  confirms: [det:EXAMPLE:ice:2005]
+"""
+
+    run_stage_records(monkeypatch, tmp_path, confirmation_yaml, data=data)
+
+    preview = {
+        record["id"]: record
+        for record in json.loads(
+            (data / "detections.example.preview.json").read_text()
+        )
+    }
+    assert preview["det:EXAMPLE:ice:2024"]["confirms"] == [
+        "det:EXAMPLE:ice:2005"
+    ]
+    assert preview["det:EXAMPLE:ice:2005"]["confirmed_by"] == [
+        "det:EXAMPLE:ice:2024"
+    ]
+    assert preview["det:EXAMPLE:ice:2005"]["history"]["events"][-1][
+        "fields"
+    ] == ["confirmed_by"]
+    report = (data / "example_stage_report.md").read_text()
+    assert "Derived reciprocal updates: 1" in report
+    assert "`det:EXAMPLE:ice:2005.confirmed_by`: `add`" in report
+
+    run_stage_records(
+        monkeypatch,
+        tmp_path,
+        confirmation_yaml,
+        "--apply",
+        data=data,
+    )
+    applied = {
+        record["id"]: record
+        for record in json.loads((data / "detections.json").read_text())
+    }
+    assert applied["det:EXAMPLE:ice:2005"]["confirmed_by"] == [
+        "det:EXAMPLE:ice:2024"
+    ]
+
+
+@pytest.mark.parametrize(
+    ("field_name", "reciprocal_name"),
+    [
+        ("confirms", "confirmed_by"),
+        ("confirmed_by", "confirms"),
+        ("disputes", "disputed_by"),
+        ("disputed_by", "disputes"),
+        ("supersedes", "superseded_by"),
+        ("superseded_by", "supersedes"),
+    ],
+)
+def test_all_detection_relationships_derive_reciprocals(
+    field_name,
+    reciprocal_name,
+):
+    stage_records = load_stage_records_module()
+    target = {
+        "id": "det:TARGET:ice:2000",
+        reciprocal_name: [],
+        "history": {"events": []},
+    }
+    source = {
+        "id": "det:SOURCE:ice:2020",
+        field_name: [target["id"]],
+        "history": {"events": []},
+    }
+    production = {
+        "molecule": [],
+        "source": [],
+        "telescope": [],
+        "detection": [target],
+    }
+    preview = {
+        **production,
+        "detection": [json.loads(json.dumps(target)), source],
+    }
+    rows = [
+        {
+            "kind": "detection",
+            "errors": [],
+            "before": None,
+            "record": source,
+        }
+    ]
+
+    derived = stage_records.apply_derived_reciprocals(
+        preview,
+        rows,
+        production,
+        "2026-08-17",
+    )
+
+    assert preview["detection"][0][reciprocal_name] == [source["id"]]
+    assert derived == [
+        {
+            "record": target["id"],
+            "field": reciprocal_name,
+            "action": "add",
+            "related_record": source["id"],
+        }
+    ]
+
+    before_source = json.loads(json.dumps(source))
+    after_source = json.loads(json.dumps(source))
+    after_source[field_name] = []
+    remove_rows = [
+        {
+            "kind": "detection",
+            "errors": [],
+            "before": before_source,
+            "record": after_source,
+        }
+    ]
+    removed = stage_records.apply_derived_reciprocals(
+        preview,
+        remove_rows,
+        production,
+        "2026-08-17",
+    )
+    assert preview["detection"][0][reciprocal_name] == []
+    assert removed == [
+        {
+            "record": target["id"],
+            "field": reciprocal_name,
+            "action": "remove",
+            "related_record": source["id"],
+        }
+    ]
+
+
+def test_semantic_preview_errors_block_apply(monkeypatch, tmp_path):
+    yaml_text = """
+- kind: molecule
+  label: mol:EXAMPLE
+  name: example molecule
+  formula: CH
+
+- kind: detection
+  id: det:EXAMPLE:ice:2025
+  molecule: mol:EXAMPLE
+  year: 2025
+  type: ice
+  first: true
+  refs:
+    observation: [Example:2026:1]
+
+- kind: detection
+  id: det:EXAMPLE:ice:2026
+  molecule: mol:EXAMPLE
+  year: 2026
+  type: ice
+  first: true
+  refs:
+    observation: [Example:2026:1]
+"""
+    data = make_temp_data_dir(tmp_path)
+
+    with pytest.raises(SystemExit):
+        run_stage_records(
+            monkeypatch,
+            tmp_path,
+            yaml_text,
+            "--apply",
+            data=data,
+        )
+
+    assert json.loads((data / "molecules.json").read_text()) == []
+    assert json.loads((data / "detections.json").read_text()) == []
+    assert not (data / "example_stage_manifest.json").exists()
+    report = (data / "example_stage_report.md").read_text()
+    assert "semantic validation `first-flag-extra`" in report
 
 
 def init_git_repo(path: Path) -> None:
@@ -393,9 +743,46 @@ def test_cleanup_stage_removes_manifest_listed_files(monkeypatch, tmp_path):
     assert not (data / "example_stage_report.md").exists()
 
 
+def test_cleanup_stage_verification_failure_preserves_artifacts(
+    monkeypatch,
+    tmp_path,
+):
+    data = run_stage_records(monkeypatch, tmp_path, valid_staging_yaml(), "--apply")
+    cleanup_stage = load_cleanup_stage_module()
+    manifest_path = data / "example_stage_manifest.json"
+    staging_file = tmp_path / "example.yaml"
+
+    monkeypatch.setattr(cleanup_stage, "ROOT", tmp_path)
+    monkeypatch.setattr(cleanup_stage, "DATA", data)
+    monkeypatch.setattr(
+        cleanup_stage,
+        "run_curation_verification",
+        lambda: (_ for _ in ()).throw(RuntimeError("verification failed")),
+    )
+    monkeypatch.setattr(
+        sys,
+        "argv",
+        [
+            "cleanup_stage.py",
+            "--name",
+            "example",
+            "--commit-message",
+            "Do not commit",
+        ],
+    )
+
+    with pytest.raises(RuntimeError, match="verification failed"):
+        cleanup_stage.main()
+
+    assert manifest_path.exists()
+    assert staging_file.exists()
+    assert (data / "example_stage_report.md").exists()
+
+
 def test_cleanup_stage_can_commit_deleted_and_curated_files(monkeypatch, tmp_path):
     data = run_stage_records(monkeypatch, tmp_path, valid_staging_yaml(), "--apply")
     cleanup_stage = load_cleanup_stage_module()
+    verification_runs = []
     init_git_repo(tmp_path)
 
     tracked_paths = [
@@ -435,6 +822,11 @@ def test_cleanup_stage_can_commit_deleted_and_curated_files(monkeypatch, tmp_pat
     monkeypatch.setattr(cleanup_stage, "ROOT", tmp_path)
     monkeypatch.setattr(cleanup_stage, "DATA", data)
     monkeypatch.setattr(
+        cleanup_stage,
+        "run_curation_verification",
+        lambda: verification_runs.append(True),
+    )
+    monkeypatch.setattr(
         sys,
         "argv",
         [
@@ -456,6 +848,7 @@ def test_cleanup_stage_can_commit_deleted_and_curated_files(monkeypatch, tmp_pat
         text=True,
     )
     assert log.stdout.strip() == "Clean staged example curation files"
+    assert verification_runs == [True]
 
     status = subprocess.run(
         ["git", "status", "--short"],
@@ -467,7 +860,7 @@ def test_cleanup_stage_can_commit_deleted_and_curated_files(monkeypatch, tmp_pat
     assert status.stdout.strip() == ""
 
 
-def test_cleanup_stage_auto_stages_baseline_when_modified(monkeypatch, tmp_path):
+def test_cleanup_stage_rejects_modified_applied_file(monkeypatch, tmp_path):
     data = run_stage_records(monkeypatch, tmp_path, valid_staging_yaml(), "--apply")
     cleanup_stage = load_cleanup_stage_module()
     init_git_repo(tmp_path)
@@ -521,16 +914,12 @@ def test_cleanup_stage_auto_stages_baseline_when_modified(monkeypatch, tmp_path)
             "example",
             "--commit-message",
             "Clean staged example curation files",
+            "--skip-verification",
         ],
     )
 
-    cleanup_stage.main()
+    with pytest.raises(SystemExit, match="content changed after apply"):
+        cleanup_stage.main()
 
-    show = subprocess.run(
-        ["git", "show", "--stat", "--oneline", "-1"],
-        cwd=tmp_path,
-        check=True,
-        capture_output=True,
-        text=True,
-    )
-    assert "tests/baselines/production_data.json" in show.stdout
+    assert (data / "example_stage_manifest.json").exists()
+    assert (tmp_path / "example.yaml").exists()

@@ -55,6 +55,7 @@ assert entries_2026[:5] == [
 content_2026 = facility_table_fragments(view_2026)["facilities_table.tex"]
 top_facility, top_facility_count = counts_2026["top_entries"][0]
 assert f"{top_facility}\t&\t{top_facility_count}\t&" in content_2026
-assert content_2026.count(r"\\") == 25
+split_at = (len(entries_2026) + 1) // 2
+assert content_2026.count(r"\\") == split_at + 1
 
 print("LaTeX facility table verification passed")

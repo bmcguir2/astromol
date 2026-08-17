@@ -4,6 +4,7 @@
 # sections and fills production defaults.
 
 - kind: molecule  # REQUIRED
+  operation: add  # staging-only; use update for a generated existing-record template
   label: mol:EXAMPLE  # REQUIRED
   name: example molecule  # REQUIRED
   formula: example  # REQUIRED

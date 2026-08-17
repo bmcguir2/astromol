@@ -2,6 +2,8 @@ import re
 from pathlib import Path
 from tempfile import TemporaryDirectory
 
+from baseline import load_production_baseline
+
 from astromol.census import CensusView
 from astromol.database import Database
 from astromol.latex import (
@@ -16,6 +18,9 @@ from astromol.latex import (
 db = Database()
 view_2021 = CensusView.for_census(db, "2021")
 view_2026 = CensusView.for_census(db, "2026")
+counts_2026 = load_production_baseline()["regression_counts"][
+    "latex_exgal_table_2026"
+]
 
 assert exgal_table_atom_groups(view_2021) == [(2, 3, 4, 5), (6, 7, 8, 9, 12)]
 
@@ -63,17 +68,33 @@ with TemporaryDirectory() as tmp:
     assert (output_dir / "exgal_table.tex").read_text() == content_2021
 
 detections_2026 = exgal_table_detections(view_2026)
-assert len(detections_2026) == 80
-assert sum(detection.status == "tentative" for detection in detections_2026) == 2
+assert len(detections_2026) == counts_2026["detections"]
+assert sum(
+    detection.status == "secure" for detection in detections_2026
+) == counts_2026["secure_detections"]
+assert sum(
+    detection.status == "tentative" for detection in detections_2026
+) == counts_2026["tentative_detections"]
 assert all(detection.molecule.isotopologue_of is None for detection in detections_2026)
+assert all(detection.refs.get("observation") for detection in detections_2026)
 
 content_2026 = exgal_table_fragments(view_2026)["exgal_table.tex"]
 linked_labels_2026 = re.findall(r"\\molref\{(mol:[^}]+)\}", content_2026)
-assert len(linked_labels_2026) == 80
+assert len(linked_labels_2026) == counts_2026["linked_labels"]
 assert len(linked_labels_2026) == len(set(linked_labels_2026))
 assert set(linked_labels_2026) == {
     detection.molecule.label
     for detection in detections_2026
 }
+observation_bibcodes_2026 = {
+    ref.bibcode
+    for detection in detections_2026
+    for ref in detection.refs.get("observation", [])
+}
+assert len(observation_bibcodes_2026) == counts_2026["observation_references"]
+assert content_2026.count(r"\citet{") == counts_2026["observation_references"]
+assert content_2026.count(r"$^{\dagger}$") == (
+    counts_2026["tentative_detections"] + 1
+)
 
 print("LaTeX exgal table verification passed")

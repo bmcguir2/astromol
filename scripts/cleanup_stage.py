@@ -9,11 +9,13 @@ branch.
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
 from pathlib import Path
 import shlex
 import shutil
 import subprocess
+import sys
 from urllib.parse import urlparse
 
 
@@ -50,6 +52,11 @@ def parse_args() -> argparse.Namespace:
         help="Commit staged cleanup and curation files with this message.",
     )
     parser.add_argument(
+        "--skip-verification",
+        action="store_true",
+        help="Skip the default scripts/check_curation.py gate before committing.",
+    )
+    parser.add_argument(
         "--push",
         action="store_true",
         help="Push after a successful commit. Requires --commit-message.",
@@ -81,6 +88,32 @@ def manifest_path_from_args(args: argparse.Namespace) -> Path:
 
 def load_manifest(path: Path) -> dict:
     return json.loads(path.read_text())
+
+
+def file_digest(path: Path) -> str:
+    return hashlib.sha256(path.read_bytes()).hexdigest()
+
+
+def verify_manifest_hashes(manifest: dict) -> None:
+    """Reject production drift after an applied staging batch."""
+    mismatches = []
+    for path_text, expected_digest in manifest.get("production_hashes", {}).items():
+        path = resolve_repo_path(path_text)
+        if not path.exists():
+            mismatches.append(f"{path_text}: file is missing")
+        elif file_digest(path) != expected_digest:
+            mismatches.append(f"{path_text}: content changed after apply")
+    if mismatches:
+        raise SystemExit(
+            "Applied production files no longer match the staging manifest:\n- "
+            + "\n- ".join(mismatches)
+            + "\nRegenerate/reapply the staging batch before cleanup."
+        )
+
+
+def run_curation_verification() -> None:
+    command = [sys.executable, "scripts/check_curation.py"]
+    subprocess.run(command, cwd=ROOT, check=True)
 
 
 def resolve_repo_path(path_text: str) -> Path:
@@ -230,6 +263,12 @@ def main() -> None:
     args = parse_args()
     manifest_path = manifest_path_from_args(args).resolve()
     manifest = load_manifest(manifest_path)
+
+    if args.commit_message and not manifest.get("applied"):
+        raise SystemExit("Cannot commit a staging batch that has not been applied.")
+    verify_manifest_hashes(manifest)
+    if args.commit_message and not args.skip_verification:
+        run_curation_verification()
 
     delete_paths = [
         resolve_repo_path(path_text)

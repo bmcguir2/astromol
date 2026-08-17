@@ -28399,7 +28399,9 @@
     "refs": {
       "lab": [
         "Schutte:1997:L43",
-        "Lattanzi:2010:1717"
+        "Lattanzi:2010:1717",
+        "Rocha:2024:A124",
+        "Novozamsky:2001:588"
       ],
       "computation": [
         "Pak:1997:5123"
@@ -28415,13 +28417,21 @@
         "census": "2021"
       },
       "accepted": null,
-      "last_modified": "2026-05-07",
+      "last_modified": "2026-08-17",
       "events": [
         {
           "kind": "added",
           "summary": "Added molecule record.",
           "date": "2026-05-07",
           "fields": []
+        },
+        {
+          "kind": "updated",
+          "summary": "Added laboratory references supporting the OCN- ice assignment.",
+          "date": "2026-08-17",
+          "fields": [
+            "refs.lab"
+          ]
         }
       ]
     }

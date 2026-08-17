@@ -38,10 +38,12 @@ def test_templates_match_staging_fields():
 
     for kind, expected_fields in stage_records.FIELDS.items():
         record = load_template_record(kind)
+        assert record["operation"] == "add"
         template_fields = {
             key
             for key in record
-            if key != "kind" and not key.startswith("_")
+            if key not in stage_records.STAGING_CONTROL_FIELDS
+            and not key.startswith("_")
         }
 
         assert template_fields == set(expected_fields)
@@ -55,7 +57,7 @@ def test_template_extra_fields_are_staging_only():
         extra_fields = [
             key
             for key in record
-            if key != "kind"
+            if key not in stage_records.STAGING_CONTROL_FIELDS
             and key not in stage_records.FIELDS[kind]
         ]
 
@@ -70,4 +72,3 @@ def test_required_and_default_fields_are_known_staging_fields():
 
     for kind, defaults in stage_records.DEFAULTS.items():
         assert set(defaults).issubset(stage_records.FIELDS[kind])
-
