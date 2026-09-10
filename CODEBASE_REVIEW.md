@@ -330,6 +330,18 @@ No immediate cleanup items remain from this review pass.
    with a hero summary, featured primary downloads, grouped registry-driven
    inventory sections, and explicit file-path labels for alternate formats and
    manuscript fragments.
+5. Explore an LLM-friendly user interface for open-ended database questions and
+   analysis. A user who clones the repository can already point Codex at the
+   codebase and ask questions such as, "How many molecules were detected by
+   ALMA? Make a summary with relevant statistics." The longer-term goal is to
+   make this workflow an explicit, user-friendly project capability, ideally
+   without requiring users to clone the repository or give an LLM direct access
+   to its source tree. Possible directions include a stable high-level query or
+   analysis API, structured tool definitions over `Database` and `CensusView`,
+   and a hosted or packaged conversational interface. Any design should preserve
+   census/filter semantics, expose the provenance and scope behind computed
+   answers, and keep deterministic programmatic access available independently
+   of the LLM layer.
 
 ## Verification During This Review
 
