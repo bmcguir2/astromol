@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+from datetime import date
 import importlib.util
 import json
 from pathlib import Path
@@ -13,6 +14,13 @@ import yaml
 ROOT = Path(__file__).resolve().parents[1]
 STAGE_RECORDS_PATH = ROOT / "scripts" / "stage_records.py"
 CLEANUP_STAGE_PATH = ROOT / "scripts" / "cleanup_stage.py"
+TEST_RUN_DATE = date(2026, 8, 17)
+
+
+class FixedDate(date):
+    @classmethod
+    def today(cls):
+        return cls.fromordinal(TEST_RUN_DATE.toordinal())
 
 
 def load_stage_records_module():
@@ -75,6 +83,7 @@ def run_stage_records(
 
     monkeypatch.setattr(stage_records, "ROOT", tmp_path)
     monkeypatch.setattr(stage_records, "DATA", data)
+    monkeypatch.setattr(stage_records, "date", FixedDate)
     monkeypatch.setattr(
         sys,
         "argv",
