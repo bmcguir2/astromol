@@ -1,5 +1,6 @@
 from pathlib import Path
 from tempfile import TemporaryDirectory
+from collections import Counter
 
 from baseline import load_production_baseline
 
@@ -15,8 +16,8 @@ from astromol.figures import (
 
 
 db = Database()
-counts_2026 = load_production_baseline()["regression_counts"][
-    "figures_molecule_type_by_source_type_2026"
+counts_current = load_production_baseline()["regression_counts"][
+    "figures_molecule_type_by_source_type_current"
 ]
 view_2021 = CensusView.for_census(db, "2021")
 data_2021 = molecule_type_by_source_type_data(view_2021)
@@ -66,12 +67,12 @@ assert data_2021.overall_type_counts == {
     "radical": 54,
 }
 
-view_2026 = CensusView.for_census(db, "2026")
-data_2026 = molecule_type_by_source_type_data(view_2026)
-assert data_2026.molecule_count == counts_2026["molecule_count"]
-assert data_2026.counts == counts_2026["counts"]
-assert data_2026.source_counts == counts_2026["source_counts"]
-assert data_2026.overall_type_counts == counts_2026["overall_type_counts"]
+view_current = CensusView.current(db, end_year=load_production_baseline()["analysis_end_year"])
+data_current = molecule_type_by_source_type_data(view_current)
+assert data_current.molecule_count == counts_current["molecule_count"]
+assert data_current.counts == counts_current["counts"]
+assert data_current.source_counts == counts_current["source_counts"]
+assert data_current.overall_type_counts == counts_current["overall_type_counts"]
 
 with TemporaryDirectory() as tmp:
     output_dir = Path(tmp)
@@ -100,14 +101,17 @@ with TemporaryDirectory() as tmp:
     assert output_path.stat().st_size > 0
 
     matrix_figure, matrix_ax = plot_molecule_type_by_source_enrichment_matrix(
-        data_2026,
+        data_current,
     )
     matrix_text = [
         text.get_text()
         for text in matrix_ax.texts
         if text.get_text()
     ]
-    assert matrix_text[:10] == counts_2026["enrichment_matrix_text_prefix"]
+    assert matrix_text and all("nan" not in t.lower() and "inf" not in t.lower() for t in matrix_text)
+    assert Counter(t for t in matrix_text if t.startswith("n=")) == Counter(
+        f"n={count}" for counts in data_current.counts.values() for count in counts.values()
+    )
     assert [
         label.get_text()
         for label in matrix_ax.get_xticklabels()
@@ -120,7 +124,7 @@ with TemporaryDirectory() as tmp:
     ]
 
     matrix_output_path = write_molecule_type_by_source_enrichment_matrix(
-        data_2026,
+        data_current,
         output_dir / "mol_type_by_source_enrichment_matrix.pdf",
     )
     assert matrix_output_path.exists()

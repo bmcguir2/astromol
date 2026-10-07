@@ -190,9 +190,13 @@ output-generation migration. Keep implementation details in `SPEC.md` and
   was accepted into a given census table. This distinction matters for species
   that were discussed as tentative or disputed in 2021 but are accepted in the
   2026 census.
-- Until the 2026 census cutoff is frozen, the 2026 census view and the live
-  current-database view are expected to match. After cutoff, post-2026 additions
-  should remain available in current views but not in the frozen 2026 view.
+- The next census remains unpublished. Use `current` for all ongoing work,
+  regardless of whether publication occurs in 2027 or later. `2026` is only a
+  compatibility alias for the working view. Establish a new fixed membership
+  boundary when the census is finalized; do not infer it from a target year.
+- Historical views reproduce membership selection from the available database.
+  Exact old products require the original revision and dependency environment;
+  selection alone does not restore earlier scientific field values.
 
 ## Associated Output Products
 

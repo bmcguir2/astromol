@@ -1,3 +1,4 @@
+from rendering_assertions import boxplot_labels
 from pathlib import Path
 from tempfile import TemporaryDirectory
 
@@ -15,8 +16,8 @@ from astromol.figures import (
 
 
 db = Database()
-counts_2026 = load_production_baseline()["regression_counts"][
-    "figures_mass_by_source_type_2026"
+counts_current = load_production_baseline()["regression_counts"][
+    "figures_mass_by_source_type_current"
 ]
 view_2021 = CensusView.for_census(db, "2021")
 data_2021 = mass_by_source_type_data(view_2021)
@@ -30,13 +31,13 @@ assert data_2021.counts == {
 }
 assert tuple(round(value, 3) for value in data_2021.mass_range) == (2.016, 153.058)
 
-view_2026 = CensusView.for_census(db, "2026")
-data_2026 = mass_by_source_type_data(view_2026)
-assert data_2026.molecule_count == counts_2026["molecule_count"]
-assert data_2026.counts == counts_2026["counts"]
+view_current = CensusView.current(db, end_year=load_production_baseline()["analysis_end_year"])
+data_current = mass_by_source_type_data(view_current)
+assert data_current.molecule_count == counts_current["molecule_count"]
+assert data_current.counts == counts_current["counts"]
 assert [
-    round(value, 3) for value in data_2026.mass_range
-] == counts_2026["mass_range"]
+    round(value, 3) for value in data_current.mass_range
+] == counts_current["mass_range"]
 
 with TemporaryDirectory() as tmp:
     output_dir = Path(tmp)
@@ -68,7 +69,7 @@ with TemporaryDirectory() as tmp:
     assert output_path.exists()
     assert output_path.stat().st_size > 0
 
-    box_figure, box_ax = plot_mass_by_source_type_boxplot(data_2026)
+    box_figure, box_ax = plot_mass_by_source_type_boxplot(data_current)
     assert box_ax.get_xlabel() == "Molecular Mass (amu)"
     assert [
         label.get_text()
@@ -83,10 +84,10 @@ with TemporaryDirectory() as tmp:
         text.get_text()
         for text in box_ax.texts
         if text.get_text()
-    ] == counts_2026["boxplot_n_labels"]
+    ] == boxplot_labels(data_current, 'masses')
 
     box_output_path = write_mass_by_source_type_boxplot(
-        data_2026,
+        data_current,
         output_dir / "mass_by_source_type_boxplot.pdf",
     )
     assert box_output_path.exists()

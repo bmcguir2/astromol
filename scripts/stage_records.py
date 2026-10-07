@@ -16,6 +16,7 @@ from pathlib import Path
 import re
 import shutil
 import sys
+import os
 from tempfile import TemporaryDirectory
 
 try:
@@ -26,7 +27,6 @@ except ImportError as exc:  # pragma: no cover - environment guard
 
 ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / "astromol" / "data"
-CURRENT_CENSUS = "2026"
 
 sys.path.insert(0, str(ROOT))
 sys.path.insert(0, str(ROOT / "scripts"))
@@ -42,6 +42,7 @@ from astromol.models import (  # noqa: E402
     MOLECULE_REF_ROLES,
 )
 from astromol.database import Database  # noqa: E402
+from astromol.provenance import environment_versions  # noqa: E402
 from astromol.validation import (  # noqa: E402
     RELATION_RECIPROCALS,
     validate_database,
@@ -252,6 +253,91 @@ def file_digest(path: Path) -> str:
     return hashlib.sha256(path.read_bytes()).hexdigest()
 
 
+def tool_fingerprint() -> str:
+    import astromol
+    package_dir = Path(astromol.__file__).parent
+    return record_digest({
+        "versions": {**environment_versions(), "PyYAML": yaml.__version__},
+        "scripts": {p.name: file_digest(p) for p in [Path(__file__), Path(build_baseline.__code__.co_filename)]},
+        "package": {p.relative_to(package_dir).as_posix(): file_digest(p) for p in sorted(package_dir.rglob("*.py"))},
+    })
+
+
+def verify_hashes(hashes: dict[str, str]) -> None:
+    for path_text, expected in hashes.items():
+        path = ROOT / path_text
+        if not path.is_file() or file_digest(path) != expected:
+            raise SystemExit(f"Reviewed preview/input changed: {path_text}. Regenerate the preview and review it before apply.")
+
+
+def recovery_path(name: str) -> Path:
+    if not re.fullmatch(r"[A-Za-z0-9_-]+", name):
+        raise SystemExit("Invalid stage name.")
+    return DATA / f".{name}.apply-backup"
+
+
+def recover_apply(name: str) -> None:
+    """Restore a batch interrupted between file replacements, preserving backups until done."""
+    backup = recovery_path(name)
+    journal_path = backup / "journal.json"
+    if not journal_path.exists():
+        # No production replacement occurs until the complete journal exists.
+        if backup.exists():
+            shutil.rmtree(backup)
+        return
+    journal = json.loads(journal_path.read_text())
+    for item in journal:
+        target = (ROOT / item["path"]).resolve()
+        target.relative_to(ROOT.resolve())
+        current = file_digest(target) if target.exists() else None
+        if current not in {item["before"], item["after"]}:
+            raise SystemExit(f"Recovery refused: {item['path']} changed after the interrupted apply. Backups remain at {backup}.")
+        old = backup / item["backup"]
+        if item["before"] is not None and file_digest(old) != item["before"]:
+            raise SystemExit(f"Recovery backup is damaged: {old}")
+    for item in journal:
+        target = ROOT / item["path"]
+        if item["before"] is None:
+            target.unlink(missing_ok=True)
+        else:
+            restored = backup / "restore.tmp"
+            shutil.copyfile(backup / item["backup"], restored)
+            os.replace(restored, target)
+    shutil.rmtree(backup)
+
+
+def apply_files(name: str, files: dict[Path, bytes]) -> None:
+    """Prepare every file and recoverable originals before touching production."""
+    backup = recovery_path(name)
+    backup.mkdir()
+    journal = []
+    try:
+        for i, (target, content) in enumerate(files.items()):
+            target.parent.mkdir(parents=True, exist_ok=True)
+            before = file_digest(target) if target.exists() else None
+            if before is not None:
+                shutil.copyfile(target, backup / f"{i}.old")
+            new = backup / f"{i}.new"
+            with new.open("wb") as stream:
+                stream.write(content)
+                stream.flush()
+                os.fsync(stream.fileno())
+            journal.append({"path": relative_path_text(target), "backup": f"{i}.old", "before": before,
+                            "after": hashlib.sha256(content).hexdigest()})
+        journal_temp = backup / "journal.tmp"
+        with journal_temp.open("w") as stream:
+            json.dump(journal, stream, indent=2)
+            stream.flush()
+            os.fsync(stream.fileno())
+        os.replace(journal_temp, backup / "journal.json")
+        for i, target in enumerate(files):
+            os.replace(backup / f"{i}.new", target)
+    except BaseException:
+        recover_apply(name)
+        raise
+    shutil.rmtree(backup)
+
+
 def preview_database(preview: dict[str, list[dict]]) -> Database:
     """Load a Database from in-memory preview records."""
     with TemporaryDirectory(prefix="astromol_stage_preview_") as tmp:
@@ -414,7 +500,6 @@ def default_history(
         introduced["context"] = "confirmed"
         history["accepted"] = {
             "date": run_date,
-            "census": CURRENT_CENSUS,
             "context": "confirmed",
         }
     elif kind == "detection":
@@ -423,7 +508,6 @@ def default_history(
         if status == "secure":
             history["accepted"] = {
                 "date": run_date,
-                "census": CURRENT_CENSUS,
                 "context": detection_context(detection_type),
             }
     return history
@@ -469,8 +553,6 @@ def normalize_history(
             accepted = dict(history["accepted"] or {})
             if not accepted.get("date"):
                 accepted["date"] = run_date
-            if not accepted.get("census"):
-                accepted["census"] = CURRENT_CENSUS
             if not accepted.get("context"):
                 accepted["context"] = (
                     detection_context(detection_type)
@@ -647,8 +729,8 @@ def validate_record(
 
     unknown = [
         key
-        for key in payload
-        if key not in FIELDS[kind]
+        for key in raw_payload
+        if key not in FIELDS[kind] and key not in STAGING_CONTROL_FIELDS and not key.startswith("_")
     ]
     if unknown:
         errors.append(f"unknown output fields: {', '.join(unknown)}")
@@ -1015,6 +1097,7 @@ def build_manifest(
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser()
     mode = parser.add_mutually_exclusive_group(required=True)
+    mode.add_argument("--recover", metavar="NAME", help="Restore backups from an interrupted apply before retrying.")
     mode.add_argument(
         "--staging",
         nargs="+",
@@ -1054,12 +1137,30 @@ def parse_args() -> argparse.Namespace:
 
 def main() -> None:
     args = parse_args()
+    if args.recover:
+        recover_apply(args.recover)
+        print(f"Recovered interrupted batch {args.recover}.")
+        return
     if args.prepare_update:
         kind, row_id = args.prepare_update
         prepare_update_template(kind, row_id, args.output)
         return
 
     name = args.name or args.staging[0].stem
+    if not re.fullmatch(r"[A-Za-z0-9_-]+", name):
+        raise SystemExit("Stage name must contain only letters, numbers, underscores, or hyphens.")
+    if recovery_path(name).exists():
+        raise SystemExit(f"Interrupted apply found. Run: python scripts/stage_records.py --recover {name}")
+    manifest_path = DATA / f"{name}_stage_manifest.json"
+    reviewed = None
+    if args.apply and manifest_path.exists():
+        reviewed = json.loads(manifest_path.read_text())
+        if reviewed.get("applied") or not reviewed.get("input_hashes"):
+            raise SystemExit("Generate and review a fresh preview before apply.")
+        verify_hashes(reviewed["input_hashes"])
+        verify_hashes(reviewed["preview_hashes"])
+        if reviewed["tool_fingerprint"] != tool_fingerprint():
+            raise SystemExit("Curation code or dependencies changed. Generate and review a fresh preview.")
 
     production = {
         kind: load_json(filename)
@@ -1080,7 +1181,7 @@ def main() -> None:
     raw_records = load_yaml_records(args.staging)
     rows = []
     errors = []
-    run_date = date.today().isoformat()
+    run_date = reviewed["generated_on"] if reviewed else date.today().isoformat()
 
     for raw in raw_records:
         kind = raw.get("kind")
@@ -1212,42 +1313,49 @@ def main() -> None:
     detail_path = DATA / f"{name}_stage.preview.json"
     report_path = DATA / f"{name}_stage_report.md"
     manifest_path = DATA / f"{name}_stage_manifest.json"
+    baseline_preview_path = DATA / f"{name}_baseline.preview.json"
 
-    write_json(output_paths["molecules"], preview["molecule"])
-    write_json(output_paths["detections"], preview["detection"])
-    write_json(output_paths["sources"], preview["source"])
-    write_json(output_paths["telescopes"], preview["telescope"])
-    write_json(detail_path, rows)
+    proposed_files = {output_paths[plural]: (json.dumps(preview[kind], indent=2) + "\n").encode()
+                      for kind, plural in [("molecule", "molecules"), ("detection", "detections"),
+                                          ("source", "sources"), ("telescope", "telescopes")]}
+    proposed_files[detail_path] = (json.dumps(rows, indent=2) + "\n").encode()
 
     generated_count_changes = []
     if not errors and preview_db is not None:
         current_baseline = build_baseline(
             Database(data_dir=DATA),
-            include_output_regressions=False,
         )
         preview_baseline = build_baseline(
             preview_db,
-            include_output_regressions=False,
         )
         generated_count_changes = count_changes(current_baseline, preview_baseline)
+        proposed_files[baseline_preview_path] = (json.dumps(preview_baseline, indent=2, sort_keys=True) + "\n").encode()
 
     report_paths = dict(output_paths)
     report_paths["details"] = detail_path
-    report_path.write_text(
-        make_report(
+    proposed_files[report_path] = make_report(
             name,
             rows,
             errors,
             report_paths,
-            applied=args.apply,
+            applied=False,
             generated_count_changes=generated_count_changes,
             derived_updates=derived_updates,
-        )
-    )
+        ).encode()
+
+    if reviewed:
+        for path, content in proposed_files.items():
+            if hashlib.sha256(content).hexdigest() != reviewed["preview_hashes"].get(relative_path_text(path)):
+                raise SystemExit("Proposed output differs from the reviewed preview. Regenerate and review it.")
+    else:
+        for path, content in proposed_files.items():
+            path.write_bytes(content)
 
     if errors:
         print(f"Wrote {report_path.relative_to(ROOT)} with {len(errors)} validation errors.")
         raise SystemExit(1)
+    if args.apply and reviewed is None:
+        raise SystemExit("Apply requires a reviewed preview. Run this command without --apply first, review the report, then retry.")
 
     changed_kinds = {
         kind
@@ -1262,23 +1370,33 @@ def main() -> None:
     if args.apply:
         production_paths.append(production_baseline_path())
 
-    if args.apply:
-        for kind in changed_kinds:
-            write_json(DATA / KIND_TO_FILE[kind], preview[kind])
-        write_baseline(
-            build_baseline(preview_db),
-            production_baseline_path(),
-        )
-
     manifest = build_manifest(
         name,
         staging_files=args.staging,
-        preview_paths=[*output_paths.values(), detail_path, report_path],
+        preview_paths=[*output_paths.values(), detail_path, report_path, baseline_preview_path],
         production_paths=production_paths,
         applied=args.apply,
         run_date=run_date,
     )
-    manifest_path.write_text(json.dumps(manifest, indent=2) + "\n")
+    inputs = [DATA / filename for filename in [*KIND_TO_FILE.values(), "references.bib"]] + args.staging
+    if production_baseline_path().exists():
+        inputs.append(production_baseline_path())
+    manifest.update({"input_hashes": {relative_path_text(p): file_digest(p) for p in inputs},
+                     "preview_hashes": {relative_path_text(p): hashlib.sha256(b).hexdigest() for p, b in proposed_files.items()},
+                     "tool_fingerprint": tool_fingerprint()})
+    if args.apply:
+        verify_hashes(reviewed["input_hashes"])
+        files = {DATA / KIND_TO_FILE[k]: proposed_files[output_paths[k + "s" if k != "source" else "sources"]]
+                 for k in sorted(changed_kinds)}
+        files[production_baseline_path()] = proposed_files[baseline_preview_path]
+        files[report_path] = make_report(name, rows, errors, report_paths, applied=True,
+                                        generated_count_changes=generated_count_changes,
+                                        derived_updates=derived_updates).encode()
+        manifest["production_hashes"] = {relative_path_text(p): hashlib.sha256(files[p]).hexdigest() for p in production_paths}
+        files[manifest_path] = (json.dumps(manifest, indent=2) + "\n").encode()
+        apply_files(name, files)
+    else:
+        manifest_path.write_text(json.dumps(manifest, indent=2) + "\n")
 
     print(f"Wrote {report_path.relative_to(ROOT)}")
     for path in [*output_paths.values(), detail_path, manifest_path]:

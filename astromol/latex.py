@@ -458,7 +458,7 @@ def detection_rate_since(view: CensusView, start_year: int) -> float:
     """Linear cumulative-detection rate since ``start_year``."""
     years = first_detection_years(view)
     first_year = min(years)
-    last_year = max(years)
+    last_year = view.end_year if view.is_current else max(years)
     x_values = np.arange(first_year, last_year + 1)
     y_values = np.array([
         sum(year <= x_year for year in years)
@@ -514,9 +514,7 @@ def write_scalar_fragments(
 
 def rate_fit_end_year(view: CensusView, detections: Iterable[Detection]) -> int:
     """Return the final year to use for rate-table fits."""
-    if view.is_current:
-        return date.today().year
-    return view.census_year or max(detection.year for detection in detections)
+    return view.end_year
 
 
 def category_detection_years(

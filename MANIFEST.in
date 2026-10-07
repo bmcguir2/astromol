@@ -1,7 +1,19 @@
-recursive-include curation *.md *.yaml
+include curation/README.md
+recursive-include curation/templates *.yaml
 recursive-include docs *.md *.py *.ipynb
 recursive-include tests *.py
 include scripts/stage_records.py
+include scripts/update_data_baseline.py
+include scripts/cleanup_stage.py
+include scripts/check_curation.py
+include scripts/generate_outputs.py
+include scripts/check_distribution.py
+include tests/baselines/production_data.json
+include SPEC.md AGENTS.md CODEBASE_REVIEW.md MANUSCRIPT_NOTES_2026.md
+prune curation/staging
+exclude astromol/data/*.preview.json
+exclude astromol/data/*_stage_manifest.json
+exclude astromol/data/*_stage_report.md
 global-exclude .DS_Store
 global-exclude *.py[cod]
 global-exclude __pycache__

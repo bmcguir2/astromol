@@ -1,3 +1,4 @@
+from rendering_assertions import ring_text as expected_ring_text
 from pathlib import Path
 from tempfile import TemporaryDirectory
 
@@ -13,8 +14,8 @@ from astromol.figures import (
 
 
 db = Database()
-counts_2026 = load_production_baseline()["regression_counts"][
-    "figures_molecule_type_2026"
+counts_current = load_production_baseline()["regression_counts"][
+    "figures_molecule_type_current"
 ]
 view_2021 = CensusView.for_census(db, "2021")
 data_2021 = molecule_type_data(view_2021)
@@ -42,10 +43,10 @@ assert {
     "pah": 1.2,
 }
 
-view_2026 = CensusView.for_census(db, "2026")
-data_2026 = molecule_type_data(view_2026)
-assert data_2026.molecule_count == counts_2026["molecule_count"]
-assert data_2026.counts == counts_2026["counts"]
+view_current = CensusView.current(db, end_year=load_production_baseline()["analysis_end_year"])
+data_current = molecule_type_data(view_current)
+assert data_current.molecule_count == counts_current["molecule_count"]
+assert data_current.counts == counts_current["counts"]
 
 with TemporaryDirectory() as tmp:
     output_dir = Path(tmp)
@@ -72,13 +73,13 @@ with TemporaryDirectory() as tmp:
         "1.2%",
     ]
     assert ax.axison is False
-    plt_figure, plt_ax = plot_type_pie_chart(data_2026)
-    displayed_2026 = [
+    plt_figure, plt_ax = plot_type_pie_chart(data_current)
+    displayed_current = [
         text.get_text()
         for text in plt_ax.texts
         if text.get_text()
     ]
-    assert displayed_2026 == counts_2026["ring_text"]
+    assert displayed_current == expected_ring_text(data_current, types=True)
 
     output_path = write_type_pie_chart(
         data_2021,

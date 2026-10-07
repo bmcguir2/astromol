@@ -1056,7 +1056,12 @@ def build_molecule_slide_layout(
         footer_font_pt=footer_font_pt,
         total_line_width_pt=total_line_width_pt,
         package_version=package_version(),
-        last_updated=last_updated or selected_records_last_modified(entries),
+        last_updated=last_updated or selected_records_last_modified(
+            entries,
+            view.context_detections(detection_type, include_tentative=include_tentative,
+                                    include_disputed=include_disputed,
+                                    include_isotopologues=include_isotopologues),
+        ),
         detection_type=detection_type,
         include_tentative=include_tentative,
         include_disputed=include_disputed,
@@ -1129,13 +1134,16 @@ def _layout_warnings(
     return warnings
 
 
-def selected_records_last_modified(entries: list[SlideMoleculeEntry]) -> str | None:
-    """Return the latest molecule-history modification date in selected entries."""
+def selected_records_last_modified(entries: list[SlideMoleculeEntry], detections=()) -> str | None:
+    """Latest change to selected molecules, detections, sources, or facilities."""
+    records = [entry.molecule for entry in entries]
+    for detection in detections:
+        records.extend([detection, *detection.sources, *detection.telescopes])
     values = [
-        entry.molecule.history.last_modified
-        for entry in entries
-        if entry.molecule.history is not None
-        and entry.molecule.history.last_modified is not None
+        record.history.last_modified
+        for record in records
+        if record.history is not None
+        and record.history.last_modified is not None
     ]
     return max(values) if values else None
 
@@ -1143,12 +1151,11 @@ def selected_records_last_modified(entries: list[SlideMoleculeEntry]) -> str | N
 def package_version() -> str:
     """Return installed package version, or a traceable development label."""
     try:
-        return metadata.version("astromol")
+        version = metadata.version("astromol")
     except metadata.PackageNotFoundError:
-        git_label = repository_git_label()
-        if git_label is None:
-            return "development"
-        return f"development (git {git_label})"
+        version = "development"
+    git_label = repository_git_label()
+    return f"{version} (git {git_label})" if git_label else version
 
 
 def repository_git_label() -> str | None:

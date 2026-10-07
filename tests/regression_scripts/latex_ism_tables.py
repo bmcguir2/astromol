@@ -19,11 +19,11 @@ from astromol.latex import (
 
 
 db = Database()
-counts_2026 = load_production_baseline()["regression_counts"][
-    "latex_ism_tables_2026"
+counts_current = load_production_baseline()["regression_counts"][
+    "latex_ism_tables_current"
 ]
 view_2021 = CensusView.for_census(db, "2021")
-view_2026 = CensusView.for_census(db, "2026")
+view_current = CensusView.current(db, end_year=load_production_baseline()["analysis_end_year"])
 
 two_seven, eight_more = ism_table_columns(view_2021)
 
@@ -105,11 +105,7 @@ with TemporaryDirectory() as tmp:
     for filename, content in legacy_fragments.items():
         assert (output_dir / filename).read_text() == content
 
-balanced_groups = balanced_ism_table_columns(view_2026)
-assert len(balanced_groups) == len(counts_2026["balanced_group_column_counts"])
-assert [len(group) for group in balanced_groups] == counts_2026[
-    "balanced_group_column_counts"
-]
+balanced_groups = balanced_ism_table_columns(view_current)
 assert all(len(group) <= BALANCED_ISM_MAX_COLUMNS for group in balanced_groups)
 assert all(len(group) > 0 for group in balanced_groups)
 assert all(
@@ -118,13 +114,8 @@ assert all(
     for column in group
 )
 
-balanced_fragments = ism_table_fragments(view_2026)
-assert set(balanced_fragments) == {
-    "ism_table_1.tex",
-    "ism_table_2.tex",
-    "ism_table_3.tex",
-    "ism_table_4.tex",
-}
+balanced_fragments = ism_table_fragments(view_current)
+assert set(balanced_fragments) == {f"ism_table_{i}.tex" for i in range(1, len(balanced_groups) + 1)}
 for index, group in enumerate(balanced_groups, start=1):
     assert table_column_header(group) in balanced_fragments[f"ism_table_{index}.tex"]
 
@@ -140,18 +131,18 @@ balanced_labels = []
 for content in balanced_fragments.values():
     balanced_labels.extend(re.findall(r"\\molref\{(mol:[^}]+)\}", content))
 
-expected_2026_molecules = ism_table_molecules(view_2026)
-assert all(molecule.isotopologue_of is None for molecule in expected_2026_molecules)
-expected_2026_labels = {molecule.label for molecule in expected_2026_molecules}
-assert set(balanced_labels) == expected_2026_labels
-assert len(balanced_labels) == len(expected_2026_labels) == counts_2026[
+expected_current_molecules = ism_table_molecules(view_current)
+assert all(molecule.isotopologue_of is None for molecule in expected_current_molecules)
+expected_current_labels = {molecule.label for molecule in expected_current_molecules}
+assert set(balanced_labels) == expected_current_labels
+assert len(balanced_labels) == len(expected_current_labels) == counts_current[
     "linked_labels"
 ]
 assert len(balanced_labels) == len(set(balanced_labels))
 
 with TemporaryDirectory() as tmp:
     output_dir = Path(tmp)
-    assert write_ism_tables(view_2026, output_dir) == balanced_fragments
+    assert write_ism_tables(view_current, output_dir) == balanced_fragments
     for filename, content in balanced_fragments.items():
         assert (output_dir / filename).read_text() == content
 

@@ -30,8 +30,8 @@ classifiers = [
 ]
 dependencies = [
   "bibtexparser>=1.4,<2",
-  "matplotlib>=3.8",
-  "molmass>=2024.5.24",
+  "matplotlib>=3.10",
+  "molmass>=2025.11.11",
   "numpy>=1.26",
   "python-pptx>=0.6.23",
   "scipy>=1.11",
@@ -62,15 +62,18 @@ astromol-validate = "astromol.validation:main"
 astromol-generate-outputs = "astromol.outputs:main"
 
 [tool.setuptools]
-include-package-data = true
+include-package-data = false
 
 [tool.setuptools.packages.find]
 include = ["astromol*"]
 
 [tool.setuptools.package-data]
 astromol = [
-  "data/*.bib",
-  "data/*.json",
+  "data/molecules.json",
+  "data/detections.json",
+  "data/sources.json",
+  "data/telescopes.json",
+  "data/references.bib",
 ]
 
 [tool.pytest.ini_options]

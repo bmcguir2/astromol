@@ -181,9 +181,7 @@ def test_census_boundary_uses_accepted_census_for_secure_records():
     assert detection_ids(CensusView.for_census(db, "2021").ism_detections()) == {
         "det:CO:ism-csm:2021"
     }
-    assert detection_ids(CensusView.for_census(db, "2026").ism_detections()) == {
-        "det:CO:ism-csm:2021"
-    }
+    assert detection_ids(CensusView.for_census(db, "2026").ism_detections()) == detection_ids(CensusView.current(db).ism_detections())
     assert detection_ids(CensusView.current(db).ism_detections()) == {
         "det:CO:ism-csm:2021",
         "det:C2H5OH:ism-csm:2027",

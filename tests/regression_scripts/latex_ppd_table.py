@@ -16,9 +16,9 @@ from astromol.latex import (
 
 
 db = Database()
-counts_2026 = load_production_baseline()["regression_counts"]["latex_ppd_table_2026"]
+counts_current = load_production_baseline()["regression_counts"]["latex_ppd_table_current"]
 view_2021 = CensusView.for_census(db, "2021")
-view_2026 = CensusView.for_census(db, "2026")
+view_current = CensusView.current(db, end_year=load_production_baseline()["analysis_end_year"])
 
 assert ppd_table_atom_groups(view_2021) == [(2, 3, 4, 5, 6)]
 
@@ -67,26 +67,29 @@ with TemporaryDirectory() as tmp:
     assert write_ppd_table(view_2021, output_dir) == fragments_2021
     assert (output_dir / "ppd_table.tex").read_text() == content_2021
 
-assert ppd_table_atom_groups(view_2026) == [(2, 3, 4, 5, 6), (7, 9, 12)]
+groups = ppd_table_atom_groups(view_current)
+occupied = [n for group in groups for n in group]
+assert len(occupied) == len(set(occupied))
+assert set(occupied) == {d.molecule.natoms for d in ppd_table_detections(view_current)}
 
-detections_2026 = ppd_table_detections(view_2026)
-assert len(detections_2026) == counts_2026["detections"]
+detections_current = ppd_table_detections(view_current)
+assert len(detections_current) == counts_current["detections"]
 assert (
-    sum(detection.molecule.isotopologue_of is not None for detection in detections_2026)
-    == counts_2026["isotopologue_detections"]
+    sum(detection.molecule.isotopologue_of is not None for detection in detections_current)
+    == counts_current["isotopologue_detections"]
 )
-assert all(detection.status == "secure" for detection in detections_2026)
+assert all(detection.status == "secure" for detection in detections_current)
 
-content_2026 = ppd_table_fragments(view_2026)["ppd_table.tex"]
-linked_labels_2026 = re.findall(r"\\molref\{(mol:[^}]+)\}", content_2026)
-assert len(linked_labels_2026) == counts_2026["linked_labels"]
-assert len(linked_labels_2026) == len(set(linked_labels_2026))
-assert set(linked_labels_2026) == {
+content_current = ppd_table_fragments(view_current)["ppd_table.tex"]
+linked_labels_current = re.findall(r"\\molref\{(mol:[^}]+)\}", content_current)
+assert len(linked_labels_current) == counts_current["linked_labels"]
+assert len(linked_labels_current) == len(set(linked_labels_current))
+assert set(linked_labels_current) == {
     detection.molecule.label
-    for detection in detections_2026
+    for detection in detections_current
 }
 assert {"mol:34SO", "mol:33SO", "mol:H213CO", "mol:c-C2H4O", "mol:HC5N"}.issubset(
-    linked_labels_2026
+    linked_labels_current
 )
 
 print("LaTeX PPD table verification passed")

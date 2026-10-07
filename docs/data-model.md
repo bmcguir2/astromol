@@ -33,16 +33,15 @@ The history distinguishes:
 - when it was accepted into a census inventory
 - when it was last modified
 
-This allows historical 2018 and 2021 views, the developing 2026 census view, and
-the live current database view to be computed from the same production records.
+This allows published 2018 and 2021 membership views and the live working
+inventory for the next census to be computed from the same production records.
 
 ## Census Views
 
 `astromol.census.CensusView` centralizes scientific selection rules for output
 generation:
 
-- `CensusView.for_census(db, "2021")` freezes records at a census boundary.
-- `CensusView.for_census(db, "2026")` represents the developing 2026 census.
+- `CensusView.for_census(db, "2021")` selects membership at a published census boundary.
 - `CensusView.current(db)` represents the live database.
 
 Secure detections are selected by accepted history. Tentative and disputed

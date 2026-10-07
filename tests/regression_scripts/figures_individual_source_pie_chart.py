@@ -1,3 +1,4 @@
+from rendering_assertions import ring_text as expected_ring_text
 from pathlib import Path
 from tempfile import TemporaryDirectory
 
@@ -50,8 +51,8 @@ def assert_ring_text_positions(ax, expected_text):
 
 
 db = Database()
-counts_2026 = load_production_baseline()["regression_counts"][
-    "figures_individual_source_2026"
+counts_current = load_production_baseline()["regression_counts"][
+    "figures_individual_source_current"
 ]
 view_2021 = CensusView.for_census(db, "2021")
 data_2021 = individual_source_data(view_2021)
@@ -68,12 +69,12 @@ assert next(
     category for category in data_2021.categories if category.key == "g0693"
 ).color == "black"
 
-view_2026 = CensusView.for_census(db, "2026")
-data_2026 = individual_source_data(view_2026)
-assert data_2026.molecule_count == counts_2026["molecule_count"]
-assert data_2026.counts == counts_2026["counts"]
+view_current = CensusView.current(db, end_year=load_production_baseline()["analysis_end_year"])
+data_current = individual_source_data(view_current)
+assert data_current.molecule_count == counts_current["molecule_count"]
+assert data_current.counts == counts_current["counts"]
 assert next(
-    category for category in data_2026.categories if category.key == "g0693"
+    category for category in data_current.categories if category.key == "g0693"
 ).color == "black"
 
 with TemporaryDirectory() as tmp:
@@ -87,14 +88,14 @@ with TemporaryDirectory() as tmp:
     assert g0693_label.get_color() == "black"
     assert ax.axison is False
 
-    production_figure, production_ax = plot_individual_source_pie_chart(data_2026)
-    displayed_2026 = [
+    production_figure, production_ax = plot_individual_source_pie_chart(data_current)
+    displayed_current = [
         text.get_text()
         for text in production_ax.texts
         if text.get_text()
     ]
-    assert displayed_2026 == counts_2026["ring_text"]
-    assert_ring_text_positions(production_ax, counts_2026["ring_text"])
+    assert displayed_current == expected_ring_text(data_current, types=False)
+    assert_ring_text_positions(production_ax, expected_ring_text(data_current, types=False))
     production_g0693_label = next(
         text for text in production_ax.texts if text.get_text() == "G+0.693"
     )

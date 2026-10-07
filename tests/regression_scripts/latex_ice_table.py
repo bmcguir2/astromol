@@ -15,10 +15,10 @@ from astromol.latex import (
 
 db = Database()
 view_2021 = CensusView.for_census(db, "2021")
-view_2026 = CensusView.for_census(db, "2026")
+view_current = CensusView.current(db, end_year=load_production_baseline()["analysis_end_year"])
 current_view = CensusView.current(db)
-counts_2026 = load_production_baseline()["regression_counts"][
-    "latex_ice_table_2026"
+counts_current = load_production_baseline()["regression_counts"][
+    "latex_ice_table_current"
 ]
 
 
@@ -93,32 +93,32 @@ with TemporaryDirectory() as tmp:
     assert write_ice_table(view_2021, output_dir) == fragments_2021
     assert (output_dir / "ice_table.tex").read_text() == content_2021
 
-detections_2026 = ice_table_detections(view_2026)
-assert all(detection.molecule.isotopologue_of is None for detection in detections_2026)
+detections_current = ice_table_detections(view_current)
+assert all(detection.molecule.isotopologue_of is None for detection in detections_current)
 
-content_2026 = ice_table_fragments(view_2026)["ice_table.tex"]
-assert_current_table_invariants(content_2026, detections_2026, counts_2026)
+content_current = ice_table_fragments(view_current)["ice_table.tex"]
+assert_current_table_invariants(content_current, detections_current, counts_current)
 
-ocn_2026 = next(
+ocn_current = next(
     detection
-    for detection in detections_2026
+    for detection in detections_current
     if detection.molecule.label == "mol:OCN-"
 )
-assert ocn_2026.id == "det:OCN-:ice:2024"
-assert ocn_2026.status == "secure"
-assert ocn_2026.confirms == ["det:OCN-:ice:2005"]
-assert r"\molref{mol:OCN-}{OCN-}" in content_2026
-assert r"\molref{mol:OCN-}{OCN-}$^{\dagger}$" not in content_2026
+assert ocn_current.id == "det:OCN-:ice:2024"
+assert ocn_current.status == "secure"
+assert ocn_current.confirms == ["det:OCN-:ice:2005"]
+assert r"\molref{mol:OCN-}{OCN-}" in content_current
+assert r"\molref{mol:OCN-}{OCN-}$^{\dagger}$" not in content_current
 
 detections_current = ice_table_detections(current_view)
 assert [detection.id for detection in detections_current] == [
-    detection.id for detection in detections_2026
+    detection.id for detection in detections_current
 ]
 current_content = ice_table_fragments(current_view)["ice_table.tex"]
-assert_current_table_invariants(current_content, detections_current, counts_2026)
+assert_current_table_invariants(current_content, detections_current, counts_current)
 
 secure_only_current = ice_table_detections(current_view, include_tentative=False)
-assert len(secure_only_current) == counts_2026["secure_only_detections"]
+assert len(secure_only_current) == counts_current["secure_only_detections"]
 assert all(detection.status == "secure" for detection in secure_only_current)
 secure_only_content = ice_table_fragments(
     current_view,
@@ -126,7 +126,7 @@ secure_only_content = ice_table_fragments(
 )["ice_table.tex"]
 assert "mol:OCN-" in secure_only_content
 assert r"$^{\dagger}$" not in secure_only_content
-if counts_2026["tentative_detections"] == 0:
+if counts_current["tentative_detections"] == 0:
     assert secure_only_current == detections_current
     assert secure_only_content == current_content
 

@@ -45,7 +45,7 @@ products:
 ```bash
 astromol list all
 astromol figure cumulative_detections --view current --output cumulative_detections.pdf
-astromol table ism_tables --view 2026 --output-dir build/tables
+astromol table ism_tables --view current --output-dir build/tables
 astromol slide ppd_detection_slide --view current --output-dir build/slides
 ```
 
@@ -71,11 +71,38 @@ from astromol.database import Database
 from astromol.slides import write_molecule_slide, write_ppd_detection_slide
 
 db = Database()
-view = CensusView.for_census(db, "2026")
+view = CensusView.current(db)
 
-write_molecule_slide(view, Path("astro_molecules_2026.pptx"), profile="balanced")
-write_ppd_detection_slide(view, Path("ppd_molecules_2026.pptx"))
+write_molecule_slide(view, Path("astro_molecules_current.pptx"), profile="balanced")
+write_ppd_detection_slide(view, Path("ppd_molecules_current.pptx"))
 ```
 
 For detailed, copy-pasteable recipes covering every migrated census table,
 figure, and slide product, see [](census-outputs.md).
+
+## Reproducible Bundles
+
+Use a new or empty destination for the first bundle. The generator validates
+inputs, builds in a temporary directory, and replaces only directories marked as
+an astromol bundle. A failed build preserves the previous bundle. `--no-clean`
+retains other files in an owned directory, while the zip includes only products
+from this run, the landing page, and `manifest.json`.
+
+The manifest records the source revision and dirty state when available, code
+and data SHA-256 hashes, dependency versions, selected products/settings, output
+hashes, and effective analysis end year. A wheel without Git metadata records a
+null revision and retains code hashes. Current endpoints default to the calendar
+year; specify one explicitly for repeatable analyses:
+
+```bash
+astromol outputs --view current --end-year 2026 --output-dir build/paper_outputs
+```
+
+This endpoint controls rate calculations and plot ranges, not census membership.
+Slide update dates include selected molecule, detection, source, and telescope
+history. Checkout slides show the Git revision even with installed development
+package metadata.
+
+During the refactor, only `refactor` pushes publish Pages, after data validation,
+tests, documentation, and output generation succeed. Other branches produce
+review artifacts. Read the Docs and Colab continue following `refactor`.

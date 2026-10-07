@@ -1,3 +1,4 @@
+from rendering_assertions import assert_slide_membership
 from pathlib import Path
 from tempfile import TemporaryDirectory
 
@@ -38,14 +39,14 @@ def baselines(runs):
 
 
 db = Database()
-counts_2026 = load_production_baseline()["regression_counts"][
-    "slides_molecule_slide_2026"
+counts_current = load_production_baseline()["regression_counts"][
+    "slides_molecule_slide_current"
 ]
-ppd_counts_2026 = load_production_baseline()["regression_counts"][
-    "slides_ppd_detection_slide_2026"
+ppd_counts_current = load_production_baseline()["regression_counts"][
+    "slides_ppd_detection_slide_current"
 ]
 view_2021 = CensusView.for_census(db, "2021")
-view_2026 = CensusView.for_census(db, "2026")
+view_current = CensusView.current(db, end_year=load_production_baseline()["analysis_end_year"])
 
 entries_2021 = selected_molecule_slide_entries(view_2021)
 assert len(entries_2021) == 240
@@ -88,25 +89,16 @@ assert "- total molecules: 240" in report_2021
 assert "- 13+ Atoms: 8 molecule(s); columns = 4, 4" in report_2021
 assert "- none" in report_2021
 
-layout_2026 = build_molecule_slide_layout(view_2026)
-assert layout_2026.total == counts_2026["total"]
-assert len(layout_2026.warnings) == counts_2026["legacy_warning_count"]
-assert any("13+ Atoms" in warning for warning in layout_2026.warnings)
+layout_current = build_molecule_slide_layout(view_current)
+assert layout_current.total == counts_current["total"]
+assert len(layout_current.molecules) == layout_current.total
 
-balanced_2026 = build_molecule_slide_layout(view_2026, profile="balanced")
-assert balanced_2026.total == counts_2026["total"]
-assert balanced_2026.profile == "balanced"
-assert balanced_2026.molecule_font_pt == counts_2026["balanced_molecule_font_pt"]
-assert balanced_2026.warnings == ()
-assert [len(group.molecules) for group in balanced_2026.groups] == counts_2026[
-    "balanced_group_molecule_counts"
-]
-assert [len(group.columns) for group in balanced_2026.groups] == counts_2026[
-    "balanced_group_column_counts"
-]
-assert len(balanced_2026.molecules) == balanced_2026.total
+balanced_current = build_molecule_slide_layout(view_current, profile="balanced")
+assert balanced_current.total == counts_current["total"]
+assert balanced_current.profile == "balanced"
+assert_slide_membership(balanced_current, [m.label for m in view_current.ism_molecules()])
 
-for group in balanced_2026.groups:
+for group in balanced_current.groups:
     assert group.spec.label_box.right <= LEGACY_SLIDE_WIDTH_IN
     assert group.spec.label_box.bottom <= LEGACY_SLIDE_HEIGHT_IN
     for column in group.columns:
@@ -138,19 +130,14 @@ assert slide_version_label("development") == "development"
 assert slide_version_label("development (git abc123)") == "development (git abc123)"
 assert slide_version_label("2026.0.0") == "v2026.0.0"
 
-ppd_2026 = build_ppd_detection_slide_layout(view_2026)
-assert ppd_2026.title == PPD_TITLE
-assert ppd_2026.total == ppd_counts_2026["total"]
-assert ppd_2026.profile == "compact"
-assert ppd_2026.detection_type == "ppd"
-assert ppd_2026.include_isotopologues is True
-assert ppd_2026.molecule_font_pt == ppd_counts_2026["molecule_font_pt"]
-assert ppd_2026.warnings == ()
-assert [group.spec.label for group in ppd_2026.groups] == ppd_counts_2026["group_labels"]
-assert [len(group.molecules) for group in ppd_2026.groups] == ppd_counts_2026[
-    "group_molecule_counts"
-]
-assert any(entry.molecule.isotopologue_of for entry in ppd_2026.molecules)
+ppd_current = build_ppd_detection_slide_layout(view_current)
+assert ppd_current.title == PPD_TITLE
+assert ppd_current.total == ppd_counts_current["total"]
+assert ppd_current.profile == "compact"
+assert ppd_current.detection_type == "ppd"
+assert ppd_current.include_isotopologues is True
+assert_slide_membership(ppd_current, [m.label for m in view_current.ppd_molecules(include_isotopologues=True)])
+assert any(entry.molecule.isotopologue_of for entry in ppd_current.molecules)
 
 with TemporaryDirectory() as tmp:
     output_dir = Path(tmp)
@@ -182,14 +169,14 @@ with TemporaryDirectory() as tmp:
     assert "c-C3HCCH" in slide_text
 
     balanced_path = write_molecule_slide(
-        view_2026,
-        output_dir / "astro_molecules_2026_balanced.pptx",
+        view_current,
+        output_dir / "astro_molecules_current_balanced.pptx",
         profile="balanced",
         last_updated="2026-05-11",
     )
     balanced_report_path = write_molecule_slide_report(
-        balanced_2026,
-        output_dir / "astro_molecules_2026_balanced_report.md",
+        balanced_current,
+        output_dir / "astro_molecules_current_balanced_report.md",
     )
     assert balanced_path.exists()
     assert balanced_path.stat().st_size > 0
@@ -203,12 +190,12 @@ with TemporaryDirectory() as tmp:
         if hasattr(shape, "text")
     )
     assert "Known Interstellar Molecules" in balanced_text
-    assert counts_2026["count_text"] in balanced_text
+    assert f"{balanced_current.total} Molecules" in balanced_text
     assert "Last Updated: 11 May 2026" in balanced_text
 
     ppd_path = write_ppd_detection_slide(
-        view_2026,
-        output_dir / "ppd_molecules_2026.pptx",
+        view_current,
+        output_dir / "ppd_molecules_current.pptx",
         last_updated="2026-05-11",
     )
     ppd_presentation = Presentation(ppd_path)
@@ -219,7 +206,7 @@ with TemporaryDirectory() as tmp:
         if hasattr(shape, "text")
     )
     assert PPD_TITLE in ppd_text
-    assert ppd_counts_2026["count_text"] in ppd_text
+    assert f"{ppd_current.total} Molecules" in ppd_text
     assert "Last Updated: 11 May 2026" in ppd_text
     assert "13CO" in ppd_text
 

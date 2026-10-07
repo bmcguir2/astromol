@@ -111,9 +111,9 @@ Open the
 in Colab.
 
 1. Run the setup and import cells.
-2. Choose `VIEW_CHOICE = "current"` for the live database, `"2026"` for the
-   developing 2026 census view, or `"2021"` for historical reproduction where
-   supported.
+2. Choose `VIEW_CHOICE = "current"` for the working inventory or `"2018"`/`"2021"`
+   for historical reproduction where supported. The old `"2026"` choice is an
+   alias for `current`.
 3. Run only the figure cells you want.
 4. Run the final zip/download cell if you want all generated outputs bundled
    together.

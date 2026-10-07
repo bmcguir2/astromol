@@ -13,11 +13,11 @@ from astromol.latex import (
 
 
 db = Database()
-counts_2026 = load_production_baseline()["regression_counts"][
-    "latex_source_table_2026"
+counts_current = load_production_baseline()["regression_counts"][
+    "latex_source_table_current"
 ]
 view_2021 = CensusView.for_census(db, "2021")
-view_2026 = CensusView.for_census(db, "2026")
+view_current = CensusView.current(db, end_year=load_production_baseline()["analysis_end_year"])
 
 entries_2021 = source_table_entries(view_2021)
 labels_2021 = {label for label, _ in entries_2021}
@@ -49,23 +49,23 @@ with TemporaryDirectory() as tmp:
     assert write_source_table(view_2021, output_dir) == fragments_2021
     assert (output_dir / "source_table.tex").read_text() == content_2021
 
-entries_2026 = source_table_entries(view_2026)
-labels_2026 = {label for label, _ in entries_2026}
-assert len(entries_2026) == counts_2026["entries"]
-assert sum(count for _, count in entries_2026) == counts_2026["credited_detections"]
-assert entries_2026[:5] == [
-    tuple(entry) for entry in counts_2026["top_entries"]
+entries_current = source_table_entries(view_current)
+labels_current = {label for label, _ in entries_current}
+assert len(entries_current) == counts_current["entries"]
+assert sum(count for _, count in entries_current) == counts_current["credited_detections"]
+assert entries_current[:5] == [
+    tuple(entry) for entry in counts_current["top_entries"]
 ]
-assert "Diffuse Cloud" in labels_2026
-assert "DiffuseCloud" not in labels_2026
-assert "Sgr B2 LOS" not in labels_2026
+assert "Diffuse Cloud" in labels_current
+assert "DiffuseCloud" not in labels_current
+assert "Sgr B2 LOS" not in labels_current
 
-content_2026 = source_table_fragments(view_2026)["source_table.tex"]
-top_source, top_source_count = counts_2026["top_entries"][0]
-assert f"{top_source}\t&\t{top_source_count}\t&" in content_2026
-split_at = (len(entries_2026) + 1) // 2
-left_entries = entries_2026[:split_at]
-right_entries = entries_2026[split_at:]
+content_current = source_table_fragments(view_current)["source_table.tex"]
+top_source, top_source_count = counts_current["top_entries"][0]
+assert f"{top_source}\t&\t{top_source_count}\t&" in content_current
+split_at = (len(entries_current) + 1) // 2
+left_entries = entries_current[:split_at]
+right_entries = entries_current[split_at:]
 for (left_label, left_count), (right_label, right_count) in zip(
     left_entries[:5],
     right_entries[:5],
@@ -73,7 +73,7 @@ for (left_label, left_count), (right_label, right_count) in zip(
     assert (
         f"{left_label}\t&\t{left_count}\t&\t"
         f"{right_label}\t&\t{right_count}\t\\\\"
-    ) in content_2026
-assert content_2026.count(r"\\") == split_at + 1
+    ) in content_current
+assert content_current.count(r"\\") == split_at + 1
 
 print("LaTeX source table verification passed")

@@ -16,11 +16,15 @@ import argparse
 import os
 import shutil
 import zipfile
+import json
+import tempfile
+import re
 
 os.environ.setdefault("MPLBACKEND", "Agg")
 
 from .census import CensusView
 from .database import Database
+from .provenance import digest, generation_provenance
 from .registry import (
     FIGURE_OUTPUTS,
     SLIDE_OUTPUTS,
@@ -31,6 +35,8 @@ from .registry import (
 
 DEFAULT_OUTPUT_DIR = Path("build") / "astromol_outputs"
 DEFAULT_FORMATS = ("png", "pdf")
+OWNERSHIP_MARKER = ".astromol-output-bundle"
+MARKER_CONTENT = "astromol standard output bundle v1\n"
 
 SECTION_TITLES = {
     "other": "Other Files",
@@ -222,10 +228,12 @@ def _render_inventory_section(
     return lines
 
 
-def view_from_choice(db: Database, choice: str) -> CensusView:
+def view_from_choice(db: Database, choice: str, *, end_year: int | None = None) -> CensusView:
     """Return a census/current view from a command-line choice."""
-    if choice == "current":
-        return CensusView.current(db)
+    if choice in {"current", "2026"}:
+        return CensusView.current(db, end_year=end_year)
+    if end_year is not None and end_year != int(choice):
+        raise ValueError("Historical output end year must match its census boundary.")
     return CensusView.for_census(db, choice)
 
 
@@ -237,15 +245,63 @@ def generate_standard_outputs(
     clean: bool = True,
     include_tables: bool = True,
     include_slides: bool = True,
+    end_year: int | None = None,
 ) -> list[GeneratedProduct]:
     """Generate standard latest astromol products and return their paths."""
-    output_dir = Path(output_dir)
-    if clean and output_dir.exists():
-        shutil.rmtree(output_dir)
-    output_dir.mkdir(parents=True, exist_ok=True)
-
     db = Database()
-    view = view_from_choice(db, view_choice)
+    view = view_from_choice(db, view_choice, end_year=end_year)
+    from matplotlib.backend_bases import FigureCanvasBase
+    if not formats or any(not re.fullmatch(r"[a-z0-9]+", f) or f not in FigureCanvasBase.get_supported_filetypes() for f in formats):
+        raise ValueError("Choose supported figure formats, such as png, pdf, or svg.")
+    output_dir = Path(output_dir).absolute()
+    backup = output_dir.with_name(f".{output_dir.name}.astromol-backup")
+    if backup.exists():
+        _require_owned_bundle(backup, allow_empty=True)
+        if not output_dir.exists():
+            backup.rename(output_dir)
+        else:
+            _require_owned_bundle(output_dir)
+            shutil.rmtree(backup)
+    _require_owned_bundle(output_dir, allow_empty=True)
+    output_dir.parent.mkdir(parents=True, exist_ok=True)
+    with tempfile.TemporaryDirectory(prefix=f".{output_dir.name}.generate-", dir=output_dir.parent) as tmp:
+        staged = Path(tmp) / "bundle"
+        if not clean and output_dir.exists():
+            shutil.copytree(output_dir, staged)
+        else:
+            staged.mkdir()
+        products = _generate_bundle(db, view, staged, view_choice=view_choice,
+                                    formats=formats, include_tables=include_tables,
+                                    include_slides=include_slides)
+        (staged / OWNERSHIP_MARKER).write_text(MARKER_CONTENT)
+        # Recheck ownership immediately before replacing anything.
+        _require_owned_bundle(output_dir, allow_empty=True)
+        if output_dir.exists():
+            output_dir.rename(backup)
+        try:
+            staged.rename(output_dir)
+        except BaseException:
+            if backup.exists():
+                backup.rename(output_dir)
+            raise
+        if backup.exists():
+            shutil.rmtree(backup)
+        return [GeneratedProduct(p.label, output_dir / p.path.relative_to(staged), p.description) for p in products]
+
+
+def _require_owned_bundle(path: Path, *, allow_empty: bool = False) -> None:
+    if path.is_symlink():
+        raise ValueError(f"Output destination must not be a symlink: {path}")
+    if not path.exists():
+        return
+    marker = path / OWNERSHIP_MARKER
+    if path.is_dir() and allow_empty and not any(path.iterdir()):
+        return
+    if not path.is_dir() or marker.is_symlink() or not marker.is_file() or marker.read_text() != MARKER_CONTENT:
+        raise ValueError(f"Refusing to replace an unrecognized output directory: {path}. Choose a new or empty directory.")
+
+
+def _generate_bundle(db, view, output_dir, *, view_choice, formats, include_tables, include_slides):
     view_2021 = CensusView.for_census(db, "2021")
     context = OutputContext(
         view=view,
@@ -276,7 +332,22 @@ def generate_standard_outputs(
             )
         )
 
-    zip_path = _write_zip(output_dir)
+    manifest = generation_provenance(db.data_dir)
+    manifest.update({
+        "schema_version": 1,
+        "generated_at": datetime.now(timezone.utc).isoformat(),
+        "view": {"requested": view_choice, "scope": view.scope, "census": view.census,
+                 "end_year": view.end_year},
+        "settings": {"formats": list(formats), "include_tables": include_tables,
+                     "include_slides": include_slides,
+                     "include_tentative": False, "include_disputed": False,
+                     "include_isotopologues": False,
+                     "product_defaults": "Ice/exgal tables include tentative records; PPD tables/slides include isotopologues."},
+        "products": [{"path": p.path.relative_to(output_dir).as_posix(), "sha256": digest(p.path)} for p in products],
+    })
+    manifest_path = output_dir / "manifest.json"
+    manifest_path.write_text(json.dumps(manifest, indent=2, sort_keys=True) + "\n")
+    zip_path = output_dir / "astromol_latest_outputs.zip"
     products.append(
         GeneratedProduct(
             label="Complete output bundle",
@@ -284,12 +355,13 @@ def generate_standard_outputs(
             description="Zip archive containing all generated standard products.",
         )
     )
-    _write_index(
+    index_path = _write_index(
         output_dir,
         products,
         view_choice=view_choice,
         db=db,
     )
+    _write_zip(output_dir, [p.path for p in products if p.path != zip_path] + [manifest_path, index_path])
     return products
 
 
@@ -631,13 +703,12 @@ def _write_index(
     return index_path
 
 
-def _write_zip(output_dir: Path) -> Path:
+def _write_zip(output_dir: Path, paths: list[Path]) -> Path:
     """Write a zip archive of generated outputs."""
     zip_path = output_dir / "astromol_latest_outputs.zip"
     with zipfile.ZipFile(zip_path, "w", compression=zipfile.ZIP_DEFLATED) as archive:
-        for path in sorted(output_dir.rglob("*")):
-            if path.is_file() and path != zip_path:
-                archive.write(path, path.relative_to(output_dir))
+        for path in sorted(set(paths)):
+            archive.write(path, path.relative_to(output_dir))
     return zip_path
 
 
@@ -653,7 +724,7 @@ def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
     parser.add_argument(
         "--view",
         default="current",
-        help="View to generate: current or a census year such as 2026.",
+        help="View to generate: current, 2018, or 2021 (2026 is an alias for current).",
     )
     parser.add_argument(
         "--formats",
@@ -664,8 +735,9 @@ def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
     parser.add_argument(
         "--no-clean",
         action="store_true",
-        help="Do not remove the output directory before generating files.",
+        help="Preserve other files in an owned bundle directory; the archive contains only this run's products.",
     )
+    parser.add_argument("--end-year", type=int, help="Explicit analysis endpoint for reproducible current outputs.")
     parser.add_argument(
         "--skip-tables",
         action="store_true",
@@ -689,6 +761,7 @@ def main(argv: list[str] | None = None) -> int:
         clean=not args.no_clean,
         include_tables=not args.skip_tables,
         include_slides=not args.skip_slides,
+        end_year=args.end_year,
     )
     print(f"Generated {len(products)} product(s) in {args.output_dir}")
     return 0

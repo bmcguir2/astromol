@@ -112,7 +112,7 @@ inventory counts, curation-sensitive regression counts, and known validation
 warnings. It should change only when the underlying curated data or accepted
 warning backlog changes. The curation check runs production-data validation
 plus the load, validation-baseline, and output regression tests that catch
-2026 table, figure, and slide expectation drift. The
+current table, figure, and slide expectation drift. The
 `python scripts/update_data_baseline.py` command remains available for manual
 baseline refreshes outside the staging workflow.
 
@@ -154,7 +154,7 @@ script adds `history.introduced.date`, `history.last_modified`, and an initial
 dated `added` event using the staging run date. New molecule records also
 default to `history.introduced.context: confirmed` and a current-census
 `history.accepted` block. Secure detection records likewise default to a
-current-census `history.accepted` block for their detection context. Tentative
+dated `history.accepted` block for their detection context. Tentative
 or disputed detection records default to `history.accepted: null`. For any
 record that should be tracked but is not yet accepted as confirmed, set
 `history.accepted: null` and set `history.introduced.context` to `tentative` or
@@ -209,3 +209,32 @@ When `Molecule`, `Detection`, `Source`, or `Telescope` changes in
 - the relevant data-model section in `SPEC.md`
 
 This keeps the curator-facing workflow synchronized with the production schema.
+
+## Reviewed Preview And Recovery
+
+Apply requires a successful preview for the same batch name. Review the report,
+full preview JSON, and proposed baseline before passing `--apply`. Any change to
+YAML, production files, bibliography, preview artifacts, curation code, or relevant
+dependencies requires a fresh preview and review. Applying later preserves the
+preview date. All proposed files and the baseline are prepared before production
+replacement; ordinary failures restore originals. If execution was interrupted,
+run `python scripts/stage_records.py --recover <name>` before retrying. Recovery
+refuses to overwrite files edited after the interrupted apply.
+
+New working records receive dated history without assuming a publication-year
+census label. `current` includes accepted records and optional tracked tentative
+or disputed records; `2026` is a compatibility alias. Published 2018/2021
+membership continues to use explicit history census labels.
+
+The baseline records reviewed membership, counts, numerical summaries, and known
+warnings. Its analysis endpoint is the latest secure detection year, keeping
+snapshots independent of the day tests run. Current rendering tests check unique
+membership, complete grouping, status markers, valid table structure, and overflow
+instead of recording fonts or formatted labels in this baseline. A generated
+snapshot is a change-review aid; independent fixtures also test selection rules.
+
+Commit-mode cleanup refuses unrelated staged paths before deleting anything and
+restores review files if the commit fails. A push failure after a successful
+commit leaves the committed cleanup intact so the push can be retried.
+If cleanup itself was interrupted, restore its saved review artifacts with
+`python scripts/cleanup_stage.py --name <name> --recover` before retrying.

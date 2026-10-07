@@ -36,11 +36,11 @@ developed before this branch replaces `main`.
 - Bibliographic metadata lives in `astromol/data/references.bib`.
 - `references.bib` is exported from Zotero and should not be hand-edited.
 - `SPEC.md` is the source of truth for the current schema and architecture.
-- `MANUSCRIPT_NOTES_2026.md` collects writing-time reminders for the 2026
-  census paper.
+- `MANUSCRIPT_NOTES_2026.md` collects writing-time reminders for the next
+  census paper (originally planned for 2026).
 - New records should be staged through YAML files in `curation/staging/` before
   being applied to production JSON.
-- The project is currently focused on 2026 database curation rather than broad
+- The project is currently focused on next-census database curation rather than broad
   refactor work. The next data tasks are staging new molecule/detection updates
   for maintainer review.
 - Calculation notebooks that support project-computed database values are
@@ -83,7 +83,7 @@ from astromol.figures import (
 from astromol.slides import write_molecule_slide, write_ppd_detection_slide
 
 db = Database()
-view = CensusView.for_census(db, "2026")
+view = CensusView.current(db)
 data = cumulative_detection_data(view)
 write_cumulative_detections_plot(data, Path("cumulative_detections.pdf"))
 write_molecule_slide(view, Path("astro_molecules.pptx"), profile="balanced")
@@ -91,8 +91,9 @@ write_ppd_detection_slide(view, Path("ppd_molecules.pptx"))
 ```
 
 Use `CensusView.for_census(db, "2021")` for historical reproduction and
-`CensusView.current(db)` for the live database. Until the 2026 census cutoff is
-frozen, the 2026 and current views are expected to match.
+`CensusView.current(db)` for the live database. The published census boundaries are 2018 and 2021. `current` is the evolving
+inventory for the next paper, regardless of its eventual publication year.
+`for_census(db, "2026")` remains an alias for `current` for compatibility.
 
 Figure helpers live in `astromol.figures`. Each migrated figure has a data
 builder, plotting function, and writer function so the scientific selection can
@@ -106,9 +107,9 @@ The PPD slide helper includes detected isotopologues by default.
 
 Generated slides distinguish the software version from the database freshness
 date. The top-right credit line reports the installed package version when
-available, or a traceable development git hash when run from the refactor
-checkout. The lower count/date block reports the latest modification date from
-the selected curated records.
+available and includes a traceable git hash when run from a checkout. The lower
+count/date block reports the latest modification date across the selected
+molecules, detections, sources, and telescopes.
 
 The standard latest output bundle can be regenerated locally with:
 
@@ -122,7 +123,7 @@ standard registry:
 ```bash
 astromol list figures
 astromol figure cumulative_detections --view current --output cumulative_detections.pdf
-astromol table ism_tables --view 2026 --output-dir build/tables
+astromol table ism_tables --view current --output-dir build/tables
 astromol slide ism_molecule_slide --view current --output-dir build/slides --report
 astromol outputs --output-dir build/astromol_outputs --view current --formats png pdf
 ```
@@ -207,8 +208,8 @@ python scripts/check_curation.py
 
 This runs production-data validation plus the curation-sensitive load,
 validation-baseline, and output regression tests. The output regression step is
-needed because new secure molecules/detections can legitimately change 2026
-table, figure, and slide layout expectations.
+needed because new secure molecules/detections can legitimately change current
+scientific counts and the space required by tables, figures, and slides.
 
 See `curation/README.md` for template notes, YAML quoting rules, and schema
 maintenance expectations.

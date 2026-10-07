@@ -29,11 +29,11 @@ def values_by_label(data):
 
 
 db = Database()
-counts_2026 = load_production_baseline()["regression_counts"][
-    "figures_detection_rate_by_atoms_2026"
+counts_current = load_production_baseline()["regression_counts"][
+    "figures_detection_rate_by_atoms_current"
 ]
 view_2021 = CensusView.for_census(db, "2021")
-view_2026 = CensusView.for_census(db, "2026")
+view_current = CensusView.current(db, end_year=load_production_baseline()["analysis_end_year"])
 
 data_2021 = detection_rate_by_atoms_data(view_2021)
 assert data_2021.end_year == 2021
@@ -51,12 +51,12 @@ assert values_2021["Fullerenes"][:2] == (3, 2010)
 visible_labels = [point.label for point in data_2021.visible_points]
 assert visible_labels == [str(natoms) for natoms in range(2, 13)]
 
-data_2026 = detection_rate_by_atoms_data(view_2026)
-values_2026 = values_by_label(data_2026)
-assert data_2026.end_year == 2026
-for label, expected in counts_2026["points"].items():
-    assert values_2026[label][:2] == (expected["count"], expected["first_year"])
-    assert np.isclose(values_2026[label][2], expected["rate"])
+data_current = detection_rate_by_atoms_data(view_current)
+values_current = values_by_label(data_current)
+assert data_current.end_year == 2026
+for label, expected in counts_current["points"].items():
+    assert values_current[label][:2] == (expected["count"], expected["first_year"])
+    assert np.isclose(values_current[label][2], expected["rate"])
 
 with TemporaryDirectory() as tmp:
     output_dir = Path(tmp)
@@ -75,7 +75,7 @@ with TemporaryDirectory() as tmp:
     assert output_path.stat().st_size > 0
 
     comparison_figure, comparison_axes = plot_detection_rate_by_atoms_comparison(
-        data_2026,
+        data_current,
         data_2021,
         current_label="2026",
     )
@@ -96,7 +96,7 @@ with TemporaryDirectory() as tmp:
     assert np.all(current_sizes >= baseline_sizes)
     assert np.isclose(
         current_sizes[-1] - baseline_sizes[-1],
-        (values_2026["12"][0] - values_2021["12"][0]) * 70,
+        (values_current["12"][0] - values_2021["12"][0]) * 70,
     )
     assert np.allclose(
         comparison_axes.collections[1].get_facecolors()[0, :3],
@@ -110,7 +110,7 @@ with TemporaryDirectory() as tmp:
     assert NRAO_BLUE == "#0A1589"
 
     comparison_output_path = write_detection_rate_by_atoms_comparison_plot(
-        data_2026,
+        data_current,
         data_2021,
         output_dir / "rate_by_atoms_comparison.pdf",
         current_label="2026",

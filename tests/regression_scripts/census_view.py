@@ -42,33 +42,33 @@ assert sum(facility_counts.values()) == 304
 assert facility_counts["IRAM 30-m"] == 64
 assert facility_counts["NRAO 36-ft"] == 33
 
-view_2026 = CensusView.for_census(db, "2026")
-counts_2026 = regression_counts["census_view_2026"]
-assert len(view_2026.ism_molecules()) == counts_2026["ism_molecules"]
+view_current = CensusView.current(db, end_year=load_production_baseline()["analysis_end_year"])
+counts_current = regression_counts["census_view_current"]
+assert len(view_current.ism_molecules()) == counts_current["ism_molecules"]
 assert (
-    len(view_2026.ism_molecules(include_isotopologues=True))
-    == counts_2026["ism_molecules_with_isotopologues"]
+    len(view_current.ism_molecules(include_isotopologues=True))
+    == counts_current["ism_molecules_with_isotopologues"]
 )
-assert len(view_2026.exoplanet_molecules()) == counts_2026["exoplanet_molecules"]
+assert len(view_current.exoplanet_molecules()) == counts_current["exoplanet_molecules"]
 assert (
-    len(view_2026.exoplanet_molecules(include_isotopologues=True))
-    == counts_2026["exoplanet_molecules_with_isotopologues"]
+    len(view_current.exoplanet_molecules(include_isotopologues=True))
+    == counts_current["exoplanet_molecules_with_isotopologues"]
 )
-assert len(view_2026.ppd_molecules()) == counts_2026["ppd_molecules"]
+assert len(view_current.ppd_molecules()) == counts_current["ppd_molecules"]
 assert (
-    len(view_2026.ppd_molecules(include_isotopologues=True))
-    == counts_2026["ppd_molecules_with_isotopologues"]
+    len(view_current.ppd_molecules(include_isotopologues=True))
+    == counts_current["ppd_molecules_with_isotopologues"]
 )
 current = CensusView.current(db)
 for detection_type in ["ISM/CSM", "exgal", "exo", "ppd", "ice"]:
     assert {
-        detection.id for detection in view_2026.context_detections(detection_type)
+        detection.id for detection in view_current.context_detections(detection_type)
     } == {
         detection.id for detection in current.context_detections(detection_type)
     }
     assert {
         detection.id
-        for detection in view_2026.context_detections(
+        for detection in view_current.context_detections(
             detection_type,
             include_isotopologues=True,
         )

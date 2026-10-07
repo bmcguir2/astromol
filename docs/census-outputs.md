@@ -15,18 +15,20 @@ from astromol.census import CensusView
 from astromol.database import Database
 
 db = Database()
-view = CensusView.for_census(db, "2026")
+view = CensusView.current(db)
 out = Path("census_outputs")
 out.mkdir(exist_ok=True)
 ```
 
-Use `CensusView.for_census(db, "2021")` for 2021 reproduction,
-`CensusView.for_census(db, "2026")` for the developing 2026 census, and
-`CensusView.current(db)` for the live database after a census boundary has
-passed.
+Use `CensusView.for_census(db, "2018")` or `"2021"` for published census
+membership and `CensusView.current(db)` for all work toward the next census.
+There is no published 2026 census: the former `"2026"` choice is a compatibility
+alias for `current`. A new fixed boundary will be established when the next
+census is finalized. Historical selection preserves membership, not old field
+values; exact reproduction requires the original revision and environment.
 
-Until the 2026 cutoff is frozen, the 2026 and current views are expected to
-select the same records.
+For a repeatable analysis endpoint, use `CensusView.current(db, end_year=2026)`.
+The endpoint controls rates and plot ranges; it does not freeze membership.
 
 ## Latest Standard Output Bundle
 
@@ -50,7 +52,7 @@ registry names:
 ```bash
 astromol list figures
 astromol figure cumulative_detections --view current --output cumulative_detections.pdf
-astromol table ism_tables --view 2026 --output-dir build/tables
+astromol table ism_tables --view current --output-dir build/tables
 astromol slide ism_molecule_slide --view current --output-dir build/slides --report
 ```
 
@@ -156,7 +158,7 @@ from astromol.registry import FIGURE_OUTPUTS, OutputContext
 
 context = OutputContext(
     view=view,
-    view_choice="2026",
+    view_choice="current",
     baseline_view=CensusView.for_census(db, "2021"),
 )
 
@@ -346,7 +348,7 @@ write_detection_rate_by_atoms_comparison_plot(
     rate_current,
     rate_2021,
     figure_dir / "detection_rate_by_atoms_comparison.pdf",
-    current_label="2026",
+    current_label="Current",
     baseline_label="2021",
 )
 
@@ -407,13 +409,13 @@ slide_dir.mkdir(exist_ok=True)
 
 write_molecule_slide(
     view,
-    slide_dir / "astro_molecules_2026.pptx",
+    slide_dir / "astro_molecules_current.pptx",
     profile="balanced",
 )
 
 write_ppd_detection_slide(
     view,
-    slide_dir / "ppd_molecules_2026.pptx",
+    slide_dir / "ppd_molecules_current.pptx",
 )
 ```
 

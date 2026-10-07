@@ -9,6 +9,7 @@ from __future__ import annotations
 
 from collections import Counter
 from dataclasses import dataclass
+from datetime import date
 from typing import Callable, Iterable
 
 from .models import DETECTION_TYPES, Detection, Molecule, RecordHistory
@@ -37,17 +38,19 @@ def _history_census(history: RecordHistory | None, field: str) -> int | None:
 class CensusView:
     """A filtered view of astromol records for a census boundary or live data.
 
-    Use :meth:`for_census` for frozen/historical census outputs and
+    Use :meth:`for_census` for published 2018/2021 membership and
     :meth:`current` for the live database. In census mode, accepted records are
     selected by ``history.accepted.census <= census``. In current mode,
     accepted records are selected regardless of census label. Context queries
     exclude isotopologues by default; pass ``include_isotopologues=True`` for
-    isotope-expanded views.
+    isotope-expanded views. The provisional ``2026`` label aliases current;
+    ``end_year`` controls analysis ranges, without freezing membership.
     """
 
     db: object
     scope: str = CENSUS_SCOPE
     census: str | None = None
+    end_year: int | None = None
 
     def __post_init__(self):
         if self.scope not in {CENSUS_SCOPE, CURRENT_SCOPE}:
@@ -59,16 +62,25 @@ class CensusView:
             raise ValueError("CensusView census mode requires a census value.")
         if self.census is not None:
             object.__setattr__(self, "census", str(self.census))
+            int(self.census)  # Reject invalid choices before generating any files.
+        # 2026 was a proposed publication year, never a published boundary.
+        if self.census == "2026":
+            object.__setattr__(self, "scope", CURRENT_SCOPE)
+            object.__setattr__(self, "census", None)
+        if self.end_year is None:
+            object.__setattr__(self, "end_year", date.today().year if self.is_current else self.census_year)
+        if not isinstance(self.end_year, int) or isinstance(self.end_year, bool):
+            raise ValueError("end_year must be an integer.")
 
     @classmethod
     def for_census(cls, db, census: str | int) -> "CensusView":
-        """Create a view frozen at a census boundary."""
+        """Select a census boundary; the unpublished 2026 label aliases current."""
         return cls(db=db, scope=CENSUS_SCOPE, census=str(census))
 
     @classmethod
-    def current(cls, db) -> "CensusView":
+    def current(cls, db, *, end_year: int | None = None) -> "CensusView":
         """Create a live view of all currently accepted records."""
-        return cls(db=db, scope=CURRENT_SCOPE, census=None)
+        return cls(db=db, scope=CURRENT_SCOPE, census=None, end_year=end_year)
 
     @property
     def is_current(self) -> bool:
@@ -298,24 +310,10 @@ class CensusView:
         Set ``group_diffuse_cloud=True`` to consolidate all diffuse-cloud/LOS
         sources under one label for historical manuscript table reproduction.
         """
-        if key not in {"nick", "name", "latex_name"}:
-            raise ValueError("source_counts key must be 'nick', 'name', or 'latex_name'.")
-
-        counts = Counter()
-        for detection in self.context_detections(
-            detection_type,
-            include_tentative=include_tentative,
-            include_disputed=include_disputed,
-            include_isotopologues=include_isotopologues,
-        ):
-            for source in detection.sources:
-                if group_diffuse_cloud and source.type == "Diffuse Cloud":
-                    counts[diffuse_cloud_label] += 1
-                elif key == "latex_name":
-                    counts[source.latex_name or source.name] += 1
-                else:
-                    counts[getattr(source, key)] += 1
-        return counts
+        return _source_counts(self.context_detections(
+            detection_type, include_tentative=include_tentative,
+            include_disputed=include_disputed, include_isotopologues=include_isotopologues,
+        ), key=key, group_diffuse_cloud=group_diffuse_cloud, diffuse_cloud_label=diffuse_cloud_label)
 
     def facility_counts(
         self,
@@ -327,24 +325,10 @@ class CensusView:
         key: str = "nick",
     ) -> Counter:
         """Count telescope/facility contributions for detections in this view."""
-        if key not in {"nick", "shortname", "name", "latex_name"}:
-            raise ValueError(
-                "facility_counts key must be 'nick', 'shortname', 'name', or 'latex_name'."
-            )
-
-        counts = Counter()
-        for detection in self.context_detections(
-            detection_type,
-            include_tentative=include_tentative,
-            include_disputed=include_disputed,
-            include_isotopologues=include_isotopologues,
-        ):
-            for telescope in detection.telescopes:
-                if key == "latex_name":
-                    counts[telescope.latex_name or telescope.shortname or telescope.name] += 1
-                else:
-                    counts[getattr(telescope, key)] += 1
-        return counts
+        return _facility_counts(self.context_detections(
+            detection_type, include_tentative=include_tentative,
+            include_disputed=include_disputed, include_isotopologues=include_isotopologues,
+        ), key=key)
 
     def molecule_labels(self, molecules: Iterable[Molecule]) -> set[str]:
         """Return molecule labels from a molecule iterable."""
@@ -402,6 +386,11 @@ class FilteredCensusView:
     def census_year(self) -> int | None:
         """The integer census boundary, or ``None`` for current views."""
         return self.base.census_year
+
+    @property
+    def end_year(self) -> int:
+        """The analysis endpoint of the wrapped view."""
+        return self.base.end_year
 
     def accepted_record(self, record) -> bool:
         """Return whether a record is accepted in the wrapped view."""
@@ -567,24 +556,10 @@ class FilteredCensusView:
         diffuse_cloud_label: str = "DiffuseCloud",
     ) -> Counter:
         """Count filtered source contributions for detections in this view."""
-        if key not in {"nick", "name", "latex_name"}:
-            raise ValueError("source_counts key must be 'nick', 'name', or 'latex_name'.")
-
-        counts = Counter()
-        for detection in self.context_detections(
-            detection_type,
-            include_tentative=include_tentative,
-            include_disputed=include_disputed,
-            include_isotopologues=include_isotopologues,
-        ):
-            for source in detection.sources:
-                if group_diffuse_cloud and source.type == "Diffuse Cloud":
-                    counts[diffuse_cloud_label] += 1
-                elif key == "latex_name":
-                    counts[source.latex_name or source.name] += 1
-                else:
-                    counts[getattr(source, key)] += 1
-        return counts
+        return _source_counts(self.context_detections(
+            detection_type, include_tentative=include_tentative,
+            include_disputed=include_disputed, include_isotopologues=include_isotopologues,
+        ), key=key, group_diffuse_cloud=group_diffuse_cloud, diffuse_cloud_label=diffuse_cloud_label)
 
     def facility_counts(
         self,
@@ -596,25 +571,43 @@ class FilteredCensusView:
         key: str = "nick",
     ) -> Counter:
         """Count filtered telescope/facility contributions."""
-        if key not in {"nick", "shortname", "name", "latex_name"}:
-            raise ValueError(
-                "facility_counts key must be 'nick', 'shortname', 'name', or 'latex_name'."
-            )
-
-        counts = Counter()
-        for detection in self.context_detections(
-            detection_type,
-            include_tentative=include_tentative,
-            include_disputed=include_disputed,
-            include_isotopologues=include_isotopologues,
-        ):
-            for telescope in detection.telescopes:
-                if key == "latex_name":
-                    counts[telescope.latex_name or telescope.shortname or telescope.name] += 1
-                else:
-                    counts[getattr(telescope, key)] += 1
-        return counts
+        return _facility_counts(self.context_detections(
+            detection_type, include_tentative=include_tentative,
+            include_disputed=include_disputed, include_isotopologues=include_isotopologues,
+        ), key=key)
 
     def molecule_labels(self, molecules: Iterable[Molecule]) -> set[str]:
         """Return molecule labels from a molecule iterable."""
         return {molecule.label for molecule in molecules}
+
+
+def _source_counts(detections, *, key, group_diffuse_cloud, diffuse_cloud_label) -> Counter:
+    if key not in {"nick", "name", "latex_name"}:
+        raise ValueError("source_counts key must be 'nick', 'name', or 'latex_name'.")
+
+    counts = Counter()
+    for detection in detections:
+        for source in detection.sources:
+            if group_diffuse_cloud and source.type == "Diffuse Cloud":
+                counts[diffuse_cloud_label] += 1
+            elif key == "latex_name":
+                counts[source.latex_name or source.name] += 1
+            else:
+                counts[getattr(source, key)] += 1
+    return counts
+
+
+def _facility_counts(detections, *, key) -> Counter:
+    if key not in {"nick", "shortname", "name", "latex_name"}:
+        raise ValueError(
+            "facility_counts key must be 'nick', 'shortname', 'name', or 'latex_name'."
+        )
+
+    counts = Counter()
+    for detection in detections:
+        for telescope in detection.telescopes:
+            if key == "latex_name":
+                counts[telescope.latex_name or telescope.shortname or telescope.name] += 1
+            else:
+                counts[getattr(telescope, key)] += 1
+    return counts

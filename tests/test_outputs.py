@@ -2,12 +2,17 @@ from __future__ import annotations
 
 from dataclasses import dataclass
 from pathlib import Path
+import json
+import zipfile
+import pytest
 
 from astromol import outputs
+from astromol.database import DATA_DIR
 
 
 @dataclass
 class _FakeDb:
+    data_dir: Path = DATA_DIR
     molecules: tuple[int, ...] = (1, 2, 3)
     detections: tuple[int, ...] = (1, 2, 3, 4)
     sources: tuple[int, ...] = (1, 2)
@@ -17,6 +22,9 @@ class _FakeDb:
 @dataclass
 class _FakeView:
     name: str
+    scope: str = "current"
+    census: str | None = None
+    end_year: int = 2026
 
 
 class _FakeFigureSpec:
@@ -81,7 +89,7 @@ def test_generate_standard_outputs_uses_registry_specs(monkeypatch, tmp_path: Pa
     ppd_slide_spec = _FakeSlideSpec("ppd_detection_slide", "Demo PPD slide", "ppd_molecules")
 
     monkeypatch.setattr(outputs, "Database", lambda: _FakeDb())
-    monkeypatch.setattr(outputs, "view_from_choice", lambda db, choice: selected_view)
+    monkeypatch.setattr(outputs, "view_from_choice", lambda db, choice, **kwargs: selected_view)
     monkeypatch.setattr(outputs.CensusView, "for_census", lambda db, choice: baseline_view)
     monkeypatch.setattr(outputs, "FIGURE_OUTPUTS", (cumulative_figure_spec, figure_spec))
     monkeypatch.setattr(outputs, "TABLE_OUTPUTS", (table_spec,))
@@ -116,8 +124,9 @@ def test_generate_standard_outputs_uses_registry_specs(monkeypatch, tmp_path: Pa
     for path in (*figure_paths, *extra_figure_paths, table_path, *slide_paths, *report_paths, zip_path, index_path):
         assert path.exists()
 
-    assert cumulative_figure_spec.calls == [("2026", figure_paths[0]), ("2026", figure_paths[1])]
-    assert figure_spec.calls == [("2026", extra_figure_paths[0]), ("2026", extra_figure_paths[1])]
+    assert [choice for choice, _ in cumulative_figure_spec.calls] == ["2026", "2026"]
+    assert [p.relative_to(p.parents[2]) for _, p in cumulative_figure_spec.calls] == [Path("figures/png/cumulative_detections.png"), Path("figures/pdf/cumulative_detections.pdf")]
+    assert [choice for choice, _ in figure_spec.calls] == ["2026", "2026"]
     assert ism_slide_spec.slide_calls == ["2026"]
     assert ism_slide_spec.report_calls == ["2026"]
     assert ppd_slide_spec.slide_calls == ["2026"]
@@ -168,3 +177,63 @@ def test_generate_standard_outputs_uses_registry_specs(monkeypatch, tmp_path: Pa
     assert "slides/ppd_molecules_2026.pptx" in index_html
     assert "slides/astro_molecules_2026_layout.md" not in index_html
     assert "slides/ppd_molecules_2026_layout.md" not in index_html
+
+
+def minimal_bundle(monkeypatch):
+    monkeypatch.setattr(outputs, "FIGURE_OUTPUTS", ())
+    monkeypatch.setattr(outputs, "TABLE_OUTPUTS", ())
+    monkeypatch.setattr(outputs, "SLIDE_OUTPUTS", ())
+
+
+def test_unowned_destination_and_invalid_inputs_preserve_files(tmp_path):
+    sentinel = tmp_path / "personal.txt"
+    sentinel.write_text("keep")
+    for choice in ("bad-view", "current"):
+        with pytest.raises(ValueError):
+            outputs.generate_standard_outputs(tmp_path, view_choice=choice)
+        assert sentinel.read_text() == "keep"
+    with pytest.raises(ValueError):
+        outputs.generate_standard_outputs(tmp_path / "new", formats=("../png",))
+    assert not (tmp_path / "new").exists()
+
+
+def test_failure_leaves_previous_bundle_and_no_clean_archive_is_current_only(monkeypatch, tmp_path):
+    minimal_bundle(monkeypatch)
+    destination = tmp_path / "outputs"
+    outputs.generate_standard_outputs(destination)
+    previous = (destination / "manifest.json").read_bytes()
+    stale = destination / "old-2021.pdf"
+    stale.write_text("old")
+    def fail(*args, **kwargs):
+        raise RuntimeError("render failed")
+    with monkeypatch.context() as patch:
+        patch.setattr(outputs, "_generate_figures", fail)
+        with pytest.raises(RuntimeError, match="render failed"):
+            outputs.generate_standard_outputs(destination)
+    assert (destination / "manifest.json").read_bytes() == previous
+    assert stale.exists()
+    outputs.generate_standard_outputs(destination, clean=False, end_year=2027)
+    with zipfile.ZipFile(destination / "astromol_latest_outputs.zip") as archive:
+        assert set(archive.namelist()) == {"manifest.json", "index.html"}
+        assert json.loads(archive.read("manifest.json"))["view"]["end_year"] == 2027
+    assert stale.exists()
+    manifest = json.loads((destination / "manifest.json").read_text())
+    assert len(manifest["data_sha256"]) == 5
+    assert manifest["versions"]["matplotlib"]
+    assert manifest["source"]["commit"] is None or len(manifest["source"]["commit"]) == 40
+
+
+def test_failed_directory_replacement_restores_previous_bundle(monkeypatch, tmp_path):
+    minimal_bundle(monkeypatch)
+    destination = tmp_path / "outputs"
+    outputs.generate_standard_outputs(destination)
+    previous = (destination / "manifest.json").read_bytes()
+    rename = Path.rename
+    def fail_install(path, target):
+        if path.name == "bundle":
+            raise OSError("replacement failed")
+        return rename(path, target)
+    monkeypatch.setattr(Path, "rename", fail_install)
+    with pytest.raises(OSError, match="replacement failed"):
+        outputs.generate_standard_outputs(destination)
+    assert (destination / "manifest.json").read_bytes() == previous

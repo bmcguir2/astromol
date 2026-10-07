@@ -97,6 +97,11 @@ def run_stage_records(
         ],
     )
 
+    if "--apply" in args:
+        preview_argv = [arg for arg in sys.argv if arg != "--apply"]
+        monkeypatch.setattr(sys, "argv", preview_argv)
+        stage_records.main()
+        monkeypatch.setattr(sys, "argv", [*preview_argv, "--apply"])
     stage_records.main()
     return data
 
@@ -163,7 +168,7 @@ def test_stage_records_writes_preview_without_modifying_production(
 
     assert molecule_preview[0]["label"] == "mol:EXAMPLE"
     assert molecule_preview[0]["table_formula"] == "CH"
-    assert molecule_preview[0]["history"]["accepted"]["census"] == "2026"
+    assert "census" not in molecule_preview[0]["history"]["accepted"]
     assert "_curation_note" not in molecule_preview[0]
 
     assert detection_preview[0]["id"] == "det:EXAMPLE:ism-csm:2026"
@@ -184,7 +189,7 @@ def test_stage_records_writes_preview_without_modifying_production(
     assert "Applied to production JSON: `false`" in report
     assert "## Generated Count Updates" in report
     assert "`counts.molecules`: `0` -> `1`" in report
-    assert "`regression_counts.census_view_2026.ism_molecules`: `0` -> `1`" in report
+    assert "`regression_counts.census_view_current.ism_molecules`: `0` -> `1`" in report
 
     manifest = json.loads((data / "example_stage_manifest.json").read_text())
     assert manifest["name"] == "example"
@@ -227,7 +232,7 @@ def test_stage_records_apply_writes_valid_records_to_production(
         (tmp_path / "tests" / "baselines" / "production_data.json").read_text()
     )
     assert baseline["counts"]["molecules"] == 1
-    assert baseline["regression_counts"]["census_view_2026"]["ism_molecules"] == 1
+    assert baseline["regression_counts"]["census_view_current"]["ism_molecules"] == 1
 
 
 def test_stage_records_rejects_unknown_references(monkeypatch, tmp_path):
@@ -932,3 +937,177 @@ def test_cleanup_stage_rejects_modified_applied_file(monkeypatch, tmp_path):
 
     assert (data / "example_stage_manifest.json").exists()
     assert (tmp_path / "example.yaml").exists()
+
+
+def configured_apply(monkeypatch, tmp_path, data):
+    module = load_stage_records_module()
+    monkeypatch.setattr(module, "ROOT", tmp_path)
+    monkeypatch.setattr(module, "DATA", data)
+    monkeypatch.setattr(module, "date", FixedDate)
+    monkeypatch.setattr(sys, "argv", ["stage_records.py", "--staging", str(tmp_path / "example.yaml"), "--name", "example", "--apply"])
+    return module
+
+
+@pytest.mark.parametrize("target", ["example.yaml", "astromol/data/references.bib",
+                                  "astromol/data/sources.json", "astromol/data/molecules.example.preview.json",
+                                  "astromol/data/example_stage_report.md"])
+def test_apply_rejects_drift_in_any_reviewed_input_or_artifact(monkeypatch, tmp_path, target):
+    data = run_stage_records(monkeypatch, tmp_path, valid_staging_yaml())
+    stage = configured_apply(monkeypatch, tmp_path, data)
+    path = tmp_path / target
+    path.write_text(path.read_text() + "\n")
+    before = {p: p.read_bytes() for p in [data / name for name in stage.KIND_TO_FILE.values()]}
+    with pytest.raises(SystemExit, match="changed"):
+        stage.main()
+    assert all(p.read_bytes() == content for p, content in before.items())
+    assert not json.loads((data / "example_stage_manifest.json").read_text())["applied"]
+
+
+def test_apply_uses_reviewed_date_on_later_day(monkeypatch, tmp_path):
+    data = run_stage_records(monkeypatch, tmp_path, valid_staging_yaml())
+    stage = configured_apply(monkeypatch, tmp_path, data)
+    class LaterDate(date):
+        @classmethod
+        def today(cls):
+            return date(2026, 8, 18)
+    monkeypatch.setattr(stage, "date", LaterDate)
+    stage.main()
+    assert json.loads((data / "molecules.json").read_text())[0]["history"]["last_modified"] == "2026-08-17"
+
+
+def test_apply_requires_preview_and_baseline_failure_preserves_production(monkeypatch, tmp_path):
+    stage = load_stage_records_module()
+    data = make_temp_data_dir(tmp_path)
+    (tmp_path / "example.yaml").write_text(valid_staging_yaml())
+    stage = configured_apply(monkeypatch, tmp_path, data)
+    with pytest.raises(SystemExit, match="reviewed preview"):
+        stage.main()
+    assert json.loads((data / "molecules.json").read_text()) == []
+    monkeypatch.setattr(stage, "build_baseline", lambda *args, **kwargs: (_ for _ in ()).throw(RuntimeError("baseline failed")))
+    monkeypatch.setattr(sys, "argv", [arg for arg in sys.argv if arg != "--apply"])
+    with pytest.raises(RuntimeError, match="baseline failed"):
+        stage.main()
+    assert json.loads((data / "molecules.json").read_text()) == []
+
+
+def test_apply_replacement_failure_rolls_back_every_file(monkeypatch, tmp_path):
+    data = run_stage_records(monkeypatch, tmp_path, valid_staging_yaml())
+    stage = configured_apply(monkeypatch, tmp_path, data)
+    before = {p: p.read_bytes() for p in data.iterdir() if p.is_file()}
+    replace = stage.os.replace
+    calls = 0
+    def fail_once(source, target):
+        nonlocal calls
+        calls += 1
+        if calls == 3:
+            raise OSError("disk failure")
+        return replace(source, target)
+    monkeypatch.setattr(stage.os, "replace", fail_once)
+    with pytest.raises(OSError, match="disk failure"):
+        stage.main()
+    assert all(p.read_bytes() == content for p, content in before.items())
+    assert not (tmp_path / "tests/baselines/production_data.json").exists()
+    assert not stage.recovery_path("example").exists()
+
+
+def test_raw_unknown_field_is_reported_before_normalization(monkeypatch, tmp_path):
+    with pytest.raises(SystemExit):
+        run_stage_records(monkeypatch, tmp_path, valid_staging_yaml().replace("  formula: CH", "  formula: CH\n  diploe: null"))
+    assert "unknown output fields: diploe" in (tmp_path / "astromol/data/example_stage_report.md").read_text()
+
+
+def test_cleanup_rejects_unrelated_index_before_deleting_files(monkeypatch, tmp_path):
+    data = run_stage_records(monkeypatch, tmp_path, valid_staging_yaml(), "--apply")
+    cleanup = load_cleanup_stage_module()
+    init_git_repo(tmp_path)
+    (tmp_path / "unrelated.txt").write_text("personal change")
+    subprocess.run(["git", "add", "unrelated.txt"], cwd=tmp_path, check=True)
+    monkeypatch.setattr(cleanup, "ROOT", tmp_path)
+    monkeypatch.setattr(cleanup, "DATA", data)
+    monkeypatch.setattr(cleanup, "run_curation_verification", lambda: None)
+    monkeypatch.setattr(sys, "argv", ["cleanup_stage.py", "--name", "example", "--commit-message", "curation"])
+    with pytest.raises(SystemExit, match="unrelated changes"):
+        cleanup.main()
+    assert (tmp_path / "example.yaml").exists()
+    assert (data / "example_stage_manifest.json").exists()
+
+
+def test_cleanup_failed_commit_restores_review_files(monkeypatch, tmp_path):
+    data = run_stage_records(monkeypatch, tmp_path, valid_staging_yaml(), "--apply")
+    cleanup = load_cleanup_stage_module()
+    init_git_repo(tmp_path)
+    monkeypatch.setattr(cleanup, "ROOT", tmp_path)
+    monkeypatch.setattr(cleanup, "DATA", data)
+    monkeypatch.setattr(cleanup, "run_curation_verification", lambda: None)
+    run = subprocess.run
+    def fail_commit(command, **kwargs):
+        if command[:2] == ["git", "commit"]:
+            raise subprocess.CalledProcessError(1, command)
+        return run(command, **kwargs)
+    monkeypatch.setattr(cleanup.subprocess, "run", fail_commit)
+    monkeypatch.setattr(sys, "argv", ["cleanup_stage.py", "--name", "example", "--commit-message", "curation"])
+    with pytest.raises(subprocess.CalledProcessError):
+        cleanup.main()
+    assert (tmp_path / "example.yaml").exists()
+    assert (data / "example_stage_report.md").exists()
+    assert (data / "example_stage_manifest.json").exists()
+
+
+def test_persisted_apply_journal_restores_an_interrupted_batch(monkeypatch, tmp_path):
+    data = run_stage_records(monkeypatch, tmp_path, valid_staging_yaml())
+    stage = configured_apply(monkeypatch, tmp_path, data)
+    before = {p: p.read_bytes() for p in data.iterdir() if p.is_file()}
+    recover = stage.recover_apply
+    replace = stage.os.replace
+    calls = 0
+    def interrupted(source, target):
+        nonlocal calls
+        if Path(target).name != "journal.json":
+            calls += 1
+        if calls == 2:
+            raise OSError("process interrupted")
+        return replace(source, target)
+    monkeypatch.setattr(stage.os, "replace", interrupted)
+    # Model loss of the process before its exception handler can roll back.
+    monkeypatch.setattr(stage, "recover_apply", lambda name: None)
+    with pytest.raises(OSError, match="process interrupted"):
+        stage.main()
+    assert (stage.recovery_path("example") / "journal.json").exists()
+    assert any(path.read_bytes() != content for path, content in before.items())
+    monkeypatch.setattr(stage.os, "replace", replace)
+    recover("example")
+    assert all(path.read_bytes() == content for path, content in before.items())
+    assert not stage.recovery_path("example").exists()
+    assert not (tmp_path / "tests/baselines/production_data.json").exists()
+
+
+def test_persisted_cleanup_journal_restores_deleted_review_artifacts(monkeypatch, tmp_path):
+    data = run_stage_records(monkeypatch, tmp_path, valid_staging_yaml(), "--apply")
+    cleanup = load_cleanup_stage_module()
+    monkeypatch.setattr(cleanup, "ROOT", tmp_path)
+    monkeypatch.setattr(cleanup, "DATA", data)
+    monkeypatch.setattr(sys, "argv", ["cleanup_stage.py", "--name", "example"])
+    review_paths = [tmp_path / "example.yaml", data / "example_stage_report.md", data / "example_stage_manifest.json"]
+    before = {path: path.read_bytes() for path in review_paths}
+    restore = cleanup.restore_cleanup
+    def interrupted(*args):
+        (tmp_path / "example.yaml").unlink()
+        raise OSError("process interrupted")
+    monkeypatch.setattr(cleanup, "_delete_and_commit", interrupted)
+    monkeypatch.setattr(cleanup, "restore_cleanup", lambda backup: None)
+    with pytest.raises(OSError, match="process interrupted"):
+        cleanup.main()
+    backup = data / ".example.cleanup-backup"
+    assert (backup / "journal.json").exists()
+    assert not (tmp_path / "example.yaml").exists()
+    restore(backup)
+    assert all(path.read_bytes() == content for path, content in before.items())
+    assert not backup.exists()
+
+
+def test_cleanup_rejects_path_components_in_stage_name(monkeypatch, tmp_path):
+    cleanup = load_cleanup_stage_module()
+    monkeypatch.setattr(cleanup, "DATA", tmp_path)
+    monkeypatch.setattr(sys, "argv", ["cleanup_stage.py", "--name", "../../other", "--recover"])
+    with pytest.raises(SystemExit, match="Invalid stage name"):
+        cleanup.main()

@@ -33,7 +33,7 @@ Why:
 
 - Make every output reproducible from one authoritative database
 - Keep historical census reproduction possible (`2018`, `2021`) while enabling
-  dynamic current/`2026` products
+  dynamic current products (`2026` is a compatibility alias)
 - Support regular in-between-census updates without manual paper-era scripts
 - Prepare for stable package/API usage and public distribution
 
@@ -56,7 +56,7 @@ Why:
 ### View/Selection Layer
 
 - `astromol/census.py`:
-  - `CensusView.for_census(db, "YYYY")` for frozen census boundaries
+  - `CensusView.for_census(db, "YYYY")` for published census membership (2018 and 2021)
   - `CensusView.current(db)` for live/latest boundary
   - Filters for `include_tentative`, `include_disputed`, `include_isotopologues`
   - `FilteredCensusView` for user-defined subset analyses
@@ -187,7 +187,7 @@ Why:
 1. `Database()` load and cross-reference resolution across all production JSON and BibTeX data.
 2. Census boundary semantics:
    - `for_census("2021")` reproducibility
-   - `for_census("2026")` / `current()` behavior
+   - `current()` behavior and the `for_census("2026")` compatibility alias
 3. Stable detection IDs and reciprocal detection relationship fields.
 4. Standard output bundle generation (`astromol-generate-outputs`) and published key assets.
 5. PPD slide isotopologue inclusion default.
@@ -202,8 +202,8 @@ Current refactor status:
 
 - Large-scale code changes are **paused for now**:
   - the current priority is scientific database population and cleanup for the
-    2026 census rather than further broad architecture work
-  - we are actively beginning a new round of 2026 database population, so
+    next census rather than further broad architecture work
+  - we are actively beginning a new round of database population for the next census, so
     new molecule, detection, source, and telescope records should be staged
     for maintainer review before any ingestion/apply step
   - inherited dipole-moment placeholders have been resolved; new curation
@@ -386,7 +386,7 @@ astromol outputs --output-dir build/astromol_outputs --view current --formats pn
 # Selective standard outputs
 astromol list figures
 astromol figure cumulative_detections --view current --output cumulative_detections.pdf
-astromol table ism_tables --view 2026 --output-dir build/tables
+astromol table ism_tables --view current --output-dir build/tables
 astromol slide ism_molecule_slide --view current --output-dir build/slides --report
 
 # Docs
@@ -400,3 +400,22 @@ python scripts/update_data_baseline.py  # manual refresh outside staging
 python scripts/cleanup_stage.py --name example
 python scripts/cleanup_stage.py --name example --commit-message "Add example curation batch"
 ```
+
+## Accepted Review Decisions (2026-10-06)
+
+- The next census is still in preparation; its publication year is not a scientific
+  cutoff. Use `current` for working products; retain published 2018/2021 membership.
+  Do not invent a 2027 boundary. Existing 2026 history labels remain curated metadata.
+- Generate and review a preview before apply. Apply checks the preview and all
+  input fingerprints and preserves the reviewed date. After interrupted apply,
+  use `stage_records.py --recover <name>` before retrying.
+  After interrupted cleanup, use `cleanup_stage.py --name <name> --recover`.
+- The curation baseline contains membership, counts, numerical data, and warnings;
+  it must not render figures or snapshot current fonts, group layouts, or labels.
+- Pages, Read the Docs, and Colab continue following `refactor` until an explicitly
+  authorized future transition. Only the refactor push workflow publishes Pages,
+  after validation, tests, docs, and generation succeed.
+- Scientific-provenance concern #1 is deferred; no adopted scientific values are
+  changed by the accepted workflow remedies.
+- Commit/push permission given on 2026-10-06 applies to that session only. The
+  general rule requiring explicit permission in future sessions still applies.

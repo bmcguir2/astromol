@@ -1,5 +1,63 @@
 # astromol Codebase Review
 
+## Accepted Independent Review Remedies — 2026-10-06
+
+Implementation started from clean `refactor` commit `390f7e9`. Brett approved
+concerns #2–9, including the revised census, packaging, and publishing remedies,
+and explicitly deferred #1. The numbered concerns below refer to that independent
+review and its follow-up discussion; the older May review remains later in this
+file as a historical record.
+
+| Concern | Implemented remedy |
+| --- | --- |
+| #1 | Deferred. No scientific values, calculation notebooks, or scientific-method claims changed. |
+| #2 | Bundle generation checks inputs before replacement, builds in a sibling temporary directory, requires an ownership marker for nonempty destinations, and retains a recoverable replacement backup. Zip contents come from the generated inventory, excluding stale files retained by `--no-clean`. |
+| #3 | Preview fingerprints cover production data, bibliography, YAML, baseline, reviewed artifacts, code, and dependencies. Apply requires the reviewed preview and its date; it prepares JSON and baseline before replacement, with journals and rollback/recovery. Cleanup rejects unrelated staged paths and restores review artifacts on commit failure. |
+| #4 | Unknown raw staging fields, nonfinite spectroscopy, invalid rotational ordering, self relationships, and secure detections without acceptance history are rejected. Published boundaries remain 2018/2021; `2026` aliases `current`, and staging no longer assigns an unpublished census year automatically. Existing curated history is retained. |
+| #5.1 | Matplotlib >=3.10 and molmass >=2025.11.11 are required and tested at those exact floors on Python 3.11. |
+| #5.2 | Source archives include the maintained curator/check scripts, templates, tests and generated baseline, docs, and instructions. CI tests the extracted archive and verifies every maintained script's `--help`. |
+| #5.3 | Wheel/source package data explicitly lists four production JSON files and the bibliography. Active staging and generated review artifacts are excluded; archive-content checks enforce this. |
+| #6 | Bundles include a provenance manifest with revision/dirty state, code/data hashes, resolved versions, effective endpoint, settings, and product hashes. `--end-year` controls repeatable current analyses. Slide dates include selected detection/source/telescope history, and checkout credit lines show the git revision even with installed metadata. Historical membership alone does not restore earlier field values or guarantee identical rendering. |
+| #7 | Only `refactor` pushes publish Pages, after validation, tests, documentation, and generation pass. Check jobs are read-only; only the serialized Pages deployment receives Pages/identity write permissions. The live Pages environment was changed from its sole `main` deployment policy to its sole `refactor` policy; Read the Docs and Colab already follow refactor. A future main transition remains separate. |
+| #8 | Baseline schema 3 preserves scientific membership, counts, numerical results, and warnings without rendering or snapshotting current layout/font/text. Current regressions check coverage, uniqueness, grouping, syntax, and overflow; historical assertions remain. Independent synthetic/raw-record fixtures cover selection and review defects. |
+| #9 | Source/facility counting helpers are shared while filtered views retain their own selection. Figure exports are explicit; no broad figure-module split was performed. |
+
+Local verification:
+
+- Production validation: **0 errors, 0 warnings**. All five production data files
+  and supporting calculation notebooks are unchanged. Database totals remain
+  393 molecules, 541 detections, 97 sources, and 50 telescopes.
+- The regenerated baseline matches the checked-in file exactly. Existing shared
+  numerical/count expectations match the previous baseline; schema metadata and
+  current-view key names changed, and membership IDs were added.
+- Repository full suite: **109 passed** before the final recovery fixtures.
+  Extracted source archive full suite including those additions: **113 passed**.
+  Focused staging/invariant suite after atomic journal installation: **46 passed**.
+- Sphinx HTML build with `-W`: passed. All code cells in all four user notebooks
+  executed successfully locally, producing their figures, tables, slides, and zip.
+- Standard current PNG/PDF bundle: **78 products** generated. Both slide decks
+  inspected in native PowerPoint; metadata fits and inventories remain readable.
+  PPD data date now correctly includes the July 7 detection update.
+- Clean Python 3.11 wheel environment at both exact dependency floors: smoke
+  passed (Matplotlib's older floor emits upstream Pyparsing deprecation warnings).
+- Isolated wheel/source builds, Twine metadata, and distribution-content checks
+  passed, including injected dummy staging/preview exclusion checks. All six
+  maintained scripts support `--help` from the extracted archive. The installed
+  wheel validates and generates all 22 PNG figures outside the checkout at the
+  exact dependency floors; its manifest correctly has no Git revision and records
+  both dependency versions and the explicit 2026 analysis endpoint.
+- Workflow YAML, shell syntax, refactor publishing conditions, and deployment
+  permissions/concurrency checked locally. The generation workflow lets an active
+  publish finish; a shared deployment lock also serializes Pages jobs.
+
+Verification artifacts are disposable under
+`/private/tmp/astromol_remedies_8dwu0fn0` (build copy, archives, environments,
+notebook products, docs, and output bundle). Remove that directory after review;
+none of those artifacts belongs in a commit. No scientific staging batch was
+applied in this implementation session.
+
+## Earlier Review — 2026-05-13
+
 Date: 2026-05-13
 Baseline commit: `6783be5` (`Polish package release metadata`)
 

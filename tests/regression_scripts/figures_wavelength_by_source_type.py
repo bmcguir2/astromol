@@ -15,8 +15,8 @@ from astromol.figures import (
 
 
 db = Database()
-counts_2026 = load_production_baseline()["regression_counts"][
-    "figures_wavelength_by_source_type_2026"
+counts_current = load_production_baseline()["regression_counts"][
+    "figures_wavelength_by_source_type_current"
 ]
 view_2021 = CensusView.for_census(db, "2021")
 data_2021 = wavelength_by_source_type_data(view_2021)
@@ -29,10 +29,10 @@ assert data_2021.counts == {
     "sfr": {"cm": 31, "mm": 60, "sub-mm": 5, "IR": 0, "UV": 0, "Vis": 0},
 }
 
-view_2026 = CensusView.for_census(db, "2026")
-data_2026 = wavelength_by_source_type_data(view_2026)
-assert data_2026.molecule_count == counts_2026["molecule_count"]
-assert data_2026.counts == counts_2026["counts"]
+view_current = CensusView.current(db, end_year=load_production_baseline()["analysis_end_year"])
+data_current = wavelength_by_source_type_data(view_current)
+assert data_current.molecule_count == counts_current["molecule_count"]
+assert data_current.counts == counts_current["counts"]
 
 with TemporaryDirectory() as tmp:
     output_dir = Path(tmp)
@@ -73,7 +73,7 @@ with TemporaryDirectory() as tmp:
     assert output_path.stat().st_size > 0
 
     stacked_figure, stacked_ax = plot_wavelength_by_source_type_stacked_bar(
-        data_2026,
+        data_current,
     )
     assert stacked_ax.get_xlabel() == "First-detection wavelength credits (%)"
     assert [
@@ -89,9 +89,9 @@ with TemporaryDirectory() as tmp:
         text.get_text()
         for text in stacked_ax.texts
         if text.get_text().startswith("n=")
-    ] == counts_2026["stacked_n_labels"]
+    ] == [f"n={sum(c.count_for_display_wavelength(w) for w in ('cm', 'mm', 'sub-mm', 'IR', 'UV-Vis'))}" for k in ("dark_cloud", "carbon_star", "sfr", "diffuse_cloud") for c in data_current.categories if c.key == k]
     stacked_output_path = write_wavelength_by_source_type_stacked_bar(
-        data_2026,
+        data_current,
         output_dir / "waves_by_source_type_stacked_bar.pdf",
     )
     assert stacked_output_path.exists()

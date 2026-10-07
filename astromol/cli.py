@@ -11,7 +11,7 @@ os.environ.setdefault("MPLBACKEND", "Agg")
 
 from .census import CensusView
 from .database import Database
-from .outputs import DEFAULT_FORMATS, DEFAULT_OUTPUT_DIR, generate_standard_outputs
+from .outputs import DEFAULT_FORMATS, DEFAULT_OUTPUT_DIR, generate_standard_outputs, view_from_choice
 from .registry import FIGURE_OUTPUTS, SLIDE_OUTPUTS, TABLE_OUTPUTS, OutputContext
 
 
@@ -29,13 +29,10 @@ def _spec_by_name(specs: tuple[Any, ...], name: str) -> Any:
     raise ValueError(f"Unknown output name {name!r}. Valid names: {valid_names}")
 
 
-def _build_context(view_choice: str) -> OutputContext:
+def _build_context(view_choice: str, *, end_year: int | None = None) -> OutputContext:
     """Build an output context for one CLI invocation."""
     db = Database()
-    if view_choice == "current":
-        view = CensusView.current(db)
-    else:
-        view = CensusView.for_census(db, view_choice)
+    view = view_from_choice(db, view_choice, end_year=end_year)
     return OutputContext(
         view=view,
         view_choice=view_choice,
@@ -43,20 +40,20 @@ def _build_context(view_choice: str) -> OutputContext:
     )
 
 
-def write_figure(name: str, output_path: str | Path, *, view_choice: str = "current") -> Path:
+def write_figure(name: str, output_path: str | Path, *, view_choice: str = "current", end_year: int | None = None) -> Path:
     """Write one standard figure selected by registry name."""
     output_path = Path(output_path)
     output_path.parent.mkdir(parents=True, exist_ok=True)
-    context = _build_context(view_choice)
+    context = _build_context(view_choice, **({"end_year": end_year} if end_year is not None else {}))
     spec = _spec_by_name(FIGURE_OUTPUTS, name)
     return spec.write(context, output_path)
 
 
-def write_table(name: str, output_dir: str | Path, *, view_choice: str = "current") -> list[Path]:
+def write_table(name: str, output_dir: str | Path, *, view_choice: str = "current", end_year: int | None = None) -> list[Path]:
     """Write one standard table-fragment group selected by registry name."""
     output_dir = Path(output_dir)
     output_dir.mkdir(parents=True, exist_ok=True)
-    context = _build_context(view_choice)
+    context = _build_context(view_choice, **({"end_year": end_year} if end_year is not None else {}))
     spec = _spec_by_name(TABLE_OUTPUTS, name)
     return spec.write(context.view, output_dir)
 
@@ -67,11 +64,12 @@ def write_slide(
     *,
     view_choice: str = "current",
     include_report: bool = False,
+    end_year: int | None = None,
 ) -> list[Path]:
     """Write one standard slide deck selected by registry name."""
     output_dir = Path(output_dir)
     output_dir.mkdir(parents=True, exist_ok=True)
-    context = _build_context(view_choice)
+    context = _build_context(view_choice, **({"end_year": end_year} if end_year is not None else {}))
     spec = _spec_by_name(SLIDE_OUTPUTS, name)
 
     paths = [spec.write_slide(context, output_dir)]
@@ -128,7 +126,7 @@ def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
     figure_parser.add_argument(
         "--view",
         default="current",
-        help="View to generate: current or a census year such as 2026.",
+        help="View to generate: current, 2018, or 2021 (2026 is an alias for current).",
     )
 
     table_parser = subparsers.add_parser("table", help="Generate one standard table group.")
@@ -143,7 +141,7 @@ def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
     table_parser.add_argument(
         "--view",
         default="current",
-        help="View to generate: current or a census year such as 2026.",
+        help="View to generate: current, 2018, or 2021 (2026 is an alias for current).",
     )
 
     slide_parser = subparsers.add_parser("slide", help="Generate one standard slide deck.")
@@ -158,7 +156,7 @@ def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
     slide_parser.add_argument(
         "--view",
         default="current",
-        help="View to generate: current or a census year such as 2026.",
+        help="View to generate: current, 2018, or 2021 (2026 is an alias for current).",
     )
     slide_parser.add_argument(
         "--report",
@@ -179,7 +177,7 @@ def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
     outputs_parser.add_argument(
         "--view",
         default="current",
-        help="View to generate: current or a census year such as 2026.",
+        help="View to generate: current, 2018, or 2021 (2026 is an alias for current).",
     )
     outputs_parser.add_argument(
         "--formats",
@@ -190,7 +188,7 @@ def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
     outputs_parser.add_argument(
         "--no-clean",
         action="store_true",
-        help="Do not remove the output directory before generating files.",
+        help="Preserve other files in an owned output directory; archive only this run's products.",
     )
     outputs_parser.add_argument(
         "--skip-tables",
@@ -202,6 +200,9 @@ def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
         action="store_true",
         help="Skip PowerPoint slide generation.",
     )
+
+    for product_parser in (figure_parser, table_parser, slide_parser, outputs_parser):
+        product_parser.add_argument("--end-year", type=int, help="Explicit analysis endpoint for reproducible current outputs.")
 
     args = parser.parse_args(argv)
     if args.command == "figure" and not args.output.suffix:
@@ -218,12 +219,12 @@ def main(argv: list[str] | None = None) -> int:
         return 0
 
     if args.command == "figure":
-        path = write_figure(args.name, args.output, view_choice=args.view)
+        path = write_figure(args.name, args.output, view_choice=args.view, end_year=args.end_year)
         print(path)
         return 0
 
     if args.command == "table":
-        paths = write_table(args.name, args.output_dir, view_choice=args.view)
+        paths = write_table(args.name, args.output_dir, view_choice=args.view, end_year=args.end_year)
         for path in paths:
             print(path)
         return 0
@@ -234,6 +235,7 @@ def main(argv: list[str] | None = None) -> int:
             args.output_dir,
             view_choice=args.view,
             include_report=args.report,
+            end_year=args.end_year,
         )
         for path in paths:
             print(path)
@@ -247,6 +249,7 @@ def main(argv: list[str] | None = None) -> int:
             clean=not args.no_clean,
             include_tables=not args.skip_tables,
             include_slides=not args.skip_slides,
+            **({"end_year": args.end_year} if args.end_year is not None else {}),
         )
         print(f"Generated {len(products)} product(s) in {args.output_dir}")
         return 0

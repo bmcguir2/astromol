@@ -166,10 +166,11 @@ tables, source/facility counts, and other standard census products. Pass
 the same census/context query. This option is available for all census scopes
 and all detection contexts.
 
-Before the 2026 census cutoff, `CensusView.for_census(db, "2026")` and
-`CensusView.current(db)` should return the same secure accepted detection sets
-under the same isotopologue setting. After the 2026 census is frozen, they may
-diverge as new post-2026 records are added to the live database.
+Only 2018 and 2021 are published census boundaries. The next census is still
+being curated, and its eventual publication year does not define membership.
+`CensusView.for_census(db, "2026")` is a compatibility alias for
+`CensusView.current(db)`. A future published census will need an explicitly
+reviewed boundary; the calendar rolling into 2027 does not create one.
 
 Tentative and disputed detections are excluded by default. They can be included
 for historical reproduction or review with `include_tentative=True` and
@@ -476,11 +477,11 @@ fail clearly so the layout can be retuned.
 
 Slide metadata separates software traceability from data currency. The
 top-right credit block reports the installed `astromol` package version when
-package metadata are available. When the package is run directly from a
-development checkout, it reports `development` plus the current git short hash
-and a dirty marker if the checkout has uncommitted changes. The molecule-count
-footer reports the latest curated-record modification date from the selected
-view and is not a package version.
+package metadata are available, together with the git short hash and dirty
+marker whenever a development checkout is present. Without installed metadata,
+it reports `development` plus the git information. The molecule-count footer
+reports the latest modification date across the selected molecules, detections,
+sources, and telescopes; it is not a package version.
 
 `write_ppd_detection_slide` is the PPD-focused slide product. It uses the same
 selection/layout/rendering machinery as the ISM/CSM molecule slide but selects
@@ -505,8 +506,8 @@ dependencies. The base install includes the database loader, census views,
 models, LaTeX/table helpers, figure generation, PowerPoint slide generation,
 and bundled production data files. Output generation is a core package
 capability, so its dependencies are installed by default. YAML curation
-templates and staging scripts are contributor-facing source-checkout tools until
-they are promoted into a packaged CLI. Optional extras are limited to
+templates and staging scripts are contributor-facing tools included in Git
+checkouts and source archives, rather than the runtime wheel. Optional extras are limited to
 contributor-oriented tooling:
 
 - `docs`: Sphinx/Read the Docs build dependencies
@@ -997,3 +998,60 @@ For a complete dataset:
 - molecule, source, telescope, and reference cross-references resolve
 - molecule labels, source nicks, telescope nicks, and BibTeX keys are unique
 - all `refs` entries use valid role names
+
+## Accepted Review Remedies (2026-10-06)
+
+The published boundaries remain 2018 and 2021. `current` is the working inventory
+for the next unpublished census. The legacy `2026` view is a compatibility alias
+for current, including opt-in tentative/disputed records with introduction dates
+and no census label. New staged history uses dates and contexts without assigning
+a prospective publication-year boundary. Existing scientific history is retained.
+Historical membership selection does not restore earlier scientific field values;
+exact reproduction requires the original revision and dependency environment.
+
+`CensusView.current(db, end_year=...)` supplies an explicit analysis endpoint to
+rate/scalar/figure generation, also available as `--end-year` in both output CLIs.
+Without it, current uses the calendar year. This is an analysis range, not a
+membership cutoff. Bundles carry `manifest.json` with source/data/code hashes,
+resolved versions, settings, product inventory/hashes, and the effective endpoint.
+Selected detection, source, and telescope changes contribute to slide update dates.
+
+Bundle generation validates first and builds in a sibling temporary directory.
+Only empty or owned destinations may be replaced; `.astromol-output-bundle`
+identifies ownership. Replacement keeps a recoverable sibling backup until
+installation succeeds. Archives use the generated file inventory, including the
+manifest and landing page, instead of recursively collecting stale files.
+
+Curation previews contain the complete proposed baseline and fingerprints of all
+reviewed inputs, artifacts, code, and dependencies. Apply requires that preview,
+retains its date, and checks equivalence before replacing production files. A
+complete journal and backups under `astromol/data/.<name>.apply-backup` precede
+file replacement. Exceptions roll back; interrupted runs require
+`stage_records.py --recover <name>`, which rejects subsequent file edits. An
+applied report/manifest is written only as part of the completed transaction.
+Cleanup rejects unrelated staged changes and restores review artifacts on commit
+failure, while push failures preserve already-committed cleanup. Interrupted
+cleanup keeps its journal under `astromol/data/.<name>.cleanup-backup`; recover
+with `cleanup_stage.py --name <name> --recover` before starting another cleanup.
+
+Baseline schema 3 stores reviewed membership IDs, counts, numerical summaries,
+warnings, and a stable analysis endpoint. It does not render figures or capture
+current font/layout/text snapshots. Historical reproduction assertions remain;
+current products use grouping, syntax, status, uniqueness, and overflow checks,
+with independent raw-record and synthetic selection fixtures.
+
+Packaging lists the four production JSON files and bibliography explicitly. Source
+archives include maintained scripts, tests and baseline, docs, curator templates,
+and instructions while excluding active staging and preview artifacts. Dependency
+floors are Matplotlib 3.10 and molmass 2025.11.11, with an exact-floor CI smoke test
+on Python 3.11 and extracted-source/wheel checks.
+
+Pages publishes only refactor pushes after validation, tests, docs, and generation.
+Check jobs have `contents: read`; only the serialized Pages deployment receives
+Pages/identity write permissions. Read the Docs, Colab, main, and development
+remain on their existing arrangement; a future main transition is separate.
+
+Verification artifacts for these remedies are disposable and live under
+`/private/tmp/astromol_remedies_8dwu0fn0`; remove that directory after review.
+No scientific curation batch is applied as part of these code changes. Concern #1
+remains deferred.

@@ -13,8 +13,8 @@ from astromol.figures import (
 
 
 db = Database()
-counts_2026 = load_production_baseline()["regression_counts"][
-    "figures_kappas_2026"
+counts_current = load_production_baseline()["regression_counts"][
+    "figures_kappas_current"
 ]
 view_2021 = CensusView.for_census(db, "2021")
 data_2021 = kappa_histogram_data(view_2021)
@@ -36,12 +36,12 @@ assert data_2021.histogram_counts()[:10].tolist() == [
     1,
 ]
 
-view_2026 = CensusView.for_census(db, "2026")
-data_2026 = kappa_histogram_data(view_2026)
-assert data_2026.molecule_count == counts_2026["molecule_count"]
-assert data_2026.min_kappa == -1.0
-assert data_2026.max_kappa == 1.0
-assert data_2026.histogram_counts().max() == counts_2026["histogram_max"]
+view_current = CensusView.current(db, end_year=load_production_baseline()["analysis_end_year"])
+data_current = kappa_histogram_data(view_current)
+assert data_current.molecule_count == counts_current["molecule_count"]
+assert data_current.min_kappa == -1.0
+assert data_current.max_kappa == 1.0
+assert data_current.histogram_counts().max() == counts_current["histogram_max"]
 
 with TemporaryDirectory() as tmp:
     output_dir = Path(tmp)

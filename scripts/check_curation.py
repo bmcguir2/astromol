@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import os
+import argparse
 from pathlib import Path
 import subprocess
 import sys
@@ -41,6 +42,7 @@ def _check_environment() -> dict[str, str]:
 
 
 def main() -> int:
+    argparse.ArgumentParser(description=__doc__).parse_args()
     env = _check_environment()
     for label, command in CHECKS:
         print(f"\n==> {label}", flush=True)

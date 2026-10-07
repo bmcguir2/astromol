@@ -19,11 +19,11 @@ def rows_by_label(data):
 
 
 db = Database()
-counts_2026 = load_production_baseline()["regression_counts"][
-    "figures_scopes_by_year_2026"
+counts_current = load_production_baseline()["regression_counts"][
+    "figures_scopes_by_year_current"
 ]
 view_2021 = CensusView.for_census(db, "2021")
-view_2026 = CensusView.for_census(db, "2026")
+view_current = CensusView.current(db, end_year=load_production_baseline()["analysis_end_year"])
 
 data_2021 = scopes_by_year_data(view_2021)
 rows_2021 = rows_by_label(data_2021)
@@ -50,12 +50,12 @@ assert rows_2021["NRAO 36-ft"].fit_stop_year == 1985
 assert rows_2021["Nobeyama 45-m"].fit_stop_year == 1997
 assert rows_2021["NRAO 140-ft"].fit_stop_year == 1993
 
-data_2026 = scopes_by_year_data(view_2026)
-rows_2026 = rows_by_label(data_2026)
-assert data_2026.end_year == 2026
-assert rows_2026["Yebes 40-m"].final_count == counts_2026["yebes_final_count"]
-assert round(rows_2026["Yebes 40-m"].rate, 1) == counts_2026["yebes_rate_rounded"]
-assert "ALMA" in rows_2026
+data_current = scopes_by_year_data(view_current)
+rows_current = rows_by_label(data_current)
+assert data_current.end_year == 2026
+assert rows_current["Yebes 40-m"].final_count == counts_current["yebes_final_count"]
+assert round(rows_current["Yebes 40-m"].rate, 1) == counts_current["yebes_rate_rounded"]
+assert "ALMA" in rows_current
 
 with TemporaryDirectory() as tmp:
     output_dir = Path(tmp)
@@ -73,7 +73,7 @@ with TemporaryDirectory() as tmp:
     assert any(text.get_text() == "2.2/yr" for text in ax.texts)
     assert any(text.get_text() == "(1967 - 1985)" for text in ax.texts)
 
-    modern_figure, modern_ax = plot_scopes_by_year(data_2026, style="modern")
+    modern_figure, modern_ax = plot_scopes_by_year(data_current, style="modern")
     yebes_lines = [
         line
         for line in modern_ax.lines
@@ -99,7 +99,7 @@ with TemporaryDirectory() as tmp:
     assert output_path.stat().st_size > 0
 
     modern_output_path = write_scopes_by_year_plot(
-        data_2026,
+        data_current,
         output_dir / "scopes_by_year_modern.pdf",
         style="modern",
     )

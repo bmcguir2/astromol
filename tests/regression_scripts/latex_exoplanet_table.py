@@ -14,9 +14,9 @@ from baseline import load_production_baseline
 
 db = Database()
 view_2021 = CensusView.for_census(db, "2021")
-view_2026 = CensusView.for_census(db, "2026")
-counts_2026 = load_production_baseline()["regression_counts"][
-    "latex_exoplanet_table_2026"
+view_current = CensusView.current(db, end_year=load_production_baseline()["analysis_end_year"])
+counts_current = load_production_baseline()["regression_counts"][
+    "latex_exoplanet_table_current"
 ]
 
 detections_2021 = exoplanet_table_detections(view_2021)
@@ -55,36 +55,36 @@ with TemporaryDirectory() as tmp:
     assert write_exoplanet_table(view_2021, output_dir) == fragments_2021
     assert (output_dir / "exo_table.tex").read_text() == content_2021
 
-detections_2026 = exoplanet_table_detections(view_2026)
-assert len(detections_2026) == counts_2026["detections"]
-assert all(detection.molecule.isotopologue_of is None for detection in detections_2026)
+detections_current = exoplanet_table_detections(view_current)
+assert len(detections_current) == counts_current["detections"]
+assert all(detection.molecule.isotopologue_of is None for detection in detections_current)
 
-content_2026 = exoplanet_table_fragments(view_2026)["exo_table.tex"]
-linked_labels_2026 = re.findall(r"\\molref\{(mol:[^}]+)\}", content_2026)
-assert len(linked_labels_2026) == counts_2026["linked_labels"]
-assert len(linked_labels_2026) == len(set(linked_labels_2026))
-assert set(linked_labels_2026) == {
+content_current = exoplanet_table_fragments(view_current)["exo_table.tex"]
+linked_labels_current = re.findall(r"\\molref\{(mol:[^}]+)\}", content_current)
+assert len(linked_labels_current) == counts_current["linked_labels"]
+assert len(linked_labels_current) == len(set(linked_labels_current))
+assert set(linked_labels_current) == {
     detection.molecule.label
-    for detection in detections_2026
+    for detection in detections_current
 }
-assert "mol:13CO" not in linked_labels_2026
-assert "mol:CH3D" not in linked_labels_2026
+assert "mol:13CO" not in linked_labels_current
+assert "mol:CH3D" not in linked_labels_current
 
-isotope_detections_2026 = exoplanet_table_detections(
-    view_2026,
+isotope_detections_current = exoplanet_table_detections(
+    view_current,
     include_isotopologues=True,
 )
-assert len(isotope_detections_2026) == counts_2026["detections_with_isotopologues"]
+assert len(isotope_detections_current) == counts_current["detections_with_isotopologues"]
 assert sum(
     detection.molecule.isotopologue_of is not None
-    for detection in isotope_detections_2026
-) == counts_2026["isotopologue_detections"]
+    for detection in isotope_detections_current
+) == counts_current["isotopologue_detections"]
 
-isotope_content_2026 = exoplanet_table_fragments(
-    view_2026,
+isotope_content_current = exoplanet_table_fragments(
+    view_current,
     include_isotopologues=True,
 )["exo_table.tex"]
-assert r"\molref{mol:13CO}{^{13}CO}" in isotope_content_2026
-assert r"\molref{mol:CH3D}{CH3D}" in isotope_content_2026
+assert r"\molref{mol:13CO}{^{13}CO}" in isotope_content_current
+assert r"\molref{mol:CH3D}{CH3D}" in isotope_content_current
 
 print("LaTeX exoplanet table verification passed")

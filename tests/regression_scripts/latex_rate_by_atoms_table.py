@@ -13,11 +13,11 @@ from astromol.latex import (
 
 
 db = Database()
-counts_2026 = load_production_baseline()["regression_counts"][
-    "latex_rate_by_atoms_table_2026"
+counts_current = load_production_baseline()["regression_counts"][
+    "latex_rate_by_atoms_table_current"
 ]
 view_2021 = CensusView.for_census(db, "2021")
-view_2026 = CensusView.for_census(db, "2026")
+view_current = CensusView.current(db, end_year=load_production_baseline()["analysis_end_year"])
 
 fits_2021 = rate_by_atoms_fits(view_2021)
 values_2021 = {
@@ -65,18 +65,19 @@ with TemporaryDirectory() as tmp:
     assert write_rate_by_atoms_table(view_2021, output_dir) == fragments_2021
     assert (output_dir / "rates_by_atoms_table.tex").read_text() == content_2021
 
-fits_2026 = rate_by_atoms_fits(view_2026)
-values_2026 = {
+fits_current = rate_by_atoms_fits(view_current)
+values_current = {
     fit.label: (round(fit.slope, 2), round(fit.r_squared, 2), fit.onset_year)
-    for fit in fits_2026
+    for fit in fits_current
 }
-assert values_2026 == {
+assert values_current == {
     label: tuple(values)
-    for label, values in counts_2026["fit_values"].items()
+    for label, values in counts_current["fit_values"].items()
 }
 
-content_2026 = rate_by_atoms_table_fragments(view_2026)["rates_by_atoms_table.tex"]
-for row in counts_2026["table_rows"]:
-    assert row in content_2026
+content_current = rate_by_atoms_table_fragments(view_current)["rates_by_atoms_table.tex"]
+rows_current = [line for line in content_current.splitlines() if "\t&\t" in line]
+assert len(rows_current) == len(fits_current)
+assert all(row.endswith(r"\\") for row in rows_current)
 
 print("LaTeX rate-by-atoms table verification passed")

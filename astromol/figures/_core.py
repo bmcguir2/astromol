@@ -1579,7 +1579,7 @@ def cumulative_by_atoms_data(
     if start_year is None:
         start_year = min(detection.year for detection in first_detections.values())
     if end_year is None:
-        end_year = view.census_year if not view.is_current else date.today().year
+        end_year = view.end_year
     if end_year < start_year:
         raise ValueError("end_year must be greater than or equal to start_year.")
 
@@ -2518,7 +2518,7 @@ def detection_rate_by_atoms_data(
     This matches the legacy ``det_per_year_per_atom`` figure definition.
     """
     if end_year is None:
-        end_year = view.census_year if not view.is_current else date.today().year
+        end_year = view.end_year
 
     first_detections = first_detections_by_molecule(
         view,
@@ -2584,7 +2584,7 @@ def facility_share_data(
     preserved when ``use_legacy_2021_selection`` is true.
     """
     if end_year is None:
-        end_year = view.census_year if not view.is_current else date.today().year
+        end_year = view.end_year
 
     first_detections = list(
         first_detections_by_molecule(
@@ -2683,7 +2683,7 @@ def scopes_by_year_data(
 ) -> ScopesByYearData:
     """Return cumulative facility first-detection contributions by year."""
     if end_year is None:
-        end_year = view.census_year if not view.is_current else date.today().year
+        end_year = view.end_year
     if end_year < start_year:
         raise ValueError("end_year must be greater than or equal to start_year.")
 
@@ -2880,7 +2880,7 @@ def cumulative_detection_data(
     for current views, it is the current calendar year.
     """
     if end_year is None:
-        end_year = view.census_year if not view.is_current else date.today().year
+        end_year = view.end_year
 
     first_years = first_detection_years_by_molecule(
         view,

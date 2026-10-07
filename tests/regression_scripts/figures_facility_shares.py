@@ -1,3 +1,4 @@
+from baseline import load_production_baseline
 from pathlib import Path
 from tempfile import TemporaryDirectory
 
@@ -21,7 +22,7 @@ def rows_by_nick(data):
 
 db = Database()
 view_2021 = CensusView.for_census(db, "2021")
-view_2026 = CensusView.for_census(db, "2026")
+view_current = CensusView.current(db, end_year=load_production_baseline()["analysis_end_year"])
 
 data_2021 = facility_share_data(view_2021)
 assert data_2021.end_year == 2021
@@ -61,9 +62,9 @@ assert "Nobeyama45" in modern_selection_nicks
 assert "Herschel" not in modern_selection_nicks
 assert set(LEGACY_2021_FACILITY_SHARE_NICKS) - modern_selection_nicks == {"Herschel"}
 
-data_2026 = facility_share_data(view_2026)
-assert data_2026.end_year == 2026
-assert "Nobeyama45" in {facility.nick for facility in data_2026.facilities}
+data_current = facility_share_data(view_current)
+assert data_current.end_year == 2026
+assert "Nobeyama45" in {facility.nick for facility in data_current.facilities}
 
 with TemporaryDirectory() as tmp:
     output_dir = Path(tmp)

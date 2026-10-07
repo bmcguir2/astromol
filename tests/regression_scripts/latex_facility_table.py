@@ -13,11 +13,11 @@ from astromol.latex import (
 
 
 db = Database()
-counts_2026 = load_production_baseline()["regression_counts"][
-    "latex_facility_table_2026"
+counts_current = load_production_baseline()["regression_counts"][
+    "latex_facility_table_current"
 ]
 view_2021 = CensusView.for_census(db, "2021")
-view_2026 = CensusView.for_census(db, "2026")
+view_current = CensusView.current(db, end_year=load_production_baseline()["analysis_end_year"])
 
 entries_2021 = facility_table_entries(view_2021)
 assert len(entries_2021) == 46
@@ -45,17 +45,17 @@ with TemporaryDirectory() as tmp:
     assert write_facility_table(view_2021, output_dir) == fragments_2021
     assert (output_dir / "facilities_table.tex").read_text() == content_2021
 
-entries_2026 = facility_table_entries(view_2026)
-assert len(entries_2026) == counts_2026["entries"]
-assert sum(count for _, count in entries_2026) == counts_2026["credited_detections"]
-assert entries_2026[:5] == [
-    tuple(entry) for entry in counts_2026["top_entries"]
+entries_current = facility_table_entries(view_current)
+assert len(entries_current) == counts_current["entries"]
+assert sum(count for _, count in entries_current) == counts_current["credited_detections"]
+assert entries_current[:5] == [
+    tuple(entry) for entry in counts_current["top_entries"]
 ]
 
-content_2026 = facility_table_fragments(view_2026)["facilities_table.tex"]
-top_facility, top_facility_count = counts_2026["top_entries"][0]
-assert f"{top_facility}\t&\t{top_facility_count}\t&" in content_2026
-split_at = (len(entries_2026) + 1) // 2
-assert content_2026.count(r"\\") == split_at + 1
+content_current = facility_table_fragments(view_current)["facilities_table.tex"]
+top_facility, top_facility_count = counts_current["top_entries"][0]
+assert f"{top_facility}\t&\t{top_facility_count}\t&" in content_current
+split_at = (len(entries_current) + 1) // 2
+assert content_current.count(r"\\") == split_at + 1
 
 print("LaTeX facility table verification passed")

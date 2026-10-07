@@ -17,9 +17,9 @@ from astromol.latex import (
 
 db = Database()
 view_2021 = CensusView.for_census(db, "2021")
-view_2026 = CensusView.for_census(db, "2026")
-counts_2026 = load_production_baseline()["regression_counts"][
-    "latex_exgal_table_2026"
+view_current = CensusView.current(db, end_year=load_production_baseline()["analysis_end_year"])
+counts_current = load_production_baseline()["regression_counts"][
+    "latex_exgal_table_current"
 ]
 
 assert exgal_table_atom_groups(view_2021) == [(2, 3, 4, 5), (6, 7, 8, 9, 12)]
@@ -67,34 +67,34 @@ with TemporaryDirectory() as tmp:
     assert write_exgal_table(view_2021, output_dir) == fragments_2021
     assert (output_dir / "exgal_table.tex").read_text() == content_2021
 
-detections_2026 = exgal_table_detections(view_2026)
-assert len(detections_2026) == counts_2026["detections"]
+detections_current = exgal_table_detections(view_current)
+assert len(detections_current) == counts_current["detections"]
 assert sum(
-    detection.status == "secure" for detection in detections_2026
-) == counts_2026["secure_detections"]
+    detection.status == "secure" for detection in detections_current
+) == counts_current["secure_detections"]
 assert sum(
-    detection.status == "tentative" for detection in detections_2026
-) == counts_2026["tentative_detections"]
-assert all(detection.molecule.isotopologue_of is None for detection in detections_2026)
-assert all(detection.refs.get("observation") for detection in detections_2026)
+    detection.status == "tentative" for detection in detections_current
+) == counts_current["tentative_detections"]
+assert all(detection.molecule.isotopologue_of is None for detection in detections_current)
+assert all(detection.refs.get("observation") for detection in detections_current)
 
-content_2026 = exgal_table_fragments(view_2026)["exgal_table.tex"]
-linked_labels_2026 = re.findall(r"\\molref\{(mol:[^}]+)\}", content_2026)
-assert len(linked_labels_2026) == counts_2026["linked_labels"]
-assert len(linked_labels_2026) == len(set(linked_labels_2026))
-assert set(linked_labels_2026) == {
+content_current = exgal_table_fragments(view_current)["exgal_table.tex"]
+linked_labels_current = re.findall(r"\\molref\{(mol:[^}]+)\}", content_current)
+assert len(linked_labels_current) == counts_current["linked_labels"]
+assert len(linked_labels_current) == len(set(linked_labels_current))
+assert set(linked_labels_current) == {
     detection.molecule.label
-    for detection in detections_2026
+    for detection in detections_current
 }
-observation_bibcodes_2026 = {
+observation_bibcodes_current = {
     ref.bibcode
-    for detection in detections_2026
+    for detection in detections_current
     for ref in detection.refs.get("observation", [])
 }
-assert len(observation_bibcodes_2026) == counts_2026["observation_references"]
-assert content_2026.count(r"\citet{") == counts_2026["observation_references"]
-assert content_2026.count(r"$^{\dagger}$") == (
-    counts_2026["tentative_detections"] + 1
+assert len(observation_bibcodes_current) == counts_current["observation_references"]
+assert content_current.count(r"\citet{") == counts_current["observation_references"]
+assert content_current.count(r"$^{\dagger}$") == (
+    counts_current["tentative_detections"] + 1
 )
 
 print("LaTeX exgal table verification passed")

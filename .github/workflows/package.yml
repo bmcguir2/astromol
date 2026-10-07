@@ -11,6 +11,9 @@ concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
 
+permissions:
+  contents: read
+
 jobs:
   build-install-check:
     name: Build and install package
@@ -42,6 +45,18 @@ jobs:
       - name: Check package metadata
         run: python -m twine check dist/*
 
+      - name: Check distribution contents
+        run: python scripts/check_distribution.py dist/*
+
+      - name: Extract and test the source archive
+        run: |
+          python -m pip install -e ".[dev]"
+          mkdir -p /tmp/astromol-sdist-check
+          tar -xzf dist/*.tar.gz -C /tmp/astromol-sdist-check
+          cd /tmp/astromol-sdist-check/astromol-*
+          for script in scripts/*.py; do python "$script" --help; done
+          python -m pytest
+
       - name: Create clean wheel-test environment
         run: |
           python -m venv /tmp/astromol-wheel-check
@@ -69,4 +84,3 @@ jobs:
             --formats png \
             --skip-slides \
             --skip-tables
-

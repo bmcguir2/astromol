@@ -1,3 +1,4 @@
+from rendering_assertions import boxplot_labels
 from pathlib import Path
 from tempfile import TemporaryDirectory
 
@@ -15,8 +16,8 @@ from astromol.figures import (
 
 
 db = Database()
-counts_2026 = load_production_baseline()["regression_counts"][
-    "figures_relative_du_by_source_type_2026"
+counts_current = load_production_baseline()["regression_counts"][
+    "figures_relative_du_by_source_type_current"
 ]
 view_2021 = CensusView.for_census(db, "2021")
 data_2021 = relative_du_by_source_type_data(view_2021)
@@ -38,10 +39,10 @@ assert {
     "sfr": (-0.5, 1.0),
 }
 
-view_2026 = CensusView.for_census(db, "2026")
-data_2026 = relative_du_by_source_type_data(view_2026)
-assert data_2026.molecule_count == counts_2026["molecule_count"]
-assert data_2026.counts == counts_2026["counts"]
+view_current = CensusView.current(db, end_year=load_production_baseline()["analysis_end_year"])
+data_current = relative_du_by_source_type_data(view_current)
+assert data_current.molecule_count == counts_current["molecule_count"]
+assert data_current.counts == counts_current["counts"]
 
 with TemporaryDirectory() as tmp:
     output_dir = Path(tmp)
@@ -70,7 +71,7 @@ with TemporaryDirectory() as tmp:
     assert output_path.exists()
     assert output_path.stat().st_size > 0
 
-    box_figure, box_ax = plot_relative_du_by_source_type_boxplot(data_2026)
+    box_figure, box_ax = plot_relative_du_by_source_type_boxplot(data_current)
     assert box_ax.get_xlabel() == "Relative Degree of Unsaturation"
     assert box_ax.get_xlim()[0] < 0
     assert [
@@ -86,10 +87,10 @@ with TemporaryDirectory() as tmp:
         text.get_text()
         for text in box_ax.texts
         if text.get_text()
-    ] == counts_2026["boxplot_n_labels"]
+    ] == boxplot_labels(data_current, 'values')
 
     box_output_path = write_relative_du_by_source_type_boxplot(
-        data_2026,
+        data_current,
         output_dir / "relative_du_by_source_type_boxplot.pdf",
     )
     assert box_output_path.exists()

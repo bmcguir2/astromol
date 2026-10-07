@@ -5,6 +5,7 @@ from __future__ import annotations
 from dataclasses import dataclass, field
 from datetime import date
 import numbers
+import math
 
 from .database import Database
 from .models import DETECTION_RELATION_FIELDS
@@ -115,6 +116,10 @@ def _validate_detection_relationship_reciprocals(
         for field_name in DETECTION_RELATION_FIELDS:
             reciprocal_name = RELATION_RECIPROCALS[field_name]
             for target_id in getattr(detection, field_name):
+                if target_id == detection.id:
+                    report.add("error", "relationship-self", detection.id,
+                               f"{field_name} must not link a detection to itself.")
+                    continue
                 target = db.detections_by_id[target_id]
                 if detection.id not in getattr(target, reciprocal_name):
                     report.add(
@@ -139,6 +144,16 @@ def _validate_history(db: Database, report: ValidationReport) -> None:
         for record in records:
             record_id = getattr(record, "label", None) or getattr(record, "id", None) or getattr(record, "nick", "")
             history = getattr(record, "history", None)
+            if kind == "detection" and record.status == "secure" and (
+                history is None or not history.accepted
+            ):
+                report.add("error", "history-secure-acceptance", record_id,
+                           "Secure detections require history.accepted to enter current inventories.")
+            if kind == "detection" and record.status != "secure" and (
+                history is None or not history.introduced
+            ):
+                report.add("error", "history-introduction", record_id,
+                           "Tentative/disputed detections require history.introduced.")
             if history is None:
                 if kind in {"molecule", "detection"}:
                     report.add(
@@ -149,8 +164,13 @@ def _validate_history(db: Database, report: ValidationReport) -> None:
                     )
                 continue
 
-            introduced = _census_int(history.introduced_census)
-            accepted = _census_int(history.accepted_census)
+            try:
+                introduced = _census_int(history.introduced_census)
+                accepted = _census_int(history.accepted_census)
+            except (ValueError, TypeError):
+                report.add("error", "history-census", record_id,
+                           "History census labels must be numeric years or null.")
+                continue
             if accepted is not None and introduced is not None and accepted < introduced:
                 report.add(
                     "error",
@@ -192,9 +212,21 @@ def _validate_spectroscopy_values(db: Database, report: ValidationReport) -> Non
                         molecule.label,
                         f"rotcon.{component} must be numeric or null; found {value!r}.",
                     )
+                elif value is not None and not math.isfinite(value):
+                    report.add("error", "rotcon-nonfinite", molecule.label,
+                               f"rotcon.{component} must be finite.")
+            constants = [getattr(molecule.rotcon, component) for component in ("A", "B", "C")]
+            if all(_is_number(v) and math.isfinite(v) for v in constants):
+                a, b, c = constants
+                if not (a >= b >= c >= 0):
+                    report.add("error", "rotcon-order", molecule.label,
+                               "Rotational constants must satisfy A >= B >= C >= 0 (kappa in [-1, 1]).")
         if molecule.dipole is not None:
             for component in ("a", "b", "c"):
                 value = getattr(molecule.dipole, component)
+                if _is_number(value) and not math.isfinite(value):
+                    report.add("error", "dipole-nonfinite", molecule.label,
+                               f"dipole.{component} must be finite.")
                 if value is None or _is_number(value):
                     continue
                 severity = "warning" if value == "*" else "error"

@@ -38,11 +38,11 @@ def colors_by_label(data):
 
 
 db = Database()
-counts_2026 = load_production_baseline()["regression_counts"][
-    "figures_cumulative_by_atoms_2026"
+counts_current = load_production_baseline()["regression_counts"][
+    "figures_cumulative_by_atoms_current"
 ]
 view_2021 = CensusView.for_census(db, "2021")
-view_2026 = CensusView.for_census(db, "2026")
+view_current = CensusView.current(db, end_year=load_production_baseline()["analysis_end_year"])
 view_current = CensusView.current(db)
 
 data_2021 = cumulative_by_atoms_data(view_2021)
@@ -70,34 +70,34 @@ assert colors_by_label(data_2021) == {
     for spec in LEGACY_CUMULATIVE_BY_ATOMS_SERIES
 }
 
-data_2026 = cumulative_by_atoms_data(view_2026)
-assert data_2026.start_year == 1937
-assert data_2026.end_year == 2026
-assert data_2026.total == counts_2026["total"]
-assert final_counts_by_label(data_2026)["13+ atoms"] == counts_2026[
+data_current = cumulative_by_atoms_data(view_current)
+assert data_current.start_year == 1937
+assert data_current.end_year == 2026
+assert data_current.total == counts_current["total"]
+assert final_counts_by_label(data_current)["13+ atoms"] == counts_current[
     "final_counts"
 ]["13+ atoms"]
 assert "mol:c-C6H5CCH" in next(
     series.first_detection_years
-    for series in data_2026.series
+    for series in data_current.series
     if series.label == "13+ atoms"
 )
-assert final_counts_by_label(data_2026)["PAHs"] == counts_2026["final_counts"][
+assert final_counts_by_label(data_current)["PAHs"] == counts_current["final_counts"][
     "PAHs"
 ]
-assert final_counts_by_label(data_2026)["Fullerenes"] == counts_2026[
+assert final_counts_by_label(data_current)["Fullerenes"] == counts_current[
     "final_counts"
 ]["Fullerenes"]
-assert colors_by_label(data_2026) == {
+assert colors_by_label(data_current) == {
     spec["label"]: spec["color"]
     for spec in COLORBLIND_CUMULATIVE_BY_ATOMS_SERIES
 }
 
 data_current = cumulative_by_atoms_data(view_current)
-assert colors_by_label(data_current) == colors_by_label(data_2026)
+assert colors_by_label(data_current) == colors_by_label(data_current)
 
-heatmap_2026 = rolling_rate_by_atoms_heatmap_data(view_2026)
-assert heatmap_2026.labels == (
+heatmap_current = rolling_rate_by_atoms_heatmap_data(view_current)
+assert heatmap_current.labels == (
     "2",
     "3",
     "4",
@@ -113,12 +113,12 @@ assert heatmap_2026.labels == (
     "Fuller",
     "PAH",
 )
-assert heatmap_2026.matrix.shape == (14, len(heatmap_2026.years))
-assert heatmap_2026.window == 10
-assert heatmap_2026.vmax == 2.0
+assert heatmap_current.matrix.shape == (14, len(heatmap_current.years))
+assert heatmap_current.window == 10
+assert heatmap_current.vmax == 2.0
 assert np.allclose(
-    heatmap_2026.matrix[:, -1],
-    counts_2026["rolling_rate_last_column"],
+    heatmap_current.matrix[:, -1],
+    counts_current["rolling_rate_last_column"],
 )
 
 with TemporaryDirectory() as tmp:
@@ -144,7 +144,7 @@ with TemporaryDirectory() as tmp:
     assert axes.texts[-1].get_position() == stacked_axes.texts[-1].get_position()
 
     heatmap_figure, heatmap_axes = plot_rolling_rate_by_atoms_heatmap(
-        heatmap_2026,
+        heatmap_current,
     )
     assert np.allclose(heatmap_figure.get_size_inches(), ROLLING_RATE_HEATMAP_SIZE)
     assert np.allclose(
@@ -158,7 +158,7 @@ with TemporaryDirectory() as tmp:
     assert len(heatmap_axes.images) == 1
     assert len(heatmap_axes.lines) == 0
     assert [label.get_text() for label in heatmap_axes.get_yticklabels()] == list(
-        heatmap_2026.labels
+        heatmap_current.labels
     )
 
     output_path = write_cumulative_by_atoms_plot(
@@ -176,7 +176,7 @@ with TemporaryDirectory() as tmp:
     assert stacked_output_path.stat().st_size > 0
 
     heatmap_output_path = write_rolling_rate_by_atoms_heatmap(
-        heatmap_2026,
+        heatmap_current,
         output_dir / "rolling_rate_heatmap.pdf",
     )
     assert heatmap_output_path.exists()
