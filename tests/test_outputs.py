@@ -158,7 +158,7 @@ def test_generate_standard_outputs_uses_registry_specs(monkeypatch, tmp_path: Pa
     assert "LaTeX Tables" not in index_html
     assert "Demo table" not in index_html
     assert "tables/selected_demo_table.tex" not in index_html
-    assert "The latest set of standard downloads generated from the selected census view." in index_html
+    assert "Download census figures and slides from the astromol database." in index_html
     assert "registry-driven" not in index_html
     assert "Demo figure" in index_html
     assert "Demo ISM slide" in index_html

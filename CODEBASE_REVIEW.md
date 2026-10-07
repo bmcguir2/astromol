@@ -1,5 +1,29 @@
 # astromol Codebase Review
 
+## Repository Prose Review — 2026-10-07
+
+`AGENTS.md` now routes project prose to Brett's live voice profile, including
+the README, docs, notebook explanations, curation guides, CLI help, and generated
+GitHub Pages copy. The prose pass uses plain wording and explains what readers
+need to do or how to interpret an output. Curation instructions now describe the
+existing automatic baseline refresh and dated acceptance history consistently.
+
+Scientific records, adopted values, calculation notebooks, and historical audit
+results are unchanged. Python edits are limited to text constants; the four user
+notebooks have only Markdown edits, with code and metadata preserved.
+
+Verification: **17 focused tests passed** across CLI, registry, bundle generation,
+database loading, and validation. Production validation reports **0 errors and
+0 warnings**. The Sphinx HTML build passed with `-W`, and the standard current
+PNG/PDF bundle generated **78 products**. The rendered download page was checked
+in Chrome; its revised copy fits the header and figure cards.
+
+Local review builds are under `/private/tmp/astromol_voice_7zgg6p6d`: `docs/`
+contains the rendered documentation, and `outputs/` contains the generated
+download page and full bundle. Remove that directory when review is finished.
+These builds are disposable and do not belong in a commit. This pass has not
+been committed or pushed.
+
 ## Accepted Independent Review Remedies — 2026-10-06
 
 Implementation started from clean `refactor` commit `390f7e9`. Brett approved

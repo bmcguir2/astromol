@@ -1,5 +1,36 @@
 # AGENTS.md
 
+## Writing In Brett's Voice
+
+Use Brett McGuire's live writing-voice system whenever drafting or revising prose
+on his behalf for this project. This includes the repository README, documentation
+pages, notebook explanations, curation guides, GitHub Pages copy, output
+descriptions, explanatory CLI help, release notes, and project reports. It also
+applies to manuscript prose and figure/table captions when those are requested.
+
+Before writing, read
+`/Users/brett/Dropbox/AI Support/Writing Voice Profile/AGENTS.md` and follow its
+route to `VOICE.md` and the smallest relevant genre module. Use the current files
+at those paths so later profile revisions take effect. For documentation that
+explains how to use or interpret the package, use the written-explanation guidance
+in the teaching module; for short download labels and descriptions, use the core
+profile. Follow the router's scientific-publications route for manuscript prose.
+Do not copy the private profiles into the repository or substitute a remembered
+summary for reading them.
+
+Prefer local edits that make the explanation easier to follow: plain words,
+concrete actions, and the context needed to understand why a step or qualification
+matters. Preserve technical meaning, scientific qualifications, commands, API
+names, stable identifiers, links, and historical verification results. Voice
+editing does not authorize scientific curation, record application, or changes to
+adopted values. Follow the staging/review rules below for any data-record update.
+
+Brett's current instructions, task facts, and the actual audience take precedence
+over the profile. Honor an explicitly requested different voice or house style,
+and preserve quotations or another author's prose when required. Ordinary chat,
+research, coding, and data analysis do not require loading the profiles unless
+the task also produces prose Brett will use as his own.
+
 ## What This Project Does
 
 `astromol` is a Python package plus curated scientific database for astronomical

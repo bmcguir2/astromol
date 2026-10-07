@@ -13,7 +13,7 @@ exposes the records as dataclass instances from `astromol.models`.
 
 ## Stable Identifiers
 
-Records use stable identifier namespaces:
+Each record has a stable identifier so other records can link to it:
 
 - molecules: `mol:<label>`
 - detections: `det:<molecule>:<context>:<year>`
@@ -21,8 +21,8 @@ Records use stable identifier namespaces:
 - telescopes: telescope `nick`
 - references: Zotero/BibTeX citekeys
 
-Detection IDs are stable links used for disputed, tentative, confirming, and
-confirmed-by relationships.
+Detection relationships use these IDs to link claims, confirmations, disputes,
+and superseding records.
 
 ## History Metadata
 
@@ -38,14 +38,14 @@ inventory for the next census to be computed from the same production records.
 
 ## Census Views
 
-`astromol.census.CensusView` centralizes scientific selection rules for output
-generation:
+`astromol.census.CensusView` applies the same membership and filtering rules to
+each output:
 
 - `CensusView.for_census(db, "2021")` selects membership at a published census boundary.
-- `CensusView.current(db)` represents the live database.
+- `CensusView.current(db)` selects the live working inventory.
 
 Secure detections are selected by accepted history. Tentative and disputed
 detections are selected only when explicitly requested.
 
-Isotopologues are excluded from context views by default. Pass
-`include_isotopologues=True` when isotope-expanded inventories are needed.
+Context views exclude isotopologues by default. Pass
+`include_isotopologues=True` to include them.

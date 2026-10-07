@@ -1,9 +1,8 @@
 """Generate standard astromol output bundles.
 
 This module powers the GitHub Actions workflow that publishes the latest
-standard figures and PowerPoint slides. It intentionally uses the public table,
-figure, and slide APIs so automated products exercise the same code paths that
-users call from notebooks or local scripts.
+standard figures and PowerPoint slides. It calls the same public table, figure,
+and slide APIs used in notebooks and local scripts.
 """
 
 from __future__ import annotations
@@ -352,7 +351,7 @@ def _generate_bundle(db, view, output_dir, *, view_choice, formats, include_tabl
         GeneratedProduct(
             label="Complete output bundle",
             path=zip_path,
-            description="Zip archive containing all generated standard products.",
+            description="All files from this run in one zip archive.",
         )
     )
     index_path = _write_index(
@@ -481,7 +480,7 @@ def _write_index(
         "<head>",
         '  <meta charset="utf-8">',
         '  <meta name="viewport" content="width=device-width, initial-scale=1">',
-        "  <title>astromol latest outputs</title>",
+        "  <title>astromol census outputs</title>",
         "  <style>",
         "    :root { color-scheme: light; --bg: #f4f0e8; --panel: rgba(255, 253, 248, 0.92); --panel-strong: rgba(255, 252, 246, 0.98); --ink: #11243a; --muted: #53606d; --line: rgba(17, 36, 58, 0.14); --blue: #1874d0; --blue-dark: #0e4a85; --accent: #8f2d2d; --shadow: 0 18px 46px rgba(17, 36, 58, 0.10); }",
         "    * { box-sizing: border-box; }",
@@ -548,9 +547,9 @@ def _write_index(
         "<body>",
         "  <main class=\"page\">",
         "    <header class=\"hero\">",
-        "      <p class=\"eyebrow\">astromol generated outputs</p>",
-        "      <h1>Latest standard figures, tables, and slides</h1>",
-        "      <p class=\"lede\">The latest set of standard downloads generated from the selected census view. Start with the main files below, then browse the full inventory if you need another format or manuscript fragment.</p>",
+        "      <p class=\"eyebrow\">astromol</p>",
+        "      <h1>Census figures and slides</h1>",
+        "      <p class=\"lede\">Download census figures and slides from the astromol database. The view shown below determines which detections are included.</p>",
         "      <div class=\"stat-row\">",
         f"        <span class=\"stat\">Generated <strong>{escape(generated)}</strong></span>",
         f"        <span class=\"stat\">View <code>{escape(view_choice)}</code></span>",
@@ -560,10 +559,10 @@ def _write_index(
         "      <div class=\"hero-grid\">",
         "        <section class=\"hero-panel\">",
         "          <h2>How To Use This Page</h2>",
-        "          <p>Download the bundle if you want everything at once, open the slide decks for ready-to-use summaries, and browse the PNG or PDF sections when you only need a specific figure. Use the notebooks for custom views or selective regeneration.</p>",
+        "          <p>Download the bundle for all files, including LaTeX fragments and slide layout reports. Individual figures and PowerPoint slides are linked below. To choose another view or make your own subset, use the Colab notebooks linked in the documentation.</p>",
         "        </section>",
         "        <section class=\"hero-panel\">",
-        "          <h2>Data Snapshot</h2>",
+        "          <h2>Full Database</h2>",
         "          <div class=\"fact-list\">",
         f"            <div class=\"fact\"><span>Molecules</span><strong>{len(db.molecules)}</strong></div>",
         f"            <div class=\"fact\"><span>Detections</span><strong>{len(db.detections)}</strong></div>",
@@ -584,7 +583,7 @@ def _write_index(
             [
                 "    <section class=\"section\">",
                 "      <h2>Primary Downloads</h2>",
-                "      <p class=\"section-copy\">Start with the full bundle, the standard cumulative figure, or the two standard slide decks.</p>",
+                "      <p class=\"section-copy\">Get the complete bundle, the cumulative detections figure, or a slide summarizing ISM/CSM or protoplanetary disk detections.</p>",
                 "      <div class=\"primary-grid\">",
             ]
         )
@@ -661,7 +660,7 @@ def _write_index(
             [
                 "    <section class=\"section\">",
                 "      <h2>Figures</h2>",
-                "      <p class=\"section-copy\">Each figure card includes a PNG Preview link and, when available, a PDF File version of the same plot.</p>",
+                "      <p class=\"section-copy\">Open a PNG to preview the figure, or use the PDF when you need a vector version. Available formats are linked under each figure.</p>",
                 "      <div class=\"figure-grid\">",
             ]
         )
@@ -719,7 +718,7 @@ def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
         "--output-dir",
         type=Path,
         default=DEFAULT_OUTPUT_DIR,
-        help="Directory where generated products should be written.",
+        help="Directory for generated outputs.",
     )
     parser.add_argument(
         "--view",
@@ -737,7 +736,7 @@ def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
         action="store_true",
         help="Preserve other files in an owned bundle directory; the archive contains only this run's products.",
     )
-    parser.add_argument("--end-year", type=int, help="Explicit analysis endpoint for reproducible current outputs.")
+    parser.add_argument("--end-year", type=int, help="End year for rate calculations and plot ranges; does not change membership.")
     parser.add_argument(
         "--skip-tables",
         action="store_true",

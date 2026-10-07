@@ -1,8 +1,8 @@
 # Output Generation
 
-Output-generation helpers are organized around reusable data builders and writer
-functions. The data builders are tested separately from visual rendering so
-scientific selections can be verified without relying only on visual inspection.
+Each output separates selecting and calculating the data from rendering it.
+That lets tests check the records and numerical results before a figure, table,
+or slide is drawn.
 
 ## Tables And LaTeX
 
@@ -23,9 +23,8 @@ color-blind friendlier palettes when multiple categories are shown, and project
 brand colors only when they serve a clear visual purpose. Figure writers save
 PNG output, and any rasterized artists embedded in PDF output, at 300 DPI.
 
-The standard output inventory lives in `astromol.registry`. The registry is the
-canonical list used by the generated-output bundle and should be the first place
-to look when adding a new production figure, table, or slide:
+`astromol.registry` lists the standard outputs used by the CLI and bundle
+generator. To see what is available, or to add a standard output, start there:
 
 ```python
 from astromol.registry import FIGURE_OUTPUTS, SLIDE_OUTPUTS, TABLE_OUTPUTS
@@ -35,9 +34,9 @@ for spec in FIGURE_OUTPUTS:
 ```
 
 `astromol-generate-outputs` also writes a static `index.html` landing page for
-GitHub Pages. The page surfaces the standard bundle and key slide/figure
-downloads first, then presents public-facing figure download cards. LaTeX
-fragments and layout diagnostics remain available in the complete bundle.
+GitHub Pages. It links the complete bundle, cumulative detections figure, and
+two slide decks first, followed by the other figures. The bundle also contains
+LaTeX fragments and slide layout reports.
 
 The public `astromol` command can list and generate individual registry
 products:
@@ -77,22 +76,24 @@ write_molecule_slide(view, Path("astro_molecules_current.pptx"), profile="balanc
 write_ppd_detection_slide(view, Path("ppd_molecules_current.pptx"))
 ```
 
-For detailed, copy-pasteable recipes covering every migrated census table,
-figure, and slide product, see [](census-outputs.md).
+For examples you can copy and run for each census output, see
+[](census-outputs.md).
 
 ## Reproducible Bundles
 
-Use a new or empty destination for the first bundle. The generator validates
-inputs, builds in a temporary directory, and replaces only directories marked as
-an astromol bundle. A failed build preserves the previous bundle. `--no-clean`
+Use a new or empty directory for the first bundle. The generator validates
+inputs and builds in a temporary directory before replacing an existing bundle.
+It will replace a nonempty directory only if it is marked as an astromol bundle.
+A failed build preserves the previous bundle. `--no-clean`
 retains other files in an owned directory, while the zip includes only products
 from this run, the landing page, and `manifest.json`.
 
-The manifest records the source revision and dirty state when available, code
-and data SHA-256 hashes, dependency versions, selected products/settings, output
-hashes, and effective analysis end year. A wheel without Git metadata records a
-null revision and retains code hashes. Current endpoints default to the calendar
-year; specify one explicitly for repeatable analyses:
+`manifest.json` records the source revision and uncommitted changes when Git
+metadata are available, along with code/data hashes, dependency versions,
+settings, output hashes, and the analysis end year. An installed wheel without
+Git metadata records a null revision but still records code hashes. Current
+analyses default to the calendar year; choose an end year explicitly when you
+need to repeat an analysis:
 
 ```bash
 astromol outputs --view current --end-year 2026 --output-dir build/paper_outputs

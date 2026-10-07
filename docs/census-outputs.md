@@ -1,7 +1,6 @@
 # Census Output Recipes
 
-This page is the practical recipe book for regenerating census products from
-the database. The same pattern is used throughout:
+To generate a census output from the database:
 
 1. Load the production database.
 2. Choose a `CensusView`.
@@ -41,10 +40,9 @@ astromol-generate-outputs --output-dir build/astromol_outputs --view current --f
 ```
 
 The command writes figures, PowerPoint slides, LaTeX table fragments, a static
-`index.html`, and `astromol_latest_outputs.zip`. The landing page highlights the
-bundle and the most commonly requested standard downloads first, then presents
-public-facing figure download cards. LaTeX fragments and layout reports remain
-available in the complete bundle.
+`index.html`, and `astromol_latest_outputs.zip`. The page links the bundle,
+cumulative detections figure, and two slide decks first, followed by the other
+figures. The bundle also contains LaTeX fragments and slide layout reports.
 
 For selective generation, use the public `astromol` command with the same
 registry names:
@@ -74,9 +72,10 @@ Most table, figure, and slide data builders use the same filtering options:
 | `include_isotopologues` | `False` | Include molecule records marked as isotopologues. |
 | `include_fullerenes` | varies | Include fullerenes in analyses where their extreme values can dominate the display. |
 
-The manuscript defaults are intentionally conservative: secure detections only,
-isotopologue-free for most ISM/CSM counts and tables, and fullerene exclusion
-where the output is designed to compare ordinary molecular distributions.
+Most ISM/CSM counts and tables use secure detections and exclude isotopologues.
+Distribution plots also exclude fullerenes where their extreme values would
+dominate the comparison. Some context tables use different defaults, listed
+below.
 
 ## Recreate The Manuscript Tables
 
@@ -150,8 +149,8 @@ write_cumulative_detections_plot(data, out / "cumulative_detections.pdf")
 The writer infers the output format from the file suffix. Use `.pdf` for
 manuscript graphics and `.png` for quick previews or slides.
 
-For standard production outputs, `astromol.registry.FIGURE_OUTPUTS` is the
-canonical list. This is the same registry used by `astromol-generate-outputs`:
+`astromol.registry.FIGURE_OUTPUTS` lists the standard figures used by
+`astromol-generate-outputs`:
 
 ```python
 from astromol.registry import FIGURE_OUTPUTS, OutputContext
@@ -451,10 +450,8 @@ write_molecule_slide(
 
 ## Custom Database Views
 
-Use `CensusView.filtered(...)` when a standard census/current view has the
-right historical boundary, but you want to run an output on a special subset.
-The filters are applied after the normal census/status/isotopologue selection
-rules.
+Use `CensusView.filtered(...)` to select a subset of an existing view.
+The subset still follows that view's census, status, and isotopologue rules.
 
 ### Carbon-Bearing ISM/CSM Molecules
 

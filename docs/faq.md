@@ -1,14 +1,10 @@
 # FAQ
 
-These answers point to the Google Colab notebooks because they are the easiest
-way to generate standard census outputs without setting up a local Python
-environment. During the refactor, the notebooks install `astromol` from the
-`refactor` branch. After the package is released on PyPI, the setup cells will
-be updated to install the released package.
-
-The latest standard outputs are also generated automatically and published at
-<https://bmcguir2.github.io/astromol/>. Use that page when you just want the
-current standard figure or slide without customization.
+Download the latest standard figures and slides from
+<https://bmcguir2.github.io/astromol/>. To customize an output or regenerate it
+yourself, use the Colab notebooks below; they run without a local Python setup.
+The notebooks currently install `astromol` from `refactor`. Their setup cells
+will need to switch to PyPI when the package is released.
 
 ## How Do I Get The Latest ISM/CSM Cumulative Detections Figure?
 

@@ -1,9 +1,10 @@
 # astromol
 
-`astromol` is a Python library and curated data set for cataloging astronomical
-molecule detections. It stores molecule, detection, source, telescope, and
-reference metadata in version-controlled data files, then loads and resolves
-those records through a small Python API.
+`astromol` is a Python package and curated database of astronomical molecule
+detections. You can use it to query the inventory and generate census figures,
+tables, and PowerPoint slides from the same records. Molecules, detections,
+sources, telescopes, and references are stored in version-controlled files;
+the Python API loads them and checks the links between records.
 
 ## Latest Figures And Slides
 
@@ -12,23 +13,22 @@ from the current database by GitHub Actions and published to GitHub Pages:
 
 <https://bmcguir2.github.io/astromol/>
 
-Most users should start there. The most commonly requested products are linked
-directly below:
+If you need the latest figure or slide, start there. Direct downloads are also
+linked below:
 
 - [latest ISM/CSM cumulative detections figure](https://bmcguir2.github.io/astromol/figures/png/cumulative_detections.png)
 - [latest ISM/CSM detections slide](https://bmcguir2.github.io/astromol/slides/astro_molecules_current.pptx)
 - [latest protoplanetary disk detections slide](https://bmcguir2.github.io/astromol/slides/ppd_molecules_current.pptx)
 - [complete latest output bundle](https://bmcguir2.github.io/astromol/astromol_latest_outputs.zip)
 
-For custom views, alternate formats, or interactive regeneration, use the
-Google Colab notebooks linked in the documentation. For pull requests and
-branch builds, generated products are also available as downloadable artifacts
-from the
+To choose a different census view, filter the database, or regenerate individual
+outputs, use the Google Colab notebooks linked in the documentation. Outputs
+from pull requests and branch builds are also available from the
 [Generated Outputs workflow](https://github.com/bmcguir2/astromol/actions/workflows/generated-outputs.yml).
 
-This README describes the active refactor branch. The data model and curation
-workflow are usable, but the public package/API documentation is still being
-developed before this branch replaces `main`.
+This README describes the active `refactor` branch. The database, curation
+workflow, and output tools are usable. The package and public API are still
+pre-release, and this branch has not yet replaced `main`.
 
 ## Current Status
 
@@ -40,9 +40,9 @@ developed before this branch replaces `main`.
   census paper (originally planned for 2026).
 - New records should be staged through YAML files in `curation/staging/` before
   being applied to production JSON.
-- The project is currently focused on next-census database curation rather than broad
-  refactor work. The next data tasks are staging new molecule/detection updates
-  for maintainer review.
+- Work is now focused on preparing the database for the next census. Stage new
+  molecule and detection updates for maintainer review before applying them.
+  Broad refactor work is paused.
 - Calculation notebooks that support project-computed database values are
   tracked under `docs/calculations/`; local `.ipynb_checkpoints/` directories
   are ignored.
@@ -62,14 +62,14 @@ db = Database()
 print(len(db.molecules), len(db.detections))
 ```
 
-`Database()` loads references, telescopes, sources, molecules, and detections;
-it also resolves cross-references and validates stable detection IDs.
+`Database()` loads the five data files, links detections to molecule, source,
+telescope, and reference records, and checks detection IDs.
 
 ## Census Views And Output Generation
 
-Tables, scalar manuscript fragments, and figures should be generated through a
-`CensusView`, which applies the accepted census boundary and the standard
-isotopologue/tentative/disputed filtering rules consistently:
+Use a `CensusView` to choose which records belong in an output. The same
+membership and filtering rules then apply to figures, tables, slides, and
+manuscript counts:
 
 ```python
 from pathlib import Path
@@ -90,19 +90,20 @@ write_molecule_slide(view, Path("astro_molecules.pptx"), profile="balanced")
 write_ppd_detection_slide(view, Path("ppd_molecules.pptx"))
 ```
 
-Use `CensusView.for_census(db, "2021")` for historical reproduction and
-`CensusView.current(db)` for the live database. The published census boundaries are 2018 and 2021. `current` is the evolving
-inventory for the next paper, regardless of its eventual publication year.
-`for_census(db, "2026")` remains an alias for `current` for compatibility.
+Use `CensusView.for_census(db, "2018")` or `"2021"` for membership in a
+published census, and `CensusView.current(db)` for the working inventory.
+The next census is still in preparation; its eventual publication year does
+not define which records belong in it. `for_census(db, "2026")` remains an
+alias for `current` for compatibility. Historical selection restores membership;
+exact reproduction of an old output requires its original revision and
+dependency environment.
 
-Figure helpers live in `astromol.figures`. Each migrated figure has a data
-builder, plotting function, and writer function so the scientific selection can
-be tested separately from the visual rendering. PowerPoint helpers live in
-`astromol.slides`; the current molecule-slide implementation includes both the
-legacy 2021 layout profile and a balanced dynamic profile with layout
-diagnostics. See `SPEC.md` for the complete list of table, figure, and slide
-helpers, and `GENERATION_MIGRATION.md` for the verification/audit trail against
-the 2021 census.
+Figure helpers live in `astromol.figures`. They separate data selection from
+plotting so the selected records and calculated values can be checked before
+rendering. PowerPoint helpers live in `astromol.slides`; the ISM/CSM slide has
+a legacy 2021 layout and a balanced layout that adjusts to the inventory and
+reports layout problems. See `SPEC.md` for the output API and
+`GENERATION_MIGRATION.md` for the checks against the 2021 census.
 The PPD slide helper includes detected isotopologues by default.
 
 Generated slides distinguish the software version from the database freshness
@@ -117,8 +118,8 @@ The standard latest output bundle can be regenerated locally with:
 astromol-generate-outputs --output-dir build/astromol_outputs --view current --formats png pdf
 ```
 
-The public `astromol` command also supports selective generation from the
-standard registry:
+To list available outputs or generate one figure, table group, or slide deck,
+use the `astromol` command:
 
 ```bash
 astromol list figures
@@ -137,10 +138,10 @@ fields you know, then generate a preview:
 python scripts/stage_records.py --staging curation/staging/example.yaml
 ```
 
-The generated report includes a `Generated Count Updates` section showing any
-production inventory or regression-count baseline values that would change if
-the staged records are applied. After reviewing the report and preview JSON
-under `astromol/data/`, apply the staged records:
+The report's `Generated Count Updates` section shows how the batch would change
+the inventory and regression baseline. Review the report, full preview JSON,
+and proposed baseline under `astromol/data/`. Once the maintainer has approved
+them, apply the records:
 
 ```bash
 python scripts/stage_records.py --staging curation/staging/example.yaml --apply
@@ -160,10 +161,11 @@ python scripts/stage_records.py \
   --output curation/staging/example_update.yaml
 ```
 
-Additions and updates may share one staging batch. Reciprocal detection
-relationships are derived and shown in the preview, while scientific promotion
-fields remain explicit curator-reviewed updates. Apply is blocked unless the
-complete merged preview passes semantic validation.
+Additions and updates can share a batch. Declare a detection relationship on
+the scientifically meaningful side; the script adds the reciprocal link and
+shows it in the preview. Changes to scientific status or census acceptance
+must be explicit in the staged records and reviewed by the curator. The
+complete preview must pass validation before apply.
 
 Successful staging runs also write
 `astromol/data/<name>_stage_manifest.json`. After the curation batch is
@@ -214,9 +216,10 @@ scientific counts and the space required by tables, figures, and slides.
 See `curation/README.md` for template notes, YAML quoting rules, and schema
 maintenance expectations.
 
-For assisted curation, draft staging YAML from curator-provided source data,
-review the generated preview, then apply only after the scientific fields,
-history semantics, and references have been checked by the maintainer.
+For assisted curation, draft YAML from curator-provided data or explicitly
+requested source lookups. The maintainer must check the scientific fields,
+history, and references before apply. If any reviewed input changes, generate
+and review a fresh preview.
 
 When a database value is calculated as part of this project, keep the
 calculation notebook under `docs/calculations/`, cite the relevant software,
@@ -233,12 +236,11 @@ This project uses OpenAI Codex as a coding assistant for software
 implementation, refactoring, validation scripts, documentation drafts, and
 workflow support.
 
-Scientific database content is not AI-generated. Molecule records, detection
-records, source/telescope metadata, reference mappings, classifications, and
-curation decisions are derived from the scientific literature, Zotero-managed
-bibliography exports, legacy census materials, and human curator review. AI
-assistance may be used to stage or transform records for review, but no staged
-scientific data are accepted into production without human verification.
+Scientific database content is not AI-generated. Records and curation decisions
+come from the literature, Zotero-managed bibliography exports, legacy census
+materials, and human review.
+AI assistance can help draft staging files or transform supplied records, but
+the maintainer must verify all scientific data before they enter production.
 
 The project maintainer is responsible for all committed code, data, and
 documentation.
@@ -297,11 +299,9 @@ tools. Optional dependency groups are limited to contributor-oriented tooling:
 - `docs`: Sphinx/Read the Docs documentation build dependencies
 - `dev`: test, build, and package-check dependencies
 
-The package version is currently `2026.0.0.dev0` while the refactor branch is
-still pre-release. This sorts after the legacy `astromol` PyPI release
-(`2021.7`) while preserving the distinction between software/API versioning and
-census/database history. Census boundaries and database freshness are tracked
-separately in the record history metadata.
+The pre-release package version is `2026.0.0.dev0`, which sorts after the legacy
+PyPI release (`2021.7`). It identifies the software and API. Census membership
+and database update dates are tracked separately in record history.
 
 ## Documentation
 
@@ -394,12 +394,10 @@ membership, figure/table data builders, slide layout/rendering properties, and
 selected 2021/current output regressions. The current validator reports no
 accepted production-data warnings.
 
-The current pytest suite intentionally includes a wrapped regression-script
-harness that preserves the migration checks used during the refactor. Once the
-public API, documentation examples, and CI workflow stabilize, those checks
-should be incrementally converted into a more conventional unit/integration
-test suite with fixtures, smaller focused assertions, and explicit slow-test
-markers for figure and slide generation.
+Pytest also runs the regression scripts used to check the migration. Keeping
+those checks preserves the audited comparisons with older outputs. As the API,
+examples, and CI workflow stabilize, they can be moved into focused unit and
+integration tests, with slow figure and slide checks marked separately.
 
 ## Continuous Integration
 

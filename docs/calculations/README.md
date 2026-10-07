@@ -1,8 +1,8 @@
 # Calculation Notebooks
 
-This directory stores notebooks used to calculate project-computed database
-values, such as molecular properties that are not taken directly from a citable
-literature value.
+Keep notebooks here when a database value is calculated as part of this
+project. The notebook should let a reviewer follow the calculation and find
+the value adopted in the database.
 
 For each calculation-backed data update:
 

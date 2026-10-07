@@ -136,7 +136,7 @@ def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
         "-o",
         type=Path,
         default=Path("."),
-        help="Directory where generated .tex fragments should be written.",
+        help="Directory for generated .tex fragments.",
     )
     table_parser.add_argument(
         "--view",
@@ -151,7 +151,7 @@ def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
         "-o",
         type=Path,
         default=Path("."),
-        help="Directory where the generated PowerPoint file should be written.",
+        help="Directory for the generated PowerPoint file.",
     )
     slide_parser.add_argument(
         "--view",
@@ -172,7 +172,7 @@ def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
         "--output-dir",
         type=Path,
         default=DEFAULT_OUTPUT_DIR,
-        help="Directory where generated products should be written.",
+        help="Directory for generated outputs.",
     )
     outputs_parser.add_argument(
         "--view",
@@ -202,7 +202,7 @@ def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
     )
 
     for product_parser in (figure_parser, table_parser, slide_parser, outputs_parser):
-        product_parser.add_argument("--end-year", type=int, help="Explicit analysis endpoint for reproducible current outputs.")
+        product_parser.add_argument("--end-year", type=int, help="End year for rate calculations and plot ranges; does not change membership.")
 
     args = parser.parse_args(argv)
     if args.command == "figure" and not args.output.suffix:

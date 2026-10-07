@@ -9,7 +9,8 @@ db = Database()
 print(len(db.molecules), len(db.detections))
 ```
 
-Create a frozen census view:
+Choose the inventory you want to work with. This creates both a published
+2021 membership view and a view of the current database:
 
 ```python
 from astromol.census import CensusView
@@ -18,7 +19,8 @@ view_2021 = CensusView.for_census(db, "2021")
 current = CensusView.current(db)
 ```
 
-Query molecules in a context:
+Query molecules in an astronomical context, such as ISM/CSM or protoplanetary
+disks:
 
 ```python
 ism_molecules = current.ism_molecules()
@@ -27,9 +29,9 @@ ppd_molecules_with_isotopologues = current.ppd_molecules(
 )
 ```
 
-By default, context views exclude isotopologues and include only secure
-accepted detections. Tentative and disputed detections can be requested
-explicitly:
+Context queries include secure, accepted detections and exclude isotopologues
+by default. Request tentative or disputed detections explicitly when you need
+them for a comparison or review:
 
 ```python
 exgal_with_tentatives = current.exgal_detections(include_tentative=True)

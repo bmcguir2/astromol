@@ -100,9 +100,9 @@ JSON and a review report. Use `--apply` only after the preview is accepted.
 The staging script automatically populates semantic history metadata for new
 records, including `history.introduced.date`, `history.last_modified`, and an
 initial `added` event dated with the staging run date. New molecule records and
-secure detection records also default to a current-census `history.accepted`
-block; set `history.accepted: null` for records that are tracked but not yet
-accepted as confirmed.
+secure detection records also default to a dated `history.accepted` block,
+without assigning an unpublished census year. Set `history.accepted: null`
+for records that are tracked but not yet accepted as confirmed.
 Staging records use `operation: add` by default. Existing records use
 `operation: update` and must be generated with `stage_records.py
 --prepare-update <kind> <identity> --output <path>`. Generated update templates
@@ -539,9 +539,9 @@ Source checkouts can run the same validator with:
 python -m astromol.validation
 ```
 
-Validation warnings are allowed for known unresolved curation follow-ups, such
-as inherited legacy `*` dipole placeholders. Validation errors should block
-release and data-update commits.
+Warnings track unresolved curation follow-ups accepted by the maintainer; the
+current production baseline has none. Resolve validation errors before release
+or data-update commits.
 
 Regression tests live under `tests/` and are run with:
 

@@ -1,14 +1,14 @@
 # astromol documentation
 
-`astromol` is a Python package and curated database for astronomical molecule
-detections. It stores molecule, detection, source, telescope, and reference
-metadata in version-controlled files, then exposes those records through a
-small Python API for validation, curation, census views, manuscript tables,
-figures, and PowerPoint slides.
+`astromol` is a Python package and curated database of astronomical molecule
+detections. Use it to query the inventory or generate figures, manuscript
+tables, and PowerPoint slides. Each output uses the same database and census
+selection rules, so you can change the view without rebuilding the analysis
+by hand.
 
-This documentation describes the active refactor branch. The data model,
-curation workflow, and output-generation tools are usable, but the public API is
-still pre-release.
+These docs describe the active `refactor` branch. The database, curation
+workflow, and output tools are usable; the package and public API are still
+pre-release.
 
 ## Latest Generated Products
 
@@ -47,9 +47,8 @@ api
 
 ## Project Records
 
-The repository also contains durable project records that are useful while the
-refactor is still active:
+The repository keeps the schema and migration checks in these files:
 
 - `SPEC.md`: current architecture and schema specification
 - `GENERATION_MIGRATION.md`: table, figure, and slide migration audit trail
-- `MANUSCRIPT_NOTES_2026.md`: writing-time reminders for the 2026 census paper
+- `MANUSCRIPT_NOTES_2026.md`: writing reminders for the next census paper

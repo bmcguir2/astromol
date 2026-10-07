@@ -8,12 +8,11 @@ Install the package in editable mode from the repository root:
 python -m pip install -e .
 ```
 
-The base package includes the database loader, census views, validation command,
-LaTeX/table helpers, figure generation, PowerPoint slide generation, and
-bundled production data.
+The base install includes the database and the tools to query it, validate
+records, and generate LaTeX tables, figures, and PowerPoint slides.
 
-For development, curation staging from a source checkout, packaging checks, and
-verification work, install the contributor tools too:
+If you will edit code, stage records, or run tests and packaging checks,
+install the contributor tools too:
 
 ```bash
 python -m pip install -e ".[dev]"
@@ -39,7 +38,7 @@ Build the documentation locally with:
 python -m sphinx -b html docs docs/_build/html
 ```
 
-The generated HTML entry point is `docs/_build/html/index.html`.
+Open `docs/_build/html/index.html` to read the built docs.
 
 ## Read the Docs
 

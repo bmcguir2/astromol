@@ -1,14 +1,13 @@
 # Example Notebooks And Google Colab
 
-The notebooks in this section are designed to work in two places:
+You can run these notebooks:
 
 - locally, from a source checkout or installed package
 - in Google Colab, opened directly from GitHub
 
-GitHub remains the source of truth. Colab is only the execution environment.
-When a notebook is opened in Colab, its first setup cell installs `astromol`
-from the current `refactor` branch. After the package is released on PyPI, those
-setup cells should be changed to install `astromol` directly from PyPI.
+The notebooks are maintained on GitHub. In Colab, the first setup cell installs
+`astromol` from the `refactor` branch. The setup cells will need to switch to
+PyPI when the package is released.
 
 ## Opening A Notebook In Colab
 
@@ -25,9 +24,8 @@ and molecule slides, see [](faq.md).
 
 ## Notebook Index
 
-The notebooks are stored as `.ipynb` files in GitHub and linked here rather
-than rendered directly by Sphinx. This avoids requiring a Pandoc system
-dependency in local and CI documentation builds.
+The links below open the `.ipynb` files in Colab or GitHub. Sphinx does not
+render the notebooks, so building the docs does not require Pandoc.
 
 | Notebook | Open in Colab | View on GitHub |
 | --- | --- | --- |

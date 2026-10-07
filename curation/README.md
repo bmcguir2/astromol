@@ -1,7 +1,8 @@
 # astromol Curation Workflow
 
-This directory contains curator-facing templates for staging database
-additions and updates without hand-editing production JSON directly.
+Use the templates here to stage database additions and updates in YAML.
+The preview lets you review the proposed records before changing production
+JSON.
 
 ## Basic Workflow
 
@@ -56,12 +57,11 @@ production record has changed since the template was generated. The workflow
 derives changed field paths, refreshes `history.last_modified`, and appends an
 update event. Use `_event_kind: corrected` for corrections.
 
-Additions and updates may share one batch. Detection relationship reciprocals
-are mechanical: declaring `confirms`, `disputes`, or `supersedes` derives and
-reports the target record's reciprocal update in the merged preview. Scientific
-changes such as molecule promotion remain explicit `operation: update`
-records. The complete merged preview must load and pass semantic validation
-before `--apply` writes any production file.
+Additions and updates can share a batch. Declare `confirms`, `disputes`, or
+`supersedes` on the scientifically meaningful side; the script adds the target
+record's reciprocal link and shows it in the preview. Scientific changes such
+as molecule promotion must be explicit `operation: update` records. The
+complete preview must load and pass validation before apply.
 
 Successful staging runs also write a manifest under `astromol/data/`, for
 example `astromol/data/example_stage_manifest.json`. Use that manifest with the
@@ -71,9 +71,9 @@ cleanup helper after the curation batch is finished:
 python scripts/cleanup_stage.py --name example
 ```
 
-This removes the staged YAML input, preview JSON artifacts, stage report, and
-the manifest itself. When committing, the helper also auto-stages the most
-common curation sidecar files if they are modified:
+This removes the staging YAML, preview JSON, report, and manifest. When asked
+to commit, the helper stages the touched production JSON files and these
+supporting files if they have changed:
 
 - `astromol/data/references.bib`
 - `tests/baselines/production_data.json`
@@ -95,10 +95,9 @@ python scripts/cleanup_stage.py \
   --close-issue 123
 ```
 
-`--push` is intentionally separate from `--commit-message` so remote updates
-remain an explicit choice. `--close-issue` may be passed more than once and
-runs only after a successful push; it uses the GitHub CLI to close each issue
-with a comment linking to the commit.
+Add `--push` when you also want to push the commit. You can pass `--close-issue`
+more than once. After a successful push, the helper uses the GitHub CLI to close
+each issue with a comment linking to the commit.
 
 After any approved production data change, review the generated baseline diff
 and run the local curation verification check:
@@ -139,12 +138,9 @@ summary. Do not track local `.ipynb_checkpoints/` directories.
 
 ## Generated Staging Files
 
-When Codex or another helper generates staging YAML for curator review, it
-should include the full field set from the relevant template for every staged
-record. Do not emit compact records containing only fields that were obvious
-from the source text. Curators need the unused optional fields visible so they
-can fill in laboratory constants, dipole moments, identifiers, notes,
-relationships, and other metadata during review.
+When generating staging YAML for review, include every field from the relevant
+template. Keep unused optional fields visible so the curator can fill in
+constants, dipole moments, identifiers, notes, and relationships during review.
 
 Leave unknown optional values blank. The staging script prunes blank template
 values and fills production defaults when previewing or applying records.
@@ -152,8 +148,9 @@ values and fills production defaults when previewing or applying records.
 History metadata is generated automatically for staged records. By default the
 script adds `history.introduced.date`, `history.last_modified`, and an initial
 dated `added` event using the staging run date. New molecule records also
-default to `history.introduced.context: confirmed` and a current-census
-`history.accepted` block. Secure detection records likewise default to a
+default to `history.introduced.context: confirmed` and a dated
+`history.accepted` block, without an assumed census year. Secure detection
+records likewise default to a
 dated `history.accepted` block for their detection context. Tentative
 or disputed detection records default to `history.accepted: null`. For any
 record that should be tracked but is not yet accepted as confirmed, set
@@ -208,33 +205,34 @@ When `Molecule`, `Detection`, `Source`, or `Telescope` changes in
 - the defaults and field order in `scripts/stage_records.py`
 - the relevant data-model section in `SPEC.md`
 
-This keeps the curator-facing workflow synchronized with the production schema.
+The templates and staging script need to accept the same fields as production.
 
 ## Reviewed Preview And Recovery
 
-Apply requires a successful preview for the same batch name. Review the report,
-full preview JSON, and proposed baseline before passing `--apply`. Any change to
-YAML, production files, bibliography, preview artifacts, curation code, or relevant
-dependencies requires a fresh preview and review. Applying later preserves the
-preview date. All proposed files and the baseline are prepared before production
-replacement; ordinary failures restore originals. If execution was interrupted,
-run `python scripts/stage_records.py --recover <name>` before retrying. Recovery
-refuses to overwrite files edited after the interrupted apply.
+Review the report, full preview JSON, and proposed baseline before apply.
+The script requires the reviewed preview for the same batch and preserves its
+date. Changes to the YAML, production data, bibliography, review files, curation
+code, or relevant dependencies require a fresh preview and review.
 
-New working records receive dated history without assuming a publication-year
-census label. `current` includes accepted records and optional tracked tentative
-or disputed records; `2026` is a compatibility alias. Published 2018/2021
-membership continues to use explicit history census labels.
+All proposed files and the baseline are prepared before replacing production
+data. Ordinary failures restore the originals. After an interrupted apply,
+run `python scripts/stage_records.py --recover <name>` before retrying.
+Recovery refuses to overwrite files edited after the interruption.
 
-The baseline records reviewed membership, counts, numerical summaries, and known
-warnings. Its analysis endpoint is the latest secure detection year, keeping
-snapshots independent of the day tests run. Current rendering tests check unique
-membership, complete grouping, status markers, valid table structure, and overflow
-instead of recording fonts or formatted labels in this baseline. A generated
-snapshot is a change-review aid; independent fixtures also test selection rules.
+New working records receive dated history without an assumed census year.
+`current` selects accepted records; tentative and disputed records can be
+requested explicitly. `2026` is an alias for `current`. Published 2018/2021
+membership still uses the census labels in record history.
 
-Commit-mode cleanup refuses unrelated staged paths before deleting anything and
-restores review files if the commit fails. A push failure after a successful
-commit leaves the committed cleanup intact so the push can be retried.
+The baseline records reviewed membership, counts, numerical summaries, and
+accepted warnings. It uses the latest secure detection year as its analysis
+endpoint, so expected values do not change with the day tests run. Rendering
+tests check membership, grouping, status markers, table structure, and overflow;
+separate fixtures test selection rules independently of the generated baseline.
+
+When asked to commit, cleanup checks for unrelated staged files before deleting
+anything and restores the review files if the commit fails. If the commit
+succeeds but the push fails, the committed cleanup stays in place so you can
+retry the push.
 If cleanup itself was interrupted, restore its saved review artifacts with
 `python scripts/cleanup_stage.py --name <name> --recover` before retrying.
