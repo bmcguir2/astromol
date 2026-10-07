@@ -75,13 +75,23 @@ def test_slide_date_includes_detection_and_facility_updates():
     assert selected_records_last_modified(entries, [det]) == "2026-08-01"
 
 
-def test_explicit_endpoint_controls_both_figure_and_scalar_rates():
-    from astromol.figures import cumulative_detection_data
+@pytest.mark.parametrize("exact_constant", [False, True])
+def test_explicit_endpoint_controls_both_figure_and_scalar_rates(monkeypatch, exact_constant):
+    import numpy as np
+    from astromol.figures import cumulative_detection_data, linear_cumulative_rate, scopes_by_year_data
     from astromol.latex import detection_rate_since
+    if exact_constant:
+        # NumPy may trim a zero slope, leaving only the constant coefficient.
+        monkeypatch.setattr(np.polynomial.Polynomial, "fit", lambda *args, **kwargs: np.polynomial.Polynomial([1.0]))
     db = tiny_db()
     view = CensusView.current(db, end_year=2027)
     assert cumulative_detection_data(view, start_year=2024).end_year == 2027
     assert detection_rate_since(view, 2024) == pytest.approx(0.0, abs=1e-12)
+    assert linear_cumulative_rate(np.arange(2024, 2028), np.ones(4), start_year=2024) == pytest.approx(0.0, abs=1e-12)
+    telescope = SimpleNamespace(nick="facility", name="Facility", shortname="F", latex_name=None, built=2024)
+    db.telescopes[telescope.nick] = telescope
+    db.detections[0].telescopes = [telescope]
+    assert scopes_by_year_data(view, start_year=2024, min_detections=1).series[0].rate == pytest.approx(0.0, abs=1e-12)
 
 
 def test_explicit_figure_exports_exclude_incidental_imports():

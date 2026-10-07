@@ -470,7 +470,7 @@ def detection_rate_since(view: CensusView, start_year: int) -> float:
             x_values[start_index:],
             y_values[start_index:],
             1,
-        ).convert().coef[1]
+        ).convert().deriv()(0.0)
     )
 
 

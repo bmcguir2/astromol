@@ -2740,7 +2740,7 @@ def scopes_by_year_data(
                     1,
                 )
                 .convert()
-                .coef[1]
+                .deriv()(0.0)
             )
 
         series.append(
@@ -2830,7 +2830,7 @@ def linear_cumulative_rate(
             fit_years,
             fit_counts,
             1,
-        ).convert().coef[1]
+        ).convert().deriv()(0.0)
     )
 
 

@@ -50,6 +50,17 @@ Local verification:
   permissions/concurrency checked locally. The generation workflow lets an active
   publish finish; a shared deployment lock also serializes Pages jobs.
 
+Post-push verification found a NumPy edge case: an exactly flat fitted trend can
+be simplified to a constant polynomial, so indexing its second coefficient can
+raise `IndexError`. Scalar, cumulative-figure, and facility-rate extraction now
+evaluates the fitted polynomial's derivative, correctly returning zero in that
+case. The endpoint fixture exercises both a real fit and an explicitly simplified
+constant fit, across all three paths. This does not change production scientific
+counts or nonzero fitted slopes.
+Focused endpoint/cumulative/facility/table checks: **15 passed**; exact-floor
+Python 3.11 endpoint checks: **2 passed**. Regenerating the production numerical
+baseline still gives an exact match.
+
 Verification artifacts are disposable under
 `/private/tmp/astromol_remedies_8dwu0fn0` (build copy, archives, environments,
 notebook products, docs, and output bundle). Remove that directory after review;
